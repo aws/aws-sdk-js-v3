@@ -30,7 +30,7 @@ const n0 = "com.amazonaws.forecastquery";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -48,48 +48,14 @@ import {
 import { ForecastqueryServiceException as __ForecastqueryServiceException } from "../models/ForecastqueryServiceException";
 
 /* eslint no-var: 0 */
-
 export var DataPoint: StaticStructureSchema = [3, n0, _DP, 0, [_T, _V], [0, 1]];
 export var Forecast: StaticStructureSchema = [3, n0, _F, 0, [_P], [() => Predictions]];
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var QueryForecastRequest: StaticStructureSchema = [
   3,
   n0,
@@ -108,38 +74,14 @@ export var QueryWhatIfForecastRequest: StaticStructureSchema = [
   [0, 0, 0, 128 | 0, 0],
 ];
 export var QueryWhatIfForecastResponse: StaticStructureSchema = [3, n0, _QWIFRu, 0, [_F], [() => Forecast]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ForecastqueryServiceException: StaticErrorSchema = [-3, _s, "ForecastqueryServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(ForecastqueryServiceException, __ForecastqueryServiceException);
-
 export var TimeSeries: StaticListSchema = [1, n0, _TS, 0, () => DataPoint];
 export var Filters = 128 | 0;
-
 export var Predictions: StaticMapSchema = [2, n0, _P, 0, 0, () => TimeSeries];
 export var QueryForecast: StaticOperationSchema = [
   9,

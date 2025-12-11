@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAccessPointCommand,
@@ -145,7 +145,7 @@ import {
   UpdateFileSystemProtectionCommandInput,
   UpdateFileSystemProtectionCommandOutput,
 } from "./commands/UpdateFileSystemProtectionCommand";
-import { EFSClient, EFSClientConfig } from "./EFSClient";
+import { EFSClient } from "./EFSClient";
 
 const commands = {
   CreateAccessPointCommand,

@@ -562,6 +562,35 @@ export type NetworkDirection = (typeof NetworkDirection)[keyof typeof NetworkDir
  * @public
  * @enum
  */
+export const EcsClusterStatus = {
+  ACTIVE: "ACTIVE",
+  DEPROVISIONING: "DEPROVISIONING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PROVISIONING: "PROVISIONING",
+} as const;
+/**
+ * @public
+ */
+export type EcsClusterStatus = (typeof EcsClusterStatus)[keyof typeof EcsClusterStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EcsLaunchType = {
+  EC2: "EC2",
+  FARGATE: "FARGATE",
+} as const;
+/**
+ * @public
+ */
+export type EcsLaunchType = (typeof EcsLaunchType)[keyof typeof EcsLaunchType];
+
+/**
+ * @public
+ * @enum
+ */
 export const KubernetesResourcesTypes = {
   CRONJOBS: "CRONJOBS",
   DAEMONSETS: "DAEMONSETS",
@@ -623,10 +652,18 @@ export type PublicBucketRestrictBehavior =
  */
 export const FindingResourceType = {
   ACCESS_KEY: "ACCESS_KEY",
+  AUTOSCALING_AUTO_SCALING_GROUP: "AUTOSCALING_AUTO_SCALING_GROUP",
+  CLOUDFORMATION_STACK: "CLOUDFORMATION_STACK",
   CONTAINER: "CONTAINER",
+  EC2_IMAGE: "EC2_IMAGE",
   EC2_INSTANCE: "EC2_INSTANCE",
+  EC2_LAUNCH_TEMPLATE: "EC2_LAUNCH_TEMPLATE",
   EC2_NETWORK_INTERFACE: "EC2_NETWORK_INTERFACE",
+  EC2_VPC: "EC2_VPC",
+  ECS_CLUSTER: "ECS_CLUSTER",
+  ECS_TASK: "ECS_TASK",
   EKS_CLUSTER: "EKS_CLUSTER",
+  IAM_INSTANCE_PROFILE: "IAM_INSTANCE_PROFILE",
   KUBERNETES_WORKLOAD: "KUBERNETES_WORKLOAD",
   S3_BUCKET: "S3_BUCKET",
   S3_OBJECT: "S3_OBJECT",

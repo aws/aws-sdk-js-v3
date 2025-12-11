@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { Route53ProfilesClientConfig, Route53ProfilesClientResolvedConfig } from "../Route53ProfilesClient";
+import { type Route53ProfilesClientResolvedConfig, Route53ProfilesClientConfig } from "../Route53ProfilesClient";
 
 /**
  * @internal

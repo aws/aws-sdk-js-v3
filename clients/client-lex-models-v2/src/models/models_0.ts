@@ -64,7 +64,6 @@ import {
   ImportStatus,
   IntentFilterName,
   IntentFilterOperator,
-  IntentSortAttribute,
   MergeStrategy,
   MessageSelectionStrategy,
   ObfuscationSettingType,
@@ -73,6 +72,7 @@ import {
   SlotValueResolutionStrategy,
   SortOrder,
   SpeechDetectionSensitivity,
+  SpeechModelPreference,
   TestExecutionApiMode,
   TestExecutionModality,
   TestExecutionStatus,
@@ -2950,6 +2950,84 @@ export interface BotLocaleHistoryEvent {
 }
 
 /**
+ * <p>Configuration settings for integrating Deepgram speech-to-text models with Amazon Lex.</p>
+ * @public
+ */
+export interface DeepgramSpeechModelConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that contains the Deepgram API token.</p>
+   * @public
+   */
+  apiTokenSecretArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Deepgram speech-to-text model to use for processing speech input.</p>
+   * @public
+   */
+  modelId?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings that define which speech-to-text model to use for processing speech input.</p>
+ * @public
+ */
+export interface SpeechModelConfig {
+  /**
+   * <p>Configuration settings for using Deepgram as the speech-to-text provider.</p>
+   * @public
+   */
+  deepgramConfig?: DeepgramSpeechModelConfig | undefined;
+}
+
+/**
+ * <p>Settings that control how Amazon Lex processes and recognizes speech input from users.</p>
+ * @public
+ */
+export interface SpeechRecognitionSettings {
+  /**
+   * <p>The speech-to-text model to use.</p>
+   * @public
+   */
+  speechModelPreference?: SpeechModelPreference | undefined;
+
+  /**
+   * <p>Configuration settings for the selected speech-to-text model.</p>
+   * @public
+   */
+  speechModelConfig?: SpeechModelConfig | undefined;
+}
+
+/**
+ * <p>Configuration for a foundation model used for speech synthesis and recognition capabilities.</p>
+ * @public
+ */
+export interface SpeechFoundationModel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model used for speech processing.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The identifier of the voice to use for speech synthesis with the foundation model.</p>
+   * @public
+   */
+  voiceId?: string | undefined;
+}
+
+/**
+ * <p>Unified configuration settings that combine speech recognition and synthesis capabilities.</p>
+ * @public
+ */
+export interface UnifiedSpeechSettings {
+  /**
+   * <p>The foundation model configuration to use for unified speech processing capabilities.</p>
+   * @public
+   */
+  speechFoundationModel: SpeechFoundationModel | undefined;
+}
+
+/**
  * <p>Defines settings for using an Amazon Polly voice to communicate with a
  *          user.</p>
  *          <p>Valid values include:</p>
@@ -2979,18 +3057,18 @@ export interface BotLocaleHistoryEvent {
  */
 export interface VoiceSettings {
   /**
-   * <p>The identifier of the Amazon Polly voice to use.</p>
-   * @public
-   */
-  voiceId: string | undefined;
-
-  /**
    * <p>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine">
    *                <code>engine</code> parameter of the <code>SynthesizeSpeech</code> operation</a> in the <i>Amazon Polly developer guide</i>.</p>
    *          <p>If you do not specify a value, the default is <code>standard</code>.</p>
    * @public
    */
   engine?: VoiceEngine | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Polly voice to use.</p>
+   * @public
+   */
+  voiceId: string | undefined;
 }
 
 /**
@@ -3091,10 +3169,22 @@ export interface BotLocaleImportSpecification {
   voiceSettings?: VoiceSettings | undefined;
 
   /**
+   * <p>Speech-to-text settings to apply when importing the bot locale configuration.</p>
+   * @public
+   */
+  speechRecognitionSettings?: SpeechRecognitionSettings | undefined;
+
+  /**
    * <p>The sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>
    * @public
    */
   speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
+
+  /**
+   * <p>Unified speech settings to apply when importing the bot locale configuration.</p>
+   * @public
+   */
+  unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
 }
 
 /**
@@ -4738,6 +4828,18 @@ export interface CreateBotLocaleRequest {
   voiceSettings?: VoiceSettings | undefined;
 
   /**
+   * <p>Unified speech settings to configure for the new bot locale.</p>
+   * @public
+   */
+  unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>Speech-to-text settings to configure for the new bot locale.</p>
+   * @public
+   */
+  speechRecognitionSettings?: SpeechRecognitionSettings | undefined;
+
+  /**
    * <p>Contains specifications about the generative AI capabilities from Amazon Bedrock that you can turn on for your bot.</p>
    * @public
    */
@@ -4798,6 +4900,18 @@ export interface CreateBotLocaleResponse {
    * @public
    */
   voiceSettings?: VoiceSettings | undefined;
+
+  /**
+   * <p>The unified speech settings configured for the created bot locale.</p>
+   * @public
+   */
+  unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>The speech-to-text settings configured for the created bot locale.</p>
+   * @public
+   */
+  speechRecognitionSettings?: SpeechRecognitionSettings | undefined;
 
   /**
    * <p>The status of the bot.</p>
@@ -7326,6 +7440,18 @@ export interface DescribeBotLocaleResponse {
   voiceSettings?: VoiceSettings | undefined;
 
   /**
+   * <p>The unified speech settings configured for the bot locale.</p>
+   * @public
+   */
+  unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>The speech-to-text settings configured for the bot locale.</p>
+   * @public
+   */
+  speechRecognitionSettings?: SpeechRecognitionSettings | undefined;
+
+  /**
    * <p>The number of intents defined for the locale.</p>
    * @public
    */
@@ -9365,139 +9491,4 @@ export interface SlotResolutionTestResultItemCounts {
    * @public
    */
   slotMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
-}
-
-/**
- * <p>Information about the success and failure rate of slot resolution
- *  in the results of a test execution.</p>
- * @public
- */
-export interface SlotResolutionTestResultItem {
-  /**
-   * <p>The name of the slot.</p>
-   * @public
-   */
-  slotName: string | undefined;
-
-  /**
-   * <p>A result for slot resolution in the results of a test execution.</p>
-   * @public
-   */
-  resultCounts: SlotResolutionTestResultItemCounts | undefined;
-}
-
-/**
- * <p>Information about intent-level slot resolution in a test result.</p>
- * @public
- */
-export interface IntentLevelSlotResolutionTestResultItem {
-  /**
-   * <p>The name of the intent that was recognized.</p>
-   * @public
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>Indicates whether the conversation involves multiple turns or not.</p>
-   * @public
-   */
-  multiTurnConversation: boolean | undefined;
-
-  /**
-   * <p>The results for the slot resolution in the test execution result.</p>
-   * @public
-   */
-  slotResolutionResults: SlotResolutionTestResultItem[] | undefined;
-}
-
-/**
- * <p>Indicates the success or failure of slots at the intent level.</p>
- * @public
- */
-export interface IntentLevelSlotResolutionTestResults {
-  /**
-   * <p>Indicates the items for the slot level resolution for the intents.</p>
-   * @public
-   */
-  items: IntentLevelSlotResolutionTestResultItem[] | undefined;
-}
-
-/**
- * <p>Specifies attributes for sorting a list of intents.</p>
- * @public
- */
-export interface IntentSortBy {
-  /**
-   * <p>The attribute to use to sort the list of intents.</p>
-   * @public
-   */
-  attribute: IntentSortAttribute | undefined;
-
-  /**
-   * <p>The order to sort the list. You can choose ascending or
-   *          descending.</p>
-   * @public
-   */
-  order: SortOrder | undefined;
-}
-
-/**
- * <p>Summary information about an intent returned by the
- *          <code>ListIntents</code> operation.</p>
- * @public
- */
-export interface IntentSummary {
-  /**
-   * <p>The unique identifier assigned to the intent. Use this ID to get
-   *          detailed information about the intent with the
-   *          <code>DescribeIntent</code> operation.</p>
-   * @public
-   */
-  intentId?: string | undefined;
-
-  /**
-   * <p>The name of the intent.</p>
-   * @public
-   */
-  intentName?: string | undefined;
-
-  /**
-   * <p>The display name of the intent.</p>
-   * @public
-   */
-  intentDisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the intent.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>If this intent is derived from a built-in intent, the name of the
-   *          parent intent.</p>
-   * @public
-   */
-  parentIntentSignature?: string | undefined;
-
-  /**
-   * <p>The input contexts that must be active for this intent to be
-   *          considered for recognition.</p>
-   * @public
-   */
-  inputContexts?: InputContext[] | undefined;
-
-  /**
-   * <p>The output contexts that are activated when this intent is
-   *          fulfilled.</p>
-   * @public
-   */
-  outputContexts?: OutputContext[] | undefined;
-
-  /**
-   * <p>The timestamp of the date and time that the intent was last
-   *          updated.</p>
-   * @public
-   */
-  lastUpdatedDateTime?: Date | undefined;
 }

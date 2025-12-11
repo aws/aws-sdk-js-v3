@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteVectorBucketInput, DeleteVectorBucketOutput } from "../models/models_0";
-import { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
+import type { DeleteVectorBucketInput, DeleteVectorBucketOutput } from "../models/models_0";
+import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
 import { DeleteVectorBucket } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface DeleteVectorBucketCommandInput extends DeleteVectorBucketInput 
 export interface DeleteVectorBucketCommandOutput extends DeleteVectorBucketOutput, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>Deletes a vector bucket. All vector indexes in the vector bucket must be deleted before the vector bucket can be deleted. To perform this operation, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:DeleteVectorBucket</code> permission to use this operation. </p> </dd> </dl>
+ * <p>Deletes a vector bucket. All vector indexes in the vector bucket must be deleted before the vector bucket can be deleted. To perform this operation, you must use either the vector bucket name or the vector bucket Amazon Resource Name (ARN). </p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:DeleteVectorBucket</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,9 @@ export interface DeleteVectorBucketCommandOutput extends DeleteVectorBucketOutpu
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified resource can't be found.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>

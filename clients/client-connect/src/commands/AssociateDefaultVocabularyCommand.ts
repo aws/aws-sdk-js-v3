@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateDefaultVocabularyRequest, AssociateDefaultVocabularyResponse } from "../models/models_0";
+import type { AssociateDefaultVocabularyRequest, AssociateDefaultVocabularyResponse } from "../models/models_0";
 import { AssociateDefaultVocabulary } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface AssociateDefaultVocabularyCommandInput extends AssociateDefault
 export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaultVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
- *    and real-time analysis sessions for the given language.</p>
+ * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time
+ *    analysis sessions for the given language.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

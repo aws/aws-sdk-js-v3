@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAutomationRuleV2Request, DeleteAutomationRuleV2Response } from "../models/models_2";
+import type { DeleteAutomationRuleV2Request, DeleteAutomationRuleV2Response } from "../models/models_2";
 import { DeleteAutomationRuleV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface DeleteAutomationRuleV2CommandInput extends DeleteAutomationRule
 export interface DeleteAutomationRuleV2CommandOutput extends DeleteAutomationRuleV2Response, __MetadataBearer {}
 
 /**
- * <p>Deletes a V2 automation rule. This API is in public preview and subject to change.</p>
+ * <p>Deletes a V2 automation rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

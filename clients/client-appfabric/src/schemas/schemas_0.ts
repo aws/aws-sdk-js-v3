@@ -215,7 +215,7 @@ const n0 = "com.amazonaws.appfabric";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -235,22 +235,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 export var SensitiveString2048: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ApiKeyCredential: StaticStructureSchema = [3, n0, _AKC, 0, [_aK], [[() => SensitiveString2048, 0]]];
 export var AppAuthorization: StaticStructureSchema = [
   3,
@@ -282,19 +270,8 @@ export var BatchGetUserAccessTasksResponse: StaticStructureSchema = [
   [_uARL],
   [[() => UserAccessResultsList, 0]],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectAppAuthorizationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -466,23 +443,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAppAuthorizationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -491,18 +456,8 @@ export var ListAppAuthorizationsRequest: StaticStructureSchema = [
   [_aBI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAppAuthorizationsResponse: StaticStructureSchema = [
@@ -520,18 +475,8 @@ export var ListAppBundlesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAppBundlesResponse: StaticStructureSchema = [
@@ -551,18 +496,8 @@ export var ListIngestionDestinationsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListIngestionDestinationsResponse: StaticStructureSchema = [
@@ -581,18 +516,8 @@ export var ListIngestionsRequest: StaticStructureSchema = [
   [_aBI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListIngestionsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_in, _nT], [() => IngestionList, 0]];
@@ -603,29 +528,21 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Bucket: StaticStructureSchema = [3, n0, _SB, 0, [_bN, _pr], [0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartIngestionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -668,25 +585,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TEh,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -695,12 +598,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -762,30 +660,21 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var AppFabricServiceException: StaticErrorSchema = [-3, _sm, "AppFabricServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppFabricServiceException, __AppFabricServiceException);
-
 export var AppAuthorizationSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AppAuthorizationSummary];
 export var AppBundleSummaryList: StaticListSchema = [1, n0, _ABSL, 0, () => AppBundleSummary];
 export var IngestionDestinationList: StaticListSchema = [1, n0, _IDL, 0, () => IngestionDestinationSummary];
 export var IngestionList: StaticListSchema = [1, n0, _IL, 0, () => IngestionSummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TaskIdList = 64 | 0;
-
 export var UserAccessResultsList: StaticListSchema = [1, n0, _UARL, 0, [() => UserAccessResultItem, 0]];
 export var UserAccessTasksList: StaticListSchema = [1, n0, _UATL, 0, () => UserAccessTaskItem];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
@@ -821,9 +710,7 @@ export var BatchGetUserAccessTasks: StaticOperationSchema = [
   9,
   n0,
   _BGUAT,
-  {
-    [_h]: ["POST", "/useraccess/batchget", 200],
-  },
+  { [_h]: ["POST", "/useraccess/batchget", 200] },
   () => BatchGetUserAccessTasksRequest,
   () => BatchGetUserAccessTasksResponse,
 ];
@@ -831,9 +718,7 @@ export var ConnectAppAuthorization: StaticOperationSchema = [
   9,
   n0,
   _CAA,
-  {
-    [_h]: ["POST", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect", 200],
-  },
+  { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect", 200] },
   () => ConnectAppAuthorizationRequest,
   () => ConnectAppAuthorizationResponse,
 ];
@@ -841,9 +726,7 @@ export var CreateAppAuthorization: StaticOperationSchema = [
   9,
   n0,
   _CAAr,
-  {
-    [_h]: ["POST", "/appbundles/{appBundleIdentifier}/appauthorizations", 201],
-  },
+  { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/appauthorizations", 201] },
   () => CreateAppAuthorizationRequest,
   () => CreateAppAuthorizationResponse,
 ];
@@ -851,9 +734,7 @@ export var CreateAppBundle: StaticOperationSchema = [
   9,
   n0,
   _CAB,
-  {
-    [_h]: ["POST", "/appbundles", 201],
-  },
+  { [_h]: ["POST", "/appbundles", 201] },
   () => CreateAppBundleRequest,
   () => CreateAppBundleResponse,
 ];
@@ -861,9 +742,7 @@ export var CreateIngestion: StaticOperationSchema = [
   9,
   n0,
   _CI,
-  {
-    [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions", 201],
-  },
+  { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions", 201] },
   () => CreateIngestionRequest,
   () => CreateIngestionResponse,
 ];
@@ -871,9 +750,7 @@ export var CreateIngestionDestination: StaticOperationSchema = [
   9,
   n0,
   _CID,
-  {
-    [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", 201],
-  },
+  { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", 201] },
   () => CreateIngestionDestinationRequest,
   () => CreateIngestionDestinationResponse,
 ];
@@ -881,9 +758,7 @@ export var DeleteAppAuthorization: StaticOperationSchema = [
   9,
   n0,
   _DAA,
-  {
-    [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 204] },
   () => DeleteAppAuthorizationRequest,
   () => DeleteAppAuthorizationResponse,
 ];
@@ -891,9 +766,7 @@ export var DeleteAppBundle: StaticOperationSchema = [
   9,
   n0,
   _DAB,
-  {
-    [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}", 204] },
   () => DeleteAppBundleRequest,
   () => DeleteAppBundleResponse,
 ];
@@ -901,9 +774,7 @@ export var DeleteIngestion: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}", 204] },
   () => DeleteIngestionRequest,
   () => DeleteIngestionResponse,
 ];
@@ -925,9 +796,7 @@ export var GetAppAuthorization: StaticOperationSchema = [
   9,
   n0,
   _GAA,
-  {
-    [_h]: ["GET", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 200] },
   () => GetAppAuthorizationRequest,
   () => GetAppAuthorizationResponse,
 ];
@@ -935,9 +804,7 @@ export var GetAppBundle: StaticOperationSchema = [
   9,
   n0,
   _GAB,
-  {
-    [_h]: ["GET", "/appbundles/{appBundleIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/appbundles/{appBundleIdentifier}", 200] },
   () => GetAppBundleRequest,
   () => GetAppBundleResponse,
 ];
@@ -945,9 +812,7 @@ export var GetIngestion: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}", 200] },
   () => GetIngestionRequest,
   () => GetIngestionResponse,
 ];
@@ -969,9 +834,7 @@ export var ListAppAuthorizations: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_h]: ["GET", "/appbundles/{appBundleIdentifier}/appauthorizations", 200],
-  },
+  { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/appauthorizations", 200] },
   () => ListAppAuthorizationsRequest,
   () => ListAppAuthorizationsResponse,
 ];
@@ -979,9 +842,7 @@ export var ListAppBundles: StaticOperationSchema = [
   9,
   n0,
   _LAB,
-  {
-    [_h]: ["GET", "/appbundles", 200],
-  },
+  { [_h]: ["GET", "/appbundles", 200] },
   () => ListAppBundlesRequest,
   () => ListAppBundlesResponse,
 ];
@@ -989,9 +850,7 @@ export var ListIngestionDestinations: StaticOperationSchema = [
   9,
   n0,
   _LID,
-  {
-    [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", 200],
-  },
+  { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations", 200] },
   () => ListIngestionDestinationsRequest,
   () => ListIngestionDestinationsResponse,
 ];
@@ -999,9 +858,7 @@ export var ListIngestions: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions", 200],
-  },
+  { [_h]: ["GET", "/appbundles/{appBundleIdentifier}/ingestions", 200] },
   () => ListIngestionsRequest,
   () => ListIngestionsResponse,
 ];
@@ -1009,9 +866,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1019,9 +874,7 @@ export var StartIngestion: StaticOperationSchema = [
   9,
   n0,
   _SI,
-  {
-    [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start", 200],
-  },
+  { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start", 200] },
   () => StartIngestionRequest,
   () => StartIngestionResponse,
 ];
@@ -1029,9 +882,7 @@ export var StartUserAccessTasks: StaticOperationSchema = [
   9,
   n0,
   _SUAT,
-  {
-    [_h]: ["POST", "/useraccess/start", 201],
-  },
+  { [_h]: ["POST", "/useraccess/start", 201] },
   () => StartUserAccessTasksRequest,
   () => StartUserAccessTasksResponse,
 ];
@@ -1039,9 +890,7 @@ export var StopIngestion: StaticOperationSchema = [
   9,
   n0,
   _SIt,
-  {
-    [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop", 200],
-  },
+  { [_h]: ["POST", "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop", 200] },
   () => StopIngestionRequest,
   () => StopIngestionResponse,
 ];
@@ -1049,9 +898,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1059,9 +906,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1069,9 +914,7 @@ export var UpdateAppAuthorization: StaticOperationSchema = [
   9,
   n0,
   _UAA,
-  {
-    [_h]: ["PATCH", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}", 200] },
   () => UpdateAppAuthorizationRequest,
   () => UpdateAppAuthorizationResponse,
 ];

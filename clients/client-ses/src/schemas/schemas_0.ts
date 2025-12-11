@@ -450,7 +450,7 @@ const n0 = "com.amazonaws.ses";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -497,36 +497,25 @@ import {
 import { SESServiceException as __SESServiceException } from "../models/SESServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccountSendingPausedException: StaticErrorSchema = [
   -3,
   n0,
   _ASPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AccountSendingPausedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountSendingPausedException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccountSendingPausedException, __AccountSendingPausedException);
-
 export var AddHeaderAction: StaticStructureSchema = [3, n0, _AHA, 0, [_HN, _HV], [0, 0]];
 export var AlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExists`, 400] },
   [_N, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
 export var Body: StaticStructureSchema = [3, n0, _B, 0, [_T, _H], [() => Content, () => Content]];
 export var BounceAction: StaticStructureSchema = [3, n0, _BA, 0, [_TA, _SRC, _SC, _M, _S], [0, 0, 0, 0, 0]];
 export var BouncedRecipientInfo: StaticStructureSchema = [
@@ -550,16 +539,11 @@ export var CannotDeleteException: StaticErrorSchema = [
   -3,
   n0,
   _CDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CannotDelete`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CannotDelete`, 400] },
   [_N, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CannotDeleteException, __CannotDeleteException);
-
 export var CloneReceiptRuleSetRequest: StaticStructureSchema = [3, n0, _CRRSR, 0, [_RSN, _ORSN], [0, 0]];
 export var CloneReceiptRuleSetResponse: StaticStructureSchema = [3, n0, _CRRSRl, 0, [], []];
 export var CloudWatchDestination: StaticStructureSchema = [
@@ -576,44 +560,29 @@ export var ConfigurationSetAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _CSAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ConfigurationSetAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConfigurationSetAlreadyExists`, 400] },
   [_CSN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConfigurationSetAlreadyExistsException, __ConfigurationSetAlreadyExistsException);
-
 export var ConfigurationSetDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _CSDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ConfigurationSetDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConfigurationSetDoesNotExist`, 400] },
   [_CSN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConfigurationSetDoesNotExistException, __ConfigurationSetDoesNotExistException);
-
 export var ConfigurationSetSendingPausedException: StaticErrorSchema = [
   -3,
   n0,
   _CSSPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ConfigurationSetSendingPausedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConfigurationSetSendingPausedException`, 400] },
   [_CSN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConfigurationSetSendingPausedException, __ConfigurationSetSendingPausedException);
-
 export var ConnectAction: StaticStructureSchema = [3, n0, _CA, 0, [_IARN, _IAMRARN], [0, 0]];
 export var Content: StaticStructureSchema = [3, n0, _C, 0, [_Da, _Ch], [0, 0]];
 export var CreateConfigurationSetEventDestinationRequest: StaticStructureSchema = [
@@ -663,11 +632,7 @@ export var CustomVerificationEmailInvalidContentException: StaticErrorSchema = [
   -3,
   n0,
   _CVEICE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CustomVerificationEmailInvalidContent`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomVerificationEmailInvalidContent`, 400] },
   [_m],
   [0],
 ];
@@ -675,7 +640,6 @@ TypeRegistry.for(n0).registerError(
   CustomVerificationEmailInvalidContentException,
   __CustomVerificationEmailInvalidContentException
 );
-
 export var CustomVerificationEmailTemplate: StaticStructureSchema = [
   3,
   n0,
@@ -688,11 +652,7 @@ export var CustomVerificationEmailTemplateAlreadyExistsException: StaticErrorSch
   -3,
   n0,
   _CVETAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CustomVerificationEmailTemplateAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomVerificationEmailTemplateAlreadyExists`, 400] },
   [_CVETN, _m],
   [0, 0],
 ];
@@ -700,16 +660,11 @@ TypeRegistry.for(n0).registerError(
   CustomVerificationEmailTemplateAlreadyExistsException,
   __CustomVerificationEmailTemplateAlreadyExistsException
 );
-
 export var CustomVerificationEmailTemplateDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _CVETDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CustomVerificationEmailTemplateDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomVerificationEmailTemplateDoesNotExist`, 400] },
   [_CVETN, _m],
   [0, 0],
 ];
@@ -717,7 +672,6 @@ TypeRegistry.for(n0).registerError(
   CustomVerificationEmailTemplateDoesNotExistException,
   __CustomVerificationEmailTemplateDoesNotExistException
 );
-
 export var DeleteConfigurationSetEventDestinationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -794,45 +748,30 @@ export var EventDestinationAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _EDAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDestinationAlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDestinationAlreadyExists`, 400] },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(EventDestinationAlreadyExistsException, __EventDestinationAlreadyExistsException);
-
 export var EventDestinationDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _EDDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`EventDestinationDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDestinationDoesNotExist`, 400] },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(EventDestinationDoesNotExistException, __EventDestinationDoesNotExistException);
-
 export var ExtensionField: StaticStructureSchema = [3, n0, _EF, 0, [_N, _V], [0, 0]];
 export var FromEmailAddressNotVerifiedException: StaticErrorSchema = [
   -3,
   n0,
   _FEANVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`FromEmailAddressNotVerified`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`FromEmailAddressNotVerified`, 400] },
   [_FEA, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(FromEmailAddressNotVerifiedException, __FromEmailAddressNotVerifiedException);
-
 export var GetAccountSendingEnabledResponse: StaticStructureSchema = [3, n0, _GASER, 0, [_En], [2]];
 export var GetCustomVerificationEmailTemplateRequest: StaticStructureSchema = [3, n0, _GCVETR, 0, [_TN], [0]];
 export var GetCustomVerificationEmailTemplateResponse: StaticStructureSchema = [
@@ -907,186 +846,121 @@ export var InvalidCloudWatchDestinationException: StaticErrorSchema = [
   -3,
   n0,
   _ICWDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidCloudWatchDestination`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCloudWatchDestination`, 400] },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidCloudWatchDestinationException, __InvalidCloudWatchDestinationException);
-
 export var InvalidConfigurationSetException: StaticErrorSchema = [
   -3,
   n0,
   _ICSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidConfigurationSet`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidConfigurationSet`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidConfigurationSetException, __InvalidConfigurationSetException);
-
 export var InvalidDeliveryOptionsException: StaticErrorSchema = [
   -3,
   n0,
   _IDOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidDeliveryOptions`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDeliveryOptions`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDeliveryOptionsException, __InvalidDeliveryOptionsException);
-
 export var InvalidFirehoseDestinationException: StaticErrorSchema = [
   -3,
   n0,
   _IFDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidFirehoseDestination`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidFirehoseDestination`, 400] },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidFirehoseDestinationException, __InvalidFirehoseDestinationException);
-
 export var InvalidLambdaFunctionException: StaticErrorSchema = [
   -3,
   n0,
   _ILFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidLambdaFunction`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidLambdaFunction`, 400] },
   [_FA, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidLambdaFunctionException, __InvalidLambdaFunctionException);
-
 export var InvalidPolicyException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidPolicy`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidPolicy`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyException, __InvalidPolicyException);
-
 export var InvalidRenderingParameterException: StaticErrorSchema = [
   -3,
   n0,
   _IRPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidRenderingParameter`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRenderingParameter`, 400] },
   [_TN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRenderingParameterException, __InvalidRenderingParameterException);
-
 export var InvalidS3ConfigurationException: StaticErrorSchema = [
   -3,
   n0,
   _ISCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidS3Configuration`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3Configuration`, 400] },
   [_Bu, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidS3ConfigurationException, __InvalidS3ConfigurationException);
-
 export var InvalidSNSDestinationException: StaticErrorSchema = [
   -3,
   n0,
   _ISNSDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidSNSDestination`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSNSDestination`, 400] },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSNSDestinationException, __InvalidSNSDestinationException);
-
 export var InvalidSnsTopicException: StaticErrorSchema = [
   -3,
   n0,
   _ISTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidSnsTopic`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSnsTopic`, 400] },
   [_To, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSnsTopicException, __InvalidSnsTopicException);
-
 export var InvalidTemplateException: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidTemplate`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTemplate`, 400] },
   [_TN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTemplateException, __InvalidTemplateException);
-
 export var InvalidTrackingOptionsException: StaticErrorSchema = [
   -3,
   n0,
   _ITOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidTrackingOptions`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTrackingOptions`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTrackingOptionsException, __InvalidTrackingOptionsException);
-
 export var KinesisFirehoseDestination: StaticStructureSchema = [3, n0, _KFD, 0, [_IAMRARN, _DSARN], [0, 0]];
 export var LambdaAction: StaticStructureSchema = [3, n0, _LA, 0, [_TA, _FA, _IT], [0, 0, 0]];
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListConfigurationSetsRequest: StaticStructureSchema = [3, n0, _LCSR, 0, [_NT, _MIa], [0, 1]];
 export var ListConfigurationSetsResponse: StaticStructureSchema = [
   3,
@@ -1134,61 +1008,41 @@ export var MailFromDomainNotVerifiedException: StaticErrorSchema = [
   -3,
   n0,
   _MFDNVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MailFromDomainNotVerifiedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MailFromDomainNotVerifiedException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MailFromDomainNotVerifiedException, __MailFromDomainNotVerifiedException);
-
 export var Message: StaticStructureSchema = [3, n0, _M, 0, [_Su, _B], [() => Content, () => Body]];
 export var MessageDsn: StaticStructureSchema = [3, n0, _MD, 0, [_RM, _AD, _EFx], [0, 4, () => ExtensionFieldList]];
 export var MessageRejected: StaticErrorSchema = [
   -3,
   n0,
   _MRe,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MessageRejected`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MessageRejected`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MessageRejected, __MessageRejected);
-
 export var MessageTag: StaticStructureSchema = [3, n0, _MT, 0, [_N, _V], [0, 0]];
 export var MissingRenderingAttributeException: StaticErrorSchema = [
   -3,
   n0,
   _MRAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MissingRenderingAttribute`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MissingRenderingAttribute`, 400] },
   [_TN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(MissingRenderingAttributeException, __MissingRenderingAttributeException);
-
 export var ProductionAccessNotGrantedException: StaticErrorSchema = [
   -3,
   n0,
   _PANGE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ProductionAccessNotGranted`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ProductionAccessNotGranted`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ProductionAccessNotGrantedException, __ProductionAccessNotGrantedException);
-
 export var PutConfigurationSetDeliveryOptionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1244,30 +1098,20 @@ export var RuleDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _RDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`RuleDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`RuleDoesNotExist`, 400] },
   [_N, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(RuleDoesNotExistException, __RuleDoesNotExistException);
-
 export var RuleSetDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _RSDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`RuleSetDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`RuleSetDoesNotExist`, 400] },
   [_N, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(RuleSetDoesNotExistException, __RuleSetDoesNotExistException);
-
 export var S3Action: StaticStructureSchema = [3, n0, _SA, 0, [_TA, _BN, _OKP, _KKA, _IRA], [0, 0, 0, 0, 0]];
 export var SendBounceRequest: StaticStructureSchema = [
   3,
@@ -1353,16 +1197,11 @@ export var TemplateDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _TDNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TemplateDoesNotExist`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TemplateDoesNotExist`, 400] },
   [_TN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(TemplateDoesNotExistException, __TemplateDoesNotExistException);
-
 export var TemplateMetadata: StaticStructureSchema = [3, n0, _TMe, 0, [_N, _CTr], [0, 4]];
 export var TestRenderTemplateRequest: StaticStructureSchema = [3, n0, _TRTR, 0, [_TN, _TD], [0, 0]];
 export var TestRenderTemplateResponse: StaticStructureSchema = [3, n0, _TRTRe, 0, [_RTe], [0]];
@@ -1371,30 +1210,20 @@ export var TrackingOptionsAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _TOAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TrackingOptionsAlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrackingOptionsAlreadyExistsException`, 400] },
   [_CSN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(TrackingOptionsAlreadyExistsException, __TrackingOptionsAlreadyExistsException);
-
 export var TrackingOptionsDoesNotExistException: StaticErrorSchema = [
   -3,
   n0,
   _TODNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TrackingOptionsDoesNotExistException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrackingOptionsDoesNotExistException`, 400] },
   [_CSN, _m],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(TrackingOptionsDoesNotExistException, __TrackingOptionsDoesNotExistException);
-
 export var UpdateAccountSendingEnabledRequest: StaticStructureSchema = [3, n0, _UASER, 0, [_En], [2]];
 export var UpdateConfigurationSetEventDestinationRequest: StaticStructureSchema = [
   3,
@@ -1451,12 +1280,9 @@ export var VerifyEmailIdentityRequest: StaticStructureSchema = [3, n0, _VEIR, 0,
 export var VerifyEmailIdentityResponse: StaticStructureSchema = [3, n0, _VEIRe, 0, [], []];
 export var WorkmailAction: StaticStructureSchema = [3, n0, _WA, 0, [_TA, _OA], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var SESServiceException: StaticErrorSchema = [-3, _s, "SESServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(SESServiceException, __SESServiceException);
-
 export var AddressList = 64 | 0;
-
 export var BouncedRecipientInfoList: StaticListSchema = [1, n0, _BRIL, 0, () => BouncedRecipientInfo];
 export var BulkEmailDestinationList: StaticListSchema = [1, n0, _BEDL, 0, () => BulkEmailDestination];
 export var BulkEmailDestinationStatusList: StaticListSchema = [1, n0, _BEDSL, 0, () => BulkEmailDestinationStatus];
@@ -1468,7 +1294,6 @@ export var CloudWatchDimensionConfigurations: StaticListSchema = [
   () => CloudWatchDimensionConfiguration,
 ];
 export var ConfigurationSetAttributeList = 64 | 0;
-
 export var ConfigurationSets: StaticListSchema = [1, n0, _CSo, 0, () => ConfigurationSet];
 export var CustomVerificationEmailTemplates: StaticListSchema = [
   1,
@@ -1479,30 +1304,23 @@ export var CustomVerificationEmailTemplates: StaticListSchema = [
 ];
 export var EventDestinations: StaticListSchema = [1, n0, _EDv, 0, () => EventDestination];
 export var EventTypes = 64 | 0;
-
 export var ExtensionFieldList: StaticListSchema = [1, n0, _EFL, 0, () => ExtensionField];
 export var IdentityList = 64 | 0;
-
 export var MessageTagList: StaticListSchema = [1, n0, _MTL, 0, () => MessageTag];
 export var PolicyNameList = 64 | 0;
-
 export var ReceiptActionsList: StaticListSchema = [1, n0, _RAL, 0, () => ReceiptAction];
 export var ReceiptFilterList: StaticListSchema = [1, n0, _RFL, 0, () => ReceiptFilter];
 export var ReceiptRuleNamesList = 64 | 0;
-
 export var ReceiptRuleSetsLists: StaticListSchema = [1, n0, _RRSL, 0, () => ReceiptRuleSetMetadata];
 export var ReceiptRulesList: StaticListSchema = [1, n0, _RRL, 0, () => ReceiptRule];
 export var RecipientsList = 64 | 0;
-
 export var SendDataPointList: StaticListSchema = [1, n0, _SDPL, 0, () => SendDataPoint];
 export var TemplateMetadataList: StaticListSchema = [1, n0, _TML, 0, () => TemplateMetadata];
 export var VerificationTokenList = 64 | 0;
-
 export var DkimAttributes: StaticMapSchema = [2, n0, _DA, 0, 0, () => IdentityDkimAttributes];
 export var MailFromDomainAttributes: StaticMapSchema = [2, n0, _MFDA, 0, 0, () => IdentityMailFromDomainAttributes];
 export var NotificationAttributes: StaticMapSchema = [2, n0, _NA, 0, 0, () => IdentityNotificationAttributes];
 export var PolicyMap = 128 | 0;
-
 export var VerificationAttributes: StaticMapSchema = [2, n0, _VA, 0, 0, () => IdentityVerificationAttributes];
 export var CloneReceiptRuleSet: StaticOperationSchema = [
   9,

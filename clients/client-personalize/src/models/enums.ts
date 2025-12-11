@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const RankingInfluenceType = {
+  FRESHNESS: "FRESHNESS",
+  POPULARITY: "POPULARITY",
+} as const;
+/**
+ * @public
+ */
+export type RankingInfluenceType = (typeof RankingInfluenceType)[keyof typeof RankingInfluenceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BatchInferenceJobMode = {
   BATCH_INFERENCE: "BATCH_INFERENCE",
   THEME_GENERATION: "THEME_GENERATION",

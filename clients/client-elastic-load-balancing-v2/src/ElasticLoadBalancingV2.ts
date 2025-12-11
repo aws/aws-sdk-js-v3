@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddListenerCertificatesCommand,
@@ -233,7 +233,7 @@ import {
   SetSecurityGroupsCommandOutput,
 } from "./commands/SetSecurityGroupsCommand";
 import { SetSubnetsCommand, SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
-import { ElasticLoadBalancingV2Client, ElasticLoadBalancingV2ClientConfig } from "./ElasticLoadBalancingV2Client";
+import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
 
 const commands = {
   AddListenerCertificatesCommand,

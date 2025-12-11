@@ -128,7 +128,7 @@ const n0 = "com.amazonaws.simspaceweaver";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -149,35 +149,12 @@ import {
 import { SimSpaceWeaverServiceException as __SimSpaceWeaverServiceException } from "../models/SimSpaceWeaverServiceException";
 
 /* eslint no-var: 0 */
-
 export var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CloudWatchLogsLogGroup: StaticStructureSchema = [3, n0, _CWLLG, 0, [_LGA], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateSnapshotInput: StaticStructureSchema = [3, n0, _CSI, 0, [_S, _D], [0, () => S3Destination]];
 export var CreateSnapshotOutput: StaticStructureSchema = [3, n0, _CSO, 0, [], []];
 export var DeleteAppInput: StaticStructureSchema = [
@@ -187,42 +164,13 @@ export var DeleteAppInput: StaticStructureSchema = [
   0,
   [_S, _Do, _A],
   [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _a }],
   ],
 ];
 export var DeleteAppOutput: StaticStructureSchema = [3, n0, _DAO, 0, [], []];
-export var DeleteSimulationInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DSI,
-  0,
-  [_S],
-  [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-  ],
-];
+export var DeleteSimulationInput: StaticStructureSchema = [3, n0, _DSI, 0, [_S], [[0, { [_hQ]: _s }]]];
 export var DeleteSimulationOutput: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
 export var DescribeAppInput: StaticStructureSchema = [
   3,
@@ -231,24 +179,9 @@ export var DescribeAppInput: StaticStructureSchema = [
   0,
   [_S, _Do, _A],
   [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _a }],
   ],
 ];
 export var DescribeAppOutput: StaticStructureSchema = [
@@ -259,21 +192,7 @@ export var DescribeAppOutput: StaticStructureSchema = [
   [_N, _S, _Do, _St, _TS, _LO, _De, _EI],
   [0, 0, 0, 0, 0, () => LaunchOverrides, 0, () => SimulationAppEndpointInfo],
 ];
-export var DescribeSimulationInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DSIe,
-  0,
-  [_S],
-  [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-  ],
-];
+export var DescribeSimulationInput: StaticStructureSchema = [3, n0, _DSIe, 0, [_S], [[0, { [_hQ]: _s }]]];
 export var DescribeSimulationOutput: StaticStructureSchema = [
   3,
   n0,
@@ -299,19 +218,8 @@ export var DescribeSimulationOutput: StaticStructureSchema = [
   ],
 ];
 export var Domain: StaticStructureSchema = [3, n0, _Do, 0, [_N, _L], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LaunchOverrides: StaticStructureSchema = [3, n0, _LO, 0, [_LCa], [64 | 0]];
 export var ListAppsInput: StaticStructureSchema = [
   3,
@@ -320,30 +228,10 @@ export var ListAppsInput: StaticStructureSchema = [
   0,
   [_S, _Do, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _d }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAppsOutput: StaticStructureSchema = [3, n0, _LAO, 0, [_Ap, _NT], [() => SimulationAppList, 0]];
@@ -354,18 +242,8 @@ export var ListSimulationsInput: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSimulationsOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_Si, _NT], [() => SimulationList, 0]];
@@ -381,34 +259,12 @@ export var LiveSimulationState: StaticStructureSchema = [
 ];
 export var LogDestination: StaticStructureSchema = [3, n0, _LD, 0, [_CWLLG], [() => CloudWatchLogsLogGroup]];
 export var LoggingConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_Des], [() => LogDestinations]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Destination: StaticStructureSchema = [3, n0, _SD, 0, [_BN, _OKP], [0, 0]];
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_BN, _OK], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SimulationAppEndpointInfo: StaticStructureSchema = [
   3,
   n0,
@@ -449,19 +305,8 @@ export var StopSimulationInput: StaticStructureSchema = [3, n0, _SSIt, 0, [_S], 
 export var StopSimulationOutput: StaticStructureSchema = [3, n0, _SSOt, 0, [], []];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RAe, _T], [[0, 1], 128 | 0]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -470,50 +315,28 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var SimSpaceWeaverServiceException: StaticErrorSchema = [-3, _sm, "SimSpaceWeaverServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SimSpaceWeaverServiceException, __SimSpaceWeaverServiceException);
-
 export var AppPortMappings: StaticListSchema = [1, n0, _APM, 0, () => SimulationAppPortMapping];
 export var DomainList: StaticListSchema = [1, n0, _DL, 0, () => Domain];
 export var LaunchCommandList = 64 | 0;
-
 export var LogDestinations: StaticListSchema = [1, n0, _LDo, 0, () => LogDestination];
 export var SimulationAppList: StaticListSchema = [1, n0, _SAL, 0, () => SimulationAppMetadata];
 export var SimulationClockList: StaticListSchema = [1, n0, _SCL, 0, () => SimulationClock];
 export var SimulationList: StaticListSchema = [1, n0, _SLi, 0, () => SimulationMetadata];
 export var TagKeyList = 64 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CreateSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/createsnapshot", 200],
-  },
+  { [_h]: ["POST", "/createsnapshot", 200] },
   () => CreateSnapshotInput,
   () => CreateSnapshotOutput,
 ];
@@ -521,9 +344,7 @@ export var DeleteApp: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/deleteapp", 200],
-  },
+  { [_h]: ["DELETE", "/deleteapp", 200] },
   () => DeleteAppInput,
   () => DeleteAppOutput,
 ];
@@ -531,9 +352,7 @@ export var DeleteSimulation: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/deletesimulation", 200],
-  },
+  { [_h]: ["DELETE", "/deletesimulation", 200] },
   () => DeleteSimulationInput,
   () => DeleteSimulationOutput,
 ];
@@ -541,9 +360,7 @@ export var DescribeApp: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["GET", "/describeapp", 200],
-  },
+  { [_h]: ["GET", "/describeapp", 200] },
   () => DescribeAppInput,
   () => DescribeAppOutput,
 ];
@@ -551,9 +368,7 @@ export var DescribeSimulation: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["GET", "/describesimulation", 200],
-  },
+  { [_h]: ["GET", "/describesimulation", 200] },
   () => DescribeSimulationInput,
   () => DescribeSimulationOutput,
 ];
@@ -561,9 +376,7 @@ export var ListApps: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/listapps", 200],
-  },
+  { [_h]: ["GET", "/listapps", 200] },
   () => ListAppsInput,
   () => ListAppsOutput,
 ];
@@ -571,9 +384,7 @@ export var ListSimulations: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/listsimulations", 200],
-  },
+  { [_h]: ["GET", "/listsimulations", 200] },
   () => ListSimulationsInput,
   () => ListSimulationsOutput,
 ];
@@ -581,9 +392,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -591,9 +400,7 @@ export var StartApp: StaticOperationSchema = [
   9,
   n0,
   _SA,
-  {
-    [_h]: ["POST", "/startapp", 200],
-  },
+  { [_h]: ["POST", "/startapp", 200] },
   () => StartAppInput,
   () => StartAppOutput,
 ];
@@ -601,9 +408,7 @@ export var StartClock: StaticOperationSchema = [
   9,
   n0,
   _SCt,
-  {
-    [_h]: ["POST", "/startclock", 200],
-  },
+  { [_h]: ["POST", "/startclock", 200] },
   () => StartClockInput,
   () => StartClockOutput,
 ];
@@ -611,9 +416,7 @@ export var StartSimulation: StaticOperationSchema = [
   9,
   n0,
   _SS,
-  {
-    [_h]: ["POST", "/startsimulation", 200],
-  },
+  { [_h]: ["POST", "/startsimulation", 200] },
   () => StartSimulationInput,
   () => StartSimulationOutput,
 ];
@@ -621,9 +424,7 @@ export var StopApp: StaticOperationSchema = [
   9,
   n0,
   _SAt,
-  {
-    [_h]: ["POST", "/stopapp", 200],
-  },
+  { [_h]: ["POST", "/stopapp", 200] },
   () => StopAppInput,
   () => StopAppOutput,
 ];
@@ -631,9 +432,7 @@ export var StopClock: StaticOperationSchema = [
   9,
   n0,
   _SCto,
-  {
-    [_h]: ["POST", "/stopclock", 200],
-  },
+  { [_h]: ["POST", "/stopclock", 200] },
   () => StopClockInput,
   () => StopClockOutput,
 ];
@@ -641,9 +440,7 @@ export var StopSimulation: StaticOperationSchema = [
   9,
   n0,
   _SSt,
-  {
-    [_h]: ["POST", "/stopsimulation", 200],
-  },
+  { [_h]: ["POST", "/stopsimulation", 200] },
   () => StopSimulationInput,
   () => StopSimulationOutput,
 ];
@@ -651,9 +448,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -661,9 +456,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];

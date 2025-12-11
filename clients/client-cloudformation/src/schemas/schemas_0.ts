@@ -772,7 +772,7 @@ const n0 = "com.amazonaws.cloudformation";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -814,7 +814,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccountGateResult: StaticStructureSchema = [3, n0, _AGR, 0, [_S, _SR], [0, 0]];
 export var AccountLimit: StaticStructureSchema = [3, n0, _AL, 0, [_N, _V], [0, 1]];
 export var ActivateOrganizationsAccessInput: StaticStructureSchema = [3, n0, _AOAI, 0, [], []];
@@ -832,16 +831,11 @@ export var AlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExistsException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
 export var Annotation: StaticStructureSchema = [3, n0, _An, 0, [_AN, _S, _SM, _RM, _RL, _SL], [0, 0, 0, 0, 0, 0]];
 export var AutoDeployment: StaticStructureSchema = [3, n0, _AD, 0, [_E, _RSOAR, _DO], [2, 2, 64 | 0]];
 export var BatchDescribeTypeConfigurationsError: StaticStructureSchema = [
@@ -877,16 +871,11 @@ export var CFNRegistryException: StaticErrorSchema = [
   -3,
   n0,
   _CFNRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CFNRegistryException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CFNRegistryException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CFNRegistryException, __CFNRegistryException);
-
 export var Change: StaticStructureSchema = [3, n0, _C, 0, [_T, _HIC, _RC], [0, 1, () => ResourceChange]];
 export var ChangeSetHook: StaticStructureSchema = [
   3,
@@ -909,16 +898,11 @@ export var ChangeSetNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _CSNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ChangeSetNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ChangeSetNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ChangeSetNotFoundException, __ChangeSetNotFoundException);
-
 export var ChangeSetSummary: StaticStructureSchema = [
   3,
   n0,
@@ -931,11 +915,7 @@ export var ConcurrentResourcesLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CRLEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429] },
   [_M],
   [0],
 ];
@@ -943,7 +923,6 @@ TypeRegistry.for(n0).registerError(
   ConcurrentResourcesLimitExceededException,
   __ConcurrentResourcesLimitExceededException
 );
-
 export var ContinueUpdateRollbackInput: StaticStructureSchema = [
   3,
   n0,
@@ -987,16 +966,11 @@ export var CreatedButModifiedException: StaticErrorSchema = [
   -3,
   n0,
   _CBME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`CreatedButModifiedException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`CreatedButModifiedException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CreatedButModifiedException, __CreatedButModifiedException);
-
 export var CreateGeneratedTemplateInput: StaticStructureSchema = [
   3,
   n0,
@@ -1414,16 +1388,11 @@ export var GeneratedTemplateNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _GTNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`GeneratedTemplateNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`GeneratedTemplateNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException, __GeneratedTemplateNotFoundException);
-
 export var GetGeneratedTemplateInput: StaticStructureSchema = [3, n0, _GGTI, 0, [_Fo, _GTN], [0, 0]];
 export var GetGeneratedTemplateOutput: StaticStructureSchema = [3, n0, _GGTO, 0, [_S, _TB], [0, 0]];
 export var GetHookResultInput: StaticStructureSchema = [3, n0, _GHRI, 0, [_HRI], [0]];
@@ -1459,16 +1428,11 @@ export var HookResultNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _HRNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`HookResultNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`HookResultNotFound`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(HookResultNotFoundException, __HookResultNotFoundException);
-
 export var HookResultSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1491,72 +1455,47 @@ export var InsufficientCapabilitiesException: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InsufficientCapabilitiesException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientCapabilitiesException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientCapabilitiesException, __InsufficientCapabilitiesException);
-
 export var InvalidChangeSetStatusException: StaticErrorSchema = [
   -3,
   n0,
   _ICSSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidChangeSetStatus`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidChangeSetStatus`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidChangeSetStatusException, __InvalidChangeSetStatusException);
-
 export var InvalidOperationException: StaticErrorSchema = [
   -3,
   n0,
   _IOE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidOperationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidOperationException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-
 export var InvalidStateTransitionException: StaticErrorSchema = [
   -3,
   n0,
   _ISTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidStateTransition`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidStateTransition`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidStateTransitionException, __InvalidStateTransitionException);
-
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListChangeSetsInput: StaticStructureSchema = [3, n0, _LCSI, 0, [_SN, _NT], [0, 0]];
 export var ListChangeSetsOutput: StaticStructureSchema = [3, n0, _LCSO, 0, [_Su, _NT], [() => ChangeSetSummaries, 0]];
 export var ListExportsInput: StaticStructureSchema = [3, n0, _LEI, 0, [_NT], [0]];
@@ -1768,16 +1707,11 @@ export var NameAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _NAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`NameAlreadyExistsException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`NameAlreadyExistsException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(NameAlreadyExistsException, __NameAlreadyExistsException);
-
 export var OperationEntry: StaticStructureSchema = [3, n0, _OEp, 0, [_OT, _OI], [0, 0]];
 export var OperationEvent: StaticStructureSchema = [
   3,
@@ -1819,59 +1753,39 @@ export var OperationIdAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _OIAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`OperationIdAlreadyExistsException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`OperationIdAlreadyExistsException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationIdAlreadyExistsException, __OperationIdAlreadyExistsException);
-
 export var OperationInProgressException: StaticErrorSchema = [
   -3,
   n0,
   _OIPE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`OperationInProgressException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`OperationInProgressException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationInProgressException, __OperationInProgressException);
-
 export var OperationNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ONFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`OperationNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`OperationNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationNotFoundException, __OperationNotFoundException);
-
 export var OperationResultFilter: StaticStructureSchema = [3, n0, _ORF, 0, [_N, _Va], [0, 0]];
 export var OperationStatusCheckFailedException: StaticErrorSchema = [
   -3,
   n0,
   _OSCFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ConditionalCheckFailed`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConditionalCheckFailed`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationStatusCheckFailedException, __OperationStatusCheckFailedException);
-
 export var Output: StaticStructureSchema = [3, n0, _O, 0, [_OK, _OV, _D, _EN], [0, 0, 0, 0]];
 export var Parameter: StaticStructureSchema = [3, n0, _Pa, 0, [_PK, _PVa, _UPV, _RV], [0, 0, 2, 0]];
 export var ParameterConstraints: StaticStructureSchema = [3, n0, _PCa, 0, [_AVl], [64 | 0]];
@@ -1971,44 +1885,29 @@ export var ResourceScanInProgressException: StaticErrorSchema = [
   -3,
   n0,
   _RSIPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceScanInProgress`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanInProgress`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceScanInProgressException, __ResourceScanInProgressException);
-
 export var ResourceScanLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceScanLimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanLimitExceeded`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceScanLimitExceededException, __ResourceScanLimitExceededException);
-
 export var ResourceScanNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RSNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceScanNotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanNotFound`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceScanNotFoundException, __ResourceScanNotFoundException);
-
 export var ResourceScanSummary: StaticStructureSchema = [
   3,
   n0,
@@ -2133,16 +2032,11 @@ export var StackInstanceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _SINFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`StackInstanceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackInstanceNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StackInstanceNotFoundException, __StackInstanceNotFoundException);
-
 export var StackInstanceResourceDriftsSummary: StaticStructureSchema = [
   3,
   n0,
@@ -2163,16 +2057,11 @@ export var StackNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _SNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`StackNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StackNotFoundException, __StackNotFoundException);
-
 export var StackRefactorAction: StaticStructureSchema = [
   3,
   n0,
@@ -2185,16 +2074,11 @@ export var StackRefactorNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _SRNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`StackRefactorNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackRefactorNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StackRefactorNotFoundException, __StackRefactorNotFoundException);
-
 export var StackRefactorSummary: StaticStructureSchema = [
   3,
   n0,
@@ -2276,30 +2160,20 @@ export var StackSetNotEmptyException: StaticErrorSchema = [
   -3,
   n0,
   _SSNEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`StackSetNotEmptyException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`StackSetNotEmptyException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StackSetNotEmptyException, __StackSetNotEmptyException);
-
 export var StackSetNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _SSNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`StackSetNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackSetNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StackSetNotFoundException, __StackSetNotFoundException);
-
 export var StackSetOperation: StaticStructureSchema = [
   3,
   n0,
@@ -2368,16 +2242,11 @@ export var StaleRequestException: StaticErrorSchema = [
   -3,
   n0,
   _SRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`StaleRequestException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`StaleRequestException`, 409] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(StaleRequestException, __StaleRequestException);
-
 export var StartResourceScanInput: StaticStructureSchema = [3, n0, _SRSI, 0, [_CRT, _SF], [0, () => ScanFilters]];
 export var StartResourceScanOutput: StaticStructureSchema = [3, n0, _SRSO, 0, [_RSI], [0]];
 export var StopStackSetOperationInput: StaticStructureSchema = [3, n0, _SSSOI, 0, [_SSN, _OI, _CA], [0, 0, 0]];
@@ -2401,16 +2270,11 @@ export var TokenAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _TAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TokenAlreadyExistsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TokenAlreadyExistsException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TokenAlreadyExistsException, __TokenAlreadyExistsException);
-
 export var TypeConfigurationDetails: StaticStructureSchema = [
   3,
   n0,
@@ -2431,31 +2295,21 @@ export var TypeConfigurationNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _TCNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`TypeConfigurationNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeConfigurationNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TypeConfigurationNotFoundException, __TypeConfigurationNotFoundException);
-
 export var TypeFilters: StaticStructureSchema = [3, n0, _TF, 0, [_Cat, _PI, _TNP], [0, 0, 0]];
 export var TypeNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _TNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`TypeNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeNotFoundException`, 404] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TypeNotFoundException, __TypeNotFoundException);
-
 export var TypeSummary: StaticStructureSchema = [
   3,
   n0,
@@ -2562,15 +2416,11 @@ export var WarningDetail: StaticStructureSchema = [3, n0, _WD, 0, [_T, _Pro], [0
 export var WarningProperty: StaticStructureSchema = [3, n0, _WP, 0, [_PPr, _Req, _D], [0, 2, 0]];
 export var Warnings: StaticStructureSchema = [3, n0, _W, 0, [_URT], [64 | 0]];
 export var __Unit = "unit" as const;
-
 export var CloudFormationServiceException: StaticErrorSchema = [-3, _s, "CloudFormationServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(CloudFormationServiceException, __CloudFormationServiceException);
-
 export var AccountLimitList: StaticListSchema = [1, n0, _ALL, 0, () => AccountLimit];
 export var AccountList = 64 | 0;
-
 export var AllowedValues = 64 | 0;
-
 export var AnnotationList: StaticListSchema = [1, n0, _ALn, 0, () => Annotation];
 export var BatchDescribeTypeConfigurationsErrors: StaticListSchema = [
   1,
@@ -2580,34 +2430,26 @@ export var BatchDescribeTypeConfigurationsErrors: StaticListSchema = [
   () => BatchDescribeTypeConfigurationsError,
 ];
 export var Capabilities = 64 | 0;
-
 export var Changes: StaticListSchema = [1, n0, _Ch, 0, () => Change];
 export var ChangeSetHooks: StaticListSchema = [1, n0, _CSHh, 0, () => ChangeSetHook];
 export var ChangeSetSummaries: StaticListSchema = [1, n0, _CSSh, 0, () => ChangeSetSummary];
 export var Exports: StaticListSchema = [1, n0, _Exp, 0, () => Export];
 export var HookResultSummaries: StaticListSchema = [1, n0, _HRSo, 0, () => HookResultSummary];
 export var Imports = 64 | 0;
-
 export var JazzLogicalResourceIds = 64 | 0;
-
 export var LastOperations: StaticListSchema = [1, n0, _LO, 0, () => OperationEntry];
 export var LogicalResourceIds = 64 | 0;
-
 export var NotificationARNs = 64 | 0;
-
 export var OperationEvents: StaticListSchema = [1, n0, _OE, 0, () => OperationEvent];
 export var OperationResultFilters: StaticListSchema = [1, n0, _ORFp, 0, () => OperationResultFilter];
 export var OrganizationalUnitIdList = 64 | 0;
-
 export var Outputs: StaticListSchema = [1, n0, _Ou, 0, () => Output];
 export var ParameterDeclarations: StaticListSchema = [1, n0, _PDa, 0, () => ParameterDeclaration];
 export var _Parameters: StaticListSchema = [1, n0, _P, 0, () => Parameter];
 export var PhysicalResourceIdContext: StaticListSchema = [1, n0, _PRIC, 0, () => PhysicalResourceIdContextKeyValuePair];
 export var PropertyDifferences: StaticListSchema = [1, n0, _PDro, 0, () => PropertyDifference];
 export var RegionList = 64 | 0;
-
 export var RegistrationTokenList = 64 | 0;
-
 export var RelatedResources: StaticListSchema = [1, n0, _RRel, 0, () => ScannedResource];
 export var RequiredActivatedTypes: StaticListSchema = [1, n0, _RAT, 0, () => RequiredActivatedType];
 export var ResourceChangeDetails: StaticListSchema = [1, n0, _RCDe, 0, () => ResourceChangeDetail];
@@ -2615,31 +2457,23 @@ export var ResourceDefinitions: StaticListSchema = [1, n0, _RDes, 0, () => Resou
 export var ResourceDetails: StaticListSchema = [1, n0, _RDeso, 0, () => ResourceDetail];
 export var ResourceDriftIgnoredAttributes: StaticListSchema = [1, n0, _RDIA, 0, () => ResourceDriftIgnoredAttribute];
 export var ResourceIdentifiers = 64 | 0;
-
 export var ResourceIdentifierSummaries: StaticListSchema = [1, n0, _RIS, 0, () => ResourceIdentifierSummary];
 export var ResourceMappings: StaticListSchema = [1, n0, _RMe, 0, () => ResourceMapping];
 export var ResourceScanSummaries: StaticListSchema = [1, n0, _RSS, 0, () => ResourceScanSummary];
 export var ResourcesToImport: StaticListSchema = [1, n0, _RTI, 0, () => ResourceToImport];
 export var ResourcesToSkip = 64 | 0;
-
 export var ResourceTypeFilters = 64 | 0;
-
 export var ResourceTypes = 64 | 0;
-
 export var RetainResources = 64 | 0;
-
 export var RollbackTriggers: StaticListSchema = [1, n0, _RTo, 0, () => RollbackTrigger];
 export var ScanFilters: StaticListSchema = [1, n0, _SF, 0, () => ScanFilter];
 export var ScannedResourceIdentifiers: StaticListSchema = [1, n0, _SRIca, 0, () => ScannedResourceIdentifier];
 export var ScannedResources: StaticListSchema = [1, n0, _SRca, 0, () => ScannedResource];
 export var Scope = 64 | 0;
-
 export var StackDefinitions: StaticListSchema = [1, n0, _SD, 0, () => StackDefinition];
 export var StackEvents: StaticListSchema = [1, n0, _SE, 0, () => StackEvent];
 export var StackIdList = 64 | 0;
-
 export var StackIds = 64 | 0;
-
 export var StackInstanceFilters: StaticListSchema = [1, n0, _SIFt, 0, () => StackInstanceFilter];
 export var StackInstanceResourceDriftsSummaries: StaticListSchema = [
   1,
@@ -2651,19 +2485,15 @@ export var StackInstanceResourceDriftsSummaries: StaticListSchema = [
 export var StackInstanceSummaries: StaticListSchema = [1, n0, _SISta, 0, () => StackInstanceSummary];
 export var StackRefactorActions: StaticListSchema = [1, n0, _SRA, 0, () => StackRefactorAction];
 export var StackRefactorExecutionStatusFilter = 64 | 0;
-
 export var StackRefactorSummaries: StaticListSchema = [1, n0, _SRS, 0, () => StackRefactorSummary];
 export var StackRefactorTagResources: StaticListSchema = [1, n0, _SRTR, 0, () => Tag];
 export var StackRefactorUntagResources = 64 | 0;
-
 export var StackResourceDrifts: StaticListSchema = [1, n0, _SRD, 0, () => StackResourceDrift];
 export var StackResourceDriftStatusFilters = 64 | 0;
-
 export var StackResources: StaticListSchema = [1, n0, _SRt, 0, () => StackResource];
 export var StackResourceSummaries: StaticListSchema = [1, n0, _SRSt, 0, () => StackResourceSummary];
 export var Stacks: StaticListSchema = [1, n0, _St, 0, () => Stack];
 export var StackSetARNList = 64 | 0;
-
 export var StackSetAutoDeploymentTargetSummaries: StaticListSchema = [
   1,
   n0,
@@ -2681,17 +2511,13 @@ export var StackSetOperationResultSummaries: StaticListSchema = [
 export var StackSetOperationSummaries: StaticListSchema = [1, n0, _SSOSt, 0, () => StackSetOperationSummary];
 export var StackSetSummaries: StaticListSchema = [1, n0, _SSSt, 0, () => StackSetSummary];
 export var StackStatusFilter = 64 | 0;
-
 export var StackSummaries: StaticListSchema = [1, n0, _SSt, 0, () => StackSummary];
 export var StageList = 64 | 0;
-
 export var SupportedMajorVersions = 64 | 1;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var TemplateParameters: StaticListSchema = [1, n0, _TPem, 0, () => TemplateParameter];
 export var TemplateSummaries: StaticListSchema = [1, n0, _TSem, 0, () => TemplateSummary];
 export var TransformsList = 64 | 0;
-
 export var TypeConfigurationDetailsList: StaticListSchema = [1, n0, _TCDL, 0, () => TypeConfigurationDetails];
 export var TypeConfigurationIdentifiers: StaticListSchema = [1, n0, _TCIy, 0, () => TypeConfigurationIdentifier];
 export var TypeSummaries: StaticListSchema = [1, n0, _TSy, 0, () => TypeSummary];
@@ -2700,9 +2526,7 @@ export var UnprocessedTypeConfigurations: StaticListSchema = [1, n0, _UTC, 0, ()
 export var WarningDetails: StaticListSchema = [1, n0, _WDa, 0, () => WarningDetail];
 export var WarningProperties: StaticListSchema = [1, n0, _WPa, 0, () => WarningProperty];
 export var JazzResourceIdentifierProperties = 128 | 0;
-
 export var ResourceIdentifierProperties = 128 | 0;
-
 export var ActivateOrganizationsAccess: StaticOperationSchema = [
   9,
   n0,

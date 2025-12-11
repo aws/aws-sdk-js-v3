@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RestoreDBClusterFromS3 } from "../schemas/schemas_0";
 
 /**
@@ -106,6 +106,17 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new RestoreDBClusterFromS3Command(input);
  * const response = await client.send(command);

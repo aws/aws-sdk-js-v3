@@ -6,6 +6,7 @@ export * from "./CompleteResourceTokenAuthCommand";
 export * from "./CreateEventCommand";
 export * from "./DeleteEventCommand";
 export * from "./DeleteMemoryRecordCommand";
+export * from "./EvaluateCommand";
 export * from "./GetAgentCardCommand";
 export * from "./GetBrowserSessionCommand";
 export * from "./GetCodeInterpreterSessionCommand";

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateFraudsterCommand,
@@ -139,7 +139,7 @@ import {
   UpdateWatchlistCommandInput,
   UpdateWatchlistCommandOutput,
 } from "./commands/UpdateWatchlistCommand";
-import { VoiceIDClient, VoiceIDClientConfig } from "./VoiceIDClient";
+import { VoiceIDClient } from "./VoiceIDClient";
 
 const commands = {
   AssociateFraudsterCommand,

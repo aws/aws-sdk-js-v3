@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateInstanceAttributeRequest } from "../models/models_2";
+import type { UpdateInstanceAttributeRequest } from "../models/models_3";
 import { UpdateInstanceAttribute } from "../schemas/schemas_0";
 
 /**
@@ -39,7 +39,7 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  * const client = new ConnectClient(config);
  * const input = { // UpdateInstanceAttributeRequest
  *   InstanceId: "STRING_VALUE", // required
- *   AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING" || "ENHANCED_CHAT_MONITORING" || "MULTI_PARTY_CHAT_CONFERENCE", // required
+ *   AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING" || "ENHANCED_CHAT_MONITORING" || "MULTI_PARTY_CHAT_CONFERENCE" || "MESSAGE_STREAMING", // required
  *   Value: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  * };

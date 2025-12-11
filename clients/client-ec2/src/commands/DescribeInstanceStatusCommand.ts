@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeInstanceStatusRequest, DescribeInstanceStatusResult } from "../models/models_4";
+import type { DescribeInstanceStatusRequest, DescribeInstanceStatusResult } from "../models/models_4";
 import { DescribeInstanceStatus } from "../schemas/schemas_0";
 
 /**
@@ -54,13 +54,6 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *                     from the moment you launch them through their termination. For more information,
  *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
  *                         lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>SQL license exemption monitoring</b> - For instances
- *                     registered with the SQL LE service, status includes SQL license exemption monitoring
- *                     health and processing status to provide operational visibility into license exemption
- *                     functionality.</p>
  *             </li>
  *          </ul>
  *          <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an

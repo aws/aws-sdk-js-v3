@@ -93,6 +93,7 @@ export * from "./UntagResourceCommand";
 export * from "./UpdateAutomatedReasoningPolicyAnnotationsCommand";
 export * from "./UpdateAutomatedReasoningPolicyCommand";
 export * from "./UpdateAutomatedReasoningPolicyTestCaseCommand";
+export * from "./UpdateCustomModelDeploymentCommand";
 export * from "./UpdateGuardrailCommand";
 export * from "./UpdateMarketplaceModelEndpointCommand";
 export * from "./UpdateProvisionedModelThroughputCommand";

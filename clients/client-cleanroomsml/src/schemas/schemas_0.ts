@@ -24,6 +24,7 @@ const _CC = "ContainerConfig";
 const _CCAM = "CreateConfiguredAudienceModel";
 const _CCAMR = "CreateConfiguredAudienceModelRequest";
 const _CCAMRr = "CreateConfiguredAudienceModelResponse";
+const _CCD = "ColumnClassificationDetails";
 const _CCMA = "CreateConfiguredModelAlgorithm";
 const _CCMAA = "CreateConfiguredModelAlgorithmAssociation";
 const _CCMAAL = "CollaborationConfiguredModelAlgorithmAssociationList";
@@ -39,6 +40,7 @@ const _CMAAL = "ConfiguredModelAlgorithmAssociationList";
 const _CMAAS = "ConfiguredModelAlgorithmAssociationSummary";
 const _CMAL = "ConfiguredModelAlgorithmList";
 const _CMAS = "ConfiguredModelAlgorithmSummary";
+const _CML = "ColumnMappingList";
 const _CMLIC = "CreateMLInputChannel";
 const _CMLICL = "CollaborationMLInputChannelsList";
 const _CMLICR = "CreateMLInputChannelRequest";
@@ -80,6 +82,7 @@ const _DMLC = "DeleteMLConfiguration";
 const _DMLCR = "DeleteMLConfigurationRequest";
 const _DMLICD = "DeleteMLInputChannelData";
 const _DMLICDR = "DeleteMLInputChannelDataRequest";
+const _DPS = "DataPrivacyScores";
 const _DS = "DataSource";
 const _DSL = "DatasetSchemaList";
 const _DTD = "DeleteTrainingDataset";
@@ -200,10 +203,13 @@ const _LTMVRi = "ListTrainedModelVersionsResponse";
 const _MCP = "MetricsConfigurationPolicy";
 const _MD = "MetricDefinition";
 const _MDL = "MetricDefinitionList";
+const _MIAS = "MembershipInferenceAttackScore";
+const _MIASL = "MembershipInferenceAttackScoreList";
 const _MIDS = "ModelInferenceDataSource";
 const _MLICL = "MLInputChannelsList";
 const _MLICS = "MLInputChannelSummary";
 const _MLOC = "MLOutputConfiguration";
+const _MLSDP = "MLSyntheticDataParameters";
 const _MTDC = "ModelTrainingDataChannel";
 const _MTDCo = "ModelTrainingDataChannels";
 const _PB = "PrivacyBudgets";
@@ -228,6 +234,9 @@ const _SAGJRt = "StartAudienceGenerationJobResponse";
 const _SC = "StoppingCondition";
 const _SCM = "S3ConfigMap";
 const _SD = "StatusDetails";
+const _SDC = "SyntheticDataConfiguration";
+const _SDCP = "SyntheticDataColumnProperties";
+const _SDES = "SyntheticDataEvaluationScores";
 const _SQEE = "ServiceQuotaExceededException";
 const _STMEJ = "StartTrainedModelExportJob";
 const _STMEJR = "StartTrainedModelExportJobRequest";
@@ -277,6 +286,7 @@ const _aSB = "audienceSizeBins";
 const _aSC = "audienceSizeConfig";
 const _aST = "audienceSizeType";
 const _aTA = "analysisTemplateArn";
+const _aV = "attackVersion";
 const _ac = "accept";
 const _b = "budget";
 const _bT = "budgetType";
@@ -285,8 +295,9 @@ const _cAI = "creatorAccountId";
 const _cAM = "configuredAudienceModels";
 const _cAMA = "configuredAudienceModelArn";
 const _cAMP = "configuredAudienceModelPolicy";
-const _cC = "computeConfiguration";
+const _cC = "columnClassification";
 const _cCMAA = "collaborationConfiguredModelAlgorithmAssociations";
+const _cCo = "computeConfiguration";
 const _cDI = "customDataIdentifiers";
 const _cEC = "customEntityConfig";
 const _cEP = "containerExecutionParameters";
@@ -294,12 +305,13 @@ const _cI = "collaborationId";
 const _cIa = "catalogId";
 const _cIo = "collaborationIdentifier";
 const _cL = "containerLogs";
-const _cM = "containerMetrics";
+const _cM = "columnMapping";
 const _cMA = "configuredModelAlgorithms";
 const _cMAA = "configuredModelAlgorithmArn";
 const _cMAAA = "configuredModelAlgorithmAssociationArn";
 const _cMAAo = "configuredModelAlgorithmAssociations";
 const _cMLICL = "collaborationMLInputChannelsList";
+const _cMo = "containerMetrics";
 const _cN = "columnName";
 const _cNh = "channelName";
 const _cRTOCP = "childResourceTagOnCreatePolicy";
@@ -308,10 +320,12 @@ const _cTM = "collaborationTrainedModels";
 const _cTMEJ = "collaborationTrainedModelExportJobs";
 const _cTMIJ = "collaborationTrainedModelInferenceJobs";
 const _cTo = "columnTypes";
+const _cTol = "columnType";
 const _d = "details";
 const _dC = "dataChannels";
 const _dN = "databaseName";
 const _dOL = "defaultOutputLocation";
+const _dPS = "dataPrivacyScores";
 const _dS = "dataSource";
 const _de = "description";
 const _des = "destination";
@@ -320,6 +334,7 @@ const _eT = "endTime";
 const _eTR = "entitiesToRedact";
 const _en = "entrypoint";
 const _env = "environment";
+const _ep = "epsilon";
 const _fP = "filterPattern";
 const _fTE = "filesToExport";
 const _gDS = "glueDataSource";
@@ -332,6 +347,7 @@ const _iCC = "inferenceContainerConfig";
 const _iCID = "inferenceContainerImageDigest";
 const _iCn = "inputConfig";
 const _iCns = "instanceCount";
+const _iPV = "isPredictiveValue";
 const _iSIO = "includeSeedInOutput";
 const _iT = "instanceType";
 const _iTDC = "incrementalTrainingDataChannels";
@@ -345,8 +361,10 @@ const _m = "message";
 const _mAS = "maxArtifactSize";
 const _mD = "metricDefinitions";
 const _mI = "membershipIdentifier";
+const _mIAS = "membershipInferenceAttackScores";
 const _mICA = "mlInputChannelArn";
 const _mICL = "mlInputChannelsList";
+const _mMIAS = "maxMembershipInferenceAttackScore";
 const _mMSS = "minMatchingSeedSize";
 const _mN = "modelName";
 const _mOS = "maxOutputSize";
@@ -396,7 +414,10 @@ const _sC = "stoppingCondition";
 const _sCC = "sqlComputeConfiguration";
 const _sCt = "statusCode";
 const _sD = "s3Destination";
+const _sDC = "syntheticDataConfiguration";
 const _sDDT = "s3DataDistributionType";
+const _sDES = "syntheticDataEvaluationScores";
+const _sDP = "syntheticDataParameters";
 const _sDt = "statusDetails";
 const _sIG = "sizeInGb";
 const _sP = "sqlParameters";
@@ -434,7 +455,7 @@ const n0 = "com.amazonaws.cleanroomsml";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -454,7 +475,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessBudget: StaticStructureSchema = [
   3,
   n0,
@@ -471,19 +491,8 @@ export var AccessBudgetDetails: StaticStructureSchema = [
   [_sT, _eT, _rB, _b, _bT, _aR],
   [5, 5, 1, 1, 0, 0],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AudienceDestination: StaticStructureSchema = [3, n0, _AD, 0, [_sD], [() => S3ConfigMap]];
 export var AudienceExportJobSummary: StaticStructureSchema = [
   3,
@@ -540,12 +549,7 @@ export var CancelTrainedModelRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var CollaborationConfiguredModelAlgorithmAssociationSummary: StaticStructureSchema = [
@@ -588,6 +592,7 @@ export var CollaborationTrainedModelSummary: StaticStructureSchema = [
   [_cT, _uT, _tMA, _n, _vI, _iTDC, _de, _mI, _cIo, _s, _cMAAA, _cAI],
   [5, 5, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, 0, 0, 0, 0, 0],
 ];
+export var ColumnClassificationDetails: StaticStructureSchema = [3, n0, _CCD, 0, [_cM], [() => ColumnMappingList]];
 export var ColumnSchema: StaticStructureSchema = [3, n0, _CS, 0, [_cN, _cTo], [0, 64 | 0]];
 export var ConfiguredAudienceModelOutputConfig: StaticStructureSchema = [
   3,
@@ -621,19 +626,8 @@ export var ConfiguredModelAlgorithmSummary: StaticStructureSchema = [
   [_cT, _uT, _cMAA, _n, _de],
   [5, 5, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContainerConfig: StaticStructureSchema = [
   3,
   n0,
@@ -727,6 +721,14 @@ export var CreateTrainingDatasetRequest: StaticStructureSchema = [
 ];
 export var CreateTrainingDatasetResponse: StaticStructureSchema = [3, n0, _CTDRr, 0, [_tDA], [0]];
 export var CustomEntityConfig: StaticStructureSchema = [3, n0, _CEC, 0, [_cDI], [64 | 0]];
+export var DataPrivacyScores: StaticStructureSchema = [
+  3,
+  n0,
+  _DPS,
+  0,
+  [_mIAS],
+  [() => MembershipInferenceAttackScoreList],
+];
 export var Dataset: StaticStructureSchema = [3, n0, _D, 0, [_t, _iCn], [0, () => DatasetInputConfig]];
 export var DatasetInputConfig: StaticStructureSchema = [
   3,
@@ -774,12 +776,7 @@ export var DeleteTrainedModelOutputRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var DeleteTrainingDatasetRequest: StaticStructureSchema = [3, n0, _DTDR, 0, [_tDA], [[0, 1]]];
@@ -853,8 +850,24 @@ export var GetCollaborationMLInputChannelResponse: StaticStructureSchema = [
   n0,
   _GCMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _cT, _uT, _cAI],
-  [0, 0, 0, 0, 64 | 0, 0, () => StatusDetails, 1, 1, () => PrivacyBudgets, 0, 5, 5, 0],
+  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _sDC, _cT, _uT, _cAI],
+  [
+    0,
+    0,
+    0,
+    0,
+    64 | 0,
+    0,
+    () => StatusDetails,
+    1,
+    1,
+    () => PrivacyBudgets,
+    0,
+    () => SyntheticDataConfiguration,
+    5,
+    5,
+    0,
+  ],
 ];
 export var GetCollaborationTrainedModelRequest: StaticStructureSchema = [
   3,
@@ -865,12 +878,7 @@ export var GetCollaborationTrainedModelRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var GetCollaborationTrainedModelResponse: StaticStructureSchema = [
@@ -974,7 +982,7 @@ export var GetMLInputChannelResponse: StaticStructureSchema = [
   n0,
   _GMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _cT, _uT, _iC, _pQI, _nOF, _sIG, _kKA, _ta],
+  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _sDt, _rID, _nOR, _pB, _de, _sDC, _cT, _uT, _iC, _pQI, _nOF, _sIG, _kKA, _ta],
   [
     0,
     0,
@@ -987,6 +995,7 @@ export var GetMLInputChannelResponse: StaticStructureSchema = [
     1,
     () => PrivacyBudgets,
     0,
+    () => SyntheticDataConfiguration,
     5,
     5,
     [() => InputChannel, 0],
@@ -1073,12 +1082,7 @@ export var GetTrainedModelRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var GetTrainedModelResponse: StaticStructureSchema = [
@@ -1173,19 +1177,8 @@ export var InferenceOutputConfiguration: StaticStructureSchema = [
 export var InferenceReceiverMember: StaticStructureSchema = [3, n0, _IRM, 0, [_aI], [0]];
 export var InferenceResourceConfig: StaticStructureSchema = [3, n0, _IRC, 0, [_iT, _iCns], [0, 1]];
 export var InputChannel: StaticStructureSchema = [3, n0, _IC, 0, [_dS, _rAo], [[() => InputChannelDataSource, 0], 0]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var ListAudienceExportJobsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1193,24 +1186,9 @@ export var ListAudienceExportJobsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _aGJA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aGJA,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _aGJA }],
   ],
 ];
 export var ListAudienceExportJobsResponse: StaticStructureSchema = [
@@ -1228,30 +1206,10 @@ export var ListAudienceGenerationJobsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _cAMA, _cI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cAMA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _cAMA }],
+    [0, { [_hQ]: _cI }],
   ],
 ];
 export var ListAudienceGenerationJobsResponse: StaticStructureSchema = [
@@ -1269,18 +1227,8 @@ export var ListAudienceModelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAudienceModelsResponse: StaticStructureSchema = [
@@ -1298,18 +1246,8 @@ export var ListCollaborationConfiguredModelAlgorithmAssociationsRequest: StaticS
   0,
   [_nT, _mR, _cIo],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1328,18 +1266,8 @@ export var ListCollaborationMLInputChannelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _cIo],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1358,26 +1286,11 @@ export var ListCollaborationTrainedModelExportJobsRequest: StaticStructureSchema
   0,
   [_nT, _mR, _cIo, _tMA, _tMVI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tMVI,
-      },
-    ],
+    [0, { [_hQ]: _tMVI }],
   ],
 ];
 export var ListCollaborationTrainedModelExportJobsResponse: StaticStructureSchema = [
@@ -1395,31 +1308,11 @@ export var ListCollaborationTrainedModelInferenceJobsRequest: StaticStructureSch
   0,
   [_nT, _mR, _cIo, _tMA, _tMVI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tMA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tMVI,
-      },
-    ],
+    [0, { [_hQ]: _tMA }],
+    [0, { [_hQ]: _tMVI }],
   ],
 ];
 export var ListCollaborationTrainedModelInferenceJobsResponse: StaticStructureSchema = [
@@ -1437,18 +1330,8 @@ export var ListCollaborationTrainedModelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _cIo],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1467,18 +1350,8 @@ export var ListConfiguredAudienceModelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListConfiguredAudienceModelsResponse: StaticStructureSchema = [
@@ -1496,18 +1369,8 @@ export var ListConfiguredModelAlgorithmAssociationsRequest: StaticStructureSchem
   0,
   [_nT, _mR, _mI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1526,18 +1389,8 @@ export var ListConfiguredModelAlgorithmsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListConfiguredModelAlgorithmsResponse: StaticStructureSchema = [
@@ -1555,18 +1408,8 @@ export var ListMLInputChannelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _mI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1587,31 +1430,11 @@ export var ListTrainedModelInferenceJobsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _mI, _tMA, _tMVI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tMA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tMVI,
-      },
-    ],
+    [0, { [_hQ]: _tMA }],
+    [0, { [_hQ]: _tMVI }],
   ],
 ];
 export var ListTrainedModelInferenceJobsResponse: StaticStructureSchema = [
@@ -1629,18 +1452,8 @@ export var ListTrainedModelsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _mI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1659,26 +1472,11 @@ export var ListTrainedModelVersionsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _mI, _tMA, _s],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
+    [0, { [_hQ]: _s }],
   ],
 ];
 export var ListTrainedModelVersionsResponse: StaticStructureSchema = [
@@ -1696,18 +1494,8 @@ export var ListTrainingDatasetsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTrainingDatasetsResponse: StaticStructureSchema = [
@@ -1734,6 +1522,7 @@ export var LogsConfigurationPolicy: StaticStructureSchema = [
   [_aAI, _fP, _lT, _lRC],
   [64 | 0, 0, 0, () => LogRedactionConfiguration],
 ];
+export var MembershipInferenceAttackScore: StaticStructureSchema = [3, n0, _MIAS, 0, [_aV, _sco], [0, 1]];
 export var MetricDefinition: StaticStructureSchema = [3, n0, _MD, 0, [_n, _r], [0, 0]];
 export var MetricsConfigurationPolicy: StaticStructureSchema = [3, n0, _MCP, 0, [_nL], [0]];
 export var MLInputChannelSummary: StaticStructureSchema = [
@@ -1745,6 +1534,14 @@ export var MLInputChannelSummary: StaticStructureSchema = [
   [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0],
 ];
 export var MLOutputConfiguration: StaticStructureSchema = [3, n0, _MLOC, 0, [_des, _rAo], [() => Destination, 0]];
+export var MLSyntheticDataParameters: StaticStructureSchema = [
+  3,
+  n0,
+  _MLSDP,
+  0,
+  [_ep, _mMIAS, _cC],
+  [1, 1, () => ColumnClassificationDetails],
+];
 export var ModelInferenceDataSource: StaticStructureSchema = [3, n0, _MIDS, 0, [_mICA], [0]];
 export var ModelTrainingDataChannel: StaticStructureSchema = [3, n0, _MTDC, 0, [_mICA, _cNh, _sDDT], [0, 0, 0]];
 export var PrivacyConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_p], [() => PrivacyConfigurationPolicies]];
@@ -1765,7 +1562,7 @@ export var ProtectedQueryInputParameters: StaticStructureSchema = [
   n0,
   _PQIP,
   0,
-  [_sP, _cC, _rF],
+  [_sP, _cCo, _rF],
   [[() => ProtectedQuerySQLParameters, 0], () => ComputeConfiguration, 0],
 ];
 export var ProtectedQuerySQLParameters: StaticStructureSchema = [3, n0, _PQSQLP, 8, [_qS, _aTA, _pa], [0, 0, 128 | 0]];
@@ -1788,33 +1585,18 @@ export var PutMLConfigurationRequest: StaticStructureSchema = [
 ];
 export var RelevanceMetric: StaticStructureSchema = [3, n0, _RM, 0, [_aS, _sco], [() => AudienceSize, 1]];
 export var ResourceConfig: StaticStructureSchema = [3, n0, _RC, 0, [_iCns, _iT, _vSIGB], [1, 0, 1]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3ConfigMap: StaticStructureSchema = [3, n0, _SCM, 0, [_sU], [0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _qN, _qV],
   [0, 0, 1],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartAudienceExportJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1865,21 +1647,20 @@ export var StartTrainedModelInferenceJobRequest: StaticStructureSchema = [
 export var StartTrainedModelInferenceJobResponse: StaticStructureSchema = [3, n0, _STMIJRt, 0, [_tMIJA], [0]];
 export var StatusDetails: StaticStructureSchema = [3, n0, _SD, 0, [_sCt, _m], [0, 0]];
 export var StoppingCondition: StaticStructureSchema = [3, n0, _SC, 0, [_mRIS], [1]];
+export var SyntheticDataColumnProperties: StaticStructureSchema = [3, n0, _SDCP, 0, [_cN, _cTol, _iPV], [0, 0, 2]];
+export var SyntheticDataConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SDC,
+  0,
+  [_sDP, _sDES],
+  [() => MLSyntheticDataParameters, () => SyntheticDataEvaluationScores],
+];
+export var SyntheticDataEvaluationScores: StaticStructureSchema = [3, n0, _SDES, 0, [_dPS], [() => DataPrivacyScores]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrainedModelArtifactMaxSize: StaticStructureSchema = [3, n0, _TMAMS, 0, [_u, _v], [0, 1]];
 export var TrainedModelExportOutputConfiguration: StaticStructureSchema = [
   3,
@@ -1921,7 +1702,7 @@ export var TrainedModelsConfigurationPolicy: StaticStructureSchema = [
   n0,
   _TMCP,
   0,
-  [_cL, _cM, _mAS],
+  [_cL, _cMo, _mAS],
   [() => LogsConfigurationPolicyList, () => MetricsConfigurationPolicy, () => TrainedModelArtifactMaxSize],
 ];
 export var TrainedModelSummary: StaticStructureSchema = [
@@ -1948,12 +1729,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1966,34 +1742,19 @@ export var UpdateConfiguredAudienceModelRequest: StaticStructureSchema = [
   [[0, 1], () => ConfiguredAudienceModelOutputConfig, 0, 64 | 0, 1, () => AudienceSizeConfig, 0],
 ];
 export var UpdateConfiguredAudienceModelResponse: StaticStructureSchema = [3, n0, _UCAMRp, 0, [_cAMA], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WorkerComputeConfiguration: StaticStructureSchema = [3, n0, _WCC, 0, [_t, _nu], [0, 1]];
 export var __Unit = "unit" as const;
-
 export var CleanRoomsMLServiceException: StaticErrorSchema = [-3, _sm, "CleanRoomsMLServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CleanRoomsMLServiceException, __CleanRoomsMLServiceException);
-
 export var AccessBudgetDetailsList: StaticListSchema = [1, n0, _ABDL, 0, () => AccessBudgetDetails];
 export var AccessBudgets: StaticListSchema = [1, n0, _ABc, 0, () => AccessBudget];
 export var AccountIdList = 64 | 0;
-
 export var AudienceExportJobList: StaticListSchema = [1, n0, _AEJL, 0, () => AudienceExportJobSummary];
 export var AudienceGenerationJobList: StaticListSchema = [1, n0, _AGJL, 0, () => AudienceGenerationJobSummary];
 export var AudienceModelList: StaticListSchema = [1, n0, _AML, 0, () => AudienceModelSummary];
 export var AudienceSizeBins = 64 | 1;
-
 export var CollaborationConfiguredModelAlgorithmAssociationList: StaticListSchema = [
   1,
   n0,
@@ -2023,11 +1784,10 @@ export var CollaborationTrainedModelInferenceJobList: StaticListSchema = [
   () => CollaborationTrainedModelInferenceJobSummary,
 ];
 export var CollaborationTrainedModelList: StaticListSchema = [1, n0, _CTML, 0, () => CollaborationTrainedModelSummary];
+export var ColumnMappingList: StaticListSchema = [1, n0, _CML, 0, () => SyntheticDataColumnProperties];
 export var ColumnTypeList = 64 | 0;
-
 export var ConfiguredAudienceModelList: StaticListSchema = [1, n0, _CAML, 0, () => ConfiguredAudienceModelSummary];
 export var ConfiguredModelAlgorithmAssociationArnList = 64 | 0;
-
 export var ConfiguredModelAlgorithmAssociationList: StaticListSchema = [
   1,
   n0,
@@ -2037,15 +1797,11 @@ export var ConfiguredModelAlgorithmAssociationList: StaticListSchema = [
 ];
 export var ConfiguredModelAlgorithmList: StaticListSchema = [1, n0, _CMAL, 0, () => ConfiguredModelAlgorithmSummary];
 export var ContainerArguments = 64 | 0;
-
 export var ContainerEntrypoint = 64 | 0;
-
 export var CustomDataIdentifierList = 64 | 0;
-
 export var DatasetList: StaticListSchema = [1, n0, _DL, 0, () => Dataset];
 export var DatasetSchemaList: StaticListSchema = [1, n0, _DSL, 0, () => ColumnSchema];
 export var EntityTypeList = 64 | 0;
-
 export var IncrementalTrainingDataChannels: StaticListSchema = [1, n0, _ITDCn, 0, () => IncrementalTrainingDataChannel];
 export var IncrementalTrainingDataChannelsOutput: StaticListSchema = [
   1,
@@ -2056,16 +1812,20 @@ export var IncrementalTrainingDataChannelsOutput: StaticListSchema = [
 ];
 export var InferenceReceiverMembers: StaticListSchema = [1, n0, _IRMn, 0, () => InferenceReceiverMember];
 export var LogsConfigurationPolicyList: StaticListSchema = [1, n0, _LCPL, 0, () => LogsConfigurationPolicy];
+export var MembershipInferenceAttackScoreList: StaticListSchema = [
+  1,
+  n0,
+  _MIASL,
+  0,
+  () => MembershipInferenceAttackScore,
+];
 export var MetricDefinitionList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDefinition];
 export var MetricsList = 64 | 0;
-
 export var MLInputChannelsList: StaticListSchema = [1, n0, _MLICL, 0, () => MLInputChannelSummary];
 export var ModelTrainingDataChannels: StaticListSchema = [1, n0, _MTDCo, 0, () => ModelTrainingDataChannel];
 export var RelevanceMetrics: StaticListSchema = [1, n0, _RMe, 0, () => RelevanceMetric];
 export var TagKeys = 64 | 0;
-
 export var TrainedModelExportFileTypeList = 64 | 0;
-
 export var TrainedModelExportReceiverMembers: StaticListSchema = [
   1,
   n0,
@@ -2077,15 +1837,10 @@ export var TrainedModelInferenceJobList: StaticListSchema = [1, n0, _TMIJL, 0, (
 export var TrainedModelList: StaticListSchema = [1, n0, _TML, 0, () => TrainedModelSummary];
 export var TrainingDatasetList: StaticListSchema = [1, n0, _TDL, 0, () => TrainingDatasetSummary];
 export var Environment = 128 | 0;
-
 export var HyperParameters = 128 | 0;
-
 export var InferenceEnvironmentMap = 128 | 0;
-
 export var ParameterMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var ComputeConfiguration: StaticStructureSchema = [3, n0, _CCo, 0, [_w], [() => WorkerComputeConfiguration]];
 export var InputChannelDataSource: StaticStructureSchema = [
   3,
@@ -2100,9 +1855,7 @@ export var CancelTrainedModel: StaticOperationSchema = [
   9,
   n0,
   _CTM,
-  {
-    [_ht]: ["PATCH", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200],
-  },
+  { [_ht]: ["PATCH", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200] },
   () => CancelTrainedModelRequest,
   () => __Unit,
 ];
@@ -2124,9 +1877,7 @@ export var CreateAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _CAM,
-  {
-    [_ht]: ["POST", "/audience-model", 200],
-  },
+  { [_ht]: ["POST", "/audience-model", 200] },
   () => CreateAudienceModelRequest,
   () => CreateAudienceModelResponse,
 ];
@@ -2134,9 +1885,7 @@ export var CreateConfiguredAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _CCAM,
-  {
-    [_ht]: ["POST", "/configured-audience-model", 200],
-  },
+  { [_ht]: ["POST", "/configured-audience-model", 200] },
   () => CreateConfiguredAudienceModelRequest,
   () => CreateConfiguredAudienceModelResponse,
 ];
@@ -2144,9 +1893,7 @@ export var CreateConfiguredModelAlgorithm: StaticOperationSchema = [
   9,
   n0,
   _CCMA,
-  {
-    [_ht]: ["POST", "/configured-model-algorithms", 200],
-  },
+  { [_ht]: ["POST", "/configured-model-algorithms", 200] },
   () => CreateConfiguredModelAlgorithmRequest,
   () => CreateConfiguredModelAlgorithmResponse,
 ];
@@ -2154,9 +1901,7 @@ export var CreateConfiguredModelAlgorithmAssociation: StaticOperationSchema = [
   9,
   n0,
   _CCMAA,
-  {
-    [_ht]: ["POST", "/memberships/{membershipIdentifier}/configured-model-algorithm-associations", 200],
-  },
+  { [_ht]: ["POST", "/memberships/{membershipIdentifier}/configured-model-algorithm-associations", 200] },
   () => CreateConfiguredModelAlgorithmAssociationRequest,
   () => CreateConfiguredModelAlgorithmAssociationResponse,
 ];
@@ -2164,9 +1909,7 @@ export var CreateMLInputChannel: StaticOperationSchema = [
   9,
   n0,
   _CMLIC,
-  {
-    [_ht]: ["POST", "/memberships/{membershipIdentifier}/ml-input-channels", 200],
-  },
+  { [_ht]: ["POST", "/memberships/{membershipIdentifier}/ml-input-channels", 200] },
   () => CreateMLInputChannelRequest,
   () => CreateMLInputChannelResponse,
 ];
@@ -2174,9 +1917,7 @@ export var CreateTrainedModel: StaticOperationSchema = [
   9,
   n0,
   _CTMr,
-  {
-    [_ht]: ["POST", "/memberships/{membershipIdentifier}/trained-models", 200],
-  },
+  { [_ht]: ["POST", "/memberships/{membershipIdentifier}/trained-models", 200] },
   () => CreateTrainedModelRequest,
   () => CreateTrainedModelResponse,
 ];
@@ -2184,9 +1925,7 @@ export var CreateTrainingDataset: StaticOperationSchema = [
   9,
   n0,
   _CTD,
-  {
-    [_ht]: ["POST", "/training-dataset", 200],
-  },
+  { [_ht]: ["POST", "/training-dataset", 200] },
   () => CreateTrainingDatasetRequest,
   () => CreateTrainingDatasetResponse,
 ];
@@ -2194,9 +1933,7 @@ export var DeleteAudienceGenerationJob: StaticOperationSchema = [
   9,
   n0,
   _DAGJ,
-  {
-    [_ht]: ["DELETE", "/audience-generation-job/{audienceGenerationJobArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/audience-generation-job/{audienceGenerationJobArn}", 200] },
   () => DeleteAudienceGenerationJobRequest,
   () => __Unit,
 ];
@@ -2204,9 +1941,7 @@ export var DeleteAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _DAM,
-  {
-    [_ht]: ["DELETE", "/audience-model/{audienceModelArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/audience-model/{audienceModelArn}", 200] },
   () => DeleteAudienceModelRequest,
   () => __Unit,
 ];
@@ -2214,9 +1949,7 @@ export var DeleteConfiguredAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _DCAM,
-  {
-    [_ht]: ["DELETE", "/configured-audience-model/{configuredAudienceModelArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/configured-audience-model/{configuredAudienceModelArn}", 200] },
   () => DeleteConfiguredAudienceModelRequest,
   () => __Unit,
 ];
@@ -2224,9 +1957,7 @@ export var DeleteConfiguredAudienceModelPolicy: StaticOperationSchema = [
   9,
   n0,
   _DCAMP,
-  {
-    [_ht]: ["DELETE", "/configured-audience-model/{configuredAudienceModelArn}/policy", 200],
-  },
+  { [_ht]: ["DELETE", "/configured-audience-model/{configuredAudienceModelArn}/policy", 200] },
   () => DeleteConfiguredAudienceModelPolicyRequest,
   () => __Unit,
 ];
@@ -2234,9 +1965,7 @@ export var DeleteConfiguredModelAlgorithm: StaticOperationSchema = [
   9,
   n0,
   _DCMA,
-  {
-    [_ht]: ["DELETE", "/configured-model-algorithms/{configuredModelAlgorithmArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/configured-model-algorithms/{configuredModelAlgorithmArn}", 200] },
   () => DeleteConfiguredModelAlgorithmRequest,
   () => __Unit,
 ];
@@ -2258,9 +1987,7 @@ export var DeleteMLConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DMLC,
-  {
-    [_ht]: ["DELETE", "/memberships/{membershipIdentifier}/ml-configurations", 200],
-  },
+  { [_ht]: ["DELETE", "/memberships/{membershipIdentifier}/ml-configurations", 200] },
   () => DeleteMLConfigurationRequest,
   () => __Unit,
 ];
@@ -2268,9 +1995,7 @@ export var DeleteMLInputChannelData: StaticOperationSchema = [
   9,
   n0,
   _DMLICD,
-  {
-    [_ht]: ["DELETE", "/memberships/{membershipIdentifier}/ml-input-channels/{mlInputChannelArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/memberships/{membershipIdentifier}/ml-input-channels/{mlInputChannelArn}", 200] },
   () => DeleteMLInputChannelDataRequest,
   () => __Unit,
 ];
@@ -2278,9 +2003,7 @@ export var DeleteTrainedModelOutput: StaticOperationSchema = [
   9,
   n0,
   _DTMO,
-  {
-    [_ht]: ["DELETE", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200] },
   () => DeleteTrainedModelOutputRequest,
   () => __Unit,
 ];
@@ -2288,9 +2011,7 @@ export var DeleteTrainingDataset: StaticOperationSchema = [
   9,
   n0,
   _DTD,
-  {
-    [_ht]: ["DELETE", "/training-dataset/{trainingDatasetArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/training-dataset/{trainingDatasetArn}", 200] },
   () => DeleteTrainingDatasetRequest,
   () => __Unit,
 ];
@@ -2298,9 +2019,7 @@ export var GetAudienceGenerationJob: StaticOperationSchema = [
   9,
   n0,
   _GAGJ,
-  {
-    [_ht]: ["GET", "/audience-generation-job/{audienceGenerationJobArn}", 200],
-  },
+  { [_ht]: ["GET", "/audience-generation-job/{audienceGenerationJobArn}", 200] },
   () => GetAudienceGenerationJobRequest,
   () => GetAudienceGenerationJobResponse,
 ];
@@ -2308,9 +2027,7 @@ export var GetAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _GAM,
-  {
-    [_ht]: ["GET", "/audience-model/{audienceModelArn}", 200],
-  },
+  { [_ht]: ["GET", "/audience-model/{audienceModelArn}", 200] },
   () => GetAudienceModelRequest,
   () => GetAudienceModelResponse,
 ];
@@ -2332,9 +2049,7 @@ export var GetCollaborationMLInputChannel: StaticOperationSchema = [
   9,
   n0,
   _GCMLIC,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/ml-input-channels/{mlInputChannelArn}", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/ml-input-channels/{mlInputChannelArn}", 200] },
   () => GetCollaborationMLInputChannelRequest,
   () => GetCollaborationMLInputChannelResponse,
 ];
@@ -2342,9 +2057,7 @@ export var GetCollaborationTrainedModel: StaticOperationSchema = [
   9,
   n0,
   _GCTM,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}", 200] },
   () => GetCollaborationTrainedModelRequest,
   () => GetCollaborationTrainedModelResponse,
 ];
@@ -2352,9 +2065,7 @@ export var GetConfiguredAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _GCAM,
-  {
-    [_ht]: ["GET", "/configured-audience-model/{configuredAudienceModelArn}", 200],
-  },
+  { [_ht]: ["GET", "/configured-audience-model/{configuredAudienceModelArn}", 200] },
   () => GetConfiguredAudienceModelRequest,
   () => GetConfiguredAudienceModelResponse,
 ];
@@ -2362,9 +2073,7 @@ export var GetConfiguredAudienceModelPolicy: StaticOperationSchema = [
   9,
   n0,
   _GCAMP,
-  {
-    [_ht]: ["GET", "/configured-audience-model/{configuredAudienceModelArn}/policy", 200],
-  },
+  { [_ht]: ["GET", "/configured-audience-model/{configuredAudienceModelArn}/policy", 200] },
   () => GetConfiguredAudienceModelPolicyRequest,
   () => GetConfiguredAudienceModelPolicyResponse,
 ];
@@ -2372,9 +2081,7 @@ export var GetConfiguredModelAlgorithm: StaticOperationSchema = [
   9,
   n0,
   _GCMA,
-  {
-    [_ht]: ["GET", "/configured-model-algorithms/{configuredModelAlgorithmArn}", 200],
-  },
+  { [_ht]: ["GET", "/configured-model-algorithms/{configuredModelAlgorithmArn}", 200] },
   () => GetConfiguredModelAlgorithmRequest,
   () => GetConfiguredModelAlgorithmResponse,
 ];
@@ -2396,9 +2103,7 @@ export var GetMLConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GMLC,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/ml-configurations", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/ml-configurations", 200] },
   () => GetMLConfigurationRequest,
   () => GetMLConfigurationResponse,
 ];
@@ -2406,9 +2111,7 @@ export var GetMLInputChannel: StaticOperationSchema = [
   9,
   n0,
   _GMLIC,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/ml-input-channels/{mlInputChannelArn}", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/ml-input-channels/{mlInputChannelArn}", 200] },
   () => GetMLInputChannelRequest,
   () => GetMLInputChannelResponse,
 ];
@@ -2416,9 +2119,7 @@ export var GetTrainedModel: StaticOperationSchema = [
   9,
   n0,
   _GTM,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}", 200] },
   () => GetTrainedModelRequest,
   () => GetTrainedModelResponse,
 ];
@@ -2440,9 +2141,7 @@ export var GetTrainingDataset: StaticOperationSchema = [
   9,
   n0,
   _GTD,
-  {
-    [_ht]: ["GET", "/training-dataset/{trainingDatasetArn}", 200],
-  },
+  { [_ht]: ["GET", "/training-dataset/{trainingDatasetArn}", 200] },
   () => GetTrainingDatasetRequest,
   () => GetTrainingDatasetResponse,
 ];
@@ -2450,9 +2149,7 @@ export var ListAudienceExportJobs: StaticOperationSchema = [
   9,
   n0,
   _LAEJ,
-  {
-    [_ht]: ["GET", "/audience-export-job", 200],
-  },
+  { [_ht]: ["GET", "/audience-export-job", 200] },
   () => ListAudienceExportJobsRequest,
   () => ListAudienceExportJobsResponse,
 ];
@@ -2460,9 +2157,7 @@ export var ListAudienceGenerationJobs: StaticOperationSchema = [
   9,
   n0,
   _LAGJ,
-  {
-    [_ht]: ["GET", "/audience-generation-job", 200],
-  },
+  { [_ht]: ["GET", "/audience-generation-job", 200] },
   () => ListAudienceGenerationJobsRequest,
   () => ListAudienceGenerationJobsResponse,
 ];
@@ -2470,9 +2165,7 @@ export var ListAudienceModels: StaticOperationSchema = [
   9,
   n0,
   _LAM,
-  {
-    [_ht]: ["GET", "/audience-model", 200],
-  },
+  { [_ht]: ["GET", "/audience-model", 200] },
   () => ListAudienceModelsRequest,
   () => ListAudienceModelsResponse,
 ];
@@ -2480,9 +2173,7 @@ export var ListCollaborationConfiguredModelAlgorithmAssociations: StaticOperatio
   9,
   n0,
   _LCCMAA,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/configured-model-algorithm-associations", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/configured-model-algorithm-associations", 200] },
   () => ListCollaborationConfiguredModelAlgorithmAssociationsRequest,
   () => ListCollaborationConfiguredModelAlgorithmAssociationsResponse,
 ];
@@ -2490,9 +2181,7 @@ export var ListCollaborationMLInputChannels: StaticOperationSchema = [
   9,
   n0,
   _LCMLIC,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/ml-input-channels", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/ml-input-channels", 200] },
   () => ListCollaborationMLInputChannelsRequest,
   () => ListCollaborationMLInputChannelsResponse,
 ];
@@ -2500,9 +2189,7 @@ export var ListCollaborationTrainedModelExportJobs: StaticOperationSchema = [
   9,
   n0,
   _LCTMEJ,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}/export-jobs", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-models/{trainedModelArn}/export-jobs", 200] },
   () => ListCollaborationTrainedModelExportJobsRequest,
   () => ListCollaborationTrainedModelExportJobsResponse,
 ];
@@ -2510,9 +2197,7 @@ export var ListCollaborationTrainedModelInferenceJobs: StaticOperationSchema = [
   9,
   n0,
   _LCTMIJ,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-model-inference-jobs", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-model-inference-jobs", 200] },
   () => ListCollaborationTrainedModelInferenceJobsRequest,
   () => ListCollaborationTrainedModelInferenceJobsResponse,
 ];
@@ -2520,9 +2205,7 @@ export var ListCollaborationTrainedModels: StaticOperationSchema = [
   9,
   n0,
   _LCTM,
-  {
-    [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-models", 200],
-  },
+  { [_ht]: ["GET", "/collaborations/{collaborationIdentifier}/trained-models", 200] },
   () => ListCollaborationTrainedModelsRequest,
   () => ListCollaborationTrainedModelsResponse,
 ];
@@ -2530,9 +2213,7 @@ export var ListConfiguredAudienceModels: StaticOperationSchema = [
   9,
   n0,
   _LCAM,
-  {
-    [_ht]: ["GET", "/configured-audience-model", 200],
-  },
+  { [_ht]: ["GET", "/configured-audience-model", 200] },
   () => ListConfiguredAudienceModelsRequest,
   () => ListConfiguredAudienceModelsResponse,
 ];
@@ -2540,9 +2221,7 @@ export var ListConfiguredModelAlgorithmAssociations: StaticOperationSchema = [
   9,
   n0,
   _LCMAA,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/configured-model-algorithm-associations", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/configured-model-algorithm-associations", 200] },
   () => ListConfiguredModelAlgorithmAssociationsRequest,
   () => ListConfiguredModelAlgorithmAssociationsResponse,
 ];
@@ -2550,9 +2229,7 @@ export var ListConfiguredModelAlgorithms: StaticOperationSchema = [
   9,
   n0,
   _LCMA,
-  {
-    [_ht]: ["GET", "/configured-model-algorithms", 200],
-  },
+  { [_ht]: ["GET", "/configured-model-algorithms", 200] },
   () => ListConfiguredModelAlgorithmsRequest,
   () => ListConfiguredModelAlgorithmsResponse,
 ];
@@ -2560,9 +2237,7 @@ export var ListMLInputChannels: StaticOperationSchema = [
   9,
   n0,
   _LMLIC,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/ml-input-channels", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/ml-input-channels", 200] },
   () => ListMLInputChannelsRequest,
   () => ListMLInputChannelsResponse,
 ];
@@ -2570,9 +2245,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2580,9 +2253,7 @@ export var ListTrainedModelInferenceJobs: StaticOperationSchema = [
   9,
   n0,
   _LTMIJ,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-model-inference-jobs", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-model-inference-jobs", 200] },
   () => ListTrainedModelInferenceJobsRequest,
   () => ListTrainedModelInferenceJobsResponse,
 ];
@@ -2590,9 +2261,7 @@ export var ListTrainedModels: StaticOperationSchema = [
   9,
   n0,
   _LTM,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-models", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-models", 200] },
   () => ListTrainedModelsRequest,
   () => ListTrainedModelsResponse,
 ];
@@ -2600,9 +2269,7 @@ export var ListTrainedModelVersions: StaticOperationSchema = [
   9,
   n0,
   _LTMV,
-  {
-    [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}/versions", 200],
-  },
+  { [_ht]: ["GET", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}/versions", 200] },
   () => ListTrainedModelVersionsRequest,
   () => ListTrainedModelVersionsResponse,
 ];
@@ -2610,9 +2277,7 @@ export var ListTrainingDatasets: StaticOperationSchema = [
   9,
   n0,
   _LTD,
-  {
-    [_ht]: ["GET", "/training-dataset", 200],
-  },
+  { [_ht]: ["GET", "/training-dataset", 200] },
   () => ListTrainingDatasetsRequest,
   () => ListTrainingDatasetsResponse,
 ];
@@ -2620,9 +2285,7 @@ export var PutConfiguredAudienceModelPolicy: StaticOperationSchema = [
   9,
   n0,
   _PCAMP,
-  {
-    [_ht]: ["PUT", "/configured-audience-model/{configuredAudienceModelArn}/policy", 200],
-  },
+  { [_ht]: ["PUT", "/configured-audience-model/{configuredAudienceModelArn}/policy", 200] },
   () => PutConfiguredAudienceModelPolicyRequest,
   () => PutConfiguredAudienceModelPolicyResponse,
 ];
@@ -2630,9 +2293,7 @@ export var PutMLConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PMLC,
-  {
-    [_ht]: ["PUT", "/memberships/{membershipIdentifier}/ml-configurations", 200],
-  },
+  { [_ht]: ["PUT", "/memberships/{membershipIdentifier}/ml-configurations", 200] },
   () => PutMLConfigurationRequest,
   () => __Unit,
 ];
@@ -2640,9 +2301,7 @@ export var StartAudienceExportJob: StaticOperationSchema = [
   9,
   n0,
   _SAEJ,
-  {
-    [_ht]: ["POST", "/audience-export-job", 200],
-  },
+  { [_ht]: ["POST", "/audience-export-job", 200] },
   () => StartAudienceExportJobRequest,
   () => __Unit,
 ];
@@ -2650,9 +2309,7 @@ export var StartAudienceGenerationJob: StaticOperationSchema = [
   9,
   n0,
   _SAGJ,
-  {
-    [_ht]: ["POST", "/audience-generation-job", 200],
-  },
+  { [_ht]: ["POST", "/audience-generation-job", 200] },
   () => StartAudienceGenerationJobRequest,
   () => StartAudienceGenerationJobResponse,
 ];
@@ -2660,9 +2317,7 @@ export var StartTrainedModelExportJob: StaticOperationSchema = [
   9,
   n0,
   _STMEJ,
-  {
-    [_ht]: ["POST", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}/export-jobs", 200],
-  },
+  { [_ht]: ["POST", "/memberships/{membershipIdentifier}/trained-models/{trainedModelArn}/export-jobs", 200] },
   () => StartTrainedModelExportJobRequest,
   () => __Unit,
 ];
@@ -2670,9 +2325,7 @@ export var StartTrainedModelInferenceJob: StaticOperationSchema = [
   9,
   n0,
   _STMIJ,
-  {
-    [_ht]: ["POST", "/memberships/{membershipIdentifier}/trained-model-inference-jobs", 200],
-  },
+  { [_ht]: ["POST", "/memberships/{membershipIdentifier}/trained-model-inference-jobs", 200] },
   () => StartTrainedModelInferenceJobRequest,
   () => StartTrainedModelInferenceJobResponse,
 ];
@@ -2680,9 +2333,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2690,9 +2341,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2700,9 +2349,7 @@ export var UpdateConfiguredAudienceModel: StaticOperationSchema = [
   9,
   n0,
   _UCAM,
-  {
-    [_ht]: ["PATCH", "/configured-audience-model/{configuredAudienceModelArn}", 200],
-  },
+  { [_ht]: ["PATCH", "/configured-audience-model/{configuredAudienceModelArn}", 200] },
   () => UpdateConfiguredAudienceModelRequest,
   () => UpdateConfiguredAudienceModelResponse,
 ];

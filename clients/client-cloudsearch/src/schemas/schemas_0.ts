@@ -193,7 +193,7 @@ const n0 = "com.amazonaws.cloudsearch";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -214,7 +214,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessPoliciesStatus: StaticStructureSchema = [3, n0, _APS, 0, [_O, _S], [0, () => OptionStatus]];
 export var AnalysisOptions: StaticStructureSchema = [3, n0, _AO, 0, [_Sy, _St, _SD, _JTD, _AS], [0, 0, 0, 0, 0]];
 export var AnalysisScheme: StaticStructureSchema = [3, n0, _ASn, 0, [_ASN, _ASL, _AO], [0, 0, () => AnalysisOptions]];
@@ -227,18 +226,8 @@ export var AnalysisSchemeStatus: StaticStructureSchema = [
   [() => AnalysisScheme, () => OptionStatus],
 ];
 export var AvailabilityOptionsStatus: StaticStructureSchema = [3, n0, _AOS, 0, [_O, _S], [2, () => OptionStatus]];
-export var BaseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BE,
-  {
-    [_e]: _c,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var BaseException: StaticErrorSchema = [-3, n0, _BE, { [_e]: _c }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(BaseException, __BaseException);
-
 export var BuildSuggestersRequest: StaticStructureSchema = [3, n0, _BSR, 0, [_DN], [0]];
 export var BuildSuggestersResponse: StaticStructureSchema = [3, n0, _BSRu, 0, [_FN], [64 | 0]];
 export var CreateDomainRequest: StaticStructureSchema = [3, n0, _CDR, 0, [_DN], [0]];
@@ -362,16 +351,11 @@ export var DisabledOperationException: StaticErrorSchema = [
   -3,
   n0,
   _DOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`DisabledAction`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`DisabledAction`, 409] },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(DisabledOperationException, __DisabledOperationException);
-
 export var DocumentSuggesterOptions: StaticStructureSchema = [3, n0, _DSO, 0, [_SFo, _FM, _SEor], [0, 0, 0]];
 export var DomainEndpointOptions: StaticStructureSchema = [3, n0, _DEO, 0, [_EHTTPS, _TLSSP], [2, 0]];
 export var DomainEndpointOptionsStatus: StaticStructureSchema = [
@@ -431,31 +415,21 @@ export var InternalException: StaticErrorSchema = [
   -3,
   n0,
   _IE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalException`, 500] },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
 export var IntOptions: StaticStructureSchema = [3, n0, _IO, 0, [_DV, _SFo, _FE, _SE, _RE, _SEo], [1, 0, 2, 2, 2, 2]];
 export var InvalidTypeException: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`InvalidType`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`InvalidType`, 409] },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTypeException, __InvalidTypeException);
-
 export var LatLonOptions: StaticStructureSchema = [
   3,
   n0,
@@ -468,16 +442,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`LimitExceeded`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`LimitExceeded`, 409] },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var Limits: StaticStructureSchema = [3, n0, _L, 0, [_MRC, _MPC], [1, 1]];
 export var ListDomainNamesResponse: StaticStructureSchema = [3, n0, _LDNR, 0, [_DNo], [128 | 0]];
 export var LiteralArrayOptions: StaticStructureSchema = [3, n0, _LAO, 0, [_DV, _SF, _FE, _SE, _RE], [0, 0, 2, 2, 2]];
@@ -494,30 +463,20 @@ export var ResourceAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ResourceAlreadyExists`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ResourceAlreadyExists`, 409] },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ResourceNotFound`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ResourceNotFound`, 409] },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ScalingParameters: StaticStructureSchema = [3, n0, _SP, 0, [_DIT, _DRC, _DPC], [0, 1, 1]];
 export var ScalingParametersStatus: StaticStructureSchema = [
   3,
@@ -582,39 +541,21 @@ export var UpdateServiceAccessPoliciesResponse: StaticStructureSchema = [
   [_AP],
   [() => AccessPoliciesStatus],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var CloudSearchServiceException: StaticErrorSchema = [-3, _sm, "CloudSearchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudSearchServiceException, __CloudSearchServiceException);
-
 export var AnalysisSchemeStatusList: StaticListSchema = [1, n0, _ASSL, 0, () => AnalysisSchemeStatus];
 export var DomainNameList = 64 | 0;
-
 export var DomainStatusList: StaticListSchema = [1, n0, _DSL, 0, () => DomainStatus];
 export var DynamicFieldNameList = 64 | 0;
-
 export var ExpressionStatusList: StaticListSchema = [1, n0, _ESL, 0, () => ExpressionStatus];
 export var FieldNameList = 64 | 0;
-
 export var IndexFieldStatusList: StaticListSchema = [1, n0, _IFSL, 0, () => IndexFieldStatus];
 export var StandardNameList = 64 | 0;
-
 export var SuggesterStatusList: StaticListSchema = [1, n0, _SSL, 0, () => SuggesterStatus];
 export var DomainNameMap = 128 | 0;
-
 export var BuildSuggesters: StaticOperationSchema = [
   9,
   n0,

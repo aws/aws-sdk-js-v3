@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateEvaluationFormCommand,
@@ -78,6 +78,11 @@ import {
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
 import {
+  AssociateSecurityProfilesCommand,
+  AssociateSecurityProfilesCommandInput,
+  AssociateSecurityProfilesCommandOutput,
+} from "./commands/AssociateSecurityProfilesCommand";
+import {
   AssociateTrafficDistributionGroupUserCommand,
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
@@ -88,10 +93,30 @@ import {
   AssociateUserProficienciesCommandOutput,
 } from "./commands/AssociateUserProficienciesCommand";
 import {
+  AssociateWorkspaceCommand,
+  AssociateWorkspaceCommandInput,
+  AssociateWorkspaceCommandOutput,
+} from "./commands/AssociateWorkspaceCommand";
+import {
   BatchAssociateAnalyticsDataSetCommand,
   BatchAssociateAnalyticsDataSetCommandInput,
   BatchAssociateAnalyticsDataSetCommandOutput,
 } from "./commands/BatchAssociateAnalyticsDataSetCommand";
+import {
+  BatchCreateDataTableValueCommand,
+  BatchCreateDataTableValueCommandInput,
+  BatchCreateDataTableValueCommandOutput,
+} from "./commands/BatchCreateDataTableValueCommand";
+import {
+  BatchDeleteDataTableValueCommand,
+  BatchDeleteDataTableValueCommandInput,
+  BatchDeleteDataTableValueCommandOutput,
+} from "./commands/BatchDeleteDataTableValueCommand";
+import {
+  BatchDescribeDataTableValueCommand,
+  BatchDescribeDataTableValueCommandInput,
+  BatchDescribeDataTableValueCommandOutput,
+} from "./commands/BatchDescribeDataTableValueCommand";
 import {
   BatchDisassociateAnalyticsDataSetCommand,
   BatchDisassociateAnalyticsDataSetCommandInput,
@@ -112,6 +137,11 @@ import {
   BatchPutContactCommandInput,
   BatchPutContactCommandOutput,
 } from "./commands/BatchPutContactCommand";
+import {
+  BatchUpdateDataTableValueCommand,
+  BatchUpdateDataTableValueCommandInput,
+  BatchUpdateDataTableValueCommandOutput,
+} from "./commands/BatchUpdateDataTableValueCommand";
 import {
   ClaimPhoneNumberCommand,
   ClaimPhoneNumberCommandInput,
@@ -157,6 +187,16 @@ import {
   CreateContactFlowVersionCommandInput,
   CreateContactFlowVersionCommandOutput,
 } from "./commands/CreateContactFlowVersionCommand";
+import {
+  CreateDataTableAttributeCommand,
+  CreateDataTableAttributeCommandInput,
+  CreateDataTableAttributeCommandOutput,
+} from "./commands/CreateDataTableAttributeCommand";
+import {
+  CreateDataTableCommand,
+  CreateDataTableCommandInput,
+  CreateDataTableCommandOutput,
+} from "./commands/CreateDataTableCommand";
 import {
   CreateEmailAddressCommand,
   CreateEmailAddressCommandInput,
@@ -262,6 +302,16 @@ import {
   CreateVocabularyCommandOutput,
 } from "./commands/CreateVocabularyCommand";
 import {
+  CreateWorkspaceCommand,
+  CreateWorkspaceCommandInput,
+  CreateWorkspaceCommandOutput,
+} from "./commands/CreateWorkspaceCommand";
+import {
+  CreateWorkspacePageCommand,
+  CreateWorkspacePageCommandInput,
+  CreateWorkspacePageCommandOutput,
+} from "./commands/CreateWorkspacePageCommand";
+import {
   DeactivateEvaluationFormCommand,
   DeactivateEvaluationFormCommandInput,
   DeactivateEvaluationFormCommandOutput,
@@ -301,6 +351,16 @@ import {
   DeleteContactFlowVersionCommandInput,
   DeleteContactFlowVersionCommandOutput,
 } from "./commands/DeleteContactFlowVersionCommand";
+import {
+  DeleteDataTableAttributeCommand,
+  DeleteDataTableAttributeCommandInput,
+  DeleteDataTableAttributeCommandOutput,
+} from "./commands/DeleteDataTableAttributeCommand";
+import {
+  DeleteDataTableCommand,
+  DeleteDataTableCommandInput,
+  DeleteDataTableCommandOutput,
+} from "./commands/DeleteDataTableCommand";
 import {
   DeleteEmailAddressCommand,
   DeleteEmailAddressCommandInput,
@@ -396,6 +456,21 @@ import {
   DeleteVocabularyCommandOutput,
 } from "./commands/DeleteVocabularyCommand";
 import {
+  DeleteWorkspaceCommand,
+  DeleteWorkspaceCommandInput,
+  DeleteWorkspaceCommandOutput,
+} from "./commands/DeleteWorkspaceCommand";
+import {
+  DeleteWorkspaceMediaCommand,
+  DeleteWorkspaceMediaCommandInput,
+  DeleteWorkspaceMediaCommandOutput,
+} from "./commands/DeleteWorkspaceMediaCommand";
+import {
+  DeleteWorkspacePageCommand,
+  DeleteWorkspacePageCommandInput,
+  DeleteWorkspacePageCommandOutput,
+} from "./commands/DeleteWorkspacePageCommand";
+import {
   DescribeAgentStatusCommand,
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
@@ -430,6 +505,16 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeDataTableAttributeCommand,
+  DescribeDataTableAttributeCommandInput,
+  DescribeDataTableAttributeCommandOutput,
+} from "./commands/DescribeDataTableAttributeCommand";
+import {
+  DescribeDataTableCommand,
+  DescribeDataTableCommandInput,
+  DescribeDataTableCommandOutput,
+} from "./commands/DescribeDataTableCommand";
 import {
   DescribeEmailAddressCommand,
   DescribeEmailAddressCommandInput,
@@ -536,6 +621,11 @@ import {
   DescribeVocabularyCommandOutput,
 } from "./commands/DescribeVocabularyCommand";
 import {
+  DescribeWorkspaceCommand,
+  DescribeWorkspaceCommandInput,
+  DescribeWorkspaceCommandOutput,
+} from "./commands/DescribeWorkspaceCommand";
+import {
   DisassociateAnalyticsDataSetCommand,
   DisassociateAnalyticsDataSetCommandInput,
   DisassociateAnalyticsDataSetCommandOutput,
@@ -596,6 +686,11 @@ import {
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
 import {
+  DisassociateSecurityProfilesCommand,
+  DisassociateSecurityProfilesCommandInput,
+  DisassociateSecurityProfilesCommandOutput,
+} from "./commands/DisassociateSecurityProfilesCommand";
+import {
   DisassociateTrafficDistributionGroupUserCommand,
   DisassociateTrafficDistributionGroupUserCommandInput,
   DisassociateTrafficDistributionGroupUserCommandOutput,
@@ -606,10 +701,20 @@ import {
   DisassociateUserProficienciesCommandOutput,
 } from "./commands/DisassociateUserProficienciesCommand";
 import {
+  DisassociateWorkspaceCommand,
+  DisassociateWorkspaceCommandInput,
+  DisassociateWorkspaceCommandOutput,
+} from "./commands/DisassociateWorkspaceCommand";
+import {
   DismissUserContactCommand,
   DismissUserContactCommandInput,
   DismissUserContactCommandOutput,
 } from "./commands/DismissUserContactCommand";
+import {
+  EvaluateDataTableValuesCommand,
+  EvaluateDataTableValuesCommandInput,
+  EvaluateDataTableValuesCommandOutput,
+} from "./commands/EvaluateDataTableValuesCommand";
 import {
   GetAttachedFileCommand,
   GetAttachedFileCommandInput,
@@ -681,6 +786,11 @@ import {
   ImportPhoneNumberCommandOutput,
 } from "./commands/ImportPhoneNumberCommand";
 import {
+  ImportWorkspaceMediaCommand,
+  ImportWorkspaceMediaCommandInput,
+  ImportWorkspaceMediaCommandOutput,
+} from "./commands/ImportWorkspaceMediaCommand";
+import {
   ListAgentStatusesCommand,
   ListAgentStatusesCommandInput,
   ListAgentStatusesCommandOutput,
@@ -747,10 +857,35 @@ import {
   ListContactReferencesCommandOutput,
 } from "./commands/ListContactReferencesCommand";
 import {
+  ListDataTableAttributesCommand,
+  ListDataTableAttributesCommandInput,
+  ListDataTableAttributesCommandOutput,
+} from "./commands/ListDataTableAttributesCommand";
+import {
+  ListDataTablePrimaryValuesCommand,
+  ListDataTablePrimaryValuesCommandInput,
+  ListDataTablePrimaryValuesCommandOutput,
+} from "./commands/ListDataTablePrimaryValuesCommand";
+import {
+  ListDataTablesCommand,
+  ListDataTablesCommandInput,
+  ListDataTablesCommandOutput,
+} from "./commands/ListDataTablesCommand";
+import {
+  ListDataTableValuesCommand,
+  ListDataTableValuesCommandInput,
+  ListDataTableValuesCommandOutput,
+} from "./commands/ListDataTableValuesCommand";
+import {
   ListDefaultVocabulariesCommand,
   ListDefaultVocabulariesCommandInput,
   ListDefaultVocabulariesCommandOutput,
 } from "./commands/ListDefaultVocabulariesCommand";
+import {
+  ListEntitySecurityProfilesCommand,
+  ListEntitySecurityProfilesCommandInput,
+  ListEntitySecurityProfilesCommandOutput,
+} from "./commands/ListEntitySecurityProfilesCommand";
 import {
   ListEvaluationFormsCommand,
   ListEvaluationFormsCommandInput,
@@ -861,6 +996,11 @@ import {
   ListSecurityProfileApplicationsCommandOutput,
 } from "./commands/ListSecurityProfileApplicationsCommand";
 import {
+  ListSecurityProfileFlowModulesCommand,
+  ListSecurityProfileFlowModulesCommandInput,
+  ListSecurityProfileFlowModulesCommandOutput,
+} from "./commands/ListSecurityProfileFlowModulesCommand";
+import {
   ListSecurityProfilePermissionsCommand,
   ListSecurityProfilePermissionsCommandInput,
   ListSecurityProfilePermissionsCommandOutput,
@@ -912,6 +1052,21 @@ import {
   ListViewVersionsCommandInput,
   ListViewVersionsCommandOutput,
 } from "./commands/ListViewVersionsCommand";
+import {
+  ListWorkspaceMediaCommand,
+  ListWorkspaceMediaCommandInput,
+  ListWorkspaceMediaCommandOutput,
+} from "./commands/ListWorkspaceMediaCommand";
+import {
+  ListWorkspacePagesCommand,
+  ListWorkspacePagesCommandInput,
+  ListWorkspacePagesCommandOutput,
+} from "./commands/ListWorkspacePagesCommand";
+import {
+  ListWorkspacesCommand,
+  ListWorkspacesCommandInput,
+  ListWorkspacesCommandOutput,
+} from "./commands/ListWorkspacesCommand";
 import {
   MonitorContactCommand,
   MonitorContactCommandInput,
@@ -978,6 +1133,11 @@ import {
   SearchContactsCommandOutput,
 } from "./commands/SearchContactsCommand";
 import {
+  SearchDataTablesCommand,
+  SearchDataTablesCommandInput,
+  SearchDataTablesCommandOutput,
+} from "./commands/SearchDataTablesCommand";
+import {
   SearchEmailAddressesCommand,
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
@@ -1038,11 +1198,22 @@ import {
   SearchUserHierarchyGroupsCommandOutput,
 } from "./commands/SearchUserHierarchyGroupsCommand";
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
+import { SearchViewsCommand, SearchViewsCommandInput, SearchViewsCommandOutput } from "./commands/SearchViewsCommand";
 import {
   SearchVocabulariesCommand,
   SearchVocabulariesCommandInput,
   SearchVocabulariesCommandOutput,
 } from "./commands/SearchVocabulariesCommand";
+import {
+  SearchWorkspaceAssociationsCommand,
+  SearchWorkspaceAssociationsCommandInput,
+  SearchWorkspaceAssociationsCommandOutput,
+} from "./commands/SearchWorkspaceAssociationsCommand";
+import {
+  SearchWorkspacesCommand,
+  SearchWorkspacesCommandInput,
+  SearchWorkspacesCommandOutput,
+} from "./commands/SearchWorkspacesCommand";
 import {
   SendChatIntegrationEventCommand,
   SendChatIntegrationEventCommandInput,
@@ -1068,6 +1239,11 @@ import {
   StartContactEvaluationCommandInput,
   StartContactEvaluationCommandOutput,
 } from "./commands/StartContactEvaluationCommand";
+import {
+  StartContactMediaProcessingCommand,
+  StartContactMediaProcessingCommandInput,
+  StartContactMediaProcessingCommandOutput,
+} from "./commands/StartContactMediaProcessingCommand";
 import {
   StartContactRecordingCommand,
   StartContactRecordingCommandInput,
@@ -1114,6 +1290,11 @@ import {
   StartWebRTCContactCommandOutput,
 } from "./commands/StartWebRTCContactCommand";
 import { StopContactCommand, StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import {
+  StopContactMediaProcessingCommand,
+  StopContactMediaProcessingCommandInput,
+  StopContactMediaProcessingCommandOutput,
+} from "./commands/StopContactMediaProcessingCommand";
 import {
   StopContactRecordingCommand,
   StopContactRecordingCommandInput,
@@ -1216,6 +1397,21 @@ import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
+import {
+  UpdateDataTableAttributeCommand,
+  UpdateDataTableAttributeCommandInput,
+  UpdateDataTableAttributeCommandOutput,
+} from "./commands/UpdateDataTableAttributeCommand";
+import {
+  UpdateDataTableMetadataCommand,
+  UpdateDataTableMetadataCommandInput,
+  UpdateDataTableMetadataCommandOutput,
+} from "./commands/UpdateDataTableMetadataCommand";
+import {
+  UpdateDataTablePrimaryValuesCommand,
+  UpdateDataTablePrimaryValuesCommandInput,
+  UpdateDataTablePrimaryValuesCommandOutput,
+} from "./commands/UpdateDataTablePrimaryValuesCommand";
 import {
   UpdateEmailAddressMetadataCommand,
   UpdateEmailAddressMetadataCommandInput,
@@ -1407,7 +1603,27 @@ import {
   UpdateViewMetadataCommandInput,
   UpdateViewMetadataCommandOutput,
 } from "./commands/UpdateViewMetadataCommand";
-import { ConnectClient, ConnectClientConfig } from "./ConnectClient";
+import {
+  UpdateWorkspaceMetadataCommand,
+  UpdateWorkspaceMetadataCommandInput,
+  UpdateWorkspaceMetadataCommandOutput,
+} from "./commands/UpdateWorkspaceMetadataCommand";
+import {
+  UpdateWorkspacePageCommand,
+  UpdateWorkspacePageCommandInput,
+  UpdateWorkspacePageCommandOutput,
+} from "./commands/UpdateWorkspacePageCommand";
+import {
+  UpdateWorkspaceThemeCommand,
+  UpdateWorkspaceThemeCommandInput,
+  UpdateWorkspaceThemeCommandOutput,
+} from "./commands/UpdateWorkspaceThemeCommand";
+import {
+  UpdateWorkspaceVisibilityCommand,
+  UpdateWorkspaceVisibilityCommandInput,
+  UpdateWorkspaceVisibilityCommandOutput,
+} from "./commands/UpdateWorkspaceVisibilityCommand";
+import { ConnectClient } from "./ConnectClient";
 
 const commands = {
   ActivateEvaluationFormCommand,
@@ -1425,13 +1641,19 @@ const commands = {
   AssociateQueueQuickConnectsCommand,
   AssociateRoutingProfileQueuesCommand,
   AssociateSecurityKeyCommand,
+  AssociateSecurityProfilesCommand,
   AssociateTrafficDistributionGroupUserCommand,
   AssociateUserProficienciesCommand,
+  AssociateWorkspaceCommand,
   BatchAssociateAnalyticsDataSetCommand,
+  BatchCreateDataTableValueCommand,
+  BatchDeleteDataTableValueCommand,
+  BatchDescribeDataTableValueCommand,
   BatchDisassociateAnalyticsDataSetCommand,
   BatchGetAttachedFileMetadataCommand,
   BatchGetFlowAssociationCommand,
   BatchPutContactCommand,
+  BatchUpdateDataTableValueCommand,
   ClaimPhoneNumberCommand,
   CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
@@ -1441,6 +1663,8 @@ const commands = {
   CreateContactFlowModuleAliasCommand,
   CreateContactFlowModuleVersionCommand,
   CreateContactFlowVersionCommand,
+  CreateDataTableCommand,
+  CreateDataTableAttributeCommand,
   CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
@@ -1465,6 +1689,8 @@ const commands = {
   CreateViewCommand,
   CreateViewVersionCommand,
   CreateVocabularyCommand,
+  CreateWorkspaceCommand,
+  CreateWorkspacePageCommand,
   DeactivateEvaluationFormCommand,
   DeleteAttachedFileCommand,
   DeleteContactEvaluationCommand,
@@ -1473,6 +1699,8 @@ const commands = {
   DeleteContactFlowModuleAliasCommand,
   DeleteContactFlowModuleVersionCommand,
   DeleteContactFlowVersionCommand,
+  DeleteDataTableCommand,
+  DeleteDataTableAttributeCommand,
   DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
@@ -1495,6 +1723,9 @@ const commands = {
   DeleteViewCommand,
   DeleteViewVersionCommand,
   DeleteVocabularyCommand,
+  DeleteWorkspaceCommand,
+  DeleteWorkspaceMediaCommand,
+  DeleteWorkspacePageCommand,
   DescribeAgentStatusCommand,
   DescribeAuthenticationProfileCommand,
   DescribeContactCommand,
@@ -1502,6 +1733,8 @@ const commands = {
   DescribeContactFlowCommand,
   DescribeContactFlowModuleCommand,
   DescribeContactFlowModuleAliasCommand,
+  DescribeDataTableCommand,
+  DescribeDataTableAttributeCommand,
   DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
@@ -1523,6 +1756,7 @@ const commands = {
   DescribeUserHierarchyStructureCommand,
   DescribeViewCommand,
   DescribeVocabularyCommand,
+  DescribeWorkspaceCommand,
   DisassociateAnalyticsDataSetCommand,
   DisassociateApprovedOriginCommand,
   DisassociateBotCommand,
@@ -1535,9 +1769,12 @@ const commands = {
   DisassociateQueueQuickConnectsCommand,
   DisassociateRoutingProfileQueuesCommand,
   DisassociateSecurityKeyCommand,
+  DisassociateSecurityProfilesCommand,
   DisassociateTrafficDistributionGroupUserCommand,
   DisassociateUserProficienciesCommand,
+  DisassociateWorkspaceCommand,
   DismissUserContactCommand,
+  EvaluateDataTableValuesCommand,
   GetAttachedFileCommand,
   GetContactAttributesCommand,
   GetContactMetricsCommand,
@@ -1552,6 +1789,7 @@ const commands = {
   GetTaskTemplateCommand,
   GetTrafficDistributionCommand,
   ImportPhoneNumberCommand,
+  ImportWorkspaceMediaCommand,
   ListAgentStatusesCommand,
   ListAnalyticsDataAssociationsCommand,
   ListAnalyticsDataLakeDataSetsCommand,
@@ -1566,7 +1804,12 @@ const commands = {
   ListContactFlowsCommand,
   ListContactFlowVersionsCommand,
   ListContactReferencesCommand,
+  ListDataTableAttributesCommand,
+  ListDataTablePrimaryValuesCommand,
+  ListDataTablesCommand,
+  ListDataTableValuesCommand,
   ListDefaultVocabulariesCommand,
+  ListEntitySecurityProfilesCommand,
   ListEvaluationFormsCommand,
   ListEvaluationFormVersionsCommand,
   ListFlowAssociationsCommand,
@@ -1592,6 +1835,7 @@ const commands = {
   ListRulesCommand,
   ListSecurityKeysCommand,
   ListSecurityProfileApplicationsCommand,
+  ListSecurityProfileFlowModulesCommand,
   ListSecurityProfilePermissionsCommand,
   ListSecurityProfilesCommand,
   ListTagsForResourceCommand,
@@ -1604,6 +1848,9 @@ const commands = {
   ListUsersCommand,
   ListViewsCommand,
   ListViewVersionsCommand,
+  ListWorkspaceMediaCommand,
+  ListWorkspacePagesCommand,
+  ListWorkspacesCommand,
   MonitorContactCommand,
   PauseContactCommand,
   PutUserStatusCommand,
@@ -1617,6 +1864,7 @@ const commands = {
   SearchContactFlowModulesCommand,
   SearchContactFlowsCommand,
   SearchContactsCommand,
+  SearchDataTablesCommand,
   SearchEmailAddressesCommand,
   SearchEvaluationFormsCommand,
   SearchHoursOfOperationOverridesCommand,
@@ -1630,12 +1878,16 @@ const commands = {
   SearchSecurityProfilesCommand,
   SearchUserHierarchyGroupsCommand,
   SearchUsersCommand,
+  SearchViewsCommand,
   SearchVocabulariesCommand,
+  SearchWorkspaceAssociationsCommand,
+  SearchWorkspacesCommand,
   SendChatIntegrationEventCommand,
   SendOutboundEmailCommand,
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactEvaluationCommand,
+  StartContactMediaProcessingCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
   StartEmailContactCommand,
@@ -1646,6 +1898,7 @@ const commands = {
   StartTaskContactCommand,
   StartWebRTCContactCommand,
   StopContactCommand,
+  StopContactMediaProcessingCommand,
   StopContactRecordingCommand,
   StopContactStreamingCommand,
   SubmitContactEvaluationCommand,
@@ -1668,6 +1921,9 @@ const commands = {
   UpdateContactFlowNameCommand,
   UpdateContactRoutingDataCommand,
   UpdateContactScheduleCommand,
+  UpdateDataTableAttributeCommand,
+  UpdateDataTableMetadataCommand,
+  UpdateDataTablePrimaryValuesCommand,
   UpdateEmailAddressMetadataCommand,
   UpdateEvaluationFormCommand,
   UpdateHoursOfOperationCommand,
@@ -1707,6 +1963,10 @@ const commands = {
   UpdateUserSecurityProfilesCommand,
   UpdateViewContentCommand,
   UpdateViewMetadataCommand,
+  UpdateWorkspaceMetadataCommand,
+  UpdateWorkspacePageCommand,
+  UpdateWorkspaceThemeCommand,
+  UpdateWorkspaceVisibilityCommand,
 };
 
 export interface Connect {
@@ -1951,6 +2211,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link AssociateSecurityProfilesCommand}
+   */
+  associateSecurityProfiles(
+    args: AssociateSecurityProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSecurityProfilesCommandOutput>;
+  associateSecurityProfiles(
+    args: AssociateSecurityProfilesCommandInput,
+    cb: (err: any, data?: AssociateSecurityProfilesCommandOutput) => void
+  ): void;
+  associateSecurityProfiles(
+    args: AssociateSecurityProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSecurityProfilesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link AssociateTrafficDistributionGroupUserCommand}
    */
   associateTrafficDistributionGroupUser(
@@ -1985,6 +2262,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link AssociateWorkspaceCommand}
+   */
+  associateWorkspace(
+    args: AssociateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateWorkspaceCommandOutput>;
+  associateWorkspace(
+    args: AssociateWorkspaceCommandInput,
+    cb: (err: any, data?: AssociateWorkspaceCommandOutput) => void
+  ): void;
+  associateWorkspace(
+    args: AssociateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchAssociateAnalyticsDataSetCommand}
    */
   batchAssociateAnalyticsDataSet(
@@ -1999,6 +2293,57 @@ export interface Connect {
     args: BatchAssociateAnalyticsDataSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchAssociateAnalyticsDataSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateDataTableValueCommand}
+   */
+  batchCreateDataTableValue(
+    args: BatchCreateDataTableValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateDataTableValueCommandOutput>;
+  batchCreateDataTableValue(
+    args: BatchCreateDataTableValueCommandInput,
+    cb: (err: any, data?: BatchCreateDataTableValueCommandOutput) => void
+  ): void;
+  batchCreateDataTableValue(
+    args: BatchCreateDataTableValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateDataTableValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteDataTableValueCommand}
+   */
+  batchDeleteDataTableValue(
+    args: BatchDeleteDataTableValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteDataTableValueCommandOutput>;
+  batchDeleteDataTableValue(
+    args: BatchDeleteDataTableValueCommandInput,
+    cb: (err: any, data?: BatchDeleteDataTableValueCommandOutput) => void
+  ): void;
+  batchDeleteDataTableValue(
+    args: BatchDeleteDataTableValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteDataTableValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDescribeDataTableValueCommand}
+   */
+  batchDescribeDataTableValue(
+    args: BatchDescribeDataTableValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDescribeDataTableValueCommandOutput>;
+  batchDescribeDataTableValue(
+    args: BatchDescribeDataTableValueCommandInput,
+    cb: (err: any, data?: BatchDescribeDataTableValueCommandOutput) => void
+  ): void;
+  batchDescribeDataTableValue(
+    args: BatchDescribeDataTableValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDescribeDataTableValueCommandOutput) => void
   ): void;
 
   /**
@@ -2064,6 +2409,23 @@ export interface Connect {
     args: BatchPutContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchPutContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateDataTableValueCommand}
+   */
+  batchUpdateDataTableValue(
+    args: BatchUpdateDataTableValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateDataTableValueCommandOutput>;
+  batchUpdateDataTableValue(
+    args: BatchUpdateDataTableValueCommandInput,
+    cb: (err: any, data?: BatchUpdateDataTableValueCommandOutput) => void
+  ): void;
+  batchUpdateDataTableValue(
+    args: BatchUpdateDataTableValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateDataTableValueCommandOutput) => void
   ): void;
 
   /**
@@ -2211,6 +2573,37 @@ export interface Connect {
     args: CreateContactFlowVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataTableCommand}
+   */
+  createDataTable(
+    args: CreateDataTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataTableCommandOutput>;
+  createDataTable(args: CreateDataTableCommandInput, cb: (err: any, data?: CreateDataTableCommandOutput) => void): void;
+  createDataTable(
+    args: CreateDataTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataTableAttributeCommand}
+   */
+  createDataTableAttribute(
+    args: CreateDataTableAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataTableAttributeCommandOutput>;
+  createDataTableAttribute(
+    args: CreateDataTableAttributeCommandInput,
+    cb: (err: any, data?: CreateDataTableAttributeCommandOutput) => void
+  ): void;
+  createDataTableAttribute(
+    args: CreateDataTableAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataTableAttributeCommandOutput) => void
   ): void;
 
   /**
@@ -2583,6 +2976,37 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateWorkspaceCommand}
+   */
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceCommandOutput>;
+  createWorkspace(args: CreateWorkspaceCommandInput, cb: (err: any, data?: CreateWorkspaceCommandOutput) => void): void;
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkspacePageCommand}
+   */
+  createWorkspacePage(
+    args: CreateWorkspacePageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspacePageCommandOutput>;
+  createWorkspacePage(
+    args: CreateWorkspacePageCommandInput,
+    cb: (err: any, data?: CreateWorkspacePageCommandOutput) => void
+  ): void;
+  createWorkspacePage(
+    args: CreateWorkspacePageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspacePageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeactivateEvaluationFormCommand}
    */
   deactivateEvaluationForm(
@@ -2716,6 +3140,37 @@ export interface Connect {
     args: DeleteContactFlowVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteContactFlowVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataTableCommand}
+   */
+  deleteDataTable(
+    args: DeleteDataTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataTableCommandOutput>;
+  deleteDataTable(args: DeleteDataTableCommandInput, cb: (err: any, data?: DeleteDataTableCommandOutput) => void): void;
+  deleteDataTable(
+    args: DeleteDataTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataTableAttributeCommand}
+   */
+  deleteDataTableAttribute(
+    args: DeleteDataTableAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataTableAttributeCommandOutput>;
+  deleteDataTableAttribute(
+    args: DeleteDataTableAttributeCommandInput,
+    cb: (err: any, data?: DeleteDataTableAttributeCommandOutput) => void
+  ): void;
+  deleteDataTableAttribute(
+    args: DeleteDataTableAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataTableAttributeCommandOutput) => void
   ): void;
 
   /**
@@ -3054,6 +3509,54 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteWorkspaceCommand}
+   */
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceCommandOutput>;
+  deleteWorkspace(args: DeleteWorkspaceCommandInput, cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void): void;
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkspaceMediaCommand}
+   */
+  deleteWorkspaceMedia(
+    args: DeleteWorkspaceMediaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceMediaCommandOutput>;
+  deleteWorkspaceMedia(
+    args: DeleteWorkspaceMediaCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceMediaCommandOutput) => void
+  ): void;
+  deleteWorkspaceMedia(
+    args: DeleteWorkspaceMediaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceMediaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkspacePageCommand}
+   */
+  deleteWorkspacePage(
+    args: DeleteWorkspacePageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspacePageCommandOutput>;
+  deleteWorkspacePage(
+    args: DeleteWorkspacePageCommandInput,
+    cb: (err: any, data?: DeleteWorkspacePageCommandOutput) => void
+  ): void;
+  deleteWorkspacePage(
+    args: DeleteWorkspacePageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspacePageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAgentStatusCommand}
    */
   describeAgentStatus(
@@ -3167,6 +3670,40 @@ export interface Connect {
     args: DescribeContactFlowModuleAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContactFlowModuleAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDataTableCommand}
+   */
+  describeDataTable(
+    args: DescribeDataTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataTableCommandOutput>;
+  describeDataTable(
+    args: DescribeDataTableCommandInput,
+    cb: (err: any, data?: DescribeDataTableCommandOutput) => void
+  ): void;
+  describeDataTable(
+    args: DescribeDataTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDataTableAttributeCommand}
+   */
+  describeDataTableAttribute(
+    args: DescribeDataTableAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataTableAttributeCommandOutput>;
+  describeDataTableAttribute(
+    args: DescribeDataTableAttributeCommandInput,
+    cb: (err: any, data?: DescribeDataTableAttributeCommandOutput) => void
+  ): void;
+  describeDataTableAttribute(
+    args: DescribeDataTableAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataTableAttributeCommandOutput) => void
   ): void;
 
   /**
@@ -3500,6 +4037,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DescribeWorkspaceCommand}
+   */
+  describeWorkspace(
+    args: DescribeWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceCommandOutput>;
+  describeWorkspace(
+    args: DescribeWorkspaceCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
+  ): void;
+  describeWorkspace(
+    args: DescribeWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateAnalyticsDataSetCommand}
    */
   disassociateAnalyticsDataSet(
@@ -3701,6 +4255,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DisassociateSecurityProfilesCommand}
+   */
+  disassociateSecurityProfiles(
+    args: DisassociateSecurityProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSecurityProfilesCommandOutput>;
+  disassociateSecurityProfiles(
+    args: DisassociateSecurityProfilesCommandInput,
+    cb: (err: any, data?: DisassociateSecurityProfilesCommandOutput) => void
+  ): void;
+  disassociateSecurityProfiles(
+    args: DisassociateSecurityProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSecurityProfilesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateTrafficDistributionGroupUserCommand}
    */
   disassociateTrafficDistributionGroupUser(
@@ -3735,6 +4306,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DisassociateWorkspaceCommand}
+   */
+  disassociateWorkspace(
+    args: DisassociateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateWorkspaceCommandOutput>;
+  disassociateWorkspace(
+    args: DisassociateWorkspaceCommandInput,
+    cb: (err: any, data?: DisassociateWorkspaceCommandOutput) => void
+  ): void;
+  disassociateWorkspace(
+    args: DisassociateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DismissUserContactCommand}
    */
   dismissUserContact(
@@ -3749,6 +4337,23 @@ export interface Connect {
     args: DismissUserContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EvaluateDataTableValuesCommand}
+   */
+  evaluateDataTableValues(
+    args: EvaluateDataTableValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EvaluateDataTableValuesCommandOutput>;
+  evaluateDataTableValues(
+    args: EvaluateDataTableValuesCommandInput,
+    cb: (err: any, data?: EvaluateDataTableValuesCommandOutput) => void
+  ): void;
+  evaluateDataTableValues(
+    args: EvaluateDataTableValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EvaluateDataTableValuesCommandOutput) => void
   ): void;
 
   /**
@@ -3966,6 +4571,23 @@ export interface Connect {
     args: ImportPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportPhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportWorkspaceMediaCommand}
+   */
+  importWorkspaceMedia(
+    args: ImportWorkspaceMediaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportWorkspaceMediaCommandOutput>;
+  importWorkspaceMedia(
+    args: ImportWorkspaceMediaCommandInput,
+    cb: (err: any, data?: ImportWorkspaceMediaCommandOutput) => void
+  ): void;
+  importWorkspaceMedia(
+    args: ImportWorkspaceMediaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportWorkspaceMediaCommandOutput) => void
   ): void;
 
   /**
@@ -4201,6 +4823,71 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListDataTableAttributesCommand}
+   */
+  listDataTableAttributes(
+    args: ListDataTableAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTableAttributesCommandOutput>;
+  listDataTableAttributes(
+    args: ListDataTableAttributesCommandInput,
+    cb: (err: any, data?: ListDataTableAttributesCommandOutput) => void
+  ): void;
+  listDataTableAttributes(
+    args: ListDataTableAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTableAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTablePrimaryValuesCommand}
+   */
+  listDataTablePrimaryValues(
+    args: ListDataTablePrimaryValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTablePrimaryValuesCommandOutput>;
+  listDataTablePrimaryValues(
+    args: ListDataTablePrimaryValuesCommandInput,
+    cb: (err: any, data?: ListDataTablePrimaryValuesCommandOutput) => void
+  ): void;
+  listDataTablePrimaryValues(
+    args: ListDataTablePrimaryValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTablePrimaryValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTablesCommand}
+   */
+  listDataTables(
+    args: ListDataTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTablesCommandOutput>;
+  listDataTables(args: ListDataTablesCommandInput, cb: (err: any, data?: ListDataTablesCommandOutput) => void): void;
+  listDataTables(
+    args: ListDataTablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTablesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTableValuesCommand}
+   */
+  listDataTableValues(
+    args: ListDataTableValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTableValuesCommandOutput>;
+  listDataTableValues(
+    args: ListDataTableValuesCommandInput,
+    cb: (err: any, data?: ListDataTableValuesCommandOutput) => void
+  ): void;
+  listDataTableValues(
+    args: ListDataTableValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTableValuesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDefaultVocabulariesCommand}
    */
   listDefaultVocabularies(
@@ -4215,6 +4902,23 @@ export interface Connect {
     args: ListDefaultVocabulariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDefaultVocabulariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEntitySecurityProfilesCommand}
+   */
+  listEntitySecurityProfiles(
+    args: ListEntitySecurityProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntitySecurityProfilesCommandOutput>;
+  listEntitySecurityProfiles(
+    args: ListEntitySecurityProfilesCommandInput,
+    cb: (err: any, data?: ListEntitySecurityProfilesCommandOutput) => void
+  ): void;
+  listEntitySecurityProfiles(
+    args: ListEntitySecurityProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntitySecurityProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -4615,6 +5319,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListSecurityProfileFlowModulesCommand}
+   */
+  listSecurityProfileFlowModules(
+    args: ListSecurityProfileFlowModulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityProfileFlowModulesCommandOutput>;
+  listSecurityProfileFlowModules(
+    args: ListSecurityProfileFlowModulesCommandInput,
+    cb: (err: any, data?: ListSecurityProfileFlowModulesCommandOutput) => void
+  ): void;
+  listSecurityProfileFlowModules(
+    args: ListSecurityProfileFlowModulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityProfileFlowModulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSecurityProfilePermissionsCommand}
    */
   listSecurityProfilePermissions(
@@ -4799,6 +5520,54 @@ export interface Connect {
     args: ListViewVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListViewVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspaceMediaCommand}
+   */
+  listWorkspaceMedia(
+    args: ListWorkspaceMediaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspaceMediaCommandOutput>;
+  listWorkspaceMedia(
+    args: ListWorkspaceMediaCommandInput,
+    cb: (err: any, data?: ListWorkspaceMediaCommandOutput) => void
+  ): void;
+  listWorkspaceMedia(
+    args: ListWorkspaceMediaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspaceMediaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspacePagesCommand}
+   */
+  listWorkspacePages(
+    args: ListWorkspacePagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspacePagesCommandOutput>;
+  listWorkspacePages(
+    args: ListWorkspacePagesCommandInput,
+    cb: (err: any, data?: ListWorkspacePagesCommandOutput) => void
+  ): void;
+  listWorkspacePages(
+    args: ListWorkspacePagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspacePagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   */
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspacesCommandOutput>;
+  listWorkspaces(args: ListWorkspacesCommandInput, cb: (err: any, data?: ListWorkspacesCommandOutput) => void): void;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
   ): void;
 
   /**
@@ -4996,6 +5765,23 @@ export interface Connect {
     args: SearchContactsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchContactsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchDataTablesCommand}
+   */
+  searchDataTables(
+    args: SearchDataTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchDataTablesCommandOutput>;
+  searchDataTables(
+    args: SearchDataTablesCommandInput,
+    cb: (err: any, data?: SearchDataTablesCommandOutput) => void
+  ): void;
+  searchDataTables(
+    args: SearchDataTablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchDataTablesCommandOutput) => void
   ): void;
 
   /**
@@ -5202,6 +5988,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchViewsCommand}
+   */
+  searchViews(args: SearchViewsCommandInput, options?: __HttpHandlerOptions): Promise<SearchViewsCommandOutput>;
+  searchViews(args: SearchViewsCommandInput, cb: (err: any, data?: SearchViewsCommandOutput) => void): void;
+  searchViews(
+    args: SearchViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchViewsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchVocabulariesCommand}
    */
   searchVocabularies(
@@ -5216,6 +6013,40 @@ export interface Connect {
     args: SearchVocabulariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchVocabulariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchWorkspaceAssociationsCommand}
+   */
+  searchWorkspaceAssociations(
+    args: SearchWorkspaceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchWorkspaceAssociationsCommandOutput>;
+  searchWorkspaceAssociations(
+    args: SearchWorkspaceAssociationsCommandInput,
+    cb: (err: any, data?: SearchWorkspaceAssociationsCommandOutput) => void
+  ): void;
+  searchWorkspaceAssociations(
+    args: SearchWorkspaceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchWorkspaceAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchWorkspacesCommand}
+   */
+  searchWorkspaces(
+    args: SearchWorkspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchWorkspacesCommandOutput>;
+  searchWorkspaces(
+    args: SearchWorkspacesCommandInput,
+    cb: (err: any, data?: SearchWorkspacesCommandOutput) => void
+  ): void;
+  searchWorkspaces(
+    args: SearchWorkspacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchWorkspacesCommandOutput) => void
   ): void;
 
   /**
@@ -5301,6 +6132,24 @@ export interface Connect {
     args: StartContactEvaluationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartContactEvaluationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartContactMediaProcessingCommand}
+   */
+  startContactMediaProcessing(): Promise<StartContactMediaProcessingCommandOutput>;
+  startContactMediaProcessing(
+    args: StartContactMediaProcessingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartContactMediaProcessingCommandOutput>;
+  startContactMediaProcessing(
+    args: StartContactMediaProcessingCommandInput,
+    cb: (err: any, data?: StartContactMediaProcessingCommandOutput) => void
+  ): void;
+  startContactMediaProcessing(
+    args: StartContactMediaProcessingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartContactMediaProcessingCommandOutput) => void
   ): void;
 
   /**
@@ -5465,6 +6314,24 @@ export interface Connect {
     args: StopContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopContactMediaProcessingCommand}
+   */
+  stopContactMediaProcessing(): Promise<StopContactMediaProcessingCommandOutput>;
+  stopContactMediaProcessing(
+    args: StopContactMediaProcessingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopContactMediaProcessingCommandOutput>;
+  stopContactMediaProcessing(
+    args: StopContactMediaProcessingCommandInput,
+    cb: (err: any, data?: StopContactMediaProcessingCommandOutput) => void
+  ): void;
+  stopContactMediaProcessing(
+    args: StopContactMediaProcessingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopContactMediaProcessingCommandOutput) => void
   ): void;
 
   /**
@@ -5806,6 +6673,57 @@ export interface Connect {
     args: UpdateContactScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContactScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataTableAttributeCommand}
+   */
+  updateDataTableAttribute(
+    args: UpdateDataTableAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataTableAttributeCommandOutput>;
+  updateDataTableAttribute(
+    args: UpdateDataTableAttributeCommandInput,
+    cb: (err: any, data?: UpdateDataTableAttributeCommandOutput) => void
+  ): void;
+  updateDataTableAttribute(
+    args: UpdateDataTableAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataTableAttributeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataTableMetadataCommand}
+   */
+  updateDataTableMetadata(
+    args: UpdateDataTableMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataTableMetadataCommandOutput>;
+  updateDataTableMetadata(
+    args: UpdateDataTableMetadataCommandInput,
+    cb: (err: any, data?: UpdateDataTableMetadataCommandOutput) => void
+  ): void;
+  updateDataTableMetadata(
+    args: UpdateDataTableMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataTableMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataTablePrimaryValuesCommand}
+   */
+  updateDataTablePrimaryValues(
+    args: UpdateDataTablePrimaryValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataTablePrimaryValuesCommandOutput>;
+  updateDataTablePrimaryValues(
+    args: UpdateDataTablePrimaryValuesCommandInput,
+    cb: (err: any, data?: UpdateDataTablePrimaryValuesCommandOutput) => void
+  ): void;
+  updateDataTablePrimaryValues(
+    args: UpdateDataTablePrimaryValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataTablePrimaryValuesCommandOutput) => void
   ): void;
 
   /**
@@ -6455,6 +7373,74 @@ export interface Connect {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateViewMetadataCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceMetadataCommand}
+   */
+  updateWorkspaceMetadata(
+    args: UpdateWorkspaceMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceMetadataCommandOutput>;
+  updateWorkspaceMetadata(
+    args: UpdateWorkspaceMetadataCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceMetadataCommandOutput) => void
+  ): void;
+  updateWorkspaceMetadata(
+    args: UpdateWorkspaceMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspacePageCommand}
+   */
+  updateWorkspacePage(
+    args: UpdateWorkspacePageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspacePageCommandOutput>;
+  updateWorkspacePage(
+    args: UpdateWorkspacePageCommandInput,
+    cb: (err: any, data?: UpdateWorkspacePageCommandOutput) => void
+  ): void;
+  updateWorkspacePage(
+    args: UpdateWorkspacePageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspacePageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceThemeCommand}
+   */
+  updateWorkspaceTheme(
+    args: UpdateWorkspaceThemeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceThemeCommandOutput>;
+  updateWorkspaceTheme(
+    args: UpdateWorkspaceThemeCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceThemeCommandOutput) => void
+  ): void;
+  updateWorkspaceTheme(
+    args: UpdateWorkspaceThemeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceThemeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceVisibilityCommand}
+   */
+  updateWorkspaceVisibility(
+    args: UpdateWorkspaceVisibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceVisibilityCommandOutput>;
+  updateWorkspaceVisibility(
+    args: UpdateWorkspaceVisibilityCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceVisibilityCommandOutput) => void
+  ): void;
+  updateWorkspaceVisibility(
+    args: UpdateWorkspaceVisibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceVisibilityCommandOutput) => void
+  ): void;
 }
 
 /**
@@ -6466,22 +7452,19 @@ export interface Connect {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect
- *       data types</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect data types</a>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
- *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
- *    contact routing. You can also resolve customer issues more efficiently by getting customers in
- *    touch with the appropriate agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create. There
- *    are also limits to the number of requests that you can make per second. For more information, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
- *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
- *    list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+ *          <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact
+ *    center and provide reliable customer engagement at any scale.</p>
+ *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can
+ *    also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the
+ *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *     Endpoints</a>.</p>
  * @public
  */
 export class Connect extends ConnectClient implements Connect {}

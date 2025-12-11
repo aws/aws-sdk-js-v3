@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
+import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetContactInformationRequest, GetContactInformationResponse } from "../models/models_0";
+import type { GetContactInformationRequest, GetContactInformationResponse } from "../models/models_0";
 import { GetContactInformation } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface GetContactInformationCommandInput extends GetContactInformation
 export interface GetContactInformationCommandOutput extends GetContactInformationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the primary contact information of an Amazon Web Services account.</p> <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update the primary and alternate contact information</a>.</p>
+ * <p>Retrieves the primary contact information of an Amazon Web Services account.</p> <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html">Update the primary contact for your Amazon Web Services account</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

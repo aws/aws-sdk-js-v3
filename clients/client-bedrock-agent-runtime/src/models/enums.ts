@@ -382,9 +382,11 @@ export type RetrievalResultContentColumnType =
  * @enum
  */
 export const RetrievalResultContentType = {
+  AUDIO: "AUDIO",
   IMAGE: "IMAGE",
   ROW: "ROW",
   TEXT: "TEXT",
+  VIDEO: "VIDEO",
 } as const;
 /**
  * @public
@@ -891,6 +893,34 @@ export const GuadrailAction = {
  * @public
  */
 export type GuadrailAction = (typeof GuadrailAction)[keyof typeof GuadrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputImageFormat = {
+  gif: "gif",
+  jpeg: "jpeg",
+  png: "png",
+  webp: "webp",
+} as const;
+/**
+ * @public
+ */
+export type InputImageFormat = (typeof InputImageFormat)[keyof typeof InputImageFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseQueryType = {
+  IMAGE: "IMAGE",
+  TEXT: "TEXT",
+} as const;
+/**
+ * @public
+ */
+export type KnowledgeBaseQueryType = (typeof KnowledgeBaseQueryType)[keyof typeof KnowledgeBaseQueryType];
 
 /**
  * @public

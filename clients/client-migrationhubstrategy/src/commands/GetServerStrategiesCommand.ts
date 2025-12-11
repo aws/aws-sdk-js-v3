@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   MigrationHubStrategyClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import { GetServerStrategiesRequest, GetServerStrategiesResponse } from "../models/models_0";
+import type { GetServerStrategiesRequest, GetServerStrategiesResponse } from "../models/models_0";
 import { GetServerStrategies } from "../schemas/schemas_0";
 
 /**

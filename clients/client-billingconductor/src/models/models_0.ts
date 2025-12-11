@@ -805,7 +805,13 @@ export interface LineItemFilter {
    * <p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plans discounts.</p>
    * @public
    */
-  Values: LineItemFilterValue[] | undefined;
+  Values?: LineItemFilterValue[] | undefined;
+
+  /**
+   * <p>The values of the line item filter. This specifies the values to filter on.</p>
+   * @public
+   */
+  AttributeValues?: string[] | undefined;
 }
 
 /**

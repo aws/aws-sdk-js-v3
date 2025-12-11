@@ -1,6 +1,7 @@
 // smithy-typescript generated code
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 /**
  * For some reason, this service does not like palindromes!

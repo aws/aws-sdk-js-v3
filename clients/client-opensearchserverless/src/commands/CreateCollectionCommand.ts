@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
-import {
+import type { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
+import type {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -51,6 +51,9 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *     },
  *   ],
  *   standbyReplicas: "STRING_VALUE",
+ *   vectorOptions: { // VectorOptions
+ *     ServerlessVectorAcceleration: "STRING_VALUE", // required
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateCollectionCommand(input);
@@ -65,6 +68,9 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * //     arn: "STRING_VALUE",
  * //     kmsKeyArn: "STRING_VALUE",
  * //     standbyReplicas: "STRING_VALUE",
+ * //     vectorOptions: { // VectorOptions
+ * //       ServerlessVectorAcceleration: "STRING_VALUE", // required
+ * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
  * //   },

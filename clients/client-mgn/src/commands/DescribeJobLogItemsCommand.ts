@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DescribeJobLogItemsRequest, DescribeJobLogItemsResponse } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { DescribeJobLogItemsRequest, DescribeJobLogItemsResponse } from "../models/models_0";
 import { DescribeJobLogItems } from "../schemas/schemas_0";
 
 /**
@@ -54,6 +54,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * //         conversionServerID: "STRING_VALUE",
  * //         targetInstanceID: "STRING_VALUE",
  * //         rawError: "STRING_VALUE",
+ * //         attemptCount: Number("int"),
+ * //         maxAttemptsCount: Number("int"),
  * //       },
  * //     },
  * //   ],

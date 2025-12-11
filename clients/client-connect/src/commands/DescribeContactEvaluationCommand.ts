@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContactEvaluationRequest } from "../models/models_0";
-import { DescribeContactEvaluationResponse } from "../models/models_3";
+import type { DescribeContactEvaluationRequest } from "../models/models_1";
+import type { DescribeContactEvaluationResponse } from "../models/models_3";
 import { DescribeContactEvaluation } from "../schemas/schemas_0";
 
 /**
@@ -56,6 +56,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //         Percentage: Number("double"),
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
+ * //         AppliedWeight: Number("double"),
  * //       },
  * //       AutoEvaluation: { // AutoEvaluationDetails
  * //         AutoEvaluationEnabled: true || false, // required
@@ -66,17 +67,30 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //         AcknowledgedBy: "STRING_VALUE", // required
  * //         AcknowledgerComment: "STRING_VALUE",
  * //       },
+ * //       ContactParticipant: { // EvaluationContactParticipant
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantId: "STRING_VALUE",
+ * //       },
+ * //       SamplingJobId: "STRING_VALUE",
  * //     },
  * //     Answers: { // EvaluationAnswersOutputMap // required
  * //       "<keys>": { // EvaluationAnswerOutput
  * //         Value: { // EvaluationAnswerData Union: only one key present
  * //           StringValue: "STRING_VALUE",
  * //           NumericValue: Number("double"),
+ * //           StringValues: [ // EvaluationAnswerDataStringValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DateTimeValue: "STRING_VALUE",
  * //           NotApplicable: true || false,
  * //         },
  * //         SystemSuggestedValue: {//  Union: only one key present
  * //           StringValue: "STRING_VALUE",
  * //           NumericValue: Number("double"),
+ * //           StringValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DateTimeValue: "STRING_VALUE",
  * //           NotApplicable: true || false,
  * //         },
  * //         SuggestedAnswers: [ // EvaluationSuggestedAnswersList
@@ -84,6 +98,10 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //             Value: {//  Union: only one key present
  * //               StringValue: "STRING_VALUE",
  * //               NumericValue: Number("double"),
+ * //               StringValues: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               DateTimeValue: "STRING_VALUE",
  * //               NotApplicable: true || false,
  * //             },
  * //             Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED", // required
@@ -135,6 +153,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //         Percentage: Number("double"),
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
+ * //         AppliedWeight: Number("double"),
  * //       },
  * //     },
  * //     CreatedTime: new Date("TIMESTAMP"), // required
@@ -170,7 +189,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                 Instructions: "STRING_VALUE",
  * //                 RefId: "STRING_VALUE", // required
  * //                 NotApplicableEnabled: true || false,
- * //                 QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC", // required
+ * //                 QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC" || "MULTISELECT" || "DATETIME", // required
  * //                 QuestionTypeProperties: { // EvaluationFormQuestionTypeProperties Union: only one key present
  * //                   Numeric: { // EvaluationFormNumericQuestionProperties
  * //                     MinValue: Number("int"), // required
@@ -188,7 +207,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                     ],
  * //                     Automation: { // EvaluationFormNumericQuestionAutomation Union: only one key present
  * //                       PropertyValue: { // NumericQuestionPropertyValueAutomation
- * //                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ * //                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT" || "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
  * //                       },
  * //                       AnswerSource: { // EvaluationFormQuestionAutomationAnswerSource
  * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
@@ -231,6 +250,34 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                       },
  * //                     },
  * //                   },
+ * //                   MultiSelect: { // EvaluationFormMultiSelectQuestionProperties
+ * //                     Options: [ // EvaluationFormMultiSelectQuestionOptionList // required
+ * //                       { // EvaluationFormMultiSelectQuestionOption
+ * //                         RefId: "STRING_VALUE", // required
+ * //                         Text: "STRING_VALUE", // required
+ * //                       },
+ * //                     ],
+ * //                     DisplayAs: "DROPDOWN" || "CHECKBOX",
+ * //                     Automation: { // EvaluationFormMultiSelectQuestionAutomation
+ * //                       Options: [ // EvaluationFormMultiSelectQuestionAutomationOptionList
+ * //                         { // EvaluationFormMultiSelectQuestionAutomationOption Union: only one key present
+ * //                           RuleCategory: { // MultiSelectQuestionRuleCategoryAutomation
+ * //                             Category: "STRING_VALUE", // required
+ * //                             Condition: "PRESENT" || "NOT_PRESENT", // required
+ * //                             OptionRefIds: [ // ReferenceIdList // required
+ * //                               "STRING_VALUE",
+ * //                             ],
+ * //                           },
+ * //                         },
+ * //                       ],
+ * //                       DefaultOptionRefIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       AnswerSource: {
+ * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ * //                       },
+ * //                     },
+ * //                   },
  * //                 },
  * //                 Enablement: { // EvaluationFormItemEnablementConfiguration
  * //                   Condition: { // EvaluationFormItemEnablementCondition
@@ -247,7 +294,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                               RefId: "STRING_VALUE",
  * //                             },
  * //                           ],
- * //                           Comparator: "IN" || "NOT_IN", // required
+ * //                           Comparator: "IN" || "NOT_IN" || "ALL_IN" || "EXACT", // required
  * //                         },
  * //                         Condition: {
  * //                           Operands: [ // required
@@ -263,7 +310,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                                     RefId: "STRING_VALUE",
  * //                                   },
  * //                                 ],
- * //                                 Comparator: "IN" || "NOT_IN", // required
+ * //                                 Comparator: "IN" || "NOT_IN" || "ALL_IN" || "EXACT", // required
  * //                               },
  * //                               Condition: "<EvaluationFormItemEnablementCondition>",
  * //                             },
@@ -288,7 +335,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //           Instructions: "STRING_VALUE",
  * //           RefId: "STRING_VALUE", // required
  * //           NotApplicableEnabled: true || false,
- * //           QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC", // required
+ * //           QuestionType: "TEXT" || "SINGLESELECT" || "NUMERIC" || "MULTISELECT" || "DATETIME", // required
  * //           QuestionTypeProperties: {//  Union: only one key present
  * //             Numeric: {
  * //               MinValue: Number("int"), // required
@@ -306,7 +353,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //               ],
  * //               Automation: {//  Union: only one key present
  * //                 PropertyValue: {
- * //                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ * //                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT" || "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
  * //                 },
  * //                 AnswerSource: {
  * //                   SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
@@ -337,13 +384,35 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                   },
  * //                 ],
  * //                 DefaultOptionRefId: "STRING_VALUE",
- * //                 AnswerSource: {
- * //                   SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
- * //                 },
+ * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
  * //               },
  * //             },
  * //             Text: {
  * //               Automation: {
+ * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
+ * //               },
+ * //             },
+ * //             MultiSelect: {
+ * //               Options: [ // required
+ * //                 {
+ * //                   RefId: "STRING_VALUE", // required
+ * //                   Text: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               DisplayAs: "DROPDOWN" || "CHECKBOX",
+ * //               Automation: {
+ * //                 Options: [
+ * //                   {//  Union: only one key present
+ * //                     RuleCategory: {
+ * //                       Category: "STRING_VALUE", // required
+ * //                       Condition: "PRESENT" || "NOT_PRESENT", // required
+ * //                       OptionRefIds: [ // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 DefaultOptionRefIds: "<ReferenceIdList>",
  * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
  * //               },
  * //             },
@@ -363,6 +432,12 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //     },
  * //     AutoEvaluationConfiguration: { // EvaluationFormAutoEvaluationConfiguration
  * //       Enabled: true || false, // required
+ * //     },
+ * //     TargetConfiguration: { // EvaluationFormTargetConfiguration
+ * //       ContactInteractionType: "AGENT" || "AUTOMATED", // required
+ * //     },
+ * //     LanguageConfiguration: { // EvaluationFormLanguageConfiguration
+ * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
  * //     },
  * //   },
  * // };

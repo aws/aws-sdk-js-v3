@@ -160,7 +160,7 @@ const n0 = "com.amazonaws.chimesdkmeetings";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -185,7 +185,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Arn: StaticSimpleSchema = [0, n0, _A, 8, 0];
 export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 export var ExternalMeetingId: StaticSimpleSchema = [0, n0, _EMI, 8, 0];
@@ -207,15 +206,11 @@ export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Cod, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BatchCreateAttendeeRequest: StaticStructureSchema = [
   3,
   n0,
@@ -246,19 +241,8 @@ export var BatchUpdateAttendeeCapabilitiesExceptRequest: StaticStructureSchema =
   [_MI, _EAI, _C],
   [[0, 1], () => AttendeeIdsList, () => AttendeeCapabilities],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_Cod, _M, _RI],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_Cod, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentFeatures: StaticStructureSchema = [3, n0, _CF, 0, [_MR], [0]];
 export var CreateAttendeeError: StaticStructureSchema = [
   3,
@@ -365,19 +349,8 @@ export var EngineTranscribeSettings: StaticStructureSchema = [
   [_LC, _VFM, _VFN, _VN, _R, _EPRS, _PRS, _CIT, _CRTo, _PET, _LMN, _IL, _LO, _PL, _VNo, _VFNo],
   [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0],
 ];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_Cod, _M, _RI],
-  [0, 0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_Cod, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetAttendeeRequest: StaticStructureSchema = [
   3,
   n0,
@@ -396,15 +369,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Cod, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAttendeesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -413,36 +382,12 @@ export var ListAttendeesRequest: StaticStructureSchema = [
   [_MI, _NT, _MRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListAttendeesResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Att, _NT], [[() => AttendeeList, 0], 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_RARN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [[0, { [_hQ]: _a }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
 export var MediaPlacement: StaticStructureSchema = [
   3,
@@ -478,19 +423,8 @@ export var MeetingFeaturesConfiguration: StaticStructureSchema = [
   [_Au, _V, _Co, _At],
   [() => AudioFeatures, () => VideoFeatures, () => ContentFeatures, () => AttendeeFeatures],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_Cod, _M, _RI],
-  [0, 0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_Cod, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var NotificationsConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -507,51 +441,29 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_Cod, _M, _RI, _RN],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceFailureException: StaticErrorSchema = [
   -3,
   n0,
   _SFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_Cod, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
+  { [_e]: _s, [_hE]: 503 },
   [_Cod, _M, _RI, _RAS],
-  [
-    0,
-    0,
-    0,
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [0, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartMeetingTranscriptionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -564,32 +476,17 @@ export var StopMeetingTranscriptionRequest: StaticStructureSchema = [3, n0, _SMT
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_Cod, _M, _RI],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_Cod, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TooManyTagsException: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Cod, _M, _RI, _RN],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TranscriptionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -602,28 +499,20 @@ export var UnauthorizedException: StaticErrorSchema = [
   -3,
   n0,
   _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
+  { [_e]: _c, [_hE]: 401 },
   [_Cod, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UnprocessableEntityException: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
-  {
-    [_e]: _c,
-    [_hE]: 422,
-  },
+  { [_e]: _c, [_hE]: 422 },
   [_Cod, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAttendeeCapabilitiesRequest: StaticStructureSchema = [
@@ -637,7 +526,6 @@ export var UpdateAttendeeCapabilitiesRequest: StaticStructureSchema = [
 export var UpdateAttendeeCapabilitiesResponse: StaticStructureSchema = [3, n0, _UACRp, 0, [_At], [[() => Attendee, 0]]];
 export var VideoFeatures: StaticStructureSchema = [3, n0, _VF, 0, [_MR], [0]];
 export var __Unit = "unit" as const;
-
 export var ChimeSDKMeetingsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -647,7 +535,6 @@ export var ChimeSDKMeetingsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ChimeSDKMeetingsServiceException, __ChimeSDKMeetingsServiceException);
-
 export var AttendeeIdsList: StaticListSchema = [1, n0, _AIL, 0, () => AttendeeIdItem];
 export var AttendeeList: StaticListSchema = [1, n0, _AL, 0, [() => Attendee, 0]];
 export var BatchCreateAttendeeErrorList: StaticListSchema = [1, n0, _BCAEL, 0, [() => CreateAttendeeError, 0]];
@@ -660,17 +547,13 @@ export var CreateMeetingWithAttendeesRequestItemList: StaticListSchema = [
   [() => CreateAttendeeRequestItem, 0],
 ];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TenantIdList = 64 | 0;
-
 export var BatchCreateAttendee: StaticOperationSchema = [
   9,
   n0,
   _BCA,
-  {
-    [_h]: ["POST", "/meetings/{MeetingId}/attendees?operation=batch-create", 200],
-  },
+  { [_h]: ["POST", "/meetings/{MeetingId}/attendees?operation=batch-create", 200] },
   () => BatchCreateAttendeeRequest,
   () => BatchCreateAttendeeResponse,
 ];
@@ -678,9 +561,7 @@ export var BatchUpdateAttendeeCapabilitiesExcept: StaticOperationSchema = [
   9,
   n0,
   _BUACE,
-  {
-    [_h]: ["PUT", "/meetings/{MeetingId}/attendees/capabilities?operation=batch-update-except", 200],
-  },
+  { [_h]: ["PUT", "/meetings/{MeetingId}/attendees/capabilities?operation=batch-update-except", 200] },
   () => BatchUpdateAttendeeCapabilitiesExceptRequest,
   () => __Unit,
 ];
@@ -688,9 +569,7 @@ export var CreateAttendee: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/meetings/{MeetingId}/attendees", 200],
-  },
+  { [_h]: ["POST", "/meetings/{MeetingId}/attendees", 200] },
   () => CreateAttendeeRequest,
   () => CreateAttendeeResponse,
 ];
@@ -698,9 +577,7 @@ export var CreateMeeting: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_h]: ["POST", "/meetings", 200],
-  },
+  { [_h]: ["POST", "/meetings", 200] },
   () => CreateMeetingRequest,
   () => CreateMeetingResponse,
 ];
@@ -708,9 +585,7 @@ export var CreateMeetingWithAttendees: StaticOperationSchema = [
   9,
   n0,
   _CMWA,
-  {
-    [_h]: ["POST", "/meetings?operation=create-attendees", 200],
-  },
+  { [_h]: ["POST", "/meetings?operation=create-attendees", 200] },
   () => CreateMeetingWithAttendeesRequest,
   () => CreateMeetingWithAttendeesResponse,
 ];
@@ -718,9 +593,7 @@ export var DeleteAttendee: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/meetings/{MeetingId}/attendees/{AttendeeId}", 204],
-  },
+  { [_h]: ["DELETE", "/meetings/{MeetingId}/attendees/{AttendeeId}", 204] },
   () => DeleteAttendeeRequest,
   () => __Unit,
 ];
@@ -728,9 +601,7 @@ export var DeleteMeeting: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_h]: ["DELETE", "/meetings/{MeetingId}", 204],
-  },
+  { [_h]: ["DELETE", "/meetings/{MeetingId}", 204] },
   () => DeleteMeetingRequest,
   () => __Unit,
 ];
@@ -738,9 +609,7 @@ export var GetAttendee: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/meetings/{MeetingId}/attendees/{AttendeeId}", 200],
-  },
+  { [_h]: ["GET", "/meetings/{MeetingId}/attendees/{AttendeeId}", 200] },
   () => GetAttendeeRequest,
   () => GetAttendeeResponse,
 ];
@@ -748,9 +617,7 @@ export var GetMeeting: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["GET", "/meetings/{MeetingId}", 200],
-  },
+  { [_h]: ["GET", "/meetings/{MeetingId}", 200] },
   () => GetMeetingRequest,
   () => GetMeetingResponse,
 ];
@@ -758,9 +625,7 @@ export var ListAttendees: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/meetings/{MeetingId}/attendees", 200],
-  },
+  { [_h]: ["GET", "/meetings/{MeetingId}/attendees", 200] },
   () => ListAttendeesRequest,
   () => ListAttendeesResponse,
 ];
@@ -768,9 +633,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -778,9 +641,7 @@ export var StartMeetingTranscription: StaticOperationSchema = [
   9,
   n0,
   _SMT,
-  {
-    [_h]: ["POST", "/meetings/{MeetingId}/transcription?operation=start", 200],
-  },
+  { [_h]: ["POST", "/meetings/{MeetingId}/transcription?operation=start", 200] },
   () => StartMeetingTranscriptionRequest,
   () => __Unit,
 ];
@@ -788,9 +649,7 @@ export var StopMeetingTranscription: StaticOperationSchema = [
   9,
   n0,
   _SMTt,
-  {
-    [_h]: ["POST", "/meetings/{MeetingId}/transcription?operation=stop", 200],
-  },
+  { [_h]: ["POST", "/meetings/{MeetingId}/transcription?operation=stop", 200] },
   () => StopMeetingTranscriptionRequest,
   () => __Unit,
 ];
@@ -798,9 +657,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags?operation=tag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=tag-resource", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -808,9 +665,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/tags?operation=untag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=untag-resource", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -818,9 +673,7 @@ export var UpdateAttendeeCapabilities: StaticOperationSchema = [
   9,
   n0,
   _UAC,
-  {
-    [_h]: ["PUT", "/meetings/{MeetingId}/attendees/{AttendeeId}/capabilities", 200],
-  },
+  { [_h]: ["PUT", "/meetings/{MeetingId}/attendees/{AttendeeId}/capabilities", 200] },
   () => UpdateAttendeeCapabilitiesRequest,
   () => UpdateAttendeeCapabilitiesResponse,
 ];

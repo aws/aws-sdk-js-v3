@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetMetadataGenerationRunInput, GetMetadataGenerationRunOutput } from "../models/models_1";
+import type { GetMetadataGenerationRunInput, GetMetadataGenerationRunOutput } from "../models/models_1";
 import { GetMetadataGenerationRun } from "../schemas/schemas_0";
 
 /**
@@ -39,6 +39,7 @@ export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenera
  * const input = { // GetMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
+ *   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
  * };
  * const command = new GetMetadataGenerationRunCommand(input);
  * const response = await client.send(command);
@@ -50,11 +51,21 @@ export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenera
  * //     identifier: "STRING_VALUE", // required
  * //     revision: "STRING_VALUE",
  * //   },
- * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
- * //   type: "BUSINESS_DESCRIPTIONS",
+ * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //   types: [ // MetadataGenerationRunTypes
+ * //     "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",
  * //   owningProjectId: "STRING_VALUE", // required
+ * //   typeStats: [ // MetadataGenerationRunTypeStats
+ * //     { // MetadataGenerationRunTypeStat
+ * //       type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS", // required
+ * //       status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED", // required
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

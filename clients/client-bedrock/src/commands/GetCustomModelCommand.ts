@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCustomModelRequest, GetCustomModelResponse } from "../models/models_0";
+import type { GetCustomModelRequest, GetCustomModelResponse } from "../models/models_0";
 import { GetCustomModel } from "../schemas/schemas_0";
 
 /**
@@ -47,7 +47,7 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
  * //   jobName: "STRING_VALUE",
  * //   jobArn: "STRING_VALUE",
  * //   baseModelArn: "STRING_VALUE",
- * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "REINFORCEMENT_FINE_TUNING" || "IMPORTED",
  * //   modelKmsKeyArn: "STRING_VALUE",
  * //   hyperParameters: { // ModelCustomizationHyperParameters
  * //     "<keys>": "STRING_VALUE",
@@ -111,6 +111,23 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
  * //       teacherModelConfig: { // TeacherModelConfig
  * //         teacherModelIdentifier: "STRING_VALUE", // required
  * //         maxResponseLengthForInference: Number("int"),
+ * //       },
+ * //     },
+ * //     rftConfig: { // RFTConfig
+ * //       graderConfig: { // GraderConfig Union: only one key present
+ * //         lambdaGrader: { // LambdaGraderConfig
+ * //           lambdaArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       hyperParameters: { // RFTHyperParameters
+ * //         epochCount: Number("int"),
+ * //         batchSize: Number("int"),
+ * //         learningRate: Number("float"),
+ * //         maxPromptLength: Number("int"),
+ * //         trainingSamplePerPrompt: Number("int"),
+ * //         inferenceMaxTokens: Number("int"),
+ * //         reasoningEffort: "low" || "medium" || "high",
+ * //         evalInterval: Number("int"),
  * //       },
  * //     },
  * //   },

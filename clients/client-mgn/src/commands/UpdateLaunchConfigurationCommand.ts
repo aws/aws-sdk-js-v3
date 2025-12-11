@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { LaunchConfiguration, UpdateLaunchConfigurationRequest } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { LaunchConfiguration, UpdateLaunchConfigurationRequest } from "../models/models_0";
 import { UpdateLaunchConfiguration } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface UpdateLaunchConfigurationCommandInput extends UpdateLaunchConfi
 export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
- * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
- *         <note>
- *             <p>bootMode valid values are <code>LEGACY_BIOS | UEFI</code>
- *             </p>
- *          </note>
+ * <p>Updates multiple LaunchConfigurations by Source Server ID.</p> <note> <p>bootMode valid values are <code>LEGACY_BIOS | UEFI</code> </p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

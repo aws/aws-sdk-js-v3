@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -21,46 +21,55 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import {
-  EventStreamSerdeInputConfig,
-  EventStreamSerdeResolvedConfig,
+  type EventStreamSerdeInputConfig,
+  type EventStreamSerdeResolvedConfig,
   resolveEventStreamSerdeConfig,
 } from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultLambdaHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
@@ -68,7 +77,15 @@ import {
   AddLayerVersionPermissionCommandOutput,
 } from "./commands/AddLayerVersionPermissionCommand";
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
+import {
+  CheckpointDurableExecutionCommandInput,
+  CheckpointDurableExecutionCommandOutput,
+} from "./commands/CheckpointDurableExecutionCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import {
+  CreateCapacityProviderCommandInput,
+  CreateCapacityProviderCommandOutput,
+} from "./commands/CreateCapacityProviderCommand";
 import {
   CreateCodeSigningConfigCommandInput,
   CreateCodeSigningConfigCommandOutput,
@@ -83,6 +100,10 @@ import {
   CreateFunctionUrlConfigCommandOutput,
 } from "./commands/CreateFunctionUrlConfigCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "./commands/DeleteCapacityProviderCommand";
 import {
   DeleteCodeSigningConfigCommandInput,
   DeleteCodeSigningConfigCommandOutput,
@@ -116,9 +137,25 @@ import {
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCapacityProviderCommandInput,
+  GetCapacityProviderCommandOutput,
+} from "./commands/GetCapacityProviderCommand";
+import {
   GetCodeSigningConfigCommandInput,
   GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
+import {
+  GetDurableExecutionCommandInput,
+  GetDurableExecutionCommandOutput,
+} from "./commands/GetDurableExecutionCommand";
+import {
+  GetDurableExecutionHistoryCommandInput,
+  GetDurableExecutionHistoryCommandOutput,
+} from "./commands/GetDurableExecutionHistoryCommand";
+import {
+  GetDurableExecutionStateCommandInput,
+  GetDurableExecutionStateCommandOutput,
+} from "./commands/GetDurableExecutionStateCommand";
 import {
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
@@ -144,6 +181,10 @@ import {
   GetFunctionRecursionConfigCommandInput,
   GetFunctionRecursionConfigCommandOutput,
 } from "./commands/GetFunctionRecursionConfigCommand";
+import {
+  GetFunctionScalingConfigCommandInput,
+  GetFunctionScalingConfigCommandOutput,
+} from "./commands/GetFunctionScalingConfigCommand";
 import {
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
@@ -174,9 +215,17 @@ import {
 } from "./commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  ListCapacityProvidersCommandInput,
+  ListCapacityProvidersCommandOutput,
+} from "./commands/ListCapacityProvidersCommand";
+import {
   ListCodeSigningConfigsCommandInput,
   ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
+import {
+  ListDurableExecutionsByFunctionCommandInput,
+  ListDurableExecutionsByFunctionCommandOutput,
+} from "./commands/ListDurableExecutionsByFunctionCommand";
 import {
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
@@ -194,6 +243,10 @@ import {
   ListFunctionUrlConfigsCommandInput,
   ListFunctionUrlConfigsCommandOutput,
 } from "./commands/ListFunctionUrlConfigsCommand";
+import {
+  ListFunctionVersionsByCapacityProviderCommandInput,
+  ListFunctionVersionsByCapacityProviderCommandOutput,
+} from "./commands/ListFunctionVersionsByCapacityProviderCommand";
 import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "./commands/ListLayerVersionsCommand";
 import {
@@ -227,6 +280,10 @@ import {
   PutFunctionRecursionConfigCommandOutput,
 } from "./commands/PutFunctionRecursionConfigCommand";
 import {
+  PutFunctionScalingConfigCommandInput,
+  PutFunctionScalingConfigCommandOutput,
+} from "./commands/PutFunctionScalingConfigCommand";
+import {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
@@ -239,9 +296,29 @@ import {
   RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import {
+  SendDurableExecutionCallbackFailureCommandInput,
+  SendDurableExecutionCallbackFailureCommandOutput,
+} from "./commands/SendDurableExecutionCallbackFailureCommand";
+import {
+  SendDurableExecutionCallbackHeartbeatCommandInput,
+  SendDurableExecutionCallbackHeartbeatCommandOutput,
+} from "./commands/SendDurableExecutionCallbackHeartbeatCommand";
+import {
+  SendDurableExecutionCallbackSuccessCommandInput,
+  SendDurableExecutionCallbackSuccessCommandOutput,
+} from "./commands/SendDurableExecutionCallbackSuccessCommand";
+import {
+  StopDurableExecutionCommandInput,
+  StopDurableExecutionCommandOutput,
+} from "./commands/StopDurableExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import {
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "./commands/UpdateCapacityProviderCommand";
 import {
   UpdateCodeSigningConfigCommandInput,
   UpdateCodeSigningConfigCommandOutput,
@@ -270,7 +347,7 @@ import {
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -280,12 +357,15 @@ export { __Client };
 export type ServiceInputTypes =
   | AddLayerVersionPermissionCommandInput
   | AddPermissionCommandInput
+  | CheckpointDurableExecutionCommandInput
   | CreateAliasCommandInput
+  | CreateCapacityProviderCommandInput
   | CreateCodeSigningConfigCommandInput
   | CreateEventSourceMappingCommandInput
   | CreateFunctionCommandInput
   | CreateFunctionUrlConfigCommandInput
   | DeleteAliasCommandInput
+  | DeleteCapacityProviderCommandInput
   | DeleteCodeSigningConfigCommandInput
   | DeleteEventSourceMappingCommandInput
   | DeleteFunctionCodeSigningConfigCommandInput
@@ -297,7 +377,11 @@ export type ServiceInputTypes =
   | DeleteProvisionedConcurrencyConfigCommandInput
   | GetAccountSettingsCommandInput
   | GetAliasCommandInput
+  | GetCapacityProviderCommandInput
   | GetCodeSigningConfigCommandInput
+  | GetDurableExecutionCommandInput
+  | GetDurableExecutionHistoryCommandInput
+  | GetDurableExecutionStateCommandInput
   | GetEventSourceMappingCommandInput
   | GetFunctionCodeSigningConfigCommandInput
   | GetFunctionCommandInput
@@ -305,6 +389,7 @@ export type ServiceInputTypes =
   | GetFunctionConfigurationCommandInput
   | GetFunctionEventInvokeConfigCommandInput
   | GetFunctionRecursionConfigCommandInput
+  | GetFunctionScalingConfigCommandInput
   | GetFunctionUrlConfigCommandInput
   | GetLayerVersionByArnCommandInput
   | GetLayerVersionCommandInput
@@ -316,10 +401,13 @@ export type ServiceInputTypes =
   | InvokeCommandInput
   | InvokeWithResponseStreamCommandInput
   | ListAliasesCommandInput
+  | ListCapacityProvidersCommandInput
   | ListCodeSigningConfigsCommandInput
+  | ListDurableExecutionsByFunctionCommandInput
   | ListEventSourceMappingsCommandInput
   | ListFunctionEventInvokeConfigsCommandInput
   | ListFunctionUrlConfigsCommandInput
+  | ListFunctionVersionsByCapacityProviderCommandInput
   | ListFunctionsByCodeSigningConfigCommandInput
   | ListFunctionsCommandInput
   | ListLayerVersionsCommandInput
@@ -333,13 +421,19 @@ export type ServiceInputTypes =
   | PutFunctionConcurrencyCommandInput
   | PutFunctionEventInvokeConfigCommandInput
   | PutFunctionRecursionConfigCommandInput
+  | PutFunctionScalingConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
   | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
   | RemovePermissionCommandInput
+  | SendDurableExecutionCallbackFailureCommandInput
+  | SendDurableExecutionCallbackHeartbeatCommandInput
+  | SendDurableExecutionCallbackSuccessCommandInput
+  | StopDurableExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
+  | UpdateCapacityProviderCommandInput
   | UpdateCodeSigningConfigCommandInput
   | UpdateEventSourceMappingCommandInput
   | UpdateFunctionCodeCommandInput
@@ -353,12 +447,15 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddLayerVersionPermissionCommandOutput
   | AddPermissionCommandOutput
+  | CheckpointDurableExecutionCommandOutput
   | CreateAliasCommandOutput
+  | CreateCapacityProviderCommandOutput
   | CreateCodeSigningConfigCommandOutput
   | CreateEventSourceMappingCommandOutput
   | CreateFunctionCommandOutput
   | CreateFunctionUrlConfigCommandOutput
   | DeleteAliasCommandOutput
+  | DeleteCapacityProviderCommandOutput
   | DeleteCodeSigningConfigCommandOutput
   | DeleteEventSourceMappingCommandOutput
   | DeleteFunctionCodeSigningConfigCommandOutput
@@ -370,7 +467,11 @@ export type ServiceOutputTypes =
   | DeleteProvisionedConcurrencyConfigCommandOutput
   | GetAccountSettingsCommandOutput
   | GetAliasCommandOutput
+  | GetCapacityProviderCommandOutput
   | GetCodeSigningConfigCommandOutput
+  | GetDurableExecutionCommandOutput
+  | GetDurableExecutionHistoryCommandOutput
+  | GetDurableExecutionStateCommandOutput
   | GetEventSourceMappingCommandOutput
   | GetFunctionCodeSigningConfigCommandOutput
   | GetFunctionCommandOutput
@@ -378,6 +479,7 @@ export type ServiceOutputTypes =
   | GetFunctionConfigurationCommandOutput
   | GetFunctionEventInvokeConfigCommandOutput
   | GetFunctionRecursionConfigCommandOutput
+  | GetFunctionScalingConfigCommandOutput
   | GetFunctionUrlConfigCommandOutput
   | GetLayerVersionByArnCommandOutput
   | GetLayerVersionCommandOutput
@@ -389,10 +491,13 @@ export type ServiceOutputTypes =
   | InvokeCommandOutput
   | InvokeWithResponseStreamCommandOutput
   | ListAliasesCommandOutput
+  | ListCapacityProvidersCommandOutput
   | ListCodeSigningConfigsCommandOutput
+  | ListDurableExecutionsByFunctionCommandOutput
   | ListEventSourceMappingsCommandOutput
   | ListFunctionEventInvokeConfigsCommandOutput
   | ListFunctionUrlConfigsCommandOutput
+  | ListFunctionVersionsByCapacityProviderCommandOutput
   | ListFunctionsByCodeSigningConfigCommandOutput
   | ListFunctionsCommandOutput
   | ListLayerVersionsCommandOutput
@@ -406,13 +511,19 @@ export type ServiceOutputTypes =
   | PutFunctionConcurrencyCommandOutput
   | PutFunctionEventInvokeConfigCommandOutput
   | PutFunctionRecursionConfigCommandOutput
+  | PutFunctionScalingConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
   | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
   | RemovePermissionCommandOutput
+  | SendDurableExecutionCallbackFailureCommandOutput
+  | SendDurableExecutionCallbackHeartbeatCommandOutput
+  | SendDurableExecutionCallbackSuccessCommandOutput
+  | StopDurableExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
+  | UpdateCapacityProviderCommandOutput
   | UpdateCodeSigningConfigCommandOutput
   | UpdateEventSourceMappingCommandOutput
   | UpdateFunctionCodeCommandOutput

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateExperimentTemplateCommand,
@@ -120,7 +120,7 @@ import {
   UpdateTargetAccountConfigurationCommandInput,
   UpdateTargetAccountConfigurationCommandOutput,
 } from "./commands/UpdateTargetAccountConfigurationCommand";
-import { FisClient, FisClientConfig } from "./FisClient";
+import { FisClient } from "./FisClient";
 
 const commands = {
   CreateExperimentTemplateCommand,

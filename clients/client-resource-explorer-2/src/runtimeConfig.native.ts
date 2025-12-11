@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ResourceExplorer2ClientConfig } from "./ResourceExplorer2Client";
+import type { ResourceExplorer2ClientConfig } from "./ResourceExplorer2Client";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

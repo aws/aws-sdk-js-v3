@@ -68,6 +68,7 @@ const _DWRe = "DeleteWorkgroupResponse";
 const _E = "Endpoint";
 const _EA = "EndpointAccess";
 const _EAL = "EndpointAccessList";
+const _ET = "ExpirationTime";
 const _GC = "GetCredentials";
 const _GCDA = "GetCustomDomainAssociation";
 const _GCDAR = "GetCustomDomainAssociationRequest";
@@ -77,6 +78,9 @@ const _GCRe = "GetCredentialsResponse";
 const _GEA = "GetEndpointAccess";
 const _GEAR = "GetEndpointAccessRequest";
 const _GEARe = "GetEndpointAccessResponse";
+const _GICAT = "GetIdentityCenterAuthToken";
+const _GICATR = "GetIdentityCenterAuthTokenRequest";
+const _GICATRe = "GetIdentityCenterAuthTokenResponse";
 const _GN = "GetNamespace";
 const _GNR = "GetNamespaceRequest";
 const _GNRe = "GetNamespaceResponse";
@@ -199,7 +203,7 @@ const _SL = "SnapshotList";
 const _SQEE = "ServiceQuotaExceededException";
 const _ST = "ServerlessTrack";
 const _Sc = "Schedule";
-const _T = "Tag";
+const _T = "Token";
 const _TA = "TargetAction";
 const _TE = "ThrottlingException";
 const _TL = "TagList";
@@ -210,6 +214,7 @@ const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TRS = "TableRestoreStatus";
 const _TRSL = "TableRestoreStatusList";
+const _Ta = "Tag";
 const _UCDA = "UpdateCustomDomainAssociation";
 const _UCDAR = "UpdateCustomDomainAssociationRequest";
 const _UCDARp = "UpdateCustomDomainAssociationResponse";
@@ -301,6 +306,7 @@ const _eS = "endpointStatus";
 const _eSTC = "estimatedSecondsToCompletion";
 const _eT = "endTime";
 const _eTIS = "elapsedTimeInSeconds";
+const _eTx = "expirationTime";
 const _eVR = "enhancedVpcRouting";
 const _en = "endpoint";
 const _ena = "enabled";
@@ -314,6 +320,7 @@ const _hQ = "httpQuery";
 const _iA = "ipv6Address";
 const _iAT = "ipAddressType";
 const _iR = "iamRoles";
+const _jN = "jsonName";
 const _k = "key";
 const _kKI = "kmsKeyId";
 const _l = "level";
@@ -416,6 +423,7 @@ const _tRS = "tableRestoreStatus";
 const _tRSa = "tableRestoreStatuses";
 const _tSIMB = "totalSizeInMegaBytes";
 const _tSN = "targetSchemaName";
+const _to = "token";
 const _tr = "track";
 const _tra = "tracks";
 const _uC = "upfrontCharge";
@@ -437,13 +445,14 @@ const _w = "workgroup";
 const _wA = "workgroupArn";
 const _wI = "workgroupId";
 const _wN = "workgroupName";
+const _wNo = "workgroupNames";
 const _wV = "workgroupVersion";
 const _wo = "workgroups";
 const n0 = "com.amazonaws.redshiftserverless";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -468,37 +477,14 @@ import {
 import { RedshiftServerlessServiceException as __RedshiftServerlessServiceException } from "../models/RedshiftServerlessServiceException";
 
 /* eslint no-var: 0 */
-
 export var DbPassword: StaticSimpleSchema = [0, n0, _DP, 8, 0];
 export var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_co, _m],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_co, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Association: StaticStructureSchema = [3, n0, _A, 0, [_cDCA, _cDCET, _cDN, _wN], [0, 5, 0, 0]];
 export var ConfigParameter: StaticStructureSchema = [3, n0, _CP, 0, [_pK, _pV], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConvertRecoveryPointToSnapshotRequest: StaticStructureSchema = [
   3,
   n0,
@@ -643,19 +629,8 @@ export var DeleteUsageLimitRequest: StaticStructureSchema = [3, n0, _DULR, 0, [_
 export var DeleteUsageLimitResponse: StaticStructureSchema = [3, n0, _DULRe, 0, [_uL], [() => UsageLimit]];
 export var DeleteWorkgroupRequest: StaticStructureSchema = [3, n0, _DWR, 0, [_wN], [0]];
 export var DeleteWorkgroupResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [_w], [() => Workgroup]];
-export var DryRunException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DryRunException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DryRunException, __DryRunException);
-
 export var Endpoint: StaticStructureSchema = [3, n0, _E, 0, [_ad, _po, _vE], [0, 1, () => VpcEndpointList]];
 export var EndpointAccess: StaticStructureSchema = [
   3,
@@ -685,6 +660,18 @@ export var GetCustomDomainAssociationResponse: StaticStructureSchema = [
 ];
 export var GetEndpointAccessRequest: StaticStructureSchema = [3, n0, _GEAR, 0, [_eN], [0]];
 export var GetEndpointAccessResponse: StaticStructureSchema = [3, n0, _GEARe, 0, [_en], [() => EndpointAccess]];
+export var GetIdentityCenterAuthTokenRequest: StaticStructureSchema = [3, n0, _GICATR, 0, [_wNo], [64 | 0]];
+export var GetIdentityCenterAuthTokenResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GICATRe,
+  8,
+  [_to, _eTx],
+  [
+    [0, { [_jN]: _T }],
+    [5, { [_jN]: _ET }],
+  ],
+];
 export var GetNamespaceRequest: StaticStructureSchema = [3, n0, _GNR, 0, [_nN], [0]];
 export var GetNamespaceResponse: StaticStructureSchema = [3, n0, _GNRe, 0, [_n], [[() => Namespace, 0]]];
 export var GetRecoveryPointRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_rPI], [0]];
@@ -728,80 +715,21 @@ export var GetUsageLimitRequest: StaticStructureSchema = [3, n0, _GULR, 0, [_uLI
 export var GetUsageLimitResponse: StaticStructureSchema = [3, n0, _GULRe, 0, [_uL], [() => UsageLimit]];
 export var GetWorkgroupRequest: StaticStructureSchema = [3, n0, _GWR, 0, [_wN], [0]];
 export var GetWorkgroupResponse: StaticStructureSchema = [3, n0, _GWRe, 0, [_w], [() => Workgroup]];
-export var InsufficientCapacityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InsufficientCapacityException: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InsufficientCapacityException, __InsufficientCapacityException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidPaginationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPaginationException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationException, __InvalidPaginationException);
-
-export var Ipv6CidrBlockNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICBNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var Ipv6CidrBlockNotFoundException: StaticErrorSchema = [-3, n0, _ICBNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(Ipv6CidrBlockNotFoundException, __Ipv6CidrBlockNotFoundException);
-
 export var ListCustomDomainAssociationsRequest: StaticStructureSchema = [
   3,
   n0,
   _LCDAR,
   0,
   [_nT, _mR, _cDN, _cDCA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 0, 0],
 ];
 export var ListCustomDomainAssociationsResponse: StaticStructureSchema = [
   3,
@@ -817,23 +745,7 @@ export var ListEndpointAccessRequest: StaticStructureSchema = [
   _LEAR,
   0,
   [_nT, _mR, _wN, _vI, _oA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    0,
-    0,
-    0,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 0, 0, 0],
 ];
 export var ListEndpointAccessResponse: StaticStructureSchema = [
   3,
@@ -849,21 +761,7 @@ export var ListManagedWorkgroupsRequest: StaticStructureSchema = [
   _LMWR,
   0,
   [_sAo, _nT, _mR],
-  [
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListManagedWorkgroupsResponse: StaticStructureSchema = [
   3,
@@ -880,18 +778,8 @@ export var ListNamespacesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListNamespacesResponse: StaticStructureSchema = [3, n0, _LNRi, 0, [_nT, _na], [0, [() => NamespaceList, 0]]];
@@ -901,24 +789,7 @@ export var ListRecoveryPointsRequest: StaticStructureSchema = [
   _LRPR,
   0,
   [_nT, _mR, _sT, _eT, _nN, _nA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    4,
-    4,
-    0,
-    0,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 4, 4, 0, 0],
 ];
 export var ListRecoveryPointsResponse: StaticStructureSchema = [
   3,
@@ -935,18 +806,8 @@ export var ListReservationOfferingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListReservationOfferingsResponse: StaticStructureSchema = [
@@ -964,18 +825,8 @@ export var ListReservationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListReservationsResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_rL, _nT], [() => ReservationsList, 0]];
@@ -985,21 +836,7 @@ export var ListScheduledActionsRequest: StaticStructureSchema = [
   _LSAR,
   0,
   [_nT, _mR, _nN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 0],
 ];
 export var ListScheduledActionsResponse: StaticStructureSchema = [
   3,
@@ -1015,21 +852,7 @@ export var ListSnapshotCopyConfigurationsRequest: StaticStructureSchema = [
   _LSCCR,
   0,
   [_nN, _nT, _mR],
-  [
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListSnapshotCopyConfigurationsResponse: StaticStructureSchema = [
   3,
@@ -1045,25 +868,7 @@ export var ListSnapshotsRequest: StaticStructureSchema = [
   _LSR,
   0,
   [_nT, _mR, _nN, _nA, _oA, _sT, _eT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    0,
-    0,
-    0,
-    4,
-    4,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 0, 0, 0, 4, 4],
 ];
 export var ListSnapshotsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sn], [0, () => SnapshotList]];
 export var ListTableRestoreStatusRequest: StaticStructureSchema = [
@@ -1072,22 +877,7 @@ export var ListTableRestoreStatusRequest: StaticStructureSchema = [
   _LTRSR,
   0,
   [_nT, _mR, _nN, _wN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 0, 0],
 ];
 export var ListTableRestoreStatusResponse: StaticStructureSchema = [
   3,
@@ -1106,18 +896,8 @@ export var ListTracksRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTracksResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_tra, _nT], [() => TrackList, 0]];
@@ -1127,22 +907,7 @@ export var ListUsageLimitsRequest: StaticStructureSchema = [
   _LULR,
   0,
   [_rAe, _uT, _nT, _mR],
-  [
-    0,
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [0, 0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListUsageLimitsResponse: StaticStructureSchema = [3, n0, _LULRi, 0, [_uLs, _nT], [() => UsageLimits, 0]];
 export var ListWorkgroupsRequest: StaticStructureSchema = [
@@ -1151,21 +916,7 @@ export var ListWorkgroupsRequest: StaticStructureSchema = [
   _LWR,
   0,
   [_nT, _mR, _oA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], 0],
 ];
 export var ListWorkgroupsResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_nT, _wo], [0, () => WorkgroupList]];
 export var ManagedWorkgroupListItem: StaticStructureSchema = [
@@ -1212,19 +963,8 @@ export var ReservationOffering: StaticStructureSchema = [
   [_oI, _d, _uC, _hC, _cC, _oT],
   [0, 1, 1, 1, 0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicy: StaticStructureSchema = [3, n0, _RPe, 0, [_rAe, _pol], [0, 0]];
 export var RestoreFromRecoveryPointRequest: StaticStructureSchema = [3, n0, _RFRPR, 0, [_rPI, _nN, _wN], [0, 0, 0]];
 export var RestoreFromRecoveryPointResponse: StaticStructureSchema = [
@@ -1293,19 +1033,8 @@ export var ScheduledActionResponse: StaticStructureSchema = [
   [0, () => Schedule, 0, 64 | 4, 0, 0, 4, 4, () => TargetAction, 0, 0],
 ];
 export var ServerlessTrack: StaticStructureSchema = [3, n0, _ST, 0, [_tN, _wV, _uTp], [0, 0, () => UpdateTargetsList]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Snapshot: StaticStructureSchema = [
   3,
   n0,
@@ -1353,35 +1082,13 @@ export var TableRestoreStatus: StaticStructureSchema = [
   [_tRRI, _st, _m, _rT, _nN, _wN, _sN, _pIMB, _tDIMB, _sDN, _sSN, _sTN, _tDN, _tSN, _nTN, _rPI],
   [0, 0, 0, 4, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
+export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_k, _v], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_co, _m],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_co, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rAe, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateCustomDomainAssociationRequest: StaticStructureSchema = [
@@ -1474,19 +1181,8 @@ export var UsageLimit: StaticStructureSchema = [
   [_uLI, _uLA, _rAe, _uT, _a, _p, _bA],
   [0, 0, 0, 0, 1, 0, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VpcEndpoint: StaticStructureSchema = [
   3,
   n0,
@@ -1556,8 +1252,6 @@ export var Workgroup: StaticStructureSchema = [
     0,
   ],
 ];
-export var __Unit = "unit" as const;
-
 export var RedshiftServerlessServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1567,45 +1261,36 @@ export var RedshiftServerlessServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(RedshiftServerlessServiceException, __RedshiftServerlessServiceException);
-
 export var AccountIdList = 64 | 0;
-
 export var AssociationList: StaticListSchema = [1, n0, _AL, 0, () => Association];
 export var ConfigParameterList: StaticListSchema = [1, n0, _CPL, 0, () => ConfigParameter];
 export var EndpointAccessList: StaticListSchema = [1, n0, _EAL, 0, () => EndpointAccess];
 export var IamRoleArnList = 64 | 0;
-
 export var LogExportList = 64 | 0;
-
 export var ManagedWorkgroups: StaticListSchema = [1, n0, _MW, 0, () => ManagedWorkgroupListItem];
 export var NamespaceList: StaticListSchema = [1, n0, _NL, 0, [() => Namespace, 0]];
 export var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInterface];
 export var NextInvocationsList = 64 | 4;
-
 export var RecoveryPointList: StaticListSchema = [1, n0, _RPL, 0, () => RecoveryPoint];
 export var ReservationOfferingsList: StaticListSchema = [1, n0, _ROL, 0, () => ReservationOffering];
 export var ReservationsList: StaticListSchema = [1, n0, _RL, 0, () => Reservation];
 export var ScheduledActionsList: StaticListSchema = [1, n0, _SAL, 0, () => ScheduledActionAssociation];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SnapshotCopyConfigurations: StaticListSchema = [1, n0, _SCCn, 0, () => SnapshotCopyConfiguration];
 export var SnapshotList: StaticListSchema = [1, n0, _SL, 0, () => Snapshot];
 export var SubnetIdList = 64 | 0;
-
 export var TableRestoreStatusList: StaticListSchema = [1, n0, _TRSL, 0, () => TableRestoreStatus];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TrackList: StaticListSchema = [1, n0, _TLr, 0, () => ServerlessTrack];
 export var UpdateTargetsList: StaticListSchema = [1, n0, _UTL, 0, () => UpdateTarget];
 export var UsageLimits: StaticListSchema = [1, n0, _ULs, 0, () => UsageLimit];
 export var VpcEndpointList: StaticListSchema = [1, n0, _VEL, 0, () => VpcEndpoint];
 export var VpcIds = 64 | 0;
-
 export var VpcSecurityGroupIdList = 64 | 0;
-
 export var VpcSecurityGroupMembershipList: StaticListSchema = [1, n0, _VSGML, 0, () => VpcSecurityGroupMembership];
 export var WorkgroupList: StaticListSchema = [1, n0, _WL, 0, () => Workgroup];
+export var WorkgroupNameList = 64 | 0;
 export var Schedule: StaticStructureSchema = [3, n0, _Sc, 0, [_at, _cr], [4, 0]];
 export var TargetAction: StaticStructureSchema = [3, n0, _TA, 0, [_cS], [() => CreateSnapshotScheduleActionParameters]];
 export var ConvertRecoveryPointToSnapshot: StaticOperationSchema = [
@@ -1783,6 +1468,14 @@ export var GetEndpointAccess: StaticOperationSchema = [
   0,
   () => GetEndpointAccessRequest,
   () => GetEndpointAccessResponse,
+];
+export var GetIdentityCenterAuthToken: StaticOperationSchema = [
+  9,
+  n0,
+  _GICAT,
+  0,
+  () => GetIdentityCenterAuthTokenRequest,
+  () => GetIdentityCenterAuthTokenResponse,
 ];
 export var GetNamespace: StaticOperationSchema = [9, n0, _GN, 0, () => GetNamespaceRequest, () => GetNamespaceResponse];
 export var GetRecoveryPoint: StaticOperationSchema = [

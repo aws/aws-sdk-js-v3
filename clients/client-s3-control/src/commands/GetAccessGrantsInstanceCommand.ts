@@ -3,11 +3,11 @@ import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAccessGrantsInstanceRequest, GetAccessGrantsInstanceResult } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { GetAccessGrantsInstanceRequest, GetAccessGrantsInstanceResult } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { GetAccessGrantsInstance } from "../schemas/schemas_0";
 
 /**
@@ -33,17 +33,13 @@ export interface GetAccessGrantsInstanceCommandOutput extends GetAccessGrantsIns
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:GetAccessGrantsInstance</code> permission to use
- *                   this operation. </p>
+ *                <p>You must have the <code>s3:GetAccessGrantsInstance</code> permission to use this operation. </p>
  *             </dd>
  *          </dl>
  *          <note>
  *             <p>
  *                <code>GetAccessGrantsInstance</code> is not supported for cross-account access. You can only call the API from the account that owns the S3 Access Grants instance.</p>
  *          </note>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

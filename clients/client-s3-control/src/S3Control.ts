@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAccessGrantsIdentityCenterCommand,
@@ -467,7 +467,7 @@ import {
   UpdateStorageLensGroupCommandInput,
   UpdateStorageLensGroupCommandOutput,
 } from "./commands/UpdateStorageLensGroupCommand";
-import { S3ControlClient, S3ControlClientConfig } from "./S3ControlClient";
+import { S3ControlClient } from "./S3ControlClient";
 
 const commands = {
   AssociateAccessGrantsIdentityCenterCommand,

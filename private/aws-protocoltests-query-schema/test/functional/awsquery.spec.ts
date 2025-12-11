@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Encoder as __Encoder } from "@smithy/types";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "stream";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Encoder as __Encoder } from "@smithy/types";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
@@ -266,7 +266,7 @@ it("AwsQueryDateTimeWithNegativeOffset:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(1576540098 * 1000),
@@ -312,7 +312,7 @@ it("AwsQueryDateTimeWithPositiveOffset:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(1576540098 * 1000),
@@ -379,7 +379,7 @@ it("QueryEmptyInputAndEmptyOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -496,7 +496,7 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -551,7 +551,7 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -606,7 +606,7 @@ it("QueryQueryFlattenedXmlMapWithXmlNamespace:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -655,7 +655,7 @@ it("AwsQueryDateTimeWithFractionalSeconds:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(9.46845296123e8 * 1000),
@@ -701,7 +701,7 @@ it("QueryGreetingWithErrors:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       greeting: "Hello",
@@ -752,7 +752,7 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         message: "Hi",
@@ -806,7 +806,7 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         TopLevel: "Top level",
@@ -863,7 +863,7 @@ it("QueryCustomizedError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(402);
+    expect(r.$metadata.httpStatusCode).toBe(402);
     const paramsToValidate: any = [
       {
         message: "Hi",
@@ -944,7 +944,7 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "bar",
@@ -1056,7 +1056,7 @@ it("QueryNoInputAndNoOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -1111,7 +1111,7 @@ it("QueryNoInputAndOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -1901,7 +1901,7 @@ it("QueryRecursiveShapes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2401,7 +2401,7 @@ it("QuerySimpleScalarProperties:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringValue: "string",
@@ -2457,7 +2457,7 @@ it("AwsQuerySupportsNaNFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: NaN,
@@ -2505,7 +2505,7 @@ it("AwsQuerySupportsInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: Infinity,
@@ -2553,7 +2553,7 @@ it("AwsQuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: -Infinity,
@@ -2600,7 +2600,7 @@ it("QueryXmlBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
@@ -2646,7 +2646,7 @@ it("QueryXmlEmptyBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("", (c) => c.charCodeAt(0)),
@@ -2692,7 +2692,7 @@ it("QueryXmlEmptySelfClosedBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("", (c) => c.charCodeAt(0)),
@@ -2739,7 +2739,7 @@ it("QueryXmlEmptyLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: [],
@@ -2787,7 +2787,7 @@ it("QueryXmlEmptyMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {},
@@ -2833,7 +2833,7 @@ it("QueryXmlEmptySelfClosedMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {},
@@ -2899,7 +2899,7 @@ it("QueryXmlEnums:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       fooEnum1: "Foo",
@@ -2973,7 +2973,7 @@ it("QueryXmlIntEnums:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       intEnum1: 1,
@@ -3086,7 +3086,7 @@ it("QueryXmlLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: ["foo", "bar"],
@@ -3170,7 +3170,7 @@ it("QueryXmlMaps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -3236,7 +3236,7 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       myMap: {
@@ -3295,7 +3295,7 @@ it("QueryXmlNamespaces:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -3344,7 +3344,7 @@ it("QueryXmlTimestamps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       normal: new Date(1398796238 * 1000),
@@ -3390,7 +3390,7 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTime: new Date(1398796238 * 1000),
@@ -3436,7 +3436,7 @@ it("QueryXmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTimeOnTarget: new Date(1398796238 * 1000),
@@ -3482,7 +3482,7 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSeconds: new Date(1398796238 * 1000),
@@ -3528,7 +3528,7 @@ it("QueryXmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSecondsOnTarget: new Date(1398796238 * 1000),
@@ -3574,7 +3574,7 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238 * 1000),
@@ -3620,7 +3620,7 @@ it("QueryXmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDateOnTarget: new Date(1398796238 * 1000),

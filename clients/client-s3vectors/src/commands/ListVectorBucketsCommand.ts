@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListVectorBucketsInput, ListVectorBucketsOutput } from "../models/models_0";
-import { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
+import type { ListVectorBucketsInput, ListVectorBucketsOutput } from "../models/models_0";
+import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
 import { ListVectorBuckets } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface ListVectorBucketsCommandInput extends ListVectorBucketsInput {}
 export interface ListVectorBucketsCommandOutput extends ListVectorBucketsOutput, __MetadataBearer {}
 
 /**
- * <note> <p>Amazon S3 Vectors is in preview release for Amazon S3 and is subject to change.</p> </note> <p>Returns a list of all the vector buckets that are owned by the authenticated sender of the request.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:ListVectorBuckets</code> permission to use this operation. </p> </dd> </dl>
+ * <p>Returns a list of all the vector buckets that are owned by the authenticated sender of the request.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3vectors:ListVectorBuckets</code> permission to use this operation. </p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

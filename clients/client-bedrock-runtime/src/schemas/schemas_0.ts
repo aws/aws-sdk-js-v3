@@ -1,4 +1,5 @@
 const _A = "Accept";
+const _AB = "AudioBlock";
 const _ADE = "AccessDeniedException";
 const _AG = "ApplyGuardrail";
 const _AGD = "AppliedGuardrailDetails";
@@ -9,6 +10,7 @@ const _AIODC = "AsyncInvokeOutputDataConfig";
 const _AIS = "AsyncInvokeSummary";
 const _AISODC = "AsyncInvokeS3OutputDataConfig";
 const _AISs = "AsyncInvokeSummaries";
+const _AS = "AudioSource";
 const _ATC = "AnyToolChoice";
 const _ATCu = "AutoToolChoice";
 const _B = "Body";
@@ -61,6 +63,7 @@ const _DCL = "DocumentCharLocation";
 const _DCLo = "DocumentChunkLocation";
 const _DPL = "DocumentPageLocation";
 const _DS = "DocumentSource";
+const _EB = "ErrorBlock";
 const _GA = "GuardrailAssessment";
 const _GAI = "GetAsyncInvoke";
 const _GAIR = "GetAsyncInvokeRequest";
@@ -132,6 +135,8 @@ const _GTPA = "GuardrailTopicPolicyAssessment";
 const _GU = "GuardrailUsage";
 const _GWPA = "GuardrailWordPolicyAssessment";
 const _IB = "ImageBlock";
+const _IBD = "ImageBlockDelta";
+const _IBS = "ImageBlockStart";
 const _IC = "InferenceConfiguration";
 const _IM = "InvokeModel";
 const _IMR = "InvokeModelRequest";
@@ -229,7 +234,8 @@ const _aRPu = "automatedReasoningPolicies";
 const _ac = "accept";
 const _an = "any";
 const _as = "assessments";
-const _au = "auto";
+const _au = "audio";
+const _aut = "auto";
 const _b = "bytes";
 const _bO = "bucketOwner";
 const _bo = "body";
@@ -443,7 +449,7 @@ const n0 = "com.amazonaws.bedrockruntime";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -469,26 +475,14 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AsyncInvokeMessage: StaticSimpleSchema = [0, n0, _AIM, 8, 0];
 export var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 export var GuardrailAutomatedReasoningStatementLogicContent: StaticSimpleSchema = [0, n0, _GARSLC, 8, 0];
 export var GuardrailAutomatedReasoningStatementNaturalLanguageContent: StaticSimpleSchema = [0, n0, _GARSNLC, 8, 0];
 export var ModelInputPayload: StaticSimpleSchema = [0, n0, _MIP, 8, 15];
 export var PartBody: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AnyToolChoice: StaticStructureSchema = [3, n0, _ATC, 0, [], []];
 export var AppliedGuardrailDetails: StaticStructureSchema = [
   3,
@@ -530,6 +524,14 @@ export var AsyncInvokeSummary: StaticStructureSchema = [
   [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
   [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig],
 ];
+export var AudioBlock: StaticStructureSchema = [
+  3,
+  n0,
+  _AB,
+  0,
+  [_f, _s, _e],
+  [0, [() => AudioSource, 0], [() => ErrorBlock, 0]],
+];
 export var AutoToolChoice: StaticStructureSchema = [3, n0, _ATCu, 0, [], []];
 export var BidirectionalInputPayloadPart: StaticStructureSchema = [3, n0, _BIPP, 8, [_b], [[() => PartBody, 0]]];
 export var BidirectionalOutputPayloadPart: StaticStructureSchema = [3, n0, _BOPP, 8, [_b], [[() => PartBody, 0]]];
@@ -560,19 +562,8 @@ export var CitationsDelta: StaticStructureSchema = [
   [0, 0, () => CitationSourceContentListDelta, () => CitationLocation],
 ];
 export var CitationSourceContentDelta: StaticStructureSchema = [3, n0, _CSCD, 0, [_te], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentBlockDeltaEvent: StaticStructureSchema = [
   3,
   n0,
@@ -720,6 +711,7 @@ export var DocumentBlock: StaticStructureSchema = [
 export var DocumentCharLocation: StaticStructureSchema = [3, n0, _DCL, 0, [_dI, _sta, _end], [1, 1, 1]];
 export var DocumentChunkLocation: StaticStructureSchema = [3, n0, _DCLo, 0, [_dI, _sta, _end], [1, 1, 1]];
 export var DocumentPageLocation: StaticStructureSchema = [3, n0, _DPL, 0, [_dI, _sta, _end], [1, 1, 1]];
+export var ErrorBlock: StaticStructureSchema = [3, n0, _EB, 8, [_m], [0]];
 export var GetAsyncInvokeRequest: StaticStructureSchema = [3, n0, _GAIR, 0, [_iA], [[0, 1]]];
 export var GetAsyncInvokeResponse: StaticStructureSchema = [
   3,
@@ -984,21 +976,29 @@ export var GuardrailWordPolicyAssessment: StaticStructureSchema = [
   [_cW, _mWL],
   [() => GuardrailCustomWordList, () => GuardrailManagedWordList],
 ];
-export var ImageBlock: StaticStructureSchema = [3, n0, _IB, 0, [_f, _s], [0, () => ImageSource]];
-export var InferenceConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_mT, _tem, _tPo, _sS], [1, 1, 1, 64 | 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
+export var ImageBlock: StaticStructureSchema = [
+  3,
   n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
+  _IB,
+  0,
+  [_f, _s, _e],
+  [0, [() => ImageSource, 0], [() => ErrorBlock, 0]],
 ];
+export var ImageBlockDelta: StaticStructureSchema = [
+  3,
+  n0,
+  _IBD,
+  0,
+  [_s, _e],
+  [
+    [() => ImageSource, 0],
+    [() => ErrorBlock, 0],
+  ],
+];
+export var ImageBlockStart: StaticStructureSchema = [3, n0, _IBS, 0, [_f], [0]];
+export var InferenceConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_mT, _tem, _tPo, _sS], [1, 1, 1, 64 | 0]];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvokeModelRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1007,49 +1007,14 @@ export var InvokeModelRequest: StaticStructureSchema = [
   [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
   [
     [() => Body, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _A,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _A }],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XABT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABG,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABG_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABPL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABST,
-      },
-    ],
+    [0, { [_hH]: _XABT }],
+    [0, { [_hH]: _XABG }],
+    [0, { [_hH]: _XABG_ }],
+    [0, { [_hH]: _XABPL }],
+    [0, { [_hH]: _XABST }],
   ],
 ];
 export var InvokeModelResponse: StaticStructureSchema = [
@@ -1060,24 +1025,9 @@ export var InvokeModelResponse: StaticStructureSchema = [
   [_bo, _cT, _pCL, _sTe],
   [
     [() => Body, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABPL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABST,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _XABPL }],
+    [0, { [_hH]: _XABST }],
   ],
 ];
 export var InvokeModelTokensRequest: StaticStructureSchema = [3, n0, _IMTR, 0, [_bo], [[() => Body, 0]]];
@@ -1108,49 +1058,14 @@ export var InvokeModelWithResponseStreamRequest: StaticStructureSchema = [
   [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
   [
     [() => Body, 16],
-    [
-      0,
-      {
-        [_hH]: _CT_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABA,
-      },
-    ],
+    [0, { [_hH]: _CT_ }],
+    [0, { [_hH]: _XABA }],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XABT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABG,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABG_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABPL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABST,
-      },
-    ],
+    [0, { [_hH]: _XABT }],
+    [0, { [_hH]: _XABG }],
+    [0, { [_hH]: _XABG_ }],
+    [0, { [_hH]: _XABPL }],
+    [0, { [_hH]: _XABST }],
   ],
 ];
 export var InvokeModelWithResponseStreamResponse: StaticStructureSchema = [
@@ -1161,24 +1076,9 @@ export var InvokeModelWithResponseStreamResponse: StaticStructureSchema = [
   [_bo, _cT, _pCL, _sTe],
   [
     [() => ResponseStream, 16],
-    [
-      0,
-      {
-        [_hH]: _XABCT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABPL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XABST,
-      },
-    ],
+    [0, { [_hH]: _XABCT }],
+    [0, { [_hH]: _XABPL }],
+    [0, { [_hH]: _XABST }],
   ],
 ];
 export var ListAsyncInvokesRequest: StaticStructureSchema = [
@@ -1188,48 +1088,13 @@ export var ListAsyncInvokesRequest: StaticStructureSchema = [
   0,
   [_sTA, _sTB, _sE, _mR, _nT, _sB, _sO],
   [
-    [
-      5,
-      {
-        [_hQ]: _sTA,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _sTB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sE,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [5, { [_hQ]: _sTA }],
+    [5, { [_hQ]: _sTB }],
+    [0, { [_hQ]: _sE }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListAsyncInvokesResponse: StaticStructureSchema = [
@@ -1247,71 +1112,30 @@ export var ModelErrorException: StaticErrorSchema = [
   -3,
   n0,
   _MEE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
+  { [_e]: _c, [_hE]: 424 },
   [_m, _oSC, _rN],
   [0, 1, 0],
 ];
 TypeRegistry.for(n0).registerError(ModelErrorException, __ModelErrorException);
-
-export var ModelNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MNRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ModelNotReadyException: StaticErrorSchema = [-3, n0, _MNRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ModelNotReadyException, __ModelNotReadyException);
-
 export var ModelStreamErrorException: StaticErrorSchema = [
   -3,
   n0,
   _MSEE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
+  { [_e]: _c, [_hE]: 424 },
   [_m, _oSC, _oM],
   [0, 1, 0],
 ];
 TypeRegistry.for(n0).registerError(ModelStreamErrorException, __ModelStreamErrorException);
-
-export var ModelTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MTE,
-  {
-    [_e]: _c,
-    [_hE]: 408,
-  },
-  [_m],
-  [0],
-];
+export var ModelTimeoutException: StaticErrorSchema = [-3, n0, _MTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ModelTimeoutException, __ModelTimeoutException);
-
 export var PayloadPart: StaticStructureSchema = [3, n0, _PP, 8, [_b], [[() => PartBody, 0]]];
 export var PerformanceConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_la], [0]];
 export var PromptRouterTrace: StaticStructureSchema = [3, n0, _PRT, 0, [_iMI], [0]];
 export var ReasoningTextBlock: StaticStructureSchema = [3, n0, _RTB, 8, [_te, _si], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_ur, _bO], [0, 0]];
 export var SearchResultBlock: StaticStructureSchema = [
   3,
@@ -1323,33 +1147,11 @@ export var SearchResultBlock: StaticStructureSchema = [
 ];
 export var SearchResultContentBlock: StaticStructureSchema = [3, n0, _SRCB, 0, [_te], [0]];
 export var SearchResultLocation: StaticStructureSchema = [3, n0, _SRL, 0, [_sRI, _sta, _end], [1, 1, 1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceTier: StaticStructureSchema = [3, n0, _ST, 0, [_t], [0]];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SpecificToolChoice: StaticStructureSchema = [3, n0, _STC, 0, [_n], [0]];
 export var StartAsyncInvokeRequest: StaticStructureSchema = [
   3,
@@ -1362,19 +1164,8 @@ export var StartAsyncInvokeRequest: StaticStructureSchema = [
 export var StartAsyncInvokeResponse: StaticStructureSchema = [3, n0, _SAIRt, 0, [_iA], [0]];
 export var SystemTool: StaticStructureSchema = [3, n0, _STy, 0, [_n], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TokenUsage: StaticStructureSchema = [3, n0, _TU, 0, [_iT, _oT, _tT, _cRIT, _cWIT], [1, 1, 1, 1, 1]];
 export var ToolConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_too, _tCo], [() => Tools, () => ToolChoice]];
 export var ToolResultBlock: StaticStructureSchema = [
@@ -1383,35 +1174,20 @@ export var ToolResultBlock: StaticStructureSchema = [
   _TRB,
   0,
   [_tUI, _co, _st, _t],
-  [0, () => ToolResultContentBlocks, 0, 0],
+  [0, [() => ToolResultContentBlocks, 0], 0, 0],
 ];
 export var ToolResultBlockStart: StaticStructureSchema = [3, n0, _TRBS, 0, [_tUI, _t, _st], [0, 0, 0]];
 export var ToolSpecification: StaticStructureSchema = [3, n0, _TS, 0, [_n, _des, _iS], [0, 0, () => ToolInputSchema]];
 export var ToolUseBlock: StaticStructureSchema = [3, n0, _TUB, 0, [_tUI, _n, _i, _t], [0, 0, 15, 0]];
 export var ToolUseBlockDelta: StaticStructureSchema = [3, n0, _TUBD, 0, [_i], [0]];
 export var ToolUseBlockStart: StaticStructureSchema = [3, n0, _TUBS, 0, [_tUI, _n, _t], [0, 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VideoBlock: StaticStructureSchema = [3, n0, _VB, 0, [_f, _s], [0, () => VideoSource]];
 export var WebLocation: StaticStructureSchema = [3, n0, _WL, 0, [_url, _do], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var BedrockRuntimeServiceException: StaticErrorSchema = [-3, _sm, "BedrockRuntimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockRuntimeServiceException, __BedrockRuntimeServiceException);
-
 export var AdditionalModelResponseFieldPaths = 64 | 0;
-
 export var AsyncInvokeSummaries: StaticListSchema = [1, n0, _AISs, 0, [() => AsyncInvokeSummary, 0]];
 export var CitationGeneratedContentList: StaticListSchema = [1, n0, _CGCL, 0, () => CitationGeneratedContent];
 export var Citations: StaticListSchema = [1, n0, _Ci, 0, () => Citation];
@@ -1472,7 +1248,6 @@ export var GuardrailAutomatedReasoningTranslationOptionList: StaticListSchema = 
 export var GuardrailContentBlockList: StaticListSchema = [1, n0, _GCBL, 0, [() => GuardrailContentBlock, 0]];
 export var GuardrailContentFilterList: StaticListSchema = [1, n0, _GCFL, 0, () => GuardrailContentFilter];
 export var GuardrailContentQualifierList = 64 | 0;
-
 export var GuardrailContextualGroundingFilters: StaticListSchema = [
   1,
   n0,
@@ -1481,25 +1256,21 @@ export var GuardrailContextualGroundingFilters: StaticListSchema = [
   () => GuardrailContextualGroundingFilter,
 ];
 export var GuardrailConverseContentQualifierList = 64 | 0;
-
 export var GuardrailCustomWordList: StaticListSchema = [1, n0, _GCWL, 0, () => GuardrailCustomWord];
 export var GuardrailManagedWordList: StaticListSchema = [1, n0, _GMWL, 0, () => GuardrailManagedWord];
 export var GuardrailOriginList = 64 | 0;
-
 export var GuardrailOutputContentList: StaticListSchema = [1, n0, _GOCL, 0, () => GuardrailOutputContent];
 export var GuardrailPiiEntityFilterList: StaticListSchema = [1, n0, _GPEFL, 0, () => GuardrailPiiEntityFilter];
 export var GuardrailRegexFilterList: StaticListSchema = [1, n0, _GRFL, 0, () => GuardrailRegexFilter];
 export var GuardrailTopicList: StaticListSchema = [1, n0, _GTL, 0, () => GuardrailTopic];
 export var Messages: StaticListSchema = [1, n0, _Me, 0, [() => Message, 0]];
 export var ModelOutputs = 64 | 0;
-
 export var NonEmptyStringList = 64 | 0;
-
 export var SearchResultContentBlocks: StaticListSchema = [1, n0, _SRCBe, 0, () => SearchResultContentBlock];
 export var SystemContentBlocks: StaticListSchema = [1, n0, _SCB, 0, [() => SystemContentBlock, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ToolResultBlocksDelta: StaticListSchema = [1, n0, _TRBD, 0, () => ToolResultBlockDelta];
-export var ToolResultContentBlocks: StaticListSchema = [1, n0, _TRCB, 0, () => ToolResultContentBlock];
+export var ToolResultContentBlocks: StaticListSchema = [1, n0, _TRCB, 0, [() => ToolResultContentBlock, 0]];
 export var Tools: StaticListSchema = [1, n0, _To, 0, () => Tool];
 export var GuardrailAssessmentListMap: StaticMapSchema = [2, n0, _GALM, 0, [0, 0], [() => GuardrailAssessmentList, 0]];
 export var GuardrailAssessmentMap: StaticMapSchema = [2, n0, _GAM, 0, [0, 0], [() => GuardrailAssessment, 0]];
@@ -1513,6 +1284,7 @@ export var AsyncInvokeOutputDataConfig: StaticStructureSchema = [
   [_sODC],
   [() => AsyncInvokeS3OutputDataConfig],
 ];
+export var AudioSource: StaticStructureSchema = [3, n0, _AS, 8, [_b, _sL], [21, () => S3Location]];
 export var CitationGeneratedContent: StaticStructureSchema = [3, n0, _CGC, 0, [_te], [0]];
 export var CitationLocation: StaticStructureSchema = [
   3,
@@ -1534,14 +1306,15 @@ export var ContentBlock: StaticStructureSchema = [
   n0,
   _CBo,
   0,
-  [_te, _ima, _doc, _vi, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
+  [_te, _ima, _doc, _vi, _au, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
   [
     0,
-    () => ImageBlock,
+    [() => ImageBlock, 0],
     () => DocumentBlock,
     () => VideoBlock,
+    [() => AudioBlock, 0],
     () => ToolUseBlock,
-    () => ToolResultBlock,
+    [() => ToolResultBlock, 0],
     [() => GuardrailConverseContentBlock, 0],
     () => CachePointBlock,
     [() => ReasoningContentBlock, 0],
@@ -1554,13 +1327,14 @@ export var ContentBlockDelta: StaticStructureSchema = [
   n0,
   _CBD,
   0,
-  [_te, _tU, _tR, _rC, _cit],
+  [_te, _tU, _tR, _rC, _cit, _ima],
   [
     0,
     () => ToolUseBlockDelta,
     () => ToolResultBlocksDelta,
     [() => ReasoningContentBlockDelta, 0],
     () => CitationsDelta,
+    [() => ImageBlockDelta, 0],
   ],
 ];
 export var ContentBlockStart: StaticStructureSchema = [
@@ -1568,17 +1342,15 @@ export var ContentBlockStart: StaticStructureSchema = [
   n0,
   _CBS,
   0,
-  [_tU, _tR],
-  [() => ToolUseBlockStart, () => ToolResultBlockStart],
+  [_tU, _tR, _ima],
+  [() => ToolUseBlockStart, () => ToolResultBlockStart, () => ImageBlockStart],
 ];
 export var ConverseOutput: StaticStructureSchema = [3, n0, _CO, 0, [_m], [[() => Message, 0]]];
 export var ConverseStreamOutput: StaticStructureSchema = [
   3,
   n0,
   _CSO,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_mS, _cBS, _cBD, _cBSo, _mSe, _meta, _iSE, _mSEE, _vE, _tE, _sUE],
   [
     () => MessageStartEvent,
@@ -1648,14 +1420,12 @@ export var GuardrailConverseContentBlock: StaticStructureSchema = [
 ];
 export var GuardrailConverseImageSource: StaticStructureSchema = [3, n0, _GCIS, 8, [_b], [21]];
 export var GuardrailImageSource: StaticStructureSchema = [3, n0, _GIS, 8, [_b], [21]];
-export var ImageSource: StaticStructureSchema = [3, n0, _IS, 0, [_b, _sL], [21, () => S3Location]];
+export var ImageSource: StaticStructureSchema = [3, n0, _IS, 8, [_b, _sL], [21, () => S3Location]];
 export var InvokeModelWithBidirectionalStreamInput: StaticStructureSchema = [
   3,
   n0,
   _IMWBSI,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_ch],
   [[() => BidirectionalInputPayloadPart, 0]],
 ];
@@ -1663,9 +1433,7 @@ export var InvokeModelWithBidirectionalStreamOutput: StaticStructureSchema = [
   3,
   n0,
   _IMWBSO,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
   [
     [() => BidirectionalOutputPayloadPart, 0],
@@ -1691,9 +1459,7 @@ export var ResponseStream: StaticStructureSchema = [
   3,
   n0,
   _RS,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
   [
     [() => PayloadPart, 0],
@@ -1726,27 +1492,25 @@ export var ToolChoice: StaticStructureSchema = [
   n0,
   _TCo,
   0,
-  [_au, _an, _tool],
+  [_aut, _an, _tool],
   [() => AutoToolChoice, () => AnyToolChoice, () => SpecificToolChoice],
 ];
 export var ToolInputSchema: StaticStructureSchema = [3, n0, _TIS, 0, [_j], [15]];
-export var ToolResultBlockDelta: StaticStructureSchema = [3, n0, _TRBDo, 0, [_te], [0]];
+export var ToolResultBlockDelta: StaticStructureSchema = [3, n0, _TRBDo, 0, [_te, _j], [0, 15]];
 export var ToolResultContentBlock: StaticStructureSchema = [
   3,
   n0,
   _TRCBo,
   0,
   [_j, _te, _ima, _doc, _vi, _sRe],
-  [15, 0, () => ImageBlock, () => DocumentBlock, () => VideoBlock, () => SearchResultBlock],
+  [15, 0, [() => ImageBlock, 0], () => DocumentBlock, () => VideoBlock, () => SearchResultBlock],
 ];
 export var VideoSource: StaticStructureSchema = [3, n0, _VS, 0, [_b, _sL], [21, () => S3Location]];
 export var ApplyGuardrail: StaticOperationSchema = [
   9,
   n0,
   _AG,
-  {
-    [_h]: ["POST", "/guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply", 200],
-  },
+  { [_h]: ["POST", "/guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply", 200] },
   () => ApplyGuardrailRequest,
   () => ApplyGuardrailResponse,
 ];
@@ -1754,9 +1518,7 @@ export var Converse: StaticOperationSchema = [
   9,
   n0,
   _Co,
-  {
-    [_h]: ["POST", "/model/{modelId}/converse", 200],
-  },
+  { [_h]: ["POST", "/model/{modelId}/converse", 200] },
   () => ConverseRequest,
   () => ConverseResponse,
 ];
@@ -1764,9 +1526,7 @@ export var ConverseStream: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/model/{modelId}/converse-stream", 200],
-  },
+  { [_h]: ["POST", "/model/{modelId}/converse-stream", 200] },
   () => ConverseStreamRequest,
   () => ConverseStreamResponse,
 ];
@@ -1774,9 +1534,7 @@ export var CountTokens: StaticOperationSchema = [
   9,
   n0,
   _CTo,
-  {
-    [_h]: ["POST", "/model/{modelId}/count-tokens", 200],
-  },
+  { [_h]: ["POST", "/model/{modelId}/count-tokens", 200] },
   () => CountTokensRequest,
   () => CountTokensResponse,
 ];
@@ -1784,9 +1542,7 @@ export var GetAsyncInvoke: StaticOperationSchema = [
   9,
   n0,
   _GAI,
-  {
-    [_h]: ["GET", "/async-invoke/{invocationArn}", 200],
-  },
+  { [_h]: ["GET", "/async-invoke/{invocationArn}", 200] },
   () => GetAsyncInvokeRequest,
   () => GetAsyncInvokeResponse,
 ];
@@ -1794,9 +1550,7 @@ export var InvokeModel: StaticOperationSchema = [
   9,
   n0,
   _IM,
-  {
-    [_h]: ["POST", "/model/{modelId}/invoke", 200],
-  },
+  { [_h]: ["POST", "/model/{modelId}/invoke", 200] },
   () => InvokeModelRequest,
   () => InvokeModelResponse,
 ];
@@ -1804,9 +1558,7 @@ export var InvokeModelWithBidirectionalStream: StaticOperationSchema = [
   9,
   n0,
   _IMWBS,
-  {
-    [_h]: ["POST", "/model/{modelId}/invoke-with-bidirectional-stream", 200],
-  },
+  { [_h]: ["POST", "/model/{modelId}/invoke-with-bidirectional-stream", 200] },
   () => InvokeModelWithBidirectionalStreamRequest,
   () => InvokeModelWithBidirectionalStreamResponse,
 ];
@@ -1814,9 +1566,7 @@ export var InvokeModelWithResponseStream: StaticOperationSchema = [
   9,
   n0,
   _IMWRS,
-  {
-    [_h]: ["POST", "/model/{modelId}/invoke-with-response-stream", 200],
-  },
+  { [_h]: ["POST", "/model/{modelId}/invoke-with-response-stream", 200] },
   () => InvokeModelWithResponseStreamRequest,
   () => InvokeModelWithResponseStreamResponse,
 ];
@@ -1824,9 +1574,7 @@ export var ListAsyncInvokes: StaticOperationSchema = [
   9,
   n0,
   _LAI,
-  {
-    [_h]: ["GET", "/async-invoke", 200],
-  },
+  { [_h]: ["GET", "/async-invoke", 200] },
   () => ListAsyncInvokesRequest,
   () => ListAsyncInvokesResponse,
 ];
@@ -1834,9 +1582,7 @@ export var StartAsyncInvoke: StaticOperationSchema = [
   9,
   n0,
   _SAI,
-  {
-    [_h]: ["POST", "/async-invoke", 200],
-  },
+  { [_h]: ["POST", "/async-invoke", 200] },
   () => StartAsyncInvokeRequest,
   () => StartAsyncInvokeResponse,
 ];

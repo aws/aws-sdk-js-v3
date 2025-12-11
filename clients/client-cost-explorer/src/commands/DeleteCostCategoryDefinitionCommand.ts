@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/models_0";
+import type { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/models_0";
 import { DeleteCostCategoryDefinition } from "../schemas/schemas_0";
 
 /**
@@ -29,8 +29,8 @@ export interface DeleteCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
- *       categorized with this Cost Category.</p>
+ * <p>Deletes a cost category. Expenses from this month going forward will no longer be
+ *       categorized with this cost category.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

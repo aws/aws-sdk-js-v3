@@ -289,6 +289,7 @@ const _DRPSRe = "DeleteResourcePolicyStatementResponse";
 const _DRPe = "DescribeResourcePolicy";
 const _DS = "DialogState";
 const _DSC = "DataSourceConfiguration";
+const _DSMC = "DeepgramSpeechModelConfig";
 const _DSR = "DeleteSlotRequest";
 const _DSRe = "DescribeSlotRequest";
 const _DSRes = "DescribeSlotResponse";
@@ -539,6 +540,7 @@ const _SDV = "SlotDefaultValue";
 const _SDVL = "SlotDefaultValueList";
 const _SDVS = "SlotDefaultValueSpecification";
 const _SF = "SlotFilter";
+const _SFM = "SpeechFoundationModel";
 const _SFl = "SlotFilters";
 const _SHIM = "SlotHintsIntentMap";
 const _SHSM = "SlotHintsSlotMap";
@@ -546,11 +548,13 @@ const _SI = "StartImport";
 const _SIR = "StartImportRequest";
 const _SIRt = "StartImportResponse";
 const _SL = "SynonymList";
+const _SMC = "SpeechModelConfig";
 const _SP = "SlotPriority";
 const _SPL = "SlotPrioritiesList";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRIS = "SlotResolutionImprovementSpecification";
 const _SRS = "SlotResolutionSetting";
+const _SRSp = "SpeechRecognitionSettings";
 const _SRTRI = "SlotResolutionTestResultItem";
 const _SRTRIC = "SlotResolutionTestResultItemCounts";
 const _SRTRIl = "SlotResolutionTestResultItems";
@@ -663,6 +667,7 @@ const _URRn = "UntagResourceResponse";
 const _US = "UtteranceSpecification";
 const _USR = "UpdateSlotRequest";
 const _USRp = "UpdateSlotResponse";
+const _USS = "UnifiedSpeechSettings";
 const _UST = "UpdateSlotType";
 const _USTR = "UpdateSlotTypeRequest";
 const _USTRp = "UpdateSlotTypeResponse";
@@ -712,6 +717,7 @@ const _aS = "audioSpecification";
 const _aSN = "associatedSlotName";
 const _aT = "associatedTranscripts";
 const _aTP = "associatedTranscriptsPassword";
+const _aTSA = "apiTokenSecretArn";
 const _aTU = "associatedTranscriptsUrl";
 const _aTg = "agentTurn";
 const _aUS = "aggregatedUtterancesSummaries";
@@ -828,6 +834,7 @@ const _dBB = "descriptiveBotBuilder";
 const _dC = "deletionCharacter";
 const _dCH = "dialogCodeHook";
 const _dCe = "declinationConditional";
+const _dCee = "deepgramConfig";
 const _dE = "domainEndpoint";
 const _dIC = "discoveredIntentCount";
 const _dIS = "delayInSeconds";
@@ -969,6 +976,7 @@ const _mA = "modelArn";
 const _mC = "missedCount";
 const _mDI = "maxDisambiguationIntents";
 const _mG = "messageGroups";
+const _mI = "modelId";
 const _mL = "maxLength";
 const _mLM = "maxLengthMs";
 const _mR = "metricsResults";
@@ -1061,6 +1069,7 @@ const _sDS = "speechDetectionSensitivity";
 const _sDT = "startDateTime";
 const _sDl = "slotDiscrepancies";
 const _sFIS = "slotsFilledInSession";
+const _sFM = "speechFoundationModel";
 const _sH = "slotHints";
 const _sI = "statementId";
 const _sIe = "sessionId";
@@ -1069,6 +1078,8 @@ const _sL = "storageLocation";
 const _sLE = "selectiveLoggingEnabled";
 const _sLu = "summaryList";
 const _sM = "ssmlMessage";
+const _sMC = "speechModelConfig";
+const _sMP = "speechModelPreference";
 const _sMR = "slotMatchResult";
 const _sMRC = "slotMatchResultCounts";
 const _sN = "slotName";
@@ -1082,8 +1093,9 @@ const _sR = "sourceRegion";
 const _sRI = "slotResolutionImprovement";
 const _sRIUC = "skipResourceInUseCheck";
 const _sRR = "slotResolutionResults";
-const _sRS = "slotResolutionStrategy";
-const _sRSl = "slotResolutionSetting";
+const _sRS = "speechRecognitionSettings";
+const _sRSl = "slotResolutionStrategy";
+const _sRSlo = "slotResolutionSetting";
 const _sRt = "startResponse";
 const _sRu = "successResponse";
 const _sS = "subSlots";
@@ -1174,6 +1186,7 @@ const _uLRIAD = "utteranceLastRecordedInAggregationDuration";
 const _uLTR = "utteranceLevelTestResults";
 const _uR = "updateResponse";
 const _uRI = "utteranceRequestId";
+const _uSS = "unifiedSpeechSettings";
 const _uT = "userTurn";
 const _uTt = "utteranceTimestamp";
 const _uU = "uploadUrl";
@@ -1196,7 +1209,7 @@ const n0 = "com.amazonaws.lexmodelsv2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -1217,7 +1230,6 @@ import {
 import { LexModelsV2ServiceException as __LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
 /* eslint no-var: 0 */
-
 export var FilePassword: StaticSimpleSchema = [0, n0, _FP, 8, 0];
 export var ImportExportFilePassword: StaticSimpleSchema = [0, n0, _IEFP, 8, 0];
 export var ActiveContext: StaticStructureSchema = [3, n0, _AC, 0, [_n], [0]];
@@ -1435,8 +1447,8 @@ export var BotLocaleImportSpecification: StaticStructureSchema = [
   n0,
   _BLIS,
   0,
-  [_bI, _bV, _lI, _nICT, _vS, _sDS],
-  [0, 0, 0, 1, () => VoiceSettings, 0],
+  [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS],
+  [0, 0, 0, 1, () => VoiceSettings, () => SpeechRecognitionSettings, 0, () => UnifiedSpeechSettings],
 ];
 export var BotLocaleSortBy: StaticStructureSchema = [3, n0, _BLSB, 0, [_a, _or], [0, 0]];
 export var BotLocaleSummary: StaticStructureSchema = [
@@ -1540,19 +1552,8 @@ export var ConditionalSpecification: StaticStructureSchema = [
   [_ac, _cB, _dB],
   [2, () => ConditionalBranches, () => DefaultConditionalBranch],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_err]: _cl,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_err]: _cl, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConversationLevelIntentClassificationResultItem: StaticStructureSchema = [
   3,
   n0,
@@ -1646,16 +1647,41 @@ export var CreateBotLocaleRequest: StaticStructureSchema = [
   n0,
   _CBLR,
   0,
-  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS, _sDS],
-  [[0, 1], [0, 1], 0, 0, 1, () => VoiceSettings, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lI, _de, _nICT, _vS, _uSS, _sRS, _gAIS, _sDS],
+  [
+    [0, 1],
+    [0, 1],
+    0,
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var CreateBotLocaleResponse: StaticStructureSchema = [
   3,
   n0,
   _CBLRr,
   0,
-  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _bLS, _cDT, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 4, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _uSS, _sRS, _bLS, _cDT, _gAIS, _sDS],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    0,
+    4,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var CreateBotReplicaRequest: StaticStructureSchema = [3, n0, _CBRR, 0, [_bI, _rR], [[0, 1], 0]];
 export var CreateBotReplicaResponse: StaticStructureSchema = [
@@ -1778,20 +1804,7 @@ export var CreateResourcePolicyStatementRequest: StaticStructureSchema = [
   _CRPSR,
   0,
   [_rAe, _sI, _ef, _pr, _act, _c, _eRI],
-  [
-    [0, 1],
-    0,
-    0,
-    () => PrincipalList,
-    64 | 0,
-    [2, n0, _CM, 0, 0, 128 | 0],
-    [
-      0,
-      {
-        [_hQ]: _eRI,
-      },
-    ],
-  ],
+  [[0, 1], 0, 0, () => PrincipalList, 64 | 0, [2, n0, _CM, 0, 0, 128 | 0], [0, { [_hQ]: _eRI }]],
 ];
 export var CreateResourcePolicyStatementResponse: StaticStructureSchema = [3, n0, _CRPSRr, 0, [_rAe, _rI], [0, 0]];
 export var CreateSlotRequest: StaticStructureSchema = [
@@ -1909,6 +1922,7 @@ export var DataSourceConfiguration: StaticStructureSchema = [
   [() => OpensearchConfiguration, () => QnAKendraConfiguration, () => BedrockKnowledgeStoreConfiguration],
 ];
 export var DateRangeFilter: StaticStructureSchema = [3, n0, _DRF, 0, [_sDT, _eDT], [4, 4]];
+export var DeepgramSpeechModelConfig: StaticStructureSchema = [3, n0, _DSMC, 0, [_aTSA, _mI], [0, 0]];
 export var DefaultConditionalBranch: StaticStructureSchema = [
   3,
   n0,
@@ -1926,12 +1940,7 @@ export var DeleteBotAliasRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteBotAliasResponse: StaticStructureSchema = [3, n0, _DBARe, 0, [_bAI, _bI, _bAS], [0, 0, 0]];
@@ -1968,12 +1977,7 @@ export var DeleteBotRequest: StaticStructureSchema = [
   [_bI, _sRIUC],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteBotResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_bI, _bS], [0, 0]];
@@ -1986,12 +1990,7 @@ export var DeleteBotVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteBotVersionResponse: StaticStructureSchema = [3, n0, _DBVRe, 0, [_bI, _bV, _bS], [0, 0, 0]];
@@ -2040,12 +2039,7 @@ export var DeleteResourcePolicyRequest: StaticStructureSchema = [
   [_rAe, _eRI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _eRI,
-      },
-    ],
+    [0, { [_hQ]: _eRI }],
   ],
 ];
 export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [_rAe, _rI], [0, 0]];
@@ -2058,12 +2052,7 @@ export var DeleteResourcePolicyStatementRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _eRI,
-      },
-    ],
+    [0, { [_hQ]: _eRI }],
   ],
 ];
 export var DeleteResourcePolicyStatementResponse: StaticStructureSchema = [3, n0, _DRPSRe, 0, [_rAe, _rI], [0, 0]];
@@ -2092,12 +2081,7 @@ export var DeleteSlotTypeRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteTestSetRequest: StaticStructureSchema = [3, n0, _DTSR, 0, [_tSI], [[0, 1]]];
@@ -2109,18 +2093,8 @@ export var DeleteUtterancesRequest: StaticStructureSchema = [
   [_bI, _lI, _sIe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _lI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sIe,
-      },
-    ],
+    [0, { [_hQ]: _lI }],
+    [0, { [_hQ]: _sIe }],
   ],
 ];
 export var DeleteUtterancesResponse: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
@@ -2174,7 +2148,28 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
   n0,
   _DBLResc,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS],
+  [
+    _bI,
+    _bV,
+    _lI,
+    _lN,
+    _de,
+    _nICT,
+    _vS,
+    _uSS,
+    _sRS,
+    _iCnt,
+    _sTC,
+    _bLS,
+    _fR,
+    _cDT,
+    _lUDT,
+    _lBSDT,
+    _bLHE,
+    _rAec,
+    _gAIS,
+    _sDS,
+  ],
   [
     0,
     0,
@@ -2183,6 +2178,8 @@ export var DescribeBotLocaleResponse: StaticStructureSchema = [
     0,
     1,
     () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
     1,
     1,
     0,
@@ -2774,19 +2771,8 @@ export var IntentSummary: StaticStructureSchema = [
   [_iI, _iN, _iDN, _de, _pIS, _iCn, _oC, _lUDT],
   [0, 0, 0, 0, 0, () => InputContextsList, () => OutputContextsList, 4],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_err]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_err]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvokedIntentSample: StaticStructureSchema = [3, n0, _IIS, 0, [_iN], [0]];
 export var KendraConfiguration: StaticStructureSchema = [3, n0, _KC, 0, [_kI, _qFSE, _qFS], [0, 2, 0]];
 export var LambdaCodeHook: StaticStructureSchema = [3, n0, _LCH, 0, [_lARN, _cHIV], [0, 0]];
@@ -3380,19 +3366,8 @@ export var PostFulfillmentStatusSpecification: StaticStructureSchema = [
     () => ConditionalSpecification,
   ],
 ];
-export var PreconditionFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PFE,
-  {
-    [_err]: _cl,
-    [_hE]: 412,
-  },
-  [_m],
-  [0],
-];
+export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_err]: _cl, [_hE]: 412 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-
 export var Principal: StaticStructureSchema = [3, n0, _P, 0, [_ser, _ar], [0, 0]];
 export var PromptAttemptSpecification: StaticStructureSchema = [
   3,
@@ -3430,19 +3405,8 @@ export var QnAIntentConfiguration: StaticStructureSchema = [
 export var QnAKendraConfiguration: StaticStructureSchema = [3, n0, _QAKC, 0, [_kI, _qFSE, _qFS, _eR], [0, 2, 0, 2]];
 export var RecommendedIntentSummary: StaticStructureSchema = [3, n0, _RIS, 0, [_iI, _iN, _sUC], [0, 0, 1]];
 export var RelativeAggregationDuration: StaticStructureSchema = [3, n0, _RAD, 0, [_tD, _tV], [0, 1]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_err]: _cl,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_err]: _cl, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResponseSpecification: StaticStructureSchema = [3, n0, _RS, 0, [_mG, _aIl], [() => MessageGroupsList, 2]];
 export var RuntimeHintDetails: StaticStructureSchema = [
   3,
@@ -3498,19 +3462,8 @@ export var SearchAssociatedTranscriptsResponse: StaticStructureSchema = [
   [0, 0, 0, 0, 1, () => AssociatedTranscriptList, 1],
 ];
 export var SentimentAnalysisSettings: StaticStructureSchema = [3, n0, _SAS, 0, [_dSe], [2]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_err]: _cl,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_err]: _cl, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionDataSortBy: StaticStructureSchema = [3, n0, _SDSB, 0, [_n, _or], [0, 0]];
 export var SessionSpecification: StaticStructureSchema = [
   3,
@@ -3556,7 +3509,7 @@ export var SlotResolutionImprovementSpecification: StaticStructureSchema = [
   [_e, _bMS],
   [2, () => BedrockModelSpecification],
 ];
-export var SlotResolutionSetting: StaticStructureSchema = [3, n0, _SRS, 0, [_sRS], [0]];
+export var SlotResolutionSetting: StaticStructureSchema = [3, n0, _SRS, 0, [_sRSl], [0]];
 export var SlotResolutionTestResultItem: StaticStructureSchema = [
   3,
   n0,
@@ -3600,7 +3553,7 @@ export var SlotValueElicitationSetting: StaticStructureSchema = [
   n0,
   _SVES,
   0,
-  [_dVS, _sCl, _pS, _sU, _wACS, _sCS, _sRSl],
+  [_dVS, _sCl, _pS, _sU, _wACS, _sCS, _sRSlo],
   [
     () => SlotDefaultValueSpecification,
     0,
@@ -3635,6 +3588,16 @@ export var Specifications: StaticStructureSchema = [
   0,
   [_sTI, _vES],
   [0, () => SubSlotValueElicitationSetting],
+];
+export var SpeechFoundationModel: StaticStructureSchema = [3, n0, _SFM, 0, [_mA, _vI], [0, 0]];
+export var SpeechModelConfig: StaticStructureSchema = [3, n0, _SMC, 0, [_dCee], [() => DeepgramSpeechModelConfig]];
+export var SpeechRecognitionSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _SRSp,
+  0,
+  [_sMP, _sMC],
+  [0, () => SpeechModelConfig],
 ];
 export var SSMLMessage: StaticStructureSchema = [3, n0, _SSMLM, 0, [_va], [0]];
 export var StartBotRecommendationRequest: StaticStructureSchema = [
@@ -3879,23 +3842,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_err]: _cl,
-    [_hE]: 429,
-  },
+  { [_err]: _cl, [_hE]: 429 },
   [_rAS, _m],
-  [
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TranscriptFilter: StaticStructureSchema = [3, n0, _TF, 0, [_lTF], [() => LexTranscriptFilter]];
 export var TranscriptSourceSetting: StaticStructureSchema = [
   3,
@@ -3913,6 +3864,7 @@ export var TurnSpecification: StaticStructureSchema = [
   [_aTg, _uT],
   [() => AgentTurnSpecification, () => UserTurnSpecification],
 ];
+export var UnifiedSpeechSettings: StaticStructureSchema = [3, n0, _USS, 0, [_sFM], [() => SpeechFoundationModel]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3921,12 +3873,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rARN, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -3972,16 +3919,44 @@ export var UpdateBotLocaleRequest: StaticStructureSchema = [
   n0,
   _UBLR,
   0,
-  [_bI, _bV, _lI, _de, _nICT, _vS, _gAIS, _sDS],
-  [[0, 1], [0, 1], [0, 1], 0, 1, () => VoiceSettings, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lI, _de, _nICT, _vS, _uSS, _sRS, _gAIS, _sDS],
+  [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var UpdateBotLocaleResponse: StaticStructureSchema = [
   3,
   n0,
   _UBLRp,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings, 0],
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _sRS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    () => VoiceSettings,
+    () => UnifiedSpeechSettings,
+    () => SpeechRecognitionSettings,
+    0,
+    64 | 0,
+    4,
+    4,
+    64 | 0,
+    () => GenerativeAISettings,
+    0,
+  ],
 ];
 export var UpdateBotRecommendationRequest: StaticStructureSchema = [
   3,
@@ -4129,16 +4104,7 @@ export var UpdateResourcePolicyRequest: StaticStructureSchema = [
   _URPR,
   0,
   [_rAe, _p, _eRI],
-  [
-    [0, 1],
-    0,
-    [
-      0,
-      {
-        [_hQ]: _eRI,
-      },
-    ],
-  ],
+  [[0, 1], 0, [0, { [_hQ]: _eRI }]],
 ];
 export var UpdateResourcePolicyResponse: StaticStructureSchema = [3, n0, _URPRp, 0, [_rAe, _rI], [0, 0]];
 export var UpdateSlotRequest: StaticStructureSchema = [
@@ -4360,20 +4326,9 @@ export var UtteranceSpecification: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => UtteranceBotResponses],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_err]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_err]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var VoiceSettings: StaticStructureSchema = [3, n0, _VS, 0, [_vI, _en], [0, 0]];
+export var VoiceSettings: StaticStructureSchema = [3, n0, _VS, 0, [_en, _vI], [0, 0]];
 export var WaitAndContinueSpecification: StaticStructureSchema = [
   3,
   n0,
@@ -4383,17 +4338,14 @@ export var WaitAndContinueSpecification: StaticStructureSchema = [
   [() => ResponseSpecification, () => ResponseSpecification, () => StillWaitingResponseSpecification, 2],
 ];
 export var __Unit = "unit" as const;
-
 export var LexModelsV2ServiceException: StaticErrorSchema = [-3, _sm, "LexModelsV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LexModelsV2ServiceException, __LexModelsV2ServiceException);
-
 export var ActiveContextList: StaticListSchema = [1, n0, _ACL, 0, () => ActiveContext];
 export var AggregatedUtterancesFilters: StaticListSchema = [1, n0, _AUFg, 0, () => AggregatedUtterancesFilter];
 export var AggregatedUtterancesSummaryList: StaticListSchema = [1, n0, _AUSL, 0, () => AggregatedUtterancesSummary];
 export var AnalyticsBinByList: StaticListSchema = [1, n0, _ABBL, 0, () => AnalyticsBinBySpecification];
 export var AnalyticsBinKeys: StaticListSchema = [1, n0, _ABKn, 0, () => AnalyticsBinKey];
 export var AnalyticsFilterValues = 64 | 0;
-
 export var AnalyticsIntentFilters: StaticListSchema = [1, n0, _AIFn, 0, () => AnalyticsIntentFilter];
 export var AnalyticsIntentGroupByKeys: StaticListSchema = [1, n0, _AIGBKn, 0, () => AnalyticsIntentGroupByKey];
 export var AnalyticsIntentGroupByList: StaticListSchema = [1, n0, _AIGBL, 0, () => AnalyticsIntentGroupBySpecification];
@@ -4506,9 +4458,7 @@ export var ExportFilters: StaticListSchema = [1, n0, _EFx, 0, () => ExportFilter
 export var ExportSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExportSummary];
 export var FailedCustomVocabularyItems: StaticListSchema = [1, n0, _FCVIa, 0, () => FailedCustomVocabularyItem];
 export var FailureReasons = 64 | 0;
-
 export var FilterValues = 64 | 0;
-
 export var GenerationSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GenerationSummary];
 export var ImportFilters: StaticListSchema = [1, n0, _IFm, 0, () => ImportFilter];
 export var ImportSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => ImportSummary];
@@ -4533,17 +4483,13 @@ export var InvokedIntentSamples: StaticListSchema = [1, n0, _IISn, 0, () => Invo
 export var MessageGroupsList: StaticListSchema = [1, n0, _MGL, 0, () => MessageGroup];
 export var MessageVariationsList: StaticListSchema = [1, n0, _MVL, 0, () => Message];
 export var ObjectPrefixes = 64 | 0;
-
 export var OperationList = 64 | 0;
-
 export var OSIncludeFields = 64 | 0;
-
 export var OutputContextsList: StaticListSchema = [1, n0, _OCL, 0, () => OutputContext];
 export var OverallTestResultItemList: StaticListSchema = [1, n0, _OTRIL, 0, () => OverallTestResultItem];
 export var ParentBotNetworks: StaticListSchema = [1, n0, _PBNa, 0, () => ParentBotNetwork];
 export var PrincipalList: StaticListSchema = [1, n0, _PL, 0, () => Principal];
 export var RecommendedActions = 64 | 0;
-
 export var RecommendedIntentSummaryList: StaticListSchema = [1, n0, _RISL, 0, () => RecommendedIntentSummary];
 export var RuntimeHintValuesList: StaticListSchema = [1, n0, _RHVL, 0, () => RuntimeHintValue];
 export var SampleUtterancesList: StaticListSchema = [1, n0, _SUL, 0, () => SampleUtterance];
@@ -4560,7 +4506,6 @@ export var SlotValues: StaticListSchema = [1, n0, _SVlo, 0, () => SlotValueOverr
 export var SubSlotTypeList: StaticListSchema = [1, n0, _SSTL, 0, () => SubSlotTypeComposition];
 export var SynonymList: StaticListSchema = [1, n0, _SL, 0, () => SampleValue];
 export var TagKeyList = 64 | 0;
-
 export var TestExecutionSummaryList: StaticListSchema = [1, n0, _TESL, 0, () => TestExecutionSummary];
 export var TestSetIntentDiscrepancyList: StaticListSchema = [1, n0, _TSIDL, 0, () => TestSetIntentDiscrepancyItem];
 export var TestSetSlotDiscrepancyList: StaticListSchema = [1, n0, _TSSDL, 0, () => TestSetSlotDiscrepancyItem];
@@ -4575,19 +4520,15 @@ export var UtteranceSpecifications: StaticListSchema = [1, n0, _USt, 0, () => Ut
 export var BotAliasLocaleSettingsMap: StaticMapSchema = [2, n0, _BALSM, 0, 0, () => BotAliasLocaleSettings];
 export var BotVersionLocaleSpecification: StaticMapSchema = [2, n0, _BVLS, 0, 0, () => BotVersionLocaleDetails];
 export var ConditionKeyValueMap = 128 | 0;
-
 export var ConditionMap: StaticMapSchema = [2, n0, _CM, 0, 0, 128 | 0];
 export var PromptAttemptsSpecificationMap: StaticMapSchema = [2, n0, _PASM, 0, 0, () => PromptAttemptSpecification];
 export var SlotHintsIntentMap: StaticMapSchema = [2, n0, _SHIM, 0, 0, () => SlotHintsSlotMap];
 export var SlotHintsSlotMap: StaticMapSchema = [2, n0, _SHSM, 0, 0, () => RuntimeHintDetails];
 export var SlotValueOverrideMap: StaticMapSchema = [2, n0, _SVOM, 0, 0, () => SlotValueOverride];
 export var StringMap = 128 | 0;
-
 export var SubSlotSpecificationMap: StaticMapSchema = [2, n0, _SSSM, 0, 0, () => Specifications];
 export var TagMap = 128 | 0;
-
 export var TestResultMatchStatusCountMap = 128 | 1;
-
 export var UserTurnSlotOutputMap: StaticMapSchema = [2, n0, _UTSOM, 0, 0, () => UserTurnSlotOutput];
 export var BatchCreateCustomVocabularyItem: StaticOperationSchema = [
   9,
@@ -4635,9 +4576,7 @@ export var BuildBotLocale: StaticOperationSchema = [
   9,
   n0,
   _BBL,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] },
   () => BuildBotLocaleRequest,
   () => BuildBotLocaleResponse,
 ];
@@ -4645,9 +4584,7 @@ export var CreateBot: StaticOperationSchema = [
   9,
   n0,
   _CBr,
-  {
-    [_h]: ["PUT", "/bots", 202],
-  },
+  { [_h]: ["PUT", "/bots", 202] },
   () => CreateBotRequest,
   () => CreateBotResponse,
 ];
@@ -4655,9 +4592,7 @@ export var CreateBotAlias: StaticOperationSchema = [
   9,
   n0,
   _CBA,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botaliases", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botaliases", 202] },
   () => CreateBotAliasRequest,
   () => CreateBotAliasResponse,
 ];
@@ -4665,9 +4600,7 @@ export var CreateBotLocale: StaticOperationSchema = [
   9,
   n0,
   _CBL,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales", 202] },
   () => CreateBotLocaleRequest,
   () => CreateBotLocaleResponse,
 ];
@@ -4675,9 +4608,7 @@ export var CreateBotReplica: StaticOperationSchema = [
   9,
   n0,
   _CBRre,
-  {
-    [_h]: ["PUT", "/bots/{botId}/replicas", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/replicas", 202] },
   () => CreateBotReplicaRequest,
   () => CreateBotReplicaResponse,
 ];
@@ -4685,9 +4616,7 @@ export var CreateBotVersion: StaticOperationSchema = [
   9,
   n0,
   _CBV,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions", 202] },
   () => CreateBotVersionRequest,
   () => CreateBotVersionResponse,
 ];
@@ -4695,9 +4624,7 @@ export var CreateExport: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["PUT", "/exports", 202],
-  },
+  { [_h]: ["PUT", "/exports", 202] },
   () => CreateExportRequest,
   () => CreateExportResponse,
 ];
@@ -4705,9 +4632,7 @@ export var CreateIntent: StaticOperationSchema = [
   9,
   n0,
   _CI,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", 200],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", 200] },
   () => CreateIntentRequest,
   () => CreateIntentResponse,
 ];
@@ -4715,9 +4640,7 @@ export var CreateResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _CRP,
-  {
-    [_h]: ["POST", "/policy/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/policy/{resourceArn}", 200] },
   () => CreateResourcePolicyRequest,
   () => CreateResourcePolicyResponse,
 ];
@@ -4725,9 +4648,7 @@ export var CreateResourcePolicyStatement: StaticOperationSchema = [
   9,
   n0,
   _CRPS,
-  {
-    [_h]: ["POST", "/policy/{resourceArn}/statements", 200],
-  },
+  { [_h]: ["POST", "/policy/{resourceArn}/statements", 200] },
   () => CreateResourcePolicyStatementRequest,
   () => CreateResourcePolicyStatementResponse,
 ];
@@ -4735,9 +4656,7 @@ export var CreateSlot: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", 200],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", 200] },
   () => CreateSlotRequest,
   () => CreateSlotResponse,
 ];
@@ -4745,9 +4664,7 @@ export var CreateSlotType: StaticOperationSchema = [
   9,
   n0,
   _CST,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", 200],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", 200] },
   () => CreateSlotTypeRequest,
   () => CreateSlotTypeResponse,
 ];
@@ -4755,9 +4672,7 @@ export var CreateTestSetDiscrepancyReport: StaticOperationSchema = [
   9,
   n0,
   _CTSDR,
-  {
-    [_h]: ["POST", "/testsets/{testSetId}/testsetdiscrepancy", 202],
-  },
+  { [_h]: ["POST", "/testsets/{testSetId}/testsetdiscrepancy", 202] },
   () => CreateTestSetDiscrepancyReportRequest,
   () => CreateTestSetDiscrepancyReportResponse,
 ];
@@ -4765,9 +4680,7 @@ export var CreateUploadUrl: StaticOperationSchema = [
   9,
   n0,
   _CUU,
-  {
-    [_h]: ["POST", "/createuploadurl", 200],
-  },
+  { [_h]: ["POST", "/createuploadurl", 200] },
   () => CreateUploadUrlRequest,
   () => CreateUploadUrlResponse,
 ];
@@ -4775,9 +4688,7 @@ export var DeleteBot: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["DELETE", "/bots/{botId}", 202],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}", 202] },
   () => DeleteBotRequest,
   () => DeleteBotResponse,
 ];
@@ -4785,9 +4696,7 @@ export var DeleteBotAlias: StaticOperationSchema = [
   9,
   n0,
   _DBA,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botaliases/{botAliasId}", 202],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botaliases/{botAliasId}", 202] },
   () => DeleteBotAliasRequest,
   () => DeleteBotAliasResponse,
 ];
@@ -4795,9 +4704,7 @@ export var DeleteBotLocale: StaticOperationSchema = [
   9,
   n0,
   _DBL,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] },
   () => DeleteBotLocaleRequest,
   () => DeleteBotLocaleResponse,
 ];
@@ -4805,9 +4712,7 @@ export var DeleteBotReplica: StaticOperationSchema = [
   9,
   n0,
   _DBRel,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/replicas/{replicaRegion}", 202],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/replicas/{replicaRegion}", 202] },
   () => DeleteBotReplicaRequest,
   () => DeleteBotReplicaResponse,
 ];
@@ -4815,9 +4720,7 @@ export var DeleteBotVersion: StaticOperationSchema = [
   9,
   n0,
   _DBV,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}", 202],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}", 202] },
   () => DeleteBotVersionRequest,
   () => DeleteBotVersionResponse,
 ];
@@ -4825,9 +4728,7 @@ export var DeleteCustomVocabulary: StaticOperationSchema = [
   9,
   n0,
   _DCV,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary", 202],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary", 202] },
   () => DeleteCustomVocabularyRequest,
   () => DeleteCustomVocabularyResponse,
 ];
@@ -4835,9 +4736,7 @@ export var DeleteExport: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/exports/{exportId}", 202],
-  },
+  { [_h]: ["DELETE", "/exports/{exportId}", 202] },
   () => DeleteExportRequest,
   () => DeleteExportResponse,
 ];
@@ -4845,9 +4744,7 @@ export var DeleteImport: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["DELETE", "/imports/{importId}", 202],
-  },
+  { [_h]: ["DELETE", "/imports/{importId}", 202] },
   () => DeleteImportRequest,
   () => DeleteImportResponse,
 ];
@@ -4855,9 +4752,7 @@ export var DeleteIntent: StaticOperationSchema = [
   9,
   n0,
   _DIe,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 204] },
   () => DeleteIntentRequest,
   () => __Unit,
 ];
@@ -4865,9 +4760,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/policy/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/policy/{resourceArn}", 204] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResponse,
 ];
@@ -4875,9 +4768,7 @@ export var DeleteResourcePolicyStatement: StaticOperationSchema = [
   9,
   n0,
   _DRPS,
-  {
-    [_h]: ["DELETE", "/policy/{resourceArn}/statements/{statementId}", 204],
-  },
+  { [_h]: ["DELETE", "/policy/{resourceArn}/statements/{statementId}", 204] },
   () => DeleteResourcePolicyStatementRequest,
   () => DeleteResourcePolicyStatementResponse,
 ];
@@ -4899,9 +4790,7 @@ export var DeleteSlotType: StaticOperationSchema = [
   9,
   n0,
   _DST,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 204] },
   () => DeleteSlotTypeRequest,
   () => __Unit,
 ];
@@ -4909,9 +4798,7 @@ export var DeleteTestSet: StaticOperationSchema = [
   9,
   n0,
   _DTS,
-  {
-    [_h]: ["DELETE", "/testsets/{testSetId}", 204],
-  },
+  { [_h]: ["DELETE", "/testsets/{testSetId}", 204] },
   () => DeleteTestSetRequest,
   () => __Unit,
 ];
@@ -4919,9 +4806,7 @@ export var DeleteUtterances: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/utterances", 204],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/utterances", 204] },
   () => DeleteUtterancesRequest,
   () => DeleteUtterancesResponse,
 ];
@@ -4929,9 +4814,7 @@ export var DescribeBot: StaticOperationSchema = [
   9,
   n0,
   _DBe,
-  {
-    [_h]: ["GET", "/bots/{botId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}", 200] },
   () => DescribeBotRequest,
   () => DescribeBotResponse,
 ];
@@ -4939,9 +4822,7 @@ export var DescribeBotAlias: StaticOperationSchema = [
   9,
   n0,
   _DBAe,
-  {
-    [_h]: ["GET", "/bots/{botId}/botaliases/{botAliasId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botaliases/{botAliasId}", 200] },
   () => DescribeBotAliasRequest,
   () => DescribeBotAliasResponse,
 ];
@@ -4949,9 +4830,7 @@ export var DescribeBotLocale: StaticOperationSchema = [
   9,
   n0,
   _DBLe,
-  {
-    [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 200] },
   () => DescribeBotLocaleRequest,
   () => DescribeBotLocaleResponse,
 ];
@@ -4973,9 +4852,7 @@ export var DescribeBotReplica: StaticOperationSchema = [
   9,
   n0,
   _DBRescri,
-  {
-    [_h]: ["GET", "/bots/{botId}/replicas/{replicaRegion}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/replicas/{replicaRegion}", 200] },
   () => DescribeBotReplicaRequest,
   () => DescribeBotReplicaResponse,
 ];
@@ -4983,9 +4860,7 @@ export var DescribeBotResourceGeneration: StaticOperationSchema = [
   9,
   n0,
   _DBRG,
-  {
-    [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}", 200] },
   () => DescribeBotResourceGenerationRequest,
   () => DescribeBotResourceGenerationResponse,
 ];
@@ -4993,9 +4868,7 @@ export var DescribeBotVersion: StaticOperationSchema = [
   9,
   n0,
   _DBVe,
-  {
-    [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}", 200] },
   () => DescribeBotVersionRequest,
   () => DescribeBotVersionResponse,
 ];
@@ -5017,9 +4890,7 @@ export var DescribeExport: StaticOperationSchema = [
   9,
   n0,
   _DEe,
-  {
-    [_h]: ["GET", "/exports/{exportId}", 200],
-  },
+  { [_h]: ["GET", "/exports/{exportId}", 200] },
   () => DescribeExportRequest,
   () => DescribeExportResponse,
 ];
@@ -5027,9 +4898,7 @@ export var DescribeImport: StaticOperationSchema = [
   9,
   n0,
   _DIes,
-  {
-    [_h]: ["GET", "/imports/{importId}", 200],
-  },
+  { [_h]: ["GET", "/imports/{importId}", 200] },
   () => DescribeImportRequest,
   () => DescribeImportResponse,
 ];
@@ -5037,9 +4906,7 @@ export var DescribeIntent: StaticOperationSchema = [
   9,
   n0,
   _DIesc,
-  {
-    [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 200] },
   () => DescribeIntentRequest,
   () => DescribeIntentResponse,
 ];
@@ -5047,9 +4914,7 @@ export var DescribeResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
-  {
-    [_h]: ["GET", "/policy/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/policy/{resourceArn}", 200] },
   () => DescribeResourcePolicyRequest,
   () => DescribeResourcePolicyResponse,
 ];
@@ -5071,9 +4936,7 @@ export var DescribeSlotType: StaticOperationSchema = [
   9,
   n0,
   _DSTe,
-  {
-    [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 200] },
   () => DescribeSlotTypeRequest,
   () => DescribeSlotTypeResponse,
 ];
@@ -5081,9 +4944,7 @@ export var DescribeTestExecution: StaticOperationSchema = [
   9,
   n0,
   _DTE,
-  {
-    [_h]: ["GET", "/testexecutions/{testExecutionId}", 200],
-  },
+  { [_h]: ["GET", "/testexecutions/{testExecutionId}", 200] },
   () => DescribeTestExecutionRequest,
   () => DescribeTestExecutionResponse,
 ];
@@ -5091,9 +4952,7 @@ export var DescribeTestSet: StaticOperationSchema = [
   9,
   n0,
   _DTSe,
-  {
-    [_h]: ["GET", "/testsets/{testSetId}", 200],
-  },
+  { [_h]: ["GET", "/testsets/{testSetId}", 200] },
   () => DescribeTestSetRequest,
   () => DescribeTestSetResponse,
 ];
@@ -5101,9 +4960,7 @@ export var DescribeTestSetDiscrepancyReport: StaticOperationSchema = [
   9,
   n0,
   _DTSDR,
-  {
-    [_h]: ["GET", "/testsetdiscrepancy/{testSetDiscrepancyReportId}", 200],
-  },
+  { [_h]: ["GET", "/testsetdiscrepancy/{testSetDiscrepancyReportId}", 200] },
   () => DescribeTestSetDiscrepancyReportRequest,
   () => DescribeTestSetDiscrepancyReportResponse,
 ];
@@ -5111,9 +4968,7 @@ export var DescribeTestSetGeneration: StaticOperationSchema = [
   9,
   n0,
   _DTSG,
-  {
-    [_h]: ["GET", "/testsetgenerations/{testSetGenerationId}", 200],
-  },
+  { [_h]: ["GET", "/testsetgenerations/{testSetGenerationId}", 200] },
   () => DescribeTestSetGenerationRequest,
   () => DescribeTestSetGenerationResponse,
 ];
@@ -5121,9 +4976,7 @@ export var GenerateBotElement: StaticOperationSchema = [
   9,
   n0,
   _GBE,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate", 202],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate", 202] },
   () => GenerateBotElementRequest,
   () => GenerateBotElementResponse,
 ];
@@ -5131,9 +4984,7 @@ export var GetTestExecutionArtifactsUrl: StaticOperationSchema = [
   9,
   n0,
   _GTEAU,
-  {
-    [_h]: ["GET", "/testexecutions/{testExecutionId}/artifacturl", 200],
-  },
+  { [_h]: ["GET", "/testexecutions/{testExecutionId}/artifacturl", 200] },
   () => GetTestExecutionArtifactsUrlRequest,
   () => GetTestExecutionArtifactsUrlResponse,
 ];
@@ -5141,9 +4992,7 @@ export var ListAggregatedUtterances: StaticOperationSchema = [
   9,
   n0,
   _LAU,
-  {
-    [_h]: ["POST", "/bots/{botId}/aggregatedutterances", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/aggregatedutterances", 200] },
   () => ListAggregatedUtterancesRequest,
   () => ListAggregatedUtterancesResponse,
 ];
@@ -5151,9 +5000,7 @@ export var ListBotAliases: StaticOperationSchema = [
   9,
   n0,
   _LBA,
-  {
-    [_h]: ["POST", "/bots/{botId}/botaliases", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botaliases", 200] },
   () => ListBotAliasesRequest,
   () => ListBotAliasesResponse,
 ];
@@ -5161,9 +5008,7 @@ export var ListBotAliasReplicas: StaticOperationSchema = [
   9,
   n0,
   _LBARis,
-  {
-    [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botaliases", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botaliases", 200] },
   () => ListBotAliasReplicasRequest,
   () => ListBotAliasReplicasResponse,
 ];
@@ -5171,9 +5016,7 @@ export var ListBotLocales: StaticOperationSchema = [
   9,
   n0,
   _LBL,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales", 200] },
   () => ListBotLocalesRequest,
   () => ListBotLocalesResponse,
 ];
@@ -5181,9 +5024,7 @@ export var ListBotRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LBRis,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 200] },
   () => ListBotRecommendationsRequest,
   () => ListBotRecommendationsResponse,
 ];
@@ -5191,9 +5032,7 @@ export var ListBotReplicas: StaticOperationSchema = [
   9,
   n0,
   _LBRist,
-  {
-    [_h]: ["POST", "/bots/{botId}/replicas", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/replicas", 200] },
   () => ListBotReplicasRequest,
   () => ListBotReplicasResponse,
 ];
@@ -5201,9 +5040,7 @@ export var ListBotResourceGenerations: StaticOperationSchema = [
   9,
   n0,
   _LBRG,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations", 200] },
   () => ListBotResourceGenerationsRequest,
   () => ListBotResourceGenerationsResponse,
 ];
@@ -5211,9 +5048,7 @@ export var ListBots: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["POST", "/bots", 200],
-  },
+  { [_h]: ["POST", "/bots", 200] },
   () => ListBotsRequest,
   () => ListBotsResponse,
 ];
@@ -5221,9 +5056,7 @@ export var ListBotVersionReplicas: StaticOperationSchema = [
   9,
   n0,
   _LBVRis,
-  {
-    [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botversions", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botversions", 200] },
   () => ListBotVersionReplicasRequest,
   () => ListBotVersionReplicasResponse,
 ];
@@ -5231,9 +5064,7 @@ export var ListBotVersions: StaticOperationSchema = [
   9,
   n0,
   _LBV,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions", 200] },
   () => ListBotVersionsRequest,
   () => ListBotVersionsResponse,
 ];
@@ -5241,9 +5072,7 @@ export var ListBuiltInIntents: StaticOperationSchema = [
   9,
   n0,
   _LBII,
-  {
-    [_h]: ["POST", "/builtins/locales/{localeId}/intents", 200],
-  },
+  { [_h]: ["POST", "/builtins/locales/{localeId}/intents", 200] },
   () => ListBuiltInIntentsRequest,
   () => ListBuiltInIntentsResponse,
 ];
@@ -5251,9 +5080,7 @@ export var ListBuiltInSlotTypes: StaticOperationSchema = [
   9,
   n0,
   _LBIST,
-  {
-    [_h]: ["POST", "/builtins/locales/{localeId}/slottypes", 200],
-  },
+  { [_h]: ["POST", "/builtins/locales/{localeId}/slottypes", 200] },
   () => ListBuiltInSlotTypesRequest,
   () => ListBuiltInSlotTypesResponse,
 ];
@@ -5261,9 +5088,7 @@ export var ListCustomVocabularyItems: StaticOperationSchema = [
   9,
   n0,
   _LCVI,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list", 200] },
   () => ListCustomVocabularyItemsRequest,
   () => ListCustomVocabularyItemsResponse,
 ];
@@ -5271,9 +5096,7 @@ export var ListExports: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["POST", "/exports", 200],
-  },
+  { [_h]: ["POST", "/exports", 200] },
   () => ListExportsRequest,
   () => ListExportsResponse,
 ];
@@ -5281,9 +5104,7 @@ export var ListImports: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["POST", "/imports", 200],
-  },
+  { [_h]: ["POST", "/imports", 200] },
   () => ListImportsRequest,
   () => ListImportsResponse,
 ];
@@ -5291,9 +5112,7 @@ export var ListIntentMetrics: StaticOperationSchema = [
   9,
   n0,
   _LIM,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/intentmetrics", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/intentmetrics", 200] },
   () => ListIntentMetricsRequest,
   () => ListIntentMetricsResponse,
 ];
@@ -5301,9 +5120,7 @@ export var ListIntentPaths: StaticOperationSchema = [
   9,
   n0,
   _LIP,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/intentpaths", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/intentpaths", 200] },
   () => ListIntentPathsRequest,
   () => ListIntentPathsResponse,
 ];
@@ -5311,9 +5128,7 @@ export var ListIntents: StaticOperationSchema = [
   9,
   n0,
   _LIi,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents", 200] },
   () => ListIntentsRequest,
   () => ListIntentsResponse,
 ];
@@ -5321,9 +5136,7 @@ export var ListIntentStageMetrics: StaticOperationSchema = [
   9,
   n0,
   _LISM,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/intentstagemetrics", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/intentstagemetrics", 200] },
   () => ListIntentStageMetricsRequest,
   () => ListIntentStageMetricsResponse,
 ];
@@ -5345,9 +5158,7 @@ export var ListSessionAnalyticsData: StaticOperationSchema = [
   9,
   n0,
   _LSAD,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/sessions", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/sessions", 200] },
   () => ListSessionAnalyticsDataRequest,
   () => ListSessionAnalyticsDataResponse,
 ];
@@ -5355,9 +5166,7 @@ export var ListSessionMetrics: StaticOperationSchema = [
   9,
   n0,
   _LSM,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/sessionmetrics", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/sessionmetrics", 200] },
   () => ListSessionMetricsRequest,
   () => ListSessionMetricsResponse,
 ];
@@ -5365,9 +5174,7 @@ export var ListSlots: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots", 200] },
   () => ListSlotsRequest,
   () => ListSlotsResponse,
 ];
@@ -5375,9 +5182,7 @@ export var ListSlotTypes: StaticOperationSchema = [
   9,
   n0,
   _LST,
-  {
-    [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes", 200] },
   () => ListSlotTypesRequest,
   () => ListSlotTypesResponse,
 ];
@@ -5385,9 +5190,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceARN}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceARN}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -5395,9 +5198,7 @@ export var ListTestExecutionResultItems: StaticOperationSchema = [
   9,
   n0,
   _LTERI,
-  {
-    [_h]: ["POST", "/testexecutions/{testExecutionId}/results", 200],
-  },
+  { [_h]: ["POST", "/testexecutions/{testExecutionId}/results", 200] },
   () => ListTestExecutionResultItemsRequest,
   () => ListTestExecutionResultItemsResponse,
 ];
@@ -5405,9 +5206,7 @@ export var ListTestExecutions: StaticOperationSchema = [
   9,
   n0,
   _LTE,
-  {
-    [_h]: ["POST", "/testexecutions", 200],
-  },
+  { [_h]: ["POST", "/testexecutions", 200] },
   () => ListTestExecutionsRequest,
   () => ListTestExecutionsResponse,
 ];
@@ -5415,9 +5214,7 @@ export var ListTestSetRecords: StaticOperationSchema = [
   9,
   n0,
   _LTSRis,
-  {
-    [_h]: ["POST", "/testsets/{testSetId}/records", 200],
-  },
+  { [_h]: ["POST", "/testsets/{testSetId}/records", 200] },
   () => ListTestSetRecordsRequest,
   () => ListTestSetRecordsResponse,
 ];
@@ -5425,9 +5222,7 @@ export var ListTestSets: StaticOperationSchema = [
   9,
   n0,
   _LTS,
-  {
-    [_h]: ["POST", "/testsets", 200],
-  },
+  { [_h]: ["POST", "/testsets", 200] },
   () => ListTestSetsRequest,
   () => ListTestSetsResponse,
 ];
@@ -5435,9 +5230,7 @@ export var ListUtteranceAnalyticsData: StaticOperationSchema = [
   9,
   n0,
   _LUAD,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/utterances", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/utterances", 200] },
   () => ListUtteranceAnalyticsDataRequest,
   () => ListUtteranceAnalyticsDataResponse,
 ];
@@ -5445,9 +5238,7 @@ export var ListUtteranceMetrics: StaticOperationSchema = [
   9,
   n0,
   _LUM,
-  {
-    [_h]: ["POST", "/bots/{botId}/analytics/utterancemetrics", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/analytics/utterancemetrics", 200] },
   () => ListUtteranceMetricsRequest,
   () => ListUtteranceMetricsResponse,
 ];
@@ -5469,9 +5260,7 @@ export var StartBotRecommendation: StaticOperationSchema = [
   9,
   n0,
   _SBR,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 202] },
   () => StartBotRecommendationRequest,
   () => StartBotRecommendationResponse,
 ];
@@ -5479,9 +5268,7 @@ export var StartBotResourceGeneration: StaticOperationSchema = [
   9,
   n0,
   _SBRG,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration", 202] },
   () => StartBotResourceGenerationRequest,
   () => StartBotResourceGenerationResponse,
 ];
@@ -5489,9 +5276,7 @@ export var StartImport: StaticOperationSchema = [
   9,
   n0,
   _SI,
-  {
-    [_h]: ["PUT", "/imports", 202],
-  },
+  { [_h]: ["PUT", "/imports", 202] },
   () => StartImportRequest,
   () => StartImportResponse,
 ];
@@ -5499,9 +5284,7 @@ export var StartTestExecution: StaticOperationSchema = [
   9,
   n0,
   _STE,
-  {
-    [_h]: ["POST", "/testsets/{testSetId}/testexecutions", 202],
-  },
+  { [_h]: ["POST", "/testsets/{testSetId}/testexecutions", 202] },
   () => StartTestExecutionRequest,
   () => StartTestExecutionResponse,
 ];
@@ -5509,9 +5292,7 @@ export var StartTestSetGeneration: StaticOperationSchema = [
   9,
   n0,
   _STSG,
-  {
-    [_h]: ["PUT", "/testsetgenerations", 202],
-  },
+  { [_h]: ["PUT", "/testsetgenerations", 202] },
   () => StartTestSetGenerationRequest,
   () => StartTestSetGenerationResponse,
 ];
@@ -5533,9 +5314,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceARN}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceARN}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -5543,9 +5322,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceARN}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceARN}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -5553,9 +5330,7 @@ export var UpdateBot: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  {
-    [_h]: ["PUT", "/bots/{botId}", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}", 202] },
   () => UpdateBotRequest,
   () => UpdateBotResponse,
 ];
@@ -5563,9 +5338,7 @@ export var UpdateBotAlias: StaticOperationSchema = [
   9,
   n0,
   _UBA,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botaliases/{botAliasId}", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botaliases/{botAliasId}", 202] },
   () => UpdateBotAliasRequest,
   () => UpdateBotAliasResponse,
 ];
@@ -5573,9 +5346,7 @@ export var UpdateBotLocale: StaticOperationSchema = [
   9,
   n0,
   _UBL,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] },
   () => UpdateBotLocaleRequest,
   () => UpdateBotLocaleResponse,
 ];
@@ -5597,9 +5368,7 @@ export var UpdateExport: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PUT", "/exports/{exportId}", 202],
-  },
+  { [_h]: ["PUT", "/exports/{exportId}", 202] },
   () => UpdateExportRequest,
   () => UpdateExportResponse,
 ];
@@ -5607,9 +5376,7 @@ export var UpdateIntent: StaticOperationSchema = [
   9,
   n0,
   _UI,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 200],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}", 200] },
   () => UpdateIntentRequest,
   () => UpdateIntentResponse,
 ];
@@ -5617,9 +5384,7 @@ export var UpdateResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _URP,
-  {
-    [_h]: ["PUT", "/policy/{resourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/policy/{resourceArn}", 200] },
   () => UpdateResourcePolicyRequest,
   () => UpdateResourcePolicyResponse,
 ];
@@ -5641,9 +5406,7 @@ export var UpdateSlotType: StaticOperationSchema = [
   9,
   n0,
   _UST,
-  {
-    [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 202],
-  },
+  { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}", 202] },
   () => UpdateSlotTypeRequest,
   () => UpdateSlotTypeResponse,
 ];
@@ -5651,9 +5414,7 @@ export var UpdateTestSet: StaticOperationSchema = [
   9,
   n0,
   _UTSp,
-  {
-    [_h]: ["PUT", "/testsets/{testSetId}", 200],
-  },
+  { [_h]: ["PUT", "/testsets/{testSetId}", 200] },
   () => UpdateTestSetRequest,
   () => UpdateTestSetResponse,
 ];

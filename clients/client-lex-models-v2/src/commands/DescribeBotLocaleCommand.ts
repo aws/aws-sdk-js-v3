@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotLocaleRequest, DescribeBotLocaleResponse } from "../models/models_0";
+import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import type { DescribeBotLocaleRequest, DescribeBotLocaleResponse } from "../models/models_0";
 import { DescribeBotLocale } from "../schemas/schemas_0";
 
 /**
@@ -51,8 +51,23 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //   description: "STRING_VALUE",
  * //   nluIntentConfidenceThreshold: Number("double"),
  * //   voiceSettings: { // VoiceSettings
- * //     voiceId: "STRING_VALUE", // required
  * //     engine: "standard" || "neural" || "long-form" || "generative",
+ * //     voiceId: "STRING_VALUE", // required
+ * //   },
+ * //   unifiedSpeechSettings: { // UnifiedSpeechSettings
+ * //     speechFoundationModel: { // SpeechFoundationModel
+ * //       modelArn: "STRING_VALUE", // required
+ * //       voiceId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   speechRecognitionSettings: { // SpeechRecognitionSettings
+ * //     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //     speechModelConfig: { // SpeechModelConfig
+ * //       deepgramConfig: { // DeepgramSpeechModelConfig
+ * //         apiTokenSecretArn: "STRING_VALUE", // required
+ * //         modelId: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   intentsCount: Number("int"),
  * //   slotTypesCount: Number("int"),

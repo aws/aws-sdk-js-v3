@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchAddChannelRoleToAccessorsCommand,
@@ -65,7 +65,7 @@ import {
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
-import { RepostspaceClient, RepostspaceClientConfig } from "./RepostspaceClient";
+import { RepostspaceClient } from "./RepostspaceClient";
 
 const commands = {
   BatchAddChannelRoleToAccessorsCommand,

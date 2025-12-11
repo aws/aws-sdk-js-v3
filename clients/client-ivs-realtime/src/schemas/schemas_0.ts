@@ -57,6 +57,7 @@ const _EC = "EncoderConfiguration";
 const _ECS = "EncoderConfigurationSummary";
 const _ECSL = "EncoderConfigurationSummaryList";
 const _EL = "EventList";
+const _EPT = "ExchangedParticipantToken";
 const _GC = "GridConfiguration";
 const _GCR = "GetCompositionRequest";
 const _GCRe = "GetCompositionResponse";
@@ -253,7 +254,8 @@ const _l = "layout";
 const _mR = "maxResults";
 const _mT = "mediaTypes";
 const _n = "name";
-const _nT = "nextToken";
+const _nT = "newToken";
+const _nTe = "nextToken";
 const _oN = "osName";
 const _oSV = "omitStoppedVideo";
 const _oV = "osVersion";
@@ -271,6 +273,7 @@ const _pPA = "pipParticipantAttribute";
 const _pT = "participantToken";
 const _pTC = "participantTokenConfigurations";
 const _pTa = "participantTokens";
+const _pTr = "previousToken";
 const _pW = "pipWidth";
 const _pa = "participants";
 const _pi = "pip";
@@ -335,7 +338,7 @@ const n0 = "com.amazonaws.ivsrealtime";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -356,72 +359,27 @@ import {
 import { IVSRealTimeServiceException as __IVSRealTimeServiceException } from "../models/IVSRealTimeServiceException";
 
 /* eslint no-var: 0 */
-
 export var ParticipantTokenString: StaticSimpleSchema = [0, n0, _PTS, 8, 0];
 export var StreamKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AutoParticipantRecordingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -453,65 +411,21 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateEncoderConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -636,8 +550,16 @@ export var Event: StaticStructureSchema = [
   n0,
   _E,
   0,
-  [_n, _pI, _eTv, _rPI, _eCr, _dSA, _dSI, _re],
-  [0, 0, 5, 0, 0, 0, 0, 2],
+  [_n, _pI, _eTv, _rPI, _eCr, _dSA, _dSI, _re, _pTr, _nT],
+  [0, 0, 5, 0, 0, 0, 0, 2, () => ExchangedParticipantToken, () => ExchangedParticipantToken],
+];
+export var ExchangedParticipantToken: StaticStructureSchema = [
+  3,
+  n0,
+  _EPT,
+  0,
+  [_ca, _at, _uI, _eTx],
+  [64 | 0, 128 | 0, 0, 5],
 ];
 export var GetCompositionRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_a], [0]];
 export var GetCompositionResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_com], [() => Composition]];
@@ -706,65 +628,21 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LayoutConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -773,22 +651,22 @@ export var LayoutConfiguration: StaticStructureSchema = [
   [_g, _pi],
   [() => GridConfiguration, () => PipConfiguration],
 ];
-export var ListCompositionsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_fBSA, _fBECA, _nT, _mR], [0, 0, 0, 1]];
+export var ListCompositionsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_fBSA, _fBECA, _nTe, _mR], [0, 0, 0, 1]];
 export var ListCompositionsResponse: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
   0,
-  [_comp, _nT],
+  [_comp, _nTe],
   [() => CompositionSummaryList, 0],
 ];
-export var ListEncoderConfigurationsRequest: StaticStructureSchema = [3, n0, _LECR, 0, [_nT, _mR], [0, 1]];
+export var ListEncoderConfigurationsRequest: StaticStructureSchema = [3, n0, _LECR, 0, [_nTe, _mR], [0, 1]];
 export var ListEncoderConfigurationsResponse: StaticStructureSchema = [
   3,
   n0,
   _LECRi,
   0,
-  [_eCn, _nT],
+  [_eCn, _nTe],
   [() => EncoderConfigurationSummaryList, 0],
 ];
 export var ListIngestConfigurationsRequest: StaticStructureSchema = [
@@ -796,7 +674,7 @@ export var ListIngestConfigurationsRequest: StaticStructureSchema = [
   n0,
   _LICR,
   0,
-  [_fBSA, _fBS, _nT, _mR],
+  [_fBSA, _fBS, _nTe, _mR],
   [0, 0, 0, 1],
 ];
 export var ListIngestConfigurationsResponse: StaticStructureSchema = [
@@ -804,7 +682,7 @@ export var ListIngestConfigurationsResponse: StaticStructureSchema = [
   n0,
   _LICRi,
   0,
-  [_iCn, _nT],
+  [_iCn, _nTe],
   [() => IngestConfigurationList, 0],
 ];
 export var ListParticipantEventsRequest: StaticStructureSchema = [
@@ -812,16 +690,16 @@ export var ListParticipantEventsRequest: StaticStructureSchema = [
   n0,
   _LPER,
   0,
-  [_sA, _sI, _pI, _nT, _mR],
+  [_sA, _sI, _pI, _nTe, _mR],
   [0, 0, 0, 0, 1],
 ];
-export var ListParticipantEventsResponse: StaticStructureSchema = [3, n0, _LPERi, 0, [_ev, _nT], [() => EventList, 0]];
+export var ListParticipantEventsResponse: StaticStructureSchema = [3, n0, _LPERi, 0, [_ev, _nTe], [() => EventList, 0]];
 export var ListParticipantReplicasRequest: StaticStructureSchema = [
   3,
   n0,
   _LPRR,
   0,
-  [_sSA, _pI, _nT, _mR],
+  [_sSA, _pI, _nTe, _mR],
   [0, 0, 0, 1],
 ];
 export var ListParticipantReplicasResponse: StaticStructureSchema = [
@@ -829,7 +707,7 @@ export var ListParticipantReplicasResponse: StaticStructureSchema = [
   n0,
   _LPRRi,
   0,
-  [_rep, _nT],
+  [_rep, _nTe],
   [() => ParticipantReplicaList, 0],
 ];
 export var ListParticipantsRequest: StaticStructureSchema = [
@@ -837,30 +715,30 @@ export var ListParticipantsRequest: StaticStructureSchema = [
   n0,
   _LPR,
   0,
-  [_sA, _sI, _fBUI, _fBP, _fBS, _nT, _mR, _fBRS],
+  [_sA, _sI, _fBUI, _fBP, _fBS, _nTe, _mR, _fBRS],
   [0, 0, 0, 2, 0, 0, 1, 0],
 ];
-export var ListParticipantsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nT], [() => ParticipantList, 0]];
-export var ListPublicKeysRequest: StaticStructureSchema = [3, n0, _LPKR, 0, [_nT, _mR], [0, 1]];
-export var ListPublicKeysResponse: StaticStructureSchema = [3, n0, _LPKRi, 0, [_pKu, _nT], [() => PublicKeyList, 0]];
-export var ListStageSessionsRequest: StaticStructureSchema = [3, n0, _LSSR, 0, [_sA, _nT, _mR], [0, 0, 1]];
+export var ListParticipantsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nTe], [() => ParticipantList, 0]];
+export var ListPublicKeysRequest: StaticStructureSchema = [3, n0, _LPKR, 0, [_nTe, _mR], [0, 1]];
+export var ListPublicKeysResponse: StaticStructureSchema = [3, n0, _LPKRi, 0, [_pKu, _nTe], [() => PublicKeyList, 0]];
+export var ListStageSessionsRequest: StaticStructureSchema = [3, n0, _LSSR, 0, [_sA, _nTe, _mR], [0, 0, 1]];
 export var ListStageSessionsResponse: StaticStructureSchema = [
   3,
   n0,
   _LSSRi,
   0,
-  [_sSt, _nT],
+  [_sSt, _nTe],
   [() => StageSessionList, 0],
 ];
-export var ListStagesRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_nT, _mR], [0, 1]];
-export var ListStagesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_stag, _nT], [() => StageSummaryList, 0]];
-export var ListStorageConfigurationsRequest: StaticStructureSchema = [3, n0, _LSCR, 0, [_nT, _mR], [0, 1]];
+export var ListStagesRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_nTe, _mR], [0, 1]];
+export var ListStagesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_stag, _nTe], [() => StageSummaryList, 0]];
+export var ListStorageConfigurationsRequest: StaticStructureSchema = [3, n0, _LSCR, 0, [_nTe, _mR], [0, 1]];
 export var ListStorageConfigurationsResponse: StaticStructureSchema = [
   3,
   n0,
   _LSCRi,
   0,
-  [_sCt, _nT],
+  [_sCt, _nTe],
   [() => StorageConfigurationSummaryList, 0],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
@@ -918,65 +796,21 @@ export var PendingVerification: StaticErrorSchema = [
   -3,
   n0,
   _PV,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(PendingVerification, __PendingVerification);
-
 export var PipConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -999,65 +833,21 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3DestinationConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1072,65 +862,21 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Stage: StaticStructureSchema = [
   3,
   n0,
@@ -1167,48 +913,13 @@ export var StartParticipantReplicationResponse: StaticStructureSchema = [
   0,
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
   ],
 ];
 export var StopCompositionRequest: StaticStructureSchema = [3, n0, _SCRto, 0, [_a], [0]];
@@ -1221,48 +932,13 @@ export var StopParticipantReplicationResponse: StaticStructureSchema = [
   0,
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
   ],
 ];
 export var StorageConfiguration: StaticStructureSchema = [
@@ -1291,12 +967,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1322,71 +993,24 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [
-    [
-      0,
-      {
-        [_hH]: _ACAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _ACEH,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CSP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _STS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XCTO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XFO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaE,
-      },
-    ],
+    [0, { [_hH]: _ACAO }],
+    [0, { [_hH]: _ACEH }],
+    [0, { [_hH]: _CC }],
+    [0, { [_hH]: _CSP }],
+    [0, { [_hH]: _STS }],
+    [0, { [_hH]: _XCTO }],
+    [0, { [_hH]: _XFO }],
+    [0, { [_hH]: _xaE }],
     0,
   ],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Video: StaticStructureSchema = [3, n0, _V, 0, [_wi, _h, _fr, _b], [1, 1, 1, 1]];
-export var __Unit = "unit" as const;
-
 export var IVSRealTimeServiceException: StaticErrorSchema = [-3, _sm, "IVSRealTimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IVSRealTimeServiceException, __IVSRealTimeServiceException);
-
 export var CompositionSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CompositionSummary];
 export var CompositionThumbnailConfigurationList: StaticListSchema = [
   1,
@@ -1399,16 +1023,13 @@ export var DestinationConfigurationList: StaticListSchema = [1, n0, _DCL, 0, () 
 export var DestinationList: StaticListSchema = [1, n0, _DL, 0, () => Destination];
 export var DestinationSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DestinationSummary];
 export var EncoderConfigurationArnList = 64 | 0;
-
 export var EncoderConfigurationSummaryList: StaticListSchema = [1, n0, _ECSL, 0, () => EncoderConfigurationSummary];
 export var EventList: StaticListSchema = [1, n0, _EL, 0, () => Event];
 export var IngestConfigurationList: StaticListSchema = [1, n0, _ICL, 0, () => IngestConfigurationSummary];
 export var ParticipantList: StaticListSchema = [1, n0, _PL, 0, () => ParticipantSummary];
 export var ParticipantRecordingMediaTypeList = 64 | 0;
-
 export var ParticipantReplicaList: StaticListSchema = [1, n0, _PRL, 0, () => ParticipantReplica];
 export var ParticipantTokenCapabilities = 64 | 0;
-
 export var ParticipantTokenConfigurations: StaticListSchema = [1, n0, _PTCar, 0, () => ParticipantTokenConfiguration];
 export var ParticipantTokenList: StaticListSchema = [1, n0, _PTL, 0, [() => ParticipantToken, 0]];
 export var PublicKeyList: StaticListSchema = [1, n0, _PKL, 0, () => PublicKeySummary];
@@ -1416,22 +1037,15 @@ export var StageSessionList: StaticListSchema = [1, n0, _SSL, 0, () => StageSess
 export var StageSummaryList: StaticListSchema = [1, n0, _SSLt, 0, () => StageSummary];
 export var StorageConfigurationSummaryList: StaticListSchema = [1, n0, _SCSL, 0, () => StorageConfigurationSummary];
 export var TagKeyList = 64 | 0;
-
 export var ThumbnailStorageTypeList = 64 | 0;
-
 export var ParticipantAttributes = 128 | 0;
-
 export var ParticipantTokenAttributes = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var CreateEncoderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CEC,
-  {
-    [_ht]: ["POST", "/CreateEncoderConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/CreateEncoderConfiguration", 200] },
   () => CreateEncoderConfigurationRequest,
   () => CreateEncoderConfigurationResponse,
 ];
@@ -1439,9 +1053,7 @@ export var CreateIngestConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CIC,
-  {
-    [_ht]: ["POST", "/CreateIngestConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/CreateIngestConfiguration", 200] },
   () => CreateIngestConfigurationRequest,
   () => CreateIngestConfigurationResponse,
 ];
@@ -1449,9 +1061,7 @@ export var CreateParticipantToken: StaticOperationSchema = [
   9,
   n0,
   _CPT,
-  {
-    [_ht]: ["POST", "/CreateParticipantToken", 200],
-  },
+  { [_ht]: ["POST", "/CreateParticipantToken", 200] },
   () => CreateParticipantTokenRequest,
   () => CreateParticipantTokenResponse,
 ];
@@ -1459,9 +1069,7 @@ export var CreateStage: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_ht]: ["POST", "/CreateStage", 200],
-  },
+  { [_ht]: ["POST", "/CreateStage", 200] },
   () => CreateStageRequest,
   () => CreateStageResponse,
 ];
@@ -1469,9 +1077,7 @@ export var CreateStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CSC,
-  {
-    [_ht]: ["POST", "/CreateStorageConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/CreateStorageConfiguration", 200] },
   () => CreateStorageConfigurationRequest,
   () => CreateStorageConfigurationResponse,
 ];
@@ -1479,9 +1085,7 @@ export var DeleteEncoderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DEC,
-  {
-    [_ht]: ["POST", "/DeleteEncoderConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/DeleteEncoderConfiguration", 200] },
   () => DeleteEncoderConfigurationRequest,
   () => DeleteEncoderConfigurationResponse,
 ];
@@ -1489,9 +1093,7 @@ export var DeleteIngestConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DIC,
-  {
-    [_ht]: ["POST", "/DeleteIngestConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/DeleteIngestConfiguration", 200] },
   () => DeleteIngestConfigurationRequest,
   () => DeleteIngestConfigurationResponse,
 ];
@@ -1499,9 +1101,7 @@ export var DeletePublicKey: StaticOperationSchema = [
   9,
   n0,
   _DPK,
-  {
-    [_ht]: ["POST", "/DeletePublicKey", 200],
-  },
+  { [_ht]: ["POST", "/DeletePublicKey", 200] },
   () => DeletePublicKeyRequest,
   () => DeletePublicKeyResponse,
 ];
@@ -1509,9 +1109,7 @@ export var DeleteStage: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_ht]: ["POST", "/DeleteStage", 200],
-  },
+  { [_ht]: ["POST", "/DeleteStage", 200] },
   () => DeleteStageRequest,
   () => DeleteStageResponse,
 ];
@@ -1519,9 +1117,7 @@ export var DeleteStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DSC,
-  {
-    [_ht]: ["POST", "/DeleteStorageConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/DeleteStorageConfiguration", 200] },
   () => DeleteStorageConfigurationRequest,
   () => DeleteStorageConfigurationResponse,
 ];
@@ -1529,9 +1125,7 @@ export var DisconnectParticipant: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_ht]: ["POST", "/DisconnectParticipant", 200],
-  },
+  { [_ht]: ["POST", "/DisconnectParticipant", 200] },
   () => DisconnectParticipantRequest,
   () => DisconnectParticipantResponse,
 ];
@@ -1539,9 +1133,7 @@ export var GetComposition: StaticOperationSchema = [
   9,
   n0,
   _GCe,
-  {
-    [_ht]: ["POST", "/GetComposition", 200],
-  },
+  { [_ht]: ["POST", "/GetComposition", 200] },
   () => GetCompositionRequest,
   () => GetCompositionResponse,
 ];
@@ -1549,9 +1141,7 @@ export var GetEncoderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GEC,
-  {
-    [_ht]: ["POST", "/GetEncoderConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/GetEncoderConfiguration", 200] },
   () => GetEncoderConfigurationRequest,
   () => GetEncoderConfigurationResponse,
 ];
@@ -1559,9 +1149,7 @@ export var GetIngestConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GIC,
-  {
-    [_ht]: ["POST", "/GetIngestConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/GetIngestConfiguration", 200] },
   () => GetIngestConfigurationRequest,
   () => GetIngestConfigurationResponse,
 ];
@@ -1569,9 +1157,7 @@ export var GetParticipant: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_ht]: ["POST", "/GetParticipant", 200],
-  },
+  { [_ht]: ["POST", "/GetParticipant", 200] },
   () => GetParticipantRequest,
   () => GetParticipantResponse,
 ];
@@ -1579,9 +1165,7 @@ export var GetPublicKey: StaticOperationSchema = [
   9,
   n0,
   _GPK,
-  {
-    [_ht]: ["POST", "/GetPublicKey", 200],
-  },
+  { [_ht]: ["POST", "/GetPublicKey", 200] },
   () => GetPublicKeyRequest,
   () => GetPublicKeyResponse,
 ];
@@ -1589,9 +1173,7 @@ export var GetStage: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_ht]: ["POST", "/GetStage", 200],
-  },
+  { [_ht]: ["POST", "/GetStage", 200] },
   () => GetStageRequest,
   () => GetStageResponse,
 ];
@@ -1599,9 +1181,7 @@ export var GetStageSession: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  {
-    [_ht]: ["POST", "/GetStageSession", 200],
-  },
+  { [_ht]: ["POST", "/GetStageSession", 200] },
   () => GetStageSessionRequest,
   () => GetStageSessionResponse,
 ];
@@ -1609,9 +1189,7 @@ export var GetStorageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GSC,
-  {
-    [_ht]: ["POST", "/GetStorageConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/GetStorageConfiguration", 200] },
   () => GetStorageConfigurationRequest,
   () => GetStorageConfigurationResponse,
 ];
@@ -1619,9 +1197,7 @@ export var ImportPublicKey: StaticOperationSchema = [
   9,
   n0,
   _IPK,
-  {
-    [_ht]: ["POST", "/ImportPublicKey", 200],
-  },
+  { [_ht]: ["POST", "/ImportPublicKey", 200] },
   () => ImportPublicKeyRequest,
   () => ImportPublicKeyResponse,
 ];
@@ -1629,9 +1205,7 @@ export var ListCompositions: StaticOperationSchema = [
   9,
   n0,
   _LCi,
-  {
-    [_ht]: ["POST", "/ListCompositions", 200],
-  },
+  { [_ht]: ["POST", "/ListCompositions", 200] },
   () => ListCompositionsRequest,
   () => ListCompositionsResponse,
 ];
@@ -1639,9 +1213,7 @@ export var ListEncoderConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LEC,
-  {
-    [_ht]: ["POST", "/ListEncoderConfigurations", 200],
-  },
+  { [_ht]: ["POST", "/ListEncoderConfigurations", 200] },
   () => ListEncoderConfigurationsRequest,
   () => ListEncoderConfigurationsResponse,
 ];
@@ -1649,9 +1221,7 @@ export var ListIngestConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LIC,
-  {
-    [_ht]: ["POST", "/ListIngestConfigurations", 200],
-  },
+  { [_ht]: ["POST", "/ListIngestConfigurations", 200] },
   () => ListIngestConfigurationsRequest,
   () => ListIngestConfigurationsResponse,
 ];
@@ -1659,9 +1229,7 @@ export var ListParticipantEvents: StaticOperationSchema = [
   9,
   n0,
   _LPE,
-  {
-    [_ht]: ["POST", "/ListParticipantEvents", 200],
-  },
+  { [_ht]: ["POST", "/ListParticipantEvents", 200] },
   () => ListParticipantEventsRequest,
   () => ListParticipantEventsResponse,
 ];
@@ -1669,9 +1237,7 @@ export var ListParticipantReplicas: StaticOperationSchema = [
   9,
   n0,
   _LPRis,
-  {
-    [_ht]: ["POST", "/ListParticipantReplicas", 200],
-  },
+  { [_ht]: ["POST", "/ListParticipantReplicas", 200] },
   () => ListParticipantReplicasRequest,
   () => ListParticipantReplicasResponse,
 ];
@@ -1679,9 +1245,7 @@ export var ListParticipants: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_ht]: ["POST", "/ListParticipants", 200],
-  },
+  { [_ht]: ["POST", "/ListParticipants", 200] },
   () => ListParticipantsRequest,
   () => ListParticipantsResponse,
 ];
@@ -1689,9 +1253,7 @@ export var ListPublicKeys: StaticOperationSchema = [
   9,
   n0,
   _LPK,
-  {
-    [_ht]: ["POST", "/ListPublicKeys", 200],
-  },
+  { [_ht]: ["POST", "/ListPublicKeys", 200] },
   () => ListPublicKeysRequest,
   () => ListPublicKeysResponse,
 ];
@@ -1699,9 +1261,7 @@ export var ListStages: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_ht]: ["POST", "/ListStages", 200],
-  },
+  { [_ht]: ["POST", "/ListStages", 200] },
   () => ListStagesRequest,
   () => ListStagesResponse,
 ];
@@ -1709,9 +1269,7 @@ export var ListStageSessions: StaticOperationSchema = [
   9,
   n0,
   _LSS,
-  {
-    [_ht]: ["POST", "/ListStageSessions", 200],
-  },
+  { [_ht]: ["POST", "/ListStageSessions", 200] },
   () => ListStageSessionsRequest,
   () => ListStageSessionsResponse,
 ];
@@ -1719,9 +1277,7 @@ export var ListStorageConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LSC,
-  {
-    [_ht]: ["POST", "/ListStorageConfigurations", 200],
-  },
+  { [_ht]: ["POST", "/ListStorageConfigurations", 200] },
   () => ListStorageConfigurationsRequest,
   () => ListStorageConfigurationsResponse,
 ];
@@ -1729,9 +1285,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1739,9 +1293,7 @@ export var StartComposition: StaticOperationSchema = [
   9,
   n0,
   _SCt,
-  {
-    [_ht]: ["POST", "/StartComposition", 200],
-  },
+  { [_ht]: ["POST", "/StartComposition", 200] },
   () => StartCompositionRequest,
   () => StartCompositionResponse,
 ];
@@ -1749,9 +1301,7 @@ export var StartParticipantReplication: StaticOperationSchema = [
   9,
   n0,
   _SPR,
-  {
-    [_ht]: ["POST", "/StartParticipantReplication", 200],
-  },
+  { [_ht]: ["POST", "/StartParticipantReplication", 200] },
   () => StartParticipantReplicationRequest,
   () => StartParticipantReplicationResponse,
 ];
@@ -1759,9 +1309,7 @@ export var StopComposition: StaticOperationSchema = [
   9,
   n0,
   _SCto,
-  {
-    [_ht]: ["POST", "/StopComposition", 200],
-  },
+  { [_ht]: ["POST", "/StopComposition", 200] },
   () => StopCompositionRequest,
   () => StopCompositionResponse,
 ];
@@ -1769,9 +1317,7 @@ export var StopParticipantReplication: StaticOperationSchema = [
   9,
   n0,
   _SPRt,
-  {
-    [_ht]: ["POST", "/StopParticipantReplication", 200],
-  },
+  { [_ht]: ["POST", "/StopParticipantReplication", 200] },
   () => StopParticipantReplicationRequest,
   () => StopParticipantReplicationResponse,
 ];
@@ -1779,9 +1325,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1789,9 +1333,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1799,9 +1341,7 @@ export var UpdateIngestConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UIC,
-  {
-    [_ht]: ["POST", "/UpdateIngestConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/UpdateIngestConfiguration", 200] },
   () => UpdateIngestConfigurationRequest,
   () => UpdateIngestConfigurationResponse,
 ];
@@ -1809,9 +1349,7 @@ export var UpdateStage: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_ht]: ["POST", "/UpdateStage", 200],
-  },
+  { [_ht]: ["POST", "/UpdateStage", 200] },
   () => UpdateStageRequest,
   () => UpdateStageResponse,
 ];

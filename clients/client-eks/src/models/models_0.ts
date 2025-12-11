@@ -4,7 +4,12 @@ import {
   AddonIssueCode,
   AddonStatus,
   AMITypes,
+  ArgoCdRole,
   AuthenticationMode,
+  CapabilityDeletePropagationPolicy,
+  CapabilityIssueCode,
+  CapabilityStatus,
+  CapabilityType,
   CapacityTypes,
   Category,
   ClusterIssueCode,
@@ -28,6 +33,7 @@ import {
   ProvisionedControlPlaneTier,
   RepairAction,
   ResolveConflicts,
+  SsoIdentityType,
   SupportType,
   TaintEffect,
   UpdateParamType,
@@ -539,6 +545,188 @@ export interface AddonPodIdentityConfiguration {
    * @public
    */
   recommendedManagedPolicies?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for integrating Argo CD with IAM Identity CenterIAM; Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.</p>
+ * @public
+ */
+export interface ArgoCdAwsIdcConfigRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity CenterIAM; Identity Center instance to use for authentication.</p>
+   * @public
+   */
+  idcInstanceArn: string | undefined;
+
+  /**
+   * <p>The Region where your IAM Identity CenterIAM; Identity Center instance is located.</p>
+   * @public
+   */
+  idcRegion?: string | undefined;
+}
+
+/**
+ * <p>The response object containing IAM Identity CenterIAM; Identity Center configuration details for an Argo CD capability.</p>
+ * @public
+ */
+export interface ArgoCdAwsIdcConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity CenterIAM; Identity Center instance used for authentication.</p>
+   * @public
+   */
+  idcInstanceArn?: string | undefined;
+
+  /**
+   * <p>The Region where the IAM Identity CenterIAM; Identity Center instance is located.</p>
+   * @public
+   */
+  idcRegion?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the managed application created in IAM Identity CenterIAM; Identity Center for this Argo CD capability. This application is automatically created and managed by Amazon EKS.</p>
+   * @public
+   */
+  idcManagedApplicationArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration for network access to the Argo CD capability's managed API server endpoint. When VPC endpoint IDs are specified, public access is blocked and the Argo CD server is only accessible through the specified VPC endpoints.</p>
+ * @public
+ */
+export interface ArgoCdNetworkAccessConfigRequest {
+  /**
+   * <p>A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.</p>
+   * @public
+   */
+  vpceIds?: string[] | undefined;
+}
+
+/**
+ * <p>An IAM Identity CenterIAM; Identity Center identity (user or group) that can be assigned permissions in a capability.</p>
+ * @public
+ */
+export interface SsoIdentity {
+  /**
+   * <p>The unique identifier of the IAM Identity CenterIAM; Identity Center user or group.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of identity. Valid values are <code>SSO_USER</code> or <code>SSO_GROUP</code>.</p>
+   * @public
+   */
+  type: SsoIdentityType | undefined;
+}
+
+/**
+ * <p>A mapping between an Argo CD role and IAM Identity CenterIAM; Identity Center identities. This defines which users or groups have specific permissions in Argo CD.</p>
+ * @public
+ */
+export interface ArgoCdRoleMapping {
+  /**
+   * <p>The Argo CD role to assign. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN</code> – Full administrative access to Argo CD.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EDITOR</code> – Edit access to Argo CD resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIEWER</code> – Read-only access to Argo CD resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  role: ArgoCdRole | undefined;
+
+  /**
+   * <p>A list of IAM Identity CenterIAM; Identity Center identities (users or groups) that should be assigned this Argo CD role.</p>
+   * @public
+   */
+  identities: SsoIdentity[] | undefined;
+}
+
+/**
+ * <p>Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity CenterIAM; Identity Center integration, RBAC role mappings, and network access configuration.</p>
+ * @public
+ */
+export interface ArgoCdConfigRequest {
+  /**
+   * <p>The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>Configuration for IAM Identity CenterIAM; Identity Center integration. When configured, users can authenticate to Argo CD using their IAM Identity CenterIAM; Identity Center credentials.</p>
+   * @public
+   */
+  awsIdc: ArgoCdAwsIdcConfigRequest | undefined;
+
+  /**
+   * <p>A list of role mappings that define which IAM Identity CenterIAM; Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (<code>ADMIN</code>, <code>EDITOR</code>, or <code>VIEWER</code>) with one or more IAM Identity CenterIAM; Identity Center identities.</p>
+   * @public
+   */
+  rbacRoleMappings?: ArgoCdRoleMapping[] | undefined;
+
+  /**
+   * <p>Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs. When VPC endpoints are configured, public access is blocked and the Argo CD server is only accessible through the specified VPC endpoints.</p>
+   * @public
+   */
+  networkAccess?: ArgoCdNetworkAccessConfigRequest | undefined;
+}
+
+/**
+ * <p>The response object containing network access configuration for the Argo CD capability's managed API server endpoint. If VPC endpoint IDs are present, public access is blocked and the Argo CD server is only accessible through the specified VPC endpoints.</p>
+ * @public
+ */
+export interface ArgoCdNetworkAccessConfigResponse {
+  /**
+   * <p>The list of VPC endpoint IDs associated with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server.</p>
+   * @public
+   */
+  vpceIds?: string[] | undefined;
+}
+
+/**
+ * <p>The response object containing Argo CD configuration details, including the server URL that you use to access the Argo CD web interface and API.</p>
+ * @public
+ */
+export interface ArgoCdConfigResponse {
+  /**
+   * <p>The Kubernetes namespace where Argo CD resources are monitored by your Argo CD Capability.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>The IAM Identity CenterIAM; Identity Center integration configuration.</p>
+   * @public
+   */
+  awsIdc?: ArgoCdAwsIdcConfigResponse | undefined;
+
+  /**
+   * <p>The list of role mappings that define which IAM Identity CenterIAM; Identity Center users or groups have which Argo CD roles.</p>
+   * @public
+   */
+  rbacRoleMappings?: ArgoCdRoleMapping[] | undefined;
+
+  /**
+   * <p>The network access configuration for the Argo CD capability's managed API server endpoint. If VPC endpoint IDs are specified, public access is blocked and the Argo CD server is only accessible through the specified VPC endpoints.</p>
+   * @public
+   */
+  networkAccess?: ArgoCdNetworkAccessConfigResponse | undefined;
+
+  /**
+   * <p>The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.</p>
+   * @public
+   */
+  serverUrl?: string | undefined;
 }
 
 /**
@@ -1199,6 +1387,318 @@ export interface CreateAddonResponse {
    * @public
    */
   addon?: Addon | undefined;
+}
+
+/**
+ * <p>Configuration settings for a capability. The structure of this object varies depending on the capability type.</p>
+ * @public
+ */
+export interface CapabilityConfigurationRequest {
+  /**
+   * <p>Configuration settings specific to Argo CD capabilities. This field is only used when creating or updating an Argo CD capability.</p>
+   * @public
+   */
+  argoCd?: ArgoCdConfigRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapabilityRequest {
+  /**
+   * <p>A unique name for the capability. The name must be unique within your cluster and can contain alphanumeric characters, hyphens, and underscores.</p>
+   * @public
+   */
+  capabilityName: string | undefined;
+
+  /**
+   * <p>The name of the Amazon EKS cluster where you want to create the capability.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is valid for 24 hours after creation. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The type of capability to create. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACK</code> – Amazon Web Services Controllers for Kubernetes (ACK), which lets you manage resources directly from Kubernetes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARGOCD</code> – Argo CD for GitOps-based continuous delivery.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KRO</code> – Kube Resource Orchestrator (KRO) for composing and managing custom Kubernetes resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type: CapabilityType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the capability uses to interact with Amazon Web Services services. This role must have a trust policy that allows the EKS service principal to assume it, and it must have the necessary permissions for the capability type you're creating.</p>
+   *          <p>For ACK capabilities, the role needs permissions to manage the resources you want to control through Kubernetes. For Argo CD capabilities, the role needs permissions to access Git repositories and Secrets Manager. For KRO capabilities, the role needs permissions based on the resources you'll be orchestrating.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The configuration settings for the capability. The structure of this object varies depending on the capability type. For Argo CD capabilities, you can configure IAM Identity CenterIAM; Identity Center integration, RBAC role mappings, and network access settings.</p>
+   * @public
+   */
+  configuration?: CapabilityConfigurationRequest | undefined;
+
+  /**
+   * <p>The metadata that you apply to a resource to help you categorize and organize them.
+   *             Each tag consists of a key and an optional value. You define them.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource – 50</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only
+   *                     one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length – 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length – 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources,
+   *                     remember that other services may have restrictions on allowed characters.
+   *                     Generally allowed characters are: letters, numbers, and spaces representable in
+   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
+   *                     combination of such as a prefix for either keys or values as it is reserved for
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     this prefix do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is <code>RETAIN</code> which retains all Kubernetes resources managed by the capability when the capability is deleted.</p>
+   *          <p>Because resources are retained, all Kubernetes resources created by the capability should be deleted from the cluster before deleting the capability itself. After the capability is deleted, these resources become difficult to manage because the controller is no longer available.</p>
+   * @public
+   */
+  deletePropagationPolicy: CapabilityDeletePropagationPolicy | undefined;
+}
+
+/**
+ * <p>The response object containing capability configuration details.</p>
+ * @public
+ */
+export interface CapabilityConfigurationResponse {
+  /**
+   * <p>Configuration settings for an Argo CD capability, including the server URL and other Argo CD-specific settings.</p>
+   * @public
+   */
+  argoCd?: ArgoCdConfigResponse | undefined;
+}
+
+/**
+ * <p>An issue affecting a capability's health or operation.</p>
+ * @public
+ */
+export interface CapabilityIssue {
+  /**
+   * <p>A code identifying the type of issue. This can be used to programmatically handle specific issue types.</p>
+   * @public
+   */
+  code?: CapabilityIssueCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the issue and potential remediation steps.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Health information for a capability, including any issues that may be affecting its operation.</p>
+ * @public
+ */
+export interface CapabilityHealth {
+  /**
+   * <p>A list of issues affecting the capability. If this list is empty, the capability is healthy.</p>
+   * @public
+   */
+  issues?: CapabilityIssue[] | undefined;
+}
+
+/**
+ * <p>An object representing a managed capability in an Amazon EKS cluster. This includes all configuration, status, and health information for the capability.</p>
+ * @public
+ */
+export interface Capability {
+  /**
+   * <p>The unique name of the capability within the cluster.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capability.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon EKS cluster that contains this capability.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * <p>The type of capability. Valid values are <code>ACK</code>, <code>ARGOCD</code>, or <code>KRO</code>.</p>
+   * @public
+   */
+  type?: CapabilityType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the capability uses to interact with Amazon Web Services services.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The current status of the capability. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The capability is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> – The capability is running and available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code> – The capability is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – The capability is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code> – The capability creation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code> – The capability update failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_FAILED</code> – The capability deletion failed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: CapabilityStatus | undefined;
+
+  /**
+   * <p>The version of the capability software that is currently running.</p>
+   * @public
+   */
+  version?: string | undefined;
+
+  /**
+   * <p>The configuration settings for the capability. The structure varies depending on the capability type.</p>
+   * @public
+   */
+  configuration?: CapabilityConfigurationResponse | undefined;
+
+  /**
+   * <p>The metadata that you apply to a resource to help you categorize and organize them.
+   *             Each tag consists of a key and an optional value. You define them.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource – 50</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only
+   *                     one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length – 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length – 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources,
+   *                     remember that other services may have restrictions on allowed characters.
+   *                     Generally allowed characters are: letters, numbers, and spaces representable in
+   *                     UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
+   *                     combination of such as a prefix for either keys or values as it is reserved for
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     this prefix do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Health information for the capability, including any issues that may be affecting its operation.</p>
+   * @public
+   */
+  health?: CapabilityHealth | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the capability was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the capability was last modified.</p>
+   * @public
+   */
+  modifiedAt?: Date | undefined;
+
+  /**
+   * <p>The delete propagation policy for the capability. Currently, the only supported value is <code>RETAIN</code>, which keeps all resources managed by the capability when the capability is deleted.</p>
+   * @public
+   */
+  deletePropagationPolicy?: CapabilityDeletePropagationPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapabilityResponse {
+  /**
+   * <p>An object containing information about the newly created capability, including its name, ARN, status, and configuration.</p>
+   * @public
+   */
+  capability?: Capability | undefined;
 }
 
 /**
@@ -4083,6 +4583,34 @@ export interface DeleteAddonResponse {
 /**
  * @public
  */
+export interface DeleteCapabilityRequest {
+  /**
+   * <p>The name of the Amazon EKS cluster that contains the capability you want to delete.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The name of the capability to delete.</p>
+   * @public
+   */
+  capabilityName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapabilityResponse {
+  /**
+   * <p>An object containing information about the deleted capability, including its final status and configuration.</p>
+   * @public
+   */
+  capability?: Capability | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The name of the cluster to delete.</p>
@@ -4430,6 +4958,34 @@ export interface DescribeAddonVersionsResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapabilityRequest {
+  /**
+   * <p>The name of the Amazon EKS cluster that contains the capability you want to describe.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The name of the capability to describe.</p>
+   * @public
+   */
+  capabilityName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapabilityResponse {
+  /**
+   * <p>An object containing detailed information about the capability, including its name, ARN, type, status, version, configuration, health status, and timestamps for when it was created and last modified.</p>
+   * @public
+   */
+  capability?: Capability | undefined;
 }
 
 /**
@@ -5162,6 +5718,12 @@ export interface DescribeUpdateRequest {
    * @public
    */
   addonName?: string | undefined;
+
+  /**
+   * <p>The name of the capability for which you want to describe updates.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
 }
 
 /**
@@ -5493,6 +6055,94 @@ export interface ListAssociatedAccessPoliciesResponse {
    * @public
    */
   associatedAccessPolicies?: AssociatedAccessPolicy[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCapabilitiesRequest {
+  /**
+   * <p>The name of the Amazon EKS cluster for which you want to list capabilities.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value. If you don't specify a value, the default is 100 results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a capability, containing basic information without the full configuration details. This is returned by the <code>ListCapabilities</code> operation.</p>
+ * @public
+ */
+export interface CapabilitySummary {
+  /**
+   * <p>The unique name of the capability within the cluster.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capability.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The type of capability. Valid values are <code>ACK</code>, <code>ARGOCD</code>, or <code>KRO</code>.</p>
+   * @public
+   */
+  type?: CapabilityType | undefined;
+
+  /**
+   * <p>The current status of the capability.</p>
+   * @public
+   */
+  status?: CapabilityStatus | undefined;
+
+  /**
+   * <p>The version of the capability software that is currently running.</p>
+   * @public
+   */
+  version?: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the capability was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the capability was last modified.</p>
+   * @public
+   */
+  modifiedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCapabilitiesResponse {
+  /**
+   * <p>A list of capability summary objects, each containing basic information about a capability including its name, ARN, type, status, version, and timestamps.</p>
+   * @public
+   */
+  capabilities?: CapabilitySummary[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListCapabilities</code> request. When the results of a <code>ListCapabilities</code> request exceed <code>maxResults</code>, you can use this value to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6151,6 +6801,12 @@ export interface ListUpdatesRequest {
   addonName?: string | undefined;
 
   /**
+   * <p>The name of the capability for which you want to list updates.</p>
+   * @public
+   */
+  capabilityName?: string | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
    *             the results exceeded the value of that parameter. Pagination continues from the end of
    *             the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p>
@@ -6500,6 +7156,106 @@ export interface UpdateAddonRequest {
  * @public
  */
 export interface UpdateAddonResponse {
+  /**
+   * <p>An object representing an asynchronous update.</p>
+   * @public
+   */
+  update?: Update | undefined;
+}
+
+/**
+ * <p>Updates to RBAC role mappings for an Argo CD capability. You can add, update, or remove role mappings in a single operation.</p>
+ * @public
+ */
+export interface UpdateRoleMappings {
+  /**
+   * <p>A list of role mappings to add or update. If a mapping for the specified role already exists, it will be updated with the new identities. If it doesn't exist, a new mapping will be created.</p>
+   * @public
+   */
+  addOrUpdateRoleMappings?: ArgoCdRoleMapping[] | undefined;
+
+  /**
+   * <p>A list of role mappings to remove from the RBAC configuration. Each mapping specifies an Argo CD role (<code>ADMIN</code>, <code>EDITOR</code>, or <code>VIEWER</code>) and the identities to remove from that role.</p>
+   * @public
+   */
+  removeRoleMappings?: ArgoCdRoleMapping[] | undefined;
+}
+
+/**
+ * <p>Configuration updates for an Argo CD capability. You only need to specify the fields you want to update.</p>
+ * @public
+ */
+export interface UpdateArgoCdConfig {
+  /**
+   * <p>Updated RBAC role mappings for the Argo CD capability. You can add, update, or remove role mappings.</p>
+   * @public
+   */
+  rbacRoleMappings?: UpdateRoleMappings | undefined;
+
+  /**
+   * <p>Updated network access configuration for the Argo CD capability's managed API server endpoint. You can add or remove VPC endpoint associations to control which VPCs have private access to the Argo CD server.</p>
+   * @public
+   */
+  networkAccess?: ArgoCdNetworkAccessConfigRequest | undefined;
+}
+
+/**
+ * <p>Configuration updates for a capability. The structure varies depending on the capability type.</p>
+ * @public
+ */
+export interface UpdateCapabilityConfiguration {
+  /**
+   * <p>Configuration updates specific to Argo CD capabilities.</p>
+   * @public
+   */
+  argoCd?: UpdateArgoCdConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapabilityRequest {
+  /**
+   * <p>The name of the Amazon EKS cluster that contains the capability you want to update configuration for.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The name of the capability to update configuration for.</p>
+   * @public
+   */
+  capabilityName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the capability uses to interact with Amazon Web Services services. If you specify a new role ARN, the capability will start using the new role for all subsequent operations.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The updated configuration settings for the capability. You only need to specify the configuration parameters you want to change. For Argo CD capabilities, you can update RBAC role mappings and network access settings.</p>
+   * @public
+   */
+  configuration?: UpdateCapabilityConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is valid for 24 hours after creation.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The updated delete propagation policy for the capability. Currently, the only supported value is <code>RETAIN</code>.</p>
+   * @public
+   */
+  deletePropagationPolicy?: CapabilityDeletePropagationPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapabilityResponse {
   /**
    * <p>An object representing an asynchronous update.</p>
    * @public

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRequest, ListSubjectsResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ListRequest, ListSubjectsResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ListSubjects } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface ListSubjectsCommandInput extends ListRequest {}
 export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListSubjects</code>.
- *          </p>
+ * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListSubjects</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

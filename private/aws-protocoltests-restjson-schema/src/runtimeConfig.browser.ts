@@ -14,12 +14,13 @@ import {
   DEFAULT_DISABLE_REQUEST_COMPRESSION,
   DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
 } from "@smithy/middleware-compression";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import type { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
 /**
  * @internal
@@ -42,7 +43,9 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     eventStreamPayloadHandlerProvider:
       config?.eventStreamPayloadHandlerProvider ??
-      (() => ({ handle: invalidFunction("event stream request is not supported in browser.") })),
+      (() => ({
+        handle: invalidFunction("event stream request is not supported in browser."),
+      })),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     md5: config?.md5 ?? Md5,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
+import type {
+  BedrockRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ConverseStreamRequest, ConverseStreamResponse } from "../models/models_0";
+import type { ConverseStreamRequest, ConverseStreamResponse } from "../models/models_0";
 import { ConverseStream } from "../schemas/schemas_0";
 
 /**
@@ -53,6 +57,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                 bucketOwner: "STRING_VALUE",
  *               },
  *             },
+ *             error: { // ErrorBlock
+ *               message: "STRING_VALUE",
+ *             },
  *           },
  *           document: { // DocumentBlock
  *             format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md",
@@ -85,6 +92,19 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *               },
  *             },
  *           },
+ *           audio: { // AudioBlock
+ *             format: "mp3" || "opus" || "wav" || "aac" || "flac" || "mp4" || "ogg" || "mkv" || "mka" || "x-aac" || "m4a" || "mpeg" || "mpga" || "pcm" || "webm", // required
+ *             source: { // AudioSource Union: only one key present
+ *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               s3Location: {
+ *                 uri: "STRING_VALUE", // required
+ *                 bucketOwner: "STRING_VALUE",
+ *               },
+ *             },
+ *             error: {
+ *               message: "STRING_VALUE",
+ *             },
+ *           },
  *           toolUse: { // ToolUseBlock
  *             toolUseId: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
@@ -106,16 +126,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                       bucketOwner: "STRING_VALUE",
  *                     },
  *                   },
+ *                   error: {
+ *                     message: "STRING_VALUE",
+ *                   },
  *                 },
  *                 document: {
  *                   format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md",
  *                   name: "STRING_VALUE", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
- *                     s3Location: {
- *                       uri: "STRING_VALUE", // required
- *                       bucketOwner: "STRING_VALUE",
- *                     },
+ *                     s3Location: "<S3Location>",
  *                     text: "STRING_VALUE",
  *                     content: [
  *                       {//  Union: only one key present
@@ -312,7 +332,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *     latency: "standard" || "optimized",
  *   },
  *   serviceTier: { // ServiceTier
- *     type: "priority" || "default" || "flex", // required
+ *     type: "priority" || "default" || "flex" || "reserved", // required
  *   },
  * };
  * const command = new ConverseStreamCommand(input);
@@ -334,6 +354,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //           type: "STRING_VALUE",
  * //           status: "success" || "error",
  * //         },
+ * //         image: { // ImageBlockStart
+ * //           format: "png" || "jpeg" || "gif" || "webp", // required
+ * //         },
  * //       },
  * //       contentBlockIndex: Number("int"), // required
  * //     },
@@ -346,6 +369,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         toolResult: [ // ToolResultBlocksDelta
  * //           { // ToolResultBlockDelta Union: only one key present
  * //             text: "STRING_VALUE",
+ * //             json: "DOCUMENT_VALUE",
  * //           },
  * //         ],
  * //         reasoningContent: { // ReasoningContentBlockDelta Union: only one key present
@@ -388,6 +412,18 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //             },
  * //           },
  * //         },
+ * //         image: { // ImageBlockDelta
+ * //           source: { // ImageSource Union: only one key present
+ * //             bytes: new Uint8Array(),
+ * //             s3Location: { // S3Location
+ * //               uri: "STRING_VALUE", // required
+ * //               bucketOwner: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           error: { // ErrorBlock
+ * //             message: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       contentBlockIndex: Number("int"), // required
  * //     },
@@ -395,7 +431,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //       contentBlockIndex: Number("int"), // required
  * //     },
  * //     messageStop: { // MessageStopEvent
- * //       stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered" || "model_context_window_exceeded", // required
+ * //       stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered" || "malformed_model_output" || "malformed_tool_use" || "model_context_window_exceeded", // required
  * //       additionalModelResponseFields: "DOCUMENT_VALUE",
  * //     },
  * //     metadata: { // ConverseStreamMetadataEvent
@@ -850,7 +886,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         latency: "standard" || "optimized",
  * //       },
  * //       serviceTier: { // ServiceTier
- * //         type: "priority" || "default" || "flex", // required
+ * //         type: "priority" || "default" || "flex" || "reserved", // required
  * //       },
  * //     },
  * //     internalServerException: { // InternalServerException

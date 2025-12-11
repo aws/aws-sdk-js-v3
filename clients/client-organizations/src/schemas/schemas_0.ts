@@ -347,7 +347,7 @@ const n0 = "com.amazonaws.organizations";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -410,7 +410,6 @@ import {
 import { OrganizationsServiceException as __OrganizationsServiceException } from "../models/OrganizationsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 export var CreateAccountName: StaticSimpleSchema = [0, n0, _CAN, 8, 0];
 export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
@@ -420,32 +419,17 @@ export var HandshakeResourceValue: StaticSimpleSchema = [0, n0, _HRV, 8, 0];
 export var ResponsibilityTransferName: StaticSimpleSchema = [0, n0, _RTN, 8, 0];
 export var AcceptHandshakeRequest: StaticStructureSchema = [3, n0, _AHR, 0, [_HI], [0]];
 export var AcceptHandshakeResponse: StaticStructureSchema = [3, n0, _AHRc, 0, [_H], [[() => Handshake, 0]]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessDeniedForDependencyException: StaticErrorSchema = [
   -3,
   n0,
   _ADFDE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _R],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedForDependencyException, __AccessDeniedForDependencyException);
-
 export var Account: StaticStructureSchema = [
   3,
   n0,
@@ -454,154 +438,40 @@ export var Account: StaticStructureSchema = [
   [_I, _Ar, _E, _N, _S, _St, _JM, _JT],
   [0, 0, [() => Email, 0], [() => AccountName, 0], 0, 0, 0, 4],
 ];
-export var AccountAlreadyClosedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AACE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var AccountAlreadyClosedException: StaticErrorSchema = [-3, n0, _AACE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccountAlreadyClosedException, __AccountAlreadyClosedException);
-
-export var AccountAlreadyRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AARE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var AccountAlreadyRegisteredException: StaticErrorSchema = [-3, n0, _AARE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccountAlreadyRegisteredException, __AccountAlreadyRegisteredException);
-
-export var AccountNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var AccountNotFoundException: StaticErrorSchema = [-3, n0, _ANFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccountNotFoundException, __AccountNotFoundException);
-
-export var AccountNotRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var AccountNotRegisteredException: StaticErrorSchema = [-3, n0, _ANRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccountNotRegisteredException, __AccountNotRegisteredException);
-
-export var AccountOwnerNotVerifiedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AONVE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccountOwnerNotVerifiedException: StaticErrorSchema = [-3, n0, _AONVE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccountOwnerNotVerifiedException, __AccountOwnerNotVerifiedException);
-
-export var AlreadyInOrganizationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AIOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var AlreadyInOrganizationException: StaticErrorSchema = [-3, n0, _AIOE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AlreadyInOrganizationException, __AlreadyInOrganizationException);
-
 export var AttachPolicyRequest: StaticStructureSchema = [3, n0, _APR, 0, [_PI, _TI], [0, 0]];
 export var AWSOrganizationsNotInUseException: StaticErrorSchema = [
   -3,
   n0,
   _AWSONIUE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AWSOrganizationsNotInUseException, __AWSOrganizationsNotInUseException);
-
 export var CancelHandshakeRequest: StaticStructureSchema = [3, n0, _CHR, 0, [_HI], [0]];
 export var CancelHandshakeResponse: StaticStructureSchema = [3, n0, _CHRa, 0, [_H], [[() => Handshake, 0]]];
 export var Child: StaticStructureSchema = [3, n0, _C, 0, [_I, _T], [0, 0]];
-export var ChildNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ChildNotFoundException: StaticErrorSchema = [-3, n0, _CNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ChildNotFoundException, __ChildNotFoundException);
-
 export var CloseAccountRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_AI], [0]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
-export var ConstraintViolationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ConstraintViolationException: StaticErrorSchema = [-3, n0, _CVE, { [_e]: _c, [_hE]: 409 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ConstraintViolationException, __ConstraintViolationException);
-
 export var CreateAccountRequest: StaticStructureSchema = [
   3,
   n0,
@@ -623,15 +493,11 @@ export var CreateAccountStatusNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _CASNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CreateAccountStatusNotFoundException, __CreateAccountStatusNotFoundException);
-
 export var CreateGovCloudAccountRequest: StaticStructureSchema = [
   3,
   n0,
@@ -730,97 +596,35 @@ export var DestinationParentNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _DPNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DestinationParentNotFoundException, __DestinationParentNotFoundException);
-
 export var DetachPolicyRequest: StaticStructureSchema = [3, n0, _DPRet, 0, [_PI, _TI], [0, 0]];
 export var DisableAWSServiceAccessRequest: StaticStructureSchema = [3, n0, _DAWSSAR, 0, [_SP], [0]];
 export var DisablePolicyTypeRequest: StaticStructureSchema = [3, n0, _DPTR, 0, [_RI, _PT], [0, 0]];
 export var DisablePolicyTypeResponse: StaticStructureSchema = [3, n0, _DPTRi, 0, [_Ro], [() => Root]];
-export var DuplicateAccountException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateAccountException: StaticErrorSchema = [-3, n0, _DAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateAccountException, __DuplicateAccountException);
-
-export var DuplicateHandshakeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DHE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateHandshakeException: StaticErrorSchema = [-3, n0, _DHE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateHandshakeException, __DuplicateHandshakeException);
-
 export var DuplicateOrganizationalUnitException: StaticErrorSchema = [
   -3,
   n0,
   _DOUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(DuplicateOrganizationalUnitException, __DuplicateOrganizationalUnitException);
-
-export var DuplicatePolicyAttachmentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DPAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicatePolicyAttachmentException: StaticErrorSchema = [-3, n0, _DPAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicatePolicyAttachmentException, __DuplicatePolicyAttachmentException);
-
-export var DuplicatePolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DPE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicatePolicyException: StaticErrorSchema = [-3, n0, _DPE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicatePolicyException, __DuplicatePolicyException);
-
 export var EffectivePolicy: StaticStructureSchema = [3, n0, _EP, 0, [_PC, _LUT, _TI, _PT], [0, 4, 0, 0]];
-export var EffectivePolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EPNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EffectivePolicyNotFoundException: StaticErrorSchema = [-3, n0, _EPNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EffectivePolicyNotFoundException, __EffectivePolicyNotFoundException);
-
 export var EffectivePolicyValidationError: StaticStructureSchema = [
   3,
   n0,
@@ -835,19 +639,8 @@ export var EnableAWSServiceAccessRequest: StaticStructureSchema = [3, n0, _EAWSS
 export var EnabledServicePrincipal: StaticStructureSchema = [3, n0, _ESP, 0, [_SP, _DE], [0, 4]];
 export var EnablePolicyTypeRequest: StaticStructureSchema = [3, n0, _EPTR, 0, [_RI, _PT], [0, 0]];
 export var EnablePolicyTypeResponse: StaticStructureSchema = [3, n0, _EPTRn, 0, [_Ro], [() => Root]];
-export var FinalizingOrganizationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var FinalizingOrganizationException: StaticErrorSchema = [-3, n0, _FOE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FinalizingOrganizationException, __FinalizingOrganizationException);
-
 export var Handshake: StaticStructureSchema = [
   3,
   n0,
@@ -856,46 +649,20 @@ export var Handshake: StaticStructureSchema = [
   [_I, _Ar, _Pa, _St, _RT, _ET, _Ac, _Re],
   [0, 0, [() => HandshakeParties, 0], 0, 4, 4, 0, [() => HandshakeResources, 0]],
 ];
-export var HandshakeAlreadyInStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _HAISE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var HandshakeAlreadyInStateException: StaticErrorSchema = [-3, n0, _HAISE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(HandshakeAlreadyInStateException, __HandshakeAlreadyInStateException);
-
 export var HandshakeConstraintViolationException: StaticErrorSchema = [
   -3,
   n0,
   _HCVE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _R],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(HandshakeConstraintViolationException, __HandshakeConstraintViolationException);
-
 export var HandshakeFilter: StaticStructureSchema = [3, n0, _HF, 0, [_AT, _PHI], [0, 0]];
-export var HandshakeNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _HNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var HandshakeNotFoundException: StaticErrorSchema = [-3, n0, _HNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(HandshakeNotFoundException, __HandshakeNotFoundException);
-
 export var HandshakeParty: StaticStructureSchema = [3, n0, _HP, 0, [_I, _T], [[() => HandshakePartyId, 0], 0]];
 export var HandshakeResource: StaticStructureSchema = [
   3,
@@ -909,36 +676,18 @@ export var InvalidHandshakeTransitionException: StaticErrorSchema = [
   -3,
   n0,
   _IHTE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidHandshakeTransitionException, __InvalidHandshakeTransitionException);
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var InvalidResponsibilityTransferTransitionException: StaticErrorSchema = [
   -3,
   n0,
   _IRTTE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -946,7 +695,6 @@ TypeRegistry.for(n0).registerError(
   InvalidResponsibilityTransferTransitionException,
   __InvalidResponsibilityTransferTransitionException
 );
-
 export var InviteAccountToOrganizationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1173,32 +921,17 @@ export var ListTargetsForPolicyResponse: StaticStructureSchema = [
   [_Targ, _NT],
   [() => PolicyTargets, 0],
 ];
-export var MalformedPolicyDocumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var MalformedPolicyDocumentException: StaticErrorSchema = [-3, n0, _MPDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
-
 export var MasterCannotLeaveOrganizationException: StaticErrorSchema = [
   -3,
   n0,
   _MCLOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MasterCannotLeaveOrganizationException, __MasterCannotLeaveOrganizationException);
-
 export var MoveAccountRequest: StaticStructureSchema = [3, n0, _MAR, 0, [_AI, _SPI, _DPI], [0, 0, 0]];
 export var Organization: StaticStructureSchema = [
   3,
@@ -1213,130 +946,43 @@ export var OrganizationalUnitNotEmptyException: StaticErrorSchema = [
   -3,
   n0,
   _OUNEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OrganizationalUnitNotEmptyException, __OrganizationalUnitNotEmptyException);
-
 export var OrganizationalUnitNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _OUNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OrganizationalUnitNotFoundException, __OrganizationalUnitNotFoundException);
-
-export var OrganizationNotEmptyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var OrganizationNotEmptyException: StaticErrorSchema = [-3, n0, _ONEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OrganizationNotEmptyException, __OrganizationNotEmptyException);
-
 export var Parent: StaticStructureSchema = [3, n0, _Pare, 0, [_I, _T], [0, 0]];
-export var ParentNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ParentNotFoundException: StaticErrorSchema = [-3, n0, _PNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ParentNotFoundException, __ParentNotFoundException);
-
 export var Policy: StaticStructureSchema = [3, n0, _P, 0, [_PS, _Co], [() => PolicySummary, 0]];
-export var PolicyChangesInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PCIPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PolicyChangesInProgressException: StaticErrorSchema = [-3, n0, _PCIPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyChangesInProgressException, __PolicyChangesInProgressException);
-
-export var PolicyInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var PolicyInUseException: StaticErrorSchema = [-3, n0, _PIUE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyInUseException, __PolicyInUseException);
-
-export var PolicyNotAttachedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var PolicyNotAttachedException: StaticErrorSchema = [-3, n0, _PNAE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyNotAttachedException, __PolicyNotAttachedException);
-
-export var PolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNFEo,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var PolicyNotFoundException: StaticErrorSchema = [-3, n0, _PNFEo, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyNotFoundException, __PolicyNotFoundException);
-
 export var PolicySummary: StaticStructureSchema = [3, n0, _PS, 0, [_I, _Ar, _N, _D, _T, _AM], [0, 0, 0, 0, 0, 2]];
 export var PolicyTargetSummary: StaticStructureSchema = [3, n0, _PTS, 0, [_TI, _Ar, _N, _T], [0, 0, 0, 0]];
-export var PolicyTypeAlreadyEnabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var PolicyTypeAlreadyEnabledException: StaticErrorSchema = [-3, n0, _PTAEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyTypeAlreadyEnabledException, __PolicyTypeAlreadyEnabledException);
-
 export var PolicyTypeNotAvailableForOrganizationException: StaticErrorSchema = [
   -3,
   n0,
   _PTNAFOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -1344,39 +990,16 @@ TypeRegistry.for(n0).registerError(
   PolicyTypeNotAvailableForOrganizationException,
   __PolicyTypeNotAvailableForOrganizationException
 );
-
-export var PolicyTypeNotEnabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTNEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var PolicyTypeNotEnabledException: StaticErrorSchema = [-3, n0, _PTNEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyTypeNotEnabledException, __PolicyTypeNotEnabledException);
-
 export var PolicyTypeSummary: StaticStructureSchema = [3, n0, _PTSo, 0, [_T, _S], [0, 0]];
 export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_Co, _Ta], [0, () => Tags]];
 export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [_RP], [() => ResourcePolicy]];
 export var RegisterDelegatedAdministratorRequest: StaticStructureSchema = [3, n0, _RDAR, 0, [_AI, _SP], [0, 0]];
 export var RemoveAccountFromOrganizationRequest: StaticStructureSchema = [3, n0, _RAFOR, 0, [_AI], [0]];
 export var ResourcePolicy: StaticStructureSchema = [3, n0, _RP, 0, [_RPS, _Co], [() => ResourcePolicySummary, 0]];
-export var ResourcePolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RPNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourcePolicyNotFoundException: StaticErrorSchema = [-3, n0, _RPNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourcePolicyNotFoundException, __ResourcePolicyNotFoundException);
-
 export var ResourcePolicySummary: StaticStructureSchema = [3, n0, _RPS, 0, [_I, _Ar], [0, 0]];
 export var ResponsibilityTransfer: StaticStructureSchema = [
   3,
@@ -1401,10 +1024,7 @@ export var ResponsibilityTransferAlreadyInStatusException: StaticErrorSchema = [
   -3,
   n0,
   _RTAISE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -1412,75 +1032,26 @@ TypeRegistry.for(n0).registerError(
   ResponsibilityTransferAlreadyInStatusException,
   __ResponsibilityTransferAlreadyInStatusException
 );
-
 export var ResponsibilityTransferNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RTNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResponsibilityTransferNotFoundException, __ResponsibilityTransferNotFoundException);
-
 export var Root: StaticStructureSchema = [3, n0, _Ro, 0, [_I, _Ar, _N, _PTo], [0, 0, 0, () => PolicyTypes]];
-export var RootNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var RootNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RootNotFoundException, __RootNotFoundException);
-
-export var ServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var ServiceException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceException, __ServiceException);
-
-export var SourceParentNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SPNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var SourceParentNotFoundException: StaticErrorSchema = [-3, n0, _SPNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(SourceParentNotFoundException, __SourceParentNotFoundException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RIe, _Ta], [0, () => Tags]];
-export var TargetNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var TargetNotFoundException: StaticErrorSchema = [-3, n0, _TNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TargetNotFoundException, __TargetNotFoundException);
-
 export var TerminateResponsibilityTransferRequest: StaticStructureSchema = [3, n0, _TRTR, 0, [_I, _ETn], [0, 4]];
 export var TerminateResponsibilityTransferResponse: StaticStructureSchema = [
   3,
@@ -1490,33 +1061,11 @@ export var TerminateResponsibilityTransferResponse: StaticStructureSchema = [
   [_RTe],
   [[() => ResponsibilityTransfer, 0]],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_T, _M],
-  [0, 0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_T, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var TransferParticipant: StaticStructureSchema = [3, n0, _TP, 0, [_MAIa, _MAEa], [0, [() => Email, 0]]];
-export var UnsupportedAPIEndpointException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UAPIEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedAPIEndpointException: StaticErrorSchema = [-3, n0, _UAPIEE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedAPIEndpointException, __UnsupportedAPIEndpointException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RIe, _TK], [0, 64 | 0]];
 export var UpdateOrganizationalUnitRequest: StaticStructureSchema = [3, n0, _UOUR, 0, [_OUI, _N], [0, 0]];
 export var UpdateOrganizationalUnitResponse: StaticStructureSchema = [
@@ -1546,14 +1095,11 @@ export var UpdateResponsibilityTransferResponse: StaticStructureSchema = [
   [[() => ResponsibilityTransfer, 0]],
 ];
 export var __Unit = "unit" as const;
-
 export var OrganizationsServiceException: StaticErrorSchema = [-3, _sm, "OrganizationsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OrganizationsServiceException, __OrganizationsServiceException);
-
 export var Accounts: StaticListSchema = [1, n0, _Acc, 0, [() => Account, 0]];
 export var Children: StaticListSchema = [1, n0, _Ch, 0, () => Child];
 export var CreateAccountStates = 64 | 0;
-
 export var CreateAccountStatuses: StaticListSchema = [1, n0, _CASr, 0, [() => CreateAccountStatus, 0]];
 export var DelegatedAdministrators: StaticListSchema = [1, n0, _DAe, 0, [() => DelegatedAdministrator, 0]];
 export var DelegatedServices: StaticListSchema = [1, n0, _DSe, 0, () => DelegatedService];
@@ -1566,13 +1112,11 @@ export var OrganizationalUnits: StaticListSchema = [1, n0, _OUr, 0, () => Organi
 export var Parents: StaticListSchema = [1, n0, _Par, 0, () => Parent];
 export var Policies: StaticListSchema = [1, n0, _Po, 0, () => PolicySummary];
 export var PolicyIds = 64 | 0;
-
 export var PolicyTargets: StaticListSchema = [1, n0, _PTol, 0, () => PolicyTargetSummary];
 export var PolicyTypes: StaticListSchema = [1, n0, _PTo, 0, () => PolicyTypeSummary];
 export var ResponsibilityTransfers: StaticListSchema = [1, n0, _RTes, 0, [() => ResponsibilityTransfer, 0]];
 export var Roots: StaticListSchema = [1, n0, _Roo, 0, () => Root];
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var AcceptHandshake: StaticOperationSchema = [
   9,

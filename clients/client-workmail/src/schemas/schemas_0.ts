@@ -518,7 +518,7 @@ const n0 = "com.amazonaws.workmail";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -553,7 +553,6 @@ import {
 import { WorkMailServiceException as __WorkMailServiceException } from "../models/WorkMailServiceException";
 
 /* eslint no-var: 0 */
-
 export var NewResourceDescription: StaticSimpleSchema = [0, n0, _NRD, 8, 0];
 export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var PolicyDescription: StaticSimpleSchema = [0, n0, _PD, 8, 0];
@@ -821,45 +820,15 @@ export var DescribeUserResponse: StaticStructureSchema = [
     0,
   ],
 ];
-export var DirectoryInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DIUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryInUseException: StaticErrorSchema = [-3, n0, _DIUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DirectoryInUseException, __DirectoryInUseException);
-
-export var DirectoryServiceAuthenticationFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSAFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryServiceAuthenticationFailedException: StaticErrorSchema = [-3, n0, _DSAFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(
   DirectoryServiceAuthenticationFailedException,
   __DirectoryServiceAuthenticationFailedException
 );
-
-export var DirectoryUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryUnavailableException: StaticErrorSchema = [-3, n0, _DUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DirectoryUnavailableException, __DirectoryUnavailableException);
-
 export var DisassociateDelegateFromResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -873,54 +842,14 @@ export var DisassociateMemberFromGroupRequest: StaticStructureSchema = [3, n0, _
 export var DisassociateMemberFromGroupResponse: StaticStructureSchema = [3, n0, _DMFGRi, 0, [], []];
 export var DnsRecord: StaticStructureSchema = [3, n0, _DR, 0, [_Ty, _H, _V], [0, 0, 0]];
 export var Domain: StaticStructureSchema = [3, n0, _Dom, 0, [_DN, _HZI], [0, 0]];
-export var EmailAddressInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EAIUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EmailAddressInUseException: StaticErrorSchema = [-3, n0, _EAIUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EmailAddressInUseException, __EmailAddressInUseException);
-
-export var EntityAlreadyRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EARE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EntityAlreadyRegisteredException: StaticErrorSchema = [-3, n0, _EARE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EntityAlreadyRegisteredException, __EntityAlreadyRegisteredException);
-
-export var EntityNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EntityNotFoundException: StaticErrorSchema = [-3, n0, _ENFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EntityNotFoundException, __EntityNotFoundException);
-
-export var EntityStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ESE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EntityStateException: StaticErrorSchema = [-3, n0, _ESE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EntityStateException, __EntityStateException);
-
 export var EwsAvailabilityProvider: StaticStructureSchema = [
   3,
   n0,
@@ -1031,67 +960,17 @@ export var ImpersonationRule: StaticStructureSchema = [
   [_IRImp, _N, _D, _E, _TUa, _NTU],
   [0, 0, 0, 0, 64 | 0, 64 | 0],
 ];
-export var InvalidConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidConfigurationException: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidConfigurationException, __InvalidConfigurationException);
-
-export var InvalidCustomSesConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICSCE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidCustomSesConfigurationException: StaticErrorSchema = [-3, n0, _ICSCE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidCustomSesConfigurationException, __InvalidCustomSesConfigurationException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidPasswordException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPEn,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidPasswordException: StaticErrorSchema = [-3, n0, _IPEn, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidPasswordException, __InvalidPasswordException);
-
 export var LambdaAvailabilityProvider: StaticStructureSchema = [3, n0, _LAP, 0, [_LA], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAccessControlRulesRequest: StaticStructureSchema = [3, n0, _LACRR, 0, [_OI], [0]];
 export var ListAccessControlRulesResponse: StaticStructureSchema = [
   3,
@@ -1273,42 +1152,12 @@ export var MailboxExportJob: StaticStructureSchema = [
   [_JI, _EI, _D, _SBN, _SPa, _EPs, _S, _ST, _ET],
   [0, 0, 0, 0, 0, 1, 0, 4, 4],
 ];
-export var MailDomainInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MDIUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MailDomainInUseException: StaticErrorSchema = [-3, n0, _MDIUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MailDomainInUseException, __MailDomainInUseException);
-
-export var MailDomainNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MDNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MailDomainNotFoundException: StaticErrorSchema = [-3, n0, _MDNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MailDomainNotFoundException, __MailDomainNotFoundException);
-
-export var MailDomainStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MDSE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MailDomainStateException: StaticErrorSchema = [-3, n0, _MDSE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MailDomainStateException, __MailDomainStateException);
-
 export var MailDomainSummary: StaticStructureSchema = [3, n0, _MDS, 0, [_DN, _DDe], [0, 2]];
 export var Member: StaticStructureSchema = [3, n0, _Mem, 0, [_I, _N, _Ty, _S, _ED, _DDi], [0, 0, 0, 0, 4, 4]];
 export var MobileDeviceAccessMatchedRule: StaticStructureSchema = [3, n0, _MDAMR, 0, [_MDARI, _N], [0, 0]];
@@ -1328,42 +1177,12 @@ export var MobileDeviceAccessRule: StaticStructureSchema = [
   [_MDARI, _N, _D, _E, _DT, _NDT, _DMe, _NDM, _DOS, _NDOS, _DUA, _NDUA, _DC, _DM],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 4, 4],
 ];
-export var NameAvailabilityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NAE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var NameAvailabilityException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NameAvailabilityException, __NameAvailabilityException);
-
-export var OrganizationNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var OrganizationNotFoundException: StaticErrorSchema = [-3, n0, _ONFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OrganizationNotFoundException, __OrganizationNotFoundException);
-
-export var OrganizationStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OSE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var OrganizationStateException: StaticErrorSchema = [-3, n0, _OSE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OrganizationStateException, __OrganizationStateException);
-
 export var OrganizationSummary: StaticStructureSchema = [3, n0, _OSr, 0, [_OI, _Al, _DMD, _EM, _S], [0, 0, 0, 0, 0]];
 export var Permission: StaticStructureSchema = [3, n0, _Perm, 0, [_GIr, _GT, _PV], [0, 0, 64 | 0]];
 export var PersonalAccessTokenConfiguration: StaticStructureSchema = [3, n0, _PATC, 0, [_Sta, _LID], [0, 1]];
@@ -1436,18 +1255,8 @@ export var RegisterMailDomainRequest: StaticStructureSchema = [3, n0, _RMDR, 0, 
 export var RegisterMailDomainResponse: StaticStructureSchema = [3, n0, _RMDRe, 0, [], []];
 export var RegisterToWorkMailRequest: StaticStructureSchema = [3, n0, _RTWMR, 0, [_OI, _EI, _Em], [0, 0, 0]];
 export var RegisterToWorkMailResponse: StaticStructureSchema = [3, n0, _RTWMRe, 0, [], []];
-export var ReservedNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ReservedNameException: StaticErrorSchema = [-3, n0, _RNE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ReservedNameException, __ReservedNameException);
-
 export var ResetPasswordRequest: StaticStructureSchema = [3, n0, _RPR, 0, [_OI, _UIs, _P], [0, 0, [() => Password, 0]]];
 export var ResetPasswordResponse: StaticStructureSchema = [3, n0, _RPRe, 0, [], []];
 export var Resource: StaticStructureSchema = [
@@ -1458,19 +1267,8 @@ export var Resource: StaticStructureSchema = [
   [_I, _Em, _N, _Ty, _S, _ED, _DDi, _D],
   [0, 0, 0, 0, 0, 4, 4, [() => ResourceDescription, 0]],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var StartMailboxExportJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1492,31 +1290,10 @@ export var TestAvailabilityConfigurationRequest: StaticStructureSchema = [
   [0, 0, [() => EwsAvailabilityProvider, 0], () => LambdaAvailabilityProvider],
 ];
 export var TestAvailabilityConfigurationResponse: StaticStructureSchema = [3, n0, _TACRe, 0, [_TP, _FR], [2, 0]];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
-export var UnsupportedOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UOE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedOperationException: StaticErrorSchema = [-3, n0, _UOE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedOperationException, __UnsupportedOperationException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAvailabilityConfigurationRequest: StaticStructureSchema = [
@@ -1599,27 +1376,17 @@ export var User: StaticStructureSchema = [
   [_I, _Em, _N, _DNi, _S, _UR, _ED, _DDi, _IPUI, _IPISI],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var WorkMailServiceException: StaticErrorSchema = [-3, _s, "WorkMailServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(WorkMailServiceException, __WorkMailServiceException);
-
 export var AccessControlRuleNameList = 64 | 0;
-
 export var AccessControlRulesList: StaticListSchema = [1, n0, _ACRL, 0, () => AccessControlRule];
 export var ActionsList = 64 | 0;
-
 export var Aliases = 64 | 0;
-
 export var AvailabilityConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AvailabilityConfiguration];
 export var DeviceModelList = 64 | 0;
-
 export var DeviceOperatingSystemList = 64 | 0;
-
 export var DeviceTypeList = 64 | 0;
-
 export var DeviceUserAgentList = 64 | 0;
-
 export var DnsRecords: StaticListSchema = [1, n0, _DRn, 0, () => DnsRecord];
 export var Domains: StaticListSchema = [1, n0, _Do, 0, () => Domain];
 export var FolderConfigurations: StaticListSchema = [1, n0, _FCo, 0, () => FolderConfiguration];
@@ -1627,11 +1394,9 @@ export var GroupIdentifiers: StaticListSchema = [1, n0, _GIrou, 0, () => GroupId
 export var Groups: StaticListSchema = [1, n0, _Gr, 0, () => Group];
 export var ImpersonationMatchedRuleList: StaticListSchema = [1, n0, _IMRL, 0, () => ImpersonationMatchedRule];
 export var ImpersonationRoleIdList = 64 | 0;
-
 export var ImpersonationRoleList: StaticListSchema = [1, n0, _IRL, 0, () => ImpersonationRole];
 export var ImpersonationRuleList: StaticListSchema = [1, n0, _IRLm, 0, () => ImpersonationRule];
 export var IpRangeList = 64 | 0;
-
 export var Jobs: StaticListSchema = [1, n0, _J, 0, () => MailboxExportJob];
 export var MailDomains: StaticListSchema = [1, n0, _MD, 0, () => MailDomainSummary];
 export var Members: StaticListSchema = [1, n0, _Me, 0, () => Member];
@@ -1647,19 +1412,14 @@ export var MobileDeviceAccessRulesList: StaticListSchema = [1, n0, _MDARL, 0, ()
 export var OrganizationSummaries: StaticListSchema = [1, n0, _OS, 0, () => OrganizationSummary];
 export var Permissions: StaticListSchema = [1, n0, _Per, 0, () => Permission];
 export var PermissionValues = 64 | 0;
-
 export var PersonalAccessTokenScopeList = 64 | 0;
-
 export var PersonalAccessTokenSummaryList: StaticListSchema = [1, n0, _PATSL, 0, () => PersonalAccessTokenSummary];
 export var ResourceDelegates: StaticListSchema = [1, n0, _RDe, 0, () => Delegate];
 export var Resources: StaticListSchema = [1, n0, _Res, 0, [() => Resource, 0]];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetUsers = 64 | 0;
-
 export var UserIdList = 64 | 0;
-
 export var Users: StaticListSchema = [1, n0, _U, 0, () => User];
 export var AssociateDelegateToResource: StaticOperationSchema = [
   9,

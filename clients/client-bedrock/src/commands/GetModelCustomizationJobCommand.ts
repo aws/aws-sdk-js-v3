@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetModelCustomizationJobRequest, GetModelCustomizationJobResponse } from "../models/models_1";
+import type { GetModelCustomizationJobRequest, GetModelCustomizationJobResponse } from "../models/models_1";
 import { GetModelCustomizationJob } from "../schemas/schemas_0";
 
 /**
@@ -119,7 +119,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   outputDataConfig: { // OutputDataConfig
  * //     s3Uri: "STRING_VALUE", // required
  * //   },
- * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "REINFORCEMENT_FINE_TUNING" || "IMPORTED",
  * //   outputModelKmsKeyArn: "STRING_VALUE",
  * //   trainingMetrics: { // TrainingMetrics
  * //     trainingLoss: Number("float"),
@@ -142,6 +142,23 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //       teacherModelConfig: { // TeacherModelConfig
  * //         teacherModelIdentifier: "STRING_VALUE", // required
  * //         maxResponseLengthForInference: Number("int"),
+ * //       },
+ * //     },
+ * //     rftConfig: { // RFTConfig
+ * //       graderConfig: { // GraderConfig Union: only one key present
+ * //         lambdaGrader: { // LambdaGraderConfig
+ * //           lambdaArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       hyperParameters: { // RFTHyperParameters
+ * //         epochCount: Number("int"),
+ * //         batchSize: Number("int"),
+ * //         learningRate: Number("float"),
+ * //         maxPromptLength: Number("int"),
+ * //         trainingSamplePerPrompt: Number("int"),
+ * //         inferenceMaxTokens: Number("int"),
+ * //         reasoningEffort: "low" || "medium" || "high",
+ * //         evalInterval: Number("int"),
  * //       },
  * //     },
  * //   },

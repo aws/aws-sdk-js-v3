@@ -297,7 +297,7 @@ const n0 = "com.amazonaws.applicationdiscoveryservice";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -320,7 +320,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AgentConfigurationStatus: StaticStructureSchema = [3, n0, _ACS, 0, [_aI, _oS, _d], [0, 2, 0]];
 export var AgentInfo: StaticStructureSchema = [
   3,
@@ -340,19 +339,8 @@ export var AssociateConfigurationItemsToApplicationRequest: StaticStructureSchem
   [0, 64 | 0],
 ];
 export var AssociateConfigurationItemsToApplicationResponse: StaticStructureSchema = [3, n0, _ACITARs, 0, [], []];
-export var AuthorizationErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AuthorizationErrorException: StaticErrorSchema = [-3, n0, _AEE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AuthorizationErrorException, __AuthorizationErrorException);
-
 export var BatchDeleteAgentError: StaticStructureSchema = [3, n0, _BDAE, 0, [_aI, _eM, _eC], [0, 0, 0]];
 export var BatchDeleteAgentsRequest: StaticStructureSchema = [3, n0, _BDAR, 0, [_dA], [() => DeleteAgents]];
 export var BatchDeleteAgentsResponse: StaticStructureSchema = [3, n0, _BDARa, 0, [_er], [() => BatchDeleteAgentErrors]];
@@ -375,19 +363,8 @@ export var BatchDeleteImportDataResponse: StaticStructureSchema = [
   [() => BatchDeleteImportDataErrorList],
 ];
 export var ConfigurationTag: StaticStructureSchema = [3, n0, _CT, 0, [_cT, _cIon, _k, _va, _tOC], [0, 0, 0, 0, 4]];
-export var ConflictErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictErrorException: StaticErrorSchema = [-3, n0, _CEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictErrorException, __ConflictErrorException);
-
 export var ContinuousExportDescription: StaticStructureSchema = [
   3,
   n0,
@@ -599,19 +576,8 @@ export var GetDiscoverySummaryResponse: StaticStructureSchema = [
     () => CustomerAgentlessCollectorInfo,
   ],
 ];
-export var HomeRegionNotSetException: StaticErrorSchema = [
-  -3,
-  n0,
-  _HRNSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var HomeRegionNotSetException: StaticErrorSchema = [-3, n0, _HRNSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HomeRegionNotSetException, __HomeRegionNotSetException);
-
 export var ImportTask: StaticStructureSchema = [
   3,
   n0,
@@ -621,45 +587,12 @@ export var ImportTask: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 4, 4, 4, 0, 1, 1, 1, 1, 0],
 ];
 export var ImportTaskFilter: StaticStructureSchema = [3, n0, _ITF, 0, [_n, _val], [0, 64 | 0]];
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidParameterValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListConfigurationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -700,60 +633,16 @@ export var NeighborConnectionDetail: StaticStructureSchema = [
   [_sSI, _dSI, _dP, _tP, _cC],
   [0, 0, 1, 0, 1],
 ];
-export var OperationNotPermittedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONPE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var OperationNotPermittedException: StaticErrorSchema = [-3, n0, _ONPE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OperationNotPermittedException, __OperationNotPermittedException);
-
 export var OrderByElement: StaticStructureSchema = [3, n0, _OBE, 0, [_fN, _sO], [0, 0]];
 export var ReservedInstanceOptions: StaticStructureSchema = [3, n0, _RIO, 0, [_pO, _oC, _tL], [0, 0, 0]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServerInternalErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SIEE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var ServerInternalErrorException: StaticErrorSchema = [-3, n0, _SIEE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServerInternalErrorException, __ServerInternalErrorException);
-
 export var StartBatchDeleteConfigurationTaskRequest: StaticStructureSchema = [
   3,
   n0,
@@ -809,7 +698,6 @@ export var UpdateApplicationRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_
 export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
 export var UsageMetricBasis: StaticStructureSchema = [3, n0, _UMB, 0, [_n, _pA], [0, 1]];
 export var __Unit = "unit" as const;
-
 export var ApplicationDiscoveryServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -822,86 +710,40 @@ TypeRegistry.for(_sm).registerError(
   ApplicationDiscoveryServiceServiceException,
   __ApplicationDiscoveryServiceServiceException
 );
-
 export var AgentConfigurationStatusList: StaticListSchema = [1, n0, _ACSL, 0, () => AgentConfigurationStatus];
 export var AgentIds = 64 | 0;
-
 export var AgentNetworkInfoList: StaticListSchema = [1, n0, _ANIL, 0, [() => AgentNetworkInfo, 0]];
 export var AgentsInfo: StaticListSchema = [1, n0, _AIg, 0, [() => AgentInfo, 0]];
 export var ApplicationIdsList = 64 | 0;
-
 export var BatchDeleteAgentErrors: StaticListSchema = [1, n0, _BDAEa, 0, () => BatchDeleteAgentError];
 export var BatchDeleteImportDataErrorList: StaticListSchema = [1, n0, _BDIDEL, 0, () => BatchDeleteImportDataError];
 export var ConfigurationIdList = 64 | 0;
-
 export var Configurations: StaticListSchema = [1, n0, _C, 0, 128 | 0];
-export var ConfigurationTagSet: StaticListSchema = [
-  1,
-  n0,
-  _CTS,
-  0,
-  [
-    () => ConfigurationTag,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
+export var ConfigurationTagSet: StaticListSchema = [1, n0, _CTS, 0, [() => ConfigurationTag, { [_xN]: _i }]];
 export var ContinuousExportDescriptions: StaticListSchema = [1, n0, _CEDo, 0, () => ContinuousExportDescription];
 export var ContinuousExportIds = 64 | 0;
-
 export var DeleteAgents: StaticListSchema = [1, n0, _DAe, 0, () => DeleteAgent];
 export var DeletionWarningsList: StaticListSchema = [1, n0, _DWL, 0, () => DeletionWarning];
 export var DescribeConfigurationsAttributes: StaticListSchema = [1, n0, _DCA, 0, 128 | 0];
 export var DescribeImportTasksFilterList: StaticListSchema = [1, n0, _DITFL, 0, () => ImportTaskFilter];
 export var ExcludedInstanceTypes = 64 | 0;
-
 export var ExportDataFormats = 64 | 0;
-
 export var ExportFilters: StaticListSchema = [1, n0, _EFx, 0, [() => ExportFilter, 0]];
 export var ExportIds = 64 | 0;
-
 export var ExportsInfo: StaticListSchema = [1, n0, _EIx, 0, () => ExportInfo];
 export var FailedConfigurationList: StaticListSchema = [1, n0, _FCL, 0, () => FailedConfiguration];
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, [() => Filter, 0]];
-export var FilterValues: StaticListSchema = [
-  1,
-  n0,
-  _FV,
-  0,
-  [
-    0,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
+export var FilterValues: StaticListSchema = [1, n0, _FV, 0, [0, { [_xN]: _i }]];
 export var ImportTaskFilterValueList = 64 | 0;
-
 export var ImportTaskList: StaticListSchema = [1, n0, _ITL, 0, () => ImportTask];
 export var NeighborDetailsList: StaticListSchema = [1, n0, _NDL, 0, () => NeighborConnectionDetail];
 export var OrderByList: StaticListSchema = [1, n0, _OBL, 0, () => OrderByElement];
 export var TagFilters: StaticListSchema = [1, n0, _TFa, 0, [() => TagFilter, 0]];
-export var TagSet: StaticListSchema = [
-  1,
-  n0,
-  _TS,
-  0,
-  [
-    () => Tag,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
+export var TagSet: StaticListSchema = [1, n0, _TS, 0, [() => Tag, { [_xN]: _i }]];
 export var ToDeleteIdentifierList = 64 | 0;
-
 export var Configuration = 128 | 0;
-
 export var DescribeConfigurationsAttribute = 128 | 0;
-
 export var SchemaStorageConfig = 128 | 0;
-
 export var ExportPreferences: StaticStructureSchema = [
   3,
   n0,

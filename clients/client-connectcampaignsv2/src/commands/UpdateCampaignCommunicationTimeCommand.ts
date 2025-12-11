@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ConnectCampaignsV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateCampaignCommunicationTimeRequest } from "../models/models_0";
+import type { UpdateCampaignCommunicationTimeRequest } from "../models/models_0";
 import { UpdateCampaignCommunicationTime } from "../schemas/schemas_0";
 
 /**
@@ -92,6 +92,27 @@ export interface UpdateCampaignCommunicationTimeCommandOutput extends __Metadata
  *       },
  *     },
  *     email: {
+ *       openHours: {//  Union: only one key present
+ *         dailyHours: {
+ *           "<keys>": [
+ *             {
+ *               startTime: "STRING_VALUE", // required
+ *               endTime: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       restrictedPeriods: {//  Union: only one key present
+ *         restrictedPeriodList: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             startDate: "STRING_VALUE", // required
+ *             endDate: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     whatsApp: {
  *       openHours: {//  Union: only one key present
  *         dailyHours: {
  *           "<keys>": [

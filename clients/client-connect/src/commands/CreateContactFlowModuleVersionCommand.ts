@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateContactFlowModuleVersionRequest, CreateContactFlowModuleVersionResponse } from "../models/models_0";
+import type { CreateContactFlowModuleVersionRequest, CreateContactFlowModuleVersionResponse } from "../models/models_0";
 import { CreateContactFlowModuleVersion } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,8 @@ export interface CreateContactFlowModuleVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an immutable snapshot of a contact flow module, preserving its content and settings at a specific point in time for version control and rollback capabilities.</p>
+ * <p>Creates an immutable snapshot of a contact flow module, preserving its content and settings at a specific point
+ *    in time for version control and rollback capabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

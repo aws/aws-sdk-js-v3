@@ -34,18 +34,10 @@ describe(CloudWatch.name, () => {
     }),
   };
 
-  it("can make requests with AWS Query protocol", async () => {
-    const dashes = await cloudwatch.query.listDashboards();
-    expect(dashes.DashboardEntries ?? []).toBeInstanceOf(Array);
-  });
-
-  it("can make requests with Smithy RPCv2 CBOR protocol", async () => {
-    const dashes = await cloudwatch.cbor.listDashboards();
-    expect(dashes.DashboardEntries ?? []).toBeInstanceOf(Array);
-  });
-
-  it("can make requests with AWS JSON RPC protocol", async () => {
-    const dashes = await cloudwatch.json.listDashboards();
-    expect(dashes.DashboardEntries ?? []).toBeInstanceOf(Array);
-  });
+  for (const client of Object.values(cloudwatch)) {
+    it(`can make requests with ${client.config.protocol.constructor.name}`, async () => {
+      const dashes = await cloudwatch.query.listDashboards();
+      expect(dashes.DashboardEntries ?? []).toBeInstanceOf(Array);
+    });
+  }
 });

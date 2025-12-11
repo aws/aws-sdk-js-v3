@@ -314,7 +314,7 @@ const n0 = "com.amazonaws.pinpointemail";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -337,46 +337,12 @@ import {
 import { PinpointEmailServiceException as __PinpointEmailServiceException } from "../models/PinpointEmailServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccountSuspendedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var AccountSuspendedException: StaticErrorSchema = [-3, n0, _ASE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccountSuspendedException, __AccountSuspendedException);
-
-export var AlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var AlreadyExistsException: StaticErrorSchema = [-3, n0, _AEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BlacklistEntry: StaticStructureSchema = [3, n0, _BE, 0, [_RN, _LT, _D], [0, 4, 0]];
 export var Body: StaticStructureSchema = [3, n0, _B, 0, [_T, _H], [() => Content, () => Content]];
 export var CloudWatchDestination: StaticStructureSchema = [
@@ -388,19 +354,8 @@ export var CloudWatchDestination: StaticStructureSchema = [
   [() => CloudWatchDimensionConfigurations],
 ];
 export var CloudWatchDimensionConfiguration: StaticStructureSchema = [3, n0, _CWDC, 0, [_DN, _DVS, _DDV], [0, 0, 0]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var Content: StaticStructureSchema = [3, n0, _C, 0, [_Da, _Ch], [0, 0]];
 export var CreateConfigurationSetEventDestinationRequest: StaticStructureSchema = [
   3,
@@ -543,21 +498,7 @@ export var GetAccountResponse: StaticStructureSchema = [
   [_SQ, _SEe, _DIAWE, _ES, _PAE],
   [() => SendQuota, 2, 2, 0, 2],
 ];
-export var GetBlacklistReportsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GBRR,
-  0,
-  [_BIN],
-  [
-    [
-      64 | 0,
-      {
-        [_hQ]: _BIN,
-      },
-    ],
-  ],
-];
+export var GetBlacklistReportsRequest: StaticStructureSchema = [3, n0, _GBRR, 0, [_BIN], [[64 | 0, { [_hQ]: _BIN }]]];
 export var GetBlacklistReportsResponse: StaticStructureSchema = [3, n0, _GBRRe, 0, [_BR], [() => BlacklistReport]];
 export var GetConfigurationSetEventDestinationsRequest: StaticStructureSchema = [3, n0, _GCSEDR, 0, [_CSN], [[0, 1]]];
 export var GetConfigurationSetEventDestinationsResponse: StaticStructureSchema = [
@@ -586,24 +527,9 @@ export var GetDedicatedIpsRequest: StaticStructureSchema = [
   0,
   [_PN, _NT, _PS],
   [
-    [
-      0,
-      {
-        [_hQ]: _PN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _PN }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _PS }],
   ],
 ];
 export var GetDedicatedIpsResponse: StaticStructureSchema = [
@@ -649,18 +575,8 @@ export var GetDomainStatisticsReportRequest: StaticStructureSchema = [
   [_Do, _SD, _EDn],
   [
     [0, 1],
-    [
-      4,
-      {
-        [_hQ]: _SD,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _EDn,
-      },
-    ],
+    [4, { [_hQ]: _SD }],
+    [4, { [_hQ]: _EDn }],
   ],
 ];
 export var GetDomainStatisticsReportResponse: StaticStructureSchema = [
@@ -684,19 +600,8 @@ export var IdentityInfo: StaticStructureSchema = [3, n0, _II, 0, [_IT, _INd, _SE
 export var InboxPlacementTrackingOption: StaticStructureSchema = [3, n0, _IPTO, 0, [_G, _TI], [2, 64 | 0]];
 export var IspPlacement: StaticStructureSchema = [3, n0, _IPsp, 0, [_IN, _PSl], [0, () => PlacementStatistics]];
 export var KinesisFirehoseDestination: StaticStructureSchema = [3, n0, _KFD, 0, [_IRA, _DSA], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListConfigurationSetsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -704,18 +609,8 @@ export var ListConfigurationSetsRequest: StaticStructureSchema = [
   0,
   [_NT, _PS],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _PS }],
   ],
 ];
 export var ListConfigurationSetsResponse: StaticStructureSchema = [3, n0, _LCSRi, 0, [_CS, _NT], [64 | 0, 0]];
@@ -726,18 +621,8 @@ export var ListDedicatedIpPoolsRequest: StaticStructureSchema = [
   0,
   [_NT, _PS],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _PS }],
   ],
 ];
 export var ListDedicatedIpPoolsResponse: StaticStructureSchema = [3, n0, _LDIPRi, 0, [_DIPe, _NT], [64 | 0, 0]];
@@ -748,18 +633,8 @@ export var ListDeliverabilityTestReportsRequest: StaticStructureSchema = [
   0,
   [_NT, _PS],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _PS }],
   ],
 ];
 export var ListDeliverabilityTestReportsResponse: StaticStructureSchema = [
@@ -777,31 +652,11 @@ export var ListDomainDeliverabilityCampaignsRequest: StaticStructureSchema = [
   0,
   [_SD, _EDn, _SDu, _NT, _PS],
   [
-    [
-      4,
-      {
-        [_hQ]: _SD,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _EDn,
-      },
-    ],
+    [4, { [_hQ]: _SD }],
+    [4, { [_hQ]: _EDn }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _PS }],
   ],
 ];
 export var ListDomainDeliverabilityCampaignsResponse: StaticStructureSchema = [
@@ -819,18 +674,8 @@ export var ListEmailIdentitiesRequest: StaticStructureSchema = [
   0,
   [_NT, _PS],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _PS }],
   ],
 ];
 export var ListEmailIdentitiesResponse: StaticStructureSchema = [
@@ -841,64 +686,24 @@ export var ListEmailIdentitiesResponse: StaticStructureSchema = [
   [_EIm, _NT],
   [() => IdentityInfoList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_RA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _RA,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, { [_hQ]: _RA }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
 export var MailFromAttributes: StaticStructureSchema = [3, n0, _MFA, 0, [_MFD, _MFDS, _BOMF], [0, 0, 0]];
 export var MailFromDomainNotVerifiedException: StaticErrorSchema = [
   -3,
   n0,
   _MFDNVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MailFromDomainNotVerifiedException, __MailFromDomainNotVerifiedException);
-
 export var Message: StaticStructureSchema = [3, n0, _M, 0, [_S, _B], [() => Content, () => Body]];
-export var MessageRejected: StaticErrorSchema = [
-  -3,
-  n0,
-  _MR,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var MessageRejected: StaticErrorSchema = [-3, n0, _MR, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MessageRejected, __MessageRejected);
-
 export var MessageTag: StaticStructureSchema = [3, n0, _MT, 0, [_N, _V], [0, 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OverallVolume: StaticStructureSchema = [
   3,
   n0,
@@ -994,38 +799,16 @@ export var SendEmailRequest: StaticStructureSchema = [
 ];
 export var SendEmailResponse: StaticStructureSchema = [3, n0, _SERe, 0, [_MI], [0]];
 export var SendingOptions: StaticStructureSchema = [3, n0, _SO, 0, [_SEe], [2]];
-export var SendingPausedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var SendingPausedException: StaticErrorSchema = [-3, n0, _SPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SendingPausedException, __SendingPausedException);
-
 export var SendQuota: StaticStructureSchema = [3, n0, _SQ, 0, [_MHS, _MSR, _SLH], [1, 1, 1]];
 export var SnsDestination: StaticStructureSchema = [3, n0, _SDn, 0, [_TAo], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var Template: StaticStructureSchema = [3, n0, _Te, 0, [_TAe, _TD], [0, 0]];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var TrackingOptions: StaticStructureSchema = [3, n0, _TO, 0, [_CRD], [0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -1034,18 +817,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
   0,
   [_RA, _TK],
   [
-    [
-      0,
-      {
-        [_hQ]: _RA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _TK,
-      },
-    ],
+    [0, { [_hQ]: _RA }],
+    [64 | 0, { [_hQ]: _TK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1059,14 +832,10 @@ export var UpdateConfigurationSetEventDestinationRequest: StaticStructureSchema 
 ];
 export var UpdateConfigurationSetEventDestinationResponse: StaticStructureSchema = [3, n0, _UCSEDRp, 0, [], []];
 export var VolumeStatistics: StaticStructureSchema = [3, n0, _VS, 0, [_IRC, _SRC, _PI, _PSr], [1, 1, 1, 1]];
-export var __Unit = "unit" as const;
-
 export var PinpointEmailServiceException: StaticErrorSchema = [-3, _sm, "PinpointEmailServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PinpointEmailServiceException, __PinpointEmailServiceException);
-
 export var BlacklistEntries: StaticListSchema = [1, n0, _BEl, 0, () => BlacklistEntry];
 export var BlacklistItemNames = 64 | 0;
-
 export var CloudWatchDimensionConfigurations: StaticListSchema = [
   1,
   n0,
@@ -1075,12 +844,10 @@ export var CloudWatchDimensionConfigurations: StaticListSchema = [
   () => CloudWatchDimensionConfiguration,
 ];
 export var ConfigurationSetNameList = 64 | 0;
-
 export var DailyVolumes: StaticListSchema = [1, n0, _DVa, 0, () => DailyVolume];
 export var DedicatedIpList: StaticListSchema = [1, n0, _DIL, 0, () => DedicatedIp];
 export var DeliverabilityTestReports: StaticListSchema = [1, n0, _DTRe, 0, () => DeliverabilityTestReport];
 export var DnsTokenList = 64 | 0;
-
 export var DomainDeliverabilityCampaignList: StaticListSchema = [1, n0, _DDCL, 0, () => DomainDeliverabilityCampaign];
 export var DomainDeliverabilityTrackingOptions: StaticListSchema = [
   1,
@@ -1091,32 +858,23 @@ export var DomainDeliverabilityTrackingOptions: StaticListSchema = [
 ];
 export var DomainIspPlacements: StaticListSchema = [1, n0, _DIP, 0, () => DomainIspPlacement];
 export var EmailAddressList = 64 | 0;
-
 export var Esps = 64 | 0;
-
 export var EventDestinations: StaticListSchema = [1, n0, _EDv, 0, () => EventDestination];
 export var EventTypes = 64 | 0;
-
 export var IdentityInfoList: StaticListSchema = [1, n0, _IIL, 0, () => IdentityInfo];
 export var IpList = 64 | 0;
-
 export var IspNameList = 64 | 0;
-
 export var IspPlacements: StaticListSchema = [1, n0, _IPs, 0, () => IspPlacement];
 export var ListOfDedicatedIpPools = 64 | 0;
-
 export var MessageTagList: StaticListSchema = [1, n0, _MTL, 0, () => MessageTag];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var BlacklistReport: StaticMapSchema = [2, n0, _BR, 0, 0, () => BlacklistEntries];
 export var CreateConfigurationSet: StaticOperationSchema = [
   9,
   n0,
   _CCS,
-  {
-    [_h]: ["POST", "/v1/email/configuration-sets", 200],
-  },
+  { [_h]: ["POST", "/v1/email/configuration-sets", 200] },
   () => CreateConfigurationSetRequest,
   () => CreateConfigurationSetResponse,
 ];
@@ -1124,9 +882,7 @@ export var CreateConfigurationSetEventDestination: StaticOperationSchema = [
   9,
   n0,
   _CCSED,
-  {
-    [_h]: ["POST", "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations", 200],
-  },
+  { [_h]: ["POST", "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations", 200] },
   () => CreateConfigurationSetEventDestinationRequest,
   () => CreateConfigurationSetEventDestinationResponse,
 ];
@@ -1134,9 +890,7 @@ export var CreateDedicatedIpPool: StaticOperationSchema = [
   9,
   n0,
   _CDIP,
-  {
-    [_h]: ["POST", "/v1/email/dedicated-ip-pools", 200],
-  },
+  { [_h]: ["POST", "/v1/email/dedicated-ip-pools", 200] },
   () => CreateDedicatedIpPoolRequest,
   () => CreateDedicatedIpPoolResponse,
 ];
@@ -1144,9 +898,7 @@ export var CreateDeliverabilityTestReport: StaticOperationSchema = [
   9,
   n0,
   _CDTR,
-  {
-    [_h]: ["POST", "/v1/email/deliverability-dashboard/test", 200],
-  },
+  { [_h]: ["POST", "/v1/email/deliverability-dashboard/test", 200] },
   () => CreateDeliverabilityTestReportRequest,
   () => CreateDeliverabilityTestReportResponse,
 ];
@@ -1154,9 +906,7 @@ export var CreateEmailIdentity: StaticOperationSchema = [
   9,
   n0,
   _CEI,
-  {
-    [_h]: ["POST", "/v1/email/identities", 200],
-  },
+  { [_h]: ["POST", "/v1/email/identities", 200] },
   () => CreateEmailIdentityRequest,
   () => CreateEmailIdentityResponse,
 ];
@@ -1164,9 +914,7 @@ export var DeleteConfigurationSet: StaticOperationSchema = [
   9,
   n0,
   _DCS,
-  {
-    [_h]: ["DELETE", "/v1/email/configuration-sets/{ConfigurationSetName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/email/configuration-sets/{ConfigurationSetName}", 200] },
   () => DeleteConfigurationSetRequest,
   () => DeleteConfigurationSetResponse,
 ];
@@ -1188,9 +936,7 @@ export var DeleteDedicatedIpPool: StaticOperationSchema = [
   9,
   n0,
   _DDIP,
-  {
-    [_h]: ["DELETE", "/v1/email/dedicated-ip-pools/{PoolName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/email/dedicated-ip-pools/{PoolName}", 200] },
   () => DeleteDedicatedIpPoolRequest,
   () => DeleteDedicatedIpPoolResponse,
 ];
@@ -1198,9 +944,7 @@ export var DeleteEmailIdentity: StaticOperationSchema = [
   9,
   n0,
   _DEI,
-  {
-    [_h]: ["DELETE", "/v1/email/identities/{EmailIdentity}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/email/identities/{EmailIdentity}", 200] },
   () => DeleteEmailIdentityRequest,
   () => DeleteEmailIdentityResponse,
 ];
@@ -1208,9 +952,7 @@ export var GetAccount: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/v1/email/account", 200],
-  },
+  { [_h]: ["GET", "/v1/email/account", 200] },
   () => GetAccountRequest,
   () => GetAccountResponse,
 ];
@@ -1218,9 +960,7 @@ export var GetBlacklistReports: StaticOperationSchema = [
   9,
   n0,
   _GBR,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard/blacklist-report", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard/blacklist-report", 200] },
   () => GetBlacklistReportsRequest,
   () => GetBlacklistReportsResponse,
 ];
@@ -1228,9 +968,7 @@ export var GetConfigurationSet: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  {
-    [_h]: ["GET", "/v1/email/configuration-sets/{ConfigurationSetName}", 200],
-  },
+  { [_h]: ["GET", "/v1/email/configuration-sets/{ConfigurationSetName}", 200] },
   () => GetConfigurationSetRequest,
   () => GetConfigurationSetResponse,
 ];
@@ -1238,9 +976,7 @@ export var GetConfigurationSetEventDestinations: StaticOperationSchema = [
   9,
   n0,
   _GCSED,
-  {
-    [_h]: ["GET", "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations", 200],
-  },
+  { [_h]: ["GET", "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations", 200] },
   () => GetConfigurationSetEventDestinationsRequest,
   () => GetConfigurationSetEventDestinationsResponse,
 ];
@@ -1248,9 +984,7 @@ export var GetDedicatedIp: StaticOperationSchema = [
   9,
   n0,
   _GDI,
-  {
-    [_h]: ["GET", "/v1/email/dedicated-ips/{Ip}", 200],
-  },
+  { [_h]: ["GET", "/v1/email/dedicated-ips/{Ip}", 200] },
   () => GetDedicatedIpRequest,
   () => GetDedicatedIpResponse,
 ];
@@ -1258,9 +992,7 @@ export var GetDedicatedIps: StaticOperationSchema = [
   9,
   n0,
   _GDIe,
-  {
-    [_h]: ["GET", "/v1/email/dedicated-ips", 200],
-  },
+  { [_h]: ["GET", "/v1/email/dedicated-ips", 200] },
   () => GetDedicatedIpsRequest,
   () => GetDedicatedIpsResponse,
 ];
@@ -1268,9 +1000,7 @@ export var GetDeliverabilityDashboardOptions: StaticOperationSchema = [
   9,
   n0,
   _GDDO,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard", 200] },
   () => GetDeliverabilityDashboardOptionsRequest,
   () => GetDeliverabilityDashboardOptionsResponse,
 ];
@@ -1278,9 +1008,7 @@ export var GetDeliverabilityTestReport: StaticOperationSchema = [
   9,
   n0,
   _GDTR,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard/test-reports/{ReportId}", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard/test-reports/{ReportId}", 200] },
   () => GetDeliverabilityTestReportRequest,
   () => GetDeliverabilityTestReportResponse,
 ];
@@ -1288,9 +1016,7 @@ export var GetDomainDeliverabilityCampaign: StaticOperationSchema = [
   9,
   n0,
   _GDDC,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard/campaigns/{CampaignId}", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard/campaigns/{CampaignId}", 200] },
   () => GetDomainDeliverabilityCampaignRequest,
   () => GetDomainDeliverabilityCampaignResponse,
 ];
@@ -1298,9 +1024,7 @@ export var GetDomainStatisticsReport: StaticOperationSchema = [
   9,
   n0,
   _GDSR,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard/statistics-report/{Domain}", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard/statistics-report/{Domain}", 200] },
   () => GetDomainStatisticsReportRequest,
   () => GetDomainStatisticsReportResponse,
 ];
@@ -1308,9 +1032,7 @@ export var GetEmailIdentity: StaticOperationSchema = [
   9,
   n0,
   _GEI,
-  {
-    [_h]: ["GET", "/v1/email/identities/{EmailIdentity}", 200],
-  },
+  { [_h]: ["GET", "/v1/email/identities/{EmailIdentity}", 200] },
   () => GetEmailIdentityRequest,
   () => GetEmailIdentityResponse,
 ];
@@ -1318,9 +1040,7 @@ export var ListConfigurationSets: StaticOperationSchema = [
   9,
   n0,
   _LCS,
-  {
-    [_h]: ["GET", "/v1/email/configuration-sets", 200],
-  },
+  { [_h]: ["GET", "/v1/email/configuration-sets", 200] },
   () => ListConfigurationSetsRequest,
   () => ListConfigurationSetsResponse,
 ];
@@ -1328,9 +1048,7 @@ export var ListDedicatedIpPools: StaticOperationSchema = [
   9,
   n0,
   _LDIP,
-  {
-    [_h]: ["GET", "/v1/email/dedicated-ip-pools", 200],
-  },
+  { [_h]: ["GET", "/v1/email/dedicated-ip-pools", 200] },
   () => ListDedicatedIpPoolsRequest,
   () => ListDedicatedIpPoolsResponse,
 ];
@@ -1338,9 +1056,7 @@ export var ListDeliverabilityTestReports: StaticOperationSchema = [
   9,
   n0,
   _LDTR,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard/test-reports", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard/test-reports", 200] },
   () => ListDeliverabilityTestReportsRequest,
   () => ListDeliverabilityTestReportsResponse,
 ];
@@ -1348,9 +1064,7 @@ export var ListDomainDeliverabilityCampaigns: StaticOperationSchema = [
   9,
   n0,
   _LDDC,
-  {
-    [_h]: ["GET", "/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns", 200],
-  },
+  { [_h]: ["GET", "/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns", 200] },
   () => ListDomainDeliverabilityCampaignsRequest,
   () => ListDomainDeliverabilityCampaignsResponse,
 ];
@@ -1358,9 +1072,7 @@ export var ListEmailIdentities: StaticOperationSchema = [
   9,
   n0,
   _LEI,
-  {
-    [_h]: ["GET", "/v1/email/identities", 200],
-  },
+  { [_h]: ["GET", "/v1/email/identities", 200] },
   () => ListEmailIdentitiesRequest,
   () => ListEmailIdentitiesResponse,
 ];
@@ -1368,9 +1080,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v1/email/tags", 200],
-  },
+  { [_h]: ["GET", "/v1/email/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1378,9 +1088,7 @@ export var PutAccountDedicatedIpWarmupAttributes: StaticOperationSchema = [
   9,
   n0,
   _PADIWA,
-  {
-    [_h]: ["PUT", "/v1/email/account/dedicated-ips/warmup", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/account/dedicated-ips/warmup", 200] },
   () => PutAccountDedicatedIpWarmupAttributesRequest,
   () => PutAccountDedicatedIpWarmupAttributesResponse,
 ];
@@ -1388,9 +1096,7 @@ export var PutAccountSendingAttributes: StaticOperationSchema = [
   9,
   n0,
   _PASA,
-  {
-    [_h]: ["PUT", "/v1/email/account/sending", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/account/sending", 200] },
   () => PutAccountSendingAttributesRequest,
   () => PutAccountSendingAttributesResponse,
 ];
@@ -1398,9 +1104,7 @@ export var PutConfigurationSetDeliveryOptions: StaticOperationSchema = [
   9,
   n0,
   _PCSDO,
-  {
-    [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/delivery-options", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/delivery-options", 200] },
   () => PutConfigurationSetDeliveryOptionsRequest,
   () => PutConfigurationSetDeliveryOptionsResponse,
 ];
@@ -1408,9 +1112,7 @@ export var PutConfigurationSetReputationOptions: StaticOperationSchema = [
   9,
   n0,
   _PCSRO,
-  {
-    [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/reputation-options", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/reputation-options", 200] },
   () => PutConfigurationSetReputationOptionsRequest,
   () => PutConfigurationSetReputationOptionsResponse,
 ];
@@ -1418,9 +1120,7 @@ export var PutConfigurationSetSendingOptions: StaticOperationSchema = [
   9,
   n0,
   _PCSSO,
-  {
-    [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/sending", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/sending", 200] },
   () => PutConfigurationSetSendingOptionsRequest,
   () => PutConfigurationSetSendingOptionsResponse,
 ];
@@ -1428,9 +1128,7 @@ export var PutConfigurationSetTrackingOptions: StaticOperationSchema = [
   9,
   n0,
   _PCSTO,
-  {
-    [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/tracking-options", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/configuration-sets/{ConfigurationSetName}/tracking-options", 200] },
   () => PutConfigurationSetTrackingOptionsRequest,
   () => PutConfigurationSetTrackingOptionsResponse,
 ];
@@ -1438,9 +1136,7 @@ export var PutDedicatedIpInPool: StaticOperationSchema = [
   9,
   n0,
   _PDIIP,
-  {
-    [_h]: ["PUT", "/v1/email/dedicated-ips/{Ip}/pool", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/dedicated-ips/{Ip}/pool", 200] },
   () => PutDedicatedIpInPoolRequest,
   () => PutDedicatedIpInPoolResponse,
 ];
@@ -1448,9 +1144,7 @@ export var PutDedicatedIpWarmupAttributes: StaticOperationSchema = [
   9,
   n0,
   _PDIWA,
-  {
-    [_h]: ["PUT", "/v1/email/dedicated-ips/{Ip}/warmup", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/dedicated-ips/{Ip}/warmup", 200] },
   () => PutDedicatedIpWarmupAttributesRequest,
   () => PutDedicatedIpWarmupAttributesResponse,
 ];
@@ -1458,9 +1152,7 @@ export var PutDeliverabilityDashboardOption: StaticOperationSchema = [
   9,
   n0,
   _PDDO,
-  {
-    [_h]: ["PUT", "/v1/email/deliverability-dashboard", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/deliverability-dashboard", 200] },
   () => PutDeliverabilityDashboardOptionRequest,
   () => PutDeliverabilityDashboardOptionResponse,
 ];
@@ -1468,9 +1160,7 @@ export var PutEmailIdentityDkimAttributes: StaticOperationSchema = [
   9,
   n0,
   _PEIDA,
-  {
-    [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/dkim", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/dkim", 200] },
   () => PutEmailIdentityDkimAttributesRequest,
   () => PutEmailIdentityDkimAttributesResponse,
 ];
@@ -1478,9 +1168,7 @@ export var PutEmailIdentityFeedbackAttributes: StaticOperationSchema = [
   9,
   n0,
   _PEIFA,
-  {
-    [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/feedback", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/feedback", 200] },
   () => PutEmailIdentityFeedbackAttributesRequest,
   () => PutEmailIdentityFeedbackAttributesResponse,
 ];
@@ -1488,9 +1176,7 @@ export var PutEmailIdentityMailFromAttributes: StaticOperationSchema = [
   9,
   n0,
   _PEIMFA,
-  {
-    [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/mail-from", 200],
-  },
+  { [_h]: ["PUT", "/v1/email/identities/{EmailIdentity}/mail-from", 200] },
   () => PutEmailIdentityMailFromAttributesRequest,
   () => PutEmailIdentityMailFromAttributesResponse,
 ];
@@ -1498,9 +1184,7 @@ export var SendEmail: StaticOperationSchema = [
   9,
   n0,
   _SEen,
-  {
-    [_h]: ["POST", "/v1/email/outbound-emails", 200],
-  },
+  { [_h]: ["POST", "/v1/email/outbound-emails", 200] },
   () => SendEmailRequest,
   () => SendEmailResponse,
 ];
@@ -1508,9 +1192,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/v1/email/tags", 200],
-  },
+  { [_h]: ["POST", "/v1/email/tags", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1518,9 +1200,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v1/email/tags", 200],
-  },
+  { [_h]: ["DELETE", "/v1/email/tags", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

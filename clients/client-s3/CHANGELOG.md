@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+**Note:** Version bump only for package @aws-sdk/client-s3
+
+
+
+
+
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-s3
+
+
+
+
+
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+**Note:** Version bump only for package @aws-sdk/client-s3
+
+
+
+
+
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-s3:** New S3 Storage Class FSX_ONTAP ([56ffa40](https://github.com/aws/aws-sdk-js-v3/commit/56ffa40ae180847a5e8d2e37d96356e6eaf38c72))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

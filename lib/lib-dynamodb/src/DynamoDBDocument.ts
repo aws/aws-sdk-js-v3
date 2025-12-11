@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommand,

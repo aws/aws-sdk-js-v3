@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeSolution } from "../schemas/schemas_0";
 
 /**
@@ -49,6 +49,7 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //     performHPO: true || false,
  * //     performAutoML: true || false,
  * //     performAutoTraining: true || false,
+ * //     performIncrementalUpdate: true || false,
  * //     recipeArn: "STRING_VALUE",
  * //     datasetGroupArn: "STRING_VALUE",
  * //     eventType: "STRING_VALUE",
@@ -120,6 +121,11 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         includedDatasetColumns: { // IncludedDatasetColumns
+ * //           "<keys>": [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       autoTrainingConfig: { // AutoTrainingConfig
  * //         schedulingExpression: "STRING_VALUE",
@@ -157,6 +163,7 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //       },
  * //       status: "STRING_VALUE",
  * //       performAutoTraining: true || false,
+ * //       performIncrementalUpdate: true || false,
  * //       creationDateTime: new Date("TIMESTAMP"),
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
  * //       failureReason: "STRING_VALUE",

@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUnfilteredTableMetadataRequest } from "../models/models_2";
-import { GetUnfilteredTableMetadataResponse } from "../models/models_3";
+import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import type { GetUnfilteredTableMetadataRequest } from "../models/models_2";
+import type { GetUnfilteredTableMetadataResponse } from "../models/models_3";
 import { GetUnfilteredTableMetadata } from "../schemas/schemas_0";
 
 /**
@@ -174,8 +174,15 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //     ViewDefinition: { // ViewDefinition
  * //       IsProtected: true || false,
  * //       Definer: "STRING_VALUE",
+ * //       ViewVersionId: Number("long"),
+ * //       ViewVersionToken: "STRING_VALUE",
+ * //       RefreshSeconds: Number("long"),
+ * //       LastRefreshType: "FULL" || "INCREMENTAL",
  * //       SubObjects: [ // ViewSubObjectsList
  * //         "STRING_VALUE",
+ * //       ],
+ * //       SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
+ * //         Number("long"),
  * //       ],
  * //       Representations: [ // ViewRepresentationList
  * //         { // ViewRepresentation
@@ -189,6 +196,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //       ],
  * //     },
  * //     IsMultiDialectView: true || false,
+ * //     IsMaterializedView: true || false,
  * //     Status: { // TableStatus
  * //       RequestedBy: "STRING_VALUE",
  * //       UpdatedBy: "STRING_VALUE",
@@ -278,8 +286,15 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //           ViewDefinition: {
  * //             IsProtected: true || false,
  * //             Definer: "STRING_VALUE",
+ * //             ViewVersionId: Number("long"),
+ * //             ViewVersionToken: "STRING_VALUE",
+ * //             RefreshSeconds: Number("long"),
+ * //             LastRefreshType: "FULL" || "INCREMENTAL",
  * //             SubObjects: [
  * //               "STRING_VALUE",
+ * //             ],
+ * //             SubObjectVersionIds: [
+ * //               Number("long"),
  * //             ],
  * //             Representations: [
  * //               {
@@ -293,6 +308,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //             ],
  * //           },
  * //           IsMultiDialectView: true || false,
+ * //           IsMaterializedView: true || false,
  * //           Status: {
  * //             RequestedBy: "STRING_VALUE",
  * //             UpdatedBy: "STRING_VALUE",
@@ -342,6 +358,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //   ],
  * //   QueryAuthorizationId: "STRING_VALUE",
  * //   IsMultiDialectView: true || false,
+ * //   IsMaterializedView: true || false,
  * //   ResourceArn: "STRING_VALUE",
  * //   IsProtected: true || false,
  * //   Permissions: [ // PermissionList

@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
+import type { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
 import { ListConfigurationHistory } from "../schemas/schemas_0";
 
 /**

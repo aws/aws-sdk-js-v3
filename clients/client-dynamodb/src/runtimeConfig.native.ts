@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { DynamoDBClientConfig } from "./DynamoDBClient";
+import type { DynamoDBClientConfig } from "./DynamoDBClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

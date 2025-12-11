@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAttachedFileRequest, DeleteAttachedFileResponse } from "../models/models_0";
+import type { DeleteAttachedFileRequest, DeleteAttachedFileResponse } from "../models/models_0";
 import { DeleteAttachedFile } from "../schemas/schemas_0";
 
 /**
@@ -29,8 +29,8 @@ export interface DeleteAttachedFileCommandOutput extends DeleteAttachedFileRespo
 /**
  * <p>Deletes an attached file along with the underlying S3 Object.</p>
  *          <important>
- *             <p>The attached file is <b>permanently deleted</b> if S3 bucket
- *     versioning is not enabled.</p>
+ *             <p>The attached file is <b>permanently deleted</b> if S3 bucket versioning is not
+ *     enabled.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

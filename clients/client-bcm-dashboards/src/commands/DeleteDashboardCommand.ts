@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BCMDashboardsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDashboardsClient";
+import type { BCMDashboardsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDashboardsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_0";
+import type { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_0";
 import { DeleteDashboard } from "../schemas/schemas_0";
 
 /**

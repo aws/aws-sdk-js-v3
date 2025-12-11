@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateDeliveryStreamCommand,
@@ -58,7 +58,7 @@ import {
   UpdateDestinationCommandInput,
   UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
-import { FirehoseClient, FirehoseClientConfig } from "./FirehoseClient";
+import { FirehoseClient } from "./FirehoseClient";
 
 const commands = {
   CreateDeliveryStreamCommand,

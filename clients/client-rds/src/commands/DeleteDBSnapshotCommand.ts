@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/models_0";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/models_0";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DeleteDBSnapshot } from "../schemas/schemas_0";
 
 /**
@@ -94,6 +94,16 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
+ * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ * //       { // AdditionalStorageVolume
+ * //         VolumeName: "STRING_VALUE", // required
+ * //         AllocatedStorage: Number("int"),
+ * //         IOPS: Number("int"),
+ * //         MaxAllocatedStorage: Number("int"),
+ * //         StorageThroughput: Number("int"),
+ * //         StorageType: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

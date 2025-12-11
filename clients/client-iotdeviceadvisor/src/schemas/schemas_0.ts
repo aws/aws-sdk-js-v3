@@ -130,7 +130,7 @@ const n0 = "com.amazonaws.iotdeviceadvisor";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -147,20 +147,8 @@ import {
 import { IotDeviceAdvisorServiceException as __IotDeviceAdvisorServiceException } from "../models/IotDeviceAdvisorServiceException";
 
 /* eslint no-var: 0 */
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateSuiteDefinitionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -187,30 +175,10 @@ export var GetEndpointRequest: StaticStructureSchema = [
   0,
   [_tA, _cAe, _dRA, _aM],
   [
-    [
-      0,
-      {
-        [_hQ]: _tA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cAe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dRA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aM,
-      },
-    ],
+    [0, { [_hQ]: _tA }],
+    [0, { [_hQ]: _cAe }],
+    [0, { [_hQ]: _dRA }],
+    [0, { [_hQ]: _aM }],
   ],
 ];
 export var GetEndpointResponse: StaticStructureSchema = [3, n0, _GERe, 0, [_en], [0]];
@@ -222,12 +190,7 @@ export var GetSuiteDefinitionRequest: StaticStructureSchema = [
   [_sDI, _sDV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sDV,
-      },
-    ],
+    [0, { [_hQ]: _sDV }],
   ],
 ];
 export var GetSuiteDefinitionResponse: StaticStructureSchema = [
@@ -270,19 +233,8 @@ export var GetSuiteRunResponse: StaticStructureSchema = [
   [0, 0, 0, 0, () => SuiteRunConfiguration, () => TestResult, 4, 4, 0, 0, 128 | 0],
 ];
 export var GroupResult: StaticStructureSchema = [3, n0, _GR, 0, [_gI, _gN, _te], [0, 0, () => TestCaseRuns]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListSuiteDefinitionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -290,18 +242,8 @@ export var ListSuiteDefinitionsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSuiteDefinitionsResponse: StaticStructureSchema = [
@@ -319,48 +261,17 @@ export var ListSuiteRunsRequest: StaticStructureSchema = [
   0,
   [_sDI, _sDV, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sDI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sDV,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sDI }],
+    [0, { [_hQ]: _sDV }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSuiteRunsResponse: StaticStructureSchema = [3, n0, _LSRRi, 0, [_sRL, _nT], [() => SuiteRunsList, 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var StartSuiteRunRequest: StaticStructureSchema = [
   3,
   n0,
@@ -434,12 +345,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -459,21 +365,8 @@ export var UpdateSuiteDefinitionResponse: StaticStructureSchema = [
   [_sDI, _sDA, _sDN, _sDV, _cA, _lUA],
   [0, 0, 0, 0, 4, 4],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var IotDeviceAdvisorServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -483,26 +376,20 @@ export var IotDeviceAdvisorServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(IotDeviceAdvisorServiceException, __IotDeviceAdvisorServiceException);
-
 export var DeviceUnderTestList: StaticListSchema = [1, n0, _DUTL, 0, () => DeviceUnderTest];
 export var GroupResultList: StaticListSchema = [1, n0, _GRL, 0, () => GroupResult];
 export var SelectedTestList = 64 | 0;
-
 export var SuiteDefinitionInformationList: StaticListSchema = [1, n0, _SDIL, 0, () => SuiteDefinitionInformation];
 export var SuiteRunsList: StaticListSchema = [1, n0, _SRL, 0, () => SuiteRunInformation];
 export var TagKeyList = 64 | 0;
-
 export var TestCaseRuns: StaticListSchema = [1, n0, _TCRe, 0, () => TestCaseRun];
 export var TestCaseScenariosList: StaticListSchema = [1, n0, _TCSL, 0, () => TestCaseScenario];
 export var TagMap = 128 | 0;
-
 export var CreateSuiteDefinition: StaticOperationSchema = [
   9,
   n0,
   _CSD,
-  {
-    [_h]: ["POST", "/suiteDefinitions", 200],
-  },
+  { [_h]: ["POST", "/suiteDefinitions", 200] },
   () => CreateSuiteDefinitionRequest,
   () => CreateSuiteDefinitionResponse,
 ];
@@ -510,9 +397,7 @@ export var DeleteSuiteDefinition: StaticOperationSchema = [
   9,
   n0,
   _DSD,
-  {
-    [_h]: ["DELETE", "/suiteDefinitions/{suiteDefinitionId}", 200],
-  },
+  { [_h]: ["DELETE", "/suiteDefinitions/{suiteDefinitionId}", 200] },
   () => DeleteSuiteDefinitionRequest,
   () => DeleteSuiteDefinitionResponse,
 ];
@@ -520,9 +405,7 @@ export var GetEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/endpoint", 200],
-  },
+  { [_h]: ["GET", "/endpoint", 200] },
   () => GetEndpointRequest,
   () => GetEndpointResponse,
 ];
@@ -530,9 +413,7 @@ export var GetSuiteDefinition: StaticOperationSchema = [
   9,
   n0,
   _GSD,
-  {
-    [_h]: ["GET", "/suiteDefinitions/{suiteDefinitionId}", 200],
-  },
+  { [_h]: ["GET", "/suiteDefinitions/{suiteDefinitionId}", 200] },
   () => GetSuiteDefinitionRequest,
   () => GetSuiteDefinitionResponse,
 ];
@@ -540,9 +421,7 @@ export var GetSuiteRun: StaticOperationSchema = [
   9,
   n0,
   _GSR,
-  {
-    [_h]: ["GET", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}", 200],
-  },
+  { [_h]: ["GET", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}", 200] },
   () => GetSuiteRunRequest,
   () => GetSuiteRunResponse,
 ];
@@ -550,9 +429,7 @@ export var GetSuiteRunReport: StaticOperationSchema = [
   9,
   n0,
   _GSRRet,
-  {
-    [_h]: ["GET", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report", 200],
-  },
+  { [_h]: ["GET", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report", 200] },
   () => GetSuiteRunReportRequest,
   () => GetSuiteRunReportResponse,
 ];
@@ -560,9 +437,7 @@ export var ListSuiteDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LSD,
-  {
-    [_h]: ["GET", "/suiteDefinitions", 200],
-  },
+  { [_h]: ["GET", "/suiteDefinitions", 200] },
   () => ListSuiteDefinitionsRequest,
   () => ListSuiteDefinitionsResponse,
 ];
@@ -570,9 +445,7 @@ export var ListSuiteRuns: StaticOperationSchema = [
   9,
   n0,
   _LSR,
-  {
-    [_h]: ["GET", "/suiteRuns", 200],
-  },
+  { [_h]: ["GET", "/suiteRuns", 200] },
   () => ListSuiteRunsRequest,
   () => ListSuiteRunsResponse,
 ];
@@ -580,9 +453,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -590,9 +461,7 @@ export var StartSuiteRun: StaticOperationSchema = [
   9,
   n0,
   _SSR,
-  {
-    [_h]: ["POST", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", 200],
-  },
+  { [_h]: ["POST", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", 200] },
   () => StartSuiteRunRequest,
   () => StartSuiteRunResponse,
 ];
@@ -600,9 +469,7 @@ export var StopSuiteRun: StaticOperationSchema = [
   9,
   n0,
   _SSRt,
-  {
-    [_h]: ["POST", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop", 200],
-  },
+  { [_h]: ["POST", "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop", 200] },
   () => StopSuiteRunRequest,
   () => StopSuiteRunResponse,
 ];
@@ -610,9 +477,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -620,9 +485,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -630,9 +493,7 @@ export var UpdateSuiteDefinition: StaticOperationSchema = [
   9,
   n0,
   _USD,
-  {
-    [_h]: ["PATCH", "/suiteDefinitions/{suiteDefinitionId}", 200],
-  },
+  { [_h]: ["PATCH", "/suiteDefinitions/{suiteDefinitionId}", 200] },
   () => UpdateSuiteDefinitionRequest,
   () => UpdateSuiteDefinitionResponse,
 ];

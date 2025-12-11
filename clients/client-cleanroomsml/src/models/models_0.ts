@@ -14,6 +14,7 @@ import {
   InferenceInstanceType,
   LogsStatus,
   LogType,
+  MembershipInferenceAttackVersion,
   MetricsStatus,
   MLInputChannelStatus,
   NoiseLevelType,
@@ -21,6 +22,7 @@ import {
   ResultFormat,
   S3DataDistributionType,
   SharedAudienceMetrics,
+  SyntheticDataColumnType,
   TagOnCreatePolicy,
   TrainedModelArtifactMaxSizeUnitType,
   TrainedModelExportFileType,
@@ -3257,6 +3259,126 @@ export namespace PrivacyBudgets {
 }
 
 /**
+ * <p>A score that measures the vulnerability of synthetic data to membership inference attacks and provides both the numerical score and the version of the attack methodology used for evaluation.</p>
+ * @public
+ */
+export interface MembershipInferenceAttackScore {
+  /**
+   * <p>The version of the membership inference attack, which consists of the attack type and its version number, used to generate this privacy score.</p>
+   * @public
+   */
+  attackVersion: MembershipInferenceAttackVersion | undefined;
+
+  /**
+   * <p>The numerical score representing the vulnerability to membership inference attacks.</p>
+   * @public
+   */
+  score: number | undefined;
+}
+
+/**
+ * <p>Privacy evaluation scores that measure the privacy characteristics of the generated synthetic data, including assessments of potential privacy risks such as membership inference attacks.</p>
+ * @public
+ */
+export interface DataPrivacyScores {
+  /**
+   * <p>Scores that evaluate the vulnerability of the synthetic data to membership inference attacks, which attempt to determine whether a specific individual was a member of the original dataset.</p>
+   * @public
+   */
+  membershipInferenceAttackScores: MembershipInferenceAttackScore[] | undefined;
+}
+
+/**
+ * <p>Comprehensive evaluation metrics for synthetic data that assess both the utility of the generated data for machine learning tasks and its privacy preservation characteristics.</p>
+ * @public
+ */
+export interface SyntheticDataEvaluationScores {
+  /**
+   * <p>Privacy-specific evaluation scores that measure how well the synthetic data protects individual privacy, including assessments of potential privacy risks such as membership inference attacks.</p>
+   * @public
+   */
+  dataPrivacyScores: DataPrivacyScores | undefined;
+}
+
+/**
+ * <p>Properties that define how a specific data column should be handled during synthetic data generation, including its name, type, and role in predictive modeling.</p>
+ * @public
+ */
+export interface SyntheticDataColumnProperties {
+  /**
+   * <p>The name of the data column as it appears in the dataset.</p>
+   * @public
+   */
+  columnName: string | undefined;
+
+  /**
+   * <p>The data type of the column, which determines how the synthetic data generation algorithm processes and synthesizes values for this column.</p>
+   * @public
+   */
+  columnType: SyntheticDataColumnType | undefined;
+
+  /**
+   * <p>Indicates if this column contains predictive values that should be treated as target variables in machine learning models. This affects how the synthetic data generation preserves statistical relationships.</p>
+   * @public
+   */
+  isPredictiveValue: boolean | undefined;
+}
+
+/**
+ * <p>Contains classification information for data columns, including mappings that specify how columns should be handled during synthetic data generation and privacy analysis.</p>
+ * @public
+ */
+export interface ColumnClassificationDetails {
+  /**
+   * <p>A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.</p>
+   * @public
+   */
+  columnMapping: SyntheticDataColumnProperties[] | undefined;
+}
+
+/**
+ * <p>Parameters that control the generation of synthetic data for custom model training, including privacy settings and column classification details.</p>
+ * @public
+ */
+export interface MLSyntheticDataParameters {
+  /**
+   * <p>The epsilon value for differential privacy, which controls the privacy-utility tradeoff in synthetic data generation. Lower values provide stronger privacy guarantees but may reduce data utility.</p>
+   * @public
+   */
+  epsilon: number | undefined;
+
+  /**
+   * <p>The maximum acceptable score for membership inference attack vulnerability. Synthetic data generation fails if the score for the resulting data exceeds this threshold.</p>
+   * @public
+   */
+  maxMembershipInferenceAttackScore: number | undefined;
+
+  /**
+   * <p>Classification details for data columns that specify how each column should be treated during synthetic data generation.</p>
+   * @public
+   */
+  columnClassification: ColumnClassificationDetails | undefined;
+}
+
+/**
+ * <p>Configuration settings for synthetic data generation, including the parameters that control data synthesis and the evaluation scores that measure the quality and privacy characteristics of the generated synthetic data.</p>
+ * @public
+ */
+export interface SyntheticDataConfiguration {
+  /**
+   * <p>The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.</p>
+   * @public
+   */
+  syntheticDataParameters: MLSyntheticDataParameters | undefined;
+
+  /**
+   * <p>Evaluation scores that assess the quality and privacy characteristics of the generated synthetic data, providing metrics on data utility and privacy preservation.</p>
+   * @public
+   */
+  syntheticDataEvaluationScores?: SyntheticDataEvaluationScores | undefined;
+}
+
+/**
  * @public
  */
 export interface GetCollaborationMLInputChannelResponse {
@@ -3325,6 +3447,12 @@ export interface GetCollaborationMLInputChannelResponse {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The synthetic data configuration for this ML input channel, including parameters for generating privacy-preserving synthetic data and evaluation scores for measuring the privacy of the generated data.</p>
+   * @public
+   */
+  syntheticDataConfiguration?: SyntheticDataConfiguration | undefined;
 
   /**
    * <p>The time at which the ML input channel was created.</p>
@@ -3431,6 +3559,12 @@ export interface GetMLInputChannelResponse {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The synthetic data configuration for this ML input channel, including parameters for generating privacy-preserving synthetic data and evaluation scores for measuring the privacy of the generated data.</p>
+   * @public
+   */
+  syntheticDataConfiguration?: SyntheticDataConfiguration | undefined;
 
   /**
    * <p>The time at which the ML input channel was created.</p>

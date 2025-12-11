@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodeGuruSecurityServiceException as __BaseException } from "./CodeGuruSecurityServiceException";
 import { ValidationExceptionReason } from "./enums";

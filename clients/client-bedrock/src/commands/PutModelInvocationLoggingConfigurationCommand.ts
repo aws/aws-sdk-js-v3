@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   PutModelInvocationLoggingConfigurationRequest,
   PutModelInvocationLoggingConfigurationResponse,
 } from "../models/models_1";
@@ -60,6 +60,7 @@ export interface PutModelInvocationLoggingConfigurationCommandOutput
  *     imageDataDeliveryEnabled: true || false,
  *     embeddingDataDeliveryEnabled: true || false,
  *     videoDataDeliveryEnabled: true || false,
+ *     audioDataDeliveryEnabled: true || false,
  *   },
  * };
  * const command = new PutModelInvocationLoggingConfigurationCommand(input);

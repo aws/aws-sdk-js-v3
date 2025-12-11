@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import type {
+  CustomerProfilesClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSegmentDefinitionsRequest, ListSegmentDefinitionsResponse } from "../models/models_0";
+import type { ListSegmentDefinitionsRequest, ListSegmentDefinitionsResponse } from "../models/models_0";
 import { ListSegmentDefinitions } from "../schemas/schemas_0";
 
 /**
@@ -55,6 +59,7 @@ export interface ListSegmentDefinitionsCommandOutput extends ListSegmentDefiniti
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       SegmentType: "CLASSIC" || "ENHANCED",
  * //     },
  * //   ],
  * // };

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateSolutionRequest, CreateSolutionResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { CreateSolutionRequest, CreateSolutionResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { CreateSolution } from "../schemas/schemas_0";
 
 /**
@@ -128,6 +128,7 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *   performHPO: true || false,
  *   performAutoML: true || false,
  *   performAutoTraining: true || false,
+ *   performIncrementalUpdate: true || false,
  *   recipeArn: "STRING_VALUE",
  *   datasetGroupArn: "STRING_VALUE", // required
  *   eventType: "STRING_VALUE",
@@ -196,6 +197,11 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *     trainingDataConfig: { // TrainingDataConfig
  *       excludedDatasetColumns: { // ExcludedDatasetColumns
  *         "<keys>": [ // ColumnNamesList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       includedDatasetColumns: { // IncludedDatasetColumns
+ *         "<keys>": [
  *           "STRING_VALUE",
  *         ],
  *       },

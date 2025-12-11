@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchUpdateFindingsV2Request, BatchUpdateFindingsV2Response } from "../models/models_2";
+import type { BatchUpdateFindingsV2Request, BatchUpdateFindingsV2Response } from "../models/models_2";
 import { BatchUpdateFindingsV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -32,7 +32,7 @@ export interface BatchUpdateFindingsV2CommandOutput extends BatchUpdateFindingsV
  *          Delegated administrator accounts can update findings for their account and their member accounts.
  *          Member accounts can update findings for their account. <code>BatchUpdateFindings</code> and <code>BatchUpdateFindingV2</code> both use <code>securityhub:BatchUpdateFindings</code> in the <code>Action</code> element of an IAM policy statement.
  *          You must have permission to perform the <code>securityhub:BatchUpdateFindings</code> action.
- *          Updates from <code>BatchUpdateFindingsV2</code> don't affect the value of f<code>inding_info.modified_time</code>, <code>finding_info.modified_time_dt</code>, <code>time</code>, <code>time_dt for a finding</code>. This API is in public preview and subject to change.</p>
+ *          Updates from <code>BatchUpdateFindingsV2</code> don't affect the value of f<code>inding_info.modified_time</code>, <code>finding_info.modified_time_dt</code>, <code>time</code>, <code>time_dt for a finding</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

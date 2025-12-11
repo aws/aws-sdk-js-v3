@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateQueueRequest, CreateQueueResponse } from "../models/models_0";
+import type { CreateQueueRequest, CreateQueueResponse } from "../models/models_0";
 import { CreateQueue } from "../schemas/schemas_0";
 
 /**
@@ -39,14 +39,13 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *       <code>ResourceNotFoundException</code>.</p>
  *                </li>
  *                <li>
- *                   <p>Only use the phone number ARN format that doesn't contain <code>instance</code> in the
- *       path, for example, <code>arn:aws:connect:us-east-1:1234567890:phone-number/uuid</code>. This
- *       is the same ARN format that is returned when you call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a>
- *       API.</p>
+ *                   <p>Only use the phone number ARN format that doesn't contain <code>instance</code> in the path, for example,
+ *        <code>arn:aws:connect:us-east-1:1234567890:phone-number/uuid</code>. This is the same ARN format that is returned
+ *       when you call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API.</p>
  *                </li>
  *                <li>
- *                   <p>If you plan to use IAM policies to allow/deny access to this API for phone
- *       number resources claimed to a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region">Allow or Deny queue API actions for phone numbers in a replica Region</a>.</p>
+ *                   <p>If you plan to use IAM policies to allow/deny access to this API for phone number resources
+ *       claimed to a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region">Allow or Deny queue API actions for phone numbers in a replica Region</a>.</p>
  *                </li>
  *             </ul>
  *          </important>

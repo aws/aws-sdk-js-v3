@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopQueryRequest, StopQueryResponse } from "../models/models_0";
+import type { StopQueryRequest, StopQueryResponse } from "../models/models_0";
 import { StopQuery } from "../schemas/schemas_0";
 
 /**
@@ -30,6 +34,10 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already
  *       ended, the operation returns an error indicating that the specified query is not
  *       running.</p>
+ *          <p>This operation can be used to cancel both interactive queries and individual scheduled
+ *       query executions. When used with scheduled queries, <code>StopQuery</code> cancels only the
+ *       specific execution identified by the query ID, not the scheduled query configuration
+ *       itself.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

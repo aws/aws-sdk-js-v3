@@ -2,11 +2,11 @@
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { ListObjectsV2 } from "../schemas/schemas_0";
 
 /**
@@ -28,14 +28,7 @@ export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
- *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
- *          </important>
- *          <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use the
+ * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use the
  *       request parameters as selection criteria to return a subset of the objects in a bucket. A <code>200
  *         OK</code> response can contain valid or invalid XML. Make sure to design your application to parse the
  *       contents of the response and handle it appropriately. For more information about listing objects, see
@@ -175,7 +168,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * //       ],
  * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
- * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS" || "FSX_ONTAP",
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",

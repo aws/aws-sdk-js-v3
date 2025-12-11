@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListLexBotsRequest, ListLexBotsResponse } from "../models/models_1";
+import type { ListLexBotsRequest, ListLexBotsResponse } from "../models/models_2";
 import { ListLexBots } from "../schemas/schemas_0";
 
 /**
@@ -28,9 +28,8 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
- *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
- *    </p>
+ *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return
+ *    both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

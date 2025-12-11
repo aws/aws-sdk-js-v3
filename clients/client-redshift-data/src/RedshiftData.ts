@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommand,
@@ -49,7 +49,7 @@ import {
   ListStatementsCommandOutput,
 } from "./commands/ListStatementsCommand";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
-import { RedshiftDataClient, RedshiftDataClientConfig } from "./RedshiftDataClient";
+import { RedshiftDataClient } from "./RedshiftDataClient";
 
 const commands = {
   BatchExecuteStatementCommand,

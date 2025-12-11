@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchLogsServiceException";
-import { QueryCompileError } from "./models_0";
+import type { QueryCompileError } from "./models_0";
 
 /**
  * <p>You don't have sufficient permissions to perform this action.</p>
@@ -105,6 +105,68 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name = "InternalServerException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The request was throttled because of quota limits.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>One of the parameters for the request is not valid.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
  * <p>The operation is not valid on the specified resource.</p>
  * @public
  */
@@ -165,46 +227,6 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled because of quota limits.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>One of the parameters for the request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name = "ValidationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>You have reached the maximum number of resources that can be created.</p>
  * @public
  */
@@ -241,26 +263,6 @@ export class ResourceAlreadyExistsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name = "InternalServerException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
   }
 }
 

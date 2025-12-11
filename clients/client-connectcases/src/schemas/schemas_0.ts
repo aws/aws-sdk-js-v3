@@ -385,7 +385,7 @@ const n0 = "com.amazonaws.connectcases";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -406,22 +406,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var CustomEntity: StaticSimpleSchema = [0, n0, _CE, 8, 0];
 export var SlaName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AuditEvent: StaticStructureSchema = [
   3,
   n0,
@@ -510,19 +498,8 @@ export var CaseRuleSummary: StaticStructureSchema = [3, n0, _CRS, 0, [_cRI, _n, 
 export var CaseSummary: StaticStructureSchema = [3, n0, _CS, 0, [_cI, _tI], [0, 0]];
 export var CommentContent: StaticStructureSchema = [3, n0, _CC, 0, [_b, _cT], [0, 0]];
 export var CommentFilter: StaticStructureSchema = [3, n0, _CF, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectCaseContent: StaticStructureSchema = [3, n0, _CCC, 0, [_cI], [0]];
 export var ConnectCaseFilter: StaticStructureSchema = [3, n0, _CCF, 0, [_cI], [0]];
 export var ConnectCaseInputContent: StaticStructureSchema = [3, n0, _CCIC, 0, [_cI], [0]];
@@ -808,23 +785,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LayoutConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_dL], [0]];
 export var LayoutSections: StaticStructureSchema = [3, n0, _LS, 0, [_sec], [() => SectionsList]];
 export var LayoutSummary: StaticStructureSchema = [3, n0, _LSa, 0, [_lI, _lA, _n], [0, 0, 0]];
@@ -836,18 +801,8 @@ export var ListCaseRulesRequest: StaticStructureSchema = [
   [_dI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCaseRulesResponse: StaticStructureSchema = [
@@ -881,18 +836,8 @@ export var ListDomainsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDomainsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_do, _nT], [() => DomainSummaryList, 0]];
@@ -905,24 +850,9 @@ export var ListFieldOptionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _va,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [64 | 0, { [_hQ]: _va }],
   ],
 ];
 export var ListFieldOptionsResponse: StaticStructureSchema = [3, n0, _LFORi, 0, [_o, _nT], [() => FieldOptionsList, 0]];
@@ -934,18 +864,8 @@ export var ListFieldsRequest: StaticStructureSchema = [
   [_dI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListFieldsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_f, _nT], [() => FieldSummaryList, 0]];
@@ -957,18 +877,8 @@ export var ListLayoutsRequest: StaticStructureSchema = [
   [_dI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListLayoutsResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_l, _nT], [() => LayoutSummaryList, 0]];
@@ -982,24 +892,9 @@ export var ListTemplatesRequest: StaticStructureSchema = [
   [_dI, _mR, _nT, _s],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _s,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [64 | 0, { [_hQ]: _s }],
   ],
 ];
 export var ListTemplatesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_te, _nT], [() => TemplateSummaryList, 0]];
@@ -1020,15 +915,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rTe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SearchAllRelatedItemsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1102,19 +993,8 @@ export var SearchRelatedItemsResponseItem: StaticStructureSchema = [
   [_rII, _t, _aT, _co, _ta, _pB],
   [0, 0, 5, [() => RelatedItemContent, 0], [() => Tags, 0], [() => UserUnion, 0]],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SlaConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1147,19 +1027,8 @@ export var TagResourceRequest: StaticStructureSchema = [
 ];
 export var TemplateRule: StaticStructureSchema = [3, n0, _TR, 0, [_cRI, _fI], [0, 0]];
 export var TemplateSummary: StaticStructureSchema = [3, n0, _TS, 0, [_tI, _tA, _n, _s], [0, 0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1168,12 +1037,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_ar, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateCaseRequest: StaticStructureSchema = [
@@ -1214,46 +1078,16 @@ export var UpdateTemplateRequest: StaticStructureSchema = [
   [[0, 1], [0, 1], 0, 0, () => LayoutConfiguration, () => RequiredFieldList, 0, () => TemplateCaseRuleList],
 ];
 export var UpdateTemplateResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var ConnectCasesServiceException: StaticErrorSchema = [-3, _sm, "ConnectCasesServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ConnectCasesServiceException, __ConnectCasesServiceException);
-
-export var AuditEventFieldList: StaticListSchema = [
-  1,
-  n0,
-  _AEFL,
-  {
-    [_sp]: 1,
-  },
-  () => AuditEventField,
-];
-export var AuditEventsList: StaticListSchema = [
-  1,
-  n0,
-  _AEL,
-  {
-    [_sp]: 1,
-  },
-  [() => AuditEvent, 0],
-];
+export var AuditEventFieldList: StaticListSchema = [1, n0, _AEFL, { [_sp]: 1 }, () => AuditEventField];
+export var AuditEventsList: StaticListSchema = [1, n0, _AEL, { [_sp]: 1 }, [() => AuditEvent, 0]];
 export var BatchGetCaseRuleErrorList: StaticListSchema = [1, n0, _BGCREL, 0, () => CaseRuleError];
 export var BatchGetCaseRuleList: StaticListSchema = [1, n0, _BGCRL, 0, [() => GetCaseRuleResponse, 0]];
 export var BatchGetCaseRuleUnprocessedList = 64 | 0;
-
 export var BatchGetFieldErrorList: StaticListSchema = [1, n0, _BGFEL, 0, () => FieldError];
 export var BatchGetFieldIdentifierList: StaticListSchema = [1, n0, _BGFIL, 0, () => FieldIdentifier];
 export var BatchGetFieldList: StaticListSchema = [1, n0, _BGFL, 0, [() => GetFieldResponse, 0]];
@@ -1263,7 +1097,6 @@ export var CaseRuleIdentifierList: StaticListSchema = [1, n0, _CRIL, 0, () => Ca
 export var CaseRuleSummaryList: StaticListSchema = [1, n0, _CRSL, 0, () => CaseRuleSummary];
 export var CaseSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CaseSummary];
 export var ChannelList = 64 | 0;
-
 export var CustomFieldsFilterList: StaticListSchema = [1, n0, _CFFL, 0, () => CustomFieldsFilter];
 export var DomainSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DomainSummary];
 export var FieldIdentifierList: StaticListSchema = [1, n0, _FIL, 0, () => FieldIdentifier];
@@ -1281,16 +1114,13 @@ export var ParentChildFieldOptionsMappingList: StaticListSchema = [
   () => ParentChildFieldOptionsMapping,
 ];
 export var ParentChildFieldOptionValueList = 64 | 0;
-
 export var RelatedItemFilterList: StaticListSchema = [1, n0, _RIFL, 0, [() => RelatedItemTypeFilter, 0]];
 export var RequiredFieldList: StaticListSchema = [1, n0, _RFL, 0, () => RequiredField];
 export var SearchAllRelatedItemsResponseItemList: StaticListSchema = [
   1,
   n0,
   _SARIRIL,
-  {
-    [_sp]: 1,
-  },
+  { [_sp]: 1 },
   [() => SearchAllRelatedItemsResponseItem, 0],
 ];
 export var SearchAllRelatedItemsSortList: StaticListSchema = [1, n0, _SARISL, 0, () => SearchAllRelatedItemsSort];
@@ -1298,41 +1128,25 @@ export var SearchCasesResponseItemList: StaticListSchema = [
   1,
   n0,
   _SCRIL,
-  {
-    [_sp]: 1,
-  },
+  { [_sp]: 1 },
   [() => SearchCasesResponseItem, 0],
 ];
 export var SearchRelatedItemsResponseItemList: StaticListSchema = [
   1,
   n0,
   _SRIRIL,
-  {
-    [_sp]: 1,
-  },
+  { [_sp]: 1 },
   [() => SearchRelatedItemsResponseItem, 0],
 ];
 export var SectionsList: StaticListSchema = [1, n0, _SL, 0, () => Section];
 export var SlaFieldValueUnionList: StaticListSchema = [1, n0, _SFVUL, 0, () => FieldValueUnion];
 export var SortList: StaticListSchema = [1, n0, _SLo, 0, () => Sort];
 export var TagKeyList = 64 | 0;
-
 export var TemplateCaseRuleList: StaticListSchema = [1, n0, _TCRL, 0, () => TemplateRule];
 export var TemplateStatusFilters = 64 | 0;
-
 export var TemplateSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TemplateSummary];
 export var ValuesList = 64 | 0;
-
-export var Tags: StaticMapSchema = [
-  2,
-  n0,
-  _T,
-  {
-    [_sp]: 1,
-  },
-  0,
-  0,
-];
+export var Tags: StaticMapSchema = [2, n0, _T, { [_sp]: 1 }, 0, 0];
 export var AuditEventFieldValueUnion: StaticStructureSchema = [
   3,
   n0,
@@ -1451,9 +1265,7 @@ export var BatchGetCaseRule: StaticOperationSchema = [
   9,
   n0,
   _BGCR,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/rules-batch", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/rules-batch", 200] },
   () => BatchGetCaseRuleRequest,
   () => BatchGetCaseRuleResponse,
 ];
@@ -1461,9 +1273,7 @@ export var BatchGetField: StaticOperationSchema = [
   9,
   n0,
   _BGF,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/fields-batch", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/fields-batch", 200] },
   () => BatchGetFieldRequest,
   () => BatchGetFieldResponse,
 ];
@@ -1471,9 +1281,7 @@ export var BatchPutFieldOptions: StaticOperationSchema = [
   9,
   n0,
   _BPFO,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/fields/{fieldId}/options", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/fields/{fieldId}/options", 200] },
   () => BatchPutFieldOptionsRequest,
   () => BatchPutFieldOptionsResponse,
 ];
@@ -1481,9 +1289,7 @@ export var CreateCase: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/cases", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/cases", 200] },
   () => CreateCaseRequest,
   () => CreateCaseResponse,
 ];
@@ -1491,9 +1297,7 @@ export var CreateCaseRule: StaticOperationSchema = [
   9,
   n0,
   _CCRre,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/case-rules", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/case-rules", 200] },
   () => CreateCaseRuleRequest,
   () => CreateCaseRuleResponse,
 ];
@@ -1501,9 +1305,7 @@ export var CreateDomain: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_ht]: ["POST", "/domains", 200],
-  },
+  { [_ht]: ["POST", "/domains", 200] },
   () => CreateDomainRequest,
   () => CreateDomainResponse,
 ];
@@ -1511,9 +1313,7 @@ export var CreateField: StaticOperationSchema = [
   9,
   n0,
   _CFr,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/fields", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/fields", 200] },
   () => CreateFieldRequest,
   () => CreateFieldResponse,
 ];
@@ -1521,9 +1321,7 @@ export var CreateLayout: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/layouts", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/layouts", 200] },
   () => CreateLayoutRequest,
   () => CreateLayoutResponse,
 ];
@@ -1531,9 +1329,7 @@ export var CreateRelatedItem: StaticOperationSchema = [
   9,
   n0,
   _CRIr,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/related-items/", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/related-items/", 200] },
   () => CreateRelatedItemRequest,
   () => CreateRelatedItemResponse,
 ];
@@ -1541,9 +1337,7 @@ export var CreateTemplate: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/templates", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/templates", 200] },
   () => CreateTemplateRequest,
   () => CreateTemplateResponse,
 ];
@@ -1551,9 +1345,7 @@ export var DeleteCase: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}/cases/{caseId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}/cases/{caseId}", 200] },
   () => DeleteCaseRequest,
   () => DeleteCaseResponse,
 ];
@@ -1561,9 +1353,7 @@ export var DeleteCaseRule: StaticOperationSchema = [
   9,
   n0,
   _DCRel,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}/case-rules/{caseRuleId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}/case-rules/{caseRuleId}", 200] },
   () => DeleteCaseRuleRequest,
   () => DeleteCaseRuleResponse,
 ];
@@ -1571,9 +1361,7 @@ export var DeleteDomain: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}", 200] },
   () => DeleteDomainRequest,
   () => DeleteDomainResponse,
 ];
@@ -1581,9 +1369,7 @@ export var DeleteField: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}/fields/{fieldId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}/fields/{fieldId}", 200] },
   () => DeleteFieldRequest,
   () => DeleteFieldResponse,
 ];
@@ -1591,9 +1377,7 @@ export var DeleteLayout: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}/layouts/{layoutId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}/layouts/{layoutId}", 200] },
   () => DeleteLayoutRequest,
   () => DeleteLayoutResponse,
 ];
@@ -1601,9 +1385,7 @@ export var DeleteRelatedItem: StaticOperationSchema = [
   9,
   n0,
   _DRI,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}/cases/{caseId}/related-items/{relatedItemId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}/cases/{caseId}/related-items/{relatedItemId}", 200] },
   () => DeleteRelatedItemRequest,
   () => DeleteRelatedItemResponse,
 ];
@@ -1611,9 +1393,7 @@ export var DeleteTemplate: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_ht]: ["DELETE", "/domains/{domainId}/templates/{templateId}", 200],
-  },
+  { [_ht]: ["DELETE", "/domains/{domainId}/templates/{templateId}", 200] },
   () => DeleteTemplateRequest,
   () => DeleteTemplateResponse,
 ];
@@ -1621,9 +1401,7 @@ export var GetCase: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}", 200] },
   () => GetCaseRequest,
   () => GetCaseResponse,
 ];
@@ -1631,9 +1409,7 @@ export var GetCaseAuditEvents: StaticOperationSchema = [
   9,
   n0,
   _GCAE,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/audit-history", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/audit-history", 200] },
   () => GetCaseAuditEventsRequest,
   () => GetCaseAuditEventsResponse,
 ];
@@ -1641,9 +1417,7 @@ export var GetCaseEventConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GCEC,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/case-event-configuration", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/case-event-configuration", 200] },
   () => GetCaseEventConfigurationRequest,
   () => GetCaseEventConfigurationResponse,
 ];
@@ -1651,9 +1425,7 @@ export var GetDomain: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_ht]: ["POST", "/domains/{domainId}", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}", 200] },
   () => GetDomainRequest,
   () => GetDomainResponse,
 ];
@@ -1661,9 +1433,7 @@ export var GetLayout: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/layouts/{layoutId}", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/layouts/{layoutId}", 200] },
   () => GetLayoutRequest,
   () => GetLayoutResponse,
 ];
@@ -1671,9 +1441,7 @@ export var GetTemplate: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/templates/{templateId}", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/templates/{templateId}", 200] },
   () => GetTemplateRequest,
   () => GetTemplateResponse,
 ];
@@ -1681,9 +1449,7 @@ export var ListCaseRules: StaticOperationSchema = [
   9,
   n0,
   _LCR,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/rules-list/", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/rules-list/", 200] },
   () => ListCaseRulesRequest,
   () => ListCaseRulesResponse,
 ];
@@ -1691,9 +1457,7 @@ export var ListCasesForContact: StaticOperationSchema = [
   9,
   n0,
   _LCFC,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/list-cases-for-contact", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/list-cases-for-contact", 200] },
   () => ListCasesForContactRequest,
   () => ListCasesForContactResponse,
 ];
@@ -1701,9 +1465,7 @@ export var ListDomains: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_ht]: ["POST", "/domains-list", 200],
-  },
+  { [_ht]: ["POST", "/domains-list", 200] },
   () => ListDomainsRequest,
   () => ListDomainsResponse,
 ];
@@ -1711,9 +1473,7 @@ export var ListFieldOptions: StaticOperationSchema = [
   9,
   n0,
   _LFO,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/fields/{fieldId}/options-list", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/fields/{fieldId}/options-list", 200] },
   () => ListFieldOptionsRequest,
   () => ListFieldOptionsResponse,
 ];
@@ -1721,9 +1481,7 @@ export var ListFields: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/fields-list", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/fields-list", 200] },
   () => ListFieldsRequest,
   () => ListFieldsResponse,
 ];
@@ -1731,9 +1489,7 @@ export var ListLayouts: StaticOperationSchema = [
   9,
   n0,
   _LL,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/layouts-list", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/layouts-list", 200] },
   () => ListLayoutsRequest,
   () => ListLayoutsResponse,
 ];
@@ -1741,9 +1497,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{arn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{arn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1751,9 +1505,7 @@ export var ListTemplates: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/templates-list", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/templates-list", 200] },
   () => ListTemplatesRequest,
   () => ListTemplatesResponse,
 ];
@@ -1761,9 +1513,7 @@ export var PutCaseEventConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PCEC,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/case-event-configuration", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/case-event-configuration", 200] },
   () => PutCaseEventConfigurationRequest,
   () => PutCaseEventConfigurationResponse,
 ];
@@ -1771,9 +1521,7 @@ export var SearchAllRelatedItems: StaticOperationSchema = [
   9,
   n0,
   _SARI,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/related-items-search", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/related-items-search", 200] },
   () => SearchAllRelatedItemsRequest,
   () => SearchAllRelatedItemsResponse,
 ];
@@ -1781,9 +1529,7 @@ export var SearchCases: StaticOperationSchema = [
   9,
   n0,
   _SCe,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/cases-search", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/cases-search", 200] },
   () => SearchCasesRequest,
   () => SearchCasesResponse,
 ];
@@ -1791,9 +1537,7 @@ export var SearchRelatedItems: StaticOperationSchema = [
   9,
   n0,
   _SRI,
-  {
-    [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/related-items-search", 200],
-  },
+  { [_ht]: ["POST", "/domains/{domainId}/cases/{caseId}/related-items-search", 200] },
   () => SearchRelatedItemsRequest,
   () => SearchRelatedItemsResponse,
 ];
@@ -1801,9 +1545,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_ht]: ["POST", "/tags/{arn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{arn}", 200] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -1811,9 +1553,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{arn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{arn}", 200] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -1821,9 +1561,7 @@ export var UpdateCase: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/cases/{caseId}", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/cases/{caseId}", 200] },
   () => UpdateCaseRequest,
   () => UpdateCaseResponse,
 ];
@@ -1831,9 +1569,7 @@ export var UpdateCaseRule: StaticOperationSchema = [
   9,
   n0,
   _UCRpd,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/case-rules/{caseRuleId}", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/case-rules/{caseRuleId}", 200] },
   () => UpdateCaseRuleRequest,
   () => UpdateCaseRuleResponse,
 ];
@@ -1841,9 +1577,7 @@ export var UpdateField: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/fields/{fieldId}", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/fields/{fieldId}", 200] },
   () => UpdateFieldRequest,
   () => UpdateFieldResponse,
 ];
@@ -1851,9 +1585,7 @@ export var UpdateLayout: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/layouts/{layoutId}", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/layouts/{layoutId}", 200] },
   () => UpdateLayoutRequest,
   () => UpdateLayoutResponse,
 ];
@@ -1861,9 +1593,7 @@ export var UpdateTemplate: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_ht]: ["PUT", "/domains/{domainId}/templates/{templateId}", 200],
-  },
+  { [_ht]: ["PUT", "/domains/{domainId}/templates/{templateId}", 200] },
   () => UpdateTemplateRequest,
   () => UpdateTemplateResponse,
 ];

@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: bundles test-unit test-integration test-protocols test-e2e
+.PHONY: bundles test-unit test-integration test-protocols test-e2e test-indices test-schema test-endpoints test-bundlers
 
 # fetch AWS testing credentials
 login:
@@ -26,6 +26,9 @@ test-unit: bundles
 test-types:
 	npx tsc -p tsconfig.test.json
 
+test-indices:
+	node ./scripts/validation/client-index-tests.mjs
+
 test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.mts
 
@@ -38,6 +41,7 @@ test-integration: bundles
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
 	make test-types
+	make test-indices
 	make test-endpoints
 
 test-endpoints:

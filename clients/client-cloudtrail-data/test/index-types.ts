@@ -1,0 +1,20 @@
+// smithy-typescript generated code
+export type {
+  CloudTrailDataClient,
+  CloudTrailData,
+  PutAuditEventsCommand,
+  PutAuditEventsCommandInput,
+  PutAuditEventsCommandOutput,
+  AuditEvent,
+  AuditEventResultEntry,
+  PutAuditEventsRequest,
+  PutAuditEventsResponse,
+  ResultErrorEntry,
+  ChannelInsufficientPermission,
+  ChannelNotFound,
+  ChannelUnsupportedSchema,
+  DuplicatedAuditEventId,
+  InvalidChannelARN,
+  UnsupportedOperationException,
+  CloudTrailDataServiceException,
+} from "../dist-types/index.d";

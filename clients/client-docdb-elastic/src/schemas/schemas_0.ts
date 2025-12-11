@@ -145,7 +145,7 @@ const n0 = "com.amazonaws.docdbelastic";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -166,21 +166,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ApplyPendingMaintenanceActionInput: StaticStructureSchema = [
   3,
   n0,
@@ -215,19 +203,8 @@ export var ClusterSnapshot: StaticStructureSchema = [
   [64 | 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0],
 ];
 export var ClusterSnapshotInList: StaticStructureSchema = [3, n0, _CSIL, 0, [_sN, _sA, _cA, _s, _sCT], [0, 0, 0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CopyClusterSnapshotInput: StaticStructureSchema = [
   3,
   n0,
@@ -265,19 +242,8 @@ export var GetPendingMaintenanceActionOutput: StaticStructureSchema = [
   [_rPMA],
   [() => ResourcePendingMaintenanceAction],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListClustersInput: StaticStructureSchema = [
   3,
   n0,
@@ -285,18 +251,8 @@ export var ListClustersInput: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListClusterSnapshotsInput: StaticStructureSchema = [
@@ -306,30 +262,10 @@ export var ListClusterSnapshotsInput: StaticStructureSchema = [
   0,
   [_cA, _nT, _mR, _sT],
   [
-    [
-      0,
-      {
-        [_hQ]: _cA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sT,
-      },
-    ],
+    [0, { [_hQ]: _cA }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _sT }],
   ],
 ];
 export var ListClusterSnapshotsOutput: StaticStructureSchema = [
@@ -348,18 +284,8 @@ export var ListPendingMaintenanceActionsInput: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPendingMaintenanceActionsOutput: StaticStructureSchema = [
@@ -384,15 +310,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePendingMaintenanceAction: StaticStructureSchema = [
   3,
   n0,
@@ -410,19 +332,8 @@ export var RestoreClusterFromSnapshotInput: StaticStructureSchema = [
   [0, [0, 1], 64 | 0, 64 | 0, 0, 128 | 0, 1, 1],
 ];
 export var RestoreClusterFromSnapshotOutput: StaticStructureSchema = [3, n0, _RCFSO, 0, [_cl], [() => Cluster]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Shard: StaticStructureSchema = [3, n0, _S, 0, [_sIh, _cT, _s], [0, 0, 0]];
 export var StartClusterInput: StaticStructureSchema = [3, n0, _SCI, 0, [_cA], [[0, 1]]];
 export var StartClusterOutput: StaticStructureSchema = [3, n0, _SCO, 0, [_cl], [() => Cluster]];
@@ -434,23 +345,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -459,12 +358,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -481,19 +375,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var DocDBElasticServiceException: StaticErrorSchema = [-3, _sm, "DocDBElasticServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DocDBElasticServiceException, __DocDBElasticServiceException);
-
 export var ClusterList: StaticListSchema = [1, n0, _CL, 0, () => ClusterInList];
 export var ClusterSnapshotList: StaticListSchema = [1, n0, _CSL, 0, () => ClusterSnapshotInList];
 export var PendingMaintenanceActionDetailsList: StaticListSchema = [
@@ -512,19 +401,14 @@ export var ResourcePendingMaintenanceActionList: StaticListSchema = [
 ];
 export var ShardList: StaticListSchema = [1, n0, _SL, 0, () => Shard];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var TagMap = 128 | 0;
-
 export var ApplyPendingMaintenanceAction: StaticOperationSchema = [
   9,
   n0,
   _APMA,
-  {
-    [_h]: ["POST", "/pending-action", 200],
-  },
+  { [_h]: ["POST", "/pending-action", 200] },
   () => ApplyPendingMaintenanceActionInput,
   () => ApplyPendingMaintenanceActionOutput,
 ];
@@ -532,9 +416,7 @@ export var CopyClusterSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CCS,
-  {
-    [_h]: ["POST", "/cluster-snapshot/{snapshotArn}/copy", 200],
-  },
+  { [_h]: ["POST", "/cluster-snapshot/{snapshotArn}/copy", 200] },
   () => CopyClusterSnapshotInput,
   () => CopyClusterSnapshotOutput,
 ];
@@ -542,9 +424,7 @@ export var CreateCluster: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/cluster", 200],
-  },
+  { [_h]: ["POST", "/cluster", 200] },
   () => CreateClusterInput,
   () => CreateClusterOutput,
 ];
@@ -552,9 +432,7 @@ export var CreateClusterSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CCSr,
-  {
-    [_h]: ["POST", "/cluster-snapshot", 200],
-  },
+  { [_h]: ["POST", "/cluster-snapshot", 200] },
   () => CreateClusterSnapshotInput,
   () => CreateClusterSnapshotOutput,
 ];
@@ -562,9 +440,7 @@ export var DeleteCluster: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/cluster/{clusterArn}", 200],
-  },
+  { [_h]: ["DELETE", "/cluster/{clusterArn}", 200] },
   () => DeleteClusterInput,
   () => DeleteClusterOutput,
 ];
@@ -572,9 +448,7 @@ export var DeleteClusterSnapshot: StaticOperationSchema = [
   9,
   n0,
   _DCS,
-  {
-    [_h]: ["DELETE", "/cluster-snapshot/{snapshotArn}", 200],
-  },
+  { [_h]: ["DELETE", "/cluster-snapshot/{snapshotArn}", 200] },
   () => DeleteClusterSnapshotInput,
   () => DeleteClusterSnapshotOutput,
 ];
@@ -582,9 +456,7 @@ export var GetCluster: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/cluster/{clusterArn}", 200],
-  },
+  { [_h]: ["GET", "/cluster/{clusterArn}", 200] },
   () => GetClusterInput,
   () => GetClusterOutput,
 ];
@@ -592,9 +464,7 @@ export var GetClusterSnapshot: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  {
-    [_h]: ["GET", "/cluster-snapshot/{snapshotArn}", 200],
-  },
+  { [_h]: ["GET", "/cluster-snapshot/{snapshotArn}", 200] },
   () => GetClusterSnapshotInput,
   () => GetClusterSnapshotOutput,
 ];
@@ -602,9 +472,7 @@ export var GetPendingMaintenanceAction: StaticOperationSchema = [
   9,
   n0,
   _GPMA,
-  {
-    [_h]: ["GET", "/pending-action/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/pending-action/{resourceArn}", 200] },
   () => GetPendingMaintenanceActionInput,
   () => GetPendingMaintenanceActionOutput,
 ];
@@ -612,9 +480,7 @@ export var ListClusters: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/clusters", 200],
-  },
+  { [_h]: ["GET", "/clusters", 200] },
   () => ListClustersInput,
   () => ListClustersOutput,
 ];
@@ -622,9 +488,7 @@ export var ListClusterSnapshots: StaticOperationSchema = [
   9,
   n0,
   _LCS,
-  {
-    [_h]: ["GET", "/cluster-snapshots", 200],
-  },
+  { [_h]: ["GET", "/cluster-snapshots", 200] },
   () => ListClusterSnapshotsInput,
   () => ListClusterSnapshotsOutput,
 ];
@@ -632,9 +496,7 @@ export var ListPendingMaintenanceActions: StaticOperationSchema = [
   9,
   n0,
   _LPMA,
-  {
-    [_h]: ["GET", "/pending-actions", 200],
-  },
+  { [_h]: ["GET", "/pending-actions", 200] },
   () => ListPendingMaintenanceActionsInput,
   () => ListPendingMaintenanceActionsOutput,
 ];
@@ -642,9 +504,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -652,9 +512,7 @@ export var RestoreClusterFromSnapshot: StaticOperationSchema = [
   9,
   n0,
   _RCFS,
-  {
-    [_h]: ["POST", "/cluster-snapshot/{snapshotArn}/restore", 200],
-  },
+  { [_h]: ["POST", "/cluster-snapshot/{snapshotArn}/restore", 200] },
   () => RestoreClusterFromSnapshotInput,
   () => RestoreClusterFromSnapshotOutput,
 ];
@@ -662,9 +520,7 @@ export var StartCluster: StaticOperationSchema = [
   9,
   n0,
   _SC,
-  {
-    [_h]: ["POST", "/cluster/{clusterArn}/start", 200],
-  },
+  { [_h]: ["POST", "/cluster/{clusterArn}/start", 200] },
   () => StartClusterInput,
   () => StartClusterOutput,
 ];
@@ -672,9 +528,7 @@ export var StopCluster: StaticOperationSchema = [
   9,
   n0,
   _SCt,
-  {
-    [_h]: ["POST", "/cluster/{clusterArn}/stop", 200],
-  },
+  { [_h]: ["POST", "/cluster/{clusterArn}/stop", 200] },
   () => StopClusterInput,
   () => StopClusterOutput,
 ];
@@ -682,9 +536,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -692,9 +544,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -702,9 +552,7 @@ export var UpdateCluster: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/cluster/{clusterArn}", 200],
-  },
+  { [_h]: ["PUT", "/cluster/{clusterArn}", 200] },
   () => UpdateClusterInput,
   () => UpdateClusterOutput,
 ];

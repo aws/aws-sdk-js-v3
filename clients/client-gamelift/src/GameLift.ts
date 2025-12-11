@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
 import {
@@ -532,7 +532,7 @@ import {
   ValidateMatchmakingRuleSetCommandInput,
   ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand";
-import { GameLiftClient, GameLiftClientConfig } from "./GameLiftClient";
+import { GameLiftClient } from "./GameLiftClient";
 
 const commands = {
   AcceptMatchCommand,

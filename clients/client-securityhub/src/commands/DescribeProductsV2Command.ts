@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeProductsV2Request, DescribeProductsV2Response } from "../models/models_2";
+import type { DescribeProductsV2Request, DescribeProductsV2Response } from "../models/models_2";
 import { DescribeProductsV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface DescribeProductsV2CommandInput extends DescribeProductsV2Reques
 export interface DescribeProductsV2CommandOutput extends DescribeProductsV2Response, __MetadataBearer {}
 
 /**
- * <p>Gets information about the product integration. This API is in public preview and subject to change.</p>
+ * <p>Gets information about the product integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

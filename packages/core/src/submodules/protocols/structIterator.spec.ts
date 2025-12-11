@@ -95,25 +95,23 @@ describe("filtered struct iteration", () => {
     });
 
     it("halts iteration once all keys from the source object have been iterated", () => {
-      vi.spyOn(NormalizedSchema.prototype, "getMergedTraits");
+      vi.spyOn(NormalizedSchema, Symbol.hasInstance);
+
       // regular iteration iterates all schema keys
       expect([...ns.structIterator()].map(([k]) => k)).toEqual(["a", "b", "c", "e", "f", "g", "h", "i", "j", "k", "l"]);
-      expect(NormalizedSchema.prototype.getMergedTraits).toHaveBeenCalledTimes(0);
+      expect(NormalizedSchema[Symbol.hasInstance]).toHaveBeenCalledTimes(22);
 
       vi.resetAllMocks();
       expect([...deserializingStructIterator(ns, { a: "a" }, "jsonName")].map(([k]) => k)).toEqual(["a"]);
-      // only 1 call because iteration halts after 'a', since the total key count was 1.
-      expect(NormalizedSchema.prototype.getMergedTraits).toHaveBeenCalledTimes(1);
+      expect(NormalizedSchema[Symbol.hasInstance]).toHaveBeenCalledTimes(1);
 
       vi.resetAllMocks();
       expect([...deserializingStructIterator(ns, { a: "a", l: "l" }, "jsonName")].map(([k]) => k)).toEqual(["a", "l"]);
-      // 11 calls because iteration continues in member order, and 'l' is the last key.
-      expect(NormalizedSchema.prototype.getMergedTraits).toHaveBeenCalledTimes(11);
+      expect(NormalizedSchema[Symbol.hasInstance]).toHaveBeenCalledTimes(11);
 
       vi.resetAllMocks();
       expect([...deserializingStructIterator(ns, { a: "a", l: "l" }, false)].map(([k]) => k)).toEqual(["a", "l"]);
-      // no calls because no jsonName checking is involved.
-      expect(NormalizedSchema.prototype.getMergedTraits).toHaveBeenCalledTimes(0);
+      expect(NormalizedSchema[Symbol.hasInstance]).toHaveBeenCalledTimes(11);
     });
   });
 });

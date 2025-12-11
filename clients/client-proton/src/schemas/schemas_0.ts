@@ -516,7 +516,7 @@ const n0 = "com.amazonaws.proton";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -536,51 +536,14 @@ import {
 import { ProtonServiceException as __ProtonServiceException } from "../models/ProtonServiceException";
 
 /* eslint no-var: 0 */
-
 export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var DisplayName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
 export var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
-export var SpecContents: StaticSimpleSchema = [
-  0,
-  n0,
-  _SC,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
+export var SpecContents: StaticSimpleSchema = [0, n0, _SC, { [_mT]: _a, [_s]: 1 }, 0];
 export var StatusMessage: StaticSimpleSchema = [0, n0, _SM, 8, 0];
-export var TemplateFileContents: StaticSimpleSchema = [
-  0,
-  n0,
-  _TFC,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
-export var TemplateManifestContents: StaticSimpleSchema = [
-  0,
-  n0,
-  _TMC,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
-export var TemplateSchema: StaticSimpleSchema = [
-  0,
-  n0,
-  _TS,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
+export var TemplateFileContents: StaticSimpleSchema = [0, n0, _TFC, { [_mT]: _a, [_s]: 1 }, 0];
+export var TemplateManifestContents: StaticSimpleSchema = [0, n0, _TMC, { [_mT]: _a, [_s]: 1 }, 0];
+export var TemplateSchema: StaticSimpleSchema = [0, n0, _TS, { [_mT]: _a, [_s]: 1 }, 0];
 export var AcceptEnvironmentAccountConnectionInput: StaticStructureSchema = [3, n0, _AEACI, 0, [_i], [0]];
 export var AcceptEnvironmentAccountConnectionOutput: StaticStructureSchema = [
   3,
@@ -594,15 +557,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountSettings: StaticStructureSchema = [
   3,
   n0,
@@ -670,15 +629,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CountsSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1174,15 +1129,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _serv,
-    [_hE]: 500,
-  },
+  { [_e]: _serv, [_hE]: 500 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListComponentOutputsInput: StaticStructureSchema = [3, n0, _LCOI, 0, [_cN, _nT, _dI], [0, 0, 0]];
 export var ListComponentOutputsOutput: StaticStructureSchema = [
   3,
@@ -1434,24 +1385,9 @@ export var ListTagsForResourceInput: StaticStructureSchema = [
   0,
   [_rAes, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _rAes,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _rAes }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t, _nT], [() => TagList, 0]];
@@ -1501,15 +1437,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceSyncAttempt: StaticStructureSchema = [
   3,
   n0,
@@ -1587,15 +1519,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1675,15 +1603,7 @@ export var TagResourceInput: StaticStructureSchema = [
   _TRI,
   0,
   [_rAes, _t],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rAes,
-      },
-    ],
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _rAes }], () => TagList],
 ];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var TemplateSyncConfig: StaticStructureSchema = [
@@ -1698,31 +1618,12 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UntagResourceInput: StaticStructureSchema = [
-  3,
-  n0,
-  _URI,
-  0,
-  [_rAes, _tK],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rAes,
-      },
-    ],
-    64 | 0,
-  ],
-];
+export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_rAes, _tK], [[0, { [_hQ]: _rAes }], 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
 export var UpdateAccountSettingsInput: StaticStructureSchema = [
   3,
@@ -1889,18 +1790,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ProtonServiceException: StaticErrorSchema = [-3, _sm, "ProtonServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ProtonServiceException, __ProtonServiceException);
-
 export var CompatibleEnvironmentTemplateInputList: StaticListSchema = [
   1,
   n0,
@@ -1910,11 +1806,9 @@ export var CompatibleEnvironmentTemplateInputList: StaticListSchema = [
 ];
 export var CompatibleEnvironmentTemplateList: StaticListSchema = [1, n0, _CETL, 0, () => CompatibleEnvironmentTemplate];
 export var ComponentDeploymentIdList = 64 | 0;
-
 export var ComponentSummaryList: StaticListSchema = [1, n0, _CSL, 0, [() => ComponentSummary, 0]];
 export var DeploymentSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DeploymentSummary];
 export var EnvironmentAccountConnectionStatusList = 64 | 0;
-
 export var EnvironmentAccountConnectionSummaryList: StaticListSchema = [
   1,
   n0,
@@ -1944,7 +1838,6 @@ export var ServiceInstanceSummaryList: StaticListSchema = [1, n0, _SISL, 0, [() 
 export var ServiceSummaryList: StaticListSchema = [1, n0, _SSL, 0, [() => ServiceSummary, 0]];
 export var ServiceTemplateSummaryList: StaticListSchema = [1, n0, _STSL, 0, [() => ServiceTemplateSummary, 0]];
 export var ServiceTemplateSupportedComponentSourceInputList = 64 | 0;
-
 export var ServiceTemplateVersionSummaryList: StaticListSchema = [
   1,
   n0,
@@ -1954,7 +1847,6 @@ export var ServiceTemplateVersionSummaryList: StaticListSchema = [
 ];
 export var SyncBlockerContexts: StaticListSchema = [1, n0, _SBCy, 0, () => SyncBlockerContext];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var DeploymentState: StaticStructureSchema = [
   3,

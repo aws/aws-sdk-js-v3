@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateParticipantRequest, CreateParticipantResponse } from "../models/models_0";
+import type { CreateParticipantRequest, CreateParticipantResponse } from "../models/models_0";
 import { CreateParticipant } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,9 @@ export interface CreateParticipantCommandInput extends CreateParticipantRequest 
 export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new participant into an on-going chat contact or webRTC call. For more information,
- *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat flow experiences by integrating custom participants</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable
- *     multi-user web, in-app, and video calling</a>.</p>
+ * <p>Adds a new participant into an on-going chat contact or webRTC call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat flow experiences by
+ *     integrating custom participants</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable multi-user web, in-app, and video
+ *    calling</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,8 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

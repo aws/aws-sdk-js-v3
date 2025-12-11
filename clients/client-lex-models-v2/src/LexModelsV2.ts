@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCreateCustomVocabularyItemCommand,
@@ -456,7 +456,7 @@ import {
   UpdateTestSetCommandInput,
   UpdateTestSetCommandOutput,
 } from "./commands/UpdateTestSetCommand";
-import { LexModelsV2Client, LexModelsV2ClientConfig } from "./LexModelsV2Client";
+import { LexModelsV2Client } from "./LexModelsV2Client";
 
 const commands = {
   BatchCreateCustomVocabularyItemCommand,
@@ -2084,7 +2084,7 @@ export interface LexModelsV2 {
 }
 
 /**
- * <p></p>
+ * <p>Amazon Lex Model Building Service provides APIs for creating, managing, and deploying conversational bots and their components.</p>
  * @public
  */
 export class LexModelsV2 extends LexModelsV2Client implements LexModelsV2 {}

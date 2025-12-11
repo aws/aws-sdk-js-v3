@@ -203,7 +203,7 @@ const n0 = "com.amazonaws.transcribestreaming";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -223,37 +223,11 @@ import {
 import { TranscribeStreamingServiceException as __TranscribeStreamingServiceException } from "../models/TranscribeStreamingServiceException";
 
 /* eslint no-var: 0 */
-
 export var Pronouns: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var Alternative: StaticStructureSchema = [3, n0, _A, 0, [_T, _I, _E], [0, () => ItemList, () => EntityList]];
-export var AudioEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _AE,
-  0,
-  [_AC],
-  [
-    [
-      21,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var AudioEvent: StaticStructureSchema = [3, n0, _AE, 0, [_AC], [[21, { [_eP]: 1 }]]];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CallAnalyticsEntity: StaticStructureSchema = [
   3,
   n0,
@@ -291,19 +265,8 @@ export var ConfigurationEvent: StaticStructureSchema = [
   [_CDh, _PCAS],
   [() => ChannelDefinitions, () => PostCallAnalyticsSettings],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEon,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEon, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Entity: StaticStructureSchema = [3, n0, _Ent, 0, [_ST, _ET, _C, _Ty, _Co, _Con], [1, 1, 0, 0, 0, 1]];
 export var GetMedicalScribeStreamRequest: StaticStructureSchema = [3, n0, _GMSSR, 0, [_SI], [[0, 1]]];
 export var GetMedicalScribeStreamResponse: StaticStructureSchema = [
@@ -314,19 +277,8 @@ export var GetMedicalScribeStreamResponse: StaticStructureSchema = [
   [_MSSD],
   [() => MedicalScribeStreamDetails],
 ];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
 export var IssueDetected: StaticStructureSchema = [3, n0, _ID, 0, [_CO], [() => CharacterOffsets]];
 export var Item: StaticStructureSchema = [
   3,
@@ -337,19 +289,8 @@ export var Item: StaticStructureSchema = [
   [1, 1, 0, 0, 2, 0, 1, 2],
 ];
 export var LanguageWithScore: StaticStructureSchema = [3, n0, _LWS, 0, [_LC, _Sc], [0, 1]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var MedicalAlternative: StaticStructureSchema = [
   3,
   n0,
@@ -368,21 +309,7 @@ export var MedicalResult: StaticStructureSchema = [
   [_RI, _ST, _ET, _IP, _Al, _CI],
   [0, 1, 1, 2, () => MedicalAlternativeList, 0],
 ];
-export var MedicalScribeAudioEvent: StaticStructureSchema = [
-  3,
-  n0,
-  _MSAE,
-  0,
-  [_AC],
-  [
-    [
-      21,
-      {
-        [_eP]: 1,
-      },
-    ],
-  ],
-];
+export var MedicalScribeAudioEvent: StaticStructureSchema = [3, n0, _MSAE, 0, [_AC], [[21, { [_eP]: 1 }]]];
 export var MedicalScribeChannelDefinition: StaticStructureSchema = [3, n0, _MSCD, 0, [_CI, _PR], [1, 0]];
 export var MedicalScribeConfigurationEvent: StaticStructureSchema = [
   3,
@@ -488,19 +415,8 @@ export var PostCallAnalyticsSettings: StaticStructureSchema = [
   [_OL, _DARA, _CRO, _OEKMSKI],
   [0, 0, 0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Result: StaticStructureSchema = [
   3,
   n0,
@@ -509,19 +425,8 @@ export var Result: StaticStructureSchema = [
   [_RI, _ST, _ET, _IP, _Al, _CI, _LC, _LI],
   [0, 1, 1, 2, () => AlternativeList, 0, 0, () => LanguageIdentification],
 ];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartCallAnalyticsStreamTranscriptionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -529,115 +434,25 @@ export var StartCallAnalyticsStreamTranscriptionRequest: StaticStructureSchema =
   0,
   [_LC, _MSRH, _MEe, _VN, _SI, _AS, _VFN, _VFMo, _LMN, _IL, _LO, _PL, _VNo, _VFNo, _EPRS, _PRS, _CIT, _CRT, _PET],
   [
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
+    [0, { [_hH]: _xatvn }],
+    [0, { [_hH]: _xatsi }],
     [() => AudioStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xatvfn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfm,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlmn,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatil,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpl,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfn_,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xateprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcit,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcrt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpet,
-      },
-    ],
+    [0, { [_hH]: _xatvfn }],
+    [0, { [_hH]: _xatvfm }],
+    [0, { [_hH]: _xatlmn }],
+    [2, { [_hH]: _xatil }],
+    [0, { [_hH]: _xatlo }],
+    [0, { [_hH]: _xatpl }],
+    [0, { [_hH]: _xatvn_ }],
+    [0, { [_hH]: _xatvfn_ }],
+    [2, { [_hH]: _xateprs }],
+    [0, { [_hH]: _xatprs }],
+    [0, { [_hH]: _xatcit }],
+    [0, { [_hH]: _xatcrt }],
+    [0, { [_hH]: _xatpet }],
   ],
 ];
 export var StartCallAnalyticsStreamTranscriptionResponse: StaticStructureSchema = [
@@ -668,121 +483,26 @@ export var StartCallAnalyticsStreamTranscriptionResponse: StaticStructureSchema 
     _PET,
   ],
   [
-    [
-      0,
-      {
-        [_hH]: _xari,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
+    [0, { [_hH]: _xari }],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
+    [0, { [_hH]: _xatvn }],
+    [0, { [_hH]: _xatsi }],
     [() => CallAnalyticsTranscriptResultStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xatvfn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfm,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlmn,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatil,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpl,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfn_,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xateprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcit,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcrt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpet,
-      },
-    ],
+    [0, { [_hH]: _xatvfn }],
+    [0, { [_hH]: _xatvfm }],
+    [0, { [_hH]: _xatlmn }],
+    [2, { [_hH]: _xatil }],
+    [0, { [_hH]: _xatlo }],
+    [0, { [_hH]: _xatpl }],
+    [0, { [_hH]: _xatvn_ }],
+    [0, { [_hH]: _xatvfn_ }],
+    [2, { [_hH]: _xateprs }],
+    [0, { [_hH]: _xatprs }],
+    [0, { [_hH]: _xatcit }],
+    [0, { [_hH]: _xatcrt }],
+    [0, { [_hH]: _xatpet }],
   ],
 ];
 export var StartMedicalScribeStreamRequest: StaticStructureSchema = [
@@ -792,30 +512,10 @@ export var StartMedicalScribeStreamRequest: StaticStructureSchema = [
   0,
   [_SI, _LC, _MSRH, _MEe, _IS],
   [
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
+    [0, { [_hH]: _xatsi }],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
     [() => MedicalScribeInputStream, 16],
   ],
 ];
@@ -826,36 +526,11 @@ export var StartMedicalScribeStreamResponse: StaticStructureSchema = [
   0,
   [_SI, _RIe, _LC, _MSRH, _MEe, _RS],
   [
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xari,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
+    [0, { [_hH]: _xatsi }],
+    [0, { [_hH]: _xari }],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
     [() => MedicalScribeResultStream, 16],
   ],
 ];
@@ -866,73 +541,18 @@ export var StartMedicalStreamTranscriptionRequest: StaticStructureSchema = [
   0,
   [_LC, _MSRH, _MEe, _VN, _Spe, _Ty, _SSL, _SI, _AS, _ECI, _NOC, _CIT],
   [
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xats,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatt,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatssl,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
+    [0, { [_hH]: _xatvn }],
+    [0, { [_hH]: _xats }],
+    [0, { [_hH]: _xatt }],
+    [2, { [_hH]: _xatssl }],
+    [0, { [_hH]: _xatsi }],
     [() => AudioStream, 16],
-    [
-      2,
-      {
-        [_hH]: _xateci,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatnoc,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcit,
-      },
-    ],
+    [2, { [_hH]: _xateci }],
+    [1, { [_hH]: _xatnoc }],
+    [0, { [_hH]: _xatcit }],
   ],
 ];
 export var StartMedicalStreamTranscriptionResponse: StaticStructureSchema = [
@@ -942,79 +562,19 @@ export var StartMedicalStreamTranscriptionResponse: StaticStructureSchema = [
   0,
   [_RIe, _LC, _MSRH, _MEe, _VN, _Spe, _Ty, _SSL, _SI, _TRS, _ECI, _NOC, _CIT],
   [
-    [
-      0,
-      {
-        [_hH]: _xari,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xats,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatt,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatssl,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
+    [0, { [_hH]: _xari }],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
+    [0, { [_hH]: _xatvn }],
+    [0, { [_hH]: _xats }],
+    [0, { [_hH]: _xatt }],
+    [2, { [_hH]: _xatssl }],
+    [0, { [_hH]: _xatsi }],
     [() => MedicalTranscriptResultStream, 16],
-    [
-      2,
-      {
-        [_hH]: _xateci,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatnoc,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcit,
-      },
-    ],
+    [2, { [_hH]: _xateci }],
+    [1, { [_hH]: _xatnoc }],
+    [0, { [_hH]: _xatcit }],
   ],
 ];
 export var StartStreamTranscriptionRequest: StaticStructureSchema = [
@@ -1048,139 +608,29 @@ export var StartStreamTranscriptionRequest: StaticStructureSchema = [
     _VFNo,
   ],
   [
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
+    [0, { [_hH]: _xatvn }],
+    [0, { [_hH]: _xatsi }],
     [() => AudioStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xatvfn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfm,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatssl,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xateci,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatnoc,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xateprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcit,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcrt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpet,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlmn,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatil,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpl,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatiml,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfn_,
-      },
-    ],
+    [0, { [_hH]: _xatvfn }],
+    [0, { [_hH]: _xatvfm }],
+    [2, { [_hH]: _xatssl }],
+    [2, { [_hH]: _xateci }],
+    [1, { [_hH]: _xatnoc }],
+    [2, { [_hH]: _xateprs }],
+    [0, { [_hH]: _xatprs }],
+    [0, { [_hH]: _xatcit }],
+    [0, { [_hH]: _xatcrt }],
+    [0, { [_hH]: _xatpet }],
+    [0, { [_hH]: _xatlmn }],
+    [2, { [_hH]: _xatil }],
+    [0, { [_hH]: _xatlo }],
+    [0, { [_hH]: _xatpl }],
+    [2, { [_hH]: _xatiml }],
+    [0, { [_hH]: _xatvn_ }],
+    [0, { [_hH]: _xatvfn_ }],
   ],
 ];
 export var StartStreamTranscriptionResponse: StaticStructureSchema = [
@@ -1215,145 +665,30 @@ export var StartStreamTranscriptionResponse: StaticStructureSchema = [
     _VFNo,
   ],
   [
-    [
-      0,
-      {
-        [_hH]: _xari,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlc,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatsr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatme,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatsi,
-      },
-    ],
+    [0, { [_hH]: _xari }],
+    [0, { [_hH]: _xatlc }],
+    [1, { [_hH]: _xatsr }],
+    [0, { [_hH]: _xatme }],
+    [0, { [_hH]: _xatvn }],
+    [0, { [_hH]: _xatsi }],
     [() => TranscriptResultStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xatvfn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfm,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatssl,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xateci,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xatnoc,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xateprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatprs,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcit,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatcrt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpet,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlmn,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatil,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatlo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatpl,
-      },
-    ],
-    [
-      2,
-      {
-        [_hH]: _xatiml,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvn_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xatvfn_,
-      },
-    ],
+    [0, { [_hH]: _xatvfn }],
+    [0, { [_hH]: _xatvfm }],
+    [2, { [_hH]: _xatssl }],
+    [2, { [_hH]: _xateci }],
+    [1, { [_hH]: _xatnoc }],
+    [2, { [_hH]: _xateprs }],
+    [0, { [_hH]: _xatprs }],
+    [0, { [_hH]: _xatcit }],
+    [0, { [_hH]: _xatcrt }],
+    [0, { [_hH]: _xatpet }],
+    [0, { [_hH]: _xatlmn }],
+    [2, { [_hH]: _xatil }],
+    [0, { [_hH]: _xatlo }],
+    [0, { [_hH]: _xatpl }],
+    [2, { [_hH]: _xatiml }],
+    [0, { [_hH]: _xatvn_ }],
+    [0, { [_hH]: _xatvfn_ }],
   ],
 ];
 export var TimestampRange: StaticStructureSchema = [3, n0, _TRi, 0, [_BOM, _EOM], [1, 1]];
@@ -1380,8 +715,6 @@ export var UtteranceEvent: StaticStructureSchema = [
     () => CallAnalyticsLanguageIdentification,
   ],
 ];
-export var __Unit = "unit" as const;
-
 export var TranscribeStreamingServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1391,7 +724,6 @@ export var TranscribeStreamingServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(TranscribeStreamingServiceException, __TranscribeStreamingServiceException);
-
 export var AlternativeList: StaticListSchema = [1, n0, _AL, 0, () => Alternative];
 export var CallAnalyticsEntityList: StaticListSchema = [1, n0, _CAEL, 0, () => CallAnalyticsEntity];
 export var CallAnalyticsItemList: StaticListSchema = [1, n0, _CAIL, 0, () => CallAnalyticsItem];
@@ -1415,18 +747,14 @@ export var MedicalScribeChannelDefinitions: StaticListSchema = [1, n0, _MSCDe, 0
 export var MedicalScribeTranscriptItemList: StaticListSchema = [1, n0, _MSTIL, 0, () => MedicalScribeTranscriptItem];
 export var ResultList: StaticListSchema = [1, n0, _RL, 0, () => Result];
 export var StringList = 64 | 0;
-
 export var TimestampRanges: StaticListSchema = [1, n0, _TR, 0, () => TimestampRange];
 export var KMSEncryptionContextMap = 128 | 0;
-
 export var MatchedCategoryDetails: StaticMapSchema = [2, n0, _MCD, 0, 0, () => PointsOfInterest];
 export var AudioStream: StaticStructureSchema = [
   3,
   n0,
   _AS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_AE, _CEo],
   [[() => AudioEvent, 0], () => ConfigurationEvent],
 ];
@@ -1434,9 +762,7 @@ export var CallAnalyticsTranscriptResultStream: StaticStructureSchema = [
   3,
   n0,
   _CATRS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_UE, _CE, _BRE, _LEE, _IFE, _CEon, _SUE],
   [
     () => UtteranceEvent,
@@ -1452,9 +778,7 @@ export var MedicalScribeInputStream: StaticStructureSchema = [
   3,
   n0,
   _MSIS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_AE, _SCE, _CEo],
   [
     [() => MedicalScribeAudioEvent, 0],
@@ -1466,9 +790,7 @@ export var MedicalScribeResultStream: StaticStructureSchema = [
   3,
   n0,
   _MSRS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_TE, _BRE, _LEE, _IFE, _CEon, _SUE],
   [
     () => MedicalScribeTranscriptEvent,
@@ -1483,9 +805,7 @@ export var MedicalTranscriptResultStream: StaticStructureSchema = [
   3,
   n0,
   _MTRS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_TE, _BRE, _LEE, _IFE, _CEon, _SUE],
   [
     () => MedicalTranscriptEvent,
@@ -1500,9 +820,7 @@ export var TranscriptResultStream: StaticStructureSchema = [
   3,
   n0,
   _TRS,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_TE, _BRE, _LEE, _IFE, _CEon, _SUE],
   [
     () => TranscriptEvent,
@@ -1517,9 +835,7 @@ export var GetMedicalScribeStream: StaticOperationSchema = [
   9,
   n0,
   _GMSS,
-  {
-    [_h]: ["GET", "/medical-scribe-stream/{SessionId}", 200],
-  },
+  { [_h]: ["GET", "/medical-scribe-stream/{SessionId}", 200] },
   () => GetMedicalScribeStreamRequest,
   () => GetMedicalScribeStreamResponse,
 ];
@@ -1527,9 +843,7 @@ export var StartCallAnalyticsStreamTranscription: StaticOperationSchema = [
   9,
   n0,
   _SCAST,
-  {
-    [_h]: ["POST", "/call-analytics-stream-transcription", 200],
-  },
+  { [_h]: ["POST", "/call-analytics-stream-transcription", 200] },
   () => StartCallAnalyticsStreamTranscriptionRequest,
   () => StartCallAnalyticsStreamTranscriptionResponse,
 ];
@@ -1537,9 +851,7 @@ export var StartMedicalScribeStream: StaticOperationSchema = [
   9,
   n0,
   _SMSS,
-  {
-    [_h]: ["POST", "/medical-scribe-stream", 200],
-  },
+  { [_h]: ["POST", "/medical-scribe-stream", 200] },
   () => StartMedicalScribeStreamRequest,
   () => StartMedicalScribeStreamResponse,
 ];
@@ -1547,9 +859,7 @@ export var StartMedicalStreamTranscription: StaticOperationSchema = [
   9,
   n0,
   _SMST,
-  {
-    [_h]: ["POST", "/medical-stream-transcription", 200],
-  },
+  { [_h]: ["POST", "/medical-stream-transcription", 200] },
   () => StartMedicalStreamTranscriptionRequest,
   () => StartMedicalStreamTranscriptionResponse,
 ];
@@ -1557,9 +867,7 @@ export var StartStreamTranscription: StaticOperationSchema = [
   9,
   n0,
   _SST,
-  {
-    [_h]: ["POST", "/stream-transcription", 200],
-  },
+  { [_h]: ["POST", "/stream-transcription", 200] },
   () => StartStreamTranscriptionRequest,
   () => StartStreamTranscriptionResponse,
 ];

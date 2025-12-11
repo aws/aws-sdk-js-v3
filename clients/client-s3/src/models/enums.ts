@@ -199,6 +199,7 @@ export type ObjectLockMode = (typeof ObjectLockMode)[keyof typeof ObjectLockMode
 export const StorageClass = {
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   EXPRESS_ONEZONE: "EXPRESS_ONEZONE",
+  FSX_ONTAP: "FSX_ONTAP",
   FSX_OPENZFS: "FSX_OPENZFS",
   GLACIER: "GLACIER",
   GLACIER_IR: "GLACIER_IR",
@@ -907,6 +908,7 @@ export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
 export const ObjectStorageClass = {
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   EXPRESS_ONEZONE: "EXPRESS_ONEZONE",
+  FSX_ONTAP: "FSX_ONTAP",
   FSX_OPENZFS: "FSX_OPENZFS",
   GLACIER: "GLACIER",
   GLACIER_IR: "GLACIER_IR",

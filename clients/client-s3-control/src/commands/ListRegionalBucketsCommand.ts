@@ -2,11 +2,11 @@
 import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { ListRegionalBuckets } from "../schemas/schemas_0";
 
 /**
@@ -36,9 +36,6 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples">Examples</a> section.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

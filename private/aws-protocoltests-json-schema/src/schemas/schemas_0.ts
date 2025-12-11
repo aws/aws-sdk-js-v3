@@ -138,7 +138,7 @@ const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -157,43 +157,17 @@ import {
 import { JsonProtocolServiceException as __JsonProtocolServiceException } from "../models/JsonProtocolServiceException";
 
 /* eslint no-var: 0 */
-
-export var JsonValue: StaticSimpleSchema = [
-  0,
-  n0,
-  _JV,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
+export var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
 export var ComplexError: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_TL, _N],
   [0, [() => ComplexNestedErrorData, 0]],
 ];
 TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
-
-export var ComplexNestedErrorData: StaticStructureSchema = [
-  3,
-  n0,
-  _CNED,
-  0,
-  [_F],
-  [
-    [
-      0,
-      {
-        [_jN]: _Fo,
-      },
-    ],
-  ],
-];
+export var ComplexNestedErrorData: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [[0, { [_jN]: _Fo }]]];
 export var ContentTypeParametersInput: StaticStructureSchema = [3, n0, _CTPI, 0, [_v], [1]];
 export var ContentTypeParametersOutput: StaticStructureSchema = [3, n0, _CTPO, 0, [], []];
 export var DatetimeOffsetsOutput: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
@@ -202,67 +176,20 @@ export var ErrorWithMembers: StaticErrorSchema = [
   -3,
   n0,
   _EWM,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_C, _CD, _IF, _LF, _MF, _M, _SF],
   [0, [() => KitchenSink, 0], 1, 64 | 0, 128 | 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ErrorWithMembers, __ErrorWithMembers);
-
-export var ErrorWithoutMembers: StaticErrorSchema = [
-  -3,
-  n0,
-  _EWMr,
-  {
-    [_e]: _s,
-  },
-  [],
-  [],
-];
+export var ErrorWithoutMembers: StaticErrorSchema = [-3, n0, _EWMr, { [_e]: _s }, [], []];
 TypeRegistry.for(n0).registerError(ErrorWithoutMembers, __ErrorWithoutMembers);
-
-export var FooError: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _s,
-  },
-  [],
-  [],
-];
+export var FooError: StaticErrorSchema = [-3, n0, _FE, { [_e]: _s }, [], []];
 TypeRegistry.for(n0).registerError(FooError, __FooError);
-
 export var FractionalSecondsOutput: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
 export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
-export var HostLabelInput: StaticStructureSchema = [
-  3,
-  n0,
-  _HLI,
-  0,
-  [_l],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-      },
-    ],
-  ],
-];
-export var InvalidGreeting: StaticErrorSchema = [
-  -3,
-  n0,
-  _IG,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var HostLabelInput: StaticStructureSchema = [3, n0, _HLI, 0, [_l], [[0, { [_hL]: 1 }]]];
+export var InvalidGreeting: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
-
 export var JsonEnumsInputOutput: StaticStructureSchema = [
   3,
   n0,
@@ -351,15 +278,7 @@ export var PutWithContentEncodingInput: StaticStructureSchema = [
   _PWCEI,
   0,
   [_en, _da],
-  [
-    [
-      0,
-      {
-        [_hH]: _CE_,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _CE_ }], 0],
 ];
 export var SimpleScalarPropertiesInputOutput: StaticStructureSchema = [3, n0, _SSPIO, 0, [_fV, _dV], [1, 1]];
 export var SimpleStruct: StaticStructureSchema = [3, n0, _SS, 0, [_V], [0]];
@@ -374,75 +293,32 @@ export var SparseNullsOperationInputOutput: StaticStructureSchema = [
     [() => SparseStringMap, 0],
   ],
 ];
-export var StructWithJsonName: StaticStructureSchema = [
-  3,
-  n0,
-  _SWJN,
-  0,
-  [_V],
-  [
-    [
-      0,
-      {
-        [_jN]: _RMe,
-      },
-    ],
-  ],
-];
+export var StructWithJsonName: StaticStructureSchema = [3, n0, _SWJN, 0, [_V], [[0, { [_jN]: _RMe }]]];
 export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_co], [() => MyUnion]];
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
 export var __Unit = "unit" as const;
-
 export var JsonProtocolServiceException: StaticErrorSchema = [-3, _sm, "JsonProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JsonProtocolServiceException, __JsonProtocolServiceException);
-
 export var ListOfKitchenSinks: StaticListSchema = [1, n0, _LOKS, 0, [() => KitchenSink, 0]];
 export var ListOfListOfStrings: StaticListSchema = [1, n0, _LOLOS, 0, 64 | 0];
 export var ListOfMapsOfStrings: StaticListSchema = [1, n0, _LOMOS, 0, 128 | 0];
 export var ListOfStrings = 64 | 0;
-
 export var ListOfStructs: StaticListSchema = [1, n0, _LOSi, 0, () => SimpleStruct];
 export var FooEnumList = 64 | 0;
-
 export var FooEnumSet = 64 | 0;
-
 export var IntegerEnumList = 64 | 1;
-
 export var IntegerEnumSet = 64 | 1;
-
-export var SparseStringList: StaticListSchema = [
-  1,
-  n1,
-  _SSL,
-  {
-    [_sp]: 1,
-  },
-  0,
-];
+export var SparseStringList: StaticListSchema = [1, n1, _SSL, { [_sp]: 1 }, 0];
 export var StringList = 64 | 0;
-
 export var MapOfKitchenSinks: StaticMapSchema = [2, n0, _MOKS, 0, [0, 0], [() => KitchenSink, 0]];
 export var MapOfListsOfStrings: StaticMapSchema = [2, n0, _MOLOS, 0, 0, 64 | 0];
 export var MapOfMapOfStrings: StaticMapSchema = [2, n0, _MOMOS, 0, 0, 128 | 0];
 export var MapOfStrings = 128 | 0;
-
 export var MapOfStructs: StaticMapSchema = [2, n0, _MOSa, 0, 0, () => SimpleStruct];
 export var FooEnumMap = 128 | 0;
-
 export var IntegerEnumMap = 128 | 1;
-
-export var SparseStringMap: StaticMapSchema = [
-  2,
-  n1,
-  _SSM,
-  {
-    [_sp]: 1,
-  },
-  0,
-  0,
-];
+export var SparseStringMap: StaticMapSchema = [2, n1, _SSM, { [_sp]: 1 }, 0, 0];
 export var StringMap = 128 | 0;
-
 export var MyUnion: StaticStructureSchema = [
   3,
   n0,
@@ -461,23 +337,12 @@ export var ContentTypeParameters: StaticOperationSchema = [
 ];
 export var DatetimeOffsets: StaticOperationSchema = [9, n0, _DO, 0, () => __Unit, () => DatetimeOffsetsOutput];
 export var EmptyOperation: StaticOperationSchema = [9, n0, _EO, 0, () => __Unit, () => __Unit];
-export var EndpointOperation: StaticOperationSchema = [
-  9,
-  n0,
-  _EOn,
-  {
-    [_end]: ["foo."],
-  },
-  () => __Unit,
-  () => __Unit,
-];
+export var EndpointOperation: StaticOperationSchema = [9, n0, _EOn, { [_end]: ["foo."] }, () => __Unit, () => __Unit];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
-  {
-    [_end]: ["foo.{label}."],
-  },
+  { [_end]: ["foo.{label}."] },
   () => HostLabelInput,
   () => __Unit,
 ];

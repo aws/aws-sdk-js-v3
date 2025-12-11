@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelPackageInput, CreateModelPackageOutput } from "../models/models_1";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { CreateModelPackageInput, CreateModelPackageOutput } from "../models/models_1";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateModelPackage } from "../schemas/schemas_0";
 
 /**
@@ -40,6 +40,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *   ModelPackageName: "STRING_VALUE",
  *   ModelPackageGroupName: "STRING_VALUE",
  *   ModelPackageDescription: "STRING_VALUE",
+ *   ModelPackageRegistrationType: "Logged" || "Registered",
  *   InferenceSpecification: { // InferenceSpecification
  *     Containers: [ // ModelPackageContainerDefinitionList // required
  *       { // ModelPackageContainerDefinition
@@ -80,6 +81,12 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *           ETag: "STRING_VALUE",
  *         },
  *         ModelDataETag: "STRING_VALUE",
+ *         IsCheckpoint: true || false,
+ *         BaseModel: { // BaseModel
+ *           HubContentName: "STRING_VALUE",
+ *           HubContentVersion: "STRING_VALUE",
+ *           RecipeName: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -288,6 +295,12 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *             ETag: "STRING_VALUE",
  *           },
  *           ModelDataETag: "STRING_VALUE",
+ *           IsCheckpoint: true || false,
+ *           BaseModel: {
+ *             HubContentName: "STRING_VALUE",
+ *             HubContentVersion: "STRING_VALUE",
+ *             RecipeName: "STRING_VALUE",
+ *           },
  *         },
  *       ],
  *       SupportedTransformInstanceTypes: [

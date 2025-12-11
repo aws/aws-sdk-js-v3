@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
+import type { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
 import { DescribeUpdate } from "../schemas/schemas_0";
 
 /**
@@ -44,6 +44,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *   updateId: "STRING_VALUE", // required
  *   nodegroupName: "STRING_VALUE",
  *   addonName: "STRING_VALUE",
+ *   capabilityName: "STRING_VALUE",
  * };
  * const command = new DescribeUpdateCommand(input);
  * const response = await client.send(command);

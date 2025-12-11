@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDomainRequest, DescribeDomainResponse } from "../models/models_2";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { DescribeDomainRequest, DescribeDomainResponse } from "../models/models_2";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeDomain } from "../schemas/schemas_0";
 
 /**
@@ -256,7 +256,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //     ],
  * //     StudioWebPortalSettings: { // StudioWebPortalSettings
  * //       HiddenMlTools: [ // HiddenMlToolsList
- * //         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler" || "HyperPodClusters",
+ * //         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler" || "HyperPodClusters" || "RunningInstances" || "Datasets" || "Evaluators",
  * //       ],
  * //       HiddenAppTypes: [ // HiddenAppTypesList
  * //         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",

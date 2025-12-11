@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSolutionVersionRequest, DescribeSolutionVersionResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { DescribeSolutionVersionRequest, DescribeSolutionVersionResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeSolutionVersion } from "../schemas/schemas_0";
 
 /**
@@ -49,6 +49,7 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //     solutionArn: "STRING_VALUE",
  * //     performHPO: true || false,
  * //     performAutoML: true || false,
+ * //     performIncrementalUpdate: true || false,
  * //     recipeArn: "STRING_VALUE",
  * //     eventType: "STRING_VALUE",
  * //     datasetGroupArn: "STRING_VALUE",
@@ -117,6 +118,11 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //       trainingDataConfig: { // TrainingDataConfig
  * //         excludedDatasetColumns: { // ExcludedDatasetColumns
  * //           "<keys>": [ // ColumnNamesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         includedDatasetColumns: { // IncludedDatasetColumns
+ * //           "<keys>": [
  * //             "STRING_VALUE",
  * //           ],
  * //         },

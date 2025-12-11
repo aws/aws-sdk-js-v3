@@ -26,25 +26,239 @@ import {
 } from "./enums";
 
 import {
+  type CoverageFilterCriteria,
+  type CoverageSortCriteria,
+  type DataSourceConfigurations,
+  type DataSourceConfigurationsResult,
+  type DestinationProperties,
+  type FilterCondition,
+  type FindingCriteria,
+  type IncrementalScanDetails,
+  type MalwareProtectionPlanActions,
+  type ScanResourceCriteria,
+  type SortCriteria,
   AccountFreeTrialInfo,
   AdminAccount,
-  CoverageFilterCriteria,
   CoverageResource,
-  CoverageSortCriteria,
-  DataSourceConfigurations,
   Destination,
-  DestinationProperties,
   DetectorFeatureConfiguration,
-  FilterCondition,
-  FindingCriteria,
-  IncrementalScanDetails,
-  MalwareProtectionPlanActions,
-  Member,
-  OrganizationFeatureStatisticsAdditionalConfiguration,
-  ScanResourceCriteria,
-  SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * <p>Information about the additional configuration for the member account.</p>
+ * @public
+ */
+export interface MemberAdditionalConfigurationResult {
+  /**
+   * <p>Indicates the name of the additional configuration that is set for the member
+   *       account.</p>
+   * @public
+   */
+  Name?: OrgFeatureAdditionalConfiguration | undefined;
+
+  /**
+   * <p>Indicates the status of the additional configuration that is set for the member
+   *       account.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
+
+  /**
+   * <p>The timestamp at which the additional configuration was set for the member account. This
+   *       is in UTC format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Contains information about the features for the member account.</p>
+ * @public
+ */
+export interface MemberFeaturesConfigurationResult {
+  /**
+   * <p>Indicates the name of the feature that is enabled for the detector.</p>
+   * @public
+   */
+  Name?: OrgFeature | undefined;
+
+  /**
+   * <p>Indicates the status of the feature that is enabled for the detector.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
+
+  /**
+   * <p>The timestamp at which the feature object was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates the additional configuration of the feature that is configured for the member
+   *       account.</p>
+   * @public
+   */
+  AdditionalConfiguration?: MemberAdditionalConfigurationResult[] | undefined;
+}
+
+/**
+ * <p>Contains information on which data sources are enabled for a member account.</p>
+ * @public
+ */
+export interface MemberDataSourceConfiguration {
+  /**
+   * <p>The account ID for the member account.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>Contains information on the status of data sources for the account.</p>
+   *
+   * @deprecated This parameter is deprecated, use Features instead
+   * @public
+   */
+  DataSources?: DataSourceConfigurationsResult | undefined;
+
+  /**
+   * <p>Contains information about the status of the features for the member account.</p>
+   * @public
+   */
+  Features?: MemberFeaturesConfigurationResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMemberDetectorsResponse {
+  /**
+   * <p>An object that describes which data sources are enabled for a member account.</p>
+   * @public
+   */
+  MemberDataSourceConfigurations: MemberDataSourceConfiguration[] | undefined;
+
+  /**
+   * <p>A list of member account IDs that were unable to be processed along with an explanation
+   *       for why they were not processed.</p>
+   * @public
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty account whose members you want to
+   *       retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account IDs of the GuardDuty member accounts that you want to describe.</p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the member account. </p>
+ * @public
+ */
+export interface Member {
+  /**
+   * <p>The ID of the member account.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The detector ID of the member account.</p>
+   * @public
+   */
+  DetectorId?: string | undefined;
+
+  /**
+   * <p>The administrator account ID.</p>
+   * @public
+   */
+  MasterId: string | undefined;
+
+  /**
+   * <p>The email address of the member account.</p>
+   * @public
+   */
+  Email: string | undefined;
+
+  /**
+   * <p>The status of the relationship between the member and the administrator.</p>
+   * @public
+   */
+  RelationshipStatus: string | undefined;
+
+  /**
+   * <p>The timestamp when the invitation was sent.</p>
+   * @public
+   */
+  InvitedAt?: string | undefined;
+
+  /**
+   * <p>The last-updated timestamp of the member.</p>
+   * @public
+   */
+  UpdatedAt: string | undefined;
+
+  /**
+   * <p>The administrator account ID.</p>
+   * @public
+   */
+  AdministratorId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersResponse {
+  /**
+   * <p>A list of members.</p>
+   * @public
+   */
+  Members: Member[] | undefined;
+
+  /**
+   * <p>A list of objects that contain the unprocessed account and a result string that explains
+   *       why it was unprocessed.</p>
+   * @public
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * <p>Information about the coverage
+ *       statistic for the additional
+ *     configuration of the feature.</p>
+ * @public
+ */
+export interface OrganizationFeatureStatisticsAdditionalConfiguration {
+  /**
+   * <p>Name of the additional configuration within a feature.</p>
+   * @public
+   */
+  Name?: OrgFeatureAdditionalConfiguration | undefined;
+
+  /**
+   * <p>Total number of accounts that have enabled the additional
+   *       configuration.</p>
+   * @public
+   */
+  EnabledAccountsCount?: number | undefined;
+}
 
 /**
  * <p>Information about the number of accounts

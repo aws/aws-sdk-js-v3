@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   BedrockAgentRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RetrieveRequest, RetrieveResponse } from "../models/models_0";
+import type { RetrieveRequest, RetrieveResponse } from "../models/models_0";
 import { Retrieve } from "../schemas/schemas_0";
 
 /**
@@ -43,7 +43,12 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * const input = { // RetrieveRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
  *   retrievalQuery: { // KnowledgeBaseQuery
- *     text: "STRING_VALUE", // required
+ *     type: "TEXT" || "IMAGE",
+ *     text: "STRING_VALUE",
+ *     image: { // InputImage
+ *       format: "png" || "jpeg" || "gif" || "webp", // required
+ *       inlineContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
+ *     },
  *   },
  *   retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
  *     vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
@@ -152,9 +157,17 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //   retrievalResults: [ // KnowledgeBaseRetrievalResults // required
  * //     { // KnowledgeBaseRetrievalResult
  * //       content: { // RetrievalResultContent
- * //         type: "TEXT" || "IMAGE" || "ROW",
+ * //         type: "TEXT" || "IMAGE" || "ROW" || "AUDIO" || "VIDEO",
  * //         text: "STRING_VALUE",
  * //         byteContent: "STRING_VALUE",
+ * //         video: { // VideoSegment
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           summary: "STRING_VALUE",
+ * //         },
+ * //         audio: { // AudioSegment
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           transcription: "STRING_VALUE",
+ * //         },
  * //         row: [ // RetrievalResultContentRow
  * //           { // RetrievalResultContentColumn
  * //             columnName: "STRING_VALUE",

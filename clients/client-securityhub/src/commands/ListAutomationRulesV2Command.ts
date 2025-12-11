@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAutomationRulesV2Request, ListAutomationRulesV2Response } from "../models/models_2";
+import type { ListAutomationRulesV2Request, ListAutomationRulesV2Response } from "../models/models_2";
 import { ListAutomationRulesV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface ListAutomationRulesV2CommandInput extends ListAutomationRulesV2
 export interface ListAutomationRulesV2CommandOutput extends ListAutomationRulesV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a list of automation rules and metadata for the calling account. This API is in public preview and subject to change.</p>
+ * <p>Returns a list of automation rules and metadata for the calling account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

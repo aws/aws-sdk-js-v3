@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeCampaign } from "../schemas/schemas_0";
 
 /**
@@ -65,6 +65,9 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //       },
  * //       enableMetadataWithRecommendations: true || false,
  * //       syncWithLatestSolutionVersion: true || false,
+ * //       rankingInfluence: { // RankingInfluence
+ * //         "<keys>": Number("double"),
+ * //       },
  * //     },
  * //     status: "STRING_VALUE",
  * //     failureReason: "STRING_VALUE",
@@ -79,6 +82,9 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //         },
  * //         enableMetadataWithRecommendations: true || false,
  * //         syncWithLatestSolutionVersion: true || false,
+ * //         rankingInfluence: {
+ * //           "<keys>": Number("double"),
+ * //         },
  * //       },
  * //       status: "STRING_VALUE",
  * //       failureReason: "STRING_VALUE",

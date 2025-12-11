@@ -3,11 +3,11 @@ import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPartsOutput, ListPartsRequest } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { ListPartsOutput, ListPartsRequest } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { ListParts } from "../schemas/schemas_0";
 
 /**
@@ -29,14 +29,7 @@ export interface ListPartsCommandInput extends ListPartsRequest {}
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
- *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
- *          </important>
- *          <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
+ * <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
  *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You obtain this
  *       uploadID by sending the initiate multipart upload request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
  *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit of 1,000
@@ -177,7 +170,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * //     DisplayName: "STRING_VALUE",
  * //     ID: "STRING_VALUE",
  * //   },
- * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
+ * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS" || "FSX_ONTAP",
  * //   RequestCharged: "requester",
  * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",

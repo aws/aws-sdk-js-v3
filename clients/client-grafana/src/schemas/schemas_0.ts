@@ -235,7 +235,7 @@ const n0 = "com.amazonaws.grafana";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -256,35 +256,15 @@ import {
 import { GrafanaServiceException as __GrafanaServiceException } from "../models/GrafanaServiceException";
 
 /* eslint no-var: 0 */
-
 export var ApiKeyToken: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var IamRoleArn: StaticSimpleSchema = [0, n0, _IRA, 8, 0];
 export var OrganizationRoleName: StaticSimpleSchema = [0, n0, _ORN, 8, 0];
-export var OverridableConfigurationJson: StaticSimpleSchema = [
-  0,
-  n0,
-  _OCJ,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
+export var OverridableConfigurationJson: StaticSimpleSchema = [0, n0, _OCJ, { [_mT]: _a }, 0];
 export var ServiceAccountTokenKey: StaticSimpleSchema = [0, n0, _SATK, 8, 0];
 export var WorkspaceName: StaticSimpleSchema = [0, n0, _WN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssertionAttributes: StaticStructureSchema = [3, n0, _AA, 0, [_n, _l, _em, _g, _r, _o], [0, 0, 0, 0, 0, 0]];
 export var AssociateLicenseRequest: StaticStructureSchema = [
   3,
@@ -295,12 +275,7 @@ export var AssociateLicenseRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _GT,
-      },
-    ],
+    [0, { [_hH]: _GT }],
   ],
 ];
 export var AssociateLicenseResponse: StaticStructureSchema = [3, n0, _ALRs, 0, [_w], [[() => WorkspaceDescription, 0]]];
@@ -314,19 +289,8 @@ export var AuthenticationDescription: StaticStructureSchema = [
 ];
 export var AuthenticationSummary: StaticStructureSchema = [3, n0, _AS, 0, [_p, _sCS], [64 | 0, 0]];
 export var AwsSsoAuthentication: StaticStructureSchema = [3, n0, _ASA, 0, [_sCI], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateWorkspaceApiKeyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -498,23 +462,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListPermissionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -522,36 +474,11 @@ export var ListPermissionsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _uT, _uI, _gI, _wI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _uT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _uI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _gI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _uT }],
+    [0, { [_hQ]: _uI }],
+    [0, { [_hQ]: _gI }],
     [0, 1],
   ],
 ];
@@ -572,24 +499,9 @@ export var ListVersionsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _wI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _wi,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _wi }],
   ],
 ];
 export var ListVersionsResponse: StaticStructureSchema = [3, n0, _LVRi, 0, [_nT, _gVr], [0, 64 | 0]];
@@ -600,18 +512,8 @@ export var ListWorkspaceServiceAccountsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _wI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -630,18 +532,8 @@ export var ListWorkspaceServiceAccountTokensRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _sAI, _wI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
     [0, 1],
   ],
@@ -661,18 +553,8 @@ export var ListWorkspacesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListWorkspacesResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_wo, _nT], [[() => WorkspaceList, 0], 0]];
@@ -682,15 +564,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RoleValues: StaticStructureSchema = [
   3,
   n0,
@@ -732,40 +610,22 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -774,12 +634,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -849,15 +704,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_sGI, _sI], [64 | 0, 64 | 0]];
 export var WorkspaceDescription: StaticStructureSchema = [
@@ -944,47 +795,33 @@ export var WorkspaceSummary: StaticStructureSchema = [
 ];
 export var GrafanaServiceException: StaticErrorSchema = [-3, _sm, "GrafanaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GrafanaServiceException, __GrafanaServiceException);
-
 export var AllowedOrganizations = 64 | 0;
-
 export var AuthenticationProviders = 64 | 0;
-
 export var DataSourceTypesList = 64 | 0;
-
 export var GrafanaVersionList = 64 | 0;
-
 export var NotificationDestinationsList = 64 | 0;
-
 export var OrganizationalUnitList: StaticListSchema = [1, n0, _OUL, 8, 0];
 export var PermissionEntryList: StaticListSchema = [1, n0, _PEL, 0, () => PermissionEntry];
 export var PrefixListIds = 64 | 0;
-
 export var RoleValueList: StaticListSchema = [1, n0, _RVL, 8, 0];
 export var SecurityGroupIds = 64 | 0;
-
 export var ServiceAccountList: StaticListSchema = [1, n0, _SAL, 0, () => ServiceAccountSummary];
 export var ServiceAccountTokenList: StaticListSchema = [1, n0, _SATL, 0, () => ServiceAccountTokenSummary];
 export var SubnetIds = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var UpdateErrorList: StaticListSchema = [1, n0, _UEL, 0, () => UpdateError];
 export var UpdateInstructionBatch: StaticListSchema = [1, n0, _UIB, 0, () => UpdateInstruction];
 export var UserList: StaticListSchema = [1, n0, _UL, 0, () => User];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VpceIds = 64 | 0;
-
 export var WorkspaceList: StaticListSchema = [1, n0, _WL, 0, [() => WorkspaceSummary, 0]];
 export var TagMap = 128 | 0;
-
 export var IdpMetadata: StaticStructureSchema = [3, n0, _IM, 0, [_ur, _x], [0, 0]];
 export var AssociateLicense: StaticOperationSchema = [
   9,
   n0,
   _AL,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/licenses/{licenseType}", 202],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/licenses/{licenseType}", 202] },
   () => AssociateLicenseRequest,
   () => AssociateLicenseResponse,
 ];
@@ -992,9 +829,7 @@ export var CreateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["POST", "/workspaces", 202],
-  },
+  { [_h]: ["POST", "/workspaces", 202] },
   () => CreateWorkspaceRequest,
   () => CreateWorkspaceResponse,
 ];
@@ -1002,9 +837,7 @@ export var CreateWorkspaceApiKey: StaticOperationSchema = [
   9,
   n0,
   _CWAK,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/apikeys", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/apikeys", 200] },
   () => CreateWorkspaceApiKeyRequest,
   () => CreateWorkspaceApiKeyResponse,
 ];
@@ -1012,9 +845,7 @@ export var CreateWorkspaceServiceAccount: StaticOperationSchema = [
   9,
   n0,
   _CWSA,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/serviceaccounts", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/serviceaccounts", 200] },
   () => CreateWorkspaceServiceAccountRequest,
   () => CreateWorkspaceServiceAccountResponse,
 ];
@@ -1022,9 +853,7 @@ export var CreateWorkspaceServiceAccountToken: StaticOperationSchema = [
   9,
   n0,
   _CWSAT,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens", 200] },
   () => CreateWorkspaceServiceAccountTokenRequest,
   () => CreateWorkspaceServiceAccountTokenResponse,
 ];
@@ -1032,9 +861,7 @@ export var DeleteWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}", 202] },
   () => DeleteWorkspaceRequest,
   () => DeleteWorkspaceResponse,
 ];
@@ -1042,9 +869,7 @@ export var DeleteWorkspaceApiKey: StaticOperationSchema = [
   9,
   n0,
   _DWAK,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/apikeys/{keyName}", 200],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/apikeys/{keyName}", 200] },
   () => DeleteWorkspaceApiKeyRequest,
   () => DeleteWorkspaceApiKeyResponse,
 ];
@@ -1052,9 +877,7 @@ export var DeleteWorkspaceServiceAccount: StaticOperationSchema = [
   9,
   n0,
   _DWSA,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}", 200],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}", 200] },
   () => DeleteWorkspaceServiceAccountRequest,
   () => DeleteWorkspaceServiceAccountResponse,
 ];
@@ -1062,9 +885,7 @@ export var DeleteWorkspaceServiceAccountToken: StaticOperationSchema = [
   9,
   n0,
   _DWSAT,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens/{tokenId}", 200],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens/{tokenId}", 200] },
   () => DeleteWorkspaceServiceAccountTokenRequest,
   () => DeleteWorkspaceServiceAccountTokenResponse,
 ];
@@ -1072,9 +893,7 @@ export var DescribeWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DWe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}", 200] },
   () => DescribeWorkspaceRequest,
   () => DescribeWorkspaceResponse,
 ];
@@ -1082,9 +901,7 @@ export var DescribeWorkspaceAuthentication: StaticOperationSchema = [
   9,
   n0,
   _DWA,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/authentication", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/authentication", 200] },
   () => DescribeWorkspaceAuthenticationRequest,
   () => DescribeWorkspaceAuthenticationResponse,
 ];
@@ -1092,9 +909,7 @@ export var DescribeWorkspaceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DWC,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/configuration", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/configuration", 200] },
   () => DescribeWorkspaceConfigurationRequest,
   () => DescribeWorkspaceConfigurationResponse,
 ];
@@ -1102,9 +917,7 @@ export var DisassociateLicense: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/licenses/{licenseType}", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/licenses/{licenseType}", 202] },
   () => DisassociateLicenseRequest,
   () => DisassociateLicenseResponse,
 ];
@@ -1112,9 +925,7 @@ export var ListPermissions: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/permissions", 200] },
   () => ListPermissionsRequest,
   () => ListPermissionsResponse,
 ];
@@ -1122,9 +933,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1132,9 +941,7 @@ export var ListVersions: StaticOperationSchema = [
   9,
   n0,
   _LV,
-  {
-    [_h]: ["GET", "/versions", 200],
-  },
+  { [_h]: ["GET", "/versions", 200] },
   () => ListVersionsRequest,
   () => ListVersionsResponse,
 ];
@@ -1142,9 +949,7 @@ export var ListWorkspaces: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["GET", "/workspaces", 200],
-  },
+  { [_h]: ["GET", "/workspaces", 200] },
   () => ListWorkspacesRequest,
   () => ListWorkspacesResponse,
 ];
@@ -1152,9 +957,7 @@ export var ListWorkspaceServiceAccounts: StaticOperationSchema = [
   9,
   n0,
   _LWSA,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/serviceaccounts", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/serviceaccounts", 200] },
   () => ListWorkspaceServiceAccountsRequest,
   () => ListWorkspaceServiceAccountsResponse,
 ];
@@ -1162,9 +965,7 @@ export var ListWorkspaceServiceAccountTokens: StaticOperationSchema = [
   9,
   n0,
   _LWSAT,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens", 200] },
   () => ListWorkspaceServiceAccountTokensRequest,
   () => ListWorkspaceServiceAccountTokensResponse,
 ];
@@ -1172,9 +973,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1182,9 +981,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1192,9 +989,7 @@ export var UpdatePermissions: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PATCH", "/workspaces/{workspaceId}/permissions", 200],
-  },
+  { [_h]: ["PATCH", "/workspaces/{workspaceId}/permissions", 200] },
   () => UpdatePermissionsRequest,
   () => UpdatePermissionsResponse,
 ];
@@ -1202,9 +997,7 @@ export var UpdateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}", 202] },
   () => UpdateWorkspaceRequest,
   () => UpdateWorkspaceResponse,
 ];
@@ -1212,9 +1005,7 @@ export var UpdateWorkspaceAuthentication: StaticOperationSchema = [
   9,
   n0,
   _UWA,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/authentication", 200],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/authentication", 200] },
   () => UpdateWorkspaceAuthenticationRequest,
   () => UpdateWorkspaceAuthenticationResponse,
 ];
@@ -1222,9 +1013,7 @@ export var UpdateWorkspaceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UWC,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/configuration", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/configuration", 202] },
   () => UpdateWorkspaceConfigurationRequest,
   () => UpdateWorkspaceConfigurationResponse,
 ];

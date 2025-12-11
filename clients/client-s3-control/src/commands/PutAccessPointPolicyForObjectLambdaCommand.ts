@@ -2,11 +2,11 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutAccessPointPolicyForObjectLambdaRequest } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { PutAccessPointPolicyForObjectLambdaRequest } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { PutAccessPointPolicyForObjectLambda } from "../schemas/schemas_0";
 
 /**
@@ -46,9 +46,6 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  *                </p>
  *             </li>
  *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

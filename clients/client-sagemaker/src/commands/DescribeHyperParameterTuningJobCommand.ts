@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeHyperParameterTuningJobRequest, DescribeHyperParameterTuningJobResponse } from "../models/models_2";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type {
+  DescribeHyperParameterTuningJobRequest,
+  DescribeHyperParameterTuningJobResponse,
+} from "../models/models_2";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeHyperParameterTuningJob } from "../schemas/schemas_0";
 
 /**
@@ -187,6 +190,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //             FileSystemType: "EFS" || "FSxLustre", // required
  * //             DirectoryPath: "STRING_VALUE", // required
  * //           },
+ * //           DatasetSource: { // DatasetSource
+ * //             DatasetArn: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         ContentType: "STRING_VALUE",
  * //         CompressionType: "None" || "Gzip",
@@ -347,6 +353,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //               FileSystemAccessMode: "rw" || "ro", // required
  * //               FileSystemType: "EFS" || "FSxLustre", // required
  * //               DirectoryPath: "STRING_VALUE", // required
+ * //             },
+ * //             DatasetSource: {
+ * //               DatasetArn: "STRING_VALUE", // required
  * //             },
  * //           },
  * //           ContentType: "STRING_VALUE",

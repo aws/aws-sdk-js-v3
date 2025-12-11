@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { AwsJson1_0Protocol } from "@aws-sdk/core/protocols";
+import { DynamoDBJsonCodec } from "@aws-sdk/dynamodb-codec";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultDynamoDBHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { DynamoDBClientConfig } from "./DynamoDBClient";
+import type { DynamoDBClientConfig } from "./DynamoDBClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**
@@ -37,6 +38,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
         defaultNamespace: "com.amazonaws.dynamodb",
         serviceTarget: "DynamoDB_20120810",
         awsQueryCompatible: false,
+        jsonCodec: new DynamoDBJsonCodec(),
       }),
     serviceId: config?.serviceId ?? "DynamoDB",
     urlParser: config?.urlParser ?? parseUrl,

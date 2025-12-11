@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetMetricDataCommand,
@@ -523,7 +523,7 @@ import {
   UpdateReputationEntityPolicyCommandInput,
   UpdateReputationEntityPolicyCommandOutput,
 } from "./commands/UpdateReputationEntityPolicyCommand";
-import { SESv2Client, SESv2ClientConfig } from "./SESv2Client";
+import { SESv2Client } from "./SESv2Client";
 
 const commands = {
   BatchGetMetricDataCommand,

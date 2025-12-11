@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { APIGatewayClient, APIGatewayClientConfig } from "./APIGatewayClient";
+import { APIGatewayClient } from "./APIGatewayClient";
 import { GetRestApisCommand, GetRestApisCommandInput, GetRestApisCommandOutput } from "./commands/GetRestApisCommand";
 
 const commands = {

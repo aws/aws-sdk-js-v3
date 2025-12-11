@@ -608,7 +608,7 @@ const n0 = "com.amazonaws.comprehend";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -637,7 +637,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var CustomerInputString: StaticSimpleSchema = [0, n0, _CIS, 8, 0];
 export var AugmentedManifestsListItem: StaticStructureSchema = [
   3,
@@ -792,19 +791,8 @@ export var BatchDetectTargetedSentimentResponse: StaticStructureSchema = [
   [() => ListOfDetectTargetedSentimentResult, () => BatchItemErrorList],
 ];
 export var BatchItemError: StaticStructureSchema = [3, n0, _BIE, 0, [_I, _EC, _EM], [1, 0, 0]];
-export var BatchSizeLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BatchSizeLimitExceededException: StaticErrorSchema = [-3, n0, _BSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BatchSizeLimitExceededException, __BatchSizeLimitExceededException);
-
 export var Block: StaticStructureSchema = [
   3,
   n0,
@@ -862,19 +850,8 @@ export var ClassifyDocumentResponse: StaticStructureSchema = [
     () => ListOfWarnings,
   ],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var ContainsPiiEntitiesRequest: StaticStructureSchema = [3, n0, _CPER, 0, [_T, _LC], [0, 0]];
 export var ContainsPiiEntitiesResponse: StaticStructureSchema = [3, n0, _CPERo, 0, [_La], [() => ListOfEntityLabels]];
 export var CreateDatasetRequest: StaticStructureSchema = [
@@ -1476,59 +1453,22 @@ export var InputDataConfig: StaticStructureSchema = [
   [_SU, _IF, _DRC],
   [0, 0, () => DocumentReaderConfig],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidFilterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidFilterException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidFilterException, __InvalidFilterException);
-
 export var InvalidRequestDetail: StaticStructureSchema = [3, n0, _IRD, 0, [_Rea], [0]];
 export var InvalidRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _De],
   [0, 0, () => InvalidRequestDetail],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var JobNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _JNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var JobNotFoundException: StaticErrorSchema = [-3, n0, _JNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(JobNotFoundException, __JobNotFoundException);
-
 export var KeyPhrase: StaticStructureSchema = [3, n0, _KPe, 0, [_Sc, _T, _BO, _EO], [1, 0, 1, 1]];
 export var KeyPhrasesDetectionJobFilter: StaticStructureSchema = [
   3,
@@ -1546,19 +1486,8 @@ export var KeyPhrasesDetectionJobProperties: StaticStructureSchema = [
   [_JI, _JA, _JN, _JS, _M, _STu, _ET, _IDC, _ODC, _LC, _DARA, _VKKI, _VC],
   [0, 0, 0, 0, 0, 4, 4, () => InputDataConfig, () => OutputDataConfig, 0, 0, 0, () => VpcConfig],
 ];
-export var KmsKeyValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KKVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var KmsKeyValidationException: StaticErrorSchema = [-3, n0, _KKVE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(KmsKeyValidationException, __KmsKeyValidationException);
-
 export var ListDatasetsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1845,58 +1774,14 @@ export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [
 export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [_PRI], [0]];
 export var RedactionConfig: StaticStructureSchema = [3, n0, _RC, 0, [_PET, _MM, _MC], [64 | 0, 0, 0]];
 export var RelationshipsListItem: StaticStructureSchema = [3, n0, _RLI, 0, [_Ids, _Ty], [64 | 0, 0]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RUE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceUnavailableException: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
 export var SentimentDetectionJobFilter: StaticStructureSchema = [3, n0, _SDJF, 0, [_JN, _JS, _STB, _STA], [0, 0, 4, 4]];
 export var SentimentDetectionJobProperties: StaticStructureSchema = [
   3,
@@ -2109,58 +1994,14 @@ export var TaskConfig: StaticStructureSchema = [
   [0, () => DocumentClassificationConfig, () => EntityRecognitionConfig],
 ];
 export var TextSegment: StaticStructureSchema = [3, n0, _TSe, 0, [_T], [[() => CustomerInputString, 0]]];
-export var TextSizeLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TextSizeLimitExceededException: StaticErrorSchema = [-3, n0, _TSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TextSizeLimitExceededException, __TextSizeLimitExceededException);
-
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var TooManyTagKeysException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTKE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TooManyTagKeysException: StaticErrorSchema = [-3, n0, _TMTKE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagKeysException, __TooManyTagKeysException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TopicsDetectionJobFilter: StaticStructureSchema = [3, n0, _TDJF, 0, [_JN, _JS, _STB, _STA], [0, 0, 4, 4]];
 export var TopicsDetectionJobProperties: StaticStructureSchema = [
   3,
@@ -2172,19 +2013,8 @@ export var TopicsDetectionJobProperties: StaticStructureSchema = [
 ];
 export var ToxicContent: StaticStructureSchema = [3, n0, _TCo, 0, [_N, _Sc], [0, 1]];
 export var ToxicLabels: StaticStructureSchema = [3, n0, _TLo, 0, [_La, _Tox], [() => ListOfToxicContent, 1]];
-export var UnsupportedLanguageException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ULE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedLanguageException: StaticErrorSchema = [-3, n0, _ULE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedLanguageException, __UnsupportedLanguageException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateDataSecurityConfig: StaticStructureSchema = [
@@ -2215,13 +2045,9 @@ export var UpdateFlywheelRequest: StaticStructureSchema = [
 export var UpdateFlywheelResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_FP], [() => FlywheelProperties]];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SGI, _Su], [64 | 0, 64 | 0]];
 export var WarningsListItem: StaticStructureSchema = [3, n0, _WLI, 0, [_P, _WC, _WM], [1, 0, 0]];
-export var __Unit = "unit" as const;
-
 export var ComprehendServiceException: StaticErrorSchema = [-3, _sm, "ComprehendServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ComprehendServiceException, __ComprehendServiceException);
-
 export var AttributeNamesList = 64 | 0;
-
 export var BatchItemErrorList: StaticListSchema = [1, n0, _BIEL, 0, () => BatchItemError];
 export var CustomerInputStringList: StaticListSchema = [1, n0, _CISL, 8, [() => CustomerInputString, 0]];
 export var DatasetAugmentedManifestsList: StaticListSchema = [1, n0, _DAML, 0, () => DatasetAugmentedManifestsListItem];
@@ -2291,13 +2117,11 @@ export var KeyPhrasesDetectionJobPropertiesList: StaticListSchema = [
   () => KeyPhrasesDetectionJobProperties,
 ];
 export var LabelsList = 64 | 0;
-
 export var ListOfBlockReferences: StaticListSchema = [1, n0, _LOBR, 0, () => BlockReference];
 export var ListOfBlocks: StaticListSchema = [1, n0, _LOB, 0, () => Block];
 export var ListOfChildBlocks: StaticListSchema = [1, n0, _LOCB, 0, () => ChildBlock];
 export var ListOfClasses: StaticListSchema = [1, n0, _LOC, 0, () => DocumentClass];
 export var ListOfDescriptiveMentionIndices = 64 | 1;
-
 export var ListOfDetectDominantLanguageResult: StaticListSchema = [
   1,
   n0,
@@ -2317,7 +2141,6 @@ export var ListOfDetectTargetedSentimentResult: StaticListSchema = [
   () => BatchDetectTargetedSentimentItemResult,
 ];
 export var ListOfDocumentReadFeatureTypes = 64 | 0;
-
 export var ListOfDocumentType: StaticListSchema = [1, n0, _LODT, 0, () => DocumentTypeListItem];
 export var ListOfDominantLanguages: StaticListSchema = [1, n0, _LODL, 0, () => DominantLanguage];
 export var ListOfEntities: StaticListSchema = [1, n0, _LOE, 0, () => Entity];
@@ -2329,7 +2152,6 @@ export var ListOfLabels: StaticListSchema = [1, n0, _LOL, 0, () => DocumentLabel
 export var ListOfMentions: StaticListSchema = [1, n0, _LOM, 0, () => TargetedSentimentMention];
 export var ListOfPiiEntities: StaticListSchema = [1, n0, _LOPE, 0, () => PiiEntity];
 export var ListOfPiiEntityTypes = 64 | 0;
-
 export var ListOfRelationships: StaticListSchema = [1, n0, _LOR, 0, () => RelationshipsListItem];
 export var ListOfSyntaxTokens: StaticListSchema = [1, n0, _LOST, 0, () => SyntaxToken];
 export var ListOfTargetedSentimentEntities: StaticListSchema = [1, n0, _LOTSE, 0, () => TargetedSentimentEntity];
@@ -2346,7 +2168,6 @@ export var PiiEntitiesDetectionJobPropertiesList: StaticListSchema = [
 ];
 export var Polygon: StaticListSchema = [1, n0, _Po, 0, () => Point];
 export var SecurityGroupIds = 64 | 0;
-
 export var SentimentDetectionJobPropertiesList: StaticListSchema = [
   1,
   n0,
@@ -2355,11 +2176,8 @@ export var SentimentDetectionJobPropertiesList: StaticListSchema = [
   () => SentimentDetectionJobProperties,
 ];
 export var StringList = 64 | 0;
-
 export var Subnets = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
 export var TargetedSentimentDetectionJobPropertiesList: StaticListSchema = [
   1,
@@ -2369,7 +2187,6 @@ export var TargetedSentimentDetectionJobPropertiesList: StaticListSchema = [
   () => TargetedSentimentDetectionJobProperties,
 ];
 export var TargetEventTypes = 64 | 0;
-
 export var TopicsDetectionJobPropertiesList: StaticListSchema = [1, n0, _TDJPL, 0, () => TopicsDetectionJobProperties];
 export var BatchDetectDominantLanguage: StaticOperationSchema = [
   9,

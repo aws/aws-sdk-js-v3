@@ -4253,6 +4253,8 @@ export interface ScanStatus {
    *          Once the instance becomes managed by SSM, Inspector will automatically begin scanning this
    *          instance. </p>
    *          <p>
+   *             <code>UNSUPPORTED_CODE_ARTIFACTS </code> - The function was not scanned because it has an unsupported code artifacts.</p>
+   *          <p>
    *             <code>UNSUPPORTED_CONFIG_FILE</code> - Reserved for future use.</p>
    *          <p>
    *             <code>UNSUPPORTED_LANGUAGE</code> - The scan was unsuccessful because the repository

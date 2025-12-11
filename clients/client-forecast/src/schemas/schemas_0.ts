@@ -420,7 +420,7 @@ const n0 = "com.amazonaws.forecast";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -440,7 +440,6 @@ import {
 import { ForecastServiceException as __ForecastServiceException } from "../models/ForecastServiceException";
 
 /* eslint no-var: 0 */
-
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var Action: StaticStructureSchema = [3, n0, _A, 0, [_AN, _O, _V], [0, 0, 1]];
@@ -897,45 +896,12 @@ export var GetAccuracyMetricsResponse: StaticStructureSchema = [
 export var HyperParameterTuningJobConfig: StaticStructureSchema = [3, n0, _HPTJC, 0, [_PR], [() => ParameterRanges]];
 export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_DGA, _SF], [0, () => SupplementaryFeatures]];
 export var IntegerParameterRange: StaticStructureSchema = [3, n0, _IPR, 0, [_N, _MV, _MVi, _ST], [0, 1, 1, 0]];
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListDatasetGroupsRequest: StaticStructureSchema = [3, n0, _LDGR, 0, [_NT, _MR], [0, 1]];
 export var ListDatasetGroupsResponse: StaticStructureSchema = [3, n0, _LDGRi, 0, [_DG, _NT], [() => DatasetGroups, 0]];
 export var ListDatasetImportJobsRequest: StaticStructureSchema = [
@@ -1142,45 +1108,12 @@ export var PredictorSummary: StaticStructureSchema = [
   [0, 0, 0, 2, () => ReferencePredictorSummary, 0, 0, 4, 4],
 ];
 export var ReferencePredictorSummary: StaticStructureSchema = [3, n0, _RPS, 0, [_Ar, _Sta], [0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResumeResourceRequest: StaticStructureSchema = [3, n0, _RRR, 0, [_RA], [0]];
 export var S3Config: StaticStructureSchema = [3, n0, _SC, 0, [_Pa, _RAo, _KMSKA], [0, 0, 0]];
 export var Schema: StaticStructureSchema = [3, n0, _S, 0, [_At], [() => SchemaAttributes]];
@@ -1274,13 +1207,10 @@ export var WindowSummary: StaticStructureSchema = [
   [4, 4, 1, 0, () => Metrics],
 ];
 export var __Unit = "unit" as const;
-
 export var ForecastServiceException: StaticErrorSchema = [-3, _s, "ForecastServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(ForecastServiceException, __ForecastServiceException);
-
 export var AdditionalDatasets: StaticListSchema = [1, n0, _ADd, 0, () => AdditionalDataset];
 export var ArnList = 64 | 0;
-
 export var AttributeConfigs: StaticListSchema = [1, n0, _ACt, 0, () => AttributeConfig];
 export var BaselineMetrics: StaticListSchema = [1, n0, _BMa, 0, () => BaselineMetric];
 export var CategoricalParameterRanges: StaticListSchema = [1, n0, _CPRa, 0, () => CategoricalParameterRange];
@@ -1295,14 +1225,11 @@ export var FeaturizationPipeline: StaticListSchema = [1, n0, _FP, 0, () => Featu
 export var Featurizations: StaticListSchema = [1, n0, _Fea, 0, () => Featurization];
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter];
 export var ForecastDimensions = 64 | 0;
-
 export var ForecastExportJobs: StaticListSchema = [1, n0, _FEJ, 0, () => ForecastExportJobSummary];
 export var Forecasts: StaticListSchema = [1, n0, _Fo, 0, () => ForecastSummary];
 export var ForecastTypes = 64 | 0;
-
 export var IntegerParameterRanges: StaticListSchema = [1, n0, _IPRn, 0, () => IntegerParameterRange];
 export var LongArnList = 64 | 0;
-
 export var MetricResults: StaticListSchema = [1, n0, _MRet, 0, () => MetricResult];
 export var Monitors: StaticListSchema = [1, n0, _Mo, 0, () => MonitorSummary];
 export var PredictorBacktestExportJobs: StaticListSchema = [1, n0, _PBEJ, 0, () => PredictorBacktestExportJobSummary];
@@ -1319,21 +1246,16 @@ export var TestWindows: StaticListSchema = [1, n0, _TW, 0, () => WindowSummary];
 export var TimeSeriesConditions: StaticListSchema = [1, n0, _TSCi, 0, () => TimeSeriesCondition];
 export var TimeSeriesTransformations: StaticListSchema = [1, n0, _TST, 0, () => TimeSeriesTransformation];
 export var Values = 64 | 0;
-
 export var WeightedQuantileLosses: StaticListSchema = [1, n0, _WQL, 0, () => WeightedQuantileLoss];
 export var WhatIfAnalyses: StaticListSchema = [1, n0, _WIA, 0, () => WhatIfAnalysisSummary];
 export var WhatIfForecastArnListForExport = 64 | 0;
-
 export var WhatIfForecastExports: StaticListSchema = [1, n0, _WIFE, 0, () => WhatIfForecastExportSummary];
 export var WhatIfForecasts: StaticListSchema = [1, n0, _WIF, 0, () => WhatIfForecastSummary];
 export var Configuration: StaticMapSchema = [2, n0, _C, 0, 0, 64 | 0];
 export var FeaturizationMethodParameters = 128 | 0;
-
 export var FieldStatistics: StaticMapSchema = [2, n0, _FS, 0, 0, () => Statistics];
 export var TrainingParameters = 128 | 0;
-
 export var Transformations = 128 | 0;
-
 export var CreateAutoPredictor: StaticOperationSchema = [
   9,
   n0,

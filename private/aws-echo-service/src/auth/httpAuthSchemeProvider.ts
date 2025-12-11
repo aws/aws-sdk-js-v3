@@ -1,6 +1,5 @@
 // smithy-typescript generated code
-import { EchoServiceClientResolvedConfig } from "../EchoServiceClient";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -10,6 +9,8 @@ import {
   Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
+
+import type { EchoServiceClientResolvedConfig } from "../EchoServiceClient";
 
 /**
  * @internal

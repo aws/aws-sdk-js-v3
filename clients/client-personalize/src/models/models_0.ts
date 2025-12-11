@@ -5,6 +5,7 @@ import {
   ImportMode,
   IngestionMode,
   ObjectiveSensitivity,
+  RankingInfluenceType,
   RecipeProvider,
   TrainingMode,
   TrainingType,
@@ -224,6 +225,12 @@ export interface BatchInferenceJobConfig {
    * @public
    */
   itemExplorationConfig?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of ranking influence values for POPULARITY and FRESHNESS. For each key, specify a numerical value between 0.0 and 1.0 that determines how much influence that ranking factor has on the final recommendations. A value closer to 1.0 gives more weight to the factor, while a value closer to 0.0 reduces its influence.</p>
+   * @public
+   */
+  rankingInfluence?: Partial<Record<RankingInfluenceType, number>> | undefined;
 }
 
 /**
@@ -534,6 +541,12 @@ export interface CampaignConfig {
    * @public
    */
   syncWithLatestSolutionVersion?: boolean | undefined;
+
+  /**
+   * <p>A map of ranking influence values for POPULARITY and FRESHNESS. For each key, specify a numerical value between 0.0 and 1.0 that determines how much influence that ranking factor has on the final recommendations. A value closer to 1.0 gives more weight to the factor, while a value closer to 0.0 reduces its influence. </p>
+   * @public
+   */
+  rankingInfluence?: Partial<Record<RankingInfluenceType, number>> | undefined;
 }
 
 /**
@@ -892,7 +905,7 @@ export interface CreateDatasetImportJobRequest {
    *       data source.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the dataset import job.</p>
@@ -1120,6 +1133,12 @@ export interface TrainingDataConfig {
    * @public
    */
   excludedDatasetColumns?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>A map that specifies which columns to include from each dataset during training. The map can contain up to 3 entries, where each key is a dataset name (maximum length of 256 characters, must contain only letters and underscores) and each value is an array of up to 50 column names. Column names can be up to 150 characters long, must start with a letter or underscore, and can contain only letters, numbers, and underscores.</p>
+   * @public
+   */
+  includedDatasetColumns?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1633,6 +1652,12 @@ export interface CreateSolutionRequest {
    * @public
    */
   performAutoTraining?: boolean | undefined;
+
+  /**
+   * <p>Whether to perform incremental training updates on your model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe.</p>
+   * @public
+   */
+  performIncrementalUpdate?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe to use for model training. This is required when
@@ -2260,8 +2285,11 @@ export interface Campaign {
   lastUpdatedDateTime?: Date | undefined;
 
   /**
-   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
-   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
+   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
+   *          <note>
+   *             <p>The <code>latestCampaignUpdate</code> field is only returned when the campaign has had
+   *         at least one <code>UpdateCampaign</code> call. </p>
+   *          </note>
    * @public
    */
   latestCampaignUpdate?: CampaignUpdateSummary | undefined;
@@ -2272,7 +2300,15 @@ export interface Campaign {
  */
 export interface DescribeCampaignResponse {
   /**
-   * <p>The properties of the campaign.</p>
+   * <note>
+   *             <p>The <code>latestCampaignUpdate</code> field is only returned when the campaign has had
+   *         at least one <code>UpdateCampaign</code> call. </p>
+   *          </note>
+   *          <p>The properties of the campaign.</p>
+   *          <note>
+   *             <p>The <code>latestCampaignUpdate</code> field is only returned when the campaign has had
+   *         at least one <code>UpdateCampaign</code> call.</p>
+   *          </note>
    * @public
    */
   campaign?: Campaign | undefined;
@@ -3600,6 +3636,12 @@ export interface SolutionUpdateSummary {
   performAutoTraining?: boolean | undefined;
 
   /**
+   * <p>A Boolean value that indicates whether incremental training updates are performed on the model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe.</p>
+   * @public
+   */
+  performIncrementalUpdate?: boolean | undefined;
+
+  /**
    * <p>The date and time (in Unix format) that the solution update was created.</p>
    * @public
    */
@@ -3732,6 +3774,12 @@ export interface Solution {
    * @public
    */
   performAutoTraining?: boolean | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether incremental training updates are performed on the model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe</p>
+   * @public
+   */
+  performIncrementalUpdate?: boolean | undefined;
 
   /**
    * <p>The ARN of the recipe used to create the solution. This is required when
@@ -3877,6 +3925,15 @@ export interface SolutionVersion {
    * @public
    */
   performAutoML?: boolean | undefined;
+
+  /**
+   * <p>Whether the solution version should perform an incremental update. When set to true,
+   *       the training will process only the data that has changed since the latest training, similar
+   *       to when trainingMode is set to UPDATE. This can only be used with solution versions that
+   *       use the User-Personalization recipe.</p>
+   * @public
+   */
+  performIncrementalUpdate?: boolean | undefined;
 
   /**
    * <p>The ARN of the recipe used in the solution.</p>
@@ -5840,6 +5897,12 @@ export interface UpdateSolutionRequest {
    * @public
    */
   performAutoTraining?: boolean | undefined;
+
+  /**
+   * <p>Whether to perform incremental training updates on your model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe.</p>
+   * @public
+   */
+  performIncrementalUpdate?: boolean | undefined;
 
   /**
    * <p>The new configuration details of the solution.</p>

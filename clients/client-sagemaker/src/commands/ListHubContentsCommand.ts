@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHubContentsRequest, ListHubContentsResponse } from "../models/models_3";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { ListHubContentsRequest, ListHubContentsResponse } from "../models/models_3";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListHubContents } from "../schemas/schemas_0";
 
 /**
@@ -38,7 +38,7 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * const client = new SageMakerClient(config);
  * const input = { // ListHubContentsRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   NameContains: "STRING_VALUE",
  *   MaxSchemaVersion: "STRING_VALUE",
  *   CreationTimeBefore: new Date("TIMESTAMP"),
@@ -57,7 +57,7 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * //       HubContentArn: "STRING_VALUE", // required
  * //       SageMakerPublicHubContentArn: "STRING_VALUE",
  * //       HubContentVersion: "STRING_VALUE", // required
- * //       HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ * //       HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
@@ -65,7 +65,7 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
- * //       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
+ * //       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed" || "PendingImport" || "PendingDelete", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       OriginalCreationTime: new Date("TIMESTAMP"),
  * //     },

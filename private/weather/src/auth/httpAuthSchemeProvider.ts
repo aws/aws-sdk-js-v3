@@ -1,24 +1,25 @@
 // smithy-typescript generated code
-import { WeatherClientResolvedConfig } from "../WeatherClient";
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
+  type HandlerExecutionContext,
+  type HttpAuthOption,
+  type HttpAuthScheme,
+  type HttpAuthSchemeParameters,
+  type HttpAuthSchemeParametersProvider,
+  type HttpAuthSchemeProvider,
+  type Provider,
   ApiKeyIdentity,
   ApiKeyIdentityProvider,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
-  HandlerExecutionContext,
   HttpApiKeyAuthLocation,
-  HttpAuthOption,
-  HttpAuthScheme,
-  HttpAuthSchemeParameters,
-  HttpAuthSchemeParametersProvider,
-  HttpAuthSchemeProvider,
-  Provider,
+  Provider as __Provider,
   TokenIdentity,
   TokenIdentityProvider,
-  Provider as __Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
+
+import type { WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @internal
@@ -189,7 +190,6 @@ export interface HttpAuthSchemeInputConfig {
    * @internal
    */
   httpAuthSchemeProvider?: WeatherHttpAuthSchemeProvider;
-
   /**
    * The API key to use when making requests.
    */
@@ -231,7 +231,6 @@ export interface HttpAuthSchemeResolvedConfig {
    * @internal
    */
   readonly httpAuthSchemeProvider: WeatherHttpAuthSchemeProvider;
-
   /**
    * The API key to use when making requests.
    */

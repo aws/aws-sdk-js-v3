@@ -548,7 +548,7 @@ const n0 = "com.amazonaws.codedeploy";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -671,7 +671,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AddTagsToOnPremisesInstancesInput: StaticStructureSchema = [
   3,
   n0,
@@ -682,42 +681,12 @@ export var AddTagsToOnPremisesInstancesInput: StaticStructureSchema = [
 ];
 export var Alarm: StaticStructureSchema = [3, n0, _A, 0, [_n], [0]];
 export var AlarmConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_e, _iPAF, _a], [2, 2, () => AlarmList]];
-export var AlarmsLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AlarmsLimitExceededException: StaticErrorSchema = [-3, n0, _ALEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AlarmsLimitExceededException, __AlarmsLimitExceededException);
-
-export var ApplicationAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AAEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ApplicationAlreadyExistsException: StaticErrorSchema = [-3, n0, _AAEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ApplicationAlreadyExistsException, __ApplicationAlreadyExistsException);
-
-export var ApplicationDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ApplicationDoesNotExistException: StaticErrorSchema = [-3, n0, _ADNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ApplicationDoesNotExistException, __ApplicationDoesNotExistException);
-
 export var ApplicationInfo: StaticStructureSchema = [
   3,
   n0,
@@ -726,43 +695,13 @@ export var ApplicationInfo: StaticStructureSchema = [
   [_aI, _aN, _cT, _lTGH, _gHAN, _cP],
   [0, 0, 4, 2, 0, 0],
 ];
-export var ApplicationLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALEEp,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ApplicationLimitExceededException: StaticErrorSchema = [-3, n0, _ALEEp, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ApplicationLimitExceededException, __ApplicationLimitExceededException);
-
-export var ApplicationNameRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ApplicationNameRequiredException: StaticErrorSchema = [-3, n0, _ANRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ApplicationNameRequiredException, __ApplicationNameRequiredException);
-
 export var AppSpecContent: StaticStructureSchema = [3, n0, _ASC, 0, [_co, _s], [0, 0]];
-export var ArnNotSupportedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ArnNotSupportedException: StaticErrorSchema = [-3, n0, _ANSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ArnNotSupportedException, __ArnNotSupportedException);
-
 export var AutoRollbackConfiguration: StaticStructureSchema = [3, n0, _ARC, 0, [_e, _ev], [2, 64 | 0]];
 export var AutoScalingGroup: StaticStructureSchema = [3, n0, _ASG, 0, [_n, _h, _tH], [0, 0, 0]];
 export var BatchGetApplicationRevisionsInput: StaticStructureSchema = [
@@ -821,18 +760,8 @@ export var BatchGetOnPremisesInstancesOutput: StaticStructureSchema = [
   [_iIn],
   [() => InstanceInfoList],
 ];
-export var BatchLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var BatchLimitExceededException: StaticErrorSchema = [-3, n0, _BLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BatchLimitExceededException, __BatchLimitExceededException);
-
 export var BlueGreenDeploymentConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -842,18 +771,8 @@ export var BlueGreenDeploymentConfiguration: StaticStructureSchema = [
   [() => BlueInstanceTerminationOption, () => DeploymentReadyOption, () => GreenFleetProvisioningOption],
 ];
 export var BlueInstanceTerminationOption: StaticStructureSchema = [3, n0, _BITO, 0, [_ac, _tWTIM], [0, 1]];
-export var BucketNameFilterRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BNFRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var BucketNameFilterRequiredException: StaticErrorSchema = [-3, n0, _BNFRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BucketNameFilterRequiredException, __BucketNameFilterRequiredException);
-
 export var CloudFormationTarget: StaticStructureSchema = [
   3,
   n0,
@@ -939,42 +858,12 @@ export var DeleteGitHubAccountTokenInput: StaticStructureSchema = [3, n0, _DGHAT
 export var DeleteGitHubAccountTokenOutput: StaticStructureSchema = [3, n0, _DGHATO, 0, [_tN], [0]];
 export var DeleteResourcesByExternalIdInput: StaticStructureSchema = [3, n0, _DRBEII, 0, [_eI], [0]];
 export var DeleteResourcesByExternalIdOutput: StaticStructureSchema = [3, n0, _DRBEIO, 0, [], []];
-export var DeploymentAlreadyCompletedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DACE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentAlreadyCompletedException: StaticErrorSchema = [-3, n0, _DACE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentAlreadyCompletedException, __DeploymentAlreadyCompletedException);
-
-export var DeploymentConfigAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCAEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentConfigAlreadyExistsException: StaticErrorSchema = [-3, n0, _DCAEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentConfigAlreadyExistsException, __DeploymentConfigAlreadyExistsException);
-
-export var DeploymentConfigDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentConfigDoesNotExistException: StaticErrorSchema = [-3, n0, _DCDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentConfigDoesNotExistException, __DeploymentConfigDoesNotExistException);
-
 export var DeploymentConfigInfo: StaticStructureSchema = [
   3,
   n0,
@@ -983,78 +872,18 @@ export var DeploymentConfigInfo: StaticStructureSchema = [
   [_dCI, _dCN, _mHH, _cT, _cP, _tRC, _zC],
   [0, 0, () => MinimumHealthyHosts, 4, 0, () => TrafficRoutingConfig, () => ZonalConfig],
 ];
-export var DeploymentConfigInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCIUE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentConfigInUseException: StaticErrorSchema = [-3, n0, _DCIUE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentConfigInUseException, __DeploymentConfigInUseException);
-
-export var DeploymentConfigLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentConfigLimitExceededException: StaticErrorSchema = [-3, n0, _DCLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentConfigLimitExceededException, __DeploymentConfigLimitExceededException);
-
-export var DeploymentConfigNameRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCNRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentConfigNameRequiredException: StaticErrorSchema = [-3, n0, _DCNRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentConfigNameRequiredException, __DeploymentConfigNameRequiredException);
-
-export var DeploymentDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentDoesNotExistException: StaticErrorSchema = [-3, n0, _DDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentDoesNotExistException, __DeploymentDoesNotExistException);
-
-export var DeploymentGroupAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DGAEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentGroupAlreadyExistsException: StaticErrorSchema = [-3, n0, _DGAEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentGroupAlreadyExistsException, __DeploymentGroupAlreadyExistsException);
-
-export var DeploymentGroupDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DGDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentGroupDoesNotExistException: StaticErrorSchema = [-3, n0, _DGDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentGroupDoesNotExistException, __DeploymentGroupDoesNotExistException);
-
 export var DeploymentGroupInfo: StaticStructureSchema = [
   3,
   n0,
@@ -1111,42 +940,12 @@ export var DeploymentGroupInfo: StaticStructureSchema = [
     2,
   ],
 ];
-export var DeploymentGroupLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DGLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentGroupLimitExceededException: StaticErrorSchema = [-3, n0, _DGLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentGroupLimitExceededException, __DeploymentGroupLimitExceededException);
-
-export var DeploymentGroupNameRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DGNRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentGroupNameRequiredException: StaticErrorSchema = [-3, n0, _DGNRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentGroupNameRequiredException, __DeploymentGroupNameRequiredException);
-
-export var DeploymentIdRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DIRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentIdRequiredException: StaticErrorSchema = [-3, n0, _DIRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentIdRequiredException, __DeploymentIdRequiredException);
-
 export var DeploymentInfo: StaticStructureSchema = [
   3,
   n0,
@@ -1217,42 +1016,12 @@ export var DeploymentInfo: StaticStructureSchema = [
     () => AlarmConfiguration,
   ],
 ];
-export var DeploymentIsNotInReadyStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DINIRSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentIsNotInReadyStateException: StaticErrorSchema = [-3, n0, _DINIRSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentIsNotInReadyStateException, __DeploymentIsNotInReadyStateException);
-
-export var DeploymentLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentLimitExceededException: StaticErrorSchema = [-3, n0, _DLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentLimitExceededException, __DeploymentLimitExceededException);
-
-export var DeploymentNotStartedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DNSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentNotStartedException: StaticErrorSchema = [-3, n0, _DNSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentNotStartedException, __DeploymentNotStartedException);
-
 export var DeploymentOverview: StaticStructureSchema = [3, n0, _DO, 0, [_P, _IP, _S, _F, _Sk, _R], [1, 1, 1, 1, 1, 1]];
 export var DeploymentReadyOption: StaticStructureSchema = [3, n0, _DRO, 0, [_aOT, _wTIM], [0, 1]];
 export var DeploymentStyle: StaticStructureSchema = [3, n0, _DS, 0, [_dTe, _dOe], [0, 0]];
@@ -1264,74 +1033,24 @@ export var DeploymentTarget: StaticStructureSchema = [
   [_dTT, _iT, _lT, _eT, _cFT],
   [0, () => InstanceTarget, () => LambdaTarget, () => ECSTarget, () => CloudFormationTarget],
 ];
-export var DeploymentTargetDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DTDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentTargetDoesNotExistException: StaticErrorSchema = [-3, n0, _DTDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentTargetDoesNotExistException, __DeploymentTargetDoesNotExistException);
-
-export var DeploymentTargetIdRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DTIRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentTargetIdRequiredException: StaticErrorSchema = [-3, n0, _DTIRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DeploymentTargetIdRequiredException, __DeploymentTargetIdRequiredException);
-
-export var DeploymentTargetListSizeExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DTLSEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DeploymentTargetListSizeExceededException: StaticErrorSchema = [-3, n0, _DTLSEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   DeploymentTargetListSizeExceededException,
   __DeploymentTargetListSizeExceededException
 );
-
 export var DeregisterOnPremisesInstanceInput: StaticStructureSchema = [3, n0, _DOPII, 0, [_iNn], [0]];
-export var DescriptionTooLongException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DTLE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DescriptionTooLongException: StaticErrorSchema = [-3, n0, _DTLE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DescriptionTooLongException, __DescriptionTooLongException);
-
 export var Diagnostics: StaticStructureSchema = [3, n0, _D, 0, [_eC, _sN, _m, _lTo], [0, 0, 0, 0]];
 export var EC2TagFilter: StaticStructureSchema = [3, n0, _ECTF, 0, [_K, _V, _T], [0, 0, 0]];
 export var EC2TagSet: StaticStructureSchema = [3, n0, _ECTS, 0, [_eTSL], [() => EC2TagSetList]];
 export var ECSService: StaticStructureSchema = [3, n0, _ECSS, 0, [_sNe, _cN], [0, 0]];
-export var ECSServiceMappingLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ECSSMLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ECSServiceMappingLimitExceededException: StaticErrorSchema = [-3, n0, _ECSSMLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ECSServiceMappingLimitExceededException, __ECSServiceMappingLimitExceededException);
-
 export var ECSTarget: StaticStructureSchema = [
   3,
   n0,
@@ -1388,104 +1107,24 @@ export var GetDeploymentTargetInput: StaticStructureSchema = [3, n0, _GDTI, 0, [
 export var GetDeploymentTargetOutput: StaticStructureSchema = [3, n0, _GDTO, 0, [_dTep], [() => DeploymentTarget]];
 export var GetOnPremisesInstanceInput: StaticStructureSchema = [3, n0, _GOPII, 0, [_iNn], [0]];
 export var GetOnPremisesInstanceOutput: StaticStructureSchema = [3, n0, _GOPIO, 0, [_iInst], [() => InstanceInfo]];
-export var GitHubAccountTokenDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GHATDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var GitHubAccountTokenDoesNotExistException: StaticErrorSchema = [-3, n0, _GHATDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(GitHubAccountTokenDoesNotExistException, __GitHubAccountTokenDoesNotExistException);
-
-export var GitHubAccountTokenNameRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GHATNRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var GitHubAccountTokenNameRequiredException: StaticErrorSchema = [-3, n0, _GHATNRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(GitHubAccountTokenNameRequiredException, __GitHubAccountTokenNameRequiredException);
-
 export var GitHubLocation: StaticStructureSchema = [3, n0, _GHL, 0, [_rep, _cI], [0, 0]];
 export var GreenFleetProvisioningOption: StaticStructureSchema = [3, n0, _GFPO, 0, [_ac], [0]];
-export var IamArnRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IARE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var IamArnRequiredException: StaticErrorSchema = [-3, n0, _IARE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IamArnRequiredException, __IamArnRequiredException);
-
-export var IamSessionArnAlreadyRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISAARE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var IamSessionArnAlreadyRegisteredException: StaticErrorSchema = [-3, n0, _ISAARE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IamSessionArnAlreadyRegisteredException, __IamSessionArnAlreadyRegisteredException);
-
-export var IamUserArnAlreadyRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IUAARE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var IamUserArnAlreadyRegisteredException: StaticErrorSchema = [-3, n0, _IUAARE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IamUserArnAlreadyRegisteredException, __IamUserArnAlreadyRegisteredException);
-
-export var IamUserArnRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IUARE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var IamUserArnRequiredException: StaticErrorSchema = [-3, n0, _IUARE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IamUserArnRequiredException, __IamUserArnRequiredException);
-
-export var InstanceDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InstanceDoesNotExistException: StaticErrorSchema = [-3, n0, _IDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InstanceDoesNotExistException, __InstanceDoesNotExistException);
-
-export var InstanceIdRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InstanceIdRequiredException: StaticErrorSchema = [-3, n0, _IIRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InstanceIdRequiredException, __InstanceIdRequiredException);
-
 export var InstanceInfo: StaticStructureSchema = [
   3,
   n0,
@@ -1494,54 +1133,14 @@ export var InstanceInfo: StaticStructureSchema = [
   [_iNn, _iSA, _iUA, _iA, _rTe, _dTer, _t],
   [0, 0, 0, 0, 4, 4, () => TagList],
 ];
-export var InstanceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InstanceLimitExceededException: StaticErrorSchema = [-3, n0, _ILEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InstanceLimitExceededException, __InstanceLimitExceededException);
-
-export var InstanceNameAlreadyRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INARE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InstanceNameAlreadyRegisteredException: StaticErrorSchema = [-3, n0, _INARE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InstanceNameAlreadyRegisteredException, __InstanceNameAlreadyRegisteredException);
-
-export var InstanceNameRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InstanceNameRequiredException: StaticErrorSchema = [-3, n0, _INRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InstanceNameRequiredException, __InstanceNameRequiredException);
-
-export var InstanceNotRegisteredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INREn,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InstanceNotRegisteredException: StaticErrorSchema = [-3, n0, _INREn, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InstanceNotRegisteredException, __InstanceNotRegisteredException);
-
 export var InstanceSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1558,73 +1157,21 @@ export var InstanceTarget: StaticStructureSchema = [
   [_dI, _tIa, _tA, _st, _lUA, _lE, _iL],
   [0, 0, 0, 0, 4, () => LifecycleEventList, 0],
 ];
-export var InvalidAlarmConfigException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IACE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidAlarmConfigException: StaticErrorSchema = [-3, n0, _IACE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidAlarmConfigException, __InvalidAlarmConfigException);
-
-export var InvalidApplicationNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IANE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidApplicationNameException: StaticErrorSchema = [-3, n0, _IANE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidApplicationNameException, __InvalidApplicationNameException);
-
-export var InvalidArnException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArnException: StaticErrorSchema = [-3, n0, _IAE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArnException, __InvalidArnException);
-
-export var InvalidAutoRollbackConfigException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IARCE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidAutoRollbackConfigException: StaticErrorSchema = [-3, n0, _IARCE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidAutoRollbackConfigException, __InvalidAutoRollbackConfigException);
-
-export var InvalidAutoScalingGroupException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IASGE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidAutoScalingGroupException: StaticErrorSchema = [-3, n0, _IASGE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidAutoScalingGroupException, __InvalidAutoScalingGroupException);
-
 export var InvalidBlueGreenDeploymentConfigurationException: StaticErrorSchema = [
   -3,
   n0,
   _IBGDCE,
-  {
-    [_er]: _c,
-  },
+  { [_er]: _c },
   [_m],
   [0],
 ];
@@ -1632,254 +1179,51 @@ TypeRegistry.for(n0).registerError(
   InvalidBlueGreenDeploymentConfigurationException,
   __InvalidBlueGreenDeploymentConfigurationException
 );
-
-export var InvalidBucketNameFilterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IBNFE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidBucketNameFilterException: StaticErrorSchema = [-3, n0, _IBNFE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidBucketNameFilterException, __InvalidBucketNameFilterException);
-
-export var InvalidComputePlatformException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICPE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidComputePlatformException: StaticErrorSchema = [-3, n0, _ICPE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidComputePlatformException, __InvalidComputePlatformException);
-
-export var InvalidDeployedStateFilterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDSFE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeployedStateFilterException: StaticErrorSchema = [-3, n0, _IDSFE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeployedStateFilterException, __InvalidDeployedStateFilterException);
-
-export var InvalidDeploymentConfigNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDCNE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentConfigNameException: StaticErrorSchema = [-3, n0, _IDCNE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentConfigNameException, __InvalidDeploymentConfigNameException);
-
-export var InvalidDeploymentGroupNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDGNE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentGroupNameException: StaticErrorSchema = [-3, n0, _IDGNE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentGroupNameException, __InvalidDeploymentGroupNameException);
-
-export var InvalidDeploymentIdException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDIE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentIdException: StaticErrorSchema = [-3, n0, _IDIE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentIdException, __InvalidDeploymentIdException);
-
-export var InvalidDeploymentInstanceTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDITE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentInstanceTypeException: StaticErrorSchema = [-3, n0, _IDITE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentInstanceTypeException, __InvalidDeploymentInstanceTypeException);
-
-export var InvalidDeploymentStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentStatusException: StaticErrorSchema = [-3, n0, _IDSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentStatusException, __InvalidDeploymentStatusException);
-
-export var InvalidDeploymentStyleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDSEn,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentStyleException: StaticErrorSchema = [-3, n0, _IDSEn, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentStyleException, __InvalidDeploymentStyleException);
-
-export var InvalidDeploymentTargetIdException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDTIE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentTargetIdException: StaticErrorSchema = [-3, n0, _IDTIE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentTargetIdException, __InvalidDeploymentTargetIdException);
-
-export var InvalidDeploymentWaitTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDWTE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDeploymentWaitTypeException: StaticErrorSchema = [-3, n0, _IDWTE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDeploymentWaitTypeException, __InvalidDeploymentWaitTypeException);
-
-export var InvalidEC2TagCombinationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IECTCE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidEC2TagCombinationException: StaticErrorSchema = [-3, n0, _IECTCE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidEC2TagCombinationException, __InvalidEC2TagCombinationException);
-
-export var InvalidEC2TagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IECTE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidEC2TagException: StaticErrorSchema = [-3, n0, _IECTE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidEC2TagException, __InvalidEC2TagException);
-
-export var InvalidECSServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IECSSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidECSServiceException: StaticErrorSchema = [-3, n0, _IECSSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidECSServiceException, __InvalidECSServiceException);
-
-export var InvalidExternalIdException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEIE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidExternalIdException: StaticErrorSchema = [-3, n0, _IEIE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidExternalIdException, __InvalidExternalIdException);
-
-export var InvalidFileExistsBehaviorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFEBE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidFileExistsBehaviorException: StaticErrorSchema = [-3, n0, _IFEBE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidFileExistsBehaviorException, __InvalidFileExistsBehaviorException);
-
-export var InvalidGitHubAccountTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IGHATE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidGitHubAccountTokenException: StaticErrorSchema = [-3, n0, _IGHATE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidGitHubAccountTokenException, __InvalidGitHubAccountTokenException);
-
-export var InvalidGitHubAccountTokenNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IGHATNE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidGitHubAccountTokenNameException: StaticErrorSchema = [-3, n0, _IGHATNE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidGitHubAccountTokenNameException, __InvalidGitHubAccountTokenNameException);
-
-export var InvalidIamSessionArnException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IISAE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidIamSessionArnException: StaticErrorSchema = [-3, n0, _IISAE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidIamSessionArnException, __InvalidIamSessionArnException);
-
-export var InvalidIamUserArnException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIUAE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidIamUserArnException: StaticErrorSchema = [-3, n0, _IIUAE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidIamUserArnException, __InvalidIamUserArnException);
-
 export var InvalidIgnoreApplicationStopFailuresValueException: StaticErrorSchema = [
   -3,
   n0,
   _IIASFVE,
-  {
-    [_er]: _c,
-  },
+  { [_er]: _c },
   [_m],
   [0],
 ];
@@ -1887,74 +1231,21 @@ TypeRegistry.for(n0).registerError(
   InvalidIgnoreApplicationStopFailuresValueException,
   __InvalidIgnoreApplicationStopFailuresValueException
 );
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
-export var InvalidInstanceNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IINE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInstanceNameException: StaticErrorSchema = [-3, n0, _IINE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInstanceNameException, __InvalidInstanceNameException);
-
-export var InvalidInstanceStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IISE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInstanceStatusException: StaticErrorSchema = [-3, n0, _IISE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInstanceStatusException, __InvalidInstanceStatusException);
-
-export var InvalidInstanceTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IITE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInstanceTypeException: StaticErrorSchema = [-3, n0, _IITE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInstanceTypeException, __InvalidInstanceTypeException);
-
-export var InvalidKeyPrefixFilterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKPFE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidKeyPrefixFilterException: StaticErrorSchema = [-3, n0, _IKPFE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidKeyPrefixFilterException, __InvalidKeyPrefixFilterException);
-
 export var InvalidLifecycleEventHookExecutionIdException: StaticErrorSchema = [
   -3,
   n0,
   _ILEHEIE,
-  {
-    [_er]: _c,
-  },
+  { [_er]: _c },
   [_m],
   [0],
 ];
@@ -1962,14 +1253,11 @@ TypeRegistry.for(n0).registerError(
   InvalidLifecycleEventHookExecutionIdException,
   __InvalidLifecycleEventHookExecutionIdException
 );
-
 export var InvalidLifecycleEventHookExecutionStatusException: StaticErrorSchema = [
   -3,
   n0,
   _ILEHESE,
-  {
-    [_er]: _c,
-  },
+  { [_er]: _c },
   [_m],
   [0],
 ];
@@ -1977,248 +1265,55 @@ TypeRegistry.for(n0).registerError(
   InvalidLifecycleEventHookExecutionStatusException,
   __InvalidLifecycleEventHookExecutionStatusException
 );
-
-export var InvalidLoadBalancerInfoException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILBIE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidLoadBalancerInfoException: StaticErrorSchema = [-3, n0, _ILBIE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidLoadBalancerInfoException, __InvalidLoadBalancerInfoException);
-
-export var InvalidMinimumHealthyHostValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IMHHVE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidMinimumHealthyHostValueException: StaticErrorSchema = [-3, n0, _IMHHVE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidMinimumHealthyHostValueException, __InvalidMinimumHealthyHostValueException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidOnPremisesTagCombinationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOPTCE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidOnPremisesTagCombinationException: StaticErrorSchema = [-3, n0, _IOPTCE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   InvalidOnPremisesTagCombinationException,
   __InvalidOnPremisesTagCombinationException
 );
-
-export var InvalidOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidOperationException: StaticErrorSchema = [-3, n0, _IOE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidOperationException, __InvalidOperationException);
-
-export var InvalidRegistrationStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRegistrationStatusException: StaticErrorSchema = [-3, n0, _IRSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRegistrationStatusException, __InvalidRegistrationStatusException);
-
-export var InvalidRevisionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRevisionException: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRevisionException, __InvalidRevisionException);
-
-export var InvalidRoleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IREn,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRoleException: StaticErrorSchema = [-3, n0, _IREn, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRoleException, __InvalidRoleException);
-
-export var InvalidSortByException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISBE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidSortByException: StaticErrorSchema = [-3, n0, _ISBE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidSortByException, __InvalidSortByException);
-
-export var InvalidSortOrderException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISOE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidSortOrderException: StaticErrorSchema = [-3, n0, _ISOE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidSortOrderException, __InvalidSortOrderException);
-
-export var InvalidTagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagException: StaticErrorSchema = [-3, n0, _ITE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagException, __InvalidTagException);
-
-export var InvalidTagFilterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITFE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagFilterException: StaticErrorSchema = [-3, n0, _ITFE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagFilterException, __InvalidTagFilterException);
-
-export var InvalidTagsToAddException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITTAE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagsToAddException: StaticErrorSchema = [-3, n0, _ITTAE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagsToAddException, __InvalidTagsToAddException);
-
-export var InvalidTargetFilterNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITFNE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTargetFilterNameException: StaticErrorSchema = [-3, n0, _ITFNE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTargetFilterNameException, __InvalidTargetFilterNameException);
-
-export var InvalidTargetGroupPairException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITGPE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTargetGroupPairException: StaticErrorSchema = [-3, n0, _ITGPE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTargetGroupPairException, __InvalidTargetGroupPairException);
-
-export var InvalidTargetInstancesException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITIE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTargetInstancesException: StaticErrorSchema = [-3, n0, _ITIE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTargetInstancesException, __InvalidTargetInstancesException);
-
-export var InvalidTimeRangeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTimeRangeException: StaticErrorSchema = [-3, n0, _ITRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTimeRangeException, __InvalidTimeRangeException);
-
-export var InvalidTrafficRoutingConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITRCE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTrafficRoutingConfigurationException: StaticErrorSchema = [-3, n0, _ITRCE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   InvalidTrafficRoutingConfigurationException,
   __InvalidTrafficRoutingConfigurationException
 );
-
-export var InvalidTriggerConfigException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITCE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTriggerConfigException: StaticErrorSchema = [-3, n0, _ITCE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTriggerConfigException, __InvalidTriggerConfigException);
-
 export var InvalidUpdateOutdatedInstancesOnlyValueException: StaticErrorSchema = [
   -3,
   n0,
   _IUOIOVE,
-  {
-    [_er]: _c,
-  },
+  { [_er]: _c },
   [_m],
   [0],
 ];
@@ -2226,22 +1321,11 @@ TypeRegistry.for(n0).registerError(
   InvalidUpdateOutdatedInstancesOnlyValueException,
   __InvalidUpdateOutdatedInstancesOnlyValueException
 );
-
-export var InvalidZonalDeploymentConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IZDCE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidZonalDeploymentConfigurationException: StaticErrorSchema = [-3, n0, _IZDCE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   InvalidZonalDeploymentConfigurationException,
   __InvalidZonalDeploymentConfigurationException
 );
-
 export var LambdaFunctionInfo: StaticStructureSchema = [3, n0, _LFI, 0, [_fN, _fA, _cV, _tV, _tVW], [0, 0, 0, 0, 1]];
 export var LambdaTarget: StaticStructureSchema = [
   3,
@@ -2260,30 +1344,10 @@ export var LifecycleEvent: StaticStructureSchema = [
   [_lEN, _di, _sT, _eTn, _st],
   [0, () => Diagnostics, 4, 4, 0],
 ];
-export var LifecycleEventAlreadyCompletedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEACE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LifecycleEventAlreadyCompletedException: StaticErrorSchema = [-3, n0, _LEACE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LifecycleEventAlreadyCompletedException, __LifecycleEventAlreadyCompletedException);
-
-export var LifecycleHookLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LHLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LifecycleHookLimitExceededException: StaticErrorSchema = [-3, n0, _LHLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LifecycleHookLimitExceededException, __LifecycleHookLimitExceededException);
-
 export var ListApplicationRevisionsInput: StaticStructureSchema = [
   3,
   n0,
@@ -2356,31 +1420,11 @@ export var LoadBalancerInfo: StaticStructureSchema = [
 ];
 export var MinimumHealthyHosts: StaticStructureSchema = [3, n0, _MHH, 0, [_ty, _v], [0, 1]];
 export var MinimumHealthyHostsPerZone: StaticStructureSchema = [3, n0, _MHHPZ, 0, [_ty, _v], [0, 1]];
-export var MultipleIamArnsProvidedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MIAPE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var MultipleIamArnsProvidedException: StaticErrorSchema = [-3, n0, _MIAPE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MultipleIamArnsProvidedException, __MultipleIamArnsProvidedException);
-
 export var OnPremisesTagSet: StaticStructureSchema = [3, n0, _OPTS, 0, [_oPTSL], [() => OnPremisesTagSetList]];
-export var OperationNotSupportedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONSE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var OperationNotSupportedException: StaticErrorSchema = [-3, n0, _ONSE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OperationNotSupportedException, __OperationNotSupportedException);
-
 export var PutLifecycleEventHookExecutionStatusInput: StaticStructureSchema = [
   3,
   n0,
@@ -2409,42 +1453,12 @@ export var RemoveTagsFromOnPremisesInstancesInput: StaticStructureSchema = [
   [_t, _iN],
   [() => TagList, 64 | 0],
 ];
-export var ResourceArnRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RARE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceArnRequiredException: StaticErrorSchema = [-3, n0, _RARE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceArnRequiredException, __ResourceArnRequiredException);
-
-export var ResourceValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RVE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceValidationException: StaticErrorSchema = [-3, n0, _RVE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceValidationException, __ResourceValidationException);
-
-export var RevisionDoesNotExistException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDNEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RevisionDoesNotExistException: StaticErrorSchema = [-3, n0, _RDNEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RevisionDoesNotExistException, __RevisionDoesNotExistException);
-
 export var RevisionInfo: StaticStructureSchema = [
   3,
   n0,
@@ -2461,30 +1475,10 @@ export var RevisionLocation: StaticStructureSchema = [
   [_rTev, _sL, _gHL, _str, _aSC],
   [0, () => S3Location, () => GitHubLocation, () => RawString, () => AppSpecContent],
 ];
-export var RevisionRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RevisionRequiredException: StaticErrorSchema = [-3, n0, _RRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RevisionRequiredException, __RevisionRequiredException);
-
-export var RoleRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RREo,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RoleRequiredException: StaticErrorSchema = [-3, n0, _RREo, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RoleRequiredException, __RoleRequiredException);
-
 export var RollbackInfo: StaticStructureSchema = [3, n0, _RIo, 0, [_rDI, _rTDI, _rM], [0, 0, 0]];
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_b, _k, _bT, _ve, _eTa], [0, 0, 0, 0, 0]];
 export var SkipWaitTimeForInstanceTerminationInput: StaticStructureSchema = [3, n0, _SWTFITI, 0, [_dI], [0]];
@@ -2492,44 +1486,14 @@ export var StopDeploymentInput: StaticStructureSchema = [3, n0, _SDI, 0, [_dI, _
 export var StopDeploymentOutput: StaticStructureSchema = [3, n0, _SDO, 0, [_st, _sM], [0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagFilter: StaticStructureSchema = [3, n0, _TFa, 0, [_K, _V, _T], [0, 0, 0]];
-export var TagLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TagLimitExceededException: StaticErrorSchema = [-3, n0, _TLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TagLimitExceededException, __TagLimitExceededException);
-
-export var TagRequiredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TRE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TagRequiredException: StaticErrorSchema = [-3, n0, _TRE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TagRequiredException, __TagRequiredException);
-
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TagSetListLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TSLLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TagSetListLimitExceededException: StaticErrorSchema = [-3, n0, _TSLLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TagSetListLimitExceededException, __TagSetListLimitExceededException);
-
 export var TargetGroupInfo: StaticStructureSchema = [3, n0, _TGI, 0, [_n], [0]];
 export var TargetGroupPairInfo: StaticStructureSchema = [
   3,
@@ -2547,18 +1511,8 @@ export var TargetInstances: StaticStructureSchema = [
   [_tFa, _aSG, _eTS],
   [() => EC2TagFilterList, 64 | 0, () => EC2TagSet],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeBasedCanary: StaticStructureSchema = [3, n0, _TBC, 0, [_cPa, _cIa], [1, 1]];
 export var TimeBasedLinear: StaticStructureSchema = [3, n0, _TBL, 0, [_lP, _lI], [1, 1]];
 export var TimeRange: StaticStructureSchema = [3, n0, _TR, 0, [_sta, _en], [4, 4]];
@@ -2572,33 +1526,13 @@ export var TrafficRoutingConfig: StaticStructureSchema = [
   [0, () => TimeBasedCanary, () => TimeBasedLinear],
 ];
 export var TriggerConfig: StaticStructureSchema = [3, n0, _TC, 0, [_tNr, _tTA, _tE], [0, 0, 64 | 0]];
-export var TriggerTargetsLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TTLEE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TriggerTargetsLimitExceededException: StaticErrorSchema = [-3, n0, _TTLEE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TriggerTargetsLimitExceededException, __TriggerTargetsLimitExceededException);
-
-export var UnsupportedActionForDeploymentTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UAFDTE,
-  {
-    [_er]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedActionForDeploymentTypeException: StaticErrorSchema = [-3, n0, _UAFDTE, { [_er]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   UnsupportedActionForDeploymentTypeException,
   __UnsupportedActionForDeploymentTypeException
 );
-
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
 export var UpdateApplicationInput: StaticStructureSchema = [3, n0, _UAI, 0, [_aN, _nAN], [0, 0]];
@@ -2647,31 +1581,21 @@ export var ZonalConfig: StaticStructureSchema = [
   [1, 1, () => MinimumHealthyHostsPerZone],
 ];
 export var __Unit = "unit" as const;
-
 export var CodeDeployServiceException: StaticErrorSchema = [-3, _sm, "CodeDeployServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeDeployServiceException, __CodeDeployServiceException);
-
 export var AlarmList: StaticListSchema = [1, n0, _AL, 0, () => Alarm];
 export var ApplicationsInfoList: StaticListSchema = [1, n0, _AIL, 0, () => ApplicationInfo];
 export var ApplicationsList = 64 | 0;
-
 export var AutoRollbackEventsList = 64 | 0;
-
 export var AutoScalingGroupList: StaticListSchema = [1, n0, _ASGL, 0, () => AutoScalingGroup];
 export var AutoScalingGroupNameList = 64 | 0;
-
 export var DeploymentConfigsList = 64 | 0;
-
 export var DeploymentGroupInfoList: StaticListSchema = [1, n0, _DGIL, 0, () => DeploymentGroupInfo];
 export var DeploymentGroupsList = 64 | 0;
-
 export var DeploymentsInfoList: StaticListSchema = [1, n0, _DIL, 0, () => DeploymentInfo];
 export var DeploymentsList = 64 | 0;
-
 export var DeploymentStatusList = 64 | 0;
-
 export var DeploymentStatusMessageList = 64 | 0;
-
 export var DeploymentTargetList: StaticListSchema = [1, n0, _DTL, 0, () => DeploymentTarget];
 export var EC2TagFilterList: StaticListSchema = [1, n0, _ECTFL, 0, () => EC2TagFilter];
 export var EC2TagSetList: StaticListSchema = [1, n0, _ECTSL, 0, () => EC2TagFilterList];
@@ -2679,36 +1603,26 @@ export var ECSServiceList: StaticListSchema = [1, n0, _ECSSL, 0, () => ECSServic
 export var ECSTaskSetList: StaticListSchema = [1, n0, _ECSTSL, 0, () => ECSTaskSet];
 export var ELBInfoList: StaticListSchema = [1, n0, _ELBIL, 0, () => ELBInfo];
 export var FilterValueList = 64 | 0;
-
 export var GitHubAccountTokenNameList = 64 | 0;
-
 export var InstanceInfoList: StaticListSchema = [1, n0, _IIL, 0, () => InstanceInfo];
 export var InstanceNameList = 64 | 0;
-
 export var InstancesList = 64 | 0;
-
 export var InstanceStatusList = 64 | 0;
-
 export var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => InstanceSummary];
 export var InstanceTypeList = 64 | 0;
-
 export var LifecycleEventList: StaticListSchema = [1, n0, _LEL, 0, () => LifecycleEvent];
 export var ListenerArnList = 64 | 0;
-
 export var OnPremisesTagSetList: StaticListSchema = [1, n0, _OPTSL, 0, () => TagFilterList];
 export var RevisionInfoList: StaticListSchema = [1, n0, _RIL, 0, () => RevisionInfo];
 export var RevisionLocationList: StaticListSchema = [1, n0, _RLL, 0, () => RevisionLocation];
 export var TagFilterList: StaticListSchema = [1, n0, _TFL, 0, () => TagFilter];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetGroupInfoList: StaticListSchema = [1, n0, _TGIL, 0, () => TargetGroupInfo];
 export var TargetGroupPairInfoList: StaticListSchema = [1, n0, _TGPIL, 0, () => TargetGroupPairInfo];
 export var TargetIdList = 64 | 0;
-
 export var TriggerConfigList: StaticListSchema = [1, n0, _TCL, 0, () => TriggerConfig];
 export var TriggerEventTypeList = 64 | 0;
-
 export var TargetFilters: StaticMapSchema = [2, n0, _TF, 0, 0, 64 | 0];
 export var AddTagsToOnPremisesInstances: StaticOperationSchema = [
   9,

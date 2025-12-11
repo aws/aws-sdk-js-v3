@@ -113,7 +113,7 @@ const n0 = "com.amazonaws.sts";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -138,7 +138,6 @@ import {
 import { STSServiceException as __STSServiceException } from "../models/STSServiceException";
 
 /* eslint no-var: 0 */
-
 export var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 export var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
 export var SAMLAssertionType: StaticSimpleSchema = [0, n0, _SAMLAT, 8, 0];
@@ -216,30 +215,20 @@ export var ExpiredTokenException: StaticErrorSchema = [
   -3,
   n0,
   _ETE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ExpiredTokenException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExpiredTokenException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ExpiredTokenException, __ExpiredTokenException);
-
 export var ExpiredTradeInTokenException: StaticErrorSchema = [
   -3,
   n0,
   _ETITE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ExpiredTradeInTokenException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExpiredTradeInTokenException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ExpiredTradeInTokenException, __ExpiredTradeInTokenException);
-
 export var FederatedUser: StaticStructureSchema = [3, n0, _FU, 0, [_FUI, _A], [0, 0]];
 export var GetAccessKeyInfoRequest: StaticStructureSchema = [3, n0, _GAKIR, 0, [_AKI], [0]];
 export var GetAccessKeyInfoResponse: StaticStructureSchema = [3, n0, _GAKIRe, 0, [_Ac], [0]];
@@ -299,95 +288,61 @@ export var IDPCommunicationErrorException: StaticErrorSchema = [
   -3,
   n0,
   _IDPCEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`IDPCommunicationError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`IDPCommunicationError`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IDPCommunicationErrorException, __IDPCommunicationErrorException);
-
 export var IDPRejectedClaimException: StaticErrorSchema = [
   -3,
   n0,
   _IDPRCE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`IDPRejectedClaim`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`IDPRejectedClaim`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IDPRejectedClaimException, __IDPRejectedClaimException);
-
 export var InvalidAuthorizationMessageException: StaticErrorSchema = [
   -3,
   n0,
   _IAME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidAuthorizationMessageException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidAuthorizationMessageException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAuthorizationMessageException, __InvalidAuthorizationMessageException);
-
 export var InvalidIdentityTokenException: StaticErrorSchema = [
   -3,
   n0,
   _IITE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidIdentityToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidIdentityToken`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidIdentityTokenException, __InvalidIdentityTokenException);
-
 export var JWTPayloadSizeExceededException: StaticErrorSchema = [
   -3,
   n0,
   _JWTPSEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`JWTPayloadSizeExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`JWTPayloadSizeExceededException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(JWTPayloadSizeExceededException, __JWTPayloadSizeExceededException);
-
 export var MalformedPolicyDocumentException: StaticErrorSchema = [
   -3,
   n0,
   _MPDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`MalformedPolicyDocument`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyDocument`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
-
 export var OutboundWebIdentityFederationDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _OWIFDE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403] },
   [_m],
   [0],
 ];
@@ -395,62 +350,43 @@ TypeRegistry.for(n0).registerError(
   OutboundWebIdentityFederationDisabledException,
   __OutboundWebIdentityFederationDisabledException
 );
-
 export var PackedPolicyTooLargeException: StaticErrorSchema = [
   -3,
   n0,
   _PPTLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PackedPolicyTooLarge`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PackedPolicyTooLarge`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PackedPolicyTooLargeException, __PackedPolicyTooLargeException);
-
 export var PolicyDescriptorType: StaticStructureSchema = [3, n0, _PDT, 0, [_a], [0]];
 export var ProvidedContext: StaticStructureSchema = [3, n0, _PCr, 0, [_PAro, _CA], [0, 0]];
 export var RegionDisabledException: StaticErrorSchema = [
   -3,
   n0,
   _RDE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`RegionDisabledException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`RegionDisabledException`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RegionDisabledException, __RegionDisabledException);
-
 export var SessionDurationEscalationException: StaticErrorSchema = [
   -3,
   n0,
   _SDEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`SessionDurationEscalationException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`SessionDurationEscalationException`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SessionDurationEscalationException, __SessionDurationEscalationException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var STSServiceException: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(STSServiceException, __STSServiceException);
-
 export var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT, 0, () => PolicyDescriptorType];
 export var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT, 0, () => ProvidedContext];
 export var tagKeyListType = 64 | 0;
-
 export var tagListType: StaticListSchema = [1, n0, _tLT, 0, () => Tag];
 export var webIdentityTokenAudienceListType = 64 | 0;
-
 export var AssumeRole: StaticOperationSchema = [9, n0, _AR, 0, () => AssumeRoleRequest, () => AssumeRoleResponse];
 export var AssumeRoleWithSAML: StaticOperationSchema = [
   9,

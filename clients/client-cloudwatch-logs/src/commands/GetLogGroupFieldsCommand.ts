@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/models_0";
+import type { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/models_0";
 import { GetLogGroupFields } from "../schemas/schemas_0";
 
 /**
@@ -30,6 +34,8 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * <p>Returns a list of the fields that are included in log events in the specified log group.
  *       Includes the percentage of log events that contain each field. The search is limited to a time
  *       period that you specify.</p>
+ *          <p>This operation is used for discovering fields within log group events. For discovering
+ *       fields across data sources, use the GetLogFields operation.</p>
  *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or
  *         <code>logGroupName</code>. You must specify one of these parameters, but you can't specify
  *       both. </p>

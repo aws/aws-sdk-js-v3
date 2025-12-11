@@ -384,7 +384,7 @@ const n0 = "com.amazonaws.chime";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -408,26 +408,14 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var CallingName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
 export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 export var E164PhoneNumber: StaticSimpleSchema = [0, n0, _EPN, 8, 0];
 export var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 export var JoinTokenString: StaticSimpleSchema = [0, n0, _JTS, 8, 0];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Account: StaticStructureSchema = [
   3,
   n0,
@@ -467,19 +455,8 @@ export var AssociateSigninDelegateGroupsWithAccountRequest: StaticStructureSchem
   [[0, 1], () => SigninDelegateGroupList],
 ];
 export var AssociateSigninDelegateGroupsWithAccountResponse: StaticStructureSchema = [3, n0, _ASDGWARs, 0, [], []];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BatchCreateRoomMembershipRequest: StaticStructureSchema = [
   3,
   n0,
@@ -546,19 +523,8 @@ export var Bot: StaticStructureSchema = [
   [0, 0, [() => SensitiveString, 0], 0, 2, 5, 5, [() => SensitiveString, 0], [() => SensitiveString, 0]],
 ];
 export var BusinessCallingSettings: StaticStructureSchema = [3, n0, _BCS, 0, [_CB], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConversationRetentionSettings: StaticStructureSchema = [3, n0, _CRS, 0, [_RD], [1]];
 export var CreateAccountRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_N], [0]];
 export var CreateAccountResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_A], [() => Account]];
@@ -698,19 +664,8 @@ export var EventsConfiguration: StaticStructureSchema = [
   [_BI, _OEHTTPSE, _LFA],
   [0, [() => SensitiveString, 0], [() => SensitiveString, 0]],
 ];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetAccountRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_AI], [[0, 1]]];
 export var GetAccountResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_A], [() => Account]];
 export var GetAccountSettingsRequest: StaticStructureSchema = [3, n0, _GASR, 0, [_AI], [[0, 1]]];
@@ -835,30 +790,10 @@ export var ListAccountsRequest: StaticStructureSchema = [
   0,
   [_N, _UEs, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      () => EmailAddress,
-      {
-        [_hQ]: _ue,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [() => EmailAddress, { [_hQ]: _ue }],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListAccountsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Ac, _NT], [() => AccountList, 0]];
@@ -870,18 +805,8 @@ export var ListBotsRequest: StaticStructureSchema = [
   [_AI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListBotsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_Bo, _NT], [[() => BotList, 0], 0]];
@@ -892,18 +817,8 @@ export var ListPhoneNumberOrdersRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListPhoneNumberOrdersResponse: StaticStructureSchema = [
@@ -921,42 +836,12 @@ export var ListPhoneNumbersRequest: StaticStructureSchema = [
   0,
   [_S, _PT, _FN, _FV, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fv,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _pt }],
+    [0, { [_hQ]: _fn }],
+    [0, { [_hQ]: _fv }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListPhoneNumbersResponse: StaticStructureSchema = [
@@ -976,18 +861,8 @@ export var ListRoomMembershipsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListRoomMembershipsResponse: StaticStructureSchema = [
@@ -1006,24 +881,9 @@ export var ListRoomsRequest: StaticStructureSchema = [
   [_AI, _MIe, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mi,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _mi }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListRoomsResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_Roo, _NT], [[() => RoomList, 0], 0]];
@@ -1033,14 +893,7 @@ export var ListSupportedPhoneNumberCountriesRequest: StaticStructureSchema = [
   _LSPNCR,
   0,
   [_PT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _pt,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _pt }]],
 ];
 export var ListSupportedPhoneNumberCountriesResponse: StaticStructureSchema = [
   3,
@@ -1058,30 +911,10 @@ export var ListUsersRequest: StaticStructureSchema = [
   [_AI, _UEs, _UTs, _MR, _NT],
   [
     [0, 1],
-    [
-      () => EmailAddress,
-      {
-        [_hQ]: _ue,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ut,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [() => EmailAddress, { [_hQ]: _ue }],
+    [0, { [_hQ]: _ut }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_Use, _NT], [[() => UserList, 0], 0]];
@@ -1107,19 +940,8 @@ export var Member: StaticStructureSchema = [
 ];
 export var MemberError: StaticStructureSchema = [3, n0, _ME, 0, [_MIe, _ECr, _EM], [0, 0, 0]];
 export var MembershipItem: StaticStructureSchema = [3, n0, _MIem, 0, [_MIe, _R], [0, 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OrderedPhoneNumber: StaticStructureSchema = [3, n0, _OPN, 0, [_EPN, _S], [[() => E164PhoneNumber, 0], 0]];
 export var PhoneNumber: StaticStructureSchema = [
   3,
@@ -1253,15 +1075,11 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
 export var RestorePhoneNumberRequest: StaticStructureSchema = [3, n0, _RPNR, 0, [_PNIh], [[0, 1]]];
 export var RestorePhoneNumberResponse: StaticStructureSchema = [3, n0, _RPNRe, 0, [_PN], [[() => PhoneNumber, 0]]];
 export var RetentionSettings: StaticStructureSchema = [
@@ -1296,54 +1114,14 @@ export var SearchAvailablePhoneNumbersRequest: StaticStructureSchema = [
   0,
   [_AC, _Ci, _Co, _St, _TFP, _PNT, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _ac,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ci,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _co,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tfp,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pnt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _ac }],
+    [0, { [_hQ]: _ci }],
+    [0, { [_hQ]: _co }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _tfp }],
+    [0, { [_hQ]: _pnt }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
@@ -1354,73 +1132,18 @@ export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
   [_EPNh, _NT],
   [[() => E164PhoneNumberList, 0], 0],
 ];
-export var ServiceFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ServiceFailureException: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _se, [_hE]: 500 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SigninDelegateGroup: StaticStructureSchema = [3, n0, _SDGi, 0, [_GNr], [0]];
 export var TelephonySettings: StaticStructureSchema = [3, n0, _TS, 0, [_ICn, _OCu, _SMS], [2, 2, 2]];
-export var ThrottledClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ThrottledClientException: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottledClientException, __ThrottledClientException);
-
-export var UnauthorizedClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UCE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var UnauthorizedClientException: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c, [_hE]: 401 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(UnauthorizedClientException, __UnauthorizedClientException);
-
-export var UnprocessableEntityException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UEE,
-  {
-    [_e]: _c,
-    [_hE]: 422,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var UnprocessableEntityException: StaticErrorSchema = [-3, n0, _UEE, { [_e]: _c, [_hE]: 422 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-
 export var UpdateAccountRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_AI, _N, _DL], [[0, 1], 0, 0]];
 export var UpdateAccountResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_A], [() => Account]];
 export var UpdateAccountSettingsRequest: StaticStructureSchema = [
@@ -1540,20 +1263,16 @@ export var UserError: StaticStructureSchema = [3, n0, _UEse, 0, [_UI, _ECr, _EM]
 export var UserSettings: StaticStructureSchema = [3, n0, _US, 0, [_Te], [() => TelephonySettings]];
 export var VoiceConnectorSettings: StaticStructureSchema = [3, n0, _VCS, 0, [_CB], [0]];
 export var __Unit = "unit" as const;
-
 export var ChimeServiceException: StaticErrorSchema = [-3, _sm, "ChimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ChimeServiceException, __ChimeServiceException);
-
 export var AccountList: StaticListSchema = [1, n0, _AL, 0, () => Account];
 export var BotList: StaticListSchema = [1, n0, _BL, 0, [() => Bot, 0]];
 export var E164PhoneNumberList: StaticListSchema = [1, n0, _EPNL, 0, [() => E164PhoneNumber, 0]];
 export var InviteList: StaticListSchema = [1, n0, _IL, 0, [() => Invite, 0]];
 export var LicenseList = 64 | 0;
-
 export var MemberErrorList: StaticListSchema = [1, n0, _MEL, 0, () => MemberError];
 export var MembershipItemList: StaticListSchema = [1, n0, _MIL, 0, () => MembershipItem];
 export var NonEmptyStringList = 64 | 0;
-
 export var OrderedPhoneNumberList: StaticListSchema = [1, n0, _OPNL, 0, [() => OrderedPhoneNumber, 0]];
 export var PhoneNumberAssociationList: StaticListSchema = [1, n0, _PNAL, 0, () => PhoneNumberAssociation];
 export var PhoneNumberCountriesList: StaticListSchema = [1, n0, _PNCL, 0, () => PhoneNumberCountry];
@@ -1561,7 +1280,6 @@ export var PhoneNumberErrorList: StaticListSchema = [1, n0, _PNEL, 0, () => Phon
 export var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber, 0]];
 export var PhoneNumberOrderList: StaticListSchema = [1, n0, _PNOL, 0, [() => PhoneNumberOrder, 0]];
 export var PhoneNumberTypeList = 64 | 0;
-
 export var RoomList: StaticListSchema = [1, n0, _RL, 0, [() => Room, 0]];
 export var RoomMembershipList: StaticListSchema = [1, n0, _RML, 0, [() => RoomMembership, 0]];
 export var SigninDelegateGroupList: StaticListSchema = [1, n0, _SDGL, 0, () => SigninDelegateGroup];
@@ -1576,15 +1294,12 @@ export var UpdateUserRequestItemList: StaticListSchema = [1, n0, _UURIL, 0, [() 
 export var UserEmailList: StaticListSchema = [1, n0, _UEL, 0, [() => EmailAddress, 0]];
 export var UserErrorList: StaticListSchema = [1, n0, _UELs, 0, () => UserError];
 export var UserIdList = 64 | 0;
-
 export var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User, 0]];
 export var AssociatePhoneNumberWithUser: StaticOperationSchema = [
   9,
   n0,
   _APNWU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=associate-phone-number", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=associate-phone-number", 200] },
   () => AssociatePhoneNumberWithUserRequest,
   () => AssociatePhoneNumberWithUserResponse,
 ];
@@ -1592,9 +1307,7 @@ export var AssociateSigninDelegateGroupsWithAccount: StaticOperationSchema = [
   9,
   n0,
   _ASDGWA,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}?operation=associate-signin-delegate-groups", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}?operation=associate-signin-delegate-groups", 200] },
   () => AssociateSigninDelegateGroupsWithAccountRequest,
   () => AssociateSigninDelegateGroupsWithAccountResponse,
 ];
@@ -1602,9 +1315,7 @@ export var BatchCreateRoomMembership: StaticOperationSchema = [
   9,
   n0,
   _BCRM,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships?operation=batch-create", 201],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships?operation=batch-create", 201] },
   () => BatchCreateRoomMembershipRequest,
   () => BatchCreateRoomMembershipResponse,
 ];
@@ -1612,9 +1323,7 @@ export var BatchDeletePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _BDPN,
-  {
-    [_h]: ["POST", "/phone-numbers?operation=batch-delete", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers?operation=batch-delete", 200] },
   () => BatchDeletePhoneNumberRequest,
   () => BatchDeletePhoneNumberResponse,
 ];
@@ -1622,9 +1331,7 @@ export var BatchSuspendUser: StaticOperationSchema = [
   9,
   n0,
   _BSU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users?operation=suspend", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users?operation=suspend", 200] },
   () => BatchSuspendUserRequest,
   () => BatchSuspendUserResponse,
 ];
@@ -1632,9 +1339,7 @@ export var BatchUnsuspendUser: StaticOperationSchema = [
   9,
   n0,
   _BUU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users?operation=unsuspend", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users?operation=unsuspend", 200] },
   () => BatchUnsuspendUserRequest,
   () => BatchUnsuspendUserResponse,
 ];
@@ -1642,9 +1347,7 @@ export var BatchUpdatePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _BUPN,
-  {
-    [_h]: ["POST", "/phone-numbers?operation=batch-update", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers?operation=batch-update", 200] },
   () => BatchUpdatePhoneNumberRequest,
   () => BatchUpdatePhoneNumberResponse,
 ];
@@ -1652,9 +1355,7 @@ export var BatchUpdateUser: StaticOperationSchema = [
   9,
   n0,
   _BUUa,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users", 200] },
   () => BatchUpdateUserRequest,
   () => BatchUpdateUserResponse,
 ];
@@ -1662,9 +1363,7 @@ export var CreateAccount: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/accounts", 201],
-  },
+  { [_h]: ["POST", "/accounts", 201] },
   () => CreateAccountRequest,
   () => CreateAccountResponse,
 ];
@@ -1672,9 +1371,7 @@ export var CreateBot: StaticOperationSchema = [
   9,
   n0,
   _CBre,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/bots", 201],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/bots", 201] },
   () => CreateBotRequest,
   () => CreateBotResponse,
 ];
@@ -1682,9 +1379,7 @@ export var CreateMeetingDialOut: StaticOperationSchema = [
   9,
   n0,
   _CMDO,
-  {
-    [_h]: ["POST", "/meetings/{MeetingId}/dial-outs", 201],
-  },
+  { [_h]: ["POST", "/meetings/{MeetingId}/dial-outs", 201] },
   () => CreateMeetingDialOutRequest,
   () => CreateMeetingDialOutResponse,
 ];
@@ -1692,9 +1387,7 @@ export var CreatePhoneNumberOrder: StaticOperationSchema = [
   9,
   n0,
   _CPNO,
-  {
-    [_h]: ["POST", "/phone-number-orders", 201],
-  },
+  { [_h]: ["POST", "/phone-number-orders", 201] },
   () => CreatePhoneNumberOrderRequest,
   () => CreatePhoneNumberOrderResponse,
 ];
@@ -1702,9 +1395,7 @@ export var CreateRoom: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/rooms", 201],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/rooms", 201] },
   () => CreateRoomRequest,
   () => CreateRoomResponse,
 ];
@@ -1712,9 +1403,7 @@ export var CreateRoomMembership: StaticOperationSchema = [
   9,
   n0,
   _CRM,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships", 201],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships", 201] },
   () => CreateRoomMembershipRequest,
   () => CreateRoomMembershipResponse,
 ];
@@ -1722,9 +1411,7 @@ export var CreateUser: StaticOperationSchema = [
   9,
   n0,
   _CU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users?operation=create", 201],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users?operation=create", 201] },
   () => CreateUserRequest,
   () => CreateUserResponse,
 ];
@@ -1732,9 +1419,7 @@ export var DeleteAccount: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/accounts/{AccountId}", 204],
-  },
+  { [_h]: ["DELETE", "/accounts/{AccountId}", 204] },
   () => DeleteAccountRequest,
   () => DeleteAccountResponse,
 ];
@@ -1742,9 +1427,7 @@ export var DeleteEventsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DEC,
-  {
-    [_h]: ["DELETE", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 204],
-  },
+  { [_h]: ["DELETE", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 204] },
   () => DeleteEventsConfigurationRequest,
   () => __Unit,
 ];
@@ -1752,9 +1435,7 @@ export var DeletePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _DPN,
-  {
-    [_h]: ["DELETE", "/phone-numbers/{PhoneNumberId}", 204],
-  },
+  { [_h]: ["DELETE", "/phone-numbers/{PhoneNumberId}", 204] },
   () => DeletePhoneNumberRequest,
   () => __Unit,
 ];
@@ -1762,9 +1443,7 @@ export var DeleteRoom: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/accounts/{AccountId}/rooms/{RoomId}", 204],
-  },
+  { [_h]: ["DELETE", "/accounts/{AccountId}/rooms/{RoomId}", 204] },
   () => DeleteRoomRequest,
   () => __Unit,
 ];
@@ -1772,9 +1451,7 @@ export var DeleteRoomMembership: StaticOperationSchema = [
   9,
   n0,
   _DRM,
-  {
-    [_h]: ["DELETE", "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}", 204],
-  },
+  { [_h]: ["DELETE", "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}", 204] },
   () => DeleteRoomMembershipRequest,
   () => __Unit,
 ];
@@ -1782,9 +1459,7 @@ export var DisassociatePhoneNumberFromUser: StaticOperationSchema = [
   9,
   n0,
   _DPNFU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=disassociate-phone-number", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=disassociate-phone-number", 200] },
   () => DisassociatePhoneNumberFromUserRequest,
   () => DisassociatePhoneNumberFromUserResponse,
 ];
@@ -1792,9 +1467,7 @@ export var DisassociateSigninDelegateGroupsFromAccount: StaticOperationSchema = 
   9,
   n0,
   _DSDGFA,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}?operation=disassociate-signin-delegate-groups", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}?operation=disassociate-signin-delegate-groups", 200] },
   () => DisassociateSigninDelegateGroupsFromAccountRequest,
   () => DisassociateSigninDelegateGroupsFromAccountResponse,
 ];
@@ -1802,9 +1475,7 @@ export var GetAccount: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}", 200] },
   () => GetAccountRequest,
   () => GetAccountResponse,
 ];
@@ -1812,9 +1483,7 @@ export var GetAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/settings", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/settings", 200] },
   () => GetAccountSettingsRequest,
   () => GetAccountSettingsResponse,
 ];
@@ -1822,9 +1491,7 @@ export var GetBot: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/bots/{BotId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/bots/{BotId}", 200] },
   () => GetBotRequest,
   () => GetBotResponse,
 ];
@@ -1832,9 +1499,7 @@ export var GetEventsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GEC,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 200] },
   () => GetEventsConfigurationRequest,
   () => GetEventsConfigurationResponse,
 ];
@@ -1842,9 +1507,7 @@ export var GetGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _GGS,
-  {
-    [_h]: ["GET", "/settings", 200],
-  },
+  { [_h]: ["GET", "/settings", 200] },
   () => __Unit,
   () => GetGlobalSettingsResponse,
 ];
@@ -1852,9 +1515,7 @@ export var GetPhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _GPN,
-  {
-    [_h]: ["GET", "/phone-numbers/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["GET", "/phone-numbers/{PhoneNumberId}", 200] },
   () => GetPhoneNumberRequest,
   () => GetPhoneNumberResponse,
 ];
@@ -1862,9 +1523,7 @@ export var GetPhoneNumberOrder: StaticOperationSchema = [
   9,
   n0,
   _GPNO,
-  {
-    [_h]: ["GET", "/phone-number-orders/{PhoneNumberOrderId}", 200],
-  },
+  { [_h]: ["GET", "/phone-number-orders/{PhoneNumberOrderId}", 200] },
   () => GetPhoneNumberOrderRequest,
   () => GetPhoneNumberOrderResponse,
 ];
@@ -1872,9 +1531,7 @@ export var GetPhoneNumberSettings: StaticOperationSchema = [
   9,
   n0,
   _GPNS,
-  {
-    [_h]: ["GET", "/settings/phone-number", 200],
-  },
+  { [_h]: ["GET", "/settings/phone-number", 200] },
   () => __Unit,
   () => GetPhoneNumberSettingsResponse,
 ];
@@ -1882,9 +1539,7 @@ export var GetRetentionSettings: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/retention-settings", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/retention-settings", 200] },
   () => GetRetentionSettingsRequest,
   () => GetRetentionSettingsResponse,
 ];
@@ -1892,9 +1547,7 @@ export var GetRoom: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/rooms/{RoomId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/rooms/{RoomId}", 200] },
   () => GetRoomRequest,
   () => GetRoomResponse,
 ];
@@ -1902,9 +1555,7 @@ export var GetUser: StaticOperationSchema = [
   9,
   n0,
   _GU,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/users/{UserId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/users/{UserId}", 200] },
   () => GetUserRequest,
   () => GetUserResponse,
 ];
@@ -1912,9 +1563,7 @@ export var GetUserSettings: StaticOperationSchema = [
   9,
   n0,
   _GUS,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/users/{UserId}/settings", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/users/{UserId}/settings", 200] },
   () => GetUserSettingsRequest,
   () => GetUserSettingsResponse,
 ];
@@ -1922,9 +1571,7 @@ export var InviteUsers: StaticOperationSchema = [
   9,
   n0,
   _IU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users?operation=add", 201],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users?operation=add", 201] },
   () => InviteUsersRequest,
   () => InviteUsersResponse,
 ];
@@ -1932,9 +1579,7 @@ export var ListAccounts: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/accounts", 200],
-  },
+  { [_h]: ["GET", "/accounts", 200] },
   () => ListAccountsRequest,
   () => ListAccountsResponse,
 ];
@@ -1942,9 +1587,7 @@ export var ListBots: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/bots", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/bots", 200] },
   () => ListBotsRequest,
   () => ListBotsResponse,
 ];
@@ -1952,9 +1595,7 @@ export var ListPhoneNumberOrders: StaticOperationSchema = [
   9,
   n0,
   _LPNO,
-  {
-    [_h]: ["GET", "/phone-number-orders", 200],
-  },
+  { [_h]: ["GET", "/phone-number-orders", 200] },
   () => ListPhoneNumberOrdersRequest,
   () => ListPhoneNumberOrdersResponse,
 ];
@@ -1962,9 +1603,7 @@ export var ListPhoneNumbers: StaticOperationSchema = [
   9,
   n0,
   _LPN,
-  {
-    [_h]: ["GET", "/phone-numbers", 200],
-  },
+  { [_h]: ["GET", "/phone-numbers", 200] },
   () => ListPhoneNumbersRequest,
   () => ListPhoneNumbersResponse,
 ];
@@ -1972,9 +1611,7 @@ export var ListRoomMemberships: StaticOperationSchema = [
   9,
   n0,
   _LRM,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/rooms/{RoomId}/memberships", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/rooms/{RoomId}/memberships", 200] },
   () => ListRoomMembershipsRequest,
   () => ListRoomMembershipsResponse,
 ];
@@ -1982,9 +1619,7 @@ export var ListRooms: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/rooms", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/rooms", 200] },
   () => ListRoomsRequest,
   () => ListRoomsResponse,
 ];
@@ -1992,9 +1627,7 @@ export var ListSupportedPhoneNumberCountries: StaticOperationSchema = [
   9,
   n0,
   _LSPNC,
-  {
-    [_h]: ["GET", "/phone-number-countries", 200],
-  },
+  { [_h]: ["GET", "/phone-number-countries", 200] },
   () => ListSupportedPhoneNumberCountriesRequest,
   () => ListSupportedPhoneNumberCountriesResponse,
 ];
@@ -2002,9 +1635,7 @@ export var ListUsers: StaticOperationSchema = [
   9,
   n0,
   _LU,
-  {
-    [_h]: ["GET", "/accounts/{AccountId}/users", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AccountId}/users", 200] },
   () => ListUsersRequest,
   () => ListUsersResponse,
 ];
@@ -2012,9 +1643,7 @@ export var LogoutUser: StaticOperationSchema = [
   9,
   n0,
   _LUo,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=logout", 204],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=logout", 204] },
   () => LogoutUserRequest,
   () => LogoutUserResponse,
 ];
@@ -2022,9 +1651,7 @@ export var PutEventsConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PEC,
-  {
-    [_h]: ["PUT", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 201],
-  },
+  { [_h]: ["PUT", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 201] },
   () => PutEventsConfigurationRequest,
   () => PutEventsConfigurationResponse,
 ];
@@ -2032,9 +1659,7 @@ export var PutRetentionSettings: StaticOperationSchema = [
   9,
   n0,
   _PRS,
-  {
-    [_h]: ["PUT", "/accounts/{AccountId}/retention-settings", 204],
-  },
+  { [_h]: ["PUT", "/accounts/{AccountId}/retention-settings", 204] },
   () => PutRetentionSettingsRequest,
   () => PutRetentionSettingsResponse,
 ];
@@ -2042,9 +1667,7 @@ export var RedactConversationMessage: StaticOperationSchema = [
   9,
   n0,
   _RCM,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/conversations/{ConversationId}/messages/{MessageId}?operation=redact", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/conversations/{ConversationId}/messages/{MessageId}?operation=redact", 200] },
   () => RedactConversationMessageRequest,
   () => RedactConversationMessageResponse,
 ];
@@ -2052,9 +1675,7 @@ export var RedactRoomMessage: StaticOperationSchema = [
   9,
   n0,
   _RRM,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/messages/{MessageId}?operation=redact", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/messages/{MessageId}?operation=redact", 200] },
   () => RedactRoomMessageRequest,
   () => RedactRoomMessageResponse,
 ];
@@ -2062,9 +1683,7 @@ export var RegenerateSecurityToken: StaticOperationSchema = [
   9,
   n0,
   _RST,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/bots/{BotId}?operation=regenerate-security-token", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/bots/{BotId}?operation=regenerate-security-token", 200] },
   () => RegenerateSecurityTokenRequest,
   () => RegenerateSecurityTokenResponse,
 ];
@@ -2072,9 +1691,7 @@ export var ResetPersonalPIN: StaticOperationSchema = [
   9,
   n0,
   _RPPIN,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=reset-personal-pin", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=reset-personal-pin", 200] },
   () => ResetPersonalPINRequest,
   () => ResetPersonalPINResponse,
 ];
@@ -2082,9 +1699,7 @@ export var RestorePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _RPN,
-  {
-    [_h]: ["POST", "/phone-numbers/{PhoneNumberId}?operation=restore", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers/{PhoneNumberId}?operation=restore", 200] },
   () => RestorePhoneNumberRequest,
   () => RestorePhoneNumberResponse,
 ];
@@ -2092,9 +1707,7 @@ export var SearchAvailablePhoneNumbers: StaticOperationSchema = [
   9,
   n0,
   _SAPN,
-  {
-    [_h]: ["GET", "/search?type=phone-numbers", 200],
-  },
+  { [_h]: ["GET", "/search?type=phone-numbers", 200] },
   () => SearchAvailablePhoneNumbersRequest,
   () => SearchAvailablePhoneNumbersResponse,
 ];
@@ -2102,9 +1715,7 @@ export var UpdateAccount: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}", 200] },
   () => UpdateAccountRequest,
   () => UpdateAccountResponse,
 ];
@@ -2112,9 +1723,7 @@ export var UpdateAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PUT", "/accounts/{AccountId}/settings", 204],
-  },
+  { [_h]: ["PUT", "/accounts/{AccountId}/settings", 204] },
   () => UpdateAccountSettingsRequest,
   () => UpdateAccountSettingsResponse,
 ];
@@ -2122,9 +1731,7 @@ export var UpdateBot: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/bots/{BotId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/bots/{BotId}", 200] },
   () => UpdateBotRequest,
   () => UpdateBotResponse,
 ];
@@ -2132,9 +1739,7 @@ export var UpdateGlobalSettings: StaticOperationSchema = [
   9,
   n0,
   _UGS,
-  {
-    [_h]: ["PUT", "/settings", 204],
-  },
+  { [_h]: ["PUT", "/settings", 204] },
   () => UpdateGlobalSettingsRequest,
   () => __Unit,
 ];
@@ -2142,9 +1747,7 @@ export var UpdatePhoneNumber: StaticOperationSchema = [
   9,
   n0,
   _UPN,
-  {
-    [_h]: ["POST", "/phone-numbers/{PhoneNumberId}", 200],
-  },
+  { [_h]: ["POST", "/phone-numbers/{PhoneNumberId}", 200] },
   () => UpdatePhoneNumberRequest,
   () => UpdatePhoneNumberResponse,
 ];
@@ -2152,9 +1755,7 @@ export var UpdatePhoneNumberSettings: StaticOperationSchema = [
   9,
   n0,
   _UPNS,
-  {
-    [_h]: ["PUT", "/settings/phone-number", 204],
-  },
+  { [_h]: ["PUT", "/settings/phone-number", 204] },
   () => UpdatePhoneNumberSettingsRequest,
   () => __Unit,
 ];
@@ -2162,9 +1763,7 @@ export var UpdateRoom: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}", 200] },
   () => UpdateRoomRequest,
   () => UpdateRoomResponse,
 ];
@@ -2172,9 +1771,7 @@ export var UpdateRoomMembership: StaticOperationSchema = [
   9,
   n0,
   _URM,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}", 200] },
   () => UpdateRoomMembershipRequest,
   () => UpdateRoomMembershipResponse,
 ];
@@ -2182,9 +1779,7 @@ export var UpdateUser: StaticOperationSchema = [
   9,
   n0,
   _UU,
-  {
-    [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}", 200] },
   () => UpdateUserRequest,
   () => UpdateUserResponse,
 ];
@@ -2192,9 +1787,7 @@ export var UpdateUserSettings: StaticOperationSchema = [
   9,
   n0,
   _UUS,
-  {
-    [_h]: ["PUT", "/accounts/{AccountId}/users/{UserId}/settings", 204],
-  },
+  { [_h]: ["PUT", "/accounts/{AccountId}/users/{UserId}/settings", 204] },
   () => UpdateUserSettingsRequest,
   () => __Unit,
 ];

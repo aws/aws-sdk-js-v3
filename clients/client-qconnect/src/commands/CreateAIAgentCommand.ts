@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAIAgentRequest, CreateAIAgentResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { CreateAIAgentRequest, CreateAIAgentResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateAIAgent } from "../schemas/schemas_0";
 
 /**
@@ -111,6 +111,9 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *         },
  *       ],
  *       locale: "STRING_VALUE",
+ *       suggestedMessages: [ // SuggestedMessagesList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  *       selfServicePreProcessingAIPromptId: "STRING_VALUE",
@@ -199,6 +202,66 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *         },
  *       ],
  *     },
+ *     orchestrationAIAgentConfiguration: { // OrchestrationAIAgentConfiguration
+ *       orchestrationAIPromptId: "STRING_VALUE", // required
+ *       orchestrationAIGuardrailId: "STRING_VALUE",
+ *       toolConfigurations: [ // ToolConfigurationList
+ *         { // ToolConfiguration
+ *           toolName: "STRING_VALUE", // required
+ *           toolType: "STRING_VALUE", // required
+ *           title: "STRING_VALUE",
+ *           toolId: "STRING_VALUE",
+ *           description: "STRING_VALUE",
+ *           instruction: { // ToolInstruction
+ *             instruction: "STRING_VALUE",
+ *             examples: [ // ToolExampleList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           overrideInputValues: [ // ToolOverrideInputValueList
+ *             { // ToolOverrideInputValue
+ *               jsonPath: "STRING_VALUE", // required
+ *               value: { // ToolOverrideInputValueConfiguration Union: only one key present
+ *                 constant: { // ToolOverrideConstantInputValue
+ *                   type: "STRING_VALUE", // required
+ *                   value: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *           outputFilters: [ // ToolOutputFilterList
+ *             { // ToolOutputFilter
+ *               jsonPath: "STRING_VALUE", // required
+ *               outputConfiguration: { // ToolOutputConfiguration
+ *                 outputVariableNameOverride: "STRING_VALUE",
+ *                 sessionDataNamespace: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           inputSchema: "DOCUMENT_VALUE",
+ *           outputSchema: "DOCUMENT_VALUE",
+ *           annotations: { // Annotation
+ *             title: "STRING_VALUE",
+ *             destructiveHint: true || false,
+ *           },
+ *           userInteractionConfiguration: { // UserInteractionConfiguration
+ *             isUserConfirmationRequired: true || false,
+ *           },
+ *         },
+ *       ],
+ *       connectInstanceArn: "STRING_VALUE",
+ *       locale: "STRING_VALUE",
+ *     },
+ *     noteTakingAIAgentConfiguration: { // NoteTakingAIAgentConfiguration
+ *       noteTakingAIPromptId: "STRING_VALUE",
+ *       noteTakingAIGuardrailId: "STRING_VALUE",
+ *       locale: "STRING_VALUE",
+ *     },
+ *     caseSummarizationAIAgentConfiguration: { // CaseSummarizationAIAgentConfiguration
+ *       caseSummarizationAIPromptId: "STRING_VALUE",
+ *       caseSummarizationAIGuardrailId: "STRING_VALUE",
+ *       locale: "STRING_VALUE",
+ *     },
  *   },
  *   visibilityStatus: "STRING_VALUE", // required
  *   tags: { // Tags
@@ -286,6 +349,9 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //           },
  * //         ],
  * //         locale: "STRING_VALUE",
+ * //         suggestedMessages: [ // SuggestedMessagesList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  * //         selfServicePreProcessingAIPromptId: "STRING_VALUE",
@@ -373,6 +439,66 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //       },
+ * //       orchestrationAIAgentConfiguration: { // OrchestrationAIAgentConfiguration
+ * //         orchestrationAIPromptId: "STRING_VALUE", // required
+ * //         orchestrationAIGuardrailId: "STRING_VALUE",
+ * //         toolConfigurations: [ // ToolConfigurationList
+ * //           { // ToolConfiguration
+ * //             toolName: "STRING_VALUE", // required
+ * //             toolType: "STRING_VALUE", // required
+ * //             title: "STRING_VALUE",
+ * //             toolId: "STRING_VALUE",
+ * //             description: "STRING_VALUE",
+ * //             instruction: { // ToolInstruction
+ * //               instruction: "STRING_VALUE",
+ * //               examples: [ // ToolExampleList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             overrideInputValues: [ // ToolOverrideInputValueList
+ * //               { // ToolOverrideInputValue
+ * //                 jsonPath: "STRING_VALUE", // required
+ * //                 value: { // ToolOverrideInputValueConfiguration Union: only one key present
+ * //                   constant: { // ToolOverrideConstantInputValue
+ * //                     type: "STRING_VALUE", // required
+ * //                     value: "STRING_VALUE", // required
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
+ * //             outputFilters: [ // ToolOutputFilterList
+ * //               { // ToolOutputFilter
+ * //                 jsonPath: "STRING_VALUE", // required
+ * //                 outputConfiguration: { // ToolOutputConfiguration
+ * //                   outputVariableNameOverride: "STRING_VALUE",
+ * //                   sessionDataNamespace: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             inputSchema: "DOCUMENT_VALUE",
+ * //             outputSchema: "DOCUMENT_VALUE",
+ * //             annotations: { // Annotation
+ * //               title: "STRING_VALUE",
+ * //               destructiveHint: true || false,
+ * //             },
+ * //             userInteractionConfiguration: { // UserInteractionConfiguration
+ * //               isUserConfirmationRequired: true || false,
+ * //             },
+ * //           },
+ * //         ],
+ * //         connectInstanceArn: "STRING_VALUE",
+ * //         locale: "STRING_VALUE",
+ * //       },
+ * //       noteTakingAIAgentConfiguration: { // NoteTakingAIAgentConfiguration
+ * //         noteTakingAIPromptId: "STRING_VALUE",
+ * //         noteTakingAIGuardrailId: "STRING_VALUE",
+ * //         locale: "STRING_VALUE",
+ * //       },
+ * //       caseSummarizationAIAgentConfiguration: { // CaseSummarizationAIAgentConfiguration
+ * //         caseSummarizationAIPromptId: "STRING_VALUE",
+ * //         caseSummarizationAIGuardrailId: "STRING_VALUE",
+ * //         locale: "STRING_VALUE",
  * //       },
  * //     },
  * //     modifiedTime: new Date("TIMESTAMP"),

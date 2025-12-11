@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_1";
+import type { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_1";
 import { GetTaskTemplate } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface GetTaskTemplateCommandInput extends GetTaskTemplateRequest {}
 export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a specific task template in the specified Amazon Connect
- *    instance.</p>
+ * <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

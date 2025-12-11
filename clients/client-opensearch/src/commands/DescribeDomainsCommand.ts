@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
-import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
+import type { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
+import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DescribeDomains } from "../schemas/schemas_0";
 
 /**
@@ -227,6 +227,9 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //           CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
  * //         },
  * //         S3VectorsEngine: { // S3VectorsEngine
+ * //           Enabled: true || false,
+ * //         },
+ * //         ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
  * //           Enabled: true || false,
  * //         },
  * //       },

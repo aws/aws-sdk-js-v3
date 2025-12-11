@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudWatchServiceException as __BaseException } from "./CloudWatchServiceException";
 import { DashboardValidationMessage } from "./models_0";

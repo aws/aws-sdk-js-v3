@@ -609,7 +609,7 @@ const n0 = "com.amazonaws.codebuild";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -629,33 +629,12 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccountLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AccountLimitExceededException: StaticErrorSchema = [-3, n0, _ALEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccountLimitExceededException, __AccountLimitExceededException);
-
-export var AccountSuspendedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AccountSuspendedException: StaticErrorSchema = [-3, n0, _ASE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccountSuspendedException, __AccountSuspendedException);
-
 export var AutoRetryConfig: StaticStructureSchema = [3, n0, _ARC, 0, [_aRL, _aRN, _nAR, _pAR], [1, 1, 0, 0]];
 export var BatchDeleteBuildsInput: StaticStructureSchema = [3, n0, _BDBI, 0, [_i], [64 | 0]];
 export var BatchDeleteBuildsOutput: StaticStructureSchema = [
@@ -1144,18 +1123,8 @@ export var ImportSourceCredentialsInput: StaticStructureSchema = [
 export var ImportSourceCredentialsOutput: StaticStructureSchema = [3, n0, _ISCO, 0, [_a], [0]];
 export var InvalidateProjectCacheInput: StaticStructureSchema = [3, n0, _IPCI, 0, [_pN], [0]];
 export var InvalidateProjectCacheOutput: StaticStructureSchema = [3, n0, _IPCO, 0, [], []];
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var ListBuildBatchesForProjectInput: StaticStructureSchema = [
   3,
   n0,
@@ -1275,18 +1244,8 @@ export var LogsLocation: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, () => CloudWatchLogsConfig, () => S3LogsConfig],
 ];
 export var NetworkInterface: StaticStructureSchema = [3, n0, _NI, 0, [_sIu, _nII], [0, 0]];
-export var OAuthProviderException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OAPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var OAuthProviderException: StaticErrorSchema = [-3, n0, _OAPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OAuthProviderException, __OAuthProviderException);
-
 export var PhaseContext: StaticStructureSchema = [3, n0, _PC, 0, [_sC, _m], [0, 0]];
 export var Project: StaticStructureSchema = [
   3,
@@ -1438,30 +1397,10 @@ export var ReportGroup: StaticStructureSchema = [
 export var ReportGroupTrendStats: StaticStructureSchema = [3, n0, _RGTS, 0, [_av, _ma, _mi], [0, 0, 0]];
 export var ReportWithRawData: StaticStructureSchema = [3, n0, _RWRD, 0, [_rAep, _da], [0, 0]];
 export var ResolvedArtifact: StaticStructureSchema = [3, n0, _RA, 0, [_t, _lo, _ide], [0, 0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryBuildBatchInput: StaticStructureSchema = [3, n0, _RBBI, 0, [_id, _iTd, _rT], [0, 0, 0]];
 export var RetryBuildBatchOutput: StaticStructureSchema = [3, n0, _RBBO, 0, [_bBu], [() => BuildBatch]];
 export var RetryBuildInput: StaticStructureSchema = [3, n0, _RBI, 0, [_id, _iTd], [0, 0]];
@@ -1835,31 +1774,23 @@ export var Webhook: StaticStructureSchema = [
   [0, 0, 0, 0, () => FilterGroups, 0, 2, 4, () => ScopeConfiguration, 0, 0, () => PullRequestBuildPolicy],
 ];
 export var WebhookFilter: StaticStructureSchema = [3, n0, _WF, 0, [_t, _pat, _eMP], [0, 0, 2]];
-export var __Unit = "unit" as const;
-
 export var CodeBuildServiceException: StaticErrorSchema = [-3, _sm, "CodeBuildServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeBuildServiceException, __CodeBuildServiceException);
-
 export var BuildArtifactsList: StaticListSchema = [1, n0, _BAL, 0, () => BuildArtifacts];
 export var BuildBatches: StaticListSchema = [1, n0, _BBu, 0, () => BuildBatch];
 export var BuildBatchIds = 64 | 0;
-
 export var BuildBatchPhases: StaticListSchema = [1, n0, _BBPu, 0, () => BuildBatchPhase];
 export var BuildGroups: StaticListSchema = [1, n0, _BGu, 0, () => BuildGroup];
 export var BuildIds = 64 | 0;
-
 export var BuildPhases: StaticListSchema = [1, n0, _BPu, 0, () => BuildPhase];
 export var BuildReportArns = 64 | 0;
-
 export var Builds: StaticListSchema = [1, n0, _Bu, 0, () => Build];
 export var BuildsNotDeleted: StaticListSchema = [1, n0, _BNDu, 0, () => BuildNotDeleted];
 export var BuildSummaries: StaticListSchema = [1, n0, _BSu, 0, () => BuildSummary];
 export var CodeCoverages: StaticListSchema = [1, n0, _CCod, 0, () => CodeCoverage];
 export var CommandExecutionIds = 64 | 0;
-
 export var CommandExecutions: StaticListSchema = [1, n0, _CEo, 0, [() => CommandExecution, 0]];
 export var ComputeTypesAllowed = 64 | 0;
-
 export var EnvironmentImages: StaticListSchema = [1, n0, _EIn, 0, () => EnvironmentImage];
 export var EnvironmentLanguages: StaticListSchema = [1, n0, _ELn, 0, () => EnvironmentLanguage];
 export var EnvironmentPlatforms: StaticListSchema = [1, n0, _EPn, 0, () => EnvironmentPlatform];
@@ -1868,50 +1799,35 @@ export var ExportedEnvironmentVariables: StaticListSchema = [1, n0, _EEVx, 0, ()
 export var FilterGroup: StaticListSchema = [1, n0, _FGi, 0, () => WebhookFilter];
 export var FilterGroups: StaticListSchema = [1, n0, _FG, 0, () => FilterGroup];
 export var FleetArns = 64 | 0;
-
 export var FleetNames = 64 | 0;
-
 export var FleetProxyRuleEntities = 64 | 0;
-
 export var FleetProxyRules: StaticListSchema = [1, n0, _FPRl, 0, () => FleetProxyRule];
 export var Fleets: StaticListSchema = [1, n0, _Fl, 0, () => Fleet];
 export var FleetsAllowed = 64 | 0;
-
 export var Identifiers = 64 | 0;
-
 export var ImageVersions = 64 | 0;
-
 export var PhaseContexts: StaticListSchema = [1, n0, _PCh, 0, () => PhaseContext];
 export var ProjectArns = 64 | 0;
-
 export var ProjectArtifactsList: StaticListSchema = [1, n0, _PAL, 0, () => ProjectArtifacts];
 export var ProjectCacheModes = 64 | 0;
-
 export var ProjectFileSystemLocations: StaticListSchema = [1, n0, _PFSLr, 0, () => ProjectFileSystemLocation];
 export var ProjectNames = 64 | 0;
-
 export var Projects: StaticListSchema = [1, n0, _Pr, 0, () => Project];
 export var ProjectSecondarySourceVersions: StaticListSchema = [1, n0, _PSSV, 0, () => ProjectSourceVersion];
 export var ProjectSources: StaticListSchema = [1, n0, _PSr, 0, () => ProjectSource];
 export var PullRequestBuildApproverRoles = 64 | 0;
-
 export var ReportArns = 64 | 0;
-
 export var ReportGroupArns = 64 | 0;
-
 export var ReportGroups: StaticListSchema = [1, n0, _RGe, 0, () => ReportGroup];
 export var ReportGroupTrendRawDataList: StaticListSchema = [1, n0, _RGTRDL, 0, () => ReportWithRawData];
 export var Reports: StaticListSchema = [1, n0, _Re, 0, () => Report];
 export var ResolvedSecondaryArtifacts: StaticListSchema = [1, n0, _RSA, 0, () => ResolvedArtifact];
 export var Sandboxes: StaticListSchema = [1, n0, _Sa, 0, () => Sandbox];
 export var SandboxIds = 64 | 0;
-
 export var SandboxSessionPhases: StaticListSchema = [1, n0, _SSPa, 0, () => SandboxSessionPhase];
 export var SecurityGroupIds = 64 | 0;
-
 export var SourceCredentialsInfos: StaticListSchema = [1, n0, _SCIou, 0, () => SourceCredentialsInfo];
 export var Subnets = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetTrackingScalingConfigurations: StaticListSchema = [
   1,
@@ -1922,7 +1838,6 @@ export var TargetTrackingScalingConfigurations: StaticListSchema = [
 ];
 export var TestCases: StaticListSchema = [1, n0, _TCe, 0, () => TestCase];
 export var ReportStatusCounts = 128 | 1;
-
 export var BatchDeleteBuilds: StaticOperationSchema = [
   9,
   n0,

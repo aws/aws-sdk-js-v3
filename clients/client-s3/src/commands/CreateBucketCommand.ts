@@ -3,11 +3,11 @@ import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constr
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CreateBucket } from "../schemas/schemas_0";
 
 /**
@@ -29,12 +29,7 @@ export interface CreateBucketCommandInput extends CreateBucketRequest {}
 export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
- *  the request will receive an <code>HTTP 405</code> (Method Not Allowed) error.</p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).</p>
- *          </important>
- *          <note>
+ * <note>
  *             <p>This action creates an Amazon S3 bucket. To create an Amazon S3 on Outposts bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html">
  *                   <code>CreateBucket</code>
  *                </a>.</p>

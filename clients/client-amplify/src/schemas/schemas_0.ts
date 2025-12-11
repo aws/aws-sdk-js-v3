@@ -294,7 +294,7 @@ const n0 = "com.amazonaws.amplify";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -315,7 +315,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 export var BasicAuthCredentials: StaticSimpleSchema = [0, n0, _BAC, 8, 0];
 export var BuildSpec: StaticSimpleSchema = [0, n0, _BS, 8, 0];
@@ -406,19 +405,8 @@ export var BackendEnvironment: StaticStructureSchema = [
   [_bEA, _eN, _sN, _dA, _cT, _uT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var Branch: StaticStructureSchema = [
   3,
   n0,
@@ -675,19 +663,8 @@ export var DeleteJobRequest: StaticStructureSchema = [
 export var DeleteJobResult: StaticStructureSchema = [3, n0, _DJRe, 0, [_jS], [() => JobSummary]];
 export var DeleteWebhookRequest: StaticStructureSchema = [3, n0, _DWR, 0, [_wI], [[0, 1]]];
 export var DeleteWebhookResult: StaticStructureSchema = [3, n0, _DWRe, 0, [_w], [() => Webhook]];
-export var DependentServiceFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSFE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_m],
-  [0],
-];
+export var DependentServiceFailureException: StaticErrorSchema = [-3, n0, _DSFE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DependentServiceFailureException, __DependentServiceFailureException);
-
 export var DomainAssociation: StaticStructureSchema = [
   3,
   n0,
@@ -760,19 +737,8 @@ export var GetJobRequest: StaticStructureSchema = [
 export var GetJobResult: StaticStructureSchema = [3, n0, _GJRe, 0, [_j], [() => Job]];
 export var GetWebhookRequest: StaticStructureSchema = [3, n0, _GWR, 0, [_wI], [[0, 1]]];
 export var GetWebhookResult: StaticStructureSchema = [3, n0, _GWRe, 0, [_w], [() => Webhook]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
 export var Job: StaticStructureSchema = [3, n0, _J, 0, [_su, _ste], [() => JobSummary, () => Steps]];
 export var JobConfig: StaticStructureSchema = [3, n0, _JC, 0, [_bCT], [0]];
 export var JobSummary: StaticStructureSchema = [
@@ -783,19 +749,8 @@ export var JobSummary: StaticStructureSchema = [
   [_jA, _jI, _cI, _cM, _cTo, _sT, _st, _eT, _jT, _sU, _sUT],
   [0, 0, 0, 0, 4, 4, 0, 4, 0, 0, 0],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAppsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -803,18 +758,8 @@ export var ListAppsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAppsResult: StaticStructureSchema = [3, n0, _LARi, 0, [_ap, _nT], [[() => Apps, 0], 0]];
@@ -828,18 +773,8 @@ export var ListArtifactsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListArtifactsResult: StaticStructureSchema = [3, n0, _LARist, 0, [_ar, _nT], [() => Artifacts, 0]];
@@ -851,24 +786,9 @@ export var ListBackendEnvironmentsRequest: StaticStructureSchema = [
   [_aI, _eN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _eN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _eN }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBackendEnvironmentsResult: StaticStructureSchema = [
@@ -887,18 +807,8 @@ export var ListBranchesRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBranchesResult: StaticStructureSchema = [3, n0, _LBRi, 0, [_bra, _nT], [[() => Branches, 0], 0]];
@@ -910,18 +820,8 @@ export var ListDomainAssociationsRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDomainAssociationsResult: StaticStructureSchema = [
@@ -941,18 +841,8 @@ export var ListJobsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListJobsResult: StaticStructureSchema = [3, n0, _LJRi, 0, [_jSo, _nT], [() => JobSummaries, 0]];
@@ -966,48 +856,16 @@ export var ListWebhooksRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWebhooksResult: StaticStructureSchema = [3, n0, _LWRi, 0, [_we, _nT], [() => Webhooks, 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var ProductionBranch: StaticStructureSchema = [3, n0, _PB, 0, [_lDT, _st, _tU, _bN], [4, 0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_cod, _m],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_cod, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var StartDeploymentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1051,19 +909,8 @@ export var SubDomain: StaticStructureSchema = [3, n0, _SD, 0, [_sDSu, _v, _dR], 
 export var SubDomainSetting: StaticStructureSchema = [3, n0, _SDS, 0, [_pr, _bN], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1072,12 +919,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1186,23 +1028,16 @@ export var Webhook: StaticStructureSchema = [
   [_wA, _wI, _wU, _aI, _bN, _d, _cT, _uT],
   [0, 0, 0, 0, 0, 0, 4, 4],
 ];
-export var __Unit = "unit" as const;
-
 export var AmplifyServiceException: StaticErrorSchema = [-3, _sm, "AmplifyServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AmplifyServiceException, __AmplifyServiceException);
-
 export var Apps: StaticListSchema = [1, n0, _Ap, 0, [() => App, 0]];
 export var Artifacts: StaticListSchema = [1, n0, _Art, 0, () => Artifact];
 export var AssociatedResources = 64 | 0;
-
 export var AutoBranchCreationPatterns = 64 | 0;
-
 export var AutoSubDomainCreationPatterns = 64 | 0;
-
 export var BackendEnvironments: StaticListSchema = [1, n0, _BEa, 0, () => BackendEnvironment];
 export var Branches: StaticListSchema = [1, n0, _Bra, 0, [() => Branch, 0]];
 export var CustomDomains = 64 | 0;
-
 export var CustomRules: StaticListSchema = [1, n0, _CRu, 0, () => CustomRule];
 export var DomainAssociations: StaticListSchema = [1, n0, _DAo, 0, () => DomainAssociation];
 export var JobSummaries: StaticListSchema = [1, n0, _JSo, 0, () => JobSummary];
@@ -1210,25 +1045,17 @@ export var Steps: StaticListSchema = [1, n0, _St, 0, () => Step];
 export var SubDomains: StaticListSchema = [1, n0, _SDu, 0, () => SubDomain];
 export var SubDomainSettings: StaticListSchema = [1, n0, _SDSu, 0, () => SubDomainSetting];
 export var TagKeyList = 64 | 0;
-
 export var Webhooks: StaticListSchema = [1, n0, _We, 0, () => Webhook];
 export var EnvironmentVariables = 128 | 0;
-
 export var FileMap = 128 | 0;
-
 export var FileUploadUrls = 128 | 0;
-
 export var Screenshots = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CreateApp: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/apps", 200],
-  },
+  { [_h]: ["POST", "/apps", 200] },
   () => CreateAppRequest,
   () => CreateAppResult,
 ];
@@ -1236,9 +1063,7 @@ export var CreateBackendEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CBE,
-  {
-    [_h]: ["POST", "/apps/{appId}/backendenvironments", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/backendenvironments", 200] },
   () => CreateBackendEnvironmentRequest,
   () => CreateBackendEnvironmentResult,
 ];
@@ -1246,9 +1071,7 @@ export var CreateBranch: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  {
-    [_h]: ["POST", "/apps/{appId}/branches", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/branches", 200] },
   () => CreateBranchRequest,
   () => CreateBranchResult,
 ];
@@ -1256,9 +1079,7 @@ export var CreateDeployment: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/apps/{appId}/branches/{branchName}/deployments", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/branches/{branchName}/deployments", 200] },
   () => CreateDeploymentRequest,
   () => CreateDeploymentResult,
 ];
@@ -1266,9 +1087,7 @@ export var CreateDomainAssociation: StaticOperationSchema = [
   9,
   n0,
   _CDA,
-  {
-    [_h]: ["POST", "/apps/{appId}/domains", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/domains", 200] },
   () => CreateDomainAssociationRequest,
   () => CreateDomainAssociationResult,
 ];
@@ -1276,9 +1095,7 @@ export var CreateWebhook: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["POST", "/apps/{appId}/webhooks", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/webhooks", 200] },
   () => CreateWebhookRequest,
   () => CreateWebhookResult,
 ];
@@ -1286,9 +1103,7 @@ export var DeleteApp: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["DELETE", "/apps/{appId}", 200],
-  },
+  { [_h]: ["DELETE", "/apps/{appId}", 200] },
   () => DeleteAppRequest,
   () => DeleteAppResult,
 ];
@@ -1296,9 +1111,7 @@ export var DeleteBackendEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DBE,
-  {
-    [_h]: ["DELETE", "/apps/{appId}/backendenvironments/{environmentName}", 200],
-  },
+  { [_h]: ["DELETE", "/apps/{appId}/backendenvironments/{environmentName}", 200] },
   () => DeleteBackendEnvironmentRequest,
   () => DeleteBackendEnvironmentResult,
 ];
@@ -1306,9 +1119,7 @@ export var DeleteBranch: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["DELETE", "/apps/{appId}/branches/{branchName}", 200],
-  },
+  { [_h]: ["DELETE", "/apps/{appId}/branches/{branchName}", 200] },
   () => DeleteBranchRequest,
   () => DeleteBranchResult,
 ];
@@ -1316,9 +1127,7 @@ export var DeleteDomainAssociation: StaticOperationSchema = [
   9,
   n0,
   _DDA,
-  {
-    [_h]: ["DELETE", "/apps/{appId}/domains/{domainName}", 200],
-  },
+  { [_h]: ["DELETE", "/apps/{appId}/domains/{domainName}", 200] },
   () => DeleteDomainAssociationRequest,
   () => DeleteDomainAssociationResult,
 ];
@@ -1326,9 +1135,7 @@ export var DeleteJob: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_h]: ["DELETE", "/apps/{appId}/branches/{branchName}/jobs/{jobId}", 200],
-  },
+  { [_h]: ["DELETE", "/apps/{appId}/branches/{branchName}/jobs/{jobId}", 200] },
   () => DeleteJobRequest,
   () => DeleteJobResult,
 ];
@@ -1336,9 +1143,7 @@ export var DeleteWebhook: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/webhooks/{webhookId}", 200],
-  },
+  { [_h]: ["DELETE", "/webhooks/{webhookId}", 200] },
   () => DeleteWebhookRequest,
   () => DeleteWebhookResult,
 ];
@@ -1346,9 +1151,7 @@ export var GenerateAccessLogs: StaticOperationSchema = [
   9,
   n0,
   _GAL,
-  {
-    [_h]: ["POST", "/apps/{appId}/accesslogs", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/accesslogs", 200] },
   () => GenerateAccessLogsRequest,
   () => GenerateAccessLogsResult,
 ];
@@ -1356,9 +1159,7 @@ export var GetApp: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/apps/{appId}", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}", 200] },
   () => GetAppRequest,
   () => GetAppResult,
 ];
@@ -1366,9 +1167,7 @@ export var GetArtifactUrl: StaticOperationSchema = [
   9,
   n0,
   _GAU,
-  {
-    [_h]: ["GET", "/artifacts/{artifactId}", 200],
-  },
+  { [_h]: ["GET", "/artifacts/{artifactId}", 200] },
   () => GetArtifactUrlRequest,
   () => GetArtifactUrlResult,
 ];
@@ -1376,9 +1175,7 @@ export var GetBackendEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GBE,
-  {
-    [_h]: ["GET", "/apps/{appId}/backendenvironments/{environmentName}", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/backendenvironments/{environmentName}", 200] },
   () => GetBackendEnvironmentRequest,
   () => GetBackendEnvironmentResult,
 ];
@@ -1386,9 +1183,7 @@ export var GetBranch: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["GET", "/apps/{appId}/branches/{branchName}", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/branches/{branchName}", 200] },
   () => GetBranchRequest,
   () => GetBranchResult,
 ];
@@ -1396,9 +1191,7 @@ export var GetDomainAssociation: StaticOperationSchema = [
   9,
   n0,
   _GDA,
-  {
-    [_h]: ["GET", "/apps/{appId}/domains/{domainName}", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/domains/{domainName}", 200] },
   () => GetDomainAssociationRequest,
   () => GetDomainAssociationResult,
 ];
@@ -1406,9 +1199,7 @@ export var GetJob: StaticOperationSchema = [
   9,
   n0,
   _GJ,
-  {
-    [_h]: ["GET", "/apps/{appId}/branches/{branchName}/jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/branches/{branchName}/jobs/{jobId}", 200] },
   () => GetJobRequest,
   () => GetJobResult,
 ];
@@ -1416,9 +1207,7 @@ export var GetWebhook: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_h]: ["GET", "/webhooks/{webhookId}", 200],
-  },
+  { [_h]: ["GET", "/webhooks/{webhookId}", 200] },
   () => GetWebhookRequest,
   () => GetWebhookResult,
 ];
@@ -1426,9 +1215,7 @@ export var ListApps: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/apps", 200],
-  },
+  { [_h]: ["GET", "/apps", 200] },
   () => ListAppsRequest,
   () => ListAppsResult,
 ];
@@ -1436,9 +1223,7 @@ export var ListArtifacts: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  {
-    [_h]: ["GET", "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts", 200] },
   () => ListArtifactsRequest,
   () => ListArtifactsResult,
 ];
@@ -1446,9 +1231,7 @@ export var ListBackendEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LBE,
-  {
-    [_h]: ["GET", "/apps/{appId}/backendenvironments", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/backendenvironments", 200] },
   () => ListBackendEnvironmentsRequest,
   () => ListBackendEnvironmentsResult,
 ];
@@ -1456,9 +1239,7 @@ export var ListBranches: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_h]: ["GET", "/apps/{appId}/branches", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/branches", 200] },
   () => ListBranchesRequest,
   () => ListBranchesResult,
 ];
@@ -1466,9 +1247,7 @@ export var ListDomainAssociations: StaticOperationSchema = [
   9,
   n0,
   _LDA,
-  {
-    [_h]: ["GET", "/apps/{appId}/domains", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/domains", 200] },
   () => ListDomainAssociationsRequest,
   () => ListDomainAssociationsResult,
 ];
@@ -1476,9 +1255,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_h]: ["GET", "/apps/{appId}/branches/{branchName}/jobs", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/branches/{branchName}/jobs", 200] },
   () => ListJobsRequest,
   () => ListJobsResult,
 ];
@@ -1486,9 +1263,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1496,9 +1271,7 @@ export var ListWebhooks: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["GET", "/apps/{appId}/webhooks", 200],
-  },
+  { [_h]: ["GET", "/apps/{appId}/webhooks", 200] },
   () => ListWebhooksRequest,
   () => ListWebhooksResult,
 ];
@@ -1506,9 +1279,7 @@ export var StartDeployment: StaticOperationSchema = [
   9,
   n0,
   _SDt,
-  {
-    [_h]: ["POST", "/apps/{appId}/branches/{branchName}/deployments/start", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/branches/{branchName}/deployments/start", 200] },
   () => StartDeploymentRequest,
   () => StartDeploymentResult,
 ];
@@ -1516,9 +1287,7 @@ export var StartJob: StaticOperationSchema = [
   9,
   n0,
   _SJ,
-  {
-    [_h]: ["POST", "/apps/{appId}/branches/{branchName}/jobs", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/branches/{branchName}/jobs", 200] },
   () => StartJobRequest,
   () => StartJobResult,
 ];
@@ -1526,9 +1295,7 @@ export var StopJob: StaticOperationSchema = [
   9,
   n0,
   _SJt,
-  {
-    [_h]: ["DELETE", "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop", 200],
-  },
+  { [_h]: ["DELETE", "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop", 200] },
   () => StopJobRequest,
   () => StopJobResult,
 ];
@@ -1536,9 +1303,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1546,9 +1311,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1556,9 +1319,7 @@ export var UpdateApp: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["POST", "/apps/{appId}", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}", 200] },
   () => UpdateAppRequest,
   () => UpdateAppResult,
 ];
@@ -1566,9 +1327,7 @@ export var UpdateBranch: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  {
-    [_h]: ["POST", "/apps/{appId}/branches/{branchName}", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/branches/{branchName}", 200] },
   () => UpdateBranchRequest,
   () => UpdateBranchResult,
 ];
@@ -1576,9 +1335,7 @@ export var UpdateDomainAssociation: StaticOperationSchema = [
   9,
   n0,
   _UDA,
-  {
-    [_h]: ["POST", "/apps/{appId}/domains/{domainName}", 200],
-  },
+  { [_h]: ["POST", "/apps/{appId}/domains/{domainName}", 200] },
   () => UpdateDomainAssociationRequest,
   () => UpdateDomainAssociationResult,
 ];
@@ -1586,9 +1343,7 @@ export var UpdateWebhook: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_h]: ["POST", "/webhooks/{webhookId}", 200],
-  },
+  { [_h]: ["POST", "/webhooks/{webhookId}", 200] },
   () => UpdateWebhookRequest,
   () => UpdateWebhookResult,
 ];

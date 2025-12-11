@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateVolumeCommand,
@@ -59,7 +59,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { WorkspacesInstancesClient, WorkspacesInstancesClientConfig } from "./WorkspacesInstancesClient";
+import { WorkspacesInstancesClient } from "./WorkspacesInstancesClient";
 
 const commands = {
   AssociateVolumeCommand,

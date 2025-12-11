@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
+import type {
+  BedrockRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeModelWithResponseStreamRequest, InvokeModelWithResponseStreamResponse } from "../models/models_0";
+import { type InvokeModelWithResponseStreamResponse, InvokeModelWithResponseStreamRequest } from "../models/models_0";
 import { InvokeModelWithResponseStream } from "../schemas/schemas_0";
 
 /**
@@ -54,7 +58,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  *   guardrailIdentifier: "STRING_VALUE",
  *   guardrailVersion: "STRING_VALUE",
  *   performanceConfigLatency: "standard" || "optimized",
- *   serviceTier: "priority" || "default" || "flex",
+ *   serviceTier: "priority" || "default" || "flex" || "reserved",
  * };
  * const command = new InvokeModelWithResponseStreamCommand(input);
  * const response = await client.send(command);
@@ -86,7 +90,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * //   },
  * //   contentType: "STRING_VALUE", // required
  * //   performanceConfigLatency: "standard" || "optimized",
- * //   serviceTier: "priority" || "default" || "flex",
+ * //   serviceTier: "priority" || "default" || "flex" || "reserved",
  * // };
  *
  * ```

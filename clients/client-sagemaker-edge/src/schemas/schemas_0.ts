@@ -59,13 +59,12 @@ const n0 = "com.amazonaws.sagemakeredge";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { InternalServiceException as __InternalServiceException } from "../models/errors";
 import { SagemakerEdgeServiceException as __SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";
 
 /* eslint no-var: 0 */
-
 export var Checksum: StaticStructureSchema = [3, n0, _C, 0, [_T, _S], [0, 0]];
 export var Definition: StaticStructureSchema = [3, n0, _D, 0, [_MH, _SU, _C, _St], [0, 0, () => Checksum, 0]];
 export var DeploymentModel: StaticStructureSchema = [
@@ -90,18 +89,8 @@ export var GetDeploymentsRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_DNe
 export var GetDeploymentsResult: StaticStructureSchema = [3, n0, _GDRe, 0, [_Dep], [() => EdgeDeployments]];
 export var GetDeviceRegistrationRequest: StaticStructureSchema = [3, n0, _GDRR, 0, [_DNe, _DFN], [0, 0]];
 export var GetDeviceRegistrationResult: StaticStructureSchema = [3, n0, _GDRRe, 0, [_DRe, _CTTL], [0, 0]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var Model: StaticStructureSchema = [3, n0, _Mo, 0, [_MN, _MV, _LST, _LI, _MM], [0, 0, 4, 4, () => EdgeMetrics]];
 export var SendHeartbeatRequest: StaticStructureSchema = [
   3,
@@ -112,10 +101,8 @@ export var SendHeartbeatRequest: StaticStructureSchema = [
   [() => EdgeMetrics, () => Models, 0, 0, 0, () => DeploymentResult],
 ];
 export var __Unit = "unit" as const;
-
 export var SagemakerEdgeServiceException: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(SagemakerEdgeServiceException, __SagemakerEdgeServiceException);
-
 export var Definitions: StaticListSchema = [1, n0, _De, 0, () => Definition];
 export var DeploymentModels: StaticListSchema = [1, n0, _DMe, 0, () => DeploymentModel];
 export var EdgeDeployments: StaticListSchema = [1, n0, _EDd, 0, () => EdgeDeployment];
@@ -125,9 +112,7 @@ export var GetDeployments: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["POST", "/GetDeployments", 200],
-  },
+  { [_h]: ["POST", "/GetDeployments", 200] },
   () => GetDeploymentsRequest,
   () => GetDeploymentsResult,
 ];
@@ -135,9 +120,7 @@ export var GetDeviceRegistration: StaticOperationSchema = [
   9,
   n0,
   _GDRet,
-  {
-    [_h]: ["POST", "/GetDeviceRegistration", 200],
-  },
+  { [_h]: ["POST", "/GetDeviceRegistration", 200] },
   () => GetDeviceRegistrationRequest,
   () => GetDeviceRegistrationResult,
 ];
@@ -145,9 +128,7 @@ export var SendHeartbeat: StaticOperationSchema = [
   9,
   n0,
   _SH,
-  {
-    [_h]: ["POST", "/SendHeartbeat", 200],
-  },
+  { [_h]: ["POST", "/SendHeartbeat", 200] },
   () => SendHeartbeatRequest,
   () => __Unit,
 ];

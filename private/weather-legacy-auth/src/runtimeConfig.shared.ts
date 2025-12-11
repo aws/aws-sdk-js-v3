@@ -1,10 +1,11 @@
 // smithy-typescript generated code
-import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
-import { WeatherClientConfig } from "./WeatherClient";
+
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import type { WeatherClientConfig } from "./WeatherClient";
 
 /**
  * @internal

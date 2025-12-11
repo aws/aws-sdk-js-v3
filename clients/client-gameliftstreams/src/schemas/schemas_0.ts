@@ -154,7 +154,7 @@ const n0 = "com.amazonaws.gameliftstreams";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -175,22 +175,10 @@ import {
 import { GameLiftStreamsServiceException as __GameLiftStreamsServiceException } from "../models/GameLiftStreamsServiceException";
 
 /* eslint no-var: 0 */
-
 export var SignalRequest: StaticSimpleSchema = [0, n0, _SR, 8, 0];
 export var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddStreamGroupLocationsInput: StaticStructureSchema = [
   3,
   n0,
@@ -217,19 +205,8 @@ export var ApplicationSummary: StaticStructureSchema = [
 ];
 export var AssociateApplicationsInput: StaticStructureSchema = [3, n0, _AAI, 0, [_I, _AI], [[0, 1], 64 | 0]];
 export var AssociateApplicationsOutput: StaticStructureSchema = [3, n0, _AAO, 0, [_A, _AA], [0, 64 | 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApplicationInput: StaticStructureSchema = [
   3,
   n0,
@@ -356,19 +333,8 @@ export var GetStreamSessionOutput: StaticStructureSchema = [
     () => ExportFilesMetadata,
   ],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListApplicationsInput: StaticStructureSchema = [
   3,
   n0,
@@ -376,18 +342,8 @@ export var ListApplicationsInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListApplicationsOutput: StaticStructureSchema = [
@@ -405,18 +361,8 @@ export var ListStreamGroupsInput: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListStreamGroupsOutput: StaticStructureSchema = [
@@ -434,30 +380,10 @@ export var ListStreamSessionsByAccountInput: StaticStructureSchema = [
   0,
   [_S, _EFS, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _EFS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _S }],
+    [0, { [_hQ]: _EFS }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListStreamSessionsByAccountOutput: StaticStructureSchema = [
@@ -475,30 +401,10 @@ export var ListStreamSessionsInput: StaticStructureSchema = [
   0,
   [_S, _EFS, _NT, _MR, _I],
   [
-    [
-      0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _EFS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _S }],
+    [0, { [_hQ]: _EFS }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
     [0, 1],
   ],
 ];
@@ -529,42 +435,15 @@ export var RemoveStreamGroupLocationsInput: StaticStructureSchema = [
   [_I, _L],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _l,
-      },
-    ],
+    [64 | 0, { [_hQ]: _l }],
   ],
 ];
 export var ReplicationStatus: StaticStructureSchema = [3, n0, _RSe, 0, [_Lo, _S], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuntimeEnvironment: StaticStructureSchema = [3, n0, _RE, 0, [_Ty, _V], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartStreamSessionInput: StaticStructureSchema = [
   3,
   n0,
@@ -631,19 +510,8 @@ export var TerminateStreamSessionInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -652,12 +520,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -693,55 +556,31 @@ export var UpdateStreamGroupOutput: StaticStructureSchema = [
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
   [0, 0, () => DefaultApplication, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var GameLiftStreamsServiceException: StaticErrorSchema = [-3, _sm, "GameLiftStreamsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GameLiftStreamsServiceException, __GameLiftStreamsServiceException);
-
 export var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ApplicationSummary];
 export var ArnList = 64 | 0;
-
 export var FilePaths = 64 | 0;
-
 export var GameLaunchArgList = 64 | 0;
-
 export var Identifiers = 64 | 0;
-
 export var LocationConfigurations: StaticListSchema = [1, n0, _LC, 0, () => LocationConfiguration];
 export var LocationList = 64 | 0;
-
 export var LocationsList = 64 | 0;
-
 export var LocationStates: StaticListSchema = [1, n0, _LS, 0, () => LocationState];
 export var ReplicationStatuses: StaticListSchema = [1, n0, _RS, 0, () => ReplicationStatus];
 export var StreamGroupSummaryList: StaticListSchema = [1, n0, _SGSL, 0, () => StreamGroupSummary];
 export var StreamSessionSummaryList: StaticListSchema = [1, n0, _SSSL, 0, () => StreamSessionSummary];
 export var TagKeyList = 64 | 0;
-
 export var EnvironmentVariables = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var AddStreamGroupLocations: StaticOperationSchema = [
   9,
   n0,
   _ASGL,
-  {
-    [_h]: ["POST", "/streamgroups/{Identifier}/locations", 200],
-  },
+  { [_h]: ["POST", "/streamgroups/{Identifier}/locations", 200] },
   () => AddStreamGroupLocationsInput,
   () => AddStreamGroupLocationsOutput,
 ];
@@ -749,9 +588,7 @@ export var AssociateApplications: StaticOperationSchema = [
   9,
   n0,
   _AAss,
-  {
-    [_h]: ["POST", "/streamgroups/{Identifier}/associations", 200],
-  },
+  { [_h]: ["POST", "/streamgroups/{Identifier}/associations", 200] },
   () => AssociateApplicationsInput,
   () => AssociateApplicationsOutput,
 ];
@@ -759,9 +596,7 @@ export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_h]: ["POST", "/applications", 201],
-  },
+  { [_h]: ["POST", "/applications", 201] },
   () => CreateApplicationInput,
   () => CreateApplicationOutput,
 ];
@@ -769,9 +604,7 @@ export var CreateStreamGroup: StaticOperationSchema = [
   9,
   n0,
   _CSG,
-  {
-    [_h]: ["POST", "/streamgroups", 201],
-  },
+  { [_h]: ["POST", "/streamgroups", 201] },
   () => CreateStreamGroupInput,
   () => CreateStreamGroupOutput,
 ];
@@ -779,9 +612,7 @@ export var CreateStreamSessionConnection: StaticOperationSchema = [
   9,
   n0,
   _CSSC,
-  {
-    [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections", 200],
-  },
+  { [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections", 200] },
   () => CreateStreamSessionConnectionInput,
   () => CreateStreamSessionConnectionOutput,
 ];
@@ -789,9 +620,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["DELETE", "/applications/{Identifier}", 204],
-  },
+  { [_h]: ["DELETE", "/applications/{Identifier}", 204] },
   () => DeleteApplicationInput,
   () => __Unit,
 ];
@@ -799,9 +628,7 @@ export var DeleteStreamGroup: StaticOperationSchema = [
   9,
   n0,
   _DSG,
-  {
-    [_h]: ["DELETE", "/streamgroups/{Identifier}", 204],
-  },
+  { [_h]: ["DELETE", "/streamgroups/{Identifier}", 204] },
   () => DeleteStreamGroupInput,
   () => __Unit,
 ];
@@ -809,9 +636,7 @@ export var DisassociateApplications: StaticOperationSchema = [
   9,
   n0,
   _DAi,
-  {
-    [_h]: ["POST", "/streamgroups/{Identifier}/disassociations", 200],
-  },
+  { [_h]: ["POST", "/streamgroups/{Identifier}/disassociations", 200] },
   () => DisassociateApplicationsInput,
   () => DisassociateApplicationsOutput,
 ];
@@ -819,9 +644,7 @@ export var ExportStreamSessionFiles: StaticOperationSchema = [
   9,
   n0,
   _ESSF,
-  {
-    [_h]: ["PUT", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/exportfiles", 200],
-  },
+  { [_h]: ["PUT", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/exportfiles", 200] },
   () => ExportStreamSessionFilesInput,
   () => ExportStreamSessionFilesOutput,
 ];
@@ -829,9 +652,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/applications/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/applications/{Identifier}", 200] },
   () => GetApplicationInput,
   () => GetApplicationOutput,
 ];
@@ -839,9 +660,7 @@ export var GetStreamGroup: StaticOperationSchema = [
   9,
   n0,
   _GSG,
-  {
-    [_h]: ["GET", "/streamgroups/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/streamgroups/{Identifier}", 200] },
   () => GetStreamGroupInput,
   () => GetStreamGroupOutput,
 ];
@@ -849,9 +668,7 @@ export var GetStreamSession: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  {
-    [_h]: ["GET", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", 200] },
   () => GetStreamSessionInput,
   () => GetStreamSessionOutput,
 ];
@@ -859,9 +676,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/applications", 200],
-  },
+  { [_h]: ["GET", "/applications", 200] },
   () => ListApplicationsInput,
   () => ListApplicationsOutput,
 ];
@@ -869,9 +684,7 @@ export var ListStreamGroups: StaticOperationSchema = [
   9,
   n0,
   _LSG,
-  {
-    [_h]: ["GET", "/streamgroups", 200],
-  },
+  { [_h]: ["GET", "/streamgroups", 200] },
   () => ListStreamGroupsInput,
   () => ListStreamGroupsOutput,
 ];
@@ -879,9 +692,7 @@ export var ListStreamSessions: StaticOperationSchema = [
   9,
   n0,
   _LSS,
-  {
-    [_h]: ["GET", "/streamgroups/{Identifier}/streamsessions", 200],
-  },
+  { [_h]: ["GET", "/streamgroups/{Identifier}/streamsessions", 200] },
   () => ListStreamSessionsInput,
   () => ListStreamSessionsOutput,
 ];
@@ -889,9 +700,7 @@ export var ListStreamSessionsByAccount: StaticOperationSchema = [
   9,
   n0,
   _LSSBA,
-  {
-    [_h]: ["GET", "/streamsessions", 200],
-  },
+  { [_h]: ["GET", "/streamsessions", 200] },
   () => ListStreamSessionsByAccountInput,
   () => ListStreamSessionsByAccountOutput,
 ];
@@ -899,9 +708,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -909,9 +716,7 @@ export var RemoveStreamGroupLocations: StaticOperationSchema = [
   9,
   n0,
   _RSGL,
-  {
-    [_h]: ["DELETE", "/streamgroups/{Identifier}/locations", 204],
-  },
+  { [_h]: ["DELETE", "/streamgroups/{Identifier}/locations", 204] },
   () => RemoveStreamGroupLocationsInput,
   () => __Unit,
 ];
@@ -919,9 +724,7 @@ export var StartStreamSession: StaticOperationSchema = [
   9,
   n0,
   _SSSt,
-  {
-    [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions", 201],
-  },
+  { [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions", 201] },
   () => StartStreamSessionInput,
   () => StartStreamSessionOutput,
 ];
@@ -929,9 +732,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -939,9 +740,7 @@ export var TerminateStreamSession: StaticOperationSchema = [
   9,
   n0,
   _TSS,
-  {
-    [_h]: ["DELETE", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", 204] },
   () => TerminateStreamSessionInput,
   () => __Unit,
 ];
@@ -949,9 +748,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -959,9 +756,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PATCH", "/applications/{Identifier}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{Identifier}", 200] },
   () => UpdateApplicationInput,
   () => UpdateApplicationOutput,
 ];
@@ -969,9 +764,7 @@ export var UpdateStreamGroup: StaticOperationSchema = [
   9,
   n0,
   _USG,
-  {
-    [_h]: ["PATCH", "/streamgroups/{Identifier}", 200],
-  },
+  { [_h]: ["PATCH", "/streamgroups/{Identifier}", 200] },
   () => UpdateStreamGroupInput,
   () => UpdateStreamGroupOutput,
 ];

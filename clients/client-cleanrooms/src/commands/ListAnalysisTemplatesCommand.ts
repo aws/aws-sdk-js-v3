@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAnalysisTemplatesInput, ListAnalysisTemplatesOutput } from "../models/models_0";
+import type { ListAnalysisTemplatesInput, ListAnalysisTemplatesOutput } from "../models/models_0";
 import { ListAnalysisTemplates } from "../schemas/schemas_0";
 
 /**
@@ -57,6 +57,7 @@ export interface ListAnalysisTemplatesCommandOutput extends ListAnalysisTemplate
  * //       collaborationArn: "STRING_VALUE", // required
  * //       collaborationId: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
+ * //       isSyntheticData: true || false,
  * //     },
  * //   ],
  * // };

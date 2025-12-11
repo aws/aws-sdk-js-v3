@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopContactRecordingRequest, StopContactRecordingResponse } from "../models/models_2";
+import type { StopContactRecordingRequest, StopContactRecordingResponse } from "../models/models_3";
 import { StopContactRecording } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,10 @@ export interface StopContactRecordingCommandInput extends StopContactRecordingRe
 export interface StopContactRecordingCommandOutput extends StopContactRecordingResponse, __MetadataBearer {}
 
 /**
- * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time
- *    action. If you use StopContactRecording to stop recording an ongoing call, you can't use
- *    StartContactRecording to restart it. For scenarios where the recording has started and you want
- *    to suspend it for sensitive information (for example, to collect a credit card number), and then
- *    restart it, use SuspendContactRecording and ResumeContactRecording.</p>
+ * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time action. If you use
+ *    StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For
+ *    scenarios where the recording has started and you want to suspend it for sensitive information (for example, to
+ *    collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.</p>
  *          <p>Only voice recordings are supported at this time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

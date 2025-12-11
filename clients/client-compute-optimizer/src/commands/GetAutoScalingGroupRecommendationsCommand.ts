@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import type {
+  ComputeOptimizerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   GetAutoScalingGroupRecommendationsRequest,
   GetAutoScalingGroupRecommendationsResponse,
 } from "../models/models_0";
@@ -32,7 +36,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns Auto Scaling group recommendations.</p>
+ * <p>Returns Amazon EC2 Auto Scaling group recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
  *                 resources and requirements</a> in the <i>Compute Optimizer User

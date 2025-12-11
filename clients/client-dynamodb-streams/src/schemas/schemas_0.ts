@@ -89,7 +89,7 @@ const n0 = "com.amazonaws.dynamodbstreams";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -107,7 +107,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var DescribeStreamInput: StaticStructureSchema = [
   3,
   n0,
@@ -117,48 +116,18 @@ export var DescribeStreamInput: StaticStructureSchema = [
   [0, 1, 0, () => ShardFilter],
 ];
 export var DescribeStreamOutput: StaticStructureSchema = [3, n0, _DSO, 0, [_SD], [() => StreamDescription]];
-export var ExpiredIteratorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EIE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExpiredIteratorException: StaticErrorSchema = [-3, n0, _EIE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExpiredIteratorException, __ExpiredIteratorException);
-
 export var GetRecordsInput: StaticStructureSchema = [3, n0, _GRI, 0, [_SI, _L], [0, 1]];
 export var GetRecordsOutput: StaticStructureSchema = [3, n0, _GRO, 0, [_R, _NSI], [() => RecordList, 0]];
 export var GetShardIteratorInput: StaticStructureSchema = [3, n0, _GSII, 0, [_SA, _SIh, _SIT, _SN], [0, 0, 0, 0]];
 export var GetShardIteratorOutput: StaticStructureSchema = [3, n0, _GSIO, 0, [_SI], [0]];
 export var Identity: StaticStructureSchema = [3, n0, _I, 0, [_PI, _T], [0, 0]];
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
 export var KeySchemaElement: StaticStructureSchema = [3, n0, _KSE, 0, [_AN, _KT], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListStreamsInput: StaticStructureSchema = [3, n0, _LSI, 0, [_TN, _L, _ESSA], [0, 1, 0]];
 export var ListStreamsOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_S, _LESA], [() => StreamList, 0]];
 export var _Record: StaticStructureSchema = [
@@ -169,18 +138,8 @@ export var _Record: StaticStructureSchema = [
   [_eID, _eN, _eV, _eS, _aR, _d, _uI],
   [0, 0, 0, 0, 0, () => StreamRecord, () => Identity],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SequenceNumberRange: StaticStructureSchema = [3, n0, _SNR, 0, [_SSN, _ESN], [0, 0]];
 export var Shard: StaticStructureSchema = [3, n0, _Sh, 0, [_SIh, _SNR, _PSI], [0, () => SequenceNumberRange, 0]];
 export var ShardFilter: StaticStructureSchema = [3, n0, _SF, 0, [_T, _SIh], [0, 0]];
@@ -201,34 +160,18 @@ export var StreamRecord: StaticStructureSchema = [
   [_ACDT, _K, _NI, _OI, _SN, _SB, _SVT],
   [4, () => AttributeMap, () => AttributeMap, () => AttributeMap, 0, 1, 0],
 ];
-export var TrimmedDataAccessException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TDAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TrimmedDataAccessException: StaticErrorSchema = [-3, n0, _TDAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TrimmedDataAccessException, __TrimmedDataAccessException);
-
-export var __Unit = "unit" as const;
-
 export var DynamoDBStreamsServiceException: StaticErrorSchema = [-3, _sm, "DynamoDBStreamsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DynamoDBStreamsServiceException, __DynamoDBStreamsServiceException);
-
 export var BinarySetAttributeValue = 64 | 21;
-
 export var KeySchema: StaticListSchema = [1, n0, _KS, 0, () => KeySchemaElement];
 export var ListAttributeValue: StaticListSchema = [1, n0, _LAV, 0, () => AttributeValue];
 export var NumberSetAttributeValue = 64 | 0;
-
 export var RecordList: StaticListSchema = [1, n0, _RL, 0, () => _Record];
 export var ShardDescriptionList: StaticListSchema = [1, n0, _SDL, 0, () => Shard];
 export var StreamList: StaticListSchema = [1, n0, _SLt, 0, () => _Stream];
 export var StringSetAttributeValue = 64 | 0;
-
 export var AttributeMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => AttributeValue];
 export var MapAttributeValue: StaticMapSchema = [2, n0, _MAV, 0, 0, () => AttributeValue];
 export var AttributeValue: StaticStructureSchema = [

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { BatchDescribeModelPackage } from "../schemas/schemas_0";
 
 /**
@@ -91,6 +91,12 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //               ETag: "STRING_VALUE",
  * //             },
  * //             ModelDataETag: "STRING_VALUE",
+ * //             IsCheckpoint: true || false,
+ * //             BaseModel: { // BaseModel
+ * //               HubContentName: "STRING_VALUE",
+ * //               HubContentVersion: "STRING_VALUE",
+ * //               RecipeName: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -108,6 +114,7 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //       },
  * //       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
  * //       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ * //       ModelPackageRegistrationType: "Logged" || "Registered",
  * //     },
  * //   },
  * //   BatchDescribeModelPackageErrorMap: { // BatchDescribeModelPackageErrorMap

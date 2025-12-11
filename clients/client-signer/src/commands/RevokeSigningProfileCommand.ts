@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeSigningProfileRequest } from "../models/models_0";
+import type { RevokeSigningProfileRequest } from "../models/models_0";
 import { RevokeSigningProfile } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
@@ -27,9 +27,11 @@ export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRe
 export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
+ * <p>Changes the state of a signing profile to <code>REVOKED</code>. This indicates that signatures
  * 			generated using the signing profile after an effective start date are no longer
- * 			valid.</p>
+ * 			valid. A revoked profile is still viewable with the <code>ListSigningProfiles</code>
+ * 				operation, but it cannot perform new signing jobs. See <a href="https://docs.aws.amazon.com/signer/latest/developerguide/retention.html">Data Retention</a>
+ * 					for more information on scheduled deletion of a revoked signing profile.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +69,7 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>

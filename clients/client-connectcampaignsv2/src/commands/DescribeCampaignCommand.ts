@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ConnectCampaignsV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
+import type { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
 import { DescribeCampaign } from "../schemas/schemas_0";
 
 /**
@@ -104,7 +104,18 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //           wisdomTemplateArn: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       whatsApp: { // WhatsAppChannelSubtypeConfig
+ * //         capacity: Number("double"),
+ * //         outboundMode: { // WhatsAppOutboundMode Union: only one key present
+ * //           agentless: {},
+ * //         },
+ * //         defaultOutboundConfig: { // WhatsAppOutboundConfig
+ * //           connectSourcePhoneNumberArn: "STRING_VALUE", // required
+ * //           wisdomTemplateArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
+ * //     type: "STRING_VALUE",
  * //     source: { // Source Union: only one key present
  * //       customerProfilesSegmentArn: "STRING_VALUE",
  * //       eventTrigger: { // EventTrigger
@@ -167,6 +178,27 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //         },
  * //       },
  * //       email: {
+ * //         openHours: {//  Union: only one key present
+ * //           dailyHours: {
+ * //             "<keys>": [
+ * //               {
+ * //                 startTime: "STRING_VALUE", // required
+ * //                 endTime: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         restrictedPeriods: {//  Union: only one key present
+ * //           restrictedPeriodList: [
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //               startDate: "STRING_VALUE", // required
+ * //               endDate: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       whatsApp: {
  * //         openHours: {//  Union: only one key present
  * //           dailyHours: {
  * //             "<keys>": [

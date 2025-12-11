@@ -49,6 +49,7 @@ import {
   SchemaType,
   SelectedAnalysisMethod,
   SupportedS3Region,
+  SyntheticDataColumnType,
   WorkerComputeType,
 } from "./enums";
 
@@ -1271,6 +1272,105 @@ export interface ErrorMessageConfiguration {
 }
 
 /**
+ * <p>Properties that define how a specific data column should be handled during synthetic data generation, including its name, type, and role in predictive modeling.</p>
+ * @public
+ */
+export interface SyntheticDataColumnProperties {
+  /**
+   * <p>The name of the data column as it appears in the dataset.</p>
+   * @public
+   */
+  columnName: string | undefined;
+
+  /**
+   * <p>The data type of the column, which determines how the synthetic data generation algorithm processes and synthesizes values for this column.</p>
+   * @public
+   */
+  columnType: SyntheticDataColumnType | undefined;
+
+  /**
+   * <p>Indicates if this column contains predictive values that should be treated as target variables in machine learning models. This affects how the synthetic data generation preserves statistical relationships.</p>
+   * @public
+   */
+  isPredictiveValue: boolean | undefined;
+}
+
+/**
+ * <p>Contains classification information for data columns, including mappings that specify how columns should be handled during synthetic data generation and privacy analysis.</p>
+ * @public
+ */
+export interface ColumnClassificationDetails {
+  /**
+   * <p>A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.</p>
+   * @public
+   */
+  columnMapping: SyntheticDataColumnProperties[] | undefined;
+}
+
+/**
+ * <p>Parameters that control the generation of synthetic data for machine learning, including privacy settings and column classification details.</p>
+ * @public
+ */
+export interface MLSyntheticDataParameters {
+  /**
+   * <p>The epsilon value for differential privacy when generating synthetic data. Lower values provide stronger privacy guarantees but may reduce data utility.</p>
+   * @public
+   */
+  epsilon: number | undefined;
+
+  /**
+   * <p>The maximum acceptable score for membership inference attack vulnerability. Synthetic data generation fails if the score for the resulting data exceeds this threshold.</p>
+   * @public
+   */
+  maxMembershipInferenceAttackScore: number | undefined;
+
+  /**
+   * <p>Classification details for data columns that specify how each column should be treated during synthetic data generation.</p>
+   * @public
+   */
+  columnClassification: ColumnClassificationDetails | undefined;
+}
+
+/**
+ * <p>The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.</p>
+ * @public
+ */
+export type SyntheticDataParameters =
+  | SyntheticDataParameters.MlSyntheticDataParametersMember
+  | SyntheticDataParameters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SyntheticDataParameters {
+  /**
+   * <p>The machine learning-specific parameters for synthetic data generation.</p>
+   * @public
+   */
+  export interface MlSyntheticDataParametersMember {
+    mlSyntheticDataParameters: MLSyntheticDataParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    mlSyntheticDataParameters?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    mlSyntheticDataParameters: (value: MLSyntheticDataParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The reasons for the validation results.</p>
  * @public
  */
@@ -1412,6 +1512,12 @@ export interface AnalysisTemplate {
    * @public
    */
   errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
+
+  /**
+   * <p>The parameters used to generate synthetic data for this analysis template.</p>
+   * @public
+   */
+  syntheticDataParameters?: SyntheticDataParameters | undefined;
 }
 
 /**
@@ -1471,6 +1577,12 @@ export interface CreateAnalysisTemplateInput {
    * @public
    */
   errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
+
+  /**
+   * <p>The parameters for generating synthetic data when running the analysis template.</p>
+   * @public
+   */
+  syntheticDataParameters?: SyntheticDataParameters | undefined;
 }
 
 /**
@@ -1639,6 +1751,12 @@ export interface AnalysisTemplateSummary {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Indicates if this analysis template summary generated synthetic data.</p>
+   * @public
+   */
+  isSyntheticData?: boolean | undefined;
 }
 
 /**
@@ -1845,6 +1963,12 @@ export interface CollaborationAnalysisTemplate {
    * @public
    */
   errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
+
+  /**
+   * <p>The synthetic data generation parameters configured for this collaboration analysis template.</p>
+   * @public
+   */
+  syntheticDataParameters?: SyntheticDataParameters | undefined;
 }
 
 /**
@@ -2318,6 +2442,18 @@ export interface ModelTrainingPaymentConfig {
 }
 
 /**
+ * <p>Payment configuration for synthetic data generation.</p>
+ * @public
+ */
+export interface SyntheticDataGenerationPaymentConfig {
+  /**
+   * <p>Indicates who is responsible for paying for synthetic data generation.</p>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
  * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
  * @public
  */
@@ -2333,6 +2469,12 @@ export interface MLPaymentConfig {
    * @public
    */
   modelInference?: ModelInferencePaymentConfig | undefined;
+
+  /**
+   * <p>The payment configuration for machine learning synthetic data generation.</p>
+   * @public
+   */
+  syntheticDataGeneration?: SyntheticDataGenerationPaymentConfig | undefined;
 }
 
 /**
@@ -3496,6 +3638,12 @@ export interface CollaborationAnalysisTemplateSummary {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Indicates if this collaboration analysis template uses synthetic data generation.</p>
+   * @public
+   */
+  isSyntheticData?: boolean | undefined;
 }
 
 /**
@@ -7107,6 +7255,18 @@ export interface MembershipModelTrainingPaymentConfig {
 }
 
 /**
+ * <p>Configuration for payment for synthetic data generation in a membership.</p>
+ * @public
+ */
+export interface MembershipSyntheticDataGenerationPaymentConfig {
+  /**
+   * <p>Indicates if this membership is responsible for paying for synthetic data generation.</p>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
  * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
  * @public
  */
@@ -7122,6 +7282,12 @@ export interface MembershipMLPaymentConfig {
    * @public
    */
   modelInference?: MembershipModelInferencePaymentConfig | undefined;
+
+  /**
+   * <p>The payment configuration for synthetic data generation for this machine learning membership.</p>
+   * @public
+   */
+  syntheticDataGeneration?: MembershipSyntheticDataGenerationPaymentConfig | undefined;
 }
 
 /**
@@ -7465,7 +7631,7 @@ export interface ProtectedJobParameters {
    * <p> The ARN of the analysis template.</p>
    * @public
    */
-  analysisTemplateArn?: string | undefined;
+  analysisTemplateArn: string | undefined;
 }
 
 /**
@@ -8134,151 +8300,4 @@ export namespace ProtectedQueryDistributeOutputConfigurationLocation {
     member: (value: ProtectedQueryMemberOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p> Specifies the configuration for distributing protected query results to multiple receivers, including S3 and collaboration members.</p>
- * @public
- */
-export interface ProtectedQueryDistributeOutputConfiguration {
-  /**
-   * <p> A list of locations where you want to distribute the protected query results. Each location must specify either an S3 destination or a collaboration member destination.</p> <important> <p>You can't specify more than one S3 location.</p> <p>You can't specify the query runner's account as a member location.</p> <p>You must include either an S3 or member output configuration for each location, but not both.</p> </important>
-   * @public
-   */
-  locations: ProtectedQueryDistributeOutputConfigurationLocation[] | undefined;
-}
-
-/**
- * <p>Contains configuration details for protected query output.</p>
- * @public
- */
-export type ProtectedQueryOutputConfiguration =
-  | ProtectedQueryOutputConfiguration.DistributeMember
-  | ProtectedQueryOutputConfiguration.MemberMember
-  | ProtectedQueryOutputConfiguration.S3Member
-  | ProtectedQueryOutputConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedQueryOutputConfiguration {
-  /**
-   * <p>Required configuration for a protected query with an <code>s3</code> output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3OutputConfiguration;
-    member?: never;
-    distribute?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Required configuration for a protected query with a <code>member</code> output type.</p>
-   * @public
-   */
-  export interface MemberMember {
-    s3?: never;
-    member: ProtectedQueryMemberOutputConfiguration;
-    distribute?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Required configuration for a protected query with a <code>distribute</code> output type.</p>
-   * @public
-   */
-  export interface DistributeMember {
-    s3?: never;
-    member?: never;
-    distribute: ProtectedQueryDistributeOutputConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    member?: never;
-    distribute?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
-    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
-    distribute: (value: ProtectedQueryDistributeOutputConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains configurations for protected query results.</p>
- * @public
- */
-export interface ProtectedQueryResultConfiguration {
-  /**
-   * <p>Configuration for protected query results.</p>
-   * @public
-   */
-  outputConfiguration: ProtectedQueryOutputConfiguration | undefined;
-}
-
-/**
- * <p>The parameters for the SQL type Protected Query.</p>
- * @public
- */
-export interface ProtectedQuerySQLParameters {
-  /**
-   * <p>The query string to be submitted.</p>
-   * @public
-   */
-  queryString?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
-   * @public
-   */
-  analysisTemplateArn?: string | undefined;
-
-  /**
-   * <p>The protected query SQL parameters.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected query.</p>
- * @public
- */
-export interface BilledResourceUtilization {
-  /**
-   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
-   * @public
-   */
-  units: number | undefined;
-}
-
-/**
- * <p>Contains statistics about the execution of the protected query.</p>
- * @public
- */
-export interface ProtectedQueryStatistics {
-  /**
-   * <p>The duration of the protected query, from creation until query completion, in milliseconds.</p>
-   * @public
-   */
-  totalDurationInMillis?: number | undefined;
-
-  /**
-   * <p> The billed resource utilization.</p>
-   * @public
-   */
-  billedResourceUtilization?: BilledResourceUtilization | undefined;
 }

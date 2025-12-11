@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
+import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
+import type { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
 import { CompleteLayerUpload } from "../schemas/schemas_0";
 
 /**

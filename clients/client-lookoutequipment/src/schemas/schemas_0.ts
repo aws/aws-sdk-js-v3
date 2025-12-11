@@ -351,7 +351,7 @@ const n0 = "com.amazonaws.lookoutequipment";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -371,52 +371,13 @@ import {
 import { LookoutEquipmentServiceException as __LookoutEquipmentServiceException } from "../models/LookoutEquipmentServiceException";
 
 /* eslint no-var: 0 */
-
-export var SynthesizedJsonInlineDataSchema: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJIDS,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var SynthesizedJsonModelMetrics: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJMM,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var SynthesizedJsonInlineDataSchema: StaticSimpleSchema = [0, n0, _SJIDS, { [_mT]: _a }, 0];
+export var SynthesizedJsonModelMetrics: StaticSimpleSchema = [0, n0, _SJMM, { [_mT]: _a }, 0];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CategoricalValues: StaticStructureSchema = [3, n0, _CV, 0, [_S, _NOC], [0, 1]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CountPercent: StaticStructureSchema = [3, n0, _CP, 0, [_C, _P], [1, 1]];
 export var CreateDatasetRequest: StaticStructureSchema = [
   3,
@@ -905,19 +866,8 @@ export var InsufficientSensorData: StaticStructureSchema = [
   [_MCSD, _SWSDR],
   [() => MissingCompleteSensorData, () => SensorsWithShortDateRange],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvalidSensorData: StaticStructureSchema = [3, n0, _ISDn, 0, [_ASC, _TNOIV], [1, 1]];
 export var LabelGroupSummary: StaticStructureSchema = [3, n0, _LGS, 0, [_LGN, _LGA, _CA, _UA], [0, 0, 4, 4]];
 export var LabelsInputConfiguration: StaticStructureSchema = [
@@ -1098,19 +1048,8 @@ export var PutResourcePolicyRequest: StaticStructureSchema = [
   [0, 0, 0, [0, 4]],
 ];
 export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [_RAe, _PRI], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetrainingSchedulerSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1143,19 +1082,8 @@ export var SensorStatisticsSummary: StaticStructureSchema = [
   ],
 ];
 export var SensorsWithShortDateRange: StaticStructureSchema = [3, n0, _SWSDR, 0, [_ASC], [1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartDataIngestionJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1190,19 +1118,8 @@ export var StopRetrainingSchedulerResponse: StaticStructureSchema = [3, n0, _SRS
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UnsupportedTimestamps: StaticStructureSchema = [3, n0, _UT, 0, [_TNOUT], [1]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RAe, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1240,21 +1157,9 @@ export var UpdateRetrainingSchedulerRequest: StaticStructureSchema = [
   [_MN, _RSD, _RF, _LW, _PM],
   [0, 4, 0, 0, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var LookoutEquipmentServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1264,11 +1169,9 @@ export var LookoutEquipmentServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(LookoutEquipmentServiceException, __LookoutEquipmentServiceException);
-
 export var DataIngestionJobSummaries: StaticListSchema = [1, n0, _DIJSa, 0, () => DataIngestionJobSummary];
 export var DatasetSummaries: StaticListSchema = [1, n0, _DSat, 0, () => DatasetSummary];
 export var FaultCodes = 64 | 0;
-
 export var InferenceEventSummaries: StaticListSchema = [1, n0, _IESnf, 0, () => InferenceEventSummary];
 export var InferenceExecutionSummaries: StaticListSchema = [1, n0, _IESnfe, 0, () => InferenceExecutionSummary];
 export var InferenceSchedulerSummaries: StaticListSchema = [1, n0, _ISSn, 0, () => InferenceSchedulerSummary];
@@ -1280,7 +1183,6 @@ export var ModelVersionSummaries: StaticListSchema = [1, n0, _MVS, 0, () => Mode
 export var RetrainingSchedulerSummaries: StaticListSchema = [1, n0, _RSSe, 0, () => RetrainingSchedulerSummary];
 export var SensorStatisticsSummaries: StaticListSchema = [1, n0, _SSS, 0, () => SensorStatisticsSummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var CreateDataset: StaticOperationSchema = [
   9,

@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
-import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
+import { AwsJson1_0Protocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
+import type { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultCloudWatchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { CloudWatchClientConfig } from "./CloudWatchClient";
+import type { CloudWatchClientConfig } from "./CloudWatchClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
 /**
@@ -33,10 +33,10 @@ export const getRuntimeConfig = (config: CloudWatchClientConfig) => {
     logger: config?.logger ?? new NoOpLogger(),
     protocol:
       config?.protocol ??
-      new AwsQueryProtocol({
+      new AwsJson1_0Protocol({
         defaultNamespace: "com.amazonaws.cloudwatch",
-        xmlNamespace: "http://monitoring.amazonaws.com/doc/2010-08-01/",
-        version: "2010-08-01",
+        serviceTarget: "GraniteServiceVersion20100801",
+        awsQueryCompatible: true,
       }),
     serviceId: config?.serviceId ?? "CloudWatch",
     urlParser: config?.urlParser ?? parseUrl,

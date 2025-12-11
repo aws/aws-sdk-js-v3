@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListDelegationRequestsRequest, ListDelegationRequestsResponse } from "../models/models_0";
+import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import type { ListDelegationRequestsRequest, ListDelegationRequestsResponse } from "../models/models_0";
 import { ListDelegationRequests } from "../schemas/schemas_0";
 
 /**
@@ -76,6 +76,7 @@ export interface ListDelegationRequestsCommandOutput extends ListDelegationReque
  * //       OwnerId: "STRING_VALUE",
  * //       ApproverId: "STRING_VALUE",
  * //       State: "UNASSIGNED" || "ASSIGNED" || "PENDING_APPROVAL" || "FINALIZED" || "ACCEPTED" || "REJECTED" || "EXPIRED",
+ * //       ExpirationTime: new Date("TIMESTAMP"),
  * //       RequestorId: "STRING_VALUE",
  * //       RequestorName: "STRING_VALUE",
  * //       CreateDate: new Date("TIMESTAMP"),

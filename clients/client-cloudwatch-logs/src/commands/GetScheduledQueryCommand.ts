@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetScheduledQueryRequest, GetScheduledQueryResponse } from "../models/models_0";
+import type { GetScheduledQueryRequest, GetScheduledQueryResponse } from "../models/models_0";
 import { GetScheduledQuery } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +31,7 @@ export interface GetScheduledQueryCommandInput extends GetScheduledQueryRequest 
 export interface GetScheduledQueryCommandOutput extends GetScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about a specified scheduled query, including its configuration, current state, and execution history.</p>
+ * <p>Retrieves details about a specific scheduled query, including its configuration, execution status, and metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +85,9 @@ export interface GetScheduledQueryCommandOutput extends GetScheduledQueryRespons
  *  <p>You don't have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ *  <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

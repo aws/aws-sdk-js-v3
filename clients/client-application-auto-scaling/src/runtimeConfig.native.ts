@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ApplicationAutoScalingClientConfig } from "./ApplicationAutoScalingClient";
+import type { ApplicationAutoScalingClientConfig } from "./ApplicationAutoScalingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { LaunchConfigurationTemplate, UpdateLaunchConfigurationTemplateRequest } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { LaunchConfigurationTemplate, UpdateLaunchConfigurationTemplateRequest } from "../models/models_0";
 import { UpdateLaunchConfigurationTemplate } from "../schemas/schemas_0";
 
 /**
@@ -87,6 +87,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  *     iops: Number("long"),
  *     throughput: Number("long"),
  *   },
+ *   enableParametersEncryption: true || false,
+ *   parametersEncryptionKey: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -146,6 +148,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * //     iops: Number("long"),
  * //     throughput: Number("long"),
  * //   },
+ * //   enableParametersEncryption: true || false,
+ * //   parametersEncryptionKey: "STRING_VALUE",
  * // };
  *
  * ```

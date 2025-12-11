@@ -199,7 +199,7 @@ const n0 = "com.amazonaws.rtbfabric";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -220,7 +220,6 @@ import {
 import { RTBFabricServiceException as __RTBFabricServiceException } from "../models/RTBFabricServiceException";
 
 /* eslint no-var: 0 */
-
 export var Base64EncodedCertificateChain: StaticSimpleSchema = [0, n0, _BECC, 8, 0];
 export var AcceptLinkRequest: StaticStructureSchema = [
   3,
@@ -238,33 +237,11 @@ export var AcceptLinkResponse: StaticStructureSchema = [
   [_gI, _pGI, _s, _cA, _uA, _d, _fM, _pFM, _a, _lI],
   [0, 0, 0, 4, 4, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes, 0],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AutoScalingGroupsConfiguration: StaticStructureSchema = [3, n0, _ASGC, 0, [_aSGN, _rA], [64 | 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateInboundExternalLinkRequest: StaticStructureSchema = [
   3,
   n0,
@@ -505,19 +482,8 @@ export var GetResponderGatewayResponse: StaticStructureSchema = [
   ],
 ];
 export var HeaderTagAction: StaticStructureSchema = [3, n0, _HTA, 0, [_n, _va], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LinkApplicationLogConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -537,18 +503,8 @@ export var ListLinksRequest: StaticStructureSchema = [
   [_gI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLinksResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_l, _nT], [() => LinkList, 0]];
@@ -567,18 +523,8 @@ export var ListRequesterGatewaysRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListRequesterGatewaysResponse: StaticStructureSchema = [3, n0, _LRGRi, 0, [_gIa, _nT], [64 | 0, 0]];
@@ -589,18 +535,8 @@ export var ListResponderGatewaysRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListResponderGatewaysResponse: StaticStructureSchema = [3, n0, _LRGRist, 0, [_gIa, _nT], [64 | 0, 0]];
@@ -644,19 +580,8 @@ export var RejectLinkResponse: StaticStructureSchema = [
   [_gI, _pGI, _s, _cA, _uA, _d, _fM, _pFM, _a, _lI],
   [0, 0, 0, 4, 4, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResponderErrorMaskingForHttpCode: StaticStructureSchema = [
   3,
   n0,
@@ -665,34 +590,12 @@ export var ResponderErrorMaskingForHttpCode: StaticStructureSchema = [
   [_hC, _ac, _lT, _rLP],
   [0, 0, 64 | 0, 1],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrustStoreConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -709,12 +612,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -754,26 +652,11 @@ export var UpdateResponderGatewayRequest: StaticStructureSchema = [
   [0, 1, 0, [() => TrustStoreConfiguration, 0], [() => ManagedEndpointConfiguration, 0], [0, 4], [0, 1], 0],
 ];
 export var UpdateResponderGatewayResponse: StaticStructureSchema = [3, n0, _URGRpda, 0, [_gI, _s], [0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var RTBFabricServiceException: StaticErrorSchema = [-3, _sm, "RTBFabricServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RTBFabricServiceException, __RTBFabricServiceException);
-
 export var AutoScalingGroupNameList = 64 | 0;
-
 export var CertificateAuthorityCertificates: StaticListSchema = [
   1,
   n0,
@@ -784,24 +667,16 @@ export var CertificateAuthorityCertificates: StaticListSchema = [
 export var FilterConfiguration: StaticListSchema = [1, n0, _FCi, 0, () => Filter];
 export var FilterCriteria: StaticListSchema = [1, n0, _FCil, 0, () => FilterCriterion];
 export var FlowModuleNameList = 64 | 0;
-
 export var GatewayIdList = 64 | 0;
-
 export var LinkList: StaticListSchema = [1, n0, _LL, 0, () => ListLinksResponseStructure];
 export var ModuleConfigurationList: StaticListSchema = [1, n0, _MCL, 0, () => ModuleConfiguration];
 export var ResponderErrorMasking: StaticListSchema = [1, n0, _REM, 0, () => ResponderErrorMaskingForHttpCode];
 export var ResponderErrorMaskingLoggingTypes = 64 | 0;
-
 export var SecurityGroupIdList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var ValueList = 64 | 0;
-
 export var TagsMap = 128 | 0;
-
 export var Action: StaticStructureSchema = [3, n0, _A, 0, [_nB, _hT], [() => NoBidAction, () => HeaderTagAction]];
 export var ManagedEndpointConfiguration: StaticStructureSchema = [
   3,
@@ -823,9 +698,7 @@ export var AcceptLink: StaticOperationSchema = [
   9,
   n0,
   _AL,
-  {
-    [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/accept", 200],
-  },
+  { [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/accept", 200] },
   () => AcceptLinkRequest,
   () => AcceptLinkResponse,
 ];
@@ -833,9 +706,7 @@ export var CreateInboundExternalLink: StaticOperationSchema = [
   9,
   n0,
   _CIEL,
-  {
-    [_h]: ["POST", "/responder-gateway/{gatewayId}/inbound-external-link", 200],
-  },
+  { [_h]: ["POST", "/responder-gateway/{gatewayId}/inbound-external-link", 200] },
   () => CreateInboundExternalLinkRequest,
   () => CreateInboundExternalLinkResponse,
 ];
@@ -843,9 +714,7 @@ export var CreateLink: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  {
-    [_h]: ["POST", "/gateway/{gatewayId}/create-link", 200],
-  },
+  { [_h]: ["POST", "/gateway/{gatewayId}/create-link", 200] },
   () => CreateLinkRequest,
   () => CreateLinkResponse,
 ];
@@ -853,9 +722,7 @@ export var CreateOutboundExternalLink: StaticOperationSchema = [
   9,
   n0,
   _COEL,
-  {
-    [_h]: ["POST", "/requester-gateway/{gatewayId}/outbound-external-link", 200],
-  },
+  { [_h]: ["POST", "/requester-gateway/{gatewayId}/outbound-external-link", 200] },
   () => CreateOutboundExternalLinkRequest,
   () => CreateOutboundExternalLinkResponse,
 ];
@@ -863,9 +730,7 @@ export var CreateRequesterGateway: StaticOperationSchema = [
   9,
   n0,
   _CRG,
-  {
-    [_h]: ["POST", "/requester-gateway", 200],
-  },
+  { [_h]: ["POST", "/requester-gateway", 200] },
   () => CreateRequesterGatewayRequest,
   () => CreateRequesterGatewayResponse,
 ];
@@ -873,9 +738,7 @@ export var CreateResponderGateway: StaticOperationSchema = [
   9,
   n0,
   _CRGr,
-  {
-    [_h]: ["POST", "/responder-gateway", 200],
-  },
+  { [_h]: ["POST", "/responder-gateway", 200] },
   () => CreateResponderGatewayRequest,
   () => CreateResponderGatewayResponse,
 ];
@@ -883,9 +746,7 @@ export var DeleteInboundExternalLink: StaticOperationSchema = [
   9,
   n0,
   _DIEL,
-  {
-    [_h]: ["DELETE", "/responder-gateway/{gatewayId}/inbound-external-link/{linkId}", 200],
-  },
+  { [_h]: ["DELETE", "/responder-gateway/{gatewayId}/inbound-external-link/{linkId}", 200] },
   () => DeleteInboundExternalLinkRequest,
   () => DeleteInboundExternalLinkResponse,
 ];
@@ -893,9 +754,7 @@ export var DeleteLink: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_h]: ["DELETE", "/gateway/{gatewayId}/link/{linkId}", 200],
-  },
+  { [_h]: ["DELETE", "/gateway/{gatewayId}/link/{linkId}", 200] },
   () => DeleteLinkRequest,
   () => DeleteLinkResponse,
 ];
@@ -903,9 +762,7 @@ export var DeleteOutboundExternalLink: StaticOperationSchema = [
   9,
   n0,
   _DOEL,
-  {
-    [_h]: ["DELETE", "/requester-gateway/{gatewayId}/outbound-external-link/{linkId}", 200],
-  },
+  { [_h]: ["DELETE", "/requester-gateway/{gatewayId}/outbound-external-link/{linkId}", 200] },
   () => DeleteOutboundExternalLinkRequest,
   () => DeleteOutboundExternalLinkResponse,
 ];
@@ -913,9 +770,7 @@ export var DeleteRequesterGateway: StaticOperationSchema = [
   9,
   n0,
   _DRG,
-  {
-    [_h]: ["DELETE", "/requester-gateway/{gatewayId}", 200],
-  },
+  { [_h]: ["DELETE", "/requester-gateway/{gatewayId}", 200] },
   () => DeleteRequesterGatewayRequest,
   () => DeleteRequesterGatewayResponse,
 ];
@@ -923,9 +778,7 @@ export var DeleteResponderGateway: StaticOperationSchema = [
   9,
   n0,
   _DRGe,
-  {
-    [_h]: ["DELETE", "/responder-gateway/{gatewayId}", 200],
-  },
+  { [_h]: ["DELETE", "/responder-gateway/{gatewayId}", 200] },
   () => DeleteResponderGatewayRequest,
   () => DeleteResponderGatewayResponse,
 ];
@@ -933,9 +786,7 @@ export var GetInboundExternalLink: StaticOperationSchema = [
   9,
   n0,
   _GIEL,
-  {
-    [_h]: ["GET", "/responder-gateway/{gatewayId}/inbound-external-link/{linkId}", 200],
-  },
+  { [_h]: ["GET", "/responder-gateway/{gatewayId}/inbound-external-link/{linkId}", 200] },
   () => GetInboundExternalLinkRequest,
   () => GetInboundExternalLinkResponse,
 ];
@@ -943,9 +794,7 @@ export var GetLink: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_h]: ["GET", "/gateway/{gatewayId}/link/{linkId}", 200],
-  },
+  { [_h]: ["GET", "/gateway/{gatewayId}/link/{linkId}", 200] },
   () => GetLinkRequest,
   () => GetLinkResponse,
 ];
@@ -953,9 +802,7 @@ export var GetOutboundExternalLink: StaticOperationSchema = [
   9,
   n0,
   _GOEL,
-  {
-    [_h]: ["GET", "/requester-gateway/{gatewayId}/outbound-external-link/{linkId}", 200],
-  },
+  { [_h]: ["GET", "/requester-gateway/{gatewayId}/outbound-external-link/{linkId}", 200] },
   () => GetOutboundExternalLinkRequest,
   () => GetOutboundExternalLinkResponse,
 ];
@@ -963,9 +810,7 @@ export var GetRequesterGateway: StaticOperationSchema = [
   9,
   n0,
   _GRG,
-  {
-    [_h]: ["GET", "/requester-gateway/{gatewayId}", 200],
-  },
+  { [_h]: ["GET", "/requester-gateway/{gatewayId}", 200] },
   () => GetRequesterGatewayRequest,
   () => GetRequesterGatewayResponse,
 ];
@@ -973,9 +818,7 @@ export var GetResponderGateway: StaticOperationSchema = [
   9,
   n0,
   _GRGe,
-  {
-    [_h]: ["GET", "/responder-gateway/{gatewayId}", 200],
-  },
+  { [_h]: ["GET", "/responder-gateway/{gatewayId}", 200] },
   () => GetResponderGatewayRequest,
   () => GetResponderGatewayResponse,
 ];
@@ -983,9 +826,7 @@ export var ListLinks: StaticOperationSchema = [
   9,
   n0,
   _LLi,
-  {
-    [_h]: ["GET", "/gateway/{gatewayId}/links/", 200],
-  },
+  { [_h]: ["GET", "/gateway/{gatewayId}/links/", 200] },
   () => ListLinksRequest,
   () => ListLinksResponse,
 ];
@@ -993,9 +834,7 @@ export var ListRequesterGateways: StaticOperationSchema = [
   9,
   n0,
   _LRG,
-  {
-    [_h]: ["GET", "/requester-gateways", 200],
-  },
+  { [_h]: ["GET", "/requester-gateways", 200] },
   () => ListRequesterGatewaysRequest,
   () => ListRequesterGatewaysResponse,
 ];
@@ -1003,9 +842,7 @@ export var ListResponderGateways: StaticOperationSchema = [
   9,
   n0,
   _LRGi,
-  {
-    [_h]: ["GET", "/responder-gateways", 200],
-  },
+  { [_h]: ["GET", "/responder-gateways", 200] },
   () => ListResponderGatewaysRequest,
   () => ListResponderGatewaysResponse,
 ];
@@ -1013,9 +850,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1023,9 +858,7 @@ export var RejectLink: StaticOperationSchema = [
   9,
   n0,
   _RL,
-  {
-    [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/reject", 200],
-  },
+  { [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/reject", 200] },
   () => RejectLinkRequest,
   () => RejectLinkResponse,
 ];
@@ -1033,9 +866,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1043,9 +874,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1053,9 +882,7 @@ export var UpdateLink: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  {
-    [_h]: ["PATCH", "/gateway/{gatewayId}/link/{linkId}", 200],
-  },
+  { [_h]: ["PATCH", "/gateway/{gatewayId}/link/{linkId}", 200] },
   () => UpdateLinkRequest,
   () => UpdateLinkResponse,
 ];
@@ -1063,9 +890,7 @@ export var UpdateLinkModuleFlow: StaticOperationSchema = [
   9,
   n0,
   _ULMF,
-  {
-    [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/module-flow", 200],
-  },
+  { [_h]: ["POST", "/gateway/{gatewayId}/link/{linkId}/module-flow", 200] },
   () => UpdateLinkModuleFlowRequest,
   () => UpdateLinkModuleFlowResponse,
 ];
@@ -1073,9 +898,7 @@ export var UpdateRequesterGateway: StaticOperationSchema = [
   9,
   n0,
   _URG,
-  {
-    [_h]: ["POST", "/requester-gateway/{gatewayId}/update", 200],
-  },
+  { [_h]: ["POST", "/requester-gateway/{gatewayId}/update", 200] },
   () => UpdateRequesterGatewayRequest,
   () => UpdateRequesterGatewayResponse,
 ];
@@ -1083,9 +906,7 @@ export var UpdateResponderGateway: StaticOperationSchema = [
   9,
   n0,
   _URGp,
-  {
-    [_h]: ["POST", "/responder-gateway/{gatewayId}/update", 200],
-  },
+  { [_h]: ["POST", "/responder-gateway/{gatewayId}/update", 200] },
   () => UpdateResponderGatewayRequest,
   () => UpdateResponderGatewayResponse,
 ];

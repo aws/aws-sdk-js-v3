@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { RuleSetObject } from "@smithy/types";
+import type { RuleSetObject } from "@smithy/types";
 
 export const ruleSet: RuleSetObject = {
   version: "1.0",

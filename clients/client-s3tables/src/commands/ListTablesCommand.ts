@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTablesRequest, ListTablesResponse } from "../models/models_0";
-import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
+import type { ListTablesRequest, ListTablesResponse } from "../models/models_0";
+import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { ListTables } from "../schemas/schemas_0";
 
 /**
@@ -56,6 +56,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * //       tableARN: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       modifiedAt: new Date("TIMESTAMP"), // required
+ * //       managedByService: "STRING_VALUE",
  * //       namespaceId: "STRING_VALUE",
  * //       tableBucketId: "STRING_VALUE",
  * //     },

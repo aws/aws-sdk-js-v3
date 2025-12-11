@@ -174,7 +174,7 @@ const n0 = "com.amazonaws.evs";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -193,7 +193,6 @@ import {
 import { EvsServiceException as __EvsServiceException } from "../models/EvsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AssociateEipToVlanRequest: StaticStructureSchema = [
   3,
   n0,
@@ -355,18 +354,8 @@ export var ListEnvironmentHostsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _eI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -378,24 +367,9 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _s],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _s,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [64 | 0, { [_hQ]: _s }],
   ],
 ];
 export var ListEnvironmentsResponse: StaticStructureSchema = [
@@ -413,18 +387,8 @@ export var ListEnvironmentVlansRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _eI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -436,94 +400,41 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_er]: _cl,
-    [_hE]: 404,
-  },
+  { [_er]: _cl, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Secret: StaticStructureSchema = [3, n0, _S, 0, [_sA], [0]];
 export var ServiceAccessSecurityGroups: StaticStructureSchema = [3, n0, _SASG, 0, [_sG], [64 | 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_er]: _cl,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _cl, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var TagPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TPE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TagPolicyException: StaticErrorSchema = [-3, n0, _TPE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TagPolicyException, __TagPolicyException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [0, 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_er]: _cl,
-    [_hE]: 429,
-  },
+  { [_er]: _cl, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_er]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
+  { [_er]: _cl, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VcfHostnames: StaticStructureSchema = [
   3,
@@ -541,33 +452,24 @@ export var Vlan: StaticStructureSchema = [
   [_vIl, _ci, _aZ, _fN, _sIu, _cA, _mA, _vSl, _sD, _eAi, _iP, _nAI],
   [1, 0, 0, 0, 0, 4, 4, 0, 0, () => EipAssociationList, 2, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var EvsServiceException: StaticErrorSchema = [-3, _sm, "EvsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EvsServiceException, __EvsServiceException);
-
 export var ChecksList: StaticListSchema = [1, n0, _CL, 0, () => Check];
 export var EipAssociationList: StaticListSchema = [1, n0, _EAL, 0, () => EipAssociation];
 export var EnvironmentStateList = 64 | 0;
-
 export var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EnvironmentSummary];
 export var HostInfoForCreateList: StaticListSchema = [1, n0, _HIFCL, 0, () => HostInfoForCreate];
 export var HostList: StaticListSchema = [1, n0, _HL, 0, () => Host];
 export var LicenseInfoList: StaticListSchema = [1, n0, _LIL, 0, () => LicenseInfo];
 export var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInterface];
 export var RouteServerPeeringList = 64 | 0;
-
 export var SecretList: StaticListSchema = [1, n0, _SL, 0, () => Secret];
 export var SecurityGroups = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VlanList: StaticListSchema = [1, n0, _VL, 0, () => Vlan];
 export var RequestTagMap = 128 | 0;
-
 export var ResponseTagMap = 128 | 0;
-
 export var AssociateEipToVlan: StaticOperationSchema = [
   9,
   n0,

@@ -3,11 +3,11 @@ import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateAccessGrantsIdentityCenterRequest } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { AssociateAccessGrantsIdentityCenterRequest } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { AssociateAccessGrantsIdentityCenter } from "../schemas/schemas_0";
 
 /**
@@ -29,27 +29,17 @@ export interface AssociateAccessGrantsIdentityCenterCommandInput extends Associa
 export interface AssociateAccessGrantsIdentityCenterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance. Use this
- *          action if you want to create access grants for users or groups from your corporate identity
- *          directory. First, you must add your corporate identity directory to Amazon Web Services IAM Identity
- *          Center. Then, you can associate this IAM Identity Center instance with your S3 Access Grants
- *          instance.</p>
+ * <p>Associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance. Use this action if you want to create access grants for users or groups from your corporate identity directory. First, you must add your corporate identity directory to Amazon Web Services IAM Identity Center. Then, you can associate this IAM Identity Center instance with your S3 Access Grants instance.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:AssociateAccessGrantsIdentityCenter</code>
- *                   permission to use this operation. </p>
+ *                <p>You must have the <code>s3:AssociateAccessGrantsIdentityCenter</code> permission to use this operation. </p>
  *             </dd>
  *             <dt>Additional Permissions</dt>
  *             <dd>
- *                <p>You must also have the following permissions:
- *                      <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and
- *                      <code>sso:PutApplicationAuthenticationMethod</code>. </p>
+ *                <p>You must also have the following permissions: <code>sso:CreateApplication</code>, <code>sso:PutApplicationGrant</code>, and <code>sso:PutApplicationAuthenticationMethod</code>. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -43,6 +43,21 @@ export type AlternateContactType = (typeof AlternateContactType)[keyof typeof Al
  * @public
  * @enum
  */
+export const AwsAccountState = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type AwsAccountState = (typeof AwsAccountState)[keyof typeof AwsAccountState];
+
+/**
+ * @public
+ * @enum
+ */
 export const RegionOptStatus = {
   DISABLED: "DISABLED",
   DISABLING: "DISABLING",

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteResourcePermissionCommand,
@@ -129,7 +129,7 @@ import {
   UpdateApplicationSettingsCommandInput,
   UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand";
-import { SsmSapClient, SsmSapClientConfig } from "./SsmSapClient";
+import { SsmSapClient } from "./SsmSapClient";
 
 const commands = {
   DeleteResourcePermissionCommand,

@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock-runtime
+
+
+
+
+
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock-runtime
+
+
+
+
+
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock-runtime
+
+
+
+
+
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-bedrock-runtime:** Adds support for Audio Blocks and Streaming Image Output plus new Stop Reasons of malformed_model_output and malformed_tool_use. ([57bdac0](https://github.com/aws/aws-sdk-js-v3/commit/57bdac089bd21e477fe1f2cf6cf0c2e8c8a0c0a3))
+
+
+
+
+
+# [3.941.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.940.0...v3.941.0) (2025-11-26)
+
+
+### Features
+
+* **client-bedrock-runtime:** Bedrock Runtime Reserved Service Support ([18c4e92](https://github.com/aws/aws-sdk-js-v3/commit/18c4e92fa87b0be9150ff0d5671de29fe1ce5ca7))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

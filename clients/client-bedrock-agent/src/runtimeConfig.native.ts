@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { BedrockAgentClientConfig } from "./BedrockAgentClient";
+import type { BedrockAgentClientConfig } from "./BedrockAgentClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

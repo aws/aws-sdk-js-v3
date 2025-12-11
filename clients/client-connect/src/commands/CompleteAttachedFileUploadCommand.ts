@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CompleteAttachedFileUploadRequest, CompleteAttachedFileUploadResponse } from "../models/models_0";
+import type { CompleteAttachedFileUploadRequest, CompleteAttachedFileUploadResponse } from "../models/models_0";
 import { CompleteAttachedFileUpload } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface CompleteAttachedFileUploadCommandInput extends CompleteAttached
 export interface CompleteAttachedFileUploadCommandOutput extends CompleteAttachedFileUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL
- *    provided in the StartAttachedFileUpload API.</p>
+ * <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL provided in the
+ *    StartAttachedFileUpload API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

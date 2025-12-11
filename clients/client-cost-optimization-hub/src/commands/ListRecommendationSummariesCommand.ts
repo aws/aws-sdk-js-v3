@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   CostOptimizationHubClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRecommendationSummariesRequest, ListRecommendationSummariesResponse } from "../models/models_0";
+import type { ListRecommendationSummariesRequest, ListRecommendationSummariesResponse } from "../models/models_0";
 import { ListRecommendationSummaries } from "../schemas/schemas_0";
 
 /**
@@ -56,7 +56,7 @@ export interface ListRecommendationSummariesCommandOutput
  *       "STRING_VALUE",
  *     ],
  *     resourceTypes: [ // ResourceTypeList
- *       "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
+ *       "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances" || "NatGateway",
  *     ],
  *     actionTypes: [ // ActionTypeList
  *       "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete" || "ScaleIn",

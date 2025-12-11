@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTablesRequest } from "../models/models_2";
-import { GetTablesResponse } from "../models/models_3";
+import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import type { GetTablesRequest } from "../models/models_2";
+import type { GetTablesResponse } from "../models/models_3";
 import { GetTables } from "../schemas/schemas_0";
 
 /**
@@ -161,8 +161,15 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //       ViewDefinition: { // ViewDefinition
  * //         IsProtected: true || false,
  * //         Definer: "STRING_VALUE",
+ * //         ViewVersionId: Number("long"),
+ * //         ViewVersionToken: "STRING_VALUE",
+ * //         RefreshSeconds: Number("long"),
+ * //         LastRefreshType: "FULL" || "INCREMENTAL",
  * //         SubObjects: [ // ViewSubObjectsList
  * //           "STRING_VALUE",
+ * //         ],
+ * //         SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
+ * //           Number("long"),
  * //         ],
  * //         Representations: [ // ViewRepresentationList
  * //           { // ViewRepresentation
@@ -176,6 +183,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //         ],
  * //       },
  * //       IsMultiDialectView: true || false,
+ * //       IsMaterializedView: true || false,
  * //       Status: { // TableStatus
  * //         RequestedBy: "STRING_VALUE",
  * //         UpdatedBy: "STRING_VALUE",
@@ -265,8 +273,15 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //             ViewDefinition: {
  * //               IsProtected: true || false,
  * //               Definer: "STRING_VALUE",
+ * //               ViewVersionId: Number("long"),
+ * //               ViewVersionToken: "STRING_VALUE",
+ * //               RefreshSeconds: Number("long"),
+ * //               LastRefreshType: "FULL" || "INCREMENTAL",
  * //               SubObjects: [
  * //                 "STRING_VALUE",
+ * //               ],
+ * //               SubObjectVersionIds: [
+ * //                 Number("long"),
  * //               ],
  * //               Representations: [
  * //                 {
@@ -280,6 +295,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //               ],
  * //             },
  * //             IsMultiDialectView: true || false,
+ * //             IsMaterializedView: true || false,
  * //             Status: {
  * //               RequestedBy: "STRING_VALUE",
  * //               UpdatedBy: "STRING_VALUE",

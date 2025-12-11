@@ -189,7 +189,7 @@ const n0 = "com.amazonaws.timestreamwrite";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -211,21 +211,9 @@ import {
 import { TimestreamWriteServiceException as __TimestreamWriteServiceException } from "../models/TimestreamWriteServiceException";
 
 /* eslint no-var: 0 */
-
 export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BatchLoadProgressReport: StaticStructureSchema = [
   3,
   n0,
@@ -264,19 +252,8 @@ export var BatchLoadTaskDescription: StaticStructureSchema = [
     4,
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateBatchLoadTaskRequest: StaticStructureSchema = [
   3,
   n0,
@@ -353,32 +330,10 @@ export var DescribeTableResponse: StaticStructureSchema = [3, n0, _DTRes, 0, [_T
 export var Dimension: StaticStructureSchema = [3, n0, _Di, 0, [_N, _V, _DVT], [0, 0, 0]];
 export var DimensionMapping: StaticStructureSchema = [3, n0, _DMim, 0, [_SC, _DC], [0, 0]];
 export var Endpoint: StaticStructureSchema = [3, n0, _En, 0, [_Ad, _CPIM], [0, 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidEndpointException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEE,
-  {
-    [_e]: _c,
-    [_hE]: 421,
-  },
-  [_M],
-  [0],
-];
+export var InvalidEndpointException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _c, [_hE]: 421 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidEndpointException, __InvalidEndpointException);
-
 export var ListBatchLoadTasksRequest: StaticStructureSchema = [3, n0, _LBLTR, 0, [_NT, _MR, _TS], [0, 1, 0]];
 export var ListBatchLoadTasksResponse: StaticStructureSchema = [
   3,
@@ -443,48 +398,22 @@ export var RejectedRecordsException: StaticErrorSchema = [
   -3,
   n0,
   _RRE,
-  {
-    [_e]: _c,
-    [_hE]: 419,
-  },
+  { [_e]: _c, [_hE]: 419 },
   [_M, _RRe],
   [0, () => RejectedRecords],
 ];
 TypeRegistry.for(n0).registerError(RejectedRecordsException, __RejectedRecordsException);
-
 export var ReportConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_RSC], [() => ReportS3Configuration]];
 export var ReportS3Configuration: StaticStructureSchema = [3, n0, _RSC, 0, [_BN, _OKP, _EO, _KKI], [0, 0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResumeBatchLoadTaskRequest: StaticStructureSchema = [3, n0, _RBLTR, 0, [_TI], [0]];
 export var ResumeBatchLoadTaskResponse: StaticStructureSchema = [3, n0, _RBLTRe, 0, [], []];
 export var RetentionProperties: StaticStructureSchema = [3, n0, _RPe, 0, [_MSRPIH, _MSRPID], [1, 1]];
 export var S3Configuration: StaticStructureSchema = [3, n0, _SCo, 0, [_BN, _OKP, _EO, _KKI], [0, 0, 0, 0]];
 export var Schema: StaticStructureSchema = [3, n0, _S, 0, [_CPK], [() => PartitionKeyList]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Table: StaticStructureSchema = [
   3,
   n0,
@@ -496,19 +425,8 @@ export var Table: StaticStructureSchema = [
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateDatabaseRequest: StaticStructureSchema = [3, n0, _UDR, 0, [_DN, _KKI], [0, 0]];
@@ -522,19 +440,8 @@ export var UpdateTableRequest: StaticStructureSchema = [
   [0, 0, () => RetentionProperties, () => MagneticStoreWriteProperties, () => Schema],
 ];
 export var UpdateTableResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [_Ta], [() => Table]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WriteRecordsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -545,10 +452,8 @@ export var WriteRecordsRequest: StaticStructureSchema = [
 ];
 export var WriteRecordsResponse: StaticStructureSchema = [3, n0, _WRRr, 0, [_RI], [() => RecordsIngested]];
 export var __Unit = "unit" as const;
-
 export var TimestreamWriteServiceException: StaticErrorSchema = [-3, _sm, "TimestreamWriteServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TimestreamWriteServiceException, __TimestreamWriteServiceException);
-
 export var BatchLoadTaskList: StaticListSchema = [1, n0, _BLTL, 0, () => BatchLoadTask];
 export var DatabaseList: StaticListSchema = [1, n0, _DL, 0, () => Database];
 export var DimensionMappings: StaticListSchema = [1, n0, _DMi, 0, () => DimensionMapping];
@@ -562,7 +467,6 @@ export var Records: StaticListSchema = [1, n0, _Rec, 0, () => _Record];
 export var RejectedRecords: StaticListSchema = [1, n0, _RRe, 0, () => RejectedRecord];
 export var TableList: StaticListSchema = [1, n0, _TL, 0, () => Table];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
 export var CreateBatchLoadTask: StaticOperationSchema = [
   9,

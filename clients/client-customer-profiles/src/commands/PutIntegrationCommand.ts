@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import type {
+  CustomerProfilesClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutIntegrationRequest, PutIntegrationResponse } from "../models/models_0";
+import type { PutIntegrationRequest, PutIntegrationResponse } from "../models/models_0";
 import { PutIntegration } from "../schemas/schemas_0";
 
 /**
@@ -45,6 +49,9 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *   DomainName: "STRING_VALUE", // required
  *   Uri: "STRING_VALUE",
  *   ObjectTypeName: "STRING_VALUE",
+ *   ObjectTypeNames: { // ObjectTypeNames
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -113,13 +120,11 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *       },
  *     },
  *   },
- *   ObjectTypeNames: { // ObjectTypeNames
- *     "<keys>": "STRING_VALUE",
- *   },
  *   RoleArn: "STRING_VALUE",
  *   EventTriggerNames: [ // EventTriggerNames
  *     "STRING_VALUE",
  *   ],
+ *   Scope: "PROFILE" || "DOMAIN",
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
@@ -141,6 +146,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * //   EventTriggerNames: [ // EventTriggerNames
  * //     "STRING_VALUE",
  * //   ],
+ * //   Scope: "PROFILE" || "DOMAIN",
  * // };
  *
  * ```

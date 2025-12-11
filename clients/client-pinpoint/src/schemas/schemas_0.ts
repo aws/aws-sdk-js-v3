@@ -1002,7 +1002,7 @@ const n0 = "com.amazonaws.pinpoint";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -1023,7 +1023,6 @@ import {
 import { PinpointServiceException as __PinpointServiceException } from "../models/PinpointServiceException";
 
 /* eslint no-var: 0 */
-
 export var ActivitiesResponse: StaticStructureSchema = [3, n0, _AR, 0, [_I, _NT], [() => ListOfActivityResponse, 0]];
 export var Activity: StaticStructureSchema = [
   3,
@@ -1180,18 +1179,7 @@ export var ApplicationResponse: StaticStructureSchema = [
   _ARp,
   0,
   [_Ar, _Id, _N, _t, _CD],
-  [
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-  ],
+  [0, 0, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
 export var ApplicationSettingsJourneyLimits: StaticStructureSchema = [
   3,
@@ -1219,19 +1207,8 @@ export var ApplicationsResponse: StaticStructureSchema = [
 ];
 export var AttributeDimension: StaticStructureSchema = [3, n0, _AD, 0, [_AT, _Va], [0, 64 | 0]];
 export var AttributesResource: StaticStructureSchema = [3, n0, _ARt, 0, [_AI, _AT, _At], [0, 0, 64 | 0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BaiduChannelRequest: StaticStructureSchema = [3, n0, _BCR, 0, [_AK, _En, _SK], [0, 2, 0]];
 export var BaiduChannelResponse: StaticStructureSchema = [
   3,
@@ -1330,12 +1307,7 @@ export var CampaignResponse: StaticStructureSchema = [
     0,
     1,
     () => CampaignState,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     () => TemplateConfiguration,
     0,
     0,
@@ -1393,36 +1365,10 @@ export var ConditionalSplitActivity: StaticStructureSchema = [
   [_Con, _EWT, _FAa, _TA],
   [[() => Condition, 0], () => WaitTime, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContactCenterActivity: StaticStructureSchema = [3, n0, _CCA, 0, [_NA], [0]];
-export var CreateApplicationRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CAR,
-  0,
-  [_N, _t],
-  [
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
+export var CreateApplicationRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_N, _t], [0, [128 | 0, { [_jN]: _t }]]];
 export var CreateAppRequest: StaticStructureSchema = [3, n0, _CARr, 0, [_CAR], [[() => CreateApplicationRequest, 16]]];
 export var CreateAppResponse: StaticStructureSchema = [3, n0, _CARre, 0, [_ARp], [[() => ApplicationResponse, 16]]];
 export var CreateCampaignRequest: StaticStructureSchema = [
@@ -1738,12 +1684,7 @@ export var DeleteEmailTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var DeleteEmailTemplateResponse: StaticStructureSchema = [3, n0, _DETRe, 0, [_MB], [[() => MessageBody, 16]]];
@@ -1778,12 +1719,7 @@ export var DeleteInAppTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var DeleteInAppTemplateResponse: StaticStructureSchema = [3, n0, _DIATRe, 0, [_MB], [[() => MessageBody, 16]]];
@@ -1807,12 +1743,7 @@ export var DeletePushTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var DeletePushTemplateResponse: StaticStructureSchema = [3, n0, _DPTRe, 0, [_MB], [[() => MessageBody, 16]]];
@@ -1854,12 +1785,7 @@ export var DeleteSmsTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var DeleteSmsTemplateResponse: StaticStructureSchema = [3, n0, _DSTRe, 0, [_MB], [[() => MessageBody, 16]]];
@@ -1899,12 +1825,7 @@ export var DeleteVoiceTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var DeleteVoiceTemplateResponse: StaticStructureSchema = [3, n0, _DVTRe, 0, [_MB], [[() => MessageBody, 16]]];
@@ -1964,21 +1885,7 @@ export var EmailTemplateRequest: StaticStructureSchema = [
   _ETR,
   0,
   [_DSe, _HPt, _RI, _Sub, _He, _t, _TDe, _TP],
-  [
-    0,
-    0,
-    0,
-    0,
-    () => ListOfMessageHeader,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, () => ListOfMessageHeader, [128 | 0, { [_jN]: _t }], 0, 0],
 ];
 export var EmailTemplateResponse: StaticStructureSchema = [
   3,
@@ -1986,27 +1893,7 @@ export var EmailTemplateResponse: StaticStructureSchema = [
   _ETRm,
   0,
   [_Ar, _CD, _DSe, _HPt, _LMD, _RI, _Sub, _He, _t, _TDe, _TNe, _TT, _TP, _V],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => ListOfMessageHeader,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, 0, 0, 0, () => ListOfMessageHeader, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0, 0],
 ];
 export var EndpointBatchItem: StaticStructureSchema = [
   3,
@@ -2151,19 +2038,8 @@ export var ExportJobsResponse: StaticStructureSchema = [
   [_I, _NT],
   [() => ListOfExportJobResponse, 0],
 ];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GCMChannelRequest: StaticStructureSchema = [3, n0, _GCMCRh, 0, [_AK, _DAM, _En, _SJ], [0, 0, 2, 0]];
 export var GCMChannelResponse: StaticStructureSchema = [
   3,
@@ -2234,31 +2110,11 @@ export var GetApplicationDateRangeKpiRequest: StaticStructureSchema = [
   [_AI, _ET, _KN, _NT, _PS, _ST],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _et,
-      },
-    ],
+    [5, { [_hQ]: _et }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
+    [5, { [_hQ]: _st }],
   ],
 ];
 export var GetApplicationDateRangeKpiResponse: StaticStructureSchema = [
@@ -2287,18 +2143,8 @@ export var GetAppsRequest: StaticStructureSchema = [
   0,
   [_PS, _Tok],
   [
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetAppsResponse: StaticStructureSchema = [3, n0, _GARetp, 0, [_ARpp], [[() => ApplicationsResponse, 16]]];
@@ -2320,18 +2166,8 @@ export var GetCampaignActivitiesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetCampaignActivitiesResponse: StaticStructureSchema = [
@@ -2351,31 +2187,11 @@ export var GetCampaignDateRangeKpiRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _et,
-      },
-    ],
+    [5, { [_hQ]: _et }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
+    [5, { [_hQ]: _st }],
   ],
 ];
 export var GetCampaignDateRangeKpiResponse: StaticStructureSchema = [
@@ -2406,18 +2222,8 @@ export var GetCampaignsRequest: StaticStructureSchema = [
   [_AI, _PS, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetCampaignsResponse: StaticStructureSchema = [3, n0, _GCReta, 0, [_CRa], [[() => CampaignsResponse, 16]]];
@@ -2450,18 +2256,8 @@ export var GetCampaignVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetCampaignVersionsResponse: StaticStructureSchema = [
@@ -2491,12 +2287,7 @@ export var GetEmailTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var GetEmailTemplateResponse: StaticStructureSchema = [
@@ -2541,18 +2332,8 @@ export var GetExportJobsRequest: StaticStructureSchema = [
   [_AI, _PS, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetExportJobsResponse: StaticStructureSchema = [
@@ -2592,18 +2373,8 @@ export var GetImportJobsRequest: StaticStructureSchema = [
   [_AI, _PS, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetImportJobsResponse: StaticStructureSchema = [
@@ -2641,12 +2412,7 @@ export var GetInAppTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var GetInAppTemplateResponse: StaticStructureSchema = [
@@ -2665,32 +2431,12 @@ export var GetJourneyDateRangeKpiRequest: StaticStructureSchema = [
   [_AI, _ET, _JI, _KN, _NT, _PS, _ST],
   [
     [0, 1],
-    [
-      5,
-      {
-        [_hQ]: _et,
-      },
-    ],
+    [5, { [_hQ]: _et }],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      5,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
+    [5, { [_hQ]: _st }],
   ],
 ];
 export var GetJourneyDateRangeKpiResponse: StaticStructureSchema = [
@@ -2711,18 +2457,8 @@ export var GetJourneyExecutionActivityMetricsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
   ],
 ];
 export var GetJourneyExecutionActivityMetricsResponse: StaticStructureSchema = [
@@ -2742,18 +2478,8 @@ export var GetJourneyExecutionMetricsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
   ],
 ];
 export var GetJourneyExecutionMetricsResponse: StaticStructureSchema = [
@@ -2786,18 +2512,8 @@ export var GetJourneyRunExecutionActivityMetricsRequest: StaticStructureSchema =
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
     [0, 1],
   ],
 ];
@@ -2818,18 +2534,8 @@ export var GetJourneyRunExecutionMetricsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
     [0, 1],
   ],
 ];
@@ -2850,18 +2556,8 @@ export var GetJourneyRunsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetJourneyRunsResponse: StaticStructureSchema = [
@@ -2880,12 +2576,7 @@ export var GetPushTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var GetPushTemplateResponse: StaticStructureSchema = [
@@ -2912,18 +2603,8 @@ export var GetRecommenderConfigurationsRequest: StaticStructureSchema = [
   0,
   [_PS, _Tok],
   [
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetRecommenderConfigurationsResponse: StaticStructureSchema = [
@@ -2942,19 +2623,9 @@ export var GetSegmentExportJobsRequest: StaticStructureSchema = [
   [_AI, _PS, _SI, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetSegmentExportJobsResponse: StaticStructureSchema = [
@@ -2973,19 +2644,9 @@ export var GetSegmentImportJobsRequest: StaticStructureSchema = [
   [_AI, _PS, _SI, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetSegmentImportJobsResponse: StaticStructureSchema = [
@@ -3016,18 +2677,8 @@ export var GetSegmentsRequest: StaticStructureSchema = [
   [_AI, _PS, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetSegmentsResponse: StaticStructureSchema = [3, n0, _GSRete, 0, [_SRe], [[() => SegmentsResponse, 16]]];
@@ -3052,19 +2703,9 @@ export var GetSegmentVersionsRequest: StaticStructureSchema = [
   [_AI, _PS, _SI, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var GetSegmentVersionsResponse: StaticStructureSchema = [
@@ -3092,12 +2733,7 @@ export var GetSmsTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var GetSmsTemplateResponse: StaticStructureSchema = [
@@ -3144,12 +2780,7 @@ export var GetVoiceTemplateRequest: StaticStructureSchema = [
   [_TNe, _V],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var GetVoiceTemplateResponse: StaticStructureSchema = [
@@ -3263,18 +2894,7 @@ export var InAppTemplateRequest: StaticStructureSchema = [
   _IATR,
   0,
   [_Co, _CCu, _La, _t, _TDe],
-  [
-    () => ListOfInAppMessageContent,
-    128 | 0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-  ],
+  [() => ListOfInAppMessageContent, 128 | 0, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
 export var InAppTemplateResponse: StaticStructureSchema = [
   3,
@@ -3282,38 +2902,17 @@ export var InAppTemplateResponse: StaticStructureSchema = [
   _IATRn,
   0,
   [_Ar, _Co, _CD, _CCu, _LMD, _La, _t, _TDe, _TNe, _TT, _V],
-  [
-    0,
-    () => ListOfInAppMessageContent,
-    0,
-    128 | 0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-  ],
+  [0, () => ListOfInAppMessageContent, 0, 128 | 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0],
 ];
 export var InternalServerErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RID],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var ItemResponse: StaticStructureSchema = [
   3,
   n0,
@@ -3402,12 +3001,7 @@ export var JourneyResponse: StaticStructureSchema = [
     0,
     () => StartCondition,
     0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     2,
     2,
     () => JourneyChannelSettings,
@@ -3455,18 +3049,8 @@ export var ListJourneysRequest: StaticStructureSchema = [
   [_AI, _PS, _Tok],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _to }],
   ],
 ];
 export var ListJourneysResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_JRo], [[() => JourneysResponse, 16]]];
@@ -3487,30 +3071,10 @@ export var ListTemplatesRequest: StaticStructureSchema = [
   0,
   [_NT, _PS, _Pre, _TT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tt,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _tt }],
   ],
 ];
 export var ListTemplatesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_TR], [[() => TemplatesResponse, 16]]];
@@ -3521,18 +3085,8 @@ export var ListTemplateVersionsRequest: StaticStructureSchema = [
   0,
   [_NT, _PS, _TNe, _TT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ps,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _ps }],
     [0, 1],
     [0, 1],
   ],
@@ -3597,19 +3151,8 @@ export var MessageResponse: StaticStructureSchema = [
   [0, () => MapOfEndpointMessageResult, 0, () => MapOfMessageResult],
 ];
 export var MessageResult: StaticStructureSchema = [3, n0, _MRes, 0, [_DSel, _MI, _SC, _SM, _UT], [0, 0, 1, 0, 0]];
-export var MethodNotAllowedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MNAE,
-  {
-    [_e]: _c,
-    [_hE]: 405,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var MethodNotAllowedException: StaticErrorSchema = [-3, n0, _MNAE, { [_e]: _c, [_hE]: 405 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(MethodNotAllowedException, __MethodNotAllowedException);
-
 export var MetricDimension: StaticStructureSchema = [3, n0, _MDe, 0, [_CO, _Val], [0, 1]];
 export var MultiConditionalBranch: StaticStructureSchema = [
   3,
@@ -3627,19 +3170,8 @@ export var MultiConditionalSplitActivity: StaticStructureSchema = [
   [_Br, _DA, _EWT],
   [[() => ListOfMultiConditionalBranch, 0], 0, () => WaitTime],
 ];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var NumberValidateRequest: StaticStructureSchema = [3, n0, _NVR, 0, [_ICC, _PN], [0, 0]];
 export var NumberValidateResponse: StaticStructureSchema = [
   3,
@@ -3665,19 +3197,8 @@ export var OpenHours: StaticStructureSchema = [
 ];
 export var OpenHoursRule: StaticStructureSchema = [3, n0, _OHR, 0, [_ST, _ET], [0, 0]];
 export var OverrideButtonConfiguration: StaticStructureSchema = [3, n0, _OBC, 0, [_BA, _Li], [0, 0]];
-export var PayloadTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTLE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var PayloadTooLargeException: StaticErrorSchema = [-3, n0, _PTLE, { [_e]: _c, [_hE]: 413 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(PayloadTooLargeException, __PayloadTooLargeException);
-
 export var PhoneNumberValidateRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3736,12 +3257,7 @@ export var PushNotificationTemplateRequest: StaticStructureSchema = [
     0,
     () => AndroidPushNotificationTemplate,
     0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     0,
   ],
 ];
@@ -3762,12 +3278,7 @@ export var PushNotificationTemplateResponse: StaticStructureSchema = [
     () => AndroidPushNotificationTemplate,
     0,
     0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     0,
     0,
     0,
@@ -3923,12 +3434,7 @@ export var SegmentResponse: StaticStructureSchema = [
     0,
     () => SegmentGroupList,
     0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     1,
   ],
 ];
@@ -4008,16 +3514,7 @@ export var SimpleCondition: StaticStructureSchema = [
   _SCi,
   0,
   [_EC, _SCeg, _SDe],
-  [
-    () => EventCondition,
-    () => SegmentCondition,
-    [
-      () => SegmentDimensions,
-      {
-        [_jN]: _sD,
-      },
-    ],
-  ],
+  [() => EventCondition, () => SegmentCondition, [() => SegmentDimensions, { [_jN]: _sD }]],
 ];
 export var SimpleEmail: StaticStructureSchema = [
   3,
@@ -4059,18 +3556,7 @@ export var SMSTemplateRequest: StaticStructureSchema = [
   _SMSTR,
   0,
   [_B, _DSe, _RI, _t, _TDe],
-  [
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-  ],
+  [0, 0, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
 export var SMSTemplateResponse: StaticStructureSchema = [
   3,
@@ -4078,24 +3564,7 @@ export var SMSTemplateResponse: StaticStructureSchema = [
   _SMSTRe,
   0,
   [_Ar, _B, _CD, _DSe, _LMD, _RI, _t, _TDe, _TNe, _TT, _V],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0],
 ];
 export var StartCondition: StaticStructureSchema = [
   3,
@@ -4116,21 +3585,7 @@ export var TagResourceRequest: StaticStructureSchema = [
     [() => TagsModel, 16],
   ],
 ];
-export var TagsModel: StaticStructureSchema = [
-  3,
-  n0,
-  _TM,
-  0,
-  [_t],
-  [
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
+export var TagsModel: StaticStructureSchema = [3, n0, _TM, 0, [_t], [[128 | 0, { [_jN]: _t }]]];
 export var Template: StaticStructureSchema = [3, n0, _Tem, 0, [_N, _V], [0, 0]];
 export var TemplateActiveVersionRequest: StaticStructureSchema = [3, n0, _TAVR, 0, [_V], [0]];
 export var TemplateConfiguration: StaticStructureSchema = [
@@ -4148,22 +3603,7 @@ export var TemplateResponse: StaticStructureSchema = [
   _TRe,
   0,
   [_Ar, _CD, _DSe, _LMD, _t, _TDe, _TNe, _TT, _V],
-  [
-    0,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0],
 ];
 export var TemplatesResponse: StaticStructureSchema = [
   3,
@@ -4189,19 +3629,8 @@ export var TemplateVersionsResponse: StaticStructureSchema = [
   [_I, _M, _NT, _RID],
   [() => ListOfTemplateVersionResponse, 0, 0, 0],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _RID],
-  [0, 0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M, _RID], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var TreatmentResource: StaticStructureSchema = [
   3,
   n0,
@@ -4228,12 +3657,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TKa],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateAdmChannelRequest: StaticStructureSchema = [
@@ -4409,20 +3833,10 @@ export var UpdateEmailTemplateRequest: StaticStructureSchema = [
   0,
   [_CNV, _ETR, _TNe, _V],
   [
-    [
-      2,
-      {
-        [_hQ]: _cnv,
-      },
-    ],
+    [2, { [_hQ]: _cnv }],
     [() => EmailTemplateRequest, 16],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var UpdateEmailTemplateResponse: StaticStructureSchema = [3, n0, _UETRp, 0, [_MB], [[() => MessageBody, 16]]];
@@ -4477,20 +3891,10 @@ export var UpdateInAppTemplateRequest: StaticStructureSchema = [
   0,
   [_CNV, _IATR, _TNe, _V],
   [
-    [
-      2,
-      {
-        [_hQ]: _cnv,
-      },
-    ],
+    [2, { [_hQ]: _cnv }],
     [() => InAppTemplateRequest, 16],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var UpdateInAppTemplateResponse: StaticStructureSchema = [3, n0, _UIATRp, 0, [_MB], [[() => MessageBody, 16]]];
@@ -4527,20 +3931,10 @@ export var UpdatePushTemplateRequest: StaticStructureSchema = [
   0,
   [_CNV, _PNTR, _TNe, _V],
   [
-    [
-      2,
-      {
-        [_hQ]: _cnv,
-      },
-    ],
+    [2, { [_hQ]: _cnv }],
     [() => PushNotificationTemplateRequest, 16],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var UpdatePushTemplateResponse: StaticStructureSchema = [3, n0, _UPTRp, 0, [_MB], [[() => MessageBody, 16]]];
@@ -4610,20 +4004,10 @@ export var UpdateSmsTemplateRequest: StaticStructureSchema = [
   0,
   [_CNV, _SMSTR, _TNe, _V],
   [
-    [
-      2,
-      {
-        [_hQ]: _cnv,
-      },
-    ],
+    [2, { [_hQ]: _cnv }],
     [() => SMSTemplateRequest, 16],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
   ],
 ];
 export var UpdateSmsTemplateResponse: StaticStructureSchema = [3, n0, _USTRp, 0, [_MB], [[() => MessageBody, 16]]];
@@ -4673,19 +4057,9 @@ export var UpdateVoiceTemplateRequest: StaticStructureSchema = [
   0,
   [_CNV, _TNe, _V, _VTR],
   [
-    [
-      2,
-      {
-        [_hQ]: _cnv,
-      },
-    ],
+    [2, { [_hQ]: _cnv }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
+    [0, { [_hQ]: _v }],
     [() => VoiceTemplateRequest, 16],
   ],
 ];
@@ -4741,19 +4115,7 @@ export var VoiceTemplateRequest: StaticStructureSchema = [
   _VTR,
   0,
   [_B, _DSe, _LC, _t, _TDe, _VI],
-  [
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-  ],
+  [0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0],
 ];
 export var VoiceTemplateResponse: StaticStructureSchema = [
   3,
@@ -4761,25 +4123,7 @@ export var VoiceTemplateResponse: StaticStructureSchema = [
   _VTRo,
   0,
   [_Ar, _B, _CD, _DSe, _LC, _LMD, _t, _TDe, _TNe, _TT, _V, _VI],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, 0, 0, 0],
 ];
 export var WaitActivity: StaticStructureSchema = [3, n0, _WA, 0, [_NA, _WT], [0, () => WaitTime]];
 export var WaitTime: StaticStructureSchema = [3, n0, _WT, 0, [_WF, _WUa], [0, 0]];
@@ -4810,12 +4154,7 @@ export var WriteCampaignRequest: StaticStructureSchema = [
     () => Schedule,
     0,
     1,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     () => TemplateConfiguration,
     0,
     0,
@@ -4857,17 +4196,7 @@ export var WriteSegmentRequest: StaticStructureSchema = [
   _WSR,
   0,
   [_Di, _N, _SGe, _t],
-  [
-    () => SegmentDimensions,
-    0,
-    () => SegmentGroupList,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [() => SegmentDimensions, 0, () => SegmentGroupList, [128 | 0, { [_jN]: _t }]],
 ];
 export var WriteTreatmentResource: StaticStructureSchema = [
   3,
@@ -4878,16 +4207,11 @@ export var WriteTreatmentResource: StaticStructureSchema = [
   [() => CustomDeliveryConfiguration, () => MessageConfiguration, () => Schedule, 1, () => TemplateConfiguration, 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var PinpointServiceException: StaticErrorSchema = [-3, _sm, "PinpointServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PinpointServiceException, __PinpointServiceException);
-
 export var ListOf__EndpointTypesElement = 64 | 0;
-
 export var ListOf__string = 64 | 0;
-
 export var ListOf__TimezoneEstimationMethodsElement = 64 | 0;
-
 export var ListOfActivityResponse: StaticListSchema = [1, n0, _LOAR, 0, () => ActivityResponse];
 export var ListOfApplicationResponse: StaticListSchema = [1, n0, _LOARi, 0, [() => ApplicationResponse, 0]];
 export var ListOfCampaignResponse: StaticListSchema = [1, n0, _LOCR, 0, [() => CampaignResponse, 0]];
@@ -4923,11 +4247,8 @@ export var ListOfTemplateVersionResponse: StaticListSchema = [1, n0, _LOTVR, 0, 
 export var ListOfTreatmentResource: StaticListSchema = [1, n0, _LOTRi, 0, () => TreatmentResource];
 export var ListOfWriteTreatmentResource: StaticListSchema = [1, n0, _LOWTR, 0, () => WriteTreatmentResource];
 export var MapOf__double = 128 | 1;
-
 export var MapOf__integer = 128 | 1;
-
 export var MapOf__string = 128 | 0;
-
 export var MapOfActivity: StaticMapSchema = [2, n0, _MOA, 0, [0, 0], [() => Activity, 0]];
 export var MapOfAddressConfiguration: StaticMapSchema = [2, n0, _MOAC, 0, 0, () => AddressConfiguration];
 export var MapOfAttributeDimension: StaticMapSchema = [2, n0, _MOAD, 0, 0, () => AttributeDimension];
@@ -4947,9 +4268,7 @@ export var CreateApp: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/v1/apps", 201],
-  },
+  { [_h]: ["POST", "/v1/apps", 201] },
   () => CreateAppRequest,
   () => CreateAppResponse,
 ];
@@ -4957,9 +4276,7 @@ export var CreateCampaign: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/campaigns", 201],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/campaigns", 201] },
   () => CreateCampaignRequest,
   () => CreateCampaignResponse,
 ];
@@ -4967,9 +4284,7 @@ export var CreateEmailTemplate: StaticOperationSchema = [
   9,
   n0,
   _CET,
-  {
-    [_h]: ["POST", "/v1/templates/{TemplateName}/email", 201],
-  },
+  { [_h]: ["POST", "/v1/templates/{TemplateName}/email", 201] },
   () => CreateEmailTemplateRequest,
   () => CreateEmailTemplateResponse,
 ];
@@ -4977,9 +4292,7 @@ export var CreateExportJob: StaticOperationSchema = [
   9,
   n0,
   _CEJ,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/jobs/export", 202],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/jobs/export", 202] },
   () => CreateExportJobRequest,
   () => CreateExportJobResponse,
 ];
@@ -4987,9 +4300,7 @@ export var CreateImportJob: StaticOperationSchema = [
   9,
   n0,
   _CIJ,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/jobs/import", 201],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/jobs/import", 201] },
   () => CreateImportJobRequest,
   () => CreateImportJobResponse,
 ];
@@ -4997,9 +4308,7 @@ export var CreateInAppTemplate: StaticOperationSchema = [
   9,
   n0,
   _CIAT,
-  {
-    [_h]: ["POST", "/v1/templates/{TemplateName}/inapp", 201],
-  },
+  { [_h]: ["POST", "/v1/templates/{TemplateName}/inapp", 201] },
   () => CreateInAppTemplateRequest,
   () => CreateInAppTemplateResponse,
 ];
@@ -5007,9 +4316,7 @@ export var CreateJourney: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/journeys", 201],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/journeys", 201] },
   () => CreateJourneyRequest,
   () => CreateJourneyResponse,
 ];
@@ -5017,9 +4324,7 @@ export var CreatePushTemplate: StaticOperationSchema = [
   9,
   n0,
   _CPT,
-  {
-    [_h]: ["POST", "/v1/templates/{TemplateName}/push", 201],
-  },
+  { [_h]: ["POST", "/v1/templates/{TemplateName}/push", 201] },
   () => CreatePushTemplateRequest,
   () => CreatePushTemplateResponse,
 ];
@@ -5027,9 +4332,7 @@ export var CreateRecommenderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  {
-    [_h]: ["POST", "/v1/recommenders", 201],
-  },
+  { [_h]: ["POST", "/v1/recommenders", 201] },
   () => CreateRecommenderConfigurationRequest,
   () => CreateRecommenderConfigurationResponse,
 ];
@@ -5037,9 +4340,7 @@ export var CreateSegment: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/segments", 201],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/segments", 201] },
   () => CreateSegmentRequest,
   () => CreateSegmentResponse,
 ];
@@ -5047,9 +4348,7 @@ export var CreateSmsTemplate: StaticOperationSchema = [
   9,
   n0,
   _CST,
-  {
-    [_h]: ["POST", "/v1/templates/{TemplateName}/sms", 201],
-  },
+  { [_h]: ["POST", "/v1/templates/{TemplateName}/sms", 201] },
   () => CreateSmsTemplateRequest,
   () => CreateSmsTemplateResponse,
 ];
@@ -5057,9 +4356,7 @@ export var CreateVoiceTemplate: StaticOperationSchema = [
   9,
   n0,
   _CVT,
-  {
-    [_h]: ["POST", "/v1/templates/{TemplateName}/voice", 201],
-  },
+  { [_h]: ["POST", "/v1/templates/{TemplateName}/voice", 201] },
   () => CreateVoiceTemplateRequest,
   () => CreateVoiceTemplateResponse,
 ];
@@ -5067,9 +4364,7 @@ export var DeleteAdmChannel: StaticOperationSchema = [
   9,
   n0,
   _DAC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/adm", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/adm", 200] },
   () => DeleteAdmChannelRequest,
   () => DeleteAdmChannelResponse,
 ];
@@ -5077,9 +4372,7 @@ export var DeleteApnsChannel: StaticOperationSchema = [
   9,
   n0,
   _DACe,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns", 200] },
   () => DeleteApnsChannelRequest,
   () => DeleteApnsChannelResponse,
 ];
@@ -5087,9 +4380,7 @@ export var DeleteApnsSandboxChannel: StaticOperationSchema = [
   9,
   n0,
   _DASC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns_sandbox", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns_sandbox", 200] },
   () => DeleteApnsSandboxChannelRequest,
   () => DeleteApnsSandboxChannelResponse,
 ];
@@ -5097,9 +4388,7 @@ export var DeleteApnsVoipChannel: StaticOperationSchema = [
   9,
   n0,
   _DAVC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns_voip", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns_voip", 200] },
   () => DeleteApnsVoipChannelRequest,
   () => DeleteApnsVoipChannelResponse,
 ];
@@ -5107,9 +4396,7 @@ export var DeleteApnsVoipSandboxChannel: StaticOperationSchema = [
   9,
   n0,
   _DAVSC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox", 200] },
   () => DeleteApnsVoipSandboxChannelRequest,
   () => DeleteApnsVoipSandboxChannelResponse,
 ];
@@ -5117,9 +4404,7 @@ export var DeleteApp: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}", 200] },
   () => DeleteAppRequest,
   () => DeleteAppResponse,
 ];
@@ -5127,9 +4412,7 @@ export var DeleteBaiduChannel: StaticOperationSchema = [
   9,
   n0,
   _DBCe,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/baidu", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/baidu", 200] },
   () => DeleteBaiduChannelRequest,
   () => DeleteBaiduChannelResponse,
 ];
@@ -5137,9 +4420,7 @@ export var DeleteCampaign: StaticOperationSchema = [
   9,
   n0,
   _DCel,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}", 200] },
   () => DeleteCampaignRequest,
   () => DeleteCampaignResponse,
 ];
@@ -5147,9 +4428,7 @@ export var DeleteEmailChannel: StaticOperationSchema = [
   9,
   n0,
   _DEC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/email", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/email", 200] },
   () => DeleteEmailChannelRequest,
   () => DeleteEmailChannelResponse,
 ];
@@ -5157,9 +4436,7 @@ export var DeleteEmailTemplate: StaticOperationSchema = [
   9,
   n0,
   _DET,
-  {
-    [_h]: ["DELETE", "/v1/templates/{TemplateName}/email", 202],
-  },
+  { [_h]: ["DELETE", "/v1/templates/{TemplateName}/email", 202] },
   () => DeleteEmailTemplateRequest,
   () => DeleteEmailTemplateResponse,
 ];
@@ -5167,9 +4444,7 @@ export var DeleteEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}", 202],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}", 202] },
   () => DeleteEndpointRequest,
   () => DeleteEndpointResponse,
 ];
@@ -5177,9 +4452,7 @@ export var DeleteEventStream: StaticOperationSchema = [
   9,
   n0,
   _DES,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/eventstream", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/eventstream", 200] },
   () => DeleteEventStreamRequest,
   () => DeleteEventStreamResponse,
 ];
@@ -5187,9 +4460,7 @@ export var DeleteGcmChannel: StaticOperationSchema = [
   9,
   n0,
   _DGC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/gcm", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/gcm", 200] },
   () => DeleteGcmChannelRequest,
   () => DeleteGcmChannelResponse,
 ];
@@ -5197,9 +4468,7 @@ export var DeleteInAppTemplate: StaticOperationSchema = [
   9,
   n0,
   _DIAT,
-  {
-    [_h]: ["DELETE", "/v1/templates/{TemplateName}/inapp", 202],
-  },
+  { [_h]: ["DELETE", "/v1/templates/{TemplateName}/inapp", 202] },
   () => DeleteInAppTemplateRequest,
   () => DeleteInAppTemplateResponse,
 ];
@@ -5207,9 +4476,7 @@ export var DeleteJourney: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/journeys/{JourneyId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/journeys/{JourneyId}", 200] },
   () => DeleteJourneyRequest,
   () => DeleteJourneyResponse,
 ];
@@ -5217,9 +4484,7 @@ export var DeletePushTemplate: StaticOperationSchema = [
   9,
   n0,
   _DPT,
-  {
-    [_h]: ["DELETE", "/v1/templates/{TemplateName}/push", 202],
-  },
+  { [_h]: ["DELETE", "/v1/templates/{TemplateName}/push", 202] },
   () => DeletePushTemplateRequest,
   () => DeletePushTemplateResponse,
 ];
@@ -5227,9 +4492,7 @@ export var DeleteRecommenderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["DELETE", "/v1/recommenders/{RecommenderId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/recommenders/{RecommenderId}", 200] },
   () => DeleteRecommenderConfigurationRequest,
   () => DeleteRecommenderConfigurationResponse,
 ];
@@ -5237,9 +4500,7 @@ export var DeleteSegment: StaticOperationSchema = [
   9,
   n0,
   _DSele,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/segments/{SegmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/segments/{SegmentId}", 200] },
   () => DeleteSegmentRequest,
   () => DeleteSegmentResponse,
 ];
@@ -5247,9 +4508,7 @@ export var DeleteSmsChannel: StaticOperationSchema = [
   9,
   n0,
   _DSC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/sms", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/sms", 200] },
   () => DeleteSmsChannelRequest,
   () => DeleteSmsChannelResponse,
 ];
@@ -5257,9 +4516,7 @@ export var DeleteSmsTemplate: StaticOperationSchema = [
   9,
   n0,
   _DST,
-  {
-    [_h]: ["DELETE", "/v1/templates/{TemplateName}/sms", 202],
-  },
+  { [_h]: ["DELETE", "/v1/templates/{TemplateName}/sms", 202] },
   () => DeleteSmsTemplateRequest,
   () => DeleteSmsTemplateResponse,
 ];
@@ -5267,9 +4524,7 @@ export var DeleteUserEndpoints: StaticOperationSchema = [
   9,
   n0,
   _DUE,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/users/{UserId}", 202],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/users/{UserId}", 202] },
   () => DeleteUserEndpointsRequest,
   () => DeleteUserEndpointsResponse,
 ];
@@ -5277,9 +4532,7 @@ export var DeleteVoiceChannel: StaticOperationSchema = [
   9,
   n0,
   _DVC,
-  {
-    [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/voice", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apps/{ApplicationId}/channels/voice", 200] },
   () => DeleteVoiceChannelRequest,
   () => DeleteVoiceChannelResponse,
 ];
@@ -5287,9 +4540,7 @@ export var DeleteVoiceTemplate: StaticOperationSchema = [
   9,
   n0,
   _DVT,
-  {
-    [_h]: ["DELETE", "/v1/templates/{TemplateName}/voice", 202],
-  },
+  { [_h]: ["DELETE", "/v1/templates/{TemplateName}/voice", 202] },
   () => DeleteVoiceTemplateRequest,
   () => DeleteVoiceTemplateResponse,
 ];
@@ -5297,9 +4548,7 @@ export var GetAdmChannel: StaticOperationSchema = [
   9,
   n0,
   _GAC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/adm", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/adm", 200] },
   () => GetAdmChannelRequest,
   () => GetAdmChannelResponse,
 ];
@@ -5307,9 +4556,7 @@ export var GetApnsChannel: StaticOperationSchema = [
   9,
   n0,
   _GACe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns", 200] },
   () => GetApnsChannelRequest,
   () => GetApnsChannelResponse,
 ];
@@ -5317,9 +4564,7 @@ export var GetApnsSandboxChannel: StaticOperationSchema = [
   9,
   n0,
   _GASC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns_sandbox", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns_sandbox", 200] },
   () => GetApnsSandboxChannelRequest,
   () => GetApnsSandboxChannelResponse,
 ];
@@ -5327,9 +4572,7 @@ export var GetApnsVoipChannel: StaticOperationSchema = [
   9,
   n0,
   _GAVC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns_voip", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns_voip", 200] },
   () => GetApnsVoipChannelRequest,
   () => GetApnsVoipChannelResponse,
 ];
@@ -5337,9 +4580,7 @@ export var GetApnsVoipSandboxChannel: StaticOperationSchema = [
   9,
   n0,
   _GAVSC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox", 200] },
   () => GetApnsVoipSandboxChannelRequest,
   () => GetApnsVoipSandboxChannelResponse,
 ];
@@ -5347,9 +4588,7 @@ export var GetApp: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}", 200] },
   () => GetAppRequest,
   () => GetAppResponse,
 ];
@@ -5357,9 +4596,7 @@ export var GetApplicationDateRangeKpi: StaticOperationSchema = [
   9,
   n0,
   _GADRK,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/kpis/daterange/{KpiName}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/kpis/daterange/{KpiName}", 200] },
   () => GetApplicationDateRangeKpiRequest,
   () => GetApplicationDateRangeKpiResponse,
 ];
@@ -5367,9 +4604,7 @@ export var GetApplicationSettings: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/settings", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/settings", 200] },
   () => GetApplicationSettingsRequest,
   () => GetApplicationSettingsResponse,
 ];
@@ -5377,9 +4612,7 @@ export var GetApps: StaticOperationSchema = [
   9,
   n0,
   _GAe,
-  {
-    [_h]: ["GET", "/v1/apps", 200],
-  },
+  { [_h]: ["GET", "/v1/apps", 200] },
   () => GetAppsRequest,
   () => GetAppsResponse,
 ];
@@ -5387,9 +4620,7 @@ export var GetBaiduChannel: StaticOperationSchema = [
   9,
   n0,
   _GBC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/baidu", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/baidu", 200] },
   () => GetBaiduChannelRequest,
   () => GetBaiduChannelResponse,
 ];
@@ -5397,9 +4628,7 @@ export var GetCampaign: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}", 200] },
   () => GetCampaignRequest,
   () => GetCampaignResponse,
 ];
@@ -5407,9 +4636,7 @@ export var GetCampaignActivities: StaticOperationSchema = [
   9,
   n0,
   _GCA,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/activities", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/activities", 200] },
   () => GetCampaignActivitiesRequest,
   () => GetCampaignActivitiesResponse,
 ];
@@ -5417,9 +4644,7 @@ export var GetCampaignDateRangeKpi: StaticOperationSchema = [
   9,
   n0,
   _GCDRK,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}", 200] },
   () => GetCampaignDateRangeKpiRequest,
   () => GetCampaignDateRangeKpiResponse,
 ];
@@ -5427,9 +4652,7 @@ export var GetCampaigns: StaticOperationSchema = [
   9,
   n0,
   _GCe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns", 200] },
   () => GetCampaignsRequest,
   () => GetCampaignsResponse,
 ];
@@ -5437,9 +4660,7 @@ export var GetCampaignVersion: StaticOperationSchema = [
   9,
   n0,
   _GCV,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions/{Version}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions/{Version}", 200] },
   () => GetCampaignVersionRequest,
   () => GetCampaignVersionResponse,
 ];
@@ -5447,9 +4668,7 @@ export var GetCampaignVersions: StaticOperationSchema = [
   9,
   n0,
   _GCVe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions", 200] },
   () => GetCampaignVersionsRequest,
   () => GetCampaignVersionsResponse,
 ];
@@ -5457,9 +4676,7 @@ export var GetChannels: StaticOperationSchema = [
   9,
   n0,
   _GCet,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels", 200] },
   () => GetChannelsRequest,
   () => GetChannelsResponse,
 ];
@@ -5467,9 +4684,7 @@ export var GetEmailChannel: StaticOperationSchema = [
   9,
   n0,
   _GEC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/email", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/email", 200] },
   () => GetEmailChannelRequest,
   () => GetEmailChannelResponse,
 ];
@@ -5477,9 +4692,7 @@ export var GetEmailTemplate: StaticOperationSchema = [
   9,
   n0,
   _GET,
-  {
-    [_h]: ["GET", "/v1/templates/{TemplateName}/email", 200],
-  },
+  { [_h]: ["GET", "/v1/templates/{TemplateName}/email", 200] },
   () => GetEmailTemplateRequest,
   () => GetEmailTemplateResponse,
 ];
@@ -5487,9 +4700,7 @@ export var GetEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}", 200] },
   () => GetEndpointRequest,
   () => GetEndpointResponse,
 ];
@@ -5497,9 +4708,7 @@ export var GetEventStream: StaticOperationSchema = [
   9,
   n0,
   _GES,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/eventstream", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/eventstream", 200] },
   () => GetEventStreamRequest,
   () => GetEventStreamResponse,
 ];
@@ -5507,9 +4716,7 @@ export var GetExportJob: StaticOperationSchema = [
   9,
   n0,
   _GEJ,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/export/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/export/{JobId}", 200] },
   () => GetExportJobRequest,
   () => GetExportJobResponse,
 ];
@@ -5517,9 +4724,7 @@ export var GetExportJobs: StaticOperationSchema = [
   9,
   n0,
   _GEJe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/export", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/export", 200] },
   () => GetExportJobsRequest,
   () => GetExportJobsResponse,
 ];
@@ -5527,9 +4732,7 @@ export var GetGcmChannel: StaticOperationSchema = [
   9,
   n0,
   _GGC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/gcm", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/gcm", 200] },
   () => GetGcmChannelRequest,
   () => GetGcmChannelResponse,
 ];
@@ -5537,9 +4740,7 @@ export var GetImportJob: StaticOperationSchema = [
   9,
   n0,
   _GIJ,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/import/{JobId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/import/{JobId}", 200] },
   () => GetImportJobRequest,
   () => GetImportJobResponse,
 ];
@@ -5547,9 +4748,7 @@ export var GetImportJobs: StaticOperationSchema = [
   9,
   n0,
   _GIJe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/import", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/jobs/import", 200] },
   () => GetImportJobsRequest,
   () => GetImportJobsResponse,
 ];
@@ -5557,9 +4756,7 @@ export var GetInAppMessages: StaticOperationSchema = [
   9,
   n0,
   _GIAM,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}/inappmessages", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}/inappmessages", 200] },
   () => GetInAppMessagesRequest,
   () => GetInAppMessagesResponse,
 ];
@@ -5567,9 +4764,7 @@ export var GetInAppTemplate: StaticOperationSchema = [
   9,
   n0,
   _GIAT,
-  {
-    [_h]: ["GET", "/v1/templates/{TemplateName}/inapp", 200],
-  },
+  { [_h]: ["GET", "/v1/templates/{TemplateName}/inapp", 200] },
   () => GetInAppTemplateRequest,
   () => GetInAppTemplateResponse,
 ];
@@ -5577,9 +4772,7 @@ export var GetJourney: StaticOperationSchema = [
   9,
   n0,
   _GJ,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}", 200] },
   () => GetJourneyRequest,
   () => GetJourneyResponse,
 ];
@@ -5587,9 +4780,7 @@ export var GetJourneyDateRangeKpi: StaticOperationSchema = [
   9,
   n0,
   _GJDRK,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}", 200] },
   () => GetJourneyDateRangeKpiRequest,
   () => GetJourneyDateRangeKpiResponse,
 ];
@@ -5611,9 +4802,7 @@ export var GetJourneyExecutionMetrics: StaticOperationSchema = [
   9,
   n0,
   _GJEM,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics", 200] },
   () => GetJourneyExecutionMetricsRequest,
   () => GetJourneyExecutionMetricsResponse,
 ];
@@ -5635,9 +4824,7 @@ export var GetJourneyRunExecutionMetrics: StaticOperationSchema = [
   9,
   n0,
   _GJREM,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/execution-metrics", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/execution-metrics", 200] },
   () => GetJourneyRunExecutionMetricsRequest,
   () => GetJourneyRunExecutionMetricsResponse,
 ];
@@ -5645,9 +4832,7 @@ export var GetJourneyRuns: StaticOperationSchema = [
   9,
   n0,
   _GJRet,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs", 200] },
   () => GetJourneyRunsRequest,
   () => GetJourneyRunsResponse,
 ];
@@ -5655,9 +4840,7 @@ export var GetPushTemplate: StaticOperationSchema = [
   9,
   n0,
   _GPT,
-  {
-    [_h]: ["GET", "/v1/templates/{TemplateName}/push", 200],
-  },
+  { [_h]: ["GET", "/v1/templates/{TemplateName}/push", 200] },
   () => GetPushTemplateRequest,
   () => GetPushTemplateResponse,
 ];
@@ -5665,9 +4848,7 @@ export var GetRecommenderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_h]: ["GET", "/v1/recommenders/{RecommenderId}", 200],
-  },
+  { [_h]: ["GET", "/v1/recommenders/{RecommenderId}", 200] },
   () => GetRecommenderConfigurationRequest,
   () => GetRecommenderConfigurationResponse,
 ];
@@ -5675,9 +4856,7 @@ export var GetRecommenderConfigurations: StaticOperationSchema = [
   9,
   n0,
   _GRCe,
-  {
-    [_h]: ["GET", "/v1/recommenders", 200],
-  },
+  { [_h]: ["GET", "/v1/recommenders", 200] },
   () => GetRecommenderConfigurationsRequest,
   () => GetRecommenderConfigurationsResponse,
 ];
@@ -5685,9 +4864,7 @@ export var GetSegment: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}", 200] },
   () => GetSegmentRequest,
   () => GetSegmentResponse,
 ];
@@ -5695,9 +4872,7 @@ export var GetSegmentExportJobs: StaticOperationSchema = [
   9,
   n0,
   _GSEJ,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/export", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/export", 200] },
   () => GetSegmentExportJobsRequest,
   () => GetSegmentExportJobsResponse,
 ];
@@ -5705,9 +4880,7 @@ export var GetSegmentImportJobs: StaticOperationSchema = [
   9,
   n0,
   _GSIJ,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import", 200] },
   () => GetSegmentImportJobsRequest,
   () => GetSegmentImportJobsResponse,
 ];
@@ -5715,9 +4888,7 @@ export var GetSegments: StaticOperationSchema = [
   9,
   n0,
   _GSe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/segments", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/segments", 200] },
   () => GetSegmentsRequest,
   () => GetSegmentsResponse,
 ];
@@ -5725,9 +4896,7 @@ export var GetSegmentVersion: StaticOperationSchema = [
   9,
   n0,
   _GSV,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions/{Version}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions/{Version}", 200] },
   () => GetSegmentVersionRequest,
   () => GetSegmentVersionResponse,
 ];
@@ -5735,9 +4904,7 @@ export var GetSegmentVersions: StaticOperationSchema = [
   9,
   n0,
   _GSVe,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions", 200] },
   () => GetSegmentVersionsRequest,
   () => GetSegmentVersionsResponse,
 ];
@@ -5745,9 +4912,7 @@ export var GetSmsChannel: StaticOperationSchema = [
   9,
   n0,
   _GSC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/sms", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/sms", 200] },
   () => GetSmsChannelRequest,
   () => GetSmsChannelResponse,
 ];
@@ -5755,9 +4920,7 @@ export var GetSmsTemplate: StaticOperationSchema = [
   9,
   n0,
   _GST,
-  {
-    [_h]: ["GET", "/v1/templates/{TemplateName}/sms", 200],
-  },
+  { [_h]: ["GET", "/v1/templates/{TemplateName}/sms", 200] },
   () => GetSmsTemplateRequest,
   () => GetSmsTemplateResponse,
 ];
@@ -5765,9 +4928,7 @@ export var GetUserEndpoints: StaticOperationSchema = [
   9,
   n0,
   _GUE,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/users/{UserId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/users/{UserId}", 200] },
   () => GetUserEndpointsRequest,
   () => GetUserEndpointsResponse,
 ];
@@ -5775,9 +4936,7 @@ export var GetVoiceChannel: StaticOperationSchema = [
   9,
   n0,
   _GVC,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/voice", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/channels/voice", 200] },
   () => GetVoiceChannelRequest,
   () => GetVoiceChannelResponse,
 ];
@@ -5785,9 +4944,7 @@ export var GetVoiceTemplate: StaticOperationSchema = [
   9,
   n0,
   _GVT,
-  {
-    [_h]: ["GET", "/v1/templates/{TemplateName}/voice", 200],
-  },
+  { [_h]: ["GET", "/v1/templates/{TemplateName}/voice", 200] },
   () => GetVoiceTemplateRequest,
   () => GetVoiceTemplateResponse,
 ];
@@ -5795,9 +4952,7 @@ export var ListJourneys: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys", 200],
-  },
+  { [_h]: ["GET", "/v1/apps/{ApplicationId}/journeys", 200] },
   () => ListJourneysRequest,
   () => ListJourneysResponse,
 ];
@@ -5805,9 +4960,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v1/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -5815,9 +4968,7 @@ export var ListTemplates: StaticOperationSchema = [
   9,
   n0,
   _LTi,
-  {
-    [_h]: ["GET", "/v1/templates", 200],
-  },
+  { [_h]: ["GET", "/v1/templates", 200] },
   () => ListTemplatesRequest,
   () => ListTemplatesResponse,
 ];
@@ -5825,9 +4976,7 @@ export var ListTemplateVersions: StaticOperationSchema = [
   9,
   n0,
   _LTV,
-  {
-    [_h]: ["GET", "/v1/templates/{TemplateName}/{TemplateType}/versions", 200],
-  },
+  { [_h]: ["GET", "/v1/templates/{TemplateName}/{TemplateType}/versions", 200] },
   () => ListTemplateVersionsRequest,
   () => ListTemplateVersionsResponse,
 ];
@@ -5835,9 +4984,7 @@ export var PhoneNumberValidate: StaticOperationSchema = [
   9,
   n0,
   _PNV,
-  {
-    [_h]: ["POST", "/v1/phone/number/validate", 200],
-  },
+  { [_h]: ["POST", "/v1/phone/number/validate", 200] },
   () => PhoneNumberValidateRequest,
   () => PhoneNumberValidateResponse,
 ];
@@ -5845,9 +4992,7 @@ export var PutEvents: StaticOperationSchema = [
   9,
   n0,
   _PEu,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/events", 202],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/events", 202] },
   () => PutEventsRequest,
   () => PutEventsResponse,
 ];
@@ -5855,9 +5000,7 @@ export var PutEventStream: StaticOperationSchema = [
   9,
   n0,
   _PES,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/eventstream", 200],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/eventstream", 200] },
   () => PutEventStreamRequest,
   () => PutEventStreamResponse,
 ];
@@ -5865,9 +5008,7 @@ export var RemoveAttributes: StaticOperationSchema = [
   9,
   n0,
   _RAem,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/attributes/{AttributeType}", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/attributes/{AttributeType}", 200] },
   () => RemoveAttributesRequest,
   () => RemoveAttributesResponse,
 ];
@@ -5875,9 +5016,7 @@ export var SendMessages: StaticOperationSchema = [
   9,
   n0,
   _SMe,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/messages", 200],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/messages", 200] },
   () => SendMessagesRequest,
   () => SendMessagesResponse,
 ];
@@ -5885,9 +5024,7 @@ export var SendOTPMessage: StaticOperationSchema = [
   9,
   n0,
   _SOTPM,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/otp", 200],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/otp", 200] },
   () => SendOTPMessageRequest,
   () => SendOTPMessageResponse,
 ];
@@ -5895,9 +5032,7 @@ export var SendUsersMessages: StaticOperationSchema = [
   9,
   n0,
   _SUM,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/users-messages", 200],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/users-messages", 200] },
   () => SendUsersMessagesRequest,
   () => SendUsersMessagesResponse,
 ];
@@ -5905,9 +5040,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/v1/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/v1/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -5915,9 +5048,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v1/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/v1/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -5925,9 +5056,7 @@ export var UpdateAdmChannel: StaticOperationSchema = [
   9,
   n0,
   _UAC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/adm", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/adm", 200] },
   () => UpdateAdmChannelRequest,
   () => UpdateAdmChannelResponse,
 ];
@@ -5935,9 +5064,7 @@ export var UpdateApnsChannel: StaticOperationSchema = [
   9,
   n0,
   _UACp,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns", 200] },
   () => UpdateApnsChannelRequest,
   () => UpdateApnsChannelResponse,
 ];
@@ -5945,9 +5072,7 @@ export var UpdateApnsSandboxChannel: StaticOperationSchema = [
   9,
   n0,
   _UASC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns_sandbox", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns_sandbox", 200] },
   () => UpdateApnsSandboxChannelRequest,
   () => UpdateApnsSandboxChannelResponse,
 ];
@@ -5955,9 +5080,7 @@ export var UpdateApnsVoipChannel: StaticOperationSchema = [
   9,
   n0,
   _UAVC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns_voip", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns_voip", 200] },
   () => UpdateApnsVoipChannelRequest,
   () => UpdateApnsVoipChannelResponse,
 ];
@@ -5965,9 +5088,7 @@ export var UpdateApnsVoipSandboxChannel: StaticOperationSchema = [
   9,
   n0,
   _UAVSC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox", 200] },
   () => UpdateApnsVoipSandboxChannelRequest,
   () => UpdateApnsVoipSandboxChannelResponse,
 ];
@@ -5975,9 +5096,7 @@ export var UpdateApplicationSettings: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/settings", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/settings", 200] },
   () => UpdateApplicationSettingsRequest,
   () => UpdateApplicationSettingsResponse,
 ];
@@ -5985,9 +5104,7 @@ export var UpdateBaiduChannel: StaticOperationSchema = [
   9,
   n0,
   _UBC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/baidu", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/baidu", 200] },
   () => UpdateBaiduChannelRequest,
   () => UpdateBaiduChannelResponse,
 ];
@@ -5995,9 +5112,7 @@ export var UpdateCampaign: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/campaigns/{CampaignId}", 200] },
   () => UpdateCampaignRequest,
   () => UpdateCampaignResponse,
 ];
@@ -6005,9 +5120,7 @@ export var UpdateEmailChannel: StaticOperationSchema = [
   9,
   n0,
   _UEC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/email", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/email", 200] },
   () => UpdateEmailChannelRequest,
   () => UpdateEmailChannelResponse,
 ];
@@ -6015,9 +5128,7 @@ export var UpdateEmailTemplate: StaticOperationSchema = [
   9,
   n0,
   _UET,
-  {
-    [_h]: ["PUT", "/v1/templates/{TemplateName}/email", 202],
-  },
+  { [_h]: ["PUT", "/v1/templates/{TemplateName}/email", 202] },
   () => UpdateEmailTemplateRequest,
   () => UpdateEmailTemplateResponse,
 ];
@@ -6025,9 +5136,7 @@ export var UpdateEndpoint: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}", 202],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/endpoints/{EndpointId}", 202] },
   () => UpdateEndpointRequest,
   () => UpdateEndpointResponse,
 ];
@@ -6035,9 +5144,7 @@ export var UpdateEndpointsBatch: StaticOperationSchema = [
   9,
   n0,
   _UEB,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/endpoints", 202],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/endpoints", 202] },
   () => UpdateEndpointsBatchRequest,
   () => UpdateEndpointsBatchResponse,
 ];
@@ -6045,9 +5152,7 @@ export var UpdateGcmChannel: StaticOperationSchema = [
   9,
   n0,
   _UGC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/gcm", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/gcm", 200] },
   () => UpdateGcmChannelRequest,
   () => UpdateGcmChannelResponse,
 ];
@@ -6055,9 +5160,7 @@ export var UpdateInAppTemplate: StaticOperationSchema = [
   9,
   n0,
   _UIAT,
-  {
-    [_h]: ["PUT", "/v1/templates/{TemplateName}/inapp", 202],
-  },
+  { [_h]: ["PUT", "/v1/templates/{TemplateName}/inapp", 202] },
   () => UpdateInAppTemplateRequest,
   () => UpdateInAppTemplateResponse,
 ];
@@ -6065,9 +5168,7 @@ export var UpdateJourney: StaticOperationSchema = [
   9,
   n0,
   _UJ,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/journeys/{JourneyId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/journeys/{JourneyId}", 200] },
   () => UpdateJourneyRequest,
   () => UpdateJourneyResponse,
 ];
@@ -6075,9 +5176,7 @@ export var UpdateJourneyState: StaticOperationSchema = [
   9,
   n0,
   _UJS,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/state", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/journeys/{JourneyId}/state", 200] },
   () => UpdateJourneyStateRequest,
   () => UpdateJourneyStateResponse,
 ];
@@ -6085,9 +5184,7 @@ export var UpdatePushTemplate: StaticOperationSchema = [
   9,
   n0,
   _UPT,
-  {
-    [_h]: ["PUT", "/v1/templates/{TemplateName}/push", 202],
-  },
+  { [_h]: ["PUT", "/v1/templates/{TemplateName}/push", 202] },
   () => UpdatePushTemplateRequest,
   () => UpdatePushTemplateResponse,
 ];
@@ -6095,9 +5192,7 @@ export var UpdateRecommenderConfiguration: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_h]: ["PUT", "/v1/recommenders/{RecommenderId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/recommenders/{RecommenderId}", 200] },
   () => UpdateRecommenderConfigurationRequest,
   () => UpdateRecommenderConfigurationResponse,
 ];
@@ -6105,9 +5200,7 @@ export var UpdateSegment: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/segments/{SegmentId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/segments/{SegmentId}", 200] },
   () => UpdateSegmentRequest,
   () => UpdateSegmentResponse,
 ];
@@ -6115,9 +5208,7 @@ export var UpdateSmsChannel: StaticOperationSchema = [
   9,
   n0,
   _USC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/sms", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/sms", 200] },
   () => UpdateSmsChannelRequest,
   () => UpdateSmsChannelResponse,
 ];
@@ -6125,9 +5216,7 @@ export var UpdateSmsTemplate: StaticOperationSchema = [
   9,
   n0,
   _UST,
-  {
-    [_h]: ["PUT", "/v1/templates/{TemplateName}/sms", 202],
-  },
+  { [_h]: ["PUT", "/v1/templates/{TemplateName}/sms", 202] },
   () => UpdateSmsTemplateRequest,
   () => UpdateSmsTemplateResponse,
 ];
@@ -6135,9 +5224,7 @@ export var UpdateTemplateActiveVersion: StaticOperationSchema = [
   9,
   n0,
   _UTAV,
-  {
-    [_h]: ["PUT", "/v1/templates/{TemplateName}/{TemplateType}/active-version", 200],
-  },
+  { [_h]: ["PUT", "/v1/templates/{TemplateName}/{TemplateType}/active-version", 200] },
   () => UpdateTemplateActiveVersionRequest,
   () => UpdateTemplateActiveVersionResponse,
 ];
@@ -6145,9 +5232,7 @@ export var UpdateVoiceChannel: StaticOperationSchema = [
   9,
   n0,
   _UVC,
-  {
-    [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/voice", 200],
-  },
+  { [_h]: ["PUT", "/v1/apps/{ApplicationId}/channels/voice", 200] },
   () => UpdateVoiceChannelRequest,
   () => UpdateVoiceChannelResponse,
 ];
@@ -6155,9 +5240,7 @@ export var UpdateVoiceTemplate: StaticOperationSchema = [
   9,
   n0,
   _UVT,
-  {
-    [_h]: ["PUT", "/v1/templates/{TemplateName}/voice", 202],
-  },
+  { [_h]: ["PUT", "/v1/templates/{TemplateName}/voice", 202] },
   () => UpdateVoiceTemplateRequest,
   () => UpdateVoiceTemplateResponse,
 ];
@@ -6165,9 +5248,7 @@ export var VerifyOTPMessage: StaticOperationSchema = [
   9,
   n0,
   _VOTPM,
-  {
-    [_h]: ["POST", "/v1/apps/{ApplicationId}/verify-otp", 200],
-  },
+  { [_h]: ["POST", "/v1/apps/{ApplicationId}/verify-otp", 200] },
   () => VerifyOTPMessageRequest,
   () => VerifyOTPMessageResponse,
 ];

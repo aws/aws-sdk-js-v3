@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateMemberCommand,
@@ -353,7 +353,7 @@ import {
   UpdateOrgEc2DeepInspectionConfigurationCommandInput,
   UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
-import { Inspector2Client, Inspector2ClientConfig } from "./Inspector2Client";
+import { Inspector2Client } from "./Inspector2Client";
 
 const commands = {
   AssociateMemberCommand,

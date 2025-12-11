@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
 } from "../models/models_0";
@@ -45,7 +45,7 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  * const input = { // GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest
  *   policyArn: "STRING_VALUE", // required
  *   buildWorkflowId: "STRING_VALUE", // required
- *   assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION" || "GENERATED_TEST_CASES", // required
+ *   assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION" || "GENERATED_TEST_CASES" || "POLICY_SCENARIOS", // required
  * };
  * const command = new GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand(input);
  * const response = await client.send(command);
@@ -274,6 +274,18 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  * //           queryContent: "STRING_VALUE", // required
  * //           guardContent: "STRING_VALUE", // required
  * //           expectedAggregatedFindingsResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     policyScenarios: { // AutomatedReasoningPolicyScenarios
+ * //       policyScenarios: [ // AutomatedReasoningPolicyScenarioList // required
+ * //         { // AutomatedReasoningPolicyScenario
+ * //           expression: "STRING_VALUE", // required
+ * //           alternateExpression: "STRING_VALUE", // required
+ * //           expectedResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
+ * //           ruleIds: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //     },

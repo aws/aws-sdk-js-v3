@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContactFlowRequest, DescribeContactFlowResponse } from "../models/models_1";
+import type { DescribeContactFlowRequest, DescribeContactFlowResponse } from "../models/models_1";
 import { DescribeContactFlow } from "../schemas/schemas_0";
 
 /**
@@ -30,16 +30,14 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * <p>Describes the specified flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
- *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
- *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
- *    published.</p>
- *          <p>Use <code>arn:aws:.../contact-flow/\{id\}:\{version\}</code> to retrieve the content of a
- *    specific flow version.</p>
- *          <p>In the response, <b>Status</b> indicates the flow status as either
- *     <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate
- *    validation on the content. <code>SAVED</code> does not initiate validation of the content.
- *     <code>SAVED</code> | <code>PUBLISHED</code>
+ *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content of a Flow. For
+ *    example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is published, <code>$SAVED</code> needs to
+ *    be supplied to view saved content that has not been published.</p>
+ *          <p>Use <code>arn:aws:.../contact-flow/\{id\}:\{version\}</code> to retrieve the content of a specific flow
+ *    version.</p>
+ *          <p>In the response, <b>Status</b> indicates the flow status as either <code>SAVED</code>
+ *    or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.
+ *     <code>SAVED</code> does not initiate validation of the content. <code>SAVED</code> | <code>PUBLISHED</code>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

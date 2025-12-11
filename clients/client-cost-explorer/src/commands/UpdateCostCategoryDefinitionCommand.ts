@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse } from "../models/models_0";
+import type { UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse } from "../models/models_0";
 import { UpdateCostCategoryDefinition } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,7 @@ export interface UpdateCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to
+ * <p>Updates an existing cost category. Changes made to the cost category rules will be used to
  *       categorize the current month’s expenses and future expenses. This won’t change categorization
  *       for the previous months.</p>
  * @example

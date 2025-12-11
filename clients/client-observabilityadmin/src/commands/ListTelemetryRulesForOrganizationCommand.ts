@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTelemetryRulesForOrganizationInput, ListTelemetryRulesForOrganizationOutput } from "../models/models_0";
-import {
+import type {
+  ListTelemetryRulesForOrganizationInput,
+  ListTelemetryRulesForOrganizationOutput,
+} from "../models/models_0";
+import type {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -62,8 +65,11 @@ export interface ListTelemetryRulesForOrganizationCommandOutput
  * //       RuleArn: "STRING_VALUE",
  * //       CreatedTimeStamp: Number("long"),
  * //       LastUpdateTimeStamp: Number("long"),
- * //       ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function",
+ * //       ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter",
  * //       TelemetryType: "Logs" || "Metrics" || "Traces",
+ * //       TelemetrySourceTypes: [ // TelemetrySourceTypes
+ * //         "VPC_FLOW_LOGS" || "ROUTE53_RESOLVER_QUERY_LOGS" || "EKS_AUDIT_LOGS" || "EKS_AUTHENTICATOR_LOGS" || "EKS_CONTROLLER_MANAGER_LOGS" || "EKS_SCHEDULER_LOGS" || "EKS_API_LOGS",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddKeyReplicationRegionsCommand,
@@ -80,7 +80,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
-import { PaymentCryptographyClient, PaymentCryptographyClientConfig } from "./PaymentCryptographyClient";
+import { PaymentCryptographyClient } from "./PaymentCryptographyClient";
 
 const commands = {
   AddKeyReplicationRegionsCommand,

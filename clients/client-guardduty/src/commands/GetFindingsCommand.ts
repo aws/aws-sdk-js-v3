@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
+import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import type { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
 import { GetFindings } from "../schemas/schemas_0";
 
 /**
@@ -859,7 +859,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Uid: "STRING_VALUE", // required
  * //                 Name: "STRING_VALUE",
  * //                 AccountId: "STRING_VALUE",
- * //                 ResourceType: "EC2_INSTANCE" || "EC2_NETWORK_INTERFACE" || "S3_BUCKET" || "S3_OBJECT" || "ACCESS_KEY" || "EKS_CLUSTER" || "KUBERNETES_WORKLOAD" || "CONTAINER", // required
+ * //                 ResourceType: "EC2_INSTANCE" || "EC2_NETWORK_INTERFACE" || "S3_BUCKET" || "S3_OBJECT" || "ACCESS_KEY" || "EKS_CLUSTER" || "KUBERNETES_WORKLOAD" || "CONTAINER" || "ECS_CLUSTER" || "ECS_TASK" || "AUTOSCALING_AUTO_SCALING_GROUP" || "IAM_INSTANCE_PROFILE" || "CLOUDFORMATION_STACK" || "EC2_LAUNCH_TEMPLATE" || "EC2_VPC" || "EC2_IMAGE", // required
  * //                 Region: "STRING_VALUE",
  * //                 Service: "STRING_VALUE",
  * //                 CloudPartition: "STRING_VALUE",
@@ -954,6 +954,45 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                   Container: { // ContainerFindingResource
  * //                     Image: "STRING_VALUE", // required
  * //                     ImageUid: "STRING_VALUE",
+ * //                   },
+ * //                   EcsCluster: { // EcsCluster
+ * //                     Status: "ACTIVE" || "PROVISIONING" || "DEPROVISIONING" || "FAILED" || "INACTIVE",
+ * //                     Ec2InstanceUids: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   EcsTask: { // EcsTask
+ * //                     CreatedAt: new Date("TIMESTAMP"),
+ * //                     TaskDefinitionArn: "STRING_VALUE",
+ * //                     LaunchType: "FARGATE" || "EC2",
+ * //                     ContainerUids: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   IamInstanceProfile: { // IamInstanceProfileV2
+ * //                     Ec2InstanceUids: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   AutoscalingAutoScalingGroup: { // AutoscalingAutoScalingGroup
+ * //                     Ec2InstanceUids: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   Ec2LaunchTemplate: { // Ec2LaunchTemplate
+ * //                     Ec2InstanceUids: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Version: "STRING_VALUE",
+ * //                   },
+ * //                   Ec2Vpc: { // Ec2Vpc
+ * //                     Ec2InstanceUids: "<Ec2InstanceUids>",
+ * //                   },
+ * //                   Ec2Image: { // Ec2Image
+ * //                     Ec2InstanceUids: "<Ec2InstanceUids>",
+ * //                   },
+ * //                   CloudformationStack: { // CloudformationStack
+ * //                     Ec2InstanceUids: "<Ec2InstanceUids>",
  * //                   },
  * //                 },
  * //               },

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_2";
+import type { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_2";
 import { ListSecurityProfilePermissions } from "../schemas/schemas_0";
 
 /**
@@ -30,10 +30,9 @@ export interface ListSecurityProfilePermissionsCommandOutput
 
 /**
  * <p>Lists the permissions granted to a security profile.</p>
- *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and
- *    user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile
- *     permissions</a>. </p>
+ *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and user interface name of the security
+ *    profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+ *     of security profile permissions</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

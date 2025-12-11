@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptResourceGroupingRecommendationsCommand,
@@ -289,7 +289,7 @@ import {
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
-import { ResiliencehubClient, ResiliencehubClientConfig } from "./ResiliencehubClient";
+import { ResiliencehubClient } from "./ResiliencehubClient";
 
 const commands = {
   AcceptResourceGroupingRecommendationsCommand,

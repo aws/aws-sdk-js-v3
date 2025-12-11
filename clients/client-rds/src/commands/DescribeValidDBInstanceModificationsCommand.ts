@@ -1,12 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeValidDBInstanceModificationsMessage } from "../models/models_0";
-import { DescribeValidDBInstanceModificationsResult } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type {
+  DescribeValidDBInstanceModificationsMessage,
+  DescribeValidDBInstanceModificationsResult,
+} from "../models/models_1";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeValidDBInstanceModifications } from "../schemas/schemas_0";
 
 /**
@@ -95,6 +97,47 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * //       },
  * //     ],
  * //     SupportsDedicatedLogVolume: true || false,
+ * //     AdditionalStorage: { // ValidAdditionalStorageOptions
+ * //       SupportsAdditionalStorageVolumes: true || false,
+ * //       Volumes: [ // ValidVolumeOptionsList
+ * //         { // ValidVolumeOptions
+ * //           VolumeName: "STRING_VALUE",
+ * //           Storage: [
+ * //             {
+ * //               StorageType: "STRING_VALUE",
+ * //               StorageSize: [
+ * //                 {
+ * //                   From: Number("int"),
+ * //                   To: Number("int"),
+ * //                   Step: Number("int"),
+ * //                 },
+ * //               ],
+ * //               ProvisionedIops: [
+ * //                 {
+ * //                   From: Number("int"),
+ * //                   To: Number("int"),
+ * //                   Step: Number("int"),
+ * //                 },
+ * //               ],
+ * //               IopsToStorageRatio: [
+ * //                 {
+ * //                   From: Number("double"),
+ * //                   To: Number("double"),
+ * //                 },
+ * //               ],
+ * //               ProvisionedStorageThroughput: "<RangeList>",
+ * //               StorageThroughputToIopsRatio: [
+ * //                 {
+ * //                   From: Number("double"),
+ * //                   To: Number("double"),
+ * //                 },
+ * //               ],
+ * //               SupportsStorageAutoscaling: true || false,
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

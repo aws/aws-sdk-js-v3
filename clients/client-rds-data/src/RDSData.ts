@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommand,
@@ -28,7 +28,7 @@ import {
   RollbackTransactionCommandInput,
   RollbackTransactionCommandOutput,
 } from "./commands/RollbackTransactionCommand";
-import { RDSDataClient, RDSDataClientConfig } from "./RDSDataClient";
+import { RDSDataClient } from "./RDSDataClient";
 
 const commands = {
   BatchExecuteStatementCommand,

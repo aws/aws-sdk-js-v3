@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteInstanceRequest } from "../models/models_0";
+import type { DeleteInstanceRequest } from "../models/models_1";
 import { DeleteInstance } from "../schemas/schemas_0";
 
 /**
@@ -28,9 +28,8 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Deletes the Amazon Connect instance. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html">Delete your
- *      Amazon Connect instance</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
+ *          <p>Deletes the Amazon Connect instance. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html">Delete your Amazon Connect instance</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
  * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
  * You must wait 30 days before you can restart creating and deleting instances in your account.</p>

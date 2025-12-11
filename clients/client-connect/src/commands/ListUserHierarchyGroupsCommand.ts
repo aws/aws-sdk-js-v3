@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/models_2";
+import type { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/models_2";
 import { ListUserHierarchyGroups } from "../schemas/schemas_0";
 
 /**
@@ -27,10 +27,8 @@ export interface ListUserHierarchyGroupsCommandInput extends ListUserHierarchyGr
 export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
- *    instance.</p>
- *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
- *      <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
+ *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

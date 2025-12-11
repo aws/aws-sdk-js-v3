@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { EndpointV2, Logger } from "@smithy/types";
-import { EndpointCache, EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
+import type { EndpointV2, Logger } from "@smithy/types";
+import { type EndpointParams, EndpointCache, resolveEndpoint } from "@smithy/util-endpoints";
 
-import { EndpointParameters } from "./EndpointParameters";
+import type { EndpointParameters } from "./EndpointParameters";
 import { ruleSet } from "./ruleset";
 
 const cache = new EndpointCache({
@@ -10,6 +10,9 @@ const cache = new EndpointCache({
   params: ["endpoint"],
 });
 
+/**
+ * @internal
+ */
 export const defaultEndpointResolver = (
   endpointParams: EndpointParameters,
   context: { logger?: Logger } = {}

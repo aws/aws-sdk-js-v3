@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchDescribeEntitiesCommand,
@@ -63,7 +63,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { MarketplaceCatalogClient, MarketplaceCatalogClientConfig } from "./MarketplaceCatalogClient";
+import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
 
 const commands = {
   BatchDescribeEntitiesCommand,

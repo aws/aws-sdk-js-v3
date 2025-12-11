@@ -13,6 +13,7 @@ import { MetadataServiceOptions } from "./MetadataServiceOptions";
 export class MetadataService {
   private disableFetchToken: boolean;
   private config: Promise<MetadataServiceOptions>;
+
   /**
    * Creates a new MetadataService object with a given set of options.
    */
@@ -35,6 +36,7 @@ export class MetadataService {
     const { endpoint, ec2MetadataV1Disabled, httpOptions } = await this.config;
     const handler = new NodeHttpHandler({
       requestTimeout: httpOptions?.timeout,
+      throwOnRequestTimeout: true,
       connectionTimeout: httpOptions?.timeout,
     });
     const endpointUrl = new URL(endpoint!);
@@ -88,6 +90,7 @@ export class MetadataService {
     const { endpoint, httpOptions } = await this.config;
     const handler = new NodeHttpHandler({
       requestTimeout: httpOptions?.timeout,
+      throwOnRequestTimeout: true,
       connectionTimeout: httpOptions?.timeout,
     });
     const endpointUrl = new URL(endpoint!);
@@ -102,18 +105,23 @@ export class MetadataService {
     });
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
-      if (response.statusCode === 200 && response.body) {
-        // handle response.body as a stream
-        return sdkStreamMixin(response.body).transformToString();
+
+      let bodyString = "";
+      if (response.body) {
+        bodyString = await sdkStreamMixin(response.body).transformToString();
+      }
+
+      if (response.statusCode === 200 && bodyString) {
+        return bodyString;
       } else {
-        throw new Error(`Failed to fetch metadata token with status code ${response.statusCode}`);
+        throw Object.assign(new Error(`Failed to fetch metadata token with status code ${response.statusCode}`), {
+          statusCode: response.statusCode,
+        });
       }
     } catch (error) {
-      if (error?.statusCode === 400) {
-        throw new Error(`Error fetching metadata token: ${error}`);
-      } else if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
+      if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
         this.disableFetchToken = true; // as per JSv2 and fromInstanceMetadata implementations
-        throw new Error(`Error fetching metadata token: ${error}. disableFetchToken is enabled`);
+        throw new Error(`Error fetching metadata token: ${error}. [disableFetchToken] is now set to true.`);
       }
       throw new Error(`Error fetching metadata token: ${error}`);
     }

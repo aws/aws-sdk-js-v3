@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
 import { ResourceType } from "./enums";

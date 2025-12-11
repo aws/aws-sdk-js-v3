@@ -147,7 +147,7 @@ const n0 = "com.amazonaws.mwaaserverless";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -168,33 +168,10 @@ import {
 import { MWAAServerlessServiceException as __MWAAServerlessServiceException } from "../models/MWAAServerlessServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateWorkflowRequest: StaticStructureSchema = [
   3,
   n0,
@@ -232,12 +209,7 @@ export var DeleteWorkflowRequest: StaticStructureSchema = [
   [_WA, _WV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wV,
-      },
-    ],
+    [0, { [_hQ]: _wV }],
   ],
 ];
 export var DeleteWorkflowResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [_WA, _WV], [0, 0]];
@@ -270,12 +242,7 @@ export var GetWorkflowRequest: StaticStructureSchema = [
   [_WA, _WV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wV,
-      },
-    ],
+    [0, { [_hQ]: _wV }],
   ],
 ];
 export var GetWorkflowResponse: StaticStructureSchema = [
@@ -326,23 +293,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
 export var ListTaskInstancesRequest: StaticStructureSchema = [
@@ -354,18 +309,8 @@ export var ListTaskInstancesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTaskInstancesResponse: StaticStructureSchema = [
@@ -383,25 +328,10 @@ export var ListWorkflowRunsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _WA, _WV],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wV,
-      },
-    ],
+    [0, { [_hQ]: _wV }],
   ],
 ];
 export var ListWorkflowRunsResponse: StaticStructureSchema = [
@@ -419,18 +349,8 @@ export var ListWorkflowsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListWorkflowsResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_Wo, _NT], [() => WorkflowSummaries, 0]];
@@ -441,18 +361,8 @@ export var ListWorkflowVersionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _WA],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -466,47 +376,28 @@ export var ListWorkflowVersionsResponse: StaticStructureSchema = [
 ];
 export var LoggingConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_LGN], [0]];
 export var NetworkConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_SGI, _SI], [64 | 0, 64 | 0]];
-export var OperationTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OTE,
-  {
-    [_e]: _s,
-    [_hE]: 504,
-  },
-  [_M],
-  [0],
-];
+export var OperationTimeoutException: StaticErrorSchema = [-3, n0, _OTE, { [_e]: _s, [_hE]: 504 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OperationTimeoutException, __OperationTimeoutException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RunDetailSummary: StaticStructureSchema = [3, n0, _RDS, 0, [_S, _CO, _SA, _EA], [0, 5, 5, 5]];
 export var ScheduleConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_CEr], [0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _SCe, _QC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartWorkflowRunRequest: StaticStructureSchema = [
   3,
   n0,
@@ -542,25 +433,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _SCe, _QC, _RAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -569,12 +446,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -591,15 +463,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _R, _FL],
   [0, 0, () => ValidationExceptionFields],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
 export var WorkflowRunDetail: StaticStructureSchema = [
   3,
@@ -633,38 +501,26 @@ export var WorkflowVersionSummary: StaticStructureSchema = [
   [_WV, _WA, _ILV, _CA, _MA, _DSL, _SC, _TM],
   [0, 0, 2, 5, 5, () => DefinitionS3Location, () => ScheduleConfiguration, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var MWAAServerlessServiceException: StaticErrorSchema = [-3, _sm, "MWAAServerlessServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MWAAServerlessServiceException, __MWAAServerlessServiceException);
-
 export var SecurityGroupIds = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TaskInstanceIds = 64 | 0;
-
 export var TaskInstanceSummaries: StaticListSchema = [1, n0, _TISa, 0, () => TaskInstanceSummary];
 export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
 export var WarningMessages = 64 | 0;
-
 export var WorkflowRunSummaries: StaticListSchema = [1, n0, _WRSo, 0, () => WorkflowRunSummary];
 export var WorkflowSummaries: StaticListSchema = [1, n0, _WSor, 0, () => WorkflowSummary];
 export var WorkflowVersionSummaries: StaticListSchema = [1, n0, _WVSo, 0, () => WorkflowVersionSummary];
 export var GenericMap = 128 | 0;
-
 export var ObjectMap: StaticMapSchema = [2, n0, _OM, 8, 0, 15];
 export var Tags = 128 | 0;
-
 export var CreateWorkflow: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["POST", "/workflows", 200],
-  },
+  { [_h]: ["POST", "/workflows", 200] },
   () => CreateWorkflowRequest,
   () => CreateWorkflowResponse,
 ];
@@ -672,9 +528,7 @@ export var DeleteWorkflow: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/workflows/{WorkflowArn}", 200],
-  },
+  { [_h]: ["DELETE", "/workflows/{WorkflowArn}", 200] },
   () => DeleteWorkflowRequest,
   () => DeleteWorkflowResponse,
 ];
@@ -682,9 +536,7 @@ export var GetTaskInstance: StaticOperationSchema = [
   9,
   n0,
   _GTI,
-  {
-    [_h]: ["GET", "/workflows/{WorkflowArn}/runs/{RunId}/tasks/{TaskInstanceId}", 200],
-  },
+  { [_h]: ["GET", "/workflows/{WorkflowArn}/runs/{RunId}/tasks/{TaskInstanceId}", 200] },
   () => GetTaskInstanceRequest,
   () => GetTaskInstanceResponse,
 ];
@@ -692,9 +544,7 @@ export var GetWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_h]: ["GET", "/workflows/{WorkflowArn}", 200],
-  },
+  { [_h]: ["GET", "/workflows/{WorkflowArn}", 200] },
   () => GetWorkflowRequest,
   () => GetWorkflowResponse,
 ];
@@ -702,9 +552,7 @@ export var GetWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _GWRet,
-  {
-    [_h]: ["GET", "/workflows/{WorkflowArn}/runs/{RunId}", 200],
-  },
+  { [_h]: ["GET", "/workflows/{WorkflowArn}/runs/{RunId}", 200] },
   () => GetWorkflowRunRequest,
   () => GetWorkflowRunResponse,
 ];
@@ -712,9 +560,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -722,9 +568,7 @@ export var ListTaskInstances: StaticOperationSchema = [
   9,
   n0,
   _LTI,
-  {
-    [_h]: ["GET", "/workflows/{WorkflowArn}/runs/{RunId}/tasks", 200],
-  },
+  { [_h]: ["GET", "/workflows/{WorkflowArn}/runs/{RunId}/tasks", 200] },
   () => ListTaskInstancesRequest,
   () => ListTaskInstancesResponse,
 ];
@@ -732,9 +576,7 @@ export var ListWorkflowRuns: StaticOperationSchema = [
   9,
   n0,
   _LWRis,
-  {
-    [_h]: ["GET", "/workflows/{WorkflowArn}/runs", 200],
-  },
+  { [_h]: ["GET", "/workflows/{WorkflowArn}/runs", 200] },
   () => ListWorkflowRunsRequest,
   () => ListWorkflowRunsResponse,
 ];
@@ -742,9 +584,7 @@ export var ListWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["GET", "/workflows", 200],
-  },
+  { [_h]: ["GET", "/workflows", 200] },
   () => ListWorkflowsRequest,
   () => ListWorkflowsResponse,
 ];
@@ -752,9 +592,7 @@ export var ListWorkflowVersions: StaticOperationSchema = [
   9,
   n0,
   _LWV,
-  {
-    [_h]: ["GET", "/workflows/{WorkflowArn}/versions", 200],
-  },
+  { [_h]: ["GET", "/workflows/{WorkflowArn}/versions", 200] },
   () => ListWorkflowVersionsRequest,
   () => ListWorkflowVersionsResponse,
 ];
@@ -762,9 +600,7 @@ export var StartWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _SWR,
-  {
-    [_h]: ["POST", "/workflows/{WorkflowArn}/runs", 200],
-  },
+  { [_h]: ["POST", "/workflows/{WorkflowArn}/runs", 200] },
   () => StartWorkflowRunRequest,
   () => StartWorkflowRunResponse,
 ];
@@ -772,9 +608,7 @@ export var StopWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _SWRt,
-  {
-    [_h]: ["DELETE", "/workflows/{WorkflowArn}/runs/{RunId}", 200],
-  },
+  { [_h]: ["DELETE", "/workflows/{WorkflowArn}/runs/{RunId}", 200] },
   () => StopWorkflowRunRequest,
   () => StopWorkflowRunResponse,
 ];
@@ -782,9 +616,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -792,9 +624,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -802,9 +632,7 @@ export var UpdateWorkflow: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_h]: ["PUT", "/workflows/{WorkflowArn}", 200],
-  },
+  { [_h]: ["PUT", "/workflows/{WorkflowArn}", 200] },
   () => UpdateWorkflowRequest,
   () => UpdateWorkflowResponse,
 ];

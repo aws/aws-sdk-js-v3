@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   DeleteConnectionRecordingPreferencesCommand,
@@ -17,7 +17,7 @@ import {
   UpdateConnectionRecordingPreferencesCommandInput,
   UpdateConnectionRecordingPreferencesCommandOutput,
 } from "./commands/UpdateConnectionRecordingPreferencesCommand";
-import { SSMGuiConnectClient, SSMGuiConnectClientConfig } from "./SSMGuiConnectClient";
+import { SSMGuiConnectClient } from "./SSMGuiConnectClient";
 
 const commands = {
   DeleteConnectionRecordingPreferencesCommand,

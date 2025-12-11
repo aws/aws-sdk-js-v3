@@ -12,9 +12,11 @@ import {
   ExportTaskStatusCode,
   FlattenedElement,
   IndexSource,
+  IndexType,
   InheritedProperty,
   IntegrationStatus,
   IntegrationType,
+  ListAggregateLogGroupSummariesGroupBy,
   LogGroupClass,
   OCSFVersion,
   OpenSearchResourceStatusType,
@@ -24,6 +26,7 @@ import {
   PolicyType,
   QueryLanguage,
   QueryStatus,
+  S3TableIntegrationSourceStatus,
   ScheduledQueryDestinationType,
   ScheduledQueryState,
   Scope,
@@ -123,6 +126,49 @@ export interface AddKeys {
    * @public
    */
   entries: AddKeyEntry[] | undefined;
+}
+
+/**
+ * <p>A key-value pair that identifies how log groups are grouped in aggregate summaries.</p>
+ * @public
+ */
+export interface GroupingIdentifier {
+  /**
+   * <p>The key that identifies the grouping characteristic. The format of the key uses dot
+   *       notation. Examples are, <code>dataSource.Name</code>, <code>dataSource.Type</code>, and
+   *         <code>dataSource.Format</code>.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The value associated with the grouping characteristic. Examples are
+   *         <code>amazon_vpc</code>, <code>flow</code>, and <code>OCSF</code>.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>Contains an aggregate summary of log groups grouped by data source characteristics,
+ *       including the count of log groups and their grouping identifiers.</p>
+ * @public
+ */
+export interface AggregateLogGroupSummary {
+  /**
+   * <p>The number of log groups in this aggregate summary group.</p>
+   * @public
+   */
+  logGroupCount?: number | undefined;
+
+  /**
+   * <p>An array of key-value pairs that identify the data source characteristics used to group
+   *       the log groups.</p>
+   *          <p>The size and content of this array depends on the <code>groupBy</code> parameter specified
+   *       in the request.</p>
+   * @public
+   */
+  groupingIdentifiers?: GroupingIdentifier[] | undefined;
 }
 
 /**
@@ -474,6 +520,56 @@ export interface AssociateKmsKeyRequest {
    * @public
    */
   resourceIdentifier?: string | undefined;
+}
+
+/**
+ * <p>Represents a data source that categorizes logs by originating service and log type,
+ *       providing service-based organization complementing traditional log groups.</p>
+ * @public
+ */
+export interface DataSource {
+  /**
+   * <p>The name of the data source.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the data source.</p>
+   * @public
+   */
+  type?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceToS3TableIntegrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source
+   *       with.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+
+  /**
+   * <p>The data source to associate with the S3 Table Integration. Contains the name and type of
+   *       the data source.</p>
+   * @public
+   */
+  dataSource: DataSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceToS3TableIntegrationResponse {
+  /**
+   * <p>The unique identifier for the association between the data source and S3 Table
+   *       Integration.</p>
+   * @public
+   */
+  identifier?: string | undefined;
 }
 
 /**
@@ -1015,30 +1111,30 @@ export interface CreateLogStreamRequest {
 }
 
 /**
- * <p>Configuration details for delivering scheduled query results to an Amazon S3 bucket.</p>
+ * <p>Configuration for Amazon S3 destination where scheduled query results are delivered.</p>
  * @public
  */
 export interface S3Configuration {
   /**
-   * <p>The S3 URI where query results will be stored (e.g., s3://bucket-name/prefix/).</p>
+   * <p>The Amazon S3 URI where query results are delivered. Must be a valid S3 URI format.</p>
    * @public
    */
   destinationIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that CloudWatch Logs will assume to write results to the S3 bucket.</p>
+   * <p>The ARN of the IAM role that grants permissions to write query results to the specified Amazon S3 destination.</p>
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>Configuration for destinations where scheduled query results are delivered, such as S3 buckets or EventBridge event buses.</p>
+ * <p>Configuration for where to deliver scheduled query results. Specifies the destination type and associated settings for result delivery.</p>
  * @public
  */
 export interface DestinationConfiguration {
   /**
-   * <p>Configuration for delivering query results to an Amazon S3 bucket.</p>
+   * <p>Configuration for delivering query results to Amazon S3.</p>
    * @public
    */
   s3Configuration: S3Configuration | undefined;
@@ -1049,87 +1145,85 @@ export interface DestinationConfiguration {
  */
 export interface CreateScheduledQueryRequest {
   /**
-   * <p>A unique name for the scheduled query within the region for an AWS account. The name can contain letters, numbers, underscores, hyphens, forward slashes, periods, and hash symbols.</p>
+   * <p>The name of the scheduled query. The name must be unique within your account and region. Valid characters are alphanumeric characters, hyphens, underscores, and periods. Length must be between 1 and 255 characters.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An optional description for the scheduled query to help identify its purpose.</p>
+   * <p>An optional description for the scheduled query to help identify its purpose and functionality.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The query language to use for the scheduled query. Valid values are LogsQL (CloudWatch Logs Insights query language), PPL (OpenSearch Service Piped Processing Language), and SQL (OpenSearch Service Structured Query Language).</p>
+   * <p>The query language to use for the scheduled query. Valid values are <code>LogsQL</code>, <code>PPL</code>, and <code>SQL</code>.</p>
    * @public
    */
   queryLanguage: QueryLanguage | undefined;
 
   /**
-   * <p>The CloudWatch Logs Insights query string to execute. This is the actual query that will be run against your log data on the specified schedule.</p>
+   * <p>The query string to execute. This is the same query syntax used in CloudWatch Logs Insights. Maximum length is 10,000 characters.</p>
    * @public
    */
   queryString: string | undefined;
 
   /**
-   * <p>The log group identifiers to query. You can specify log group names or log group ARNs. If querying log groups in a source account from a monitoring account, you must specify the ARN of the log group.</p>
+   * <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
 
   /**
-   * <p>A cron expression that defines when the scheduled query runs. The format is cron(fields) where fields consist of six space-separated values: minutes, hours, day_of_month, month, day_of_week, year.</p>
+   * <p>A cron expression that defines when the scheduled query runs. The expression uses standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
    * @public
    */
   scheduleExpression: string | undefined;
 
   /**
-   * <p>The timezone in which the schedule expression is evaluated. If not provided, defaults to UTC.</p>
+   * <p>The timezone for evaluating the schedule expression. This determines when the scheduled query executes relative to the specified timezone.</p>
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>Time offset in seconds from the execution time for the start of the query time range. This defines the lookback period for the query (for example, 3600 for the last hour).</p>
+   * <p>The time offset in seconds that defines the lookback period for the query. This determines how far back in time the query searches from the execution time.</p>
    * @public
    */
   startTimeOffset?: number | undefined;
 
   /**
-   * <p>Configuration for destinations where the query results will be delivered after successful execution. You can configure delivery to S3 buckets or EventBridge event buses.</p>
+   * <p>Configuration for where to deliver query results. Currently supports Amazon S3 destinations for storing query output.</p>
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The start time for the query schedule in Unix epoch time (seconds since January 1, 1970, 00:00:00 UTC). If not specified, the schedule starts immediately.</p>
+   * <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>The end time for the query schedule in Unix epoch time (seconds since January 1, 1970, 00:00:00 UTC). If not specified, the schedule runs indefinitely.</p>
+   * <p>The end time for the scheduled query in Unix epoch format. The query will stop executing after this time.</p>
    * @public
    */
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that CloudWatch Logs will assume to execute the scheduled query and deliver results to the specified destinations.</p>
+   * <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The initial state of the scheduled query. Valid values are ENABLED (the query will run according to its schedule) and DISABLED (the query is paused and will not run). If not provided, defaults to ENABLED.</p>
+   * <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
 
   /**
-   * <p>An optional list of key-value pairs to associate with the resource.</p>
-   *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
-   *          </p>
+   * <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1140,13 +1234,13 @@ export interface CreateScheduledQueryRequest {
  */
 export interface CreateScheduledQueryResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created scheduled query.</p>
+   * <p>The ARN of the created scheduled query.</p>
    * @public
    */
   scheduledQueryArn?: string | undefined;
 
   /**
-   * <p>The current state of the scheduled query (ENABLED or DISABLED).</p>
+   * <p>The current state of the scheduled query.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
@@ -1188,6 +1282,25 @@ export interface CSV {
    * @public
    */
   source?: string | undefined;
+}
+
+/**
+ * <p>Filter criteria for data sources, used to specify which data sources to include in
+ *       operations based on name and type.</p>
+ * @public
+ */
+export interface DataSourceFilter {
+  /**
+   * <p>The name pattern to filter data sources by.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type pattern to filter data sources by.</p>
+   * @public
+   */
+  type?: string | undefined;
 }
 
 /**
@@ -1505,7 +1618,7 @@ export interface DeleteRetentionPolicyRequest {
  */
 export interface DeleteScheduledQueryRequest {
   /**
-   * <p>The name or ARN of the scheduled query to delete.</p>
+   * <p>The ARN or name of the scheduled query to delete.</p>
    * @public
    */
   identifier: string | undefined;
@@ -2236,6 +2349,14 @@ export interface FieldIndex {
    * @public
    */
   lastEventTime?: number | undefined;
+
+  /**
+   * <p>The type of index. Specify <code>FACET</code> for facet-based indexing or
+   *         <code>FIELD_INDEX</code> for field-based indexing. This determines how the field is indexed
+   *       and can be queried.</p>
+   * @public
+   */
+  type?: IndexType | undefined;
 }
 
 /**
@@ -3408,6 +3529,29 @@ export interface DisassociateKmsKeyRequest {
 }
 
 /**
+ * @public
+ */
+export interface DisassociateSourceFromS3TableIntegrationRequest {
+  /**
+   * <p>The unique identifier of the association to remove between the data source and S3 Table
+   *       Integration.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSourceFromS3TableIntegrationResponse {
+  /**
+   * <p>The unique identifier of the association that was removed.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
+
+/**
  * <p>The entity associated with the log events in a <code>PutLogEvents</code> call.</p>
  * @public
  */
@@ -4385,6 +4529,23 @@ export interface GetLogEventsResponse {
 /**
  * @public
  */
+export interface GetLogFieldsRequest {
+  /**
+   * <p>The name of the data source to retrieve log fields for.</p>
+   * @public
+   */
+  dataSourceName: string | undefined;
+
+  /**
+   * <p>The type of the data source to retrieve log fields for.</p>
+   * @public
+   */
+  dataSourceType: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetLogGroupFieldsRequest {
   /**
    * <p>The name of the log group to search.</p>
@@ -4716,7 +4877,7 @@ export interface GetQueryResultsResponse {
  */
 export interface GetScheduledQueryRequest {
   /**
-   * <p>The name or ARN of the scheduled query to retrieve.</p>
+   * <p>The ARN or name of the scheduled query to retrieve.</p>
    * @public
    */
   identifier: string | undefined;
@@ -4727,7 +4888,7 @@ export interface GetScheduledQueryRequest {
  */
 export interface GetScheduledQueryResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scheduled query.</p>
+   * <p>The ARN of the scheduled query.</p>
    * @public
    */
   scheduledQueryArn?: string | undefined;
@@ -4745,19 +4906,19 @@ export interface GetScheduledQueryResponse {
   description?: string | undefined;
 
   /**
-   * <p>The query language used by the scheduled query (LogsQL, PPL, or SQL).</p>
+   * <p>The query language used by the scheduled query.</p>
    * @public
    */
   queryLanguage?: QueryLanguage | undefined;
 
   /**
-   * <p>The CloudWatch Logs Insights query string being executed.</p>
+   * <p>The query string executed by the scheduled query.</p>
    * @public
    */
   queryString?: string | undefined;
 
   /**
-   * <p>The log group identifiers being queried by the scheduled query.</p>
+   * <p>The log groups queried by the scheduled query.</p>
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
@@ -4769,67 +4930,67 @@ export interface GetScheduledQueryResponse {
   scheduleExpression?: string | undefined;
 
   /**
-   * <p>The timezone in which the schedule expression is evaluated.</p>
+   * <p>The timezone used for evaluating the schedule expression.</p>
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>Time offset in seconds from the execution time for the start of the query time range.</p>
+   * <p>The time offset in seconds that defines the lookback period for the query.</p>
    * @public
    */
   startTimeOffset?: number | undefined;
 
   /**
-   * <p>Configuration for destinations where the query results are delivered.</p>
+   * <p>Configuration for where query results are delivered.</p>
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The current state of the scheduled query (ENABLED or DISABLED).</p>
+   * <p>The current state of the scheduled query.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
 
   /**
-   * <p>The time when the scheduled query was last executed, in Unix epoch time.</p>
+   * <p>The timestamp when the scheduled query was last executed.</p>
    * @public
    */
   lastTriggeredTime?: number | undefined;
 
   /**
-   * <p>The status of the last executed query (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * <p>The status of the most recent execution of the scheduled query.</p>
    * @public
    */
   lastExecutionStatus?: ExecutionStatus | undefined;
 
   /**
-   * <p>The start time for the query schedule in Unix epoch time.</p>
+   * <p>The start time for the scheduled query in Unix epoch format.</p>
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>The end time for the query schedule in Unix epoch time.</p>
+   * <p>The end time for the scheduled query in Unix epoch format.</p>
    * @public
    */
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role used to execute the scheduled query.</p>
+   * <p>The ARN of the IAM role used to execute the query and deliver results.</p>
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The time when the scheduled query was created, in Unix epoch time.</p>
+   * <p>The timestamp when the scheduled query was created.</p>
    * @public
    */
   creationTime?: number | undefined;
 
   /**
-   * <p>The time when the scheduled query was last updated, in Unix epoch time.</p>
+   * <p>The timestamp when the scheduled query was last updated.</p>
    * @public
    */
   lastUpdatedTime?: number | undefined;
@@ -4840,31 +5001,31 @@ export interface GetScheduledQueryResponse {
  */
 export interface GetScheduledQueryHistoryRequest {
   /**
-   * <p>The name or ARN of the scheduled query to retrieve history for.</p>
+   * <p>The ARN or name of the scheduled query to retrieve history for.</p>
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The start time for the history retrieval window in Unix epoch time.</p>
+   * <p>The start time for the history query in Unix epoch format.</p>
    * @public
    */
   startTime: number | undefined;
 
   /**
-   * <p>The end time for the history retrieval window in Unix epoch time.</p>
+   * <p>The end time for the history query in Unix epoch format.</p>
    * @public
    */
   endTime: number | undefined;
 
   /**
-   * <p>Filter results by execution status (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * <p>An array of execution statuses to filter the history results. Only executions with the specified statuses are returned.</p>
    * @public
    */
   executionStatuses?: ExecutionStatus[] | undefined;
 
   /**
-   * <p>The maximum number of history records to return in a single call.</p>
+   * <p>The maximum number of history records to return. Valid range is 1 to 1000.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -4878,72 +5039,72 @@ export interface GetScheduledQueryHistoryRequest {
 }
 
 /**
- * <p>Information about a destination where scheduled query results are processed and delivered.</p>
+ * <p>Information about a destination where scheduled query results are processed, including processing status and any error messages.</p>
  * @public
  */
 export interface ScheduledQueryDestination {
   /**
-   * <p>The type of destination (S3).</p>
+   * <p>The type of destination for query results.</p>
    * @public
    */
   destinationType?: ScheduledQueryDestinationType | undefined;
 
   /**
-   * <p>The destination identifier (S3 URI).</p>
+   * <p>The identifier for the destination where results are delivered.</p>
    * @public
    */
   destinationIdentifier?: string | undefined;
 
   /**
-   * <p>The processing status for this destination (IN_PROGRESS, ERROR, FAILED, or COMPLETE).</p>
+   * <p>The processing status of the destination delivery.</p>
    * @public
    */
   status?: ActionStatus | undefined;
 
   /**
-   * <p>The processed identifier returned for the destination (S3 key).</p>
+   * <p>The identifier of the processed result at the destination.</p>
    * @public
    */
   processedIdentifier?: string | undefined;
 
   /**
-   * <p>Error message if the destination processing failed.</p>
+   * <p>Error message if destination processing failed.</p>
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>A record of a scheduled query execution, including its status and destination processing information.</p>
+ * <p>A record of a scheduled query execution, including execution status, timestamp, and destination processing results.</p>
  * @public
  */
 export interface TriggerHistoryRecord {
   /**
-   * <p>The unique identifier for the query execution.</p>
+   * <p>The unique identifier for this query execution.</p>
    * @public
    */
   queryId?: string | undefined;
 
   /**
-   * <p>The status of the query execution (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * <p>The execution status of the scheduled query run.</p>
    * @public
    */
   executionStatus?: ExecutionStatus | undefined;
 
   /**
-   * <p>The time when the scheduled query was triggered, in Unix epoch time.</p>
+   * <p>The timestamp when the scheduled query execution was triggered.</p>
    * @public
    */
   triggeredTimestamp?: number | undefined;
 
   /**
-   * <p>The error message if the scheduled query execution failed. This field is only populated when the execution status indicates a failure.</p>
+   * <p>Error message if the query execution failed.</p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The list of destinations where the scheduled query results were delivered for this execution. This includes S3 buckets configured for the scheduled query.</p>
+   * <p>Information about destination processing for this query execution.</p>
    * @public
    */
   destinations?: ScheduledQueryDestination[] | undefined;
@@ -4966,7 +5127,7 @@ export interface GetScheduledQueryHistoryResponse {
   scheduledQueryArn?: string | undefined;
 
   /**
-   * <p>The list of execution history records for the scheduled query.</p>
+   * <p>An array of execution history records for the scheduled query.</p>
    * @public
    */
   triggerHistory?: TriggerHistoryRecord[] | undefined;
@@ -5285,8 +5446,7 @@ export interface ParseToOCSF {
   ocsfVersion: OCSFVersion | undefined;
 
   /**
-   * <p>Identifies the specific release of the Open Cybersecurity Schema Framework (OCSF)
-   *       transformer being used to parse OCSF data. Defaults to the latest version if not specified. Does not automatically update.</p>
+   * <p>The version of the OCSF mapping to use for parsing log data.</p>
    * @public
    */
   mappingVersion?: string | undefined;
@@ -5739,6 +5899,109 @@ export interface IntegrationSummary {
 /**
  * @public
  */
+export interface ListAggregateLogGroupSummariesRequest {
+  /**
+   * <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to
+   *       specify the list of accounts to search. You can specify as many as 20 account IDs in the
+   *       array.</p>
+   * @public
+   */
+  accountIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>If you are using a monitoring account, set this to <code>true</code> to have the operation
+   *       return log groups in the accounts listed in <code>accountIdentifiers</code>.</p>
+   *          <p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code> contains
+   *       a null value, the operation returns all log groups in the monitoring account and all log
+   *       groups in all source accounts that are linked to the monitoring account. </p>
+   *          <p>The default for this parameter is <code>false</code>.</p>
+   * @public
+   */
+  includeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>Filters the results by log group class to include only log groups of the specified
+   *       class.</p>
+   * @public
+   */
+  logGroupClass?: LogGroupClass | undefined;
+
+  /**
+   * <p>Use this parameter to limit the returned log groups to only those with names that match
+   *       the pattern that you specify. This parameter is a regular expression that can match prefixes
+   *       and substrings, and supports wildcard matching and matching multiple patterns, as in the
+   *       following examples. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>^</code> to match log group names by prefix.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a substring match, specify the string to match. All matches are case
+   *           sensitive</p>
+   *             </li>
+   *             <li>
+   *                <p>To match multiple patterns, separate them with a <code>|</code> as in the example
+   *             <code>^/aws/lambda|discovery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify as many as five different regular expression patterns in this field, each
+   *       of which must be between 3 and 24 characters. You can include the <code>^</code> symbol as
+   *       many as five times, and include the <code>|</code> symbol as many as four times.</p>
+   * @public
+   */
+  logGroupNamePattern?: string | undefined;
+
+  /**
+   * <p>Filters the results by data source characteristics to include only log groups associated
+   *       with the specified data sources.</p>
+   * @public
+   */
+  dataSources?: DataSourceFilter[] | undefined;
+
+  /**
+   * <p>Specifies how to group the log groups in the summary.</p>
+   * @public
+   */
+  groupBy: ListAggregateLogGroupSummariesGroupBy | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of aggregated summaries to return. If you omit this parameter, the
+   *       default is up to 50 aggregated summaries.</p>
+   * @public
+   */
+  limit?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregateLogGroupSummariesResponse {
+  /**
+   * <p>The list of aggregate log group summaries grouped by the specified data source
+   *       characteristics.</p>
+   * @public
+   */
+  aggregateLogGroupSummaries?: AggregateLogGroupSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAnomaliesRequest {
   /**
    * <p>Use this to optionally limit the results to only the anomalies found by a certain anomaly
@@ -5939,6 +6202,23 @@ export interface ListLogGroupsRequest {
    * @public
    */
   limit?: number | undefined;
+
+  /**
+   * <p>An array of data source filters to filter log groups by their associated data sources. You
+   *       can filter by data source name, type, or both. Multiple filters within the same dimension are
+   *       combined with OR logic, while filters across different dimensions are combined with AND
+   *       logic.</p>
+   * @public
+   */
+  dataSources?: DataSourceFilter[] | undefined;
+
+  /**
+   * <p>An array of field index names to filter log groups that have specific field indexes. Only
+   *       log groups containing all specified field indexes are returned. You can specify 1 to 20 field
+   *       index names, each with 1 to 512 characters.</p>
+   * @public
+   */
+  fieldIndexNames?: string[] | undefined;
 }
 
 /**
@@ -6033,7 +6313,7 @@ export interface ListLogGroupsForQueryResponse {
  */
 export interface ListScheduledQueriesRequest {
   /**
-   * <p>The maximum number of scheduled queries to return in a single call.</p>
+   * <p>The maximum number of scheduled queries to return. Valid range is 1 to 1000.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6046,14 +6326,14 @@ export interface ListScheduledQueriesRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter results by the state of scheduled queries (ENABLED or DISABLED).</p>
+   * <p>Filter scheduled queries by state. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. If not specified, all scheduled queries are returned.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
 }
 
 /**
- * <p>Summary information about a scheduled query, used in list operations.</p>
+ * <p>Summary information about a scheduled query, including basic configuration and execution status.</p>
  * @public
  */
 export interface ScheduledQuerySummary {
@@ -6070,19 +6350,19 @@ export interface ScheduledQuerySummary {
   name?: string | undefined;
 
   /**
-   * <p>The current state of the scheduled query (ENABLED or DISABLED).</p>
+   * <p>The current state of the scheduled query.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
 
   /**
-   * <p>The time when the scheduled query was last executed.</p>
+   * <p>The timestamp when the scheduled query was last executed.</p>
    * @public
    */
   lastTriggeredTime?: number | undefined;
 
   /**
-   * <p>The status of the last execution (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * <p>The status of the most recent execution.</p>
    * @public
    */
   lastExecutionStatus?: ExecutionStatus | undefined;
@@ -6094,25 +6374,25 @@ export interface ScheduledQuerySummary {
   scheduleExpression?: string | undefined;
 
   /**
-   * <p>The timezone in which the schedule expression is evaluated.</p>
+   * <p>The timezone used for evaluating the schedule expression.</p>
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>Configuration for destinations where the query results are delivered.</p>
+   * <p>Configuration for where query results are delivered.</p>
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The time when the scheduled query was created.</p>
+   * <p>The timestamp when the scheduled query was created.</p>
    * @public
    */
   creationTime?: number | undefined;
 
   /**
-   * <p>The time when the scheduled query was last updated.</p>
+   * <p>The timestamp when the scheduled query was last updated.</p>
    * @public
    */
   lastUpdatedTime?: number | undefined;
@@ -6130,10 +6410,91 @@ export interface ListScheduledQueriesResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of scheduled queries with summary information.</p>
+   * <p>An array of scheduled query summary information.</p>
    * @public
    */
   scheduledQueries?: ScheduledQuerySummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSourcesForS3TableIntegrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 Table Integration to list associations
+   *       for.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+
+  /**
+   * <p>The maximum number of associations to return in a single call. Valid range is 1 to
+   *       100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a data source association with an S3 Table Integration, including its status
+ *       and metadata.</p>
+ * @public
+ */
+export interface S3TableIntegrationSource {
+  /**
+   * <p>The unique identifier for this data source association.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+
+  /**
+   * <p>The data source associated with the S3 Table Integration.</p>
+   * @public
+   */
+  dataSource?: DataSource | undefined;
+
+  /**
+   * <p>The current status of the data source association.</p>
+   * @public
+   */
+  status?: S3TableIntegrationSourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the data source association.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp when the data source association was created.</p>
+   * @public
+   */
+  createdTimeStamp?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSourcesForS3TableIntegrationResponse {
+  /**
+   * <p>The list of data source associations for the specified S3 Table Integration.</p>
+   * @public
+   */
+  sources?: S3TableIntegrationSource[] | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6702,22 +7063,28 @@ export interface PutDeliverySourceRequest {
    * <p>Defines the type of log that the source is sending.</p>
    *          <ul>
    *             <li>
-   *                <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p>
+   *                <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and
+   *             <code>EVENT_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p>
+   *                <p>For Amazon Bedrock Knowledge Bases, the valid value is
+   *             <code>APPLICATION_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
+   *                <p>For Amazon Bedrock AgentCore Runtime, the valid values are
+   *             <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock AgentCore Tools, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
+   *                <p>For Amazon Bedrock AgentCore Tools, the valid values are
+   *             <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock AgentCore Identity, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
+   *                <p>For Amazon Bedrock AgentCore Identity, the valid values are
+   *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock AgentCore Gateway, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
+   *                <p>For Amazon Bedrock AgentCore Gateway, the valid values are
+   *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, the valid value is <code>ACCESS_LOGS</code>.</p>
@@ -6748,7 +7115,8 @@ export interface PutDeliverySourceRequest {
    *             <code>PCS_JOBCOMP_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p>
+   *                <p>For Amazon Web Services RTB Fabric, the valid values is
+   *           <code>APPLICATION_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and
@@ -8184,79 +8552,79 @@ export interface UpdateLogAnomalyDetectorRequest {
  */
 export interface UpdateScheduledQueryRequest {
   /**
-   * <p>The name or ARN of the scheduled query to update.</p>
+   * <p>The ARN or name of the scheduled query to update.</p>
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Updated description for the scheduled query.</p>
+   * <p>An updated description for the scheduled query.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Updated query language to use (LogsQL, PPL, or SQL).</p>
+   * <p>The updated query language for the scheduled query.</p>
    * @public
    */
   queryLanguage: QueryLanguage | undefined;
 
   /**
-   * <p>Updated CloudWatch Logs Insights query string to execute.</p>
+   * <p>The updated query string to execute.</p>
    * @public
    */
   queryString: string | undefined;
 
   /**
-   * <p>Updated log group identifiers to query.</p>
+   * <p>The updated array of log group names or ARNs to query.</p>
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
 
   /**
-   * <p>Updated cron expression that defines when the scheduled query runs.</p>
+   * <p>The updated cron expression that defines when the scheduled query runs.</p>
    * @public
    */
   scheduleExpression: string | undefined;
 
   /**
-   * <p>Updated timezone in which the schedule expression is evaluated.</p>
+   * <p>The updated timezone for evaluating the schedule expression.</p>
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>Updated time offset in seconds from the execution time for the start of the query time range.</p>
+   * <p>The updated time offset in seconds that defines the lookback period for the query.</p>
    * @public
    */
   startTimeOffset?: number | undefined;
 
   /**
-   * <p>Updated configuration for destinations where the query results will be delivered.</p>
+   * <p>The updated configuration for where to deliver query results.</p>
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>Updated start time for the query schedule in Unix epoch time.</p>
+   * <p>The updated start time for the scheduled query in Unix epoch format.</p>
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>Updated end time for the query schedule in Unix epoch time.</p>
+   * <p>The updated end time for the scheduled query in Unix epoch format.</p>
    * @public
    */
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>Updated ARN of the IAM role that CloudWatch Logs will assume to execute the scheduled query.</p>
+   * <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver results.</p>
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>Updated state of the scheduled query (ENABLED or DISABLED).</p>
+   * <p>The updated state of the scheduled query.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
@@ -8285,7 +8653,7 @@ export interface UpdateScheduledQueryResponse {
   description?: string | undefined;
 
   /**
-   * <p>The query language used by the updated scheduled query.</p>
+   * <p>The query language of the updated scheduled query.</p>
    * @public
    */
   queryLanguage?: QueryLanguage | undefined;
@@ -8297,13 +8665,13 @@ export interface UpdateScheduledQueryResponse {
   queryString?: string | undefined;
 
   /**
-   * <p>The log group identifiers of the updated scheduled query.</p>
+   * <p>The log groups queried by the updated scheduled query.</p>
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The schedule expression of the updated scheduled query.</p>
+   * <p>The cron expression of the updated scheduled query.</p>
    * @public
    */
   scheduleExpression?: string | undefined;
@@ -8315,7 +8683,7 @@ export interface UpdateScheduledQueryResponse {
   timezone?: string | undefined;
 
   /**
-   * <p>The start time offset of the updated scheduled query.</p>
+   * <p>The time offset of the updated scheduled query.</p>
    * @public
    */
   startTimeOffset?: number | undefined;
@@ -8333,25 +8701,25 @@ export interface UpdateScheduledQueryResponse {
   state?: ScheduledQueryState | undefined;
 
   /**
-   * <p>The time when the updated scheduled query was last executed.</p>
+   * <p>The timestamp when the updated scheduled query was last executed.</p>
    * @public
    */
   lastTriggeredTime?: number | undefined;
 
   /**
-   * <p>The status of the last execution of the updated scheduled query (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * <p>The status of the most recent execution of the updated scheduled query.</p>
    * @public
    */
   lastExecutionStatus?: ExecutionStatus | undefined;
 
   /**
-   * <p>The schedule start time of the updated scheduled query.</p>
+   * <p>The start time of the updated scheduled query.</p>
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>The schedule end time of the updated scheduled query.</p>
+   * <p>The end time of the updated scheduled query.</p>
    * @public
    */
   scheduleEndTime?: number | undefined;
@@ -8363,14 +8731,70 @@ export interface UpdateScheduledQueryResponse {
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The creation time of the updated scheduled query.</p>
+   * <p>The timestamp when the scheduled query was originally created.</p>
    * @public
    */
   creationTime?: number | undefined;
 
   /**
-   * <p>The last updated time of the scheduled query.</p>
+   * <p>The timestamp when the scheduled query was last updated.</p>
    * @public
    */
   lastUpdatedTime?: number | undefined;
+}
+
+/**
+ * <p>Defines the data type structure for a log field, including the type, element information,
+ *       and nested fields for complex types.</p>
+ * @public
+ */
+export interface LogFieldType {
+  /**
+   * <p>The data type of the log field.</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>For array or collection types, specifies the element type information.</p>
+   * @public
+   */
+  element?: LogFieldType | undefined;
+
+  /**
+   * <p>For complex types, contains the nested field definitions.</p>
+   * @public
+   */
+  fields?: LogFieldsListItem[] | undefined;
+}
+
+/**
+ * <p>Represents a log field with its name and data type information for a specific data
+ *       source.</p>
+ * @public
+ */
+export interface LogFieldsListItem {
+  /**
+   * <p>The name of the log field.</p>
+   * @public
+   */
+  logFieldName?: string | undefined;
+
+  /**
+   * <p>The data type information for the log field.</p>
+   * @public
+   */
+  logFieldType?: LogFieldType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLogFieldsResponse {
+  /**
+   * <p>The list of log fields for the specified data source, including field names and their data
+   *       types.</p>
+   * @public
+   */
+  logFields?: LogFieldsListItem[] | undefined;
 }

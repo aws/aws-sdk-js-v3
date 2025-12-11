@@ -730,7 +730,7 @@ const n0 = "com.amazonaws.rekognition";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -767,29 +767,16 @@ import {
 import { RekognitionServiceException as __RekognitionServiceException } from "../models/RekognitionServiceException";
 
 /* eslint no-var: 0 */
-
 export var LivenessImageBlob: StaticSimpleSchema = [0, n0, _LIB, 8, 21];
 export var SynthesizedJsonHumanLoopActivationConditionsEvaluationResults: StaticSimpleSchema = [
   0,
   n0,
   _SJHLACER,
-  {
-    [_mT]: _a,
-  },
+  { [_mT]: _a },
   0,
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AgeRange: StaticStructureSchema = [3, n0, _AR, 0, [_Lo, _H], [1, 1]];
 export var Asset: StaticStructureSchema = [3, n0, _A, 0, [_GTM], [() => GroundTruthManifest]];
 export var AssociatedFace: StaticStructureSchema = [3, n0, _AF, 0, [_FI], [0]];
@@ -866,18 +853,8 @@ export var CompareFacesResponse: StaticStructureSchema = [
   [_SIF, _FM, _UF, _SIOC, _TIOC],
   [() => ComparedSourceImageFace, () => CompareFacesMatchList, () => CompareFacesUnmatchList, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectedHomeSettings: StaticStructureSchema = [3, n0, _CHS, 0, [_Lab, _MCi], [64 | 0, 1]];
 export var ConnectedHomeSettingsForUpdate: StaticStructureSchema = [3, n0, _CHSFU, 0, [_Lab, _MCi], [64 | 0, 1]];
 export var ContentModerationDetection: StaticStructureSchema = [
@@ -1473,41 +1450,24 @@ export var HumanLoopQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _HLQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_RT, _QC, _SCe, _M, _C, _L],
   [0, 0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(HumanLoopQuotaExceededException, __HumanLoopQuotaExceededException);
-
 export var IdempotentParameterMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_M, _C, _L],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-
 export var Image: StaticStructureSchema = [3, n0, _Im, 0, [_B, _SO], [21, () => S3Object]];
 export var ImageQuality: StaticStructureSchema = [3, n0, _IQ, 0, [_Br, _Sh], [1, 1]];
-export var ImageTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITLE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ImageTooLargeException: StaticErrorSchema = [-3, n0, _ITLE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ImageTooLargeException, __ImageTooLargeException);
-
 export var IndexFacesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1532,90 +1492,27 @@ export var Instance: StaticStructureSchema = [
   [_BB, _Con, _DCo],
   [() => BoundingBox, 1, () => DominantColors],
 ];
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var InvalidImageFormatException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var InvalidImageFormatException: StaticErrorSchema = [-3, n0, _IIFE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidImageFormatException, __InvalidImageFormatException);
-
-export var InvalidManifestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IME,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var InvalidManifestException: StaticErrorSchema = [-3, n0, _IME, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidManifestException, __InvalidManifestException);
-
-export var InvalidPaginationTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPTE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var InvalidPaginationTokenException: StaticErrorSchema = [-3, n0, _IPTE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationTokenException, __InvalidPaginationTokenException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var InvalidPolicyRevisionIdException: StaticErrorSchema = [
   -3,
   n0,
   _IPRIE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_M, _C, _L],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyRevisionIdException, __InvalidPolicyRevisionIdException);
-
-export var InvalidS3ObjectException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISOE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var InvalidS3ObjectException: StaticErrorSchema = [-3, n0, _ISOE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(InvalidS3ObjectException, __InvalidS3ObjectException);
-
 export var KinesisDataStream: StaticStructureSchema = [3, n0, _KDS, 0, [_Ar], [0]];
 export var KinesisVideoStream: StaticStructureSchema = [3, n0, _KVS, 0, [_Ar], [0]];
 export var KinesisVideoStreamStartSelector: StaticStructureSchema = [3, n0, _KVSSS, 0, [_PT, _FN], [1, 0]];
@@ -1640,18 +1537,8 @@ export var LabelDetection: StaticStructureSchema = [
 ];
 export var LabelDetectionSettings: StaticStructureSchema = [3, n0, _LDS, 0, [_GL], [() => GeneralLabelsSettings]];
 export var Landmark: StaticStructureSchema = [3, n0, _Lan, 0, [_Ty, _X, _Y_], [0, 1, 1]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListCollectionsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_NT, _MR], [0, 1]];
 export var ListCollectionsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_CIo, _NT, _FMVa], [64 | 0, 0, 64 | 0]];
 export var ListDatasetEntriesRequest: StaticStructureSchema = [
@@ -1706,18 +1593,8 @@ export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi,
 export var ListUsersRequest: StaticStructureSchema = [3, n0, _LUR, 0, [_CI, _MR, _NT], [0, 1, 0]];
 export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_Us, _NT], [() => UserList, 0]];
 export var LivenessOutputConfig: StaticStructureSchema = [3, n0, _LOC, 0, [_SBu, _SKP], [0, 0]];
-export var MalformedPolicyDocumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var MalformedPolicyDocumentException: StaticErrorSchema = [-3, n0, _MPDE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
-
 export var MatchedUser: StaticStructureSchema = [3, n0, _MU, 0, [_UI, _US], [0, 0]];
 export var MediaAnalysisDetectModerationLabelsConfig: StaticStructureSchema = [3, n0, _MADMLC, 0, [_MCi, _PV], [1, 0]];
 export var MediaAnalysisInput: StaticStructureSchema = [3, n0, _MAI, 0, [_SO], [() => S3Object]];
@@ -1867,14 +1744,11 @@ export var ProvisionedThroughputExceededException: StaticErrorSchema = [
   -3,
   n0,
   _PTEE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_M, _C, _L],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException, __ProvisionedThroughputExceededException);
-
 export var PutProjectPolicyRequest: StaticStructureSchema = [3, n0, _PPPR, 0, [_PA, _PNo, _PRI, _PDo], [0, 0, 0, 0]];
 export var PutProjectPolicyResponse: StaticStructureSchema = [3, n0, _PPPRu, 0, [_PRI], [0]];
 export var RecognizeCelebritiesRequest: StaticStructureSchema = [3, n0, _RCR, 0, [_Im], [() => Image]];
@@ -1887,54 +1761,14 @@ export var RecognizeCelebritiesResponse: StaticStructureSchema = [
   [() => CelebrityList, () => ComparedFaceList, 0],
 ];
 export var RegionOfInterest: StaticStructureSchema = [3, n0, _ROIe, 0, [_BB, _Po], [() => BoundingBox, () => Polygon]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNRE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ResourceNotReadyException: StaticErrorSchema = [-3, n0, _RNRE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotReadyException, __ResourceNotReadyException);
-
 export var S3Destination: StaticStructureSchema = [3, n0, _SD, 0, [_Bu, _KP], [0, 0]];
 export var S3Object: StaticStructureSchema = [3, n0, _SO, 0, [_Bu, _N, _Ve], [0, 0, 0]];
 export var SearchedFace: StaticStructureSchema = [3, n0, _SF, 0, [_FI], [0]];
@@ -1999,30 +1833,10 @@ export var SegmentDetection: StaticStructureSchema = [
   [0, 1, 1, 1, 0, 0, 0, () => TechnicalCueSegment, () => ShotSegment, 1, 1, 1],
 ];
 export var SegmentTypeInfo: StaticStructureSchema = [3, n0, _STI, 0, [_Ty, _MVo], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var SessionNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var SessionNotFoundException: StaticErrorSchema = [-3, n0, _SNFE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(SessionNotFoundException, __SessionNotFoundException);
-
 export var ShotSegment: StaticStructureSchema = [3, n0, _SS, 0, [_Ind, _Con], [1, 1]];
 export var Smile: StaticStructureSchema = [3, n0, _S, 0, [_V, _Con], [2, 1]];
 export var StartCelebrityRecognitionRequest: StaticStructureSchema = [
@@ -2206,18 +2020,8 @@ export var TextDetection: StaticStructureSchema = [
   [0, 0, 1, 1, 1, () => Geometry],
 ];
 export var TextDetectionResult: StaticStructureSchema = [3, n0, _TDRex, 0, [_Ti, _TDext], [1, () => TextDetection]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TEh,
-  {
-    [_e]: _s,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEh, { [_e]: _s }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TrainingData: StaticStructureSchema = [3, n0, _TD, 0, [_As], [() => Assets]];
 export var TrainingDataResult: StaticStructureSchema = [
   3,
@@ -2285,27 +2089,13 @@ export var VideoMetadata: StaticStructureSchema = [
   [_Co, _DM, _For, _FRr, _FH, _FW, _CRo],
   [0, 1, 0, 1, 1, 1, 0],
 ];
-export var VideoTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VTLE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C, _L],
-  [0, 0, 0],
-];
+export var VideoTooLargeException: StaticErrorSchema = [-3, n0, _VTLE, { [_e]: _c }, [_M, _C, _L], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(VideoTooLargeException, __VideoTooLargeException);
-
-export var __Unit = "unit" as const;
-
 export var RekognitionServiceException: StaticErrorSchema = [-3, _sm, "RekognitionServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RekognitionServiceException, __RekognitionServiceException);
-
 export var Assets: StaticListSchema = [1, n0, _As, 0, () => Asset];
 export var AssociatedFacesList: StaticListSchema = [1, n0, _AFL, 0, () => AssociatedFace];
 export var Attributes = 64 | 0;
-
 export var AudioMetadataList: StaticListSchema = [1, n0, _AML, 0, () => AudioMetadata];
 export var AuditImages: StaticListSchema = [1, n0, _AIu, 0, [() => AuditImage, 0]];
 export var BodyParts: StaticListSchema = [1, n0, _BP, 0, () => ProtectiveEquipmentBodyPart];
@@ -2313,27 +2103,20 @@ export var CelebrityList: StaticListSchema = [1, n0, _CLe, 0, () => Celebrity];
 export var CelebrityRecognitions: StaticListSchema = [1, n0, _CRe, 0, () => CelebrityRecognition];
 export var ChallengePreferences: StaticListSchema = [1, n0, _CPh, 0, () => ChallengePreference];
 export var CollectionIdList = 64 | 0;
-
 export var ComparedFaceList: StaticListSchema = [1, n0, _CFL, 0, () => ComparedFace];
 export var CompareFacesMatchList: StaticListSchema = [1, n0, _CFML, 0, () => CompareFacesMatch];
 export var CompareFacesUnmatchList: StaticListSchema = [1, n0, _CFUL, 0, () => ComparedFace];
 export var ConnectedHomeLabels = 64 | 0;
-
 export var ContentClassifiers = 64 | 0;
-
 export var ContentModerationDetections: StaticListSchema = [1, n0, _CMDo, 0, () => ContentModerationDetection];
 export var ContentTypes: StaticListSchema = [1, n0, _CT, 0, () => ContentType];
 export var CustomizationFeatures = 64 | 0;
-
 export var CustomLabels: StaticListSchema = [1, n0, _CLu, 0, () => CustomLabel];
 export var DatasetEntries = 64 | 0;
-
 export var DatasetLabelDescriptions: StaticListSchema = [1, n0, _DLDa, 0, () => DatasetLabelDescription];
 export var DatasetLabels = 64 | 0;
-
 export var DatasetMetadataList: StaticListSchema = [1, n0, _DMLa, 0, () => DatasetMetadata];
 export var DetectLabelsFeatureList = 64 | 0;
-
 export var DisassociatedFacesList: StaticListSchema = [1, n0, _DFL, 0, () => DisassociatedFace];
 export var DistributeDatasetMetadataList: StaticListSchema = [1, n0, _DDML, 0, () => DistributeDataset];
 export var DominantColors: StaticListSchema = [1, n0, _DCo, 0, () => DominantColor];
@@ -2342,21 +2125,16 @@ export var EquipmentDetections: StaticListSchema = [1, n0, _EDq, 0, () => Equipm
 export var FaceDetailList: StaticListSchema = [1, n0, _FDL, 0, () => FaceDetail];
 export var FaceDetections: StaticListSchema = [1, n0, _FDace, 0, () => FaceDetection];
 export var FaceIdList = 64 | 0;
-
 export var FaceList: StaticListSchema = [1, n0, _FL, 0, () => Face];
 export var FaceMatchList: StaticListSchema = [1, n0, _FML, 0, () => FaceMatch];
 export var FaceModelVersionList = 64 | 0;
-
 export var FaceRecordList: StaticListSchema = [1, n0, _FRL, 0, () => FaceRecord];
 export var GeneralLabelsFilterList = 64 | 0;
-
 export var HumanLoopActivationReasons = 64 | 0;
-
 export var Instances: StaticListSchema = [1, n0, _Inst, 0, () => Instance];
 export var LabelAliases: StaticListSchema = [1, n0, _LAa, 0, () => LabelAlias];
 export var LabelCategories: StaticListSchema = [1, n0, _LCa, 0, () => LabelCategory];
 export var LabelDetectionFeatureList = 64 | 0;
-
 export var LabelDetections: StaticListSchema = [1, n0, _LDa, 0, () => LabelDetection];
 export var Labels: StaticListSchema = [1, n0, _Lab, 0, () => Label];
 export var Landmarks: StaticListSchema = [1, n0, _La, 0, () => Landmark];
@@ -2368,37 +2146,27 @@ export var PersonMatches: StaticListSchema = [1, n0, _PMe, 0, () => PersonMatch]
 export var Polygon: StaticListSchema = [1, n0, _Po, 0, () => Point];
 export var ProjectDescriptions: StaticListSchema = [1, n0, _PD, 0, () => ProjectDescription];
 export var ProjectNames = 64 | 0;
-
 export var ProjectPolicies: StaticListSchema = [1, n0, _PPr, 0, () => ProjectPolicy];
 export var ProjectVersionDescriptions: StaticListSchema = [1, n0, _PVD, 0, () => ProjectVersionDescription];
 export var ProtectiveEquipmentPersonIds = 64 | 1;
-
 export var ProtectiveEquipmentPersons: StaticListSchema = [1, n0, _PEPr, 0, () => ProtectiveEquipmentPerson];
 export var ProtectiveEquipmentTypes = 64 | 0;
-
 export var Reasons = 64 | 0;
-
 export var RegionsOfInterest: StaticListSchema = [1, n0, _ROI, 0, () => RegionOfInterest];
 export var SegmentDetections: StaticListSchema = [1, n0, _SDeg, 0, () => SegmentDetection];
 export var SegmentTypes = 64 | 0;
-
 export var SegmentTypesInfo: StaticListSchema = [1, n0, _STIe, 0, () => SegmentTypeInfo];
 export var StreamProcessorList: StaticListSchema = [1, n0, _SPL, 0, () => StreamProcessor];
 export var StreamProcessorParametersToDelete = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TextDetectionList: StaticListSchema = [1, n0, _TDL, 0, () => TextDetection];
 export var TextDetectionResults: StaticListSchema = [1, n0, _TDRext, 0, () => TextDetectionResult];
 export var UnindexedFaces: StaticListSchema = [1, n0, _UFn, 0, () => UnindexedFace];
 export var UnsearchedFaceReasons = 64 | 0;
-
 export var UnsearchedFacesList: StaticListSchema = [1, n0, _UFL, 0, () => UnsearchedFace];
 export var UnsuccessfulFaceAssociationList: StaticListSchema = [1, n0, _UFAL, 0, () => UnsuccessfulFaceAssociation];
 export var UnsuccessfulFaceAssociationReasons = 64 | 0;
-
 export var UnsuccessfulFaceDeletionReasons = 64 | 0;
-
 export var UnsuccessfulFaceDeletionsList: StaticListSchema = [1, n0, _UFDL, 0, () => UnsuccessfulFaceDeletion];
 export var UnsuccessfulFaceDisassociationList: StaticListSchema = [
   1,
@@ -2408,18 +2176,13 @@ export var UnsuccessfulFaceDisassociationList: StaticListSchema = [
   () => UnsuccessfulFaceDisassociation,
 ];
 export var UnsuccessfulFaceDisassociationReasons = 64 | 0;
-
 export var Urls = 64 | 0;
-
 export var UserFaceIdList = 64 | 0;
-
 export var UserList: StaticListSchema = [1, n0, _UL, 0, () => User];
 export var UserMatchList: StaticListSchema = [1, n0, _UML, 0, () => UserMatch];
 export var VersionNames = 64 | 0;
-
 export var VideoMetadataList: StaticListSchema = [1, n0, _VML, 0, () => VideoMetadata];
 export var TagMap = 128 | 0;
-
 export var AssociateFaces: StaticOperationSchema = [
   9,
   n0,

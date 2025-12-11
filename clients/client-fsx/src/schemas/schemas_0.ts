@@ -41,6 +41,7 @@ const _BSER = "BypassSnaplockEnterpriseRetention";
 const _Ba = "Backups";
 const _C = "Clients";
 const _CAASAP = "CreateAndAttachS3AccessPoint";
+const _CAASAPOC = "CreateAndAttachS3AccessPointOntapConfiguration";
 const _CAASAPOZFSC = "CreateAndAttachS3AccessPointOpenZFSConfiguration";
 const _CAASAPR = "CreateAndAttachS3AccessPointRequest";
 const _CAASAPRr = "CreateAndAttachS3AccessPointResponse";
@@ -344,12 +345,15 @@ const _Nf = "Nfs";
 const _O = "Options";
 const _OC = "OntapConfiguration";
 const _OFSC = "OntapFileSystemConfiguration";
+const _OFSI = "OntapFileSystemIdentity";
 const _OI = "OwnerId";
 const _OR = "OntapResponse";
 const _OS = "OriginSnapshot";
 const _OUDN = "OrganizationalUnitDistinguishedName";
+const _OUFSU = "OntapUnixFileSystemUser";
 const _OVC = "OntapVolumeConfiguration";
 const _OVT = "OntapVolumeType";
+const _OWFSU = "OntapWindowsFileSystemUser";
 const _OZFSC = "OpenZFSConfiguration";
 const _OZFSCC = "OpenZFSClientConfiguration";
 const _OZFSCCp = "OpenZFSClientConfigurations";
@@ -414,6 +418,7 @@ const _SAPAF = "S3AccessPointAttachmentsFilter";
 const _SAPAFc = "S3AccessPointAttachmentsFilters";
 const _SAPANF = "S3AccessPointAttachmentNotFound";
 const _SAPAc = "S3AccessPointAttachments";
+const _SAPOC = "S3AccessPointOntapConfiguration";
 const _SAPOZFSC = "S3AccessPointOpenZFSConfiguration";
 const _SAPVC = "S3AccessPointVpcConfiguration";
 const _SAPv = "SvmAdminPassword";
@@ -526,6 +531,7 @@ const _USVCRp = "UpdateSharedVpcConfigurationResponse";
 const _USVM = "UpdateStorageVirtualMachine";
 const _USVMR = "UpdateStorageVirtualMachineRequest";
 const _USVMRp = "UpdateStorageVirtualMachineResponse";
+const _UU = "UnixUser";
 const _UUID = "UUID";
 const _UV = "UpdateVolume";
 const _UVR = "UpdateVolumeRequest";
@@ -554,6 +560,7 @@ const _WFC = "WindowsFsrmConfiguration";
 const _WFSC = "WindowsFileSystemConfiguration";
 const _WMST = "WeeklyMaintenanceStartTime";
 const _WR = "WindowsResponse";
+const _WU = "WindowsUser";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
@@ -564,7 +571,7 @@ const n0 = "com.amazonaws.fsx";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -617,36 +624,20 @@ import {
 import { FSxServiceException as __FSxServiceException } from "../models/FSxServiceException";
 
 /* eslint no-var: 0 */
-
 export var AdminPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 export var DirectoryPassword: StaticSimpleSchema = [0, n0, _DP, 8, 0];
 export var AccessPointAlreadyOwnedByYou: StaticErrorSchema = [
   -3,
   n0,
   _APAOBY,
-  {
-    [_xN]: _E,
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_xN]: _E, [_e]: _c, [_hE]: 409 },
   [_EC, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccessPointAlreadyOwnedByYou, __AccessPointAlreadyOwnedByYou);
-
 export var ActiveDirectoryBackupAttributes: StaticStructureSchema = [3, n0, _ADBA, 0, [_DN, _ADI, _RARN], [0, 0, 0]];
-export var ActiveDirectoryError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_ADI, _T, _M],
-  [0, 0, 0],
-];
+export var ActiveDirectoryError: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_ADI, _T, _M], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ActiveDirectoryError, __ActiveDirectoryError);
-
 export var AdministrativeAction: StaticStructureSchema = [
   3,
   n0,
@@ -696,67 +687,17 @@ export var Backup: StaticStructureSchema = [
     1,
   ],
 ];
-export var BackupBeingCopied: StaticErrorSchema = [
-  -3,
-  n0,
-  _BBC,
-  {
-    [_e]: _c,
-  },
-  [_M, _BI],
-  [0, 0],
-];
+export var BackupBeingCopied: StaticErrorSchema = [-3, n0, _BBC, { [_e]: _c }, [_M, _BI], [0, 0]];
 TypeRegistry.for(n0).registerError(BackupBeingCopied, __BackupBeingCopied);
-
 export var BackupFailureDetails: StaticStructureSchema = [3, n0, _BFD, 0, [_M], [0]];
-export var BackupInProgress: StaticErrorSchema = [
-  -3,
-  n0,
-  _BIP,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var BackupInProgress: StaticErrorSchema = [-3, n0, _BIP, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BackupInProgress, __BackupInProgress);
-
-export var BackupNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _BNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var BackupNotFound: StaticErrorSchema = [-3, n0, _BNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BackupNotFound, __BackupNotFound);
-
-export var BackupRestoring: StaticErrorSchema = [
-  -3,
-  n0,
-  _BR,
-  {
-    [_e]: _c,
-  },
-  [_M, _FSI],
-  [0, 0],
-];
+export var BackupRestoring: StaticErrorSchema = [-3, n0, _BR, { [_e]: _c }, [_M, _FSI], [0, 0]];
 TypeRegistry.for(n0).registerError(BackupRestoring, __BackupRestoring);
-
-export var BadRequest: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRa,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var BadRequest: StaticErrorSchema = [-3, n0, _BRa, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequest, __BadRequest);
-
 export var CancelDataRepositoryTaskRequest: StaticStructureSchema = [3, n0, _CDRTR, 0, [_TI], [0]];
 export var CancelDataRepositoryTaskResponse: StaticStructureSchema = [3, n0, _CDRTRa, 0, [_L, _TI], [0, 0]];
 export var CompletionReport: StaticStructureSchema = [3, n0, _CR, 0, [_En, _P, _F, _Sc], [2, 0, 0, 0]];
@@ -786,6 +727,14 @@ export var CopySnapshotAndUpdateVolumeResponse: StaticStructureSchema = [
   [0, 0, [() => AdministrativeActions, 0]],
 ];
 export var CreateAggregateConfiguration: StaticStructureSchema = [3, n0, _CAC, 0, [_A, _CPA], [64 | 0, 1]];
+export var CreateAndAttachS3AccessPointOntapConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _CAASAPOC,
+  0,
+  [_VI, _FSIi],
+  [0, () => OntapFileSystemIdentity],
+];
 export var CreateAndAttachS3AccessPointOpenZFSConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -799,12 +748,13 @@ export var CreateAndAttachS3AccessPointRequest: StaticStructureSchema = [
   n0,
   _CAASAPR,
   0,
-  [_CRT, _N, _T, _OZFSC, _SAP],
+  [_CRT, _N, _T, _OZFSC, _OC, _SAP],
   [
     [0, 4],
     0,
     0,
     () => CreateAndAttachS3AccessPointOpenZFSConfiguration,
+    () => CreateAndAttachS3AccessPointOntapConfiguration,
     () => CreateAndAttachS3AccessPointS3Configuration,
   ],
 ];
@@ -1162,18 +1112,8 @@ export var DataRepositoryAssociation: StaticStructureSchema = [
     () => NFSDataRepositoryConfiguration,
   ],
 ];
-export var DataRepositoryAssociationNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRANF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DataRepositoryAssociationNotFound: StaticErrorSchema = [-3, n0, _DRANF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DataRepositoryAssociationNotFound, __DataRepositoryAssociationNotFound);
-
 export var DataRepositoryConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1208,44 +1148,14 @@ export var DataRepositoryTask: StaticStructureSchema = [
     () => ReleaseConfiguration,
   ],
 ];
-export var DataRepositoryTaskEnded: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DataRepositoryTaskEnded: StaticErrorSchema = [-3, n0, _DRTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DataRepositoryTaskEnded, __DataRepositoryTaskEnded);
-
-export var DataRepositoryTaskExecuting: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRTEa,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DataRepositoryTaskExecuting: StaticErrorSchema = [-3, n0, _DRTEa, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DataRepositoryTaskExecuting, __DataRepositoryTaskExecuting);
-
 export var DataRepositoryTaskFailureDetails: StaticStructureSchema = [3, n0, _DRTFD, 0, [_M], [0]];
 export var DataRepositoryTaskFilter: StaticStructureSchema = [3, n0, _DRTF, 0, [_N, _Va], [0, 64 | 0]];
-export var DataRepositoryTaskNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRTNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DataRepositoryTaskNotFound: StaticErrorSchema = [-3, n0, _DRTNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DataRepositoryTaskNotFound, __DataRepositoryTaskNotFound);
-
 export var DataRepositoryTaskStatus: StaticStructureSchema = [
   3,
   n0,
@@ -1577,18 +1487,8 @@ export var FileCacheLustreConfiguration: StaticStructureSchema = [
 ];
 export var FileCacheLustreMetadataConfiguration: StaticStructureSchema = [3, n0, _FCLMC, 0, [_SC], [1]];
 export var FileCacheNFSConfiguration: StaticStructureSchema = [3, n0, _FCNFSC, 0, [_Ve, _DIn], [0, 64 | 0]];
-export var FileCacheNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _FCNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var FileCacheNotFound: StaticErrorSchema = [-3, n0, _FCNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FileCacheNotFound, __FileCacheNotFound);
-
 export var FileSystem: StaticStructureSchema = [
   3,
   n0,
@@ -1654,179 +1554,49 @@ export var FileSystemEndpoints: StaticStructureSchema = [
 ];
 export var FileSystemFailureDetails: StaticStructureSchema = [3, n0, _FSFD, 0, [_M], [0]];
 export var FileSystemLustreMetadataConfiguration: StaticStructureSchema = [3, n0, _FSLMC, 0, [_I, _Mo], [1, 0]];
-export var FileSystemNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _FSNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var FileSystemNotFound: StaticErrorSchema = [-3, n0, _FSNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FileSystemNotFound, __FileSystemNotFound);
-
 export var Filter: StaticStructureSchema = [3, n0, _Fil, 0, [_N, _Va], [0, 64 | 0]];
-export var IncompatibleParameterError: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_Par, _M],
-  [0, 0],
-];
+export var IncompatibleParameterError: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_Par, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(IncompatibleParameterError, __IncompatibleParameterError);
-
-export var IncompatibleRegionForMultiAZ: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRFMAZ,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var IncompatibleRegionForMultiAZ: StaticErrorSchema = [-3, n0, _IRFMAZ, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IncompatibleRegionForMultiAZ, __IncompatibleRegionForMultiAZ);
-
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
 export var InvalidAccessPoint: StaticErrorSchema = [
   -3,
   n0,
   _IAP,
-  {
-    [_xN]: _E,
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_xN]: _E, [_e]: _c, [_hE]: 400 },
   [_EC, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidAccessPoint, __InvalidAccessPoint);
-
-export var InvalidDataRepositoryType: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDRT,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidDataRepositoryType: StaticErrorSchema = [-3, n0, _IDRT, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidDataRepositoryType, __InvalidDataRepositoryType);
-
-export var InvalidDestinationKmsKey: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDKK,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidDestinationKmsKey: StaticErrorSchema = [-3, n0, _IDKK, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidDestinationKmsKey, __InvalidDestinationKmsKey);
-
-export var InvalidExportPath: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEP,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidExportPath: StaticErrorSchema = [-3, n0, _IEP, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidExportPath, __InvalidExportPath);
-
-export var InvalidImportPath: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIP,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidImportPath: StaticErrorSchema = [-3, n0, _IIP, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidImportPath, __InvalidImportPath);
-
 export var InvalidNetworkSettings: StaticErrorSchema = [
   -3,
   n0,
   _INS,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_M, _ISI, _ISGI, _IRTI],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNetworkSettings, __InvalidNetworkSettings);
-
-export var InvalidPerUnitStorageThroughput: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPUST,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidPerUnitStorageThroughput: StaticErrorSchema = [-3, n0, _IPUST, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidPerUnitStorageThroughput, __InvalidPerUnitStorageThroughput);
-
-export var InvalidRegion: StaticErrorSchema = [
-  -3,
-  n0,
-  _IR,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRegion: StaticErrorSchema = [-3, n0, _IR, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRegion, __InvalidRegion);
-
-export var InvalidRequest: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRn,
-  {
-    [_xN]: _E,
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var InvalidRequest: StaticErrorSchema = [-3, n0, _IRn, { [_xN]: _E, [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequest, __InvalidRequest);
-
-export var InvalidSourceKmsKey: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISKK,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidSourceKmsKey: StaticErrorSchema = [-3, n0, _ISKK, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidSourceKmsKey, __InvalidSourceKmsKey);
-
 export var LifecycleTransitionReason: StaticStructureSchema = [3, n0, _LTR, 0, [_M], [0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN, _MR, _NTe], [0, 1, 0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta, _NTe], [() => Tags, 0]];
@@ -1859,42 +1629,12 @@ export var LustreLogConfiguration: StaticStructureSchema = [3, n0, _LLC, 0, [_Le
 export var LustreLogCreateConfiguration: StaticStructureSchema = [3, n0, _LLCC, 0, [_Le, _D], [0, 0]];
 export var LustreReadCacheConfiguration: StaticStructureSchema = [3, n0, _LRCC, 0, [_SM, _SGB], [0, 1]];
 export var LustreRootSquashConfiguration: StaticStructureSchema = [3, n0, _LRSC, 0, [_RS, _NSN], [0, 64 | 0]];
-export var MissingFileCacheConfiguration: StaticErrorSchema = [
-  -3,
-  n0,
-  _MFCC,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MissingFileCacheConfiguration: StaticErrorSchema = [-3, n0, _MFCC, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MissingFileCacheConfiguration, __MissingFileCacheConfiguration);
-
-export var MissingFileSystemConfiguration: StaticErrorSchema = [
-  -3,
-  n0,
-  _MFSC,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MissingFileSystemConfiguration: StaticErrorSchema = [-3, n0, _MFSC, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MissingFileSystemConfiguration, __MissingFileSystemConfiguration);
-
-export var MissingVolumeConfiguration: StaticErrorSchema = [
-  -3,
-  n0,
-  _MVC,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MissingVolumeConfiguration: StaticErrorSchema = [-3, n0, _MVC, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MissingVolumeConfiguration, __MissingVolumeConfiguration);
-
 export var NFSDataRepositoryConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1903,18 +1643,8 @@ export var NFSDataRepositoryConfiguration: StaticStructureSchema = [
   [_Ve, _DIn, _AEP],
   [0, 64 | 0, () => AutoExportPolicy],
 ];
-export var NotServiceResourceError: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSRE,
-  {
-    [_e]: _c,
-  },
-  [_RARN, _M],
-  [0, 0],
-];
+export var NotServiceResourceError: StaticErrorSchema = [-3, n0, _NSRE, { [_e]: _c }, [_RARN, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(NotServiceResourceError, __NotServiceResourceError);
-
 export var OntapFileSystemConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1938,6 +1668,15 @@ export var OntapFileSystemConfiguration: StaticStructureSchema = [
     0,
   ],
 ];
+export var OntapFileSystemIdentity: StaticStructureSchema = [
+  3,
+  n0,
+  _OFSI,
+  0,
+  [_T, _UU, _WU],
+  [0, () => OntapUnixFileSystemUser, () => OntapWindowsFileSystemUser],
+];
+export var OntapUnixFileSystemUser: StaticStructureSchema = [3, n0, _OUFSU, 0, [_N], [0]];
 export var OntapVolumeConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1963,6 +1702,7 @@ export var OntapVolumeConfiguration: StaticStructureSchema = [
     1,
   ],
 ];
+export var OntapWindowsFileSystemUser: StaticStructureSchema = [3, n0, _OWFSU, 0, [_N], [0]];
 export var OpenZFSClientConfiguration: StaticStructureSchema = [3, n0, _OZFSCC, 0, [_C, _O], [0, 64 | 0]];
 export var OpenZFSCreateRootVolumeConfiguration: StaticStructureSchema = [
   3,
@@ -2030,30 +1770,10 @@ export var ReleaseFileSystemNfsV3LocksResponse: StaticStructureSchema = [
   [_FS],
   [[() => FileSystem, 0]],
 ];
-export var ResourceDoesNotSupportTagging: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDNST,
-  {
-    [_e]: _c,
-  },
-  [_RARN, _M],
-  [0, 0],
-];
+export var ResourceDoesNotSupportTagging: StaticErrorSchema = [-3, n0, _RDNST, { [_e]: _c }, [_RARN, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceDoesNotSupportTagging, __ResourceDoesNotSupportTagging);
-
-export var ResourceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNF,
-  {
-    [_e]: _c,
-  },
-  [_RARN, _M],
-  [0, 0],
-];
+export var ResourceNotFound: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c }, [_RARN, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFound, __ResourceNotFound);
-
 export var RestoreVolumeFromSnapshotRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2084,22 +1804,29 @@ export var S3AccessPointAttachment: StaticStructureSchema = [
   n0,
   _SAPA,
   0,
-  [_L, _LTR, _CT, _N, _T, _OZFSC, _SAP],
-  [0, () => LifecycleTransitionReason, 4, 0, 0, () => S3AccessPointOpenZFSConfiguration, () => S3AccessPoint],
+  [_L, _LTR, _CT, _N, _T, _OZFSC, _OC, _SAP],
+  [
+    0,
+    () => LifecycleTransitionReason,
+    4,
+    0,
+    0,
+    () => S3AccessPointOpenZFSConfiguration,
+    () => S3AccessPointOntapConfiguration,
+    () => S3AccessPoint,
+  ],
 ];
-export var S3AccessPointAttachmentNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAPANF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var S3AccessPointAttachmentNotFound: StaticErrorSchema = [-3, n0, _SAPANF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(S3AccessPointAttachmentNotFound, __S3AccessPointAttachmentNotFound);
-
 export var S3AccessPointAttachmentsFilter: StaticStructureSchema = [3, n0, _SAPAF, 0, [_N, _Va], [0, 64 | 0]];
+export var S3AccessPointOntapConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SAPOC,
+  0,
+  [_VI, _FSIi],
+  [0, () => OntapFileSystemIdentity],
+];
 export var S3AccessPointOpenZFSConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2141,18 +1868,8 @@ export var SelfManagedActiveDirectoryConfigurationUpdates: StaticStructureSchema
   [_UN, _Pas, _DIn, _DN, _OUDN, _FSAG, _DJSAS],
   [0, [() => DirectoryPassword, 0], 64 | 0, 0, 0, 0, 0],
 ];
-export var ServiceLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _SLE,
-  {
-    [_e]: _c,
-  },
-  [_Li, _M],
-  [0, 0],
-];
+export var ServiceLimitExceeded: StaticErrorSchema = [-3, n0, _SLE, { [_e]: _c }, [_Li, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceLimitExceeded, __ServiceLimitExceeded);
-
 export var SnaplockConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2178,30 +1895,10 @@ export var Snapshot: StaticStructureSchema = [
   [0, 0, 0, 0, 4, 0, () => LifecycleTransitionReason, () => Tags, [() => AdministrativeActions, 0]],
 ];
 export var SnapshotFilter: StaticStructureSchema = [3, n0, _SF, 0, [_N, _Va], [0, 64 | 0]];
-export var SnapshotNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var SnapshotNotFound: StaticErrorSchema = [-3, n0, _SNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(SnapshotNotFound, __SnapshotNotFound);
-
-export var SourceBackupUnavailable: StaticErrorSchema = [
-  -3,
-  n0,
-  _SBU,
-  {
-    [_e]: _c,
-  },
-  [_M, _BI],
-  [0, 0],
-];
+export var SourceBackupUnavailable: StaticErrorSchema = [-3, n0, _SBU, { [_e]: _c }, [_M, _BI], [0, 0]];
 TypeRegistry.for(n0).registerError(SourceBackupUnavailable, __SourceBackupUnavailable);
-
 export var StartMisconfiguredStateRecoveryRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2241,18 +1938,8 @@ export var StorageVirtualMachine: StaticStructureSchema = [
   ],
 ];
 export var StorageVirtualMachineFilter: StaticStructureSchema = [3, n0, _SVMF, 0, [_N, _Va], [0, 64 | 0]];
-export var StorageVirtualMachineNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _SVMNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var StorageVirtualMachineNotFound: StaticErrorSchema = [-3, n0, _SVMNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(StorageVirtualMachineNotFound, __StorageVirtualMachineNotFound);
-
 export var SvmActiveDirectoryConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2278,28 +1965,13 @@ export var TooManyAccessPoints: StaticErrorSchema = [
   -3,
   n0,
   _TMAP,
-  {
-    [_xN]: _E,
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_xN]: _E, [_e]: _c, [_hE]: 400 },
   [_EC, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(TooManyAccessPoints, __TooManyAccessPoints);
-
-export var UnsupportedOperation: StaticErrorSchema = [
-  -3,
-  n0,
-  _UO,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedOperation: StaticErrorSchema = [-3, n0, _UO, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedOperation, __UnsupportedOperation);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateDataRepositoryAssociationRequest: StaticStructureSchema = [
@@ -2492,18 +2164,8 @@ export var Volume: StaticStructureSchema = [
   ],
 ];
 export var VolumeFilter: StaticStructureSchema = [3, n0, _VF, 0, [_N, _Va], [0, 64 | 0]];
-export var VolumeNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _VNF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var VolumeNotFound: StaticErrorSchema = [-3, n0, _VNF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(VolumeNotFound, __VolumeNotFound);
-
 export var WindowsAuditLogConfiguration: StaticStructureSchema = [3, n0, _WALC, 0, [_FAALL, _FSAALL, _ALD], [0, 0, 0]];
 export var WindowsAuditLogCreateConfiguration: StaticStructureSchema = [
   3,
@@ -2540,19 +2202,13 @@ export var WindowsFileSystemConfiguration: StaticStructureSchema = [
   ],
 ];
 export var WindowsFsrmConfiguration: StaticStructureSchema = [3, n0, _WFC, 0, [_FSEs, _ELD], [2, 0]];
-export var __Unit = "unit" as const;
-
 export var FSxServiceException: StaticErrorSchema = [-3, _sm, "FSxServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FSxServiceException, __FSxServiceException);
-
 export var AdministrativeActions: StaticListSchema = [1, n0, _AAd, 0, [() => AdministrativeAction, 0]];
 export var Aggregates = 64 | 0;
-
 export var Aliases: StaticListSchema = [1, n0, _Ali, 0, () => Alias];
 export var AlternateDNSNames = 64 | 0;
-
 export var BackupIds = 64 | 0;
-
 export var Backups: StaticListSchema = [1, n0, _Ba, 0, [() => Backup, 0]];
 export var CreateFileCacheDataRepositoryAssociations: StaticListSchema = [
   1,
@@ -2562,54 +2218,34 @@ export var CreateFileCacheDataRepositoryAssociations: StaticListSchema = [
   () => FileCacheDataRepositoryAssociation,
 ];
 export var DataRepositoryAssociationIds = 64 | 0;
-
 export var DataRepositoryAssociations: StaticListSchema = [1, n0, _DRA, 0, () => DataRepositoryAssociation];
 export var DataRepositoryTaskFilters: StaticListSchema = [1, n0, _DRTFa, 0, () => DataRepositoryTaskFilter];
 export var DataRepositoryTaskFilterValues = 64 | 0;
-
 export var DataRepositoryTaskPaths = 64 | 0;
-
 export var DataRepositoryTasks: StaticListSchema = [1, n0, _DRTa, 0, () => DataRepositoryTask];
 export var DeleteFileSystemOpenZFSOptions = 64 | 0;
-
 export var DeleteOpenZFSVolumeOptions = 64 | 0;
-
 export var DnsIps = 64 | 0;
-
 export var EventTypes = 64 | 0;
-
 export var FileCacheIds = 64 | 0;
-
 export var FileCaches: StaticListSchema = [1, n0, _FCi, 0, () => FileCache];
 export var FileSystemIds = 64 | 0;
-
 export var FileSystemMaintenanceOperations = 64 | 0;
-
 export var FileSystems: StaticListSchema = [1, n0, _FSi, 0, [() => FileSystem, 0]];
 export var FileSystemSecondaryGIDs = 64 | 1;
-
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var LustreNoSquashNids = 64 | 0;
-
 export var NetworkInterfaceIds = 64 | 0;
-
 export var OntapEndpointIpAddresses = 64 | 0;
-
 export var OpenZFSClientConfigurations: StaticListSchema = [1, n0, _OZFSCCp, 0, () => OpenZFSClientConfiguration];
 export var OpenZFSNfsExportOptions = 64 | 0;
-
 export var OpenZFSNfsExports: StaticListSchema = [1, n0, _OZFSNEp, 0, () => OpenZFSNfsExport];
 export var OpenZFSUserAndGroupQuotas: StaticListSchema = [1, n0, _OZFSUAGQ, 0, () => OpenZFSUserOrGroupQuota];
 export var RepositoryDnsIps = 64 | 0;
-
 export var RestoreOpenZFSVolumeOptions = 64 | 0;
-
 export var RouteTableIds = 64 | 0;
-
 export var S3AccessPointAttachmentNames = 64 | 0;
-
 export var S3AccessPointAttachments: StaticListSchema = [1, n0, _SAPAc, 0, () => S3AccessPointAttachment];
 export var S3AccessPointAttachmentsFilters: StaticListSchema = [
   1,
@@ -2619,37 +2255,24 @@ export var S3AccessPointAttachmentsFilters: StaticListSchema = [
   () => S3AccessPointAttachmentsFilter,
 ];
 export var S3AccessPointAttachmentsFilterValues = 64 | 0;
-
 export var SecurityGroupIds = 64 | 0;
-
 export var SnapshotFilters: StaticListSchema = [1, n0, _SFn, 0, () => SnapshotFilter];
 export var SnapshotFilterValues = 64 | 0;
-
 export var SnapshotIds = 64 | 0;
-
 export var Snapshots: StaticListSchema = [1, n0, _Sna, 0, () => Snapshot];
 export var StorageVirtualMachineFilters: StaticListSchema = [1, n0, _SVMFt, 0, () => StorageVirtualMachineFilter];
 export var StorageVirtualMachineFilterValues = 64 | 0;
-
 export var StorageVirtualMachineIds = 64 | 0;
-
 export var StorageVirtualMachines: StaticListSchema = [1, n0, _SVMt, 0, () => StorageVirtualMachine];
 export var SubDirectoriesPaths = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var TaskIds = 64 | 0;
-
 export var UpdateOpenZFSVolumeOptions = 64 | 0;
-
 export var VolumeFilters: StaticListSchema = [1, n0, _VFo, 0, () => VolumeFilter];
 export var VolumeFilterValues = 64 | 0;
-
 export var VolumeIds = 64 | 0;
-
 export var Volumes: StaticListSchema = [1, n0, _Vol, 0, () => Volume];
 export var AssociateFileSystemAliases: StaticOperationSchema = [
   9,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
-import {
+import type { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
+import type {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -67,6 +67,9 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>

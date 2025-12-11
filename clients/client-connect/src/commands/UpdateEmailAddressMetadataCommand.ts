@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEmailAddressMetadataRequest, UpdateEmailAddressMetadataResponse } from "../models/models_2";
+import type { UpdateEmailAddressMetadataRequest, UpdateEmailAddressMetadataResponse } from "../models/models_3";
 import { UpdateEmailAddressMetadata } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface UpdateEmailAddressMetadataCommandInput extends UpdateEmailAddre
 export interface UpdateEmailAddressMetadataCommandOutput extends UpdateEmailAddressMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an email address metadata. For more information about email addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html">Create email
- *     addresses</a> in the Amazon Connect Administrator Guide.</p>
+ * <p>Updates an email address metadata. For more information about email addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html">Create email addresses</a> in the Amazon Connect
+ *    Administrator Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

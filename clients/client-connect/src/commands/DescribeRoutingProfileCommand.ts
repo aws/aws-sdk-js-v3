@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_1";
+import type { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_1";
 import { DescribeRoutingProfile } from "../schemas/schemas_0";
 
 /**
@@ -30,8 +30,9 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * <p>Describes the specified routing profile.</p>
  *          <note>
  *             <p>
- *                <code>DescribeRoutingProfile</code> does not populate AssociatedQueueIds in its response.
- *     The example Response Syntax shown on this page is incorrect; we are working to update it. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfiles</a> does include AssociatedQueueIds.</p>
+ *                <code>DescribeRoutingProfile</code> does not populate AssociatedQueueIds in its response. The example Response
+ *     Syntax shown on this page is incorrect; we are working to update it. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfiles</a> does include
+ *     AssociatedQueueIds.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

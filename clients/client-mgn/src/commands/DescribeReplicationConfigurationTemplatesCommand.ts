@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type {
   DescribeReplicationConfigurationTemplatesRequest,
   DescribeReplicationConfigurationTemplatesResponse,
 } from "../models/models_0";
@@ -76,6 +76,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * //       tags: {
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       internetProtocol: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

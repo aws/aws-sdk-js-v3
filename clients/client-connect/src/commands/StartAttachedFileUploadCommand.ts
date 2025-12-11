@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartAttachedFileUploadRequest, StartAttachedFileUploadResponse } from "../models/models_2";
+import type { StartAttachedFileUploadRequest, StartAttachedFileUploadResponse } from "../models/models_2";
 import { StartAttachedFileUpload } from "../schemas/schemas_0";
 
 /**
@@ -29,9 +29,7 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p>
  *          <important>
- *             <p>You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon Connect Case</a> or
- *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Amazon Connect
- *      Email</a>. </p>
+ *             <p>You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon Connect Case</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Amazon Connect Email</a>. </p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

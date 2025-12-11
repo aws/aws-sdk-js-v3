@@ -22,6 +22,7 @@ const _ARRE = "AssociateResourceResponseElement";
 const _ARRL = "AssociateResourcesResponseList";
 const _AS = "AssociationSize";
 const _AV = "AssociatedValues";
+const _AVt = "AttributeValues";
 const _AWSC = "AWSCost";
 const _Ac = "Activated";
 const _Ar = "Arns";
@@ -292,7 +293,7 @@ const n0 = "com.amazonaws.billingconductor";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -313,7 +314,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccountEmail: StaticSimpleSchema = [0, n0, _AE, 8, 0];
 export var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 export var BillingGroupDescription: StaticSimpleSchema = [0, n0, _BGD, 8, 0];
@@ -324,19 +324,8 @@ export var PricingPlanDescription: StaticSimpleSchema = [0, n0, _PPD, 8, 0];
 export var PricingPlanName: StaticSimpleSchema = [0, n0, _PPN, 8, 0];
 export var PricingRuleDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 export var PricingRuleName: StaticSimpleSchema = [0, n0, _PRN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountAssociationsListElement: StaticStructureSchema = [
   3,
   n0,
@@ -435,15 +424,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT, _R],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateBillingGroupInput: StaticStructureSchema = [
   3,
   n0,
@@ -451,13 +436,7 @@ export var CreateBillingGroupInput: StaticStructureSchema = [
   0,
   [_CTl, _N, _AG, _CP, _PAI, _D, _T],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [() => BillingGroupName, 0],
     () => AccountGrouping,
     () => ComputationPreference,
@@ -474,13 +453,7 @@ export var CreateCustomLineItemInput: StaticStructureSchema = [
   0,
   [_CTl, _N, _D, _BGA, _BPR, _T, _CD, _AI, _CR, _PD],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [() => CustomLineItemName, 0],
     [() => CustomLineItemDescription, 0],
     0,
@@ -500,19 +473,7 @@ export var CreatePricingPlanInput: StaticStructureSchema = [
   _CPPI,
   0,
   [_CTl, _N, _D, _PRA, _T],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    [() => PricingPlanName, 0],
-    [() => PricingPlanDescription, 0],
-    64 | 0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], [() => PricingPlanName, 0], [() => PricingPlanDescription, 0], 64 | 0, 128 | 0],
 ];
 export var CreatePricingPlanOutput: StaticStructureSchema = [3, n0, _CPPO, 0, [_A], [0]];
 export var CreatePricingRuleInput: StaticStructureSchema = [
@@ -522,13 +483,7 @@ export var CreatePricingRuleInput: StaticStructureSchema = [
   0,
   [_CTl, _N, _D, _Sc, _Ty, _MPo, _Se, _T, _BE, _Ti, _UT, _O],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [() => PricingRuleName, 0],
     [() => PricingRuleDescription, 0],
     0,
@@ -650,24 +605,12 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var LineItemFilter: StaticStructureSchema = [3, n0, _LIFi, 0, [_At, _MO, _Va], [0, 0, 64 | 0]];
+export var LineItemFilter: StaticStructureSchema = [3, n0, _LIFi, 0, [_At, _MO, _Va, _AVt], [0, 0, 64 | 0, 64 | 0]];
 export var ListAccountAssociationsFilter: StaticStructureSchema = [3, n0, _LAAF, 0, [_As, _AI, _AIc], [0, 0, 64 | 0]];
 export var ListAccountAssociationsInput: StaticStructureSchema = [
   3,
@@ -912,28 +855,20 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _LC, _SC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
-
 export var StringSearch: StaticStructureSchema = [3, n0, _SS, 0, [_SO, _SV], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -941,23 +876,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Tiering: StaticStructureSchema = [3, n0, _Ti, 0, [_FT], [() => FreeTierConfig]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -967,12 +890,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1107,18 +1025,12 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _R, _Fie],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _M], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var BillingconductorServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1128,16 +1040,13 @@ export var BillingconductorServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(BillingconductorServiceException, __BillingconductorServiceException);
-
 export var AccountAssociationsList: StaticListSchema = [1, n0, _AAL, 0, [() => AccountAssociationsListElement, 0]];
 export var AccountIdFilterList = 64 | 0;
-
 export var AccountIdList = 64 | 0;
-
 export var AssociateResourcesResponseList: StaticListSchema = [1, n0, _ARRL, 0, () => AssociateResourceResponseElement];
 export var AttributesList: StaticListSchema = [1, n0, _AL, 0, () => Attribute];
+export var AttributeValueList = 64 | 0;
 export var BillingGroupArnList = 64 | 0;
-
 export var BillingGroupCostReportList: StaticListSchema = [1, n0, _BGCRL, 0, () => BillingGroupCostReportElement];
 export var BillingGroupCostReportResultsList: StaticListSchema = [
   1,
@@ -1148,17 +1057,11 @@ export var BillingGroupCostReportResultsList: StaticListSchema = [
 ];
 export var BillingGroupList: StaticListSchema = [1, n0, _BGL, 0, [() => BillingGroupListElement, 0]];
 export var BillingGroupStatusList = 64 | 0;
-
 export var BillingGroupTypeList = 64 | 0;
-
 export var CustomLineItemArns = 64 | 0;
-
 export var CustomLineItemAssociationsList = 64 | 0;
-
 export var CustomLineItemBatchAssociationsList = 64 | 0;
-
 export var CustomLineItemBatchDisassociationsList = 64 | 0;
-
 export var CustomLineItemList: StaticListSchema = [1, n0, _CLIL, 0, [() => CustomLineItemListElement, 0]];
 export var CustomLineItemNameList: StaticListSchema = [1, n0, _CLINL, 0, [() => CustomLineItemName, 0]];
 export var CustomLineItemVersionList: StaticListSchema = [
@@ -1176,10 +1079,8 @@ export var DisassociateResourcesResponseList: StaticListSchema = [
   () => DisassociateResourceResponseElement,
 ];
 export var GroupByAttributesList = 64 | 0;
-
 export var LineItemFiltersList: StaticListSchema = [1, n0, _LIFL, 0, () => LineItemFilter];
 export var LineItemFilterValuesList = 64 | 0;
-
 export var ListResourcesAssociatedToCustomLineItemResponseList: StaticListSchema = [
   1,
   n0,
@@ -1188,32 +1089,22 @@ export var ListResourcesAssociatedToCustomLineItemResponseList: StaticListSchema
   () => ListResourcesAssociatedToCustomLineItemResponseElement,
 ];
 export var PricingPlanArns = 64 | 0;
-
 export var PricingPlanList: StaticListSchema = [1, n0, _PPL, 0, [() => PricingPlanListElement, 0]];
 export var PricingRuleArns = 64 | 0;
-
 export var PricingRuleArnsInput = 64 | 0;
-
 export var PricingRuleArnsNonEmptyInput = 64 | 0;
-
 export var PricingRuleList: StaticListSchema = [1, n0, _PRL, 0, [() => PricingRuleListElement, 0]];
 export var PrimaryAccountIdList = 64 | 0;
-
 export var ResponsibilityTransferArnsList = 64 | 0;
-
 export var StringSearches: StaticListSchema = [1, n0, _SSt, 0, () => StringSearch];
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var TagMap = 128 | 0;
-
 export var AssociateAccounts: StaticOperationSchema = [
   9,
   n0,
   _AAs,
-  {
-    [_h]: ["POST", "/associate-accounts", 200],
-  },
+  { [_h]: ["POST", "/associate-accounts", 200] },
   () => AssociateAccountsInput,
   () => AssociateAccountsOutput,
 ];
@@ -1221,9 +1112,7 @@ export var AssociatePricingRules: StaticOperationSchema = [
   9,
   n0,
   _APR,
-  {
-    [_h]: ["PUT", "/associate-pricing-rules", 200],
-  },
+  { [_h]: ["PUT", "/associate-pricing-rules", 200] },
   () => AssociatePricingRulesInput,
   () => AssociatePricingRulesOutput,
 ];
@@ -1231,9 +1120,7 @@ export var BatchAssociateResourcesToCustomLineItem: StaticOperationSchema = [
   9,
   n0,
   _BARTCLI,
-  {
-    [_h]: ["PUT", "/batch-associate-resources-to-custom-line-item", 200],
-  },
+  { [_h]: ["PUT", "/batch-associate-resources-to-custom-line-item", 200] },
   () => BatchAssociateResourcesToCustomLineItemInput,
   () => BatchAssociateResourcesToCustomLineItemOutput,
 ];
@@ -1241,9 +1128,7 @@ export var BatchDisassociateResourcesFromCustomLineItem: StaticOperationSchema =
   9,
   n0,
   _BDRFCLI,
-  {
-    [_h]: ["PUT", "/batch-disassociate-resources-from-custom-line-item", 200],
-  },
+  { [_h]: ["PUT", "/batch-disassociate-resources-from-custom-line-item", 200] },
   () => BatchDisassociateResourcesFromCustomLineItemInput,
   () => BatchDisassociateResourcesFromCustomLineItemOutput,
 ];
@@ -1251,9 +1136,7 @@ export var CreateBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _CBG,
-  {
-    [_h]: ["POST", "/create-billing-group", 200],
-  },
+  { [_h]: ["POST", "/create-billing-group", 200] },
   () => CreateBillingGroupInput,
   () => CreateBillingGroupOutput,
 ];
@@ -1261,9 +1144,7 @@ export var CreateCustomLineItem: StaticOperationSchema = [
   9,
   n0,
   _CCLI,
-  {
-    [_h]: ["POST", "/create-custom-line-item", 200],
-  },
+  { [_h]: ["POST", "/create-custom-line-item", 200] },
   () => CreateCustomLineItemInput,
   () => CreateCustomLineItemOutput,
 ];
@@ -1271,9 +1152,7 @@ export var CreatePricingPlan: StaticOperationSchema = [
   9,
   n0,
   _CPP,
-  {
-    [_h]: ["POST", "/create-pricing-plan", 200],
-  },
+  { [_h]: ["POST", "/create-pricing-plan", 200] },
   () => CreatePricingPlanInput,
   () => CreatePricingPlanOutput,
 ];
@@ -1281,9 +1160,7 @@ export var CreatePricingRule: StaticOperationSchema = [
   9,
   n0,
   _CPR,
-  {
-    [_h]: ["POST", "/create-pricing-rule", 200],
-  },
+  { [_h]: ["POST", "/create-pricing-rule", 200] },
   () => CreatePricingRuleInput,
   () => CreatePricingRuleOutput,
 ];
@@ -1291,9 +1168,7 @@ export var DeleteBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _DBG,
-  {
-    [_h]: ["POST", "/delete-billing-group", 200],
-  },
+  { [_h]: ["POST", "/delete-billing-group", 200] },
   () => DeleteBillingGroupInput,
   () => DeleteBillingGroupOutput,
 ];
@@ -1301,9 +1176,7 @@ export var DeleteCustomLineItem: StaticOperationSchema = [
   9,
   n0,
   _DCLI,
-  {
-    [_h]: ["POST", "/delete-custom-line-item", 200],
-  },
+  { [_h]: ["POST", "/delete-custom-line-item", 200] },
   () => DeleteCustomLineItemInput,
   () => DeleteCustomLineItemOutput,
 ];
@@ -1311,9 +1184,7 @@ export var DeletePricingPlan: StaticOperationSchema = [
   9,
   n0,
   _DPP,
-  {
-    [_h]: ["POST", "/delete-pricing-plan", 200],
-  },
+  { [_h]: ["POST", "/delete-pricing-plan", 200] },
   () => DeletePricingPlanInput,
   () => DeletePricingPlanOutput,
 ];
@@ -1321,9 +1192,7 @@ export var DeletePricingRule: StaticOperationSchema = [
   9,
   n0,
   _DPR,
-  {
-    [_h]: ["POST", "/delete-pricing-rule", 200],
-  },
+  { [_h]: ["POST", "/delete-pricing-rule", 200] },
   () => DeletePricingRuleInput,
   () => DeletePricingRuleOutput,
 ];
@@ -1331,9 +1200,7 @@ export var DisassociateAccounts: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["POST", "/disassociate-accounts", 200],
-  },
+  { [_h]: ["POST", "/disassociate-accounts", 200] },
   () => DisassociateAccountsInput,
   () => DisassociateAccountsOutput,
 ];
@@ -1341,9 +1208,7 @@ export var DisassociatePricingRules: StaticOperationSchema = [
   9,
   n0,
   _DPRi,
-  {
-    [_h]: ["PUT", "/disassociate-pricing-rules", 200],
-  },
+  { [_h]: ["PUT", "/disassociate-pricing-rules", 200] },
   () => DisassociatePricingRulesInput,
   () => DisassociatePricingRulesOutput,
 ];
@@ -1351,9 +1216,7 @@ export var GetBillingGroupCostReport: StaticOperationSchema = [
   9,
   n0,
   _GBGCR,
-  {
-    [_h]: ["POST", "/get-billing-group-cost-report", 200],
-  },
+  { [_h]: ["POST", "/get-billing-group-cost-report", 200] },
   () => GetBillingGroupCostReportInput,
   () => GetBillingGroupCostReportOutput,
 ];
@@ -1361,9 +1224,7 @@ export var ListAccountAssociations: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_h]: ["POST", "/list-account-associations", 200],
-  },
+  { [_h]: ["POST", "/list-account-associations", 200] },
   () => ListAccountAssociationsInput,
   () => ListAccountAssociationsOutput,
 ];
@@ -1371,9 +1232,7 @@ export var ListBillingGroupCostReports: StaticOperationSchema = [
   9,
   n0,
   _LBGCR,
-  {
-    [_h]: ["POST", "/list-billing-group-cost-reports", 200],
-  },
+  { [_h]: ["POST", "/list-billing-group-cost-reports", 200] },
   () => ListBillingGroupCostReportsInput,
   () => ListBillingGroupCostReportsOutput,
 ];
@@ -1381,9 +1240,7 @@ export var ListBillingGroups: StaticOperationSchema = [
   9,
   n0,
   _LBG,
-  {
-    [_h]: ["POST", "/list-billing-groups", 200],
-  },
+  { [_h]: ["POST", "/list-billing-groups", 200] },
   () => ListBillingGroupsInput,
   () => ListBillingGroupsOutput,
 ];
@@ -1391,9 +1248,7 @@ export var ListCustomLineItems: StaticOperationSchema = [
   9,
   n0,
   _LCLI,
-  {
-    [_h]: ["POST", "/list-custom-line-items", 200],
-  },
+  { [_h]: ["POST", "/list-custom-line-items", 200] },
   () => ListCustomLineItemsInput,
   () => ListCustomLineItemsOutput,
 ];
@@ -1401,9 +1256,7 @@ export var ListCustomLineItemVersions: StaticOperationSchema = [
   9,
   n0,
   _LCLIV,
-  {
-    [_h]: ["POST", "/list-custom-line-item-versions", 200],
-  },
+  { [_h]: ["POST", "/list-custom-line-item-versions", 200] },
   () => ListCustomLineItemVersionsInput,
   () => ListCustomLineItemVersionsOutput,
 ];
@@ -1411,9 +1264,7 @@ export var ListPricingPlans: StaticOperationSchema = [
   9,
   n0,
   _LPP,
-  {
-    [_h]: ["POST", "/list-pricing-plans", 200],
-  },
+  { [_h]: ["POST", "/list-pricing-plans", 200] },
   () => ListPricingPlansInput,
   () => ListPricingPlansOutput,
 ];
@@ -1421,9 +1272,7 @@ export var ListPricingPlansAssociatedWithPricingRule: StaticOperationSchema = [
   9,
   n0,
   _LPPAWPR,
-  {
-    [_h]: ["POST", "/list-pricing-plans-associated-with-pricing-rule", 200],
-  },
+  { [_h]: ["POST", "/list-pricing-plans-associated-with-pricing-rule", 200] },
   () => ListPricingPlansAssociatedWithPricingRuleInput,
   () => ListPricingPlansAssociatedWithPricingRuleOutput,
 ];
@@ -1431,9 +1280,7 @@ export var ListPricingRules: StaticOperationSchema = [
   9,
   n0,
   _LPR,
-  {
-    [_h]: ["POST", "/list-pricing-rules", 200],
-  },
+  { [_h]: ["POST", "/list-pricing-rules", 200] },
   () => ListPricingRulesInput,
   () => ListPricingRulesOutput,
 ];
@@ -1441,9 +1288,7 @@ export var ListPricingRulesAssociatedToPricingPlan: StaticOperationSchema = [
   9,
   n0,
   _LPRATPP,
-  {
-    [_h]: ["POST", "/list-pricing-rules-associated-to-pricing-plan", 200],
-  },
+  { [_h]: ["POST", "/list-pricing-rules-associated-to-pricing-plan", 200] },
   () => ListPricingRulesAssociatedToPricingPlanInput,
   () => ListPricingRulesAssociatedToPricingPlanOutput,
 ];
@@ -1451,9 +1296,7 @@ export var ListResourcesAssociatedToCustomLineItem: StaticOperationSchema = [
   9,
   n0,
   _LRATCLI,
-  {
-    [_h]: ["POST", "/list-resources-associated-to-custom-line-item", 200],
-  },
+  { [_h]: ["POST", "/list-resources-associated-to-custom-line-item", 200] },
   () => ListResourcesAssociatedToCustomLineItemInput,
   () => ListResourcesAssociatedToCustomLineItemOutput,
 ];
@@ -1461,9 +1304,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 204] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1471,9 +1312,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1481,9 +1320,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1491,9 +1328,7 @@ export var UpdateBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _UBG,
-  {
-    [_h]: ["POST", "/update-billing-group", 200],
-  },
+  { [_h]: ["POST", "/update-billing-group", 200] },
   () => UpdateBillingGroupInput,
   () => UpdateBillingGroupOutput,
 ];
@@ -1501,9 +1336,7 @@ export var UpdateCustomLineItem: StaticOperationSchema = [
   9,
   n0,
   _UCLI,
-  {
-    [_h]: ["POST", "/update-custom-line-item", 200],
-  },
+  { [_h]: ["POST", "/update-custom-line-item", 200] },
   () => UpdateCustomLineItemInput,
   () => UpdateCustomLineItemOutput,
 ];
@@ -1511,9 +1344,7 @@ export var UpdatePricingPlan: StaticOperationSchema = [
   9,
   n0,
   _UPP,
-  {
-    [_h]: ["PUT", "/update-pricing-plan", 200],
-  },
+  { [_h]: ["PUT", "/update-pricing-plan", 200] },
   () => UpdatePricingPlanInput,
   () => UpdatePricingPlanOutput,
 ];
@@ -1521,9 +1352,7 @@ export var UpdatePricingRule: StaticOperationSchema = [
   9,
   n0,
   _UPR,
-  {
-    [_h]: ["PUT", "/update-pricing-rule", 200],
-  },
+  { [_h]: ["PUT", "/update-pricing-rule", 200] },
   () => UpdatePricingRuleInput,
   () => UpdatePricingRuleOutput,
 ];

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEngagementInvitationsRequest, ListEngagementInvitationsResponse } from "../models/models_0";
-import {
+import type { ListEngagementInvitationsRequest, ListEngagementInvitationsResponse } from "../models/models_0";
+import type {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -49,7 +49,7 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  *     SortBy: "InvitationDate", // required
  *   },
  *   PayloadType: [ // EngagementInvitationsPayloadType
- *     "OpportunityInvitation",
+ *     "OpportunityInvitation" || "LeadInvitation",
  *   ],
  *   ParticipantType: "SENDER" || "RECEIVER", // required
  *   Status: [ // InvitationStatusList
@@ -68,7 +68,7 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  * //   EngagementInvitationSummaries: [ // EngagementInvitationSummaries
  * //     { // EngagementInvitationSummary
  * //       Arn: "STRING_VALUE",
- * //       PayloadType: "OpportunityInvitation",
+ * //       PayloadType: "OpportunityInvitation" || "LeadInvitation",
  * //       Id: "STRING_VALUE", // required
  * //       EngagementId: "STRING_VALUE",
  * //       EngagementTitle: "STRING_VALUE",

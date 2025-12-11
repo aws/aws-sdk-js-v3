@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCustomModelDeploymentRequest, GetCustomModelDeploymentResponse } from "../models/models_0";
+import type { GetCustomModelDeploymentRequest, GetCustomModelDeploymentResponse } from "../models/models_0";
 import { GetCustomModelDeployment } from "../schemas/schemas_0";
 
 /**
@@ -48,6 +48,10 @@ export interface GetCustomModelDeploymentCommandOutput extends GetCustomModelDep
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   status: "Creating" || "Active" || "Failed", // required
  * //   description: "STRING_VALUE",
+ * //   updateDetails: { // CustomModelDeploymentUpdateDetails
+ * //     modelArn: "STRING_VALUE", // required
+ * //     updateStatus: "Updating" || "UpdateCompleted" || "UpdateFailed", // required
+ * //   },
  * //   failureMessage: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };

@@ -438,7 +438,7 @@ const n0 = "com.amazonaws.vpclattice";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -458,20 +458,8 @@ import {
 import { VPCLatticeServiceException as __VPCLatticeServiceException } from "../models/VPCLatticeServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessLogSubscriptionSummary: StaticStructureSchema = [
   3,
   n0,
@@ -497,19 +485,8 @@ export var BatchUpdateRuleResponse: StaticStructureSchema = [
   [_s, _u],
   [() => RuleUpdateSuccessList, () => RuleUpdateFailureList],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAccessLogSubscriptionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -955,23 +932,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IpResource: StaticStructureSchema = [3, n0, _IR, 0, [_iA], [0]];
 export var ListAccessLogSubscriptionsRequest: StaticStructureSchema = [
   3,
@@ -980,24 +945,9 @@ export var ListAccessLogSubscriptionsRequest: StaticStructureSchema = [
   0,
   [_rIe, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rIe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rIe }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAccessLogSubscriptionsResponse: StaticStructureSchema = [
@@ -1015,18 +965,8 @@ export var ListDomainVerificationsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDomainVerificationsResponse: StaticStructureSchema = [
@@ -1053,18 +993,8 @@ export var ListListenersRequest: StaticStructureSchema = [
   [_sI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListListenersResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_it, _nT], [() => ListenerSummaryList, 0]];
@@ -1075,36 +1005,11 @@ export var ListResourceConfigurationsRequest: StaticStructureSchema = [
   0,
   [_rGI, _rCGI, _dVI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rCGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dVI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rGI }],
+    [0, { [_hQ]: _rCGI }],
+    [0, { [_hQ]: _dVI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListResourceConfigurationsResponse: StaticStructureSchema = [
@@ -1122,42 +1027,12 @@ export var ListResourceEndpointAssociationsRequest: StaticStructureSchema = [
   0,
   [_rCI, _rEAI, _vEI, _vEO, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rCI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rEAI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vEI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vEO,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rCI }],
+    [0, { [_hQ]: _rEAI }],
+    [0, { [_hQ]: _vEI }],
+    [0, { [_hQ]: _vEO }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListResourceEndpointAssociationsResponse: StaticStructureSchema = [
@@ -1175,18 +1050,8 @@ export var ListResourceGatewaysRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListResourceGatewaysResponse: StaticStructureSchema = [
@@ -1206,18 +1071,8 @@ export var ListRulesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListRulesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_it, _nT], [() => RuleSummaryList, 0]];
@@ -1228,36 +1083,11 @@ export var ListServiceNetworkResourceAssociationsRequest: StaticStructureSchema 
   0,
   [_sNI, _rCI, _mR, _nT, _iC],
   [
-    [
-      0,
-      {
-        [_hQ]: _sNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rCI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iC,
-      },
-    ],
+    [0, { [_hQ]: _sNI }],
+    [0, { [_hQ]: _rCI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _iC }],
   ],
 ];
 export var ListServiceNetworkResourceAssociationsResponse: StaticStructureSchema = [
@@ -1275,30 +1105,10 @@ export var ListServiceNetworkServiceAssociationsRequest: StaticStructureSchema =
   0,
   [_sNI, _sI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sNI }],
+    [0, { [_hQ]: _sI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListServiceNetworkServiceAssociationsResponse: StaticStructureSchema = [
@@ -1316,18 +1126,8 @@ export var ListServiceNetworksRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListServiceNetworksResponse: StaticStructureSchema = [
@@ -1345,30 +1145,10 @@ export var ListServiceNetworkVpcAssociationsRequest: StaticStructureSchema = [
   0,
   [_sNI, _vI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sNI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sNI }],
+    [0, { [_hQ]: _vI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListServiceNetworkVpcAssociationsResponse: StaticStructureSchema = [
@@ -1386,24 +1166,9 @@ export var ListServiceNetworkVpcEndpointAssociationsRequest: StaticStructureSche
   0,
   [_sNI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sNI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sNI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListServiceNetworkVpcEndpointAssociationsResponse: StaticStructureSchema = [
@@ -1421,18 +1186,8 @@ export var ListServicesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListServicesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_it, _nT], [() => ServiceList, 0]];
@@ -1445,30 +1200,10 @@ export var ListTargetGroupsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _vI, _tGT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tGT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _vI }],
+    [0, { [_hQ]: _tGT }],
   ],
 ];
 export var ListTargetGroupsResponse: StaticStructureSchema = [3, n0, _LTGRi, 0, [_it, _nT], [() => TargetGroupList, 0]];
@@ -1478,22 +1213,7 @@ export var ListTargetsRequest: StaticStructureSchema = [
   _LTR,
   0,
   [_tGI, _mR, _nT, _ta],
-  [
-    [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    () => TargetList,
-  ],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], () => TargetList],
 ];
 export var ListTargetsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_it, _nT], [() => TargetSummaryList, 0]];
 export var PathMatch: StaticStructureSchema = [3, n0, _PM, 0, [_ma, _cS], [() => PathMatchType, 2]];
@@ -1538,15 +1258,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuleSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1616,15 +1332,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sCe, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1675,25 +1387,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TxtMethodConfig: StaticStructureSchema = [3, n0, _TMC, 0, [_v, _n], [0, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -1703,12 +1401,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1825,28 +1518,21 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var WeightedTargetGroup: StaticStructureSchema = [3, n0, _WTG, 0, [_tGI, _w], [0, 1]];
 export var VPCLatticeServiceException: StaticErrorSchema = [-3, _sm, "VPCLatticeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(VPCLatticeServiceException, __VPCLatticeServiceException);
-
 export var AccessLogSubscriptionList: StaticListSchema = [1, n0, _ALSL, 0, () => AccessLogSubscriptionSummary];
 export var DomainVerificationList: StaticListSchema = [1, n0, _DVL, 0, () => DomainVerificationSummary];
 export var HeaderMatchList: StaticListSchema = [1, n0, _HML, 0, () => HeaderMatch];
 export var ListenerSummaryList: StaticListSchema = [1, n0, _LSL, 0, () => ListenerSummary];
 export var PortRangeList = 64 | 0;
-
 export var PrivateDnsSpecifiedDomainsList = 64 | 0;
-
 export var ResourceConfigurationSummaryList: StaticListSchema = [1, n0, _RCSL, 0, () => ResourceConfigurationSummary];
 export var ResourceEndpointAssociationList: StaticListSchema = [
   1,
@@ -1861,9 +1547,7 @@ export var RuleUpdateFailureList: StaticListSchema = [1, n0, _RUFL, 0, () => Rul
 export var RuleUpdateList: StaticListSchema = [1, n0, _RUL, 0, () => RuleUpdate];
 export var RuleUpdateSuccessList: StaticListSchema = [1, n0, _RUSL, 0, () => RuleUpdateSuccess];
 export var SecurityGroupList = 64 | 0;
-
 export var ServiceArnList = 64 | 0;
-
 export var ServiceList: StaticListSchema = [1, n0, _SL, 0, () => ServiceSummary];
 export var ServiceNetworkList: StaticListSchema = [1, n0, _SNL, 0, () => ServiceNetworkSummary];
 export var ServiceNetworkResourceAssociationList: StaticListSchema = [
@@ -1895,9 +1579,7 @@ export var ServiceNetworkVpcEndpointAssociationList: StaticListSchema = [
   () => ServiceNetworkEndpointAssociation,
 ];
 export var SubnetList = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TargetFailureList: StaticListSchema = [1, n0, _TFL, 0, () => TargetFailure];
 export var TargetGroupList: StaticListSchema = [1, n0, _TGL, 0, () => TargetGroupSummary];
 export var TargetList: StaticListSchema = [1, n0, _TL, 0, () => Target];
@@ -1905,7 +1587,6 @@ export var TargetSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TargetSu
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var WeightedTargetGroupList: StaticListSchema = [1, n0, _WTGL, 0, () => WeightedTargetGroup];
 export var TagMap = 128 | 0;
-
 export var HeaderMatchType: StaticStructureSchema = [3, n0, _HMT, 0, [_ex, _pre, _con], [0, 0, 0]];
 export var Matcher: StaticStructureSchema = [3, n0, _M, 0, [_hCt], [0]];
 export var PathMatchType: StaticStructureSchema = [3, n0, _PMT, 0, [_ex, _pre], [0, 0]];
@@ -1930,9 +1611,7 @@ export var BatchUpdateRule: StaticOperationSchema = [
   9,
   n0,
   _BUR,
-  {
-    [_h]: ["PATCH", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 200],
-  },
+  { [_h]: ["PATCH", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 200] },
   () => BatchUpdateRuleRequest,
   () => BatchUpdateRuleResponse,
 ];
@@ -1940,9 +1619,7 @@ export var CreateAccessLogSubscription: StaticOperationSchema = [
   9,
   n0,
   _CALS,
-  {
-    [_h]: ["POST", "/accesslogsubscriptions", 201],
-  },
+  { [_h]: ["POST", "/accesslogsubscriptions", 201] },
   () => CreateAccessLogSubscriptionRequest,
   () => CreateAccessLogSubscriptionResponse,
 ];
@@ -1950,9 +1627,7 @@ export var CreateListener: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  {
-    [_h]: ["POST", "/services/{serviceIdentifier}/listeners", 201],
-  },
+  { [_h]: ["POST", "/services/{serviceIdentifier}/listeners", 201] },
   () => CreateListenerRequest,
   () => CreateListenerResponse,
 ];
@@ -1960,9 +1635,7 @@ export var CreateResourceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  {
-    [_h]: ["POST", "/resourceconfigurations", 201],
-  },
+  { [_h]: ["POST", "/resourceconfigurations", 201] },
   () => CreateResourceConfigurationRequest,
   () => CreateResourceConfigurationResponse,
 ];
@@ -1970,9 +1643,7 @@ export var CreateResourceGateway: StaticOperationSchema = [
   9,
   n0,
   _CRG,
-  {
-    [_h]: ["POST", "/resourcegateways", 201],
-  },
+  { [_h]: ["POST", "/resourcegateways", 201] },
   () => CreateResourceGatewayRequest,
   () => CreateResourceGatewayResponse,
 ];
@@ -1980,9 +1651,7 @@ export var CreateRule: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 201],
-  },
+  { [_h]: ["POST", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 201] },
   () => CreateRuleRequest,
   () => CreateRuleResponse,
 ];
@@ -1990,9 +1659,7 @@ export var CreateService: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/services", 201],
-  },
+  { [_h]: ["POST", "/services", 201] },
   () => CreateServiceRequest,
   () => CreateServiceResponse,
 ];
@@ -2000,9 +1667,7 @@ export var CreateServiceNetwork: StaticOperationSchema = [
   9,
   n0,
   _CSN,
-  {
-    [_h]: ["POST", "/servicenetworks", 201],
-  },
+  { [_h]: ["POST", "/servicenetworks", 201] },
   () => CreateServiceNetworkRequest,
   () => CreateServiceNetworkResponse,
 ];
@@ -2010,9 +1675,7 @@ export var CreateServiceNetworkResourceAssociation: StaticOperationSchema = [
   9,
   n0,
   _CSNRA,
-  {
-    [_h]: ["POST", "/servicenetworkresourceassociations", 201],
-  },
+  { [_h]: ["POST", "/servicenetworkresourceassociations", 201] },
   () => CreateServiceNetworkResourceAssociationRequest,
   () => CreateServiceNetworkResourceAssociationResponse,
 ];
@@ -2020,9 +1683,7 @@ export var CreateServiceNetworkServiceAssociation: StaticOperationSchema = [
   9,
   n0,
   _CSNSA,
-  {
-    [_h]: ["POST", "/servicenetworkserviceassociations", 200],
-  },
+  { [_h]: ["POST", "/servicenetworkserviceassociations", 200] },
   () => CreateServiceNetworkServiceAssociationRequest,
   () => CreateServiceNetworkServiceAssociationResponse,
 ];
@@ -2030,9 +1691,7 @@ export var CreateServiceNetworkVpcAssociation: StaticOperationSchema = [
   9,
   n0,
   _CSNVA,
-  {
-    [_h]: ["POST", "/servicenetworkvpcassociations", 200],
-  },
+  { [_h]: ["POST", "/servicenetworkvpcassociations", 200] },
   () => CreateServiceNetworkVpcAssociationRequest,
   () => CreateServiceNetworkVpcAssociationResponse,
 ];
@@ -2040,9 +1699,7 @@ export var CreateTargetGroup: StaticOperationSchema = [
   9,
   n0,
   _CTG,
-  {
-    [_h]: ["POST", "/targetgroups", 201],
-  },
+  { [_h]: ["POST", "/targetgroups", 201] },
   () => CreateTargetGroupRequest,
   () => CreateTargetGroupResponse,
 ];
@@ -2050,9 +1707,7 @@ export var DeleteAccessLogSubscription: StaticOperationSchema = [
   9,
   n0,
   _DALS,
-  {
-    [_h]: ["DELETE", "/accesslogsubscriptions/{accessLogSubscriptionIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/accesslogsubscriptions/{accessLogSubscriptionIdentifier}", 204] },
   () => DeleteAccessLogSubscriptionRequest,
   () => DeleteAccessLogSubscriptionResponse,
 ];
@@ -2060,9 +1715,7 @@ export var DeleteAuthPolicy: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  {
-    [_h]: ["DELETE", "/authpolicy/{resourceIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/authpolicy/{resourceIdentifier}", 204] },
   () => DeleteAuthPolicyRequest,
   () => DeleteAuthPolicyResponse,
 ];
@@ -2070,9 +1723,7 @@ export var DeleteDomainVerification: StaticOperationSchema = [
   9,
   n0,
   _DDV,
-  {
-    [_h]: ["DELETE", "/domainverifications/{domainVerificationIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/domainverifications/{domainVerificationIdentifier}", 200] },
   () => DeleteDomainVerificationRequest,
   () => DeleteDomainVerificationResponse,
 ];
@@ -2080,9 +1731,7 @@ export var DeleteListener: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_h]: ["DELETE", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}", 204] },
   () => DeleteListenerRequest,
   () => DeleteListenerResponse,
 ];
@@ -2090,9 +1739,7 @@ export var DeleteResourceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["DELETE", "/resourceconfigurations/{resourceConfigurationIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/resourceconfigurations/{resourceConfigurationIdentifier}", 204] },
   () => DeleteResourceConfigurationRequest,
   () => DeleteResourceConfigurationResponse,
 ];
@@ -2100,9 +1747,7 @@ export var DeleteResourceEndpointAssociation: StaticOperationSchema = [
   9,
   n0,
   _DREA,
-  {
-    [_h]: ["DELETE", "/resourceendpointassociations/{resourceEndpointAssociationIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/resourceendpointassociations/{resourceEndpointAssociationIdentifier}", 200] },
   () => DeleteResourceEndpointAssociationRequest,
   () => DeleteResourceEndpointAssociationResponse,
 ];
@@ -2110,9 +1755,7 @@ export var DeleteResourceGateway: StaticOperationSchema = [
   9,
   n0,
   _DRG,
-  {
-    [_h]: ["DELETE", "/resourcegateways/{resourceGatewayIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/resourcegateways/{resourceGatewayIdentifier}", 200] },
   () => DeleteResourceGatewayRequest,
   () => DeleteResourceGatewayResponse,
 ];
@@ -2120,9 +1763,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 204] },
   () => DeleteResourcePolicyRequest,
   () => DeleteResourcePolicyResponse,
 ];
@@ -2130,9 +1771,7 @@ export var DeleteRule: StaticOperationSchema = [
   9,
   n0,
   _DRe,
-  {
-    [_h]: ["DELETE", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}", 204] },
   () => DeleteRuleRequest,
   () => DeleteRuleResponse,
 ];
@@ -2140,9 +1779,7 @@ export var DeleteService: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/services/{serviceIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/services/{serviceIdentifier}", 200] },
   () => DeleteServiceRequest,
   () => DeleteServiceResponse,
 ];
@@ -2150,9 +1787,7 @@ export var DeleteServiceNetwork: StaticOperationSchema = [
   9,
   n0,
   _DSN,
-  {
-    [_h]: ["DELETE", "/servicenetworks/{serviceNetworkIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/servicenetworks/{serviceNetworkIdentifier}", 204] },
   () => DeleteServiceNetworkRequest,
   () => DeleteServiceNetworkResponse,
 ];
@@ -2160,9 +1795,7 @@ export var DeleteServiceNetworkResourceAssociation: StaticOperationSchema = [
   9,
   n0,
   _DSNRA,
-  {
-    [_h]: ["DELETE", "/servicenetworkresourceassociations/{serviceNetworkResourceAssociationIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/servicenetworkresourceassociations/{serviceNetworkResourceAssociationIdentifier}", 200] },
   () => DeleteServiceNetworkResourceAssociationRequest,
   () => DeleteServiceNetworkResourceAssociationResponse,
 ];
@@ -2170,9 +1803,7 @@ export var DeleteServiceNetworkServiceAssociation: StaticOperationSchema = [
   9,
   n0,
   _DSNSA,
-  {
-    [_h]: ["DELETE", "/servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}", 200] },
   () => DeleteServiceNetworkServiceAssociationRequest,
   () => DeleteServiceNetworkServiceAssociationResponse,
 ];
@@ -2180,9 +1811,7 @@ export var DeleteServiceNetworkVpcAssociation: StaticOperationSchema = [
   9,
   n0,
   _DSNVA,
-  {
-    [_h]: ["DELETE", "/servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}", 200] },
   () => DeleteServiceNetworkVpcAssociationRequest,
   () => DeleteServiceNetworkVpcAssociationResponse,
 ];
@@ -2190,9 +1819,7 @@ export var DeleteTargetGroup: StaticOperationSchema = [
   9,
   n0,
   _DTG,
-  {
-    [_h]: ["DELETE", "/targetgroups/{targetGroupIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/targetgroups/{targetGroupIdentifier}", 200] },
   () => DeleteTargetGroupRequest,
   () => DeleteTargetGroupResponse,
 ];
@@ -2200,9 +1827,7 @@ export var DeregisterTargets: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["POST", "/targetgroups/{targetGroupIdentifier}/deregistertargets", 200],
-  },
+  { [_h]: ["POST", "/targetgroups/{targetGroupIdentifier}/deregistertargets", 200] },
   () => DeregisterTargetsRequest,
   () => DeregisterTargetsResponse,
 ];
@@ -2210,9 +1835,7 @@ export var GetAccessLogSubscription: StaticOperationSchema = [
   9,
   n0,
   _GALS,
-  {
-    [_h]: ["GET", "/accesslogsubscriptions/{accessLogSubscriptionIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/accesslogsubscriptions/{accessLogSubscriptionIdentifier}", 200] },
   () => GetAccessLogSubscriptionRequest,
   () => GetAccessLogSubscriptionResponse,
 ];
@@ -2220,9 +1843,7 @@ export var GetAuthPolicy: StaticOperationSchema = [
   9,
   n0,
   _GAP,
-  {
-    [_h]: ["GET", "/authpolicy/{resourceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/authpolicy/{resourceIdentifier}", 200] },
   () => GetAuthPolicyRequest,
   () => GetAuthPolicyResponse,
 ];
@@ -2230,9 +1851,7 @@ export var GetDomainVerification: StaticOperationSchema = [
   9,
   n0,
   _GDV,
-  {
-    [_h]: ["GET", "/domainverifications/{domainVerificationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/domainverifications/{domainVerificationIdentifier}", 200] },
   () => GetDomainVerificationRequest,
   () => GetDomainVerificationResponse,
 ];
@@ -2240,9 +1859,7 @@ export var GetListener: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_h]: ["GET", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}", 200] },
   () => GetListenerRequest,
   () => GetListenerResponse,
 ];
@@ -2250,9 +1867,7 @@ export var GetResourceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_h]: ["GET", "/resourceconfigurations/{resourceConfigurationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/resourceconfigurations/{resourceConfigurationIdentifier}", 200] },
   () => GetResourceConfigurationRequest,
   () => GetResourceConfigurationResponse,
 ];
@@ -2260,9 +1875,7 @@ export var GetResourceGateway: StaticOperationSchema = [
   9,
   n0,
   _GRG,
-  {
-    [_h]: ["GET", "/resourcegateways/{resourceGatewayIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/resourcegateways/{resourceGatewayIdentifier}", 200] },
   () => GetResourceGatewayRequest,
   () => GetResourceGatewayResponse,
 ];
@@ -2270,9 +1883,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -2280,9 +1891,7 @@ export var GetRule: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}", 200] },
   () => GetRuleRequest,
   () => GetRuleResponse,
 ];
@@ -2290,9 +1899,7 @@ export var GetService: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/services/{serviceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/services/{serviceIdentifier}", 200] },
   () => GetServiceRequest,
   () => GetServiceResponse,
 ];
@@ -2300,9 +1907,7 @@ export var GetServiceNetwork: StaticOperationSchema = [
   9,
   n0,
   _GSN,
-  {
-    [_h]: ["GET", "/servicenetworks/{serviceNetworkIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/servicenetworks/{serviceNetworkIdentifier}", 200] },
   () => GetServiceNetworkRequest,
   () => GetServiceNetworkResponse,
 ];
@@ -2310,9 +1915,7 @@ export var GetServiceNetworkResourceAssociation: StaticOperationSchema = [
   9,
   n0,
   _GSNRA,
-  {
-    [_h]: ["GET", "/servicenetworkresourceassociations/{serviceNetworkResourceAssociationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkresourceassociations/{serviceNetworkResourceAssociationIdentifier}", 200] },
   () => GetServiceNetworkResourceAssociationRequest,
   () => GetServiceNetworkResourceAssociationResponse,
 ];
@@ -2320,9 +1923,7 @@ export var GetServiceNetworkServiceAssociation: StaticOperationSchema = [
   9,
   n0,
   _GSNSA,
-  {
-    [_h]: ["GET", "/servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}", 200] },
   () => GetServiceNetworkServiceAssociationRequest,
   () => GetServiceNetworkServiceAssociationResponse,
 ];
@@ -2330,9 +1931,7 @@ export var GetServiceNetworkVpcAssociation: StaticOperationSchema = [
   9,
   n0,
   _GSNVA,
-  {
-    [_h]: ["GET", "/servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}", 200] },
   () => GetServiceNetworkVpcAssociationRequest,
   () => GetServiceNetworkVpcAssociationResponse,
 ];
@@ -2340,9 +1939,7 @@ export var GetTargetGroup: StaticOperationSchema = [
   9,
   n0,
   _GTG,
-  {
-    [_h]: ["GET", "/targetgroups/{targetGroupIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/targetgroups/{targetGroupIdentifier}", 200] },
   () => GetTargetGroupRequest,
   () => GetTargetGroupResponse,
 ];
@@ -2350,9 +1947,7 @@ export var ListAccessLogSubscriptions: StaticOperationSchema = [
   9,
   n0,
   _LALS,
-  {
-    [_h]: ["GET", "/accesslogsubscriptions", 200],
-  },
+  { [_h]: ["GET", "/accesslogsubscriptions", 200] },
   () => ListAccessLogSubscriptionsRequest,
   () => ListAccessLogSubscriptionsResponse,
 ];
@@ -2360,9 +1955,7 @@ export var ListDomainVerifications: StaticOperationSchema = [
   9,
   n0,
   _LDV,
-  {
-    [_h]: ["GET", "/domainverifications", 200],
-  },
+  { [_h]: ["GET", "/domainverifications", 200] },
   () => ListDomainVerificationsRequest,
   () => ListDomainVerificationsResponse,
 ];
@@ -2370,9 +1963,7 @@ export var ListListeners: StaticOperationSchema = [
   9,
   n0,
   _LL,
-  {
-    [_h]: ["GET", "/services/{serviceIdentifier}/listeners", 200],
-  },
+  { [_h]: ["GET", "/services/{serviceIdentifier}/listeners", 200] },
   () => ListListenersRequest,
   () => ListListenersResponse,
 ];
@@ -2380,9 +1971,7 @@ export var ListResourceConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  {
-    [_h]: ["GET", "/resourceconfigurations", 200],
-  },
+  { [_h]: ["GET", "/resourceconfigurations", 200] },
   () => ListResourceConfigurationsRequest,
   () => ListResourceConfigurationsResponse,
 ];
@@ -2390,9 +1979,7 @@ export var ListResourceEndpointAssociations: StaticOperationSchema = [
   9,
   n0,
   _LREA,
-  {
-    [_h]: ["GET", "/resourceendpointassociations", 200],
-  },
+  { [_h]: ["GET", "/resourceendpointassociations", 200] },
   () => ListResourceEndpointAssociationsRequest,
   () => ListResourceEndpointAssociationsResponse,
 ];
@@ -2400,9 +1987,7 @@ export var ListResourceGateways: StaticOperationSchema = [
   9,
   n0,
   _LRG,
-  {
-    [_h]: ["GET", "/resourcegateways", 200],
-  },
+  { [_h]: ["GET", "/resourcegateways", 200] },
   () => ListResourceGatewaysRequest,
   () => ListResourceGatewaysResponse,
 ];
@@ -2410,9 +1995,7 @@ export var ListRules: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 200],
-  },
+  { [_h]: ["GET", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 200] },
   () => ListRulesRequest,
   () => ListRulesResponse,
 ];
@@ -2420,9 +2003,7 @@ export var ListServiceNetworkResourceAssociations: StaticOperationSchema = [
   9,
   n0,
   _LSNRA,
-  {
-    [_h]: ["GET", "/servicenetworkresourceassociations", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkresourceassociations", 200] },
   () => ListServiceNetworkResourceAssociationsRequest,
   () => ListServiceNetworkResourceAssociationsResponse,
 ];
@@ -2430,9 +2011,7 @@ export var ListServiceNetworks: StaticOperationSchema = [
   9,
   n0,
   _LSN,
-  {
-    [_h]: ["GET", "/servicenetworks", 200],
-  },
+  { [_h]: ["GET", "/servicenetworks", 200] },
   () => ListServiceNetworksRequest,
   () => ListServiceNetworksResponse,
 ];
@@ -2440,9 +2019,7 @@ export var ListServiceNetworkServiceAssociations: StaticOperationSchema = [
   9,
   n0,
   _LSNSA,
-  {
-    [_h]: ["GET", "/servicenetworkserviceassociations", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkserviceassociations", 200] },
   () => ListServiceNetworkServiceAssociationsRequest,
   () => ListServiceNetworkServiceAssociationsResponse,
 ];
@@ -2450,9 +2027,7 @@ export var ListServiceNetworkVpcAssociations: StaticOperationSchema = [
   9,
   n0,
   _LSNVA,
-  {
-    [_h]: ["GET", "/servicenetworkvpcassociations", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkvpcassociations", 200] },
   () => ListServiceNetworkVpcAssociationsRequest,
   () => ListServiceNetworkVpcAssociationsResponse,
 ];
@@ -2460,9 +2035,7 @@ export var ListServiceNetworkVpcEndpointAssociations: StaticOperationSchema = [
   9,
   n0,
   _LSNVEA,
-  {
-    [_h]: ["GET", "/servicenetworkvpcendpointassociations", 200],
-  },
+  { [_h]: ["GET", "/servicenetworkvpcendpointassociations", 200] },
   () => ListServiceNetworkVpcEndpointAssociationsRequest,
   () => ListServiceNetworkVpcEndpointAssociationsResponse,
 ];
@@ -2470,9 +2043,7 @@ export var ListServices: StaticOperationSchema = [
   9,
   n0,
   _LSi,
-  {
-    [_h]: ["GET", "/services", 200],
-  },
+  { [_h]: ["GET", "/services", 200] },
   () => ListServicesRequest,
   () => ListServicesResponse,
 ];
@@ -2480,9 +2051,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2490,9 +2059,7 @@ export var ListTargetGroups: StaticOperationSchema = [
   9,
   n0,
   _LTG,
-  {
-    [_h]: ["GET", "/targetgroups", 200],
-  },
+  { [_h]: ["GET", "/targetgroups", 200] },
   () => ListTargetGroupsRequest,
   () => ListTargetGroupsResponse,
 ];
@@ -2500,9 +2067,7 @@ export var ListTargets: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["POST", "/targetgroups/{targetGroupIdentifier}/listtargets", 200],
-  },
+  { [_h]: ["POST", "/targetgroups/{targetGroupIdentifier}/listtargets", 200] },
   () => ListTargetsRequest,
   () => ListTargetsResponse,
 ];
@@ -2510,9 +2075,7 @@ export var PutAuthPolicy: StaticOperationSchema = [
   9,
   n0,
   _PAP,
-  {
-    [_h]: ["PUT", "/authpolicy/{resourceIdentifier}", 200],
-  },
+  { [_h]: ["PUT", "/authpolicy/{resourceIdentifier}", 200] },
   () => PutAuthPolicyRequest,
   () => PutAuthPolicyResponse,
 ];
@@ -2520,9 +2083,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["PUT", "/resourcepolicy/{resourceArn}", 200],
-  },
+  { [_h]: ["PUT", "/resourcepolicy/{resourceArn}", 200] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -2530,9 +2091,7 @@ export var RegisterTargets: StaticOperationSchema = [
   9,
   n0,
   _RT,
-  {
-    [_h]: ["POST", "/targetgroups/{targetGroupIdentifier}/registertargets", 200],
-  },
+  { [_h]: ["POST", "/targetgroups/{targetGroupIdentifier}/registertargets", 200] },
   () => RegisterTargetsRequest,
   () => RegisterTargetsResponse,
 ];
@@ -2540,9 +2099,7 @@ export var StartDomainVerification: StaticOperationSchema = [
   9,
   n0,
   _SDV,
-  {
-    [_h]: ["POST", "/domainverifications", 201],
-  },
+  { [_h]: ["POST", "/domainverifications", 201] },
   () => StartDomainVerificationRequest,
   () => StartDomainVerificationResponse,
 ];
@@ -2550,9 +2107,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2560,9 +2115,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2570,9 +2123,7 @@ export var UpdateAccessLogSubscription: StaticOperationSchema = [
   9,
   n0,
   _UALS,
-  {
-    [_h]: ["PATCH", "/accesslogsubscriptions/{accessLogSubscriptionIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/accesslogsubscriptions/{accessLogSubscriptionIdentifier}", 200] },
   () => UpdateAccessLogSubscriptionRequest,
   () => UpdateAccessLogSubscriptionResponse,
 ];
@@ -2580,9 +2131,7 @@ export var UpdateListener: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  {
-    [_h]: ["PATCH", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}", 200] },
   () => UpdateListenerRequest,
   () => UpdateListenerResponse,
 ];
@@ -2590,9 +2139,7 @@ export var UpdateResourceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  {
-    [_h]: ["PATCH", "/resourceconfigurations/{resourceConfigurationIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/resourceconfigurations/{resourceConfigurationIdentifier}", 200] },
   () => UpdateResourceConfigurationRequest,
   () => UpdateResourceConfigurationResponse,
 ];
@@ -2600,9 +2147,7 @@ export var UpdateResourceGateway: StaticOperationSchema = [
   9,
   n0,
   _URG,
-  {
-    [_h]: ["PATCH", "/resourcegateways/{resourceGatewayIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/resourcegateways/{resourceGatewayIdentifier}", 200] },
   () => UpdateResourceGatewayRequest,
   () => UpdateResourceGatewayResponse,
 ];
@@ -2610,9 +2155,7 @@ export var UpdateRule: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["PATCH", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}", 200] },
   () => UpdateRuleRequest,
   () => UpdateRuleResponse,
 ];
@@ -2620,9 +2163,7 @@ export var UpdateService: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PATCH", "/services/{serviceIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/services/{serviceIdentifier}", 200] },
   () => UpdateServiceRequest,
   () => UpdateServiceResponse,
 ];
@@ -2630,9 +2171,7 @@ export var UpdateServiceNetwork: StaticOperationSchema = [
   9,
   n0,
   _USN,
-  {
-    [_h]: ["PATCH", "/servicenetworks/{serviceNetworkIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/servicenetworks/{serviceNetworkIdentifier}", 200] },
   () => UpdateServiceNetworkRequest,
   () => UpdateServiceNetworkResponse,
 ];
@@ -2640,9 +2179,7 @@ export var UpdateServiceNetworkVpcAssociation: StaticOperationSchema = [
   9,
   n0,
   _USNVA,
-  {
-    [_h]: ["PATCH", "/servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}", 200] },
   () => UpdateServiceNetworkVpcAssociationRequest,
   () => UpdateServiceNetworkVpcAssociationResponse,
 ];
@@ -2650,9 +2187,7 @@ export var UpdateTargetGroup: StaticOperationSchema = [
   9,
   n0,
   _UTG,
-  {
-    [_h]: ["PATCH", "/targetgroups/{targetGroupIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/targetgroups/{targetGroupIdentifier}", 200] },
   () => UpdateTargetGroupRequest,
   () => UpdateTargetGroupResponse,
 ];

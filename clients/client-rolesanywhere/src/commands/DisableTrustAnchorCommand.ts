@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { DisableTrustAnchor } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface DisableTrustAnchorCommandInput extends ScalarTrustAnchorRequest
 export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a trust anchor. When disabled, temporary credential requests specifying this trust anchor are unauthorized.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DisableTrustAnchor</code>.
- *          </p>
+ * <p>Disables a trust anchor. When disabled, temporary credential requests specifying this trust anchor are unauthorized.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DisableTrustAnchor</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

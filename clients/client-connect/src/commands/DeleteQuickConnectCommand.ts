@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteQuickConnectRequest } from "../models/models_0";
+import type { DeleteQuickConnectRequest } from "../models/models_1";
 import { DeleteQuickConnect } from "../schemas/schemas_0";
 
 /**
@@ -29,9 +29,8 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a quick connect. </p>
  *          <important>
- *             <p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it's important to
- *     call <code>DeleteQuickConnect</code> to delete any records related to the deleted users. This
- *     will help you:</p>
+ *             <p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it's important to call <code>DeleteQuickConnect</code> to delete any records related to the
+ *     deleted users. This will help you:</p>
  *             <ul>
  *                <li>
  *                   <p>Avoid dangling resources that impact your service quotas.</p>
@@ -40,9 +39,8 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  *                   <p>Remove deleted users so they don't appear to agents as transfer options.</p>
  *                </li>
  *                <li>
- *                   <p>Avoid the disruption of other Amazon Connect processes, such as instance replication
- *       and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect
- *        Global Resiliency</a>. </p>
+ *                   <p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if
+ *       you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p>
  *                </li>
  *             </ul>
  *          </important>

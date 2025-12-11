@@ -687,7 +687,7 @@ const n0 = "com.amazonaws.workspaces";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -723,21 +723,10 @@ import {
 import { WorkSpacesServiceException as __WorkSpacesServiceException } from "../models/WorkSpacesServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptAccountLinkInvitationRequest: StaticStructureSchema = [3, n0, _AALIR, 0, [_LI, _CT], [0, 0]];
 export var AcceptAccountLinkInvitationResult: StaticStructureSchema = [3, n0, _AALIRc, 0, [_AL], [() => AccountLink]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessEndpoint: StaticStructureSchema = [3, n0, _AE, 0, [_AET, _VEI], [0, 0]];
 export var AccessEndpointConfig: StaticStructureSchema = [
   3,
@@ -757,18 +746,8 @@ export var AccountModification: StaticStructureSchema = [
   [0, 0, 0, 4, 0, 0],
 ];
 export var ActiveDirectoryConfig: StaticStructureSchema = [3, n0, _ADC, 0, [_DN, _SASA], [0, 0]];
-export var ApplicationNotSupportedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANSE,
-  {
-    [_e]: _c,
-  },
-  [],
-  [],
-];
+export var ApplicationNotSupportedException: StaticErrorSchema = [-3, n0, _ANSE, { [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(ApplicationNotSupportedException, __ApplicationNotSupportedException);
-
 export var ApplicationResourceAssociation: StaticStructureSchema = [
   3,
   n0,
@@ -808,31 +787,11 @@ export var CapacityStatus: StaticStructureSchema = [3, n0, _CS, 0, [_AUS, _DUS, 
 export var CertificateBasedAuthProperties: StaticStructureSchema = [3, n0, _CBAP, 0, [_St, _CAA], [0, 0]];
 export var ClientProperties: StaticStructureSchema = [3, n0, _CP, 0, [_RE, _LUE], [0, 0]];
 export var ClientPropertiesResult: StaticStructureSchema = [3, n0, _CPR, 0, [_RI, _CP], [0, () => ClientProperties]];
-export var ComputeNotCompatibleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CNCE,
-  {
-    [_e]: _c,
-  },
-  [],
-  [],
-];
+export var ComputeNotCompatibleException: StaticErrorSchema = [-3, n0, _CNCE, { [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(ComputeNotCompatibleException, __ComputeNotCompatibleException);
-
 export var ComputeType: StaticStructureSchema = [3, n0, _CTo, 0, [_N], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectClientAddIn: StaticStructureSchema = [3, n0, _CCAI, 0, [_AII, _RI, _N, _URL], [0, 0, 0, 0]];
 export var ConnectionAlias: StaticStructureSchema = [
   3,
@@ -1380,66 +1339,16 @@ export var ImportWorkspaceImageRequest: StaticStructureSchema = [
   [0, 0, 0, 0, () => TagList, 64 | 0],
 ];
 export var ImportWorkspaceImageResult: StaticStructureSchema = [3, n0, _IWIRm, 0, [_II], [0]];
-export var IncompatibleApplicationsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-  },
-  [],
-  [],
-];
+export var IncompatibleApplicationsException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(IncompatibleApplicationsException, __IncompatibleApplicationsException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidParameterCombinationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPCE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterCombinationException: StaticErrorSchema = [-3, n0, _IPCE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-
-export var InvalidParameterValuesException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPVE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterValuesException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterValuesException, __InvalidParameterValuesException);
-
-export var InvalidResourceStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRSE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidResourceStateException: StaticErrorSchema = [-3, n0, _IRSE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidResourceStateException, __InvalidResourceStateException);
-
 export var IosClientBrandingAttributes: StaticStructureSchema = [
   3,
   n0,
@@ -1559,42 +1468,12 @@ export var ModifyWorkspaceStateRequest: StaticStructureSchema = [3, n0, _MWSR, 0
 export var ModifyWorkspaceStateResult: StaticStructureSchema = [3, n0, _MWSRo, 0, [], []];
 export var NetworkAccessConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EI], [0, 0]];
 export var OperatingSystem: StaticStructureSchema = [3, n0, _OS, 0, [_Ty], [0]];
-export var OperatingSystemNotCompatibleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OSNCE,
-  {
-    [_e]: _c,
-  },
-  [],
-  [],
-];
+export var OperatingSystemNotCompatibleException: StaticErrorSchema = [-3, n0, _OSNCE, { [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(OperatingSystemNotCompatibleException, __OperatingSystemNotCompatibleException);
-
-export var OperationInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OIPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var OperationInProgressException: StaticErrorSchema = [-3, n0, _OIPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OperationInProgressException, __OperationInProgressException);
-
-export var OperationNotSupportedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONSE,
-  {
-    [_e]: _c,
-  },
-  [_m, _r],
-  [0, 0],
-];
+export var OperationNotSupportedException: StaticErrorSchema = [-3, n0, _ONSE, { [_e]: _c }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(OperationNotSupportedException, __OperationNotSupportedException);
-
 export var PendingCreateStandbyWorkspacesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1642,90 +1521,20 @@ export var RegisterWorkspaceDirectoryResult: StaticStructureSchema = [3, n0, _RW
 export var RejectAccountLinkInvitationRequest: StaticStructureSchema = [3, n0, _RALIR, 0, [_LI, _CT], [0, 0]];
 export var RejectAccountLinkInvitationResult: StaticStructureSchema = [3, n0, _RALIRe, 0, [_AL], [() => AccountLink]];
 export var RelatedWorkspaceProperties: StaticStructureSchema = [3, n0, _RWP, 0, [_WI, _Reg, _S, _Ty], [0, 0, 0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceAssociatedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAssociatedException: StaticErrorSchema = [-3, n0, _RAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAssociatedException, __ResourceAssociatedException);
-
-export var ResourceCreationFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceCreationFailedException: StaticErrorSchema = [-3, n0, _RCFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceCreationFailedException, __ResourceCreationFailedException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-  },
-  [_m, _RI],
-  [0, 0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_m, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m, _RI],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RUE,
-  {
-    [_e]: _c,
-  },
-  [_m, _RI],
-  [0, 0],
-];
+export var ResourceUnavailableException: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c }, [_m, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
 export var RestoreWorkspaceRequest: StaticStructureSchema = [3, n0, _RWRes, 0, [_WI], [0]];
 export var RestoreWorkspaceResult: StaticStructureSchema = [3, n0, _RWRest, 0, [], []];
 export var RevokeIpRulesRequest: StaticStructureSchema = [3, n0, _RIRR, 0, [_GIr, _UR], [0, 64 | 0]];
@@ -1806,36 +1615,16 @@ export var TerminateWorkspacesResult: StaticStructureSchema = [
   [() => FailedTerminateWorkspaceRequests],
 ];
 export var TimeoutSettings: StaticStructureSchema = [3, n0, _TS, 0, [_DTIS, _IDTIS, _MUDIS], [1, 1, 1]];
-export var UnsupportedNetworkConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UNCE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedNetworkConfigurationException: StaticErrorSchema = [-3, n0, _UNCE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   UnsupportedNetworkConfigurationException,
   __UnsupportedNetworkConfigurationException
 );
-
-export var UnsupportedWorkspaceConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UWCE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedWorkspaceConfigurationException: StaticErrorSchema = [-3, n0, _UWCE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   UnsupportedWorkspaceConfigurationException,
   __UnsupportedWorkspaceConfigurationException
 );
-
 export var UpdateConnectClientAddInRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1879,18 +1668,8 @@ export var UpdateWorkspacesPoolRequest: StaticStructureSchema = [
 export var UpdateWorkspacesPoolResult: StaticStructureSchema = [3, n0, _UWPRp, 0, [_WP], [() => WorkspacesPool]];
 export var UserSetting: StaticStructureSchema = [3, n0, _USse, 0, [_Ac, _Pe, _ML], [0, 0, 1]];
 export var UserStorage: StaticStructureSchema = [3, n0, _US, 0, [_Ca], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Workspace: StaticStructureSchema = [
   3,
   n0,
@@ -2068,18 +1847,8 @@ export var WorkspaceResourceAssociation: StaticStructureSchema = [
   [_ARI, _ART, _C, _LUT, _S, _SR, _WI],
   [0, 0, 4, 4, 0, () => AssociationStateReason, 0],
 ];
-export var WorkspacesDefaultRoleNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _WDRNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var WorkspacesDefaultRoleNotFoundException: StaticErrorSchema = [-3, n0, _WDRNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(WorkspacesDefaultRoleNotFoundException, __WorkspacesDefaultRoleNotFoundException);
-
 export var WorkspacesIpGroup: StaticStructureSchema = [
   3,
   n0,
@@ -2119,18 +1888,13 @@ export var WorkspacesPoolSession: StaticStructureSchema = [
   [_AT, _CSon, _SIe, _IIn, _PI, _ET, _NAC, _ST, _UI],
   [0, 0, 0, 0, 0, 4, () => NetworkAccessConfiguration, 4, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var WorkSpacesServiceException: StaticErrorSchema = [-3, _s, "WorkSpacesServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(WorkSpacesServiceException, __WorkSpacesServiceException);
-
 export var AccessEndpointList: StaticListSchema = [1, n0, _AEL, 0, () => AccessEndpoint];
 export var AccountLinkList: StaticListSchema = [1, n0, _ALL, 0, () => AccountLink];
 export var AccountModificationList: StaticListSchema = [1, n0, _AML, 0, () => AccountModification];
 export var ApplicationAssociatedResourceTypeList = 64 | 0;
-
 export var ApplicationList = 64 | 0;
-
 export var ApplicationResourceAssociationList: StaticListSchema = [
   1,
   n0,
@@ -2139,20 +1903,15 @@ export var ApplicationResourceAssociationList: StaticListSchema = [
   () => ApplicationResourceAssociation,
 ];
 export var BundleAssociatedResourceTypeList = 64 | 0;
-
 export var BundleIdList = 64 | 0;
-
 export var BundleList: StaticListSchema = [1, n0, _BL, 0, () => WorkspaceBundle];
 export var BundleResourceAssociationList: StaticListSchema = [1, n0, _BRAL, 0, () => BundleResourceAssociation];
 export var ClientDeviceTypeList = 64 | 0;
-
 export var ClientPropertiesList: StaticListSchema = [1, n0, _CPL, 0, () => ClientPropertiesResult];
 export var ComputeList = 64 | 0;
-
 export var ConnectClientAddInList: StaticListSchema = [1, n0, _CCAIL, 0, () => ConnectClientAddIn];
 export var ConnectionAliasAssociationList: StaticListSchema = [1, n0, _CAAL, 0, () => ConnectionAliasAssociation];
 export var ConnectionAliasIdList = 64 | 0;
-
 export var ConnectionAliasList: StaticListSchema = [1, n0, _CAL, 0, () => ConnectionAlias];
 export var ConnectionAliasPermissions: StaticListSchema = [1, n0, _CAPo, 0, () => ConnectionAliasPermission];
 export var CustomWorkspaceImageImportErrorDetailsList: StaticListSchema = [
@@ -2163,11 +1922,8 @@ export var CustomWorkspaceImageImportErrorDetailsList: StaticListSchema = [
   () => CustomWorkspaceImageImportErrorDetails,
 ];
 export var DedicatedTenancyCidrRangeList = 64 | 0;
-
 export var DeletableCertificateBasedAuthPropertiesList = 64 | 0;
-
 export var DeletableSamlPropertiesList = 64 | 0;
-
 export var DescribeWorkspaceDirectoriesFilterList: StaticListSchema = [
   1,
   n0,
@@ -2176,17 +1932,12 @@ export var DescribeWorkspaceDirectoriesFilterList: StaticListSchema = [
   () => DescribeWorkspaceDirectoriesFilter,
 ];
 export var DescribeWorkspaceDirectoriesFilterValues = 64 | 0;
-
 export var DescribeWorkspacesPoolsFilters: StaticListSchema = [1, n0, _DWPFe, 0, () => DescribeWorkspacesPoolsFilter];
 export var DescribeWorkspacesPoolsFilterValues = 64 | 0;
-
 export var DirectoryIdList = 64 | 0;
-
 export var DirectoryList: StaticListSchema = [1, n0, _DL, 0, () => WorkspaceDirectory];
 export var DnsIpAddresses = 64 | 0;
-
 export var DnsIpv6Addresses = 64 | 0;
-
 export var ErrorDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetails];
 export var FailedCreateStandbyWorkspacesRequestList: StaticListSchema = [
   1,
@@ -2202,21 +1953,15 @@ export var FailedStartWorkspaceRequests: StaticListSchema = [1, n0, _FSWR, 0, ()
 export var FailedStopWorkspaceRequests: StaticListSchema = [1, n0, _FSWRa, 0, () => FailedWorkspaceChangeRequest];
 export var FailedTerminateWorkspaceRequests: StaticListSchema = [1, n0, _FTWR, 0, () => FailedWorkspaceChangeRequest];
 export var ImageAssociatedResourceTypeList = 64 | 0;
-
 export var ImagePermissions: StaticListSchema = [1, n0, _IP, 0, () => ImagePermission];
 export var ImageResourceAssociationList: StaticListSchema = [1, n0, _IRAL, 0, () => ImageResourceAssociation];
 export var InternetFallbackProtocolList = 64 | 0;
-
 export var IpGroupIdList = 64 | 0;
-
 export var IpRevokedRuleList = 64 | 0;
-
 export var IpRuleList: StaticListSchema = [1, n0, _IRL, 0, () => IpRuleItem];
 export var LinkStatusFilterList = 64 | 0;
-
 export var ModificationStateList: StaticListSchema = [1, n0, _MSL, 0, () => ModificationState];
 export var OperatingSystemNameList = 64 | 0;
-
 export var PendingCreateStandbyWorkspacesRequestList: StaticListSchema = [
   1,
   n0,
@@ -2225,12 +1970,10 @@ export var PendingCreateStandbyWorkspacesRequestList: StaticListSchema = [
   () => PendingCreateStandbyWorkspacesRequest,
 ];
 export var ProtocolList = 64 | 0;
-
 export var RebootWorkspaceRequests: StaticListSchema = [1, n0, _RWRe, 0, () => RebootRequest];
 export var RebuildWorkspaceRequests: StaticListSchema = [1, n0, _RWRebui, 0, () => RebuildRequest];
 export var RelatedWorkspaces: StaticListSchema = [1, n0, _RWel, 0, () => RelatedWorkspaceProperties];
 export var ResourceIdList = 64 | 0;
-
 export var SnapshotList: StaticListSchema = [1, n0, _SLn, 0, () => Snapshot];
 export var StandbyWorkspacesList: StaticListSchema = [1, n0, _SWL, 0, () => StandbyWorkspace];
 export var StandbyWorkspacesPropertiesList: StaticListSchema = [1, n0, _SWPL, 0, () => StandbyWorkspacesProperties];
@@ -2238,24 +1981,17 @@ export var StartWorkspaceRequests: StaticListSchema = [1, n0, _SWRta, 0, () => S
 export var StopWorkspaceRequests: StaticListSchema = [1, n0, _SWRtop, 0, () => StopRequest];
 export var StorageConnectors: StaticListSchema = [1, n0, _SCt, 0, () => StorageConnector];
 export var SubnetIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TerminateWorkspaceRequests: StaticListSchema = [1, n0, _TWRe, 0, () => TerminateRequest];
 export var UserSettings: StaticListSchema = [1, n0, _USs, 0, () => UserSetting];
 export var WorkSpaceApplicationIdList = 64 | 0;
-
 export var WorkSpaceApplicationList: StaticListSchema = [1, n0, _WSAL, 0, () => WorkSpaceApplication];
 export var WorkSpaceAssociatedResourceTypeList = 64 | 0;
-
 export var WorkspaceConnectionStatusList: StaticListSchema = [1, n0, _WCSL, 0, () => WorkspaceConnectionStatus];
 export var WorkspaceDirectoryNameList = 64 | 0;
-
 export var WorkspaceIdList = 64 | 0;
-
 export var WorkspaceImageIdList = 64 | 0;
-
 export var WorkspaceImageList: StaticListSchema = [1, n0, _WIL, 0, () => WorkspaceImage];
 export var WorkspaceList: StaticListSchema = [1, n0, _WL, 0, () => Workspace];
 export var WorkspaceRequestList: StaticListSchema = [1, n0, _WRL, 0, () => WorkspaceRequest];
@@ -2263,11 +1999,9 @@ export var WorkspaceResourceAssociationList: StaticListSchema = [1, n0, _WRAL, 0
 export var WorkspacesIpGroupsList: StaticListSchema = [1, n0, _WIGL, 0, () => WorkspacesIpGroup];
 export var WorkspacesPoolErrors: StaticListSchema = [1, n0, _WPEo, 0, () => WorkspacesPoolError];
 export var WorkspacesPoolIds = 64 | 0;
-
 export var WorkspacesPools: StaticListSchema = [1, n0, _WPo, 0, () => WorkspacesPool];
 export var WorkspacesPoolSessions: StaticListSchema = [1, n0, _WPSo, 0, () => WorkspacesPoolSession];
 export var LoginMessage = 128 | 0;
-
 export var ImageSourceIdentifier: StaticStructureSchema = [3, n0, _ISI, 0, [_EITI, _IBVA, _EII], [0, 0, 0]];
 export var AcceptAccountLinkInvitation: StaticOperationSchema = [
   9,

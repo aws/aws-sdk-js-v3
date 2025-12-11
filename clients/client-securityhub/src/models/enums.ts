@@ -674,6 +674,8 @@ export const OcsfNumberField = {
   RESOURCES_IMAGE_IN_USE_COUNT: "resources.image.in_use_count",
   SEVERITY_ID: "severity_id",
   STATUS_ID: "status_id",
+  VENDOR_ATTRIBUTES_SEVERITY_ID: "vendor_attributes.severity_id",
+  VULNERABILITIES_CVE_CVSS_BASE_SCORE: "vulnerabilities.cve.cvss.base_score",
 } as const;
 /**
  * @public
@@ -718,6 +720,7 @@ export const OcsfStringField = {
   FINDING_INFO_DESC: "finding_info.desc",
   FINDING_INFO_RELATED_EVENTS_PRODUCT_UID: "finding_info.related_events.product.uid",
   FINDING_INFO_RELATED_EVENTS_TITLE: "finding_info.related_events.title",
+  FINDING_INFO_RELATED_EVENTS_TRAITS_CATEGORY: "finding_info.related_events.traits.category",
   FINDING_INFO_RELATED_EVENTS_UID: "finding_info.related_events.uid",
   FINDING_INFO_SRC_URL: "finding_info.src_url",
   FINDING_INFO_TITLE: "finding_info.title",
@@ -749,6 +752,7 @@ export const OcsfStringField = {
   RESOURCES_VPC_UID: "resources.vpc_uid",
   SEVERITY: "severity",
   STATUS: "status",
+  VENDOR_ATTRIBUTES_SEVERITY: "vendor_attributes.severity",
   VULNERABILITIES_AFFECTED_CODE_FILE_PATH: "vulnerabilities.affected_code.file.path",
   VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
   VULNERABILITIES_CVE_EPSS_SCORE: "vulnerabilities.cve.epss.score",
@@ -814,6 +818,18 @@ export const ControlFindingGenerator = {
  * @public
  */
 export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typeof ControlFindingGenerator];
+
+/**
+ * @public
+ * @enum
+ */
+export const TicketCreationMode = {
+  DRYRUN: "DRYRUN",
+} as const;
+/**
+ * @public
+ */
+export type TicketCreationMode = (typeof TicketCreationMode)[keyof typeof TicketCreationMode];
 
 /**
  * @public
@@ -961,6 +977,7 @@ export const GroupByField = {
   COMPLIANCE_STANDARDS: "compliance.standards",
   COMPLIANCE_STATUS: "compliance.status",
   FINDING_INFO_ANALYTIC_NAME: "finding_info.analytic.name",
+  FINDING_INFO_RELATED_EVENTS_TRAITS_CATEGORY: "finding_info.related_events.traits.category",
   FINDING_INFO_TITLE: "finding_info.title",
   FINDING_INFO_TYPES: "finding_info.types",
   METADATA_PRODUCT_NAME: "metadata.product.name",
@@ -969,6 +986,7 @@ export const GroupByField = {
   RESOURCES_UID: "resources.uid",
   SEVERITY: "severity",
   STATUS: "status",
+  VENDOR_ATTRIBUTES_SEVERITY: "vendor_attributes.severity",
   VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
   VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
 } as const;

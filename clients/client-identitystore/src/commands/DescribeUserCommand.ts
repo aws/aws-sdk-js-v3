@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
+import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
+import type { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
 import { DescribeUser } from "../schemas/schemas_0";
 
 /**
@@ -39,6 +39,9 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * const input = { // DescribeUserRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
+ *   Extensions: [ // ExtensionNames
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
@@ -109,6 +112,9 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //   CreatedBy: "STRING_VALUE",
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * //   UpdatedBy: "STRING_VALUE",
+ * //   Extensions: { // Extensions
+ * //     "<keys>": "DOCUMENT_VALUE",
+ * //   },
  * // };
  *
  * ```

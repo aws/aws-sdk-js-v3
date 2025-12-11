@@ -152,7 +152,7 @@ const n0 = "com.amazonaws.acm";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -181,7 +181,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var PassphraseBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
 export var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
 export var PrivateKeyBlob: StaticSimpleSchema = [0, n0, _PKB, 8, 21];
@@ -189,16 +188,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddTagsToCertificateRequest: StaticStructureSchema = [3, n0, _ATTCR, 0, [_CA, _T], [0, () => TagList]];
 export var CertificateDetail: StaticStructureSchema = [
   3,
@@ -273,18 +267,8 @@ export var CertificateSummary: StaticStructureSchema = [
   [_CA, _DN, _SANS, _HASAN, _St, _Ty, _KA, _KU, _EKU, _EO, _IU, _Ex, _RE, _NB, _NA, _CAr, _IA, _IAm, _RA, _MB],
   [0, 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 4, 4, 4, 4, 4, 4, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DeleteCertificateRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CA], [0]];
 export var DescribeCertificateRequest: StaticStructureSchema = [3, n0, _DCRe, 0, [_CA], [0]];
 export var DescribeCertificateResponse: StaticStructureSchema = [3, n0, _DCRes, 0, [_C], [() => CertificateDetail]];
@@ -336,91 +320,21 @@ export var ImportCertificateRequest: StaticStructureSchema = [
   [0, 21, [() => PrivateKeyBlob, 0], 21, () => TagList],
 ];
 export var ImportCertificateResponse: StaticStructureSchema = [3, n0, _ICRm, 0, [_CA], [0]];
-export var InvalidArgsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArgsException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgsException, __InvalidArgsException);
-
-export var InvalidArnException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEn,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArnException: StaticErrorSchema = [-3, n0, _IAEn, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArnException, __InvalidArnException);
-
-export var InvalidDomainValidationOptionsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDVOE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDomainValidationOptionsException: StaticErrorSchema = [-3, n0, _IDVOE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDomainValidationOptionsException, __InvalidDomainValidationOptionsException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
-export var InvalidTagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagException, __InvalidTagException);
-
 export var KeyUsage: StaticStructureSchema = [3, n0, _KUe, 0, [_N], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListCertificatesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -466,85 +380,30 @@ export var RequestCertificateRequest: StaticStructureSchema = [
   [0, 0, 64 | 0, 0, () => DomainValidationOptionList, () => CertificateOptions, 0, () => TagList, 0, 0],
 ];
 export var RequestCertificateResponse: StaticStructureSchema = [3, n0, _RCReq, 0, [_CA], [0]];
-export var RequestInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RequestInProgressException: StaticErrorSchema = [-3, n0, _RIPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestInProgressException, __RequestInProgressException);
-
 export var ResendValidationEmailRequest: StaticStructureSchema = [3, n0, _RVER, 0, [_CA, _D, _VD], [0, 0, 0]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceRecord: StaticStructureSchema = [3, n0, _RRe, 0, [_N, _Ty, _V], [0, 0, 0]];
 export var RevokeCertificateRequest: StaticStructureSchema = [3, n0, _RCRev, 0, [_CA, _RR], [0, 0]];
 export var RevokeCertificateResponse: StaticStructureSchema = [3, n0, _RCRevo, 0, [_CA], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TagPolicyException: StaticErrorSchema = [-3, n0, _TPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TagPolicyException, __TagPolicyException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`Throttling`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`Throttling`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UpdateCertificateOptionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -557,45 +416,29 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VEa,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationError`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var ACMServiceException: StaticErrorSchema = [-3, _s, "ACMServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(ACMServiceException, __ACMServiceException);
-
 export var CertificateStatuses = 64 | 0;
-
 export var CertificateSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CertificateSummary];
 export var DomainList = 64 | 0;
-
 export var DomainValidationList: StaticListSchema = [1, n0, _DVL, 0, () => DomainValidation];
 export var DomainValidationOptionList: StaticListSchema = [1, n0, _DVOL, 0, () => DomainValidationOption];
 export var ExtendedKeyUsageFilterList = 64 | 0;
-
 export var ExtendedKeyUsageList: StaticListSchema = [1, n0, _EKUL, 0, () => ExtendedKeyUsage];
 export var ExtendedKeyUsageNames = 64 | 0;
-
 export var InUseList = 64 | 0;
-
 export var KeyAlgorithmList = 64 | 0;
-
 export var KeyUsageFilterList = 64 | 0;
-
 export var KeyUsageList: StaticListSchema = [1, n0, _KUL, 0, () => KeyUsage];
 export var KeyUsageNames = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ValidationEmailList = 64 | 0;
-
 export var AddTagsToCertificate: StaticOperationSchema = [
   9,
   n0,

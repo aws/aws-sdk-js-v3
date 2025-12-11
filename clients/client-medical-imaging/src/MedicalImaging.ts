@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CopyImageSetCommand,
@@ -84,7 +84,7 @@ import {
   UpdateImageSetMetadataCommandInput,
   UpdateImageSetMetadataCommandOutput,
 } from "./commands/UpdateImageSetMetadataCommand";
-import { MedicalImagingClient, MedicalImagingClientConfig } from "./MedicalImagingClient";
+import { MedicalImagingClient } from "./MedicalImagingClient";
 
 const commands = {
   CopyImageSetCommand,

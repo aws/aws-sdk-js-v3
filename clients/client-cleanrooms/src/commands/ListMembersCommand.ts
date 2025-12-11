@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMembersInput, ListMembersOutput } from "../models/models_0";
+import type { ListMembersInput, ListMembersOutput } from "../models/models_0";
 import { ListMembers } from "../schemas/schemas_0";
 
 /**
@@ -71,6 +71,9 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //             isResponsible: true || false, // required
  * //           },
  * //           modelInference: { // ModelInferencePaymentConfig
+ * //             isResponsible: true || false, // required
+ * //           },
+ * //           syntheticDataGeneration: { // SyntheticDataGenerationPaymentConfig
  * //             isResponsible: true || false, // required
  * //           },
  * //         },

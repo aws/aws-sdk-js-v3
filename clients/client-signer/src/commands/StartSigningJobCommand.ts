@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
+import type { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
 import { StartSigningJob } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
@@ -28,34 +28,33 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
 
 /**
  * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
- * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
- * 			performed. Note the following requirements: </p>
- * 		       <ul>
+ * 			viewable by the <code>ListSigningJobs</code> operation. Note the following requirements: </p>
+ *          <ul>
  *             <li>
- * 				           <p> You must create an Amazon S3 source bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Creating a Bucket</a> in the
+ *                <p> You must create an Amazon S3 source bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Creating a Bucket</a> in the
  * 						<i>Amazon S3 Getting Started Guide</i>. </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Your S3 source bucket must be version enabled.</p>
- * 			         </li>
+ *                <p>Your S3 source bucket must be version enabled.</p>
+ *             </li>
  *             <li>
- * 				           <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to
+ *                <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to
  * 					write your signed code.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>You specify the name of the source and destination buckets when calling the
+ *                <p>You specify the name of the source and destination buckets when calling the
  * 						<code>StartSigningJob</code> operation.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.</p>
- * 			         </li>
+ *                <p>You must ensure the S3 buckets are from the same Region as the signing profile. Cross-Region signing isn't supported.</p>
+ *             </li>
  *             <li>
- * 				           <p>You must also specify a request token that identifies your request to Signer.</p>
- * 			         </li>
+ *                <p>You must also specify a request token that identifies your request to Signer.</p>
+ *             </li>
  *          </ul>
- * 		       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call
+ *          <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call
  * 			<code>StartSigningJob</code>.</p>
- * 		       <p>For a Java example that shows how to use this action, see <a href="https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html">StartSigningJob</a>.</p>
+ *          <p>For a Java example that shows how to use this action, see <a href="https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html">StartSigningJob</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,11 +107,11 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
- * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ *          <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>

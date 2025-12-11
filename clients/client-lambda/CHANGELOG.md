@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+**Note:** Version bump only for package @aws-sdk/client-lambda
+
+
+
+
+
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-lambda
+
+
+
+
+
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+**Note:** Version bump only for package @aws-sdk/client-lambda
+
+
+
+
+
+# [3.945.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.944.0...v3.945.0) (2025-12-04)
+
+
+### Features
+
+* **client-lambda:** Add DisallowedByVpcEncryptionControl to the LastUpdateStatusReasonCode and StateReasonCode enums to represent failures caused by VPC Encryption Controls. ([cc1ebe7](https://github.com/aws/aws-sdk-js-v3/commit/cc1ebe72de21549a7c4bbc02963de04dd810f264))
+
+
+
+
+
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+
+### Features
+
+* **client-lambda:** Launching Lambda durable functions - a new feature to build reliable multi-step applications and AI workflows natively within the Lambda developer experience. ([01476cf](https://github.com/aws/aws-sdk-js-v3/commit/01476cf7a303a04f994968d03d16f6fffb372ad8))
+
+
+
+
+
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-lambda:** Launching Lambda Managed Instances - a new feature to run Lambda on EC2. ([ea7080c](https://github.com/aws/aws-sdk-js-v3/commit/ea7080ccd96319ae6e719dd46230ddb03b728fc0))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

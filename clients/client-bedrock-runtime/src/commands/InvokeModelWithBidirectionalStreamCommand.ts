@@ -3,11 +3,15 @@ import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
+import type {
+  BedrockRuntimeClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   InvokeModelWithBidirectionalStreamRequest,
   InvokeModelWithBidirectionalStreamResponse,
 } from "../models/models_0";

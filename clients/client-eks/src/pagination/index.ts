@@ -7,6 +7,7 @@ export * from "./ListAccessEntriesPaginator";
 export * from "./ListAccessPoliciesPaginator";
 export * from "./ListAddonsPaginator";
 export * from "./ListAssociatedAccessPoliciesPaginator";
+export * from "./ListCapabilitiesPaginator";
 export * from "./ListClustersPaginator";
 export * from "./ListEksAnywhereSubscriptionsPaginator";
 export * from "./ListFargateProfilesPaginator";

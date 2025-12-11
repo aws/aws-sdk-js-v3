@@ -4,6 +4,7 @@ import {
   ChatItemType,
   ConnectionType,
   MeetingFeatureStatus,
+  MessageProcessingStatus,
   ParticipantRole,
   ScanDirection,
   SortKey,
@@ -623,6 +624,12 @@ export interface MessageMetadata {
    * @public
    */
   Receipts?: Receipt[] | undefined;
+
+  /**
+   * <p>The status of Message Processing for the message.</p>
+   * @public
+   */
+  MessageProcessingStatus?: MessageProcessingStatus | undefined;
 }
 
 /**
@@ -858,6 +865,18 @@ export interface SendMessageRequest {
 }
 
 /**
+ * <p>Contains metadata for chat messages.</p>
+ * @public
+ */
+export interface MessageProcessingMetadata {
+  /**
+   * <p>The status of Message Processing for the message.</p>
+   * @public
+   */
+  MessageProcessingStatus?: MessageProcessingStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface SendMessageResponse {
@@ -874,6 +893,12 @@ export interface SendMessageResponse {
    * @public
    */
   AbsoluteTime?: string | undefined;
+
+  /**
+   * <p>Contains metadata for the message.</p>
+   * @public
+   */
+  MessageMetadata?: MessageProcessingMetadata | undefined;
 }
 
 /**

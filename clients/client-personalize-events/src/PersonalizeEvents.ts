@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   PutActionInteractionsCommand,
@@ -11,7 +11,7 @@ import { PutActionsCommand, PutActionsCommandInput, PutActionsCommandOutput } fr
 import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import { PutItemsCommand, PutItemsCommandInput, PutItemsCommandOutput } from "./commands/PutItemsCommand";
 import { PutUsersCommand, PutUsersCommandInput, PutUsersCommandOutput } from "./commands/PutUsersCommand";
-import { PersonalizeEventsClient, PersonalizeEventsClientConfig } from "./PersonalizeEventsClient";
+import { PersonalizeEventsClient } from "./PersonalizeEventsClient";
 
 const commands = {
   PutActionInteractionsCommand,

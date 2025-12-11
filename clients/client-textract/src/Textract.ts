@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AnalyzeDocumentCommand,
@@ -115,7 +115,7 @@ import {
   UpdateAdapterCommandInput,
   UpdateAdapterCommandOutput,
 } from "./commands/UpdateAdapterCommand";
-import { TextractClient, TextractClientConfig } from "./TextractClient";
+import { TextractClient } from "./TextractClient";
 
 const commands = {
   AnalyzeDocumentCommand,

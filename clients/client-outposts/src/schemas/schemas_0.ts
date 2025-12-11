@@ -312,7 +312,7 @@ const n0 = "com.amazonaws.outposts";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -331,20 +331,8 @@ import {
 import { OutpostsServiceException as __OutpostsServiceException } from "../models/OutpostsServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Address: StaticStructureSchema = [
   3,
   n0,
@@ -404,19 +392,8 @@ export var ComputeAttributes: StaticStructureSchema = [
   [_HI, _S, _IF, _ITC, _MV],
   [0, 0, 64 | 0, () => AssetInstanceCapacityList, 1],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RIe, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RIe, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectionDetails: StaticStructureSchema = [
   3,
   n0,
@@ -496,18 +473,8 @@ export var GetOutpostBillingInformationInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _OI],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
     [0, 1],
   ],
 ];
@@ -528,18 +495,8 @@ export var GetOutpostInstanceTypesInput: StaticStructureSchema = [
   [_OIu, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var GetOutpostInstanceTypesOutput: StaticStructureSchema = [
@@ -559,30 +516,10 @@ export var GetOutpostSupportedInstanceTypesInput: StaticStructureSchema = [
   [_OI, _OIr, _AIs, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _OIr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AIs,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [0, { [_hQ]: _OIr }],
+    [0, { [_hQ]: _AIs }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var GetOutpostSupportedInstanceTypesOutput: StaticStructureSchema = [
@@ -601,12 +538,7 @@ export var GetSiteAddressInput: StaticStructureSchema = [
   [_SI, _ATd],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ATd,
-      },
-    ],
+    [0, { [_hQ]: _ATd }],
   ],
 ];
 export var GetSiteAddressOutput: StaticStructureSchema = [3, n0, _GSAO, 0, [_SI, _ATd, _A], [0, 0, () => Address]];
@@ -615,19 +547,8 @@ export var GetSiteOutput: StaticStructureSchema = [3, n0, _GSO, 0, [_Si], [() =>
 export var InstancesToExclude: StaticStructureSchema = [3, n0, _ITE, 0, [_I, _AIcc, _Se], [64 | 0, 64 | 0, 64 | 0]];
 export var InstanceTypeCapacity: StaticStructureSchema = [3, n0, _ITCn, 0, [_IT, _Co], [0, 1]];
 export var InstanceTypeItem: StaticStructureSchema = [3, n0, _ITI, 0, [_IT, _VCPU], [0, 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LineItem: StaticStructureSchema = [
   3,
   n0,
@@ -646,42 +567,12 @@ export var ListAssetInstancesInput: StaticStructureSchema = [
   [_OI, _AIF, _ITF, _AIFc, _ASF, _MR, _NT],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _AIF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _ITF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _AIFc,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _ASF,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _AIF }],
+    [64 | 0, { [_hQ]: _ITF }],
+    [64 | 0, { [_hQ]: _AIFc }],
+    [64 | 0, { [_hQ]: _ASF }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListAssetInstancesOutput: StaticStructureSchema = [
@@ -700,30 +591,10 @@ export var ListAssetsInput: StaticStructureSchema = [
   [_OI, _HIF, _MR, _NT, _SF],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _HIF,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _SF,
-      },
-    ],
+    [64 | 0, { [_hQ]: _HIF }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
+    [64 | 0, { [_hQ]: _SF }],
   ],
 ];
 export var ListAssetsOutput: StaticStructureSchema = [3, n0, _LAO, 0, [_As, _NT], [() => AssetListDefinition, 0]];
@@ -736,18 +607,8 @@ export var ListBlockingInstancesForCapacityTaskInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListBlockingInstancesForCapacityTaskOutput: StaticStructureSchema = [
@@ -765,30 +626,10 @@ export var ListCapacityTasksInput: StaticStructureSchema = [
   0,
   [_OIF, _MR, _NT, _CTSF],
   [
-    [
-      0,
-      {
-        [_hQ]: _OIF,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _CTSF,
-      },
-    ],
+    [0, { [_hQ]: _OIF }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
+    [64 | 0, { [_hQ]: _CTSF }],
   ],
 ];
 export var ListCapacityTasksOutput: StaticStructureSchema = [3, n0, _LCTO, 0, [_CT, _NT], [() => CapacityTaskList, 0]];
@@ -799,36 +640,11 @@ export var ListCatalogItemsInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _ICF, _SSF, _ECFF],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _ICF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _SSF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _ECFF,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [64 | 0, { [_hQ]: _ICF }],
+    [64 | 0, { [_hQ]: _SSF }],
+    [64 | 0, { [_hQ]: _ECFF }],
   ],
 ];
 export var ListCatalogItemsOutput: StaticStructureSchema = [
@@ -846,24 +662,9 @@ export var ListOrdersInput: StaticStructureSchema = [
   0,
   [_OIF, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _OIF,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _OIF }],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
   ],
 ];
 export var ListOrdersOutput: StaticStructureSchema = [
@@ -881,36 +682,11 @@ export var ListOutpostsInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _LCSF, _AZF, _AZIF],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _LCSF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _AZF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _AZIF,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [64 | 0, { [_hQ]: _LCSF }],
+    [64 | 0, { [_hQ]: _AZF }],
+    [64 | 0, { [_hQ]: _AZIF }],
   ],
 ];
 export var ListOutpostsOutput: StaticStructureSchema = [3, n0, _LOOi, 0, [_Out, _NT], [() => outpostListDefinition, 0]];
@@ -921,54 +697,18 @@ export var ListSitesInput: StaticStructureSchema = [
   0,
   [_NT, _MR, _OACCF, _OASORF, _OACF],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _OACCF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _OASORF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _OACF,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
+    [64 | 0, { [_hQ]: _OACCF }],
+    [64 | 0, { [_hQ]: _OASORF }],
+    [64 | 0, { [_hQ]: _OACF }],
   ],
 ];
 export var ListSitesOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_Sit, _NT], [() => siteListDefinition, 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var Order: StaticStructureSchema = [
   3,
   n0,
@@ -1001,19 +741,8 @@ export var RackPhysicalProperties: StaticStructureSchema = [
   [_PDK, _PP, _PCo, _PFD, _UG, _UC, _FOCT, _OSp, _MSWL],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ShipmentInformation: StaticStructureSchema = [3, n0, _SIh, 0, [_STN, _SC], [0, 0]];
 export var Site: StaticStructureSchema = [
   3,
@@ -1061,12 +790,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1092,99 +816,57 @@ export var UpdateSiteRackPhysicalPropertiesInput: StaticStructureSchema = [
   [[0, 1], 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var UpdateSiteRackPhysicalPropertiesOutput: StaticStructureSchema = [3, n0, _USRPPO, 0, [_Si], [() => Site]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var OutpostsServiceException: StaticErrorSchema = [-3, _sm, "OutpostsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OutpostsServiceException, __OutpostsServiceException);
-
 export var AccountIdList = 64 | 0;
-
 export var AssetIdList = 64 | 0;
-
 export var AssetInstanceCapacityList: StaticListSchema = [1, n0, _AICL, 0, () => AssetInstanceTypeCapacity];
 export var AssetInstanceList: StaticListSchema = [1, n0, _AILs, 0, () => AssetInstance];
 export var AssetListDefinition: StaticListSchema = [1, n0, _ALD, 0, () => AssetInfo];
 export var AvailabilityZoneIdList = 64 | 0;
-
 export var AvailabilityZoneList = 64 | 0;
-
 export var AWSServiceNameList = 64 | 0;
-
 export var BlockingInstancesList: StaticListSchema = [1, n0, _BIL, 0, () => BlockingInstance];
 export var BlockingResourceTypeList = 64 | 0;
-
 export var CapacityTaskList: StaticListSchema = [1, n0, _CTL, 0, () => CapacityTaskSummary];
 export var CapacityTaskStatusList = 64 | 0;
-
 export var CatalogItemClassList = 64 | 0;
-
 export var CatalogItemListDefinition: StaticListSchema = [1, n0, _CILD, 0, () => CatalogItem];
 export var CIDRList = 64 | 0;
-
 export var CityList = 64 | 0;
-
 export var CountryCodeList = 64 | 0;
-
 export var EC2CapacityListDefinition: StaticListSchema = [1, n0, _ECCLD, 0, () => EC2Capacity];
 export var EC2FamilyList = 64 | 0;
-
 export var HostIdList = 64 | 0;
-
 export var InstanceFamilies = 64 | 0;
-
 export var InstanceIdList = 64 | 0;
-
 export var InstanceTypeListDefinition: StaticListSchema = [1, n0, _ITLD, 0, () => InstanceTypeItem];
 export var LifeCycleStatusList = 64 | 0;
-
 export var LineItemAssetInformationList: StaticListSchema = [1, n0, _LIAIL, 0, () => LineItemAssetInformation];
 export var LineItemListDefinition: StaticListSchema = [1, n0, _LILD, 0, () => LineItem];
 export var LineItemRequestListDefinition: StaticListSchema = [1, n0, _LIRLD, 0, () => LineItemRequest];
 export var MacAddressList = 64 | 0;
-
 export var OrderIdList = 64 | 0;
-
 export var OrderSummaryListDefinition: StaticListSchema = [1, n0, _OSLD, 0, () => OrderSummary];
 export var OutpostInstanceTypeList = 64 | 0;
-
 export var outpostListDefinition: StaticListSchema = [1, n0, _oLD, 0, () => Outpost];
 export var RequestedInstancePools: StaticListSchema = [1, n0, _RIP, 0, () => InstanceTypeCapacity];
 export var siteListDefinition: StaticListSchema = [1, n0, _sLD, 0, () => Site];
 export var StateOrRegionList = 64 | 0;
-
 export var StatusList = 64 | 0;
-
 export var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
 export var SupportedStorageList = 64 | 0;
-
 export var SupportedUplinkGbpsListDefinition = 64 | 1;
-
 export var TagKeyList = 64 | 0;
-
 export var LineItemStatusCounts = 128 | 1;
-
 export var TagMap = 128 | 0;
-
 export var CancelCapacityTask: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  {
-    [_h]: ["POST", "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", 200],
-  },
+  { [_h]: ["POST", "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", 200] },
   () => CancelCapacityTaskInput,
   () => CancelCapacityTaskOutput,
 ];
@@ -1192,9 +874,7 @@ export var CancelOrder: StaticOperationSchema = [
   9,
   n0,
   _CO,
-  {
-    [_h]: ["POST", "/orders/{OrderId}/cancel", 200],
-  },
+  { [_h]: ["POST", "/orders/{OrderId}/cancel", 200] },
   () => CancelOrderInput,
   () => CancelOrderOutput,
 ];
@@ -1202,9 +882,7 @@ export var CreateOrder: StaticOperationSchema = [
   9,
   n0,
   _COr,
-  {
-    [_h]: ["POST", "/orders", 200],
-  },
+  { [_h]: ["POST", "/orders", 200] },
   () => CreateOrderInput,
   () => CreateOrderOutput,
 ];
@@ -1212,9 +890,7 @@ export var CreateOutpost: StaticOperationSchema = [
   9,
   n0,
   _COre,
-  {
-    [_h]: ["POST", "/outposts", 200],
-  },
+  { [_h]: ["POST", "/outposts", 200] },
   () => CreateOutpostInput,
   () => CreateOutpostOutput,
 ];
@@ -1222,9 +898,7 @@ export var CreateSite: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/sites", 200],
-  },
+  { [_h]: ["POST", "/sites", 200] },
   () => CreateSiteInput,
   () => CreateSiteOutput,
 ];
@@ -1232,9 +906,7 @@ export var DeleteOutpost: StaticOperationSchema = [
   9,
   n0,
   _DO,
-  {
-    [_h]: ["DELETE", "/outposts/{OutpostId}", 200],
-  },
+  { [_h]: ["DELETE", "/outposts/{OutpostId}", 200] },
   () => DeleteOutpostInput,
   () => DeleteOutpostOutput,
 ];
@@ -1242,9 +914,7 @@ export var DeleteSite: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/sites/{SiteId}", 200],
-  },
+  { [_h]: ["DELETE", "/sites/{SiteId}", 200] },
   () => DeleteSiteInput,
   () => DeleteSiteOutput,
 ];
@@ -1252,9 +922,7 @@ export var GetCapacityTask: StaticOperationSchema = [
   9,
   n0,
   _GCT,
-  {
-    [_h]: ["GET", "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}", 200] },
   () => GetCapacityTaskInput,
   () => GetCapacityTaskOutput,
 ];
@@ -1262,9 +930,7 @@ export var GetCatalogItem: StaticOperationSchema = [
   9,
   n0,
   _GCI,
-  {
-    [_h]: ["GET", "/catalog/item/{CatalogItemId}", 200],
-  },
+  { [_h]: ["GET", "/catalog/item/{CatalogItemId}", 200] },
   () => GetCatalogItemInput,
   () => GetCatalogItemOutput,
 ];
@@ -1272,9 +938,7 @@ export var GetConnection: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/connections/{ConnectionId}", 200],
-  },
+  { [_h]: ["GET", "/connections/{ConnectionId}", 200] },
   () => GetConnectionRequest,
   () => GetConnectionResponse,
 ];
@@ -1282,9 +946,7 @@ export var GetOrder: StaticOperationSchema = [
   9,
   n0,
   _GO,
-  {
-    [_h]: ["GET", "/orders/{OrderId}", 200],
-  },
+  { [_h]: ["GET", "/orders/{OrderId}", 200] },
   () => GetOrderInput,
   () => GetOrderOutput,
 ];
@@ -1292,9 +954,7 @@ export var GetOutpost: StaticOperationSchema = [
   9,
   n0,
   _GOe,
-  {
-    [_h]: ["GET", "/outposts/{OutpostId}", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostId}", 200] },
   () => GetOutpostInput,
   () => GetOutpostOutput,
 ];
@@ -1302,9 +962,7 @@ export var GetOutpostBillingInformation: StaticOperationSchema = [
   9,
   n0,
   _GOBI,
-  {
-    [_h]: ["GET", "/outpost/{OutpostIdentifier}/billing-information", 200],
-  },
+  { [_h]: ["GET", "/outpost/{OutpostIdentifier}/billing-information", 200] },
   () => GetOutpostBillingInformationInput,
   () => GetOutpostBillingInformationOutput,
 ];
@@ -1312,9 +970,7 @@ export var GetOutpostInstanceTypes: StaticOperationSchema = [
   9,
   n0,
   _GOIT,
-  {
-    [_h]: ["GET", "/outposts/{OutpostId}/instanceTypes", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostId}/instanceTypes", 200] },
   () => GetOutpostInstanceTypesInput,
   () => GetOutpostInstanceTypesOutput,
 ];
@@ -1322,9 +978,7 @@ export var GetOutpostSupportedInstanceTypes: StaticOperationSchema = [
   9,
   n0,
   _GOSIT,
-  {
-    [_h]: ["GET", "/outposts/{OutpostIdentifier}/supportedInstanceTypes", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostIdentifier}/supportedInstanceTypes", 200] },
   () => GetOutpostSupportedInstanceTypesInput,
   () => GetOutpostSupportedInstanceTypesOutput,
 ];
@@ -1332,9 +986,7 @@ export var GetSite: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/sites/{SiteId}", 200],
-  },
+  { [_h]: ["GET", "/sites/{SiteId}", 200] },
   () => GetSiteInput,
   () => GetSiteOutput,
 ];
@@ -1342,9 +994,7 @@ export var GetSiteAddress: StaticOperationSchema = [
   9,
   n0,
   _GSA,
-  {
-    [_h]: ["GET", "/sites/{SiteId}/address", 200],
-  },
+  { [_h]: ["GET", "/sites/{SiteId}/address", 200] },
   () => GetSiteAddressInput,
   () => GetSiteAddressOutput,
 ];
@@ -1352,9 +1002,7 @@ export var ListAssetInstances: StaticOperationSchema = [
   9,
   n0,
   _LAIi,
-  {
-    [_h]: ["GET", "/outposts/{OutpostIdentifier}/assetInstances", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostIdentifier}/assetInstances", 200] },
   () => ListAssetInstancesInput,
   () => ListAssetInstancesOutput,
 ];
@@ -1362,9 +1010,7 @@ export var ListAssets: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/outposts/{OutpostIdentifier}/assets", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostIdentifier}/assets", 200] },
   () => ListAssetsInput,
   () => ListAssetsOutput,
 ];
@@ -1372,9 +1018,7 @@ export var ListBlockingInstancesForCapacityTask: StaticOperationSchema = [
   9,
   n0,
   _LBIFCT,
-  {
-    [_h]: ["GET", "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}/blockingInstances", 200],
-  },
+  { [_h]: ["GET", "/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}/blockingInstances", 200] },
   () => ListBlockingInstancesForCapacityTaskInput,
   () => ListBlockingInstancesForCapacityTaskOutput,
 ];
@@ -1382,9 +1026,7 @@ export var ListCapacityTasks: StaticOperationSchema = [
   9,
   n0,
   _LCT,
-  {
-    [_h]: ["GET", "/capacity/tasks", 200],
-  },
+  { [_h]: ["GET", "/capacity/tasks", 200] },
   () => ListCapacityTasksInput,
   () => ListCapacityTasksOutput,
 ];
@@ -1392,9 +1034,7 @@ export var ListCatalogItems: StaticOperationSchema = [
   9,
   n0,
   _LCI,
-  {
-    [_h]: ["GET", "/catalog/items", 200],
-  },
+  { [_h]: ["GET", "/catalog/items", 200] },
   () => ListCatalogItemsInput,
   () => ListCatalogItemsOutput,
 ];
@@ -1402,9 +1042,7 @@ export var ListOrders: StaticOperationSchema = [
   9,
   n0,
   _LO,
-  {
-    [_h]: ["GET", "/list-orders", 200],
-  },
+  { [_h]: ["GET", "/list-orders", 200] },
   () => ListOrdersInput,
   () => ListOrdersOutput,
 ];
@@ -1412,9 +1050,7 @@ export var ListOutposts: StaticOperationSchema = [
   9,
   n0,
   _LOi,
-  {
-    [_h]: ["GET", "/outposts", 200],
-  },
+  { [_h]: ["GET", "/outposts", 200] },
   () => ListOutpostsInput,
   () => ListOutpostsOutput,
 ];
@@ -1422,9 +1058,7 @@ export var ListSites: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/sites", 200],
-  },
+  { [_h]: ["GET", "/sites", 200] },
   () => ListSitesInput,
   () => ListSitesOutput,
 ];
@@ -1432,9 +1066,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1442,9 +1074,7 @@ export var StartCapacityTask: StaticOperationSchema = [
   9,
   n0,
   _SCT,
-  {
-    [_h]: ["POST", "/outposts/{OutpostIdentifier}/capacity", 200],
-  },
+  { [_h]: ["POST", "/outposts/{OutpostIdentifier}/capacity", 200] },
   () => StartCapacityTaskInput,
   () => StartCapacityTaskOutput,
 ];
@@ -1452,9 +1082,7 @@ export var StartConnection: StaticOperationSchema = [
   9,
   n0,
   _SCt,
-  {
-    [_h]: ["POST", "/connections", 200],
-  },
+  { [_h]: ["POST", "/connections", 200] },
   () => StartConnectionRequest,
   () => StartConnectionResponse,
 ];
@@ -1462,9 +1090,7 @@ export var StartOutpostDecommission: StaticOperationSchema = [
   9,
   n0,
   _SOD,
-  {
-    [_h]: ["POST", "/outposts/{OutpostIdentifier}/decommission", 200],
-  },
+  { [_h]: ["POST", "/outposts/{OutpostIdentifier}/decommission", 200] },
   () => StartOutpostDecommissionInput,
   () => StartOutpostDecommissionOutput,
 ];
@@ -1472,9 +1098,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1482,9 +1106,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1492,9 +1114,7 @@ export var UpdateOutpost: StaticOperationSchema = [
   9,
   n0,
   _UO,
-  {
-    [_h]: ["PATCH", "/outposts/{OutpostId}", 200],
-  },
+  { [_h]: ["PATCH", "/outposts/{OutpostId}", 200] },
   () => UpdateOutpostInput,
   () => UpdateOutpostOutput,
 ];
@@ -1502,9 +1122,7 @@ export var UpdateSite: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PATCH", "/sites/{SiteId}", 200],
-  },
+  { [_h]: ["PATCH", "/sites/{SiteId}", 200] },
   () => UpdateSiteInput,
   () => UpdateSiteOutput,
 ];
@@ -1512,9 +1130,7 @@ export var UpdateSiteAddress: StaticOperationSchema = [
   9,
   n0,
   _USA,
-  {
-    [_h]: ["PUT", "/sites/{SiteId}/address", 200],
-  },
+  { [_h]: ["PUT", "/sites/{SiteId}/address", 200] },
   () => UpdateSiteAddressInput,
   () => UpdateSiteAddressOutput,
 ];
@@ -1522,9 +1138,7 @@ export var UpdateSiteRackPhysicalProperties: StaticOperationSchema = [
   9,
   n0,
   _USRPP,
-  {
-    [_h]: ["PATCH", "/sites/{SiteId}/rackPhysicalProperties", 200],
-  },
+  { [_h]: ["PATCH", "/sites/{SiteId}/rackPhysicalProperties", 200] },
   () => UpdateSiteRackPhysicalPropertiesInput,
   () => UpdateSiteRackPhysicalPropertiesOutput,
 ];

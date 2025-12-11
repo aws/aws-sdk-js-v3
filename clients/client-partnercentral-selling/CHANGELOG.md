@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.949.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.948.0...v3.949.0) (2025-12-10)
+
+
+### Features
+
+* **client-partnercentral-selling:** Adds support for the new Project.AwsPartition field on Opportunity and AWS Opportunity Summary. Use this field to specify the AWS partition where the opportunity will be deployed. ([885fb63](https://github.com/aws/aws-sdk-js-v3/commit/885fb630307ebeca6060fe9593b385b429605aa4))
+
+
+
+
+
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+**Note:** Version bump only for package @aws-sdk/client-partnercentral-selling
+
+
+
+
+
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+
+### Features
+
+* **client-partnercentral-selling:** Deal Sizing Service for AI-based deal size estimation with AWS service-level breakdown, supporting Expansion and Migration deals across Technology, and Reseller partner cohorts, including Pricing Calculator AddOn for MAP deals and funding incentives. ([867598e](https://github.com/aws/aws-sdk-js-v3/commit/867598e2c17d1cc7c6d654d0456e1362f55a0d20))
+
+
+
+
+
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+**Note:** Version bump only for package @aws-sdk/client-partnercentral-selling
+
+
+
+
+
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+**Note:** Version bump only for package @aws-sdk/client-partnercentral-selling
+
+
+
+
+
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-partnercentral-selling:** New Features: ([fbc7e4b](https://github.com/aws/aws-sdk-js-v3/commit/fbc7e4b8c2013a1cf4210d507d6890a5c638ca18))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

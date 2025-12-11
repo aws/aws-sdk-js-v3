@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContactFlowModulesRequest, ListContactFlowModulesResponse } from "../models/models_1";
+import type { ListContactFlowModulesRequest, ListContactFlowModulesResponse } from "../models/models_1";
 import { ListContactFlowModules } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface ListContactFlowModulesCommandInput extends ListContactFlowModul
 export interface ListContactFlowModulesCommandOutput extends ListContactFlowModulesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the flow modules for the specified Amazon Connect
- *    instance.</p>
+ * <p>Provides information about the flow modules for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

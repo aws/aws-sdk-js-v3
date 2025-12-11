@@ -61,19 +61,19 @@ export interface ValidationExceptionField {
  */
 export interface AssociateIamRoleToResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role to associate with the resource.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role to associate with the resource.</p>
    * @public
    */
   iamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services integration configuration settings for the IAM service role association.</p>
+   * <p>The Amazon Web Services integration configuration settings for the Amazon Web Services Identity and Access Management (IAM) service role association.</p>
    * @public
    */
   awsIntegration: SupportedAwsIntegration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target resource to associate with the IAM service role.</p>
+   * <p>The Amazon Resource Name (ARN) of the target resource to associate with the Amazon Web Services Identity and Access Management (IAM) service role.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -282,6 +282,12 @@ export interface CloudAutonomousVmCluster {
   odbNetworkId?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with this Autonomous VM cluster.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
    * <p>The name of the OCI resource anchor associated with this Autonomous VM cluster.</p>
    * @public
    */
@@ -316,6 +322,12 @@ export interface CloudAutonomousVmCluster {
    * @public
    */
   cloudExadataInfrastructureId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Cloud Exadata Infrastructure containing this Autonomous VM cluster.</p>
+   * @public
+   */
+  cloudExadataInfrastructureArn?: string | undefined;
 
   /**
    * <p>The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.</p>
@@ -582,6 +594,12 @@ export interface CloudAutonomousVmClusterSummary {
   odbNetworkId?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with this Autonomous VM cluster.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
    * <p>The name of the OCI resource anchor associated with this Autonomous VM cluster.</p>
    * @public
    */
@@ -616,6 +634,12 @@ export interface CloudAutonomousVmClusterSummary {
    * @public
    */
   cloudExadataInfrastructureId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exadata infrastructure containing this Autonomous VM cluster.</p>
+   * @public
+   */
+  cloudExadataInfrastructureArn?: string | undefined;
 
   /**
    * <p>The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.</p>
@@ -2290,25 +2314,25 @@ export interface DataCollectionOptions {
  */
 export interface IamRole {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
    * @public
    */
   iamRoleArn?: string | undefined;
 
   /**
-   * <p>The current status of the IAM service role.</p>
+   * <p>The current status of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
    * @public
    */
   status?: IamRoleStatus | undefined;
 
   /**
-   * <p>Additional information about the current status of the IAM service role, if applicable.</p>
+   * <p>Additional information about the current status of the Amazon Web Services Identity and Access Management (IAM) service role, if applicable.</p>
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services integration configuration settings for the IAM service role.</p>
+   * <p>The Amazon Web Services integration configuration settings for the Amazon Web Services Identity and Access Management (IAM) service role.</p>
    * @public
    */
   awsIntegration?: SupportedAwsIntegration | undefined;
@@ -2408,6 +2432,12 @@ export interface CloudVmCluster {
    * @public
    */
   cloudExadataInfrastructureId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exadata infrastructure that this VM cluster belongs to.</p>
+   * @public
+   */
+  cloudExadataInfrastructureArn?: string | undefined;
 
   /**
    * <p>The name of the Grid Infrastructure (GI) cluster.</p>
@@ -2602,6 +2632,12 @@ export interface CloudVmCluster {
   odbNetworkId?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with this VM cluster.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
    * <p>The amount of progress made on the current operation on the VM cluster, expressed as a percentage.</p>
    * @public
    */
@@ -2660,6 +2696,12 @@ export interface CloudVmClusterSummary {
    * @public
    */
   cloudExadataInfrastructureId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exadata infrastructure that this VM cluster belongs to.</p>
+   * @public
+   */
+  cloudExadataInfrastructureArn?: string | undefined;
 
   /**
    * <p>The name of the Grid Infrastructure (GI) cluster.</p>
@@ -2852,6 +2894,12 @@ export interface CloudVmClusterSummary {
    * @public
    */
   odbNetworkId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with this VM cluster.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
 
   /**
    * <p>The amount of progress made on the current operation on the VM cluster, expressed as a percentage.</p>
@@ -3193,13 +3241,13 @@ export interface CreateOdbNetworkInput {
   s3PolicyDocument?: string | undefined;
 
   /**
-   * <p>The STS policy document that defines permissions for token service usage within the ODB network.</p>
+   * <p>The Amazon Web Services Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.</p>
    * @public
    */
   stsPolicyDocument?: string | undefined;
 
   /**
-   * <p>The KMS policy document that defines permissions for key usage within the ODB network.</p>
+   * <p>The Amazon Web Services Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.</p>
    * @public
    */
   kmsPolicyDocument?: string | undefined;
@@ -3322,19 +3370,19 @@ export interface CreateOdbPeeringConnectionOutput {
  */
 export interface CrossRegionS3RestoreSourcesAccess {
   /**
-   * <p>The Amazon Web Services Region for cross-Region S3 restore access.</p>
+   * <p>The Amazon Web Services Region for cross-Region Amazon S3 restore access.</p>
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The IPv4 addresses allowed for cross-Region S3 restore access.</p>
+   * <p>The IPv4 addresses allowed for cross-Region Amazon S3 restore access.</p>
    * @public
    */
   ipv4Addresses?: string[] | undefined;
 
   /**
-   * <p>The current status of the cross-Region S3 restore access configuration.</p>
+   * <p>The current status of the cross-Region Amazon S3 restore access configuration.</p>
    * @public
    */
   status?: ManagedResourceStatus | undefined;
@@ -4057,19 +4105,19 @@ export interface DeleteOdbPeeringConnectionOutput {}
  */
 export interface DisassociateIamRoleFromResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role to disassociate from the resource.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role to disassociate from the resource.</p>
    * @public
    */
   iamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services integration configuration settings for the IAM service role disassociation.</p>
+   * <p>The Amazon Web Services integration configuration settings for the Amazon Web Services Identity and Access Management (IAM) service role disassociation.</p>
    * @public
    */
   awsIntegration: SupportedAwsIntegration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target resource to disassociate from the IAM service role.</p>
+   * <p>The Amazon Resource Name (ARN) of the target resource to disassociate from the Amazon Web Services Identity and Access Management (IAM) service role.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -4173,25 +4221,25 @@ export interface GetOdbNetworkInput {
  */
 export interface KmsAccess {
   /**
-   * <p>The current status of the KMS access configuration.</p>
+   * <p>The current status of the Amazon Web Services Key Management Service (KMS) access configuration.</p>
    * @public
    */
   status?: ManagedResourceStatus | undefined;
 
   /**
-   * <p>The IPv4 addresses allowed for KMS access.</p>
+   * <p>The IPv4 addresses allowed for Amazon Web Services Key Management Service (KMS) access.</p>
    * @public
    */
   ipv4Addresses?: string[] | undefined;
 
   /**
-   * <p>The domain name for KMS access configuration.</p>
+   * <p>The domain name for Amazon Web Services Key Management Service (KMS) access configuration.</p>
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The KMS policy document that defines permissions for key usage.</p>
+   * <p>The Amazon Web Services Key Management Service (KMS) policy document that defines permissions for key usage.</p>
    * @public
    */
   kmsPolicyDocument?: string | undefined;
@@ -4269,25 +4317,25 @@ export interface ServiceNetworkEndpoint {
  */
 export interface StsAccess {
   /**
-   * <p>The current status of the STS access configuration.</p>
+   * <p>The current status of the Amazon Web Services Security Token Service (STS) access configuration.</p>
    * @public
    */
   status?: ManagedResourceStatus | undefined;
 
   /**
-   * <p>The IPv4 addresses allowed for STS access.</p>
+   * <p>The IPv4 addresses allowed for Amazon Web Services Security Token Service (STS) access.</p>
    * @public
    */
   ipv4Addresses?: string[] | undefined;
 
   /**
-   * <p>The domain name for STS access configuration.</p>
+   * <p>The domain name for Amazon Web Services Security Token Service (STS) access configuration.</p>
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The STS policy document that defines permissions for token service usage.</p>
+   * <p>The Amazon Web Services Security Token Service (STS) policy document that defines permissions for token service usage.</p>
    * @public
    */
   stsPolicyDocument?: string | undefined;
@@ -4359,13 +4407,13 @@ export interface ManagedServices {
   s3Access?: S3Access | undefined;
 
   /**
-   * <p>The Amazon Web Services Security Token Service (STS) access configuration for managed services.</p>
+   * <p>The Amazon Web Services Security Token Service (STS) access configuration.</p>
    * @public
    */
   stsAccess?: StsAccess | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (KMS) access configuration for managed services.</p>
+   * <p>The Amazon Web Services Key Management Service (KMS) access configuration.</p>
    * @public
    */
   kmsAccess?: KmsAccess | undefined;
@@ -5175,13 +5223,13 @@ export interface UpdateOdbNetworkInput {
   s3PolicyDocument?: string | undefined;
 
   /**
-   * <p>The STS policy document that defines permissions for token service usage within the ODB network.</p>
+   * <p>The Amazon Web Services Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.</p>
    * @public
    */
   stsPolicyDocument?: string | undefined;
 
   /**
-   * <p>The KMS policy document that defines permissions for key usage within the ODB network.</p>
+   * <p>The Amazon Web Services Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.</p>
    * @public
    */
   kmsPolicyDocument?: string | undefined;

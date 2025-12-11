@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAttachedFileRequest, GetAttachedFileResponse } from "../models/models_1";
+import type { GetAttachedFileRequest, GetAttachedFileResponse } from "../models/models_1";
 import { GetAttachedFile } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,8 @@ export interface GetAttachedFileCommandInput extends GetAttachedFileRequest {}
 export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a pre-signed URL for download of an approved attached file. This API also returns
- *    metadata about the attached file. It will only return a downloadURL if the status of the attached
- *    file is <code>APPROVED</code>.</p>
+ * <p>Provides a pre-signed URL for download of an approved attached file. This API also returns metadata about the
+ *    attached file. It will only return a downloadURL if the status of the attached file is <code>APPROVED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DescribeS3AccessPointAttachmentsRequest, DescribeS3AccessPointAttachmentsResponse } from "../models/models_0";
+import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import type {
+  DescribeS3AccessPointAttachmentsRequest,
+  DescribeS3AccessPointAttachmentsResponse,
+} from "../models/models_0";
 import { DescribeS3AccessPointAttachments } from "../schemas/schemas_0";
 
 /**
@@ -66,13 +69,13 @@ export interface DescribeS3AccessPointAttachmentsCommandOutput
  * // { // DescribeS3AccessPointAttachmentsResponse
  * //   S3AccessPointAttachments: [ // S3AccessPointAttachments
  * //     { // S3AccessPointAttachment
- * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED" || "MISCONFIGURED",
  * //       LifecycleTransitionReason: { // LifecycleTransitionReason
  * //         Message: "STRING_VALUE",
  * //       },
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       Name: "STRING_VALUE",
- * //       Type: "OPENZFS",
+ * //       Type: "OPENZFS" || "ONTAP",
  * //       OpenZFSConfiguration: { // S3AccessPointOpenZFSConfiguration
  * //         VolumeId: "STRING_VALUE",
  * //         FileSystemIdentity: { // OpenZFSFileSystemIdentity
@@ -83,6 +86,18 @@ export interface DescribeS3AccessPointAttachmentsCommandOutput
  * //             SecondaryGids: [ // FileSystemSecondaryGIDs
  * //               Number("long"),
  * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //       OntapConfiguration: { // S3AccessPointOntapConfiguration
+ * //         VolumeId: "STRING_VALUE",
+ * //         FileSystemIdentity: { // OntapFileSystemIdentity
+ * //           Type: "UNIX" || "WINDOWS", // required
+ * //           UnixUser: { // OntapUnixFileSystemUser
+ * //             Name: "STRING_VALUE", // required
+ * //           },
+ * //           WindowsUser: { // OntapWindowsFileSystemUser
+ * //             Name: "STRING_VALUE", // required
  * //           },
  * //         },
  * //       },

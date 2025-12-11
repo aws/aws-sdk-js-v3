@@ -280,7 +280,7 @@ const n0 = "com.amazonaws.amp";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -300,20 +300,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AlertManagerDefinitionDescription: StaticStructureSchema = [
   3,
   n0,
@@ -355,19 +343,8 @@ export var AnomalyDetectorSummary: StaticStructureSchema = [
 ];
 export var CloudWatchLogDestination: StaticStructureSchema = [3, n0, _CWLD, 0, [_lGA], [0]];
 export var ComponentConfig: StaticStructureSchema = [3, n0, _CC, 0, [_o], [128 | 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAlertManagerDefinitionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -488,13 +465,7 @@ export var DeleteAlertManagerDefinitionRequest: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteAnomalyDetectorRequest: StaticStructureSchema = [
@@ -506,13 +477,7 @@ export var DeleteAnomalyDetectorRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteLoggingConfigurationRequest: StaticStructureSchema = [
@@ -523,13 +488,7 @@ export var DeleteLoggingConfigurationRequest: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteQueryLoggingConfigurationRequest: StaticStructureSchema = [
@@ -540,13 +499,7 @@ export var DeleteQueryLoggingConfigurationRequest: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteResourcePolicyRequest: StaticStructureSchema = [
@@ -557,19 +510,8 @@ export var DeleteResourcePolicyRequest: StaticStructureSchema = [
   [_wI, _cT, _rIe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rIe,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _rIe }],
   ],
 ];
 export var DeleteRuleGroupsNamespaceRequest: StaticStructureSchema = [
@@ -581,13 +523,7 @@ export var DeleteRuleGroupsNamespaceRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteScraperLoggingConfigurationRequest: StaticStructureSchema = [
@@ -598,13 +534,7 @@ export var DeleteScraperLoggingConfigurationRequest: StaticStructureSchema = [
   [_sI, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteScraperRequest: StaticStructureSchema = [
@@ -615,13 +545,7 @@ export var DeleteScraperRequest: StaticStructureSchema = [
   [_sI, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeleteScraperResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_sI, _s], [0, () => ScraperStatus]];
@@ -633,13 +557,7 @@ export var DeleteWorkspaceRequest: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DescribeAlertManagerDefinitionRequest: StaticStructureSchema = [3, n0, _DAMDRe, 0, [_wI], [[0, 1]]];
@@ -738,23 +656,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LimitsPerLabelSet: StaticStructureSchema = [
   3,
   n0,
@@ -772,24 +678,9 @@ export var ListAnomalyDetectorsRequest: StaticStructureSchema = [
   [_wI, _al, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _al,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _al }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAnomalyDetectorsResponse: StaticStructureSchema = [
@@ -808,24 +699,9 @@ export var ListRuleGroupsNamespacesRequest: StaticStructureSchema = [
   [_wI, _n, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRuleGroupsNamespacesResponse: StaticStructureSchema = [
@@ -844,18 +720,8 @@ export var ListScrapersRequest: StaticStructureSchema = [
   [_f, _nT, _mR],
   [
     [[2, n0, _SF, 0, 0, 64 | 0], 64],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListScrapersResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_scr, _nT], [() => ScraperSummaryList, 0]];
@@ -868,24 +734,9 @@ export var ListWorkspacesRequest: StaticStructureSchema = [
   0,
   [_nT, _al, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _al,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _al }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWorkspacesResponse: StaticStructureSchema = [
@@ -992,15 +843,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RoleConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_sRA, _tRA], [0, 0]];
 export var RuleGroupsNamespaceDescription: StaticStructureSchema = [
   3,
@@ -1056,40 +903,22 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sCe, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1098,12 +927,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1192,15 +1016,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_sGI, _sIu], [64 | 0, 64 | 0]];
 export var WorkspaceConfigurationDescription: StaticStructureSchema = [
@@ -1230,35 +1050,25 @@ export var WorkspaceSummary: StaticStructureSchema = [
   [0, 0, 0, () => WorkspaceStatus, 4, 128 | 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var AmpServiceException: StaticErrorSchema = [-3, _sm, "AmpServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AmpServiceException, __AmpServiceException);
-
 export var AnomalyDetectorSummaryList: StaticListSchema = [1, n0, _ADSL, 0, () => AnomalyDetectorSummary];
 export var FilterValues = 64 | 0;
-
 export var LimitsPerLabelSetList: StaticListSchema = [1, n0, _LPLSL, 0, () => LimitsPerLabelSet];
 export var LoggingDestinations: StaticListSchema = [1, n0, _LDo, 0, () => LoggingDestination];
 export var RuleGroupsNamespaceSummaryList: StaticListSchema = [1, n0, _RGNSL, 0, () => RuleGroupsNamespaceSummary];
 export var ScraperComponents: StaticListSchema = [1, n0, _SCc, 0, () => ScraperComponent];
 export var ScraperSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => ScraperSummary];
 export var SecurityGroupIds = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var WorkspaceSummaryList: StaticListSchema = [1, n0, _WSL, 0, () => WorkspaceSummary];
 export var LabelSet = 128 | 0;
-
 export var PrometheusMetricLabelMap = 128 | 0;
-
 export var ScraperFilters: StaticMapSchema = [2, n0, _SF, 0, 0, 64 | 0];
 export var StringMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AnomalyDetectorConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1284,9 +1094,7 @@ export var CreateAlertManagerDefinition: StaticOperationSchema = [
   9,
   n0,
   _CAMD,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/alertmanager/definition", 202],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/alertmanager/definition", 202] },
   () => CreateAlertManagerDefinitionRequest,
   () => CreateAlertManagerDefinitionResponse,
 ];
@@ -1294,9 +1102,7 @@ export var CreateAnomalyDetector: StaticOperationSchema = [
   9,
   n0,
   _CAD,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/anomalydetectors", 202],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/anomalydetectors", 202] },
   () => CreateAnomalyDetectorRequest,
   () => CreateAnomalyDetectorResponse,
 ];
@@ -1304,9 +1110,7 @@ export var CreateLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CLC,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/logging", 202],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/logging", 202] },
   () => CreateLoggingConfigurationRequest,
   () => CreateLoggingConfigurationResponse,
 ];
@@ -1314,9 +1118,7 @@ export var CreateQueryLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CQLC,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/logging/query", 202],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/logging/query", 202] },
   () => CreateQueryLoggingConfigurationRequest,
   () => CreateQueryLoggingConfigurationResponse,
 ];
@@ -1324,9 +1126,7 @@ export var CreateRuleGroupsNamespace: StaticOperationSchema = [
   9,
   n0,
   _CRGN,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/rulegroupsnamespaces", 202],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/rulegroupsnamespaces", 202] },
   () => CreateRuleGroupsNamespaceRequest,
   () => CreateRuleGroupsNamespaceResponse,
 ];
@@ -1334,9 +1134,7 @@ export var CreateScraper: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/scrapers", 202],
-  },
+  { [_h]: ["POST", "/scrapers", 202] },
   () => CreateScraperRequest,
   () => CreateScraperResponse,
 ];
@@ -1344,9 +1142,7 @@ export var CreateWorkspace: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_h]: ["POST", "/workspaces", 202],
-  },
+  { [_h]: ["POST", "/workspaces", 202] },
   () => CreateWorkspaceRequest,
   () => CreateWorkspaceResponse,
 ];
@@ -1354,9 +1150,7 @@ export var DeleteAlertManagerDefinition: StaticOperationSchema = [
   9,
   n0,
   _DAMD,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/alertmanager/definition", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/alertmanager/definition", 202] },
   () => DeleteAlertManagerDefinitionRequest,
   () => __Unit,
 ];
@@ -1364,9 +1158,7 @@ export var DeleteAnomalyDetector: StaticOperationSchema = [
   9,
   n0,
   _DAD,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}", 202] },
   () => DeleteAnomalyDetectorRequest,
   () => __Unit,
 ];
@@ -1374,9 +1166,7 @@ export var DeleteLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DLC,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/logging", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/logging", 202] },
   () => DeleteLoggingConfigurationRequest,
   () => __Unit,
 ];
@@ -1384,9 +1174,7 @@ export var DeleteQueryLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DQLC,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/logging/query", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/logging/query", 202] },
   () => DeleteQueryLoggingConfigurationRequest,
   () => __Unit,
 ];
@@ -1394,9 +1182,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/policy", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/policy", 202] },
   () => DeleteResourcePolicyRequest,
   () => __Unit,
 ];
@@ -1404,9 +1190,7 @@ export var DeleteRuleGroupsNamespace: StaticOperationSchema = [
   9,
   n0,
   _DRGN,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}", 202] },
   () => DeleteRuleGroupsNamespaceRequest,
   () => __Unit,
 ];
@@ -1414,9 +1198,7 @@ export var DeleteScraper: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/scrapers/{scraperId}", 202],
-  },
+  { [_h]: ["DELETE", "/scrapers/{scraperId}", 202] },
   () => DeleteScraperRequest,
   () => DeleteScraperResponse,
 ];
@@ -1424,9 +1206,7 @@ export var DeleteScraperLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DSLC,
-  {
-    [_h]: ["DELETE", "/scrapers/{scraperId}/logging-configuration", 202],
-  },
+  { [_h]: ["DELETE", "/scrapers/{scraperId}/logging-configuration", 202] },
   () => DeleteScraperLoggingConfigurationRequest,
   () => __Unit,
 ];
@@ -1434,9 +1214,7 @@ export var DeleteWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/workspaces/{workspaceId}", 202],
-  },
+  { [_h]: ["DELETE", "/workspaces/{workspaceId}", 202] },
   () => DeleteWorkspaceRequest,
   () => __Unit,
 ];
@@ -1444,9 +1222,7 @@ export var DescribeAlertManagerDefinition: StaticOperationSchema = [
   9,
   n0,
   _DAMDe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/alertmanager/definition", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/alertmanager/definition", 200] },
   () => DescribeAlertManagerDefinitionRequest,
   () => DescribeAlertManagerDefinitionResponse,
 ];
@@ -1454,9 +1230,7 @@ export var DescribeAnomalyDetector: StaticOperationSchema = [
   9,
   n0,
   _DADe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}", 200] },
   () => DescribeAnomalyDetectorRequest,
   () => DescribeAnomalyDetectorResponse,
 ];
@@ -1464,9 +1238,7 @@ export var DescribeLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DLCe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/logging", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/logging", 200] },
   () => DescribeLoggingConfigurationRequest,
   () => DescribeLoggingConfigurationResponse,
 ];
@@ -1474,9 +1246,7 @@ export var DescribeQueryLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DQLCe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/logging/query", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/logging/query", 200] },
   () => DescribeQueryLoggingConfigurationRequest,
   () => DescribeQueryLoggingConfigurationResponse,
 ];
@@ -1484,9 +1254,7 @@ export var DescribeResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/policy", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/policy", 200] },
   () => DescribeResourcePolicyRequest,
   () => DescribeResourcePolicyResponse,
 ];
@@ -1494,9 +1262,7 @@ export var DescribeRuleGroupsNamespace: StaticOperationSchema = [
   9,
   n0,
   _DRGNe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}", 200] },
   () => DescribeRuleGroupsNamespaceRequest,
   () => DescribeRuleGroupsNamespaceResponse,
 ];
@@ -1504,9 +1270,7 @@ export var DescribeScraper: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["GET", "/scrapers/{scraperId}", 200],
-  },
+  { [_h]: ["GET", "/scrapers/{scraperId}", 200] },
   () => DescribeScraperRequest,
   () => DescribeScraperResponse,
 ];
@@ -1514,9 +1278,7 @@ export var DescribeScraperLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DSLCe,
-  {
-    [_h]: ["GET", "/scrapers/{scraperId}/logging-configuration", 200],
-  },
+  { [_h]: ["GET", "/scrapers/{scraperId}/logging-configuration", 200] },
   () => DescribeScraperLoggingConfigurationRequest,
   () => DescribeScraperLoggingConfigurationResponse,
 ];
@@ -1524,9 +1286,7 @@ export var DescribeWorkspace: StaticOperationSchema = [
   9,
   n0,
   _DWe,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}", 200] },
   () => DescribeWorkspaceRequest,
   () => DescribeWorkspaceResponse,
 ];
@@ -1534,9 +1294,7 @@ export var DescribeWorkspaceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DWC,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/configuration", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/configuration", 200] },
   () => DescribeWorkspaceConfigurationRequest,
   () => DescribeWorkspaceConfigurationResponse,
 ];
@@ -1544,9 +1302,7 @@ export var GetDefaultScraperConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GDSC,
-  {
-    [_h]: ["GET", "/scraperconfiguration", 200],
-  },
+  { [_h]: ["GET", "/scraperconfiguration", 200] },
   () => GetDefaultScraperConfigurationRequest,
   () => GetDefaultScraperConfigurationResponse,
 ];
@@ -1554,9 +1310,7 @@ export var ListAnomalyDetectors: StaticOperationSchema = [
   9,
   n0,
   _LAD,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/anomalydetectors", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/anomalydetectors", 200] },
   () => ListAnomalyDetectorsRequest,
   () => ListAnomalyDetectorsResponse,
 ];
@@ -1564,9 +1318,7 @@ export var ListRuleGroupsNamespaces: StaticOperationSchema = [
   9,
   n0,
   _LRGN,
-  {
-    [_h]: ["GET", "/workspaces/{workspaceId}/rulegroupsnamespaces", 200],
-  },
+  { [_h]: ["GET", "/workspaces/{workspaceId}/rulegroupsnamespaces", 200] },
   () => ListRuleGroupsNamespacesRequest,
   () => ListRuleGroupsNamespacesResponse,
 ];
@@ -1574,9 +1326,7 @@ export var ListScrapers: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/scrapers", 200],
-  },
+  { [_h]: ["GET", "/scrapers", 200] },
   () => ListScrapersRequest,
   () => ListScrapersResponse,
 ];
@@ -1584,9 +1334,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1594,9 +1342,7 @@ export var ListWorkspaces: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_h]: ["GET", "/workspaces", 200],
-  },
+  { [_h]: ["GET", "/workspaces", 200] },
   () => ListWorkspacesRequest,
   () => ListWorkspacesResponse,
 ];
@@ -1604,9 +1350,7 @@ export var PutAlertManagerDefinition: StaticOperationSchema = [
   9,
   n0,
   _PAMD,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/alertmanager/definition", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/alertmanager/definition", 202] },
   () => PutAlertManagerDefinitionRequest,
   () => PutAlertManagerDefinitionResponse,
 ];
@@ -1614,9 +1358,7 @@ export var PutAnomalyDetector: StaticOperationSchema = [
   9,
   n0,
   _PAD,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}", 202] },
   () => PutAnomalyDetectorRequest,
   () => PutAnomalyDetectorResponse,
 ];
@@ -1624,9 +1366,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/policy", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/policy", 202] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -1634,9 +1374,7 @@ export var PutRuleGroupsNamespace: StaticOperationSchema = [
   9,
   n0,
   _PRGN,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}", 202] },
   () => PutRuleGroupsNamespaceRequest,
   () => PutRuleGroupsNamespaceResponse,
 ];
@@ -1644,9 +1382,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1654,9 +1390,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1664,9 +1398,7 @@ export var UpdateLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _ULC,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/logging", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/logging", 202] },
   () => UpdateLoggingConfigurationRequest,
   () => UpdateLoggingConfigurationResponse,
 ];
@@ -1674,9 +1406,7 @@ export var UpdateQueryLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UQLC,
-  {
-    [_h]: ["PUT", "/workspaces/{workspaceId}/logging/query", 202],
-  },
+  { [_h]: ["PUT", "/workspaces/{workspaceId}/logging/query", 202] },
   () => UpdateQueryLoggingConfigurationRequest,
   () => UpdateQueryLoggingConfigurationResponse,
 ];
@@ -1684,9 +1414,7 @@ export var UpdateScraper: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/scrapers/{scraperId}", 202],
-  },
+  { [_h]: ["PUT", "/scrapers/{scraperId}", 202] },
   () => UpdateScraperRequest,
   () => UpdateScraperResponse,
 ];
@@ -1694,9 +1422,7 @@ export var UpdateScraperLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _USLC,
-  {
-    [_h]: ["PUT", "/scrapers/{scraperId}/logging-configuration", 202],
-  },
+  { [_h]: ["PUT", "/scrapers/{scraperId}/logging-configuration", 202] },
   () => UpdateScraperLoggingConfigurationRequest,
   () => UpdateScraperLoggingConfigurationResponse,
 ];
@@ -1704,9 +1430,7 @@ export var UpdateWorkspaceAlias: StaticOperationSchema = [
   9,
   n0,
   _UWA,
-  {
-    [_h]: ["POST", "/workspaces/{workspaceId}/alias", 204],
-  },
+  { [_h]: ["POST", "/workspaces/{workspaceId}/alias", 204] },
   () => UpdateWorkspaceAliasRequest,
   () => __Unit,
 ];
@@ -1714,9 +1438,7 @@ export var UpdateWorkspaceConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UWC,
-  {
-    [_h]: ["PATCH", "/workspaces/{workspaceId}/configuration", 202],
-  },
+  { [_h]: ["PATCH", "/workspaces/{workspaceId}/configuration", 202] },
   () => UpdateWorkspaceConfigurationRequest,
   () => UpdateWorkspaceConfigurationResponse,
 ];

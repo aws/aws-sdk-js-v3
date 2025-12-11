@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ForecastqueryClientConfig } from "./ForecastqueryClient";
+import type { ForecastqueryClientConfig } from "./ForecastqueryClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

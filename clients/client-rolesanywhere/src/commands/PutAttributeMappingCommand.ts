@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutAttributeMappingRequest, PutAttributeMappingResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { PutAttributeMappingRequest, PutAttributeMappingResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { PutAttributeMapping } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface PutAttributeMappingCommandInput extends PutAttributeMappingRequ
 export interface PutAttributeMappingCommandOutput extends PutAttributeMappingResponse, __MetadataBearer {}
 
 /**
- * <p>Put an entry in the attribute mapping rules that will be enforced by a given profile.
- *       A mapping specifies a certificate field and one or more specifiers that have contextual meanings.</p>
+ * <p>Put an entry in the attribute mapping rules that will be enforced by a given profile. A mapping specifies a certificate field and one or more specifiers that have contextual meanings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

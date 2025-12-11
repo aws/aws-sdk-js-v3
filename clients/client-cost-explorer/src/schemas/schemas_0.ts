@@ -84,6 +84,8 @@ const _CCNo = "CostCategoryNames";
 const _CCPS = "CostCategoryProcessingStatus";
 const _CCPSL = "CostCategoryProcessingStatusList";
 const _CCR = "CostCategoryReference";
+const _CCRA = "CostCategoryResourceAssociation";
+const _CCRAo = "CostCategoryResourceAssociations";
 const _CCRL = "CostCategoryReferencesList";
 const _CCRLo = "CostCategoryRulesList";
 const _CCRo = "CostCategoryRule";
@@ -320,6 +322,9 @@ const _LCATRi = "ListCostAllocationTagsResponse";
 const _LCCD = "ListCostCategoryDefinitions";
 const _LCCDR = "ListCostCategoryDefinitionsRequest";
 const _LCCDRi = "ListCostCategoryDefinitionsResponse";
+const _LCCRA = "ListCostCategoryResourceAssociations";
+const _LCCRAR = "ListCostCategoryResourceAssociationsRequest";
+const _LCCRARi = "ListCostCategoryResourceAssociationsResponse";
 const _LCPA = "ListCommitmentPurchaseAnalyses";
 const _LCPAR = "ListCommitmentPurchaseAnalysesRequest";
 const _LCPARi = "ListCommitmentPurchaseAnalysesResponse";
@@ -519,6 +524,7 @@ const _SPUD = "SavingsPlansUtilizationDetails";
 const _SPUDa = "SavingsPlansUtilizationDetail";
 const _SPa = "SavingsPlans";
 const _SQEE = "ServiceQuotaExceededException";
+const _SRT = "SupportedResourceTypes";
 const _SS = "SearchString";
 const _SSPPRG = "StartSavingsPlansPurchaseRecommendationGeneration";
 const _SSPPRGR = "StartSavingsPlansPurchaseRecommendationGenerationRequest";
@@ -622,7 +628,7 @@ const n0 = "com.amazonaws.costexplorer";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -650,7 +656,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AnalysisDetails: StaticStructureSchema = [
   3,
   n0,
@@ -659,19 +664,8 @@ export var AnalysisDetails: StaticStructureSchema = [
   [_SPPAD],
   [() => SavingsPlansPurchaseAnalysisDetails],
 ];
-export var AnalysisNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var AnalysisNotFoundException: StaticErrorSchema = [-3, n0, _ANFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AnalysisNotFoundException, __AnalysisNotFoundException);
-
 export var AnalysisSummary: StaticStructureSchema = [
   3,
   n0,
@@ -706,43 +700,12 @@ export var AnomalySubscription: StaticStructureSchema = [
   [_SA, _AIc, _MAL, _S, _T, _Fr, _SN, _TE],
   [0, 0, 64 | 0, () => Subscribers, 1, 0, 0, () => Expression],
 ];
-export var BackfillLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BackfillLimitExceededException: StaticErrorSchema = [-3, n0, _BLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BackfillLimitExceededException, __BackfillLimitExceededException);
-
-export var BillExpirationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var BillExpirationException: StaticErrorSchema = [-3, n0, _BEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BillExpirationException, __BillExpirationException);
-
-export var BillingViewHealthStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BVHSE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var BillingViewHealthStatusException: StaticErrorSchema = [-3, n0, _BVHSE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BillingViewHealthStatusException, __BillingViewHealthStatusException);
-
 export var CommitmentPurchaseAnalysisConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -795,9 +758,10 @@ export var CostCategoryReference: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_CCA, _N, _ES, _EE, _NOR, _PS, _V, _DVe],
-  [0, 0, 0, 0, 1, () => CostCategoryProcessingStatusList, 64 | 0, 0],
+  [_CCA, _N, _ES, _EE, _NOR, _PS, _V, _DVe, _SRT],
+  [0, 0, 0, 0, 1, () => CostCategoryProcessingStatusList, 64 | 0, 0, 64 | 0],
 ];
+export var CostCategoryResourceAssociation: StaticStructureSchema = [3, n0, _CCRA, 0, [_RAe, _CCN, _CCA], [0, 0, 0]];
 export var CostCategoryRule: StaticStructureSchema = [
   3,
   n0,
@@ -879,18 +843,8 @@ export var CurrentInstance: StaticStructureSchema = [
   [_RI, _IN, _Tag, _RD, _RU, _RCHILP, _SPCHILP, _ODHILP, _TRHILP, _MC, _CCu],
   [0, 0, () => TagValuesList, () => ResourceDetails, () => ResourceUtilization, 0, 0, 0, 0, 0, 0],
 ];
-export var DataUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DataUnavailableException: StaticErrorSchema = [-3, n0, _DUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DataUnavailableException, __DataUnavailableException);
-
 export var DateInterval: StaticStructureSchema = [3, n0, _DI, 0, [_Sta, _E], [0, 0]];
 export var DeleteAnomalyMonitorRequest: StaticStructureSchema = [3, n0, _DAMR, 0, [_MA], [0]];
 export var DeleteAnomalyMonitorResponse: StaticStructureSchema = [3, n0, _DAMRe, 0, [], []];
@@ -983,19 +937,8 @@ export var ForecastResult: StaticStructureSchema = [
   [_TP, _MV, _PILB, _PIUB],
   [() => DateInterval, 0, 0, 0],
 ];
-export var GenerationExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var GenerationExistsException: StaticErrorSchema = [-3, n0, _GEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(GenerationExistsException, __GenerationExistsException);
-
 export var GenerationSummary: StaticStructureSchema = [3, n0, _GS, 0, [_RIe, _GSe, _GST, _GCT, _ECT], [0, 0, 0, 0, 0]];
 export var GetAnomaliesRequest: StaticStructureSchema = [
   3,
@@ -1361,30 +1304,10 @@ export var InstanceDetails: StaticStructureSchema = [
     () => MemoryDBInstanceDetails,
   ],
 ];
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListCommitmentPurchaseAnalysesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1433,7 +1356,14 @@ export var ListCostAllocationTagsResponse: StaticStructureSchema = [
   [_CATo, _NTe],
   [() => CostAllocationTagList, 0],
 ];
-export var ListCostCategoryDefinitionsRequest: StaticStructureSchema = [3, n0, _LCCDR, 0, [_EO, _NTe, _MR], [0, 0, 1]];
+export var ListCostCategoryDefinitionsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCCDR,
+  0,
+  [_EO, _NTe, _MR, _SRT],
+  [0, 0, 1, 64 | 0],
+];
 export var ListCostCategoryDefinitionsResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1441,6 +1371,22 @@ export var ListCostCategoryDefinitionsResponse: StaticStructureSchema = [
   0,
   [_CCRos, _NTe],
   [() => CostCategoryReferencesList, 0],
+];
+export var ListCostCategoryResourceAssociationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCCRAR,
+  0,
+  [_CCA, _NTe, _MR],
+  [0, 0, 1],
+];
+export var ListCostCategoryResourceAssociationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCCRARi,
+  0,
+  [_CCRAo, _NTe],
+  [() => CostCategoryResourceAssociations, 0],
 ];
 export var ListSavingsPlansPurchaseRecommendationGenerationRequest: StaticStructureSchema = [
   3,
@@ -1542,18 +1488,8 @@ export var RedshiftInstanceDetails: StaticStructureSchema = [
   [_Fa, _NT, _Re, _CG, _SFE],
   [0, 0, 0, 2, 2],
 ];
-export var RequestChangedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var RequestChangedException: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RequestChangedException, __RequestChangedException);
-
 export var ReservationAggregates: StaticStructureSchema = [
   3,
   n0,
@@ -1663,19 +1599,8 @@ export var ReservationUtilizationGroup: StaticStructureSchema = [
 ];
 export var ReservedCapacityDetails: StaticStructureSchema = [3, n0, _RCD, 0, [_DDBCD], [() => DynamoDBCapacityDetails]];
 export var ResourceDetails: StaticStructureSchema = [3, n0, _RD, 0, [_ECRD], [() => EC2ResourceDetails]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTag: StaticStructureSchema = [3, n0, _RTe, 0, [_K, _Va], [0, 0]];
 export var ResourceUtilization: StaticStructureSchema = [3, n0, _RU, 0, [_ECRU], [() => EC2ResourceUtilization]];
 export var ResultByTime: StaticStructureSchema = [
@@ -1854,19 +1779,8 @@ export var SavingsPlansUtilizationDetail: StaticStructureSchema = [
   [_SPA, _At, _Ut, _Sa, _AC],
   [0, 128 | 0, () => SavingsPlansUtilization, () => SavingsPlansSavings, () => SavingsPlansAmortizedCommitment],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceSpecification: StaticStructureSchema = [3, n0, _SSe, 0, [_ECS], [() => EC2Specification]];
 export var SortDefinition: StaticStructureSchema = [3, n0, _SDo, 0, [_K, _SO], [0, 0]];
 export var StartCommitmentPurchaseAnalysisRequest: StaticStructureSchema = [
@@ -1923,58 +1837,15 @@ export var TargetInstance: StaticStructureSchema = [
   [0, 0, 0, 2, () => ResourceDetails, () => ResourceUtilization, 64 | 0],
 ];
 export var TerminateRecommendationDetail: StaticStructureSchema = [3, n0, _TRD, 0, [_EMS, _CCu], [0, 0]];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TotalImpactFilter: StaticStructureSchema = [3, n0, _TIF, 0, [_NO, _SV, _EV], [0, 1, 1]];
-export var UnknownMonitorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UME,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var UnknownMonitorException: StaticErrorSchema = [-3, n0, _UME, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnknownMonitorException, __UnknownMonitorException);
-
-export var UnknownSubscriptionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _USE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var UnknownSubscriptionException: StaticErrorSchema = [-3, n0, _USE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnknownSubscriptionException, __UnknownSubscriptionException);
-
-export var UnresolvableUsageUnitException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UUUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var UnresolvableUsageUnitException: StaticErrorSchema = [-3, n0, _UUUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnresolvableUsageUnitException, __UnresolvableUsageUnitException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RAe, _RTK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAnomalyMonitorRequest: StaticStructureSchema = [3, n0, _UAMR, 0, [_MA, _MN], [0, 0]];
@@ -2022,13 +1893,9 @@ export var UtilizationByTime: StaticStructureSchema = [
   [_TP, _G, _To],
   [() => DateInterval, () => ReservationUtilizationGroups, () => ReservationAggregates],
 ];
-export var __Unit = "unit" as const;
-
 export var CostExplorerServiceException: StaticErrorSchema = [-3, _s, "CostExplorerServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(CostExplorerServiceException, __CostExplorerServiceException);
-
 export var AnalysisIds = 64 | 0;
-
 export var AnalysisSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AnalysisSummary];
 export var Anomalies: StaticListSchema = [1, n0, _Ano, 0, () => Anomaly];
 export var AnomalyMonitors: StaticListSchema = [1, n0, _AMn, 0, () => AnomalyMonitor];
@@ -2041,14 +1908,19 @@ export var CostAllocationTagBackfillRequestList: StaticListSchema = [
   () => CostAllocationTagBackfillRequest,
 ];
 export var CostAllocationTagKeyList = 64 | 0;
-
 export var CostAllocationTagList: StaticListSchema = [1, n0, _CATL, 0, () => CostAllocationTag];
 export var CostAllocationTagStatusList: StaticListSchema = [1, n0, _CATSL, 0, () => CostAllocationTagStatusEntry];
 export var CostAndUsageComparisons: StaticListSchema = [1, n0, _CAUCo, 0, () => CostAndUsageComparison];
 export var CostCategoryNamesList = 64 | 0;
-
 export var CostCategoryProcessingStatusList: StaticListSchema = [1, n0, _CCPSL, 0, () => CostCategoryProcessingStatus];
 export var CostCategoryReferencesList: StaticListSchema = [1, n0, _CCRL, 0, () => CostCategoryReference];
+export var CostCategoryResourceAssociations: StaticListSchema = [
+  1,
+  n0,
+  _CCRAo,
+  0,
+  () => CostCategoryResourceAssociation,
+];
 export var CostCategoryRulesList: StaticListSchema = [1, n0, _CCRLo, 0, () => CostCategoryRule];
 export var CostCategorySplitChargeRuleParametersList: StaticListSchema = [
   1,
@@ -2058,12 +1930,9 @@ export var CostCategorySplitChargeRuleParametersList: StaticListSchema = [
   () => CostCategorySplitChargeRuleParameter,
 ];
 export var CostCategorySplitChargeRuleParameterValuesList = 64 | 0;
-
 export var CostCategorySplitChargeRulesList: StaticListSchema = [1, n0, _CCSCRL, 0, () => CostCategorySplitChargeRule];
 export var CostCategorySplitChargeRuleTargetsList = 64 | 0;
-
 export var CostCategoryValuesList = 64 | 0;
-
 export var CostComparisonDrivers: StaticListSchema = [1, n0, _CCDo, 0, () => CostComparisonDriver];
 export var CostDrivers: StaticListSchema = [1, n0, _CDo, 0, () => CostDriver];
 export var CoveragesByTime: StaticListSchema = [1, n0, _CBTo, 0, () => CoverageByTime];
@@ -2076,24 +1945,17 @@ export var DimensionValuesWithAttributesList: StaticListSchema = [
 ];
 export var Expressions: StaticListSchema = [1, n0, _Exp, 0, () => Expression];
 export var FindingReasonCodes = 64 | 0;
-
 export var ForecastResultsByTime: StaticListSchema = [1, n0, _FRBT, 0, () => ForecastResult];
 export var GenerationSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GenerationSummary];
 export var GroupDefinitions: StaticListSchema = [1, n0, _GD, 0, () => GroupDefinition];
 export var Groups: StaticListSchema = [1, n0, _G, 0, () => Group];
 export var Keys = 64 | 0;
-
 export var MatchOptions = 64 | 0;
-
 export var MetricNames = 64 | 0;
-
 export var MetricsOverLookbackPeriod: StaticListSchema = [1, n0, _MOLP, 0, () => RecommendationDetailHourlyMetrics];
 export var MonitorArnList = 64 | 0;
-
 export var PlatformDifferences = 64 | 0;
-
 export var RecommendationIdList = 64 | 0;
-
 export var ReservationCoverageGroups: StaticListSchema = [1, n0, _RCGe, 0, () => ReservationCoverageGroup];
 export var ReservationPurchaseRecommendationDetails: StaticListSchema = [
   1,
@@ -2111,14 +1973,14 @@ export var ReservationPurchaseRecommendations: StaticListSchema = [
 ];
 export var ReservationUtilizationGroups: StaticListSchema = [1, n0, _RUGe, 0, () => ReservationUtilizationGroup];
 export var ResourceTagKeyList = 64 | 0;
-
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
+export var ResourceTypes = 64 | 0;
+export var ResourceTypesFilterInput = 64 | 0;
 export var ResultsByTime: StaticListSchema = [1, n0, _RBT, 0, () => ResultByTime];
 export var RightsizingRecommendationList: StaticListSchema = [1, n0, _RRL, 0, () => RightsizingRecommendation];
 export var RootCauses: StaticListSchema = [1, n0, _RC, 0, () => RootCause];
 export var SavingsPlansCoverages: StaticListSchema = [1, n0, _SPC, 0, () => SavingsPlansCoverage];
 export var SavingsPlansDataTypes = 64 | 0;
-
 export var SavingsPlansPurchaseRecommendationDetailList: StaticListSchema = [
   1,
   n0,
@@ -2128,13 +1990,11 @@ export var SavingsPlansPurchaseRecommendationDetailList: StaticListSchema = [
 ];
 export var SavingsPlansToAdd: StaticListSchema = [1, n0, _SPTA, 0, () => SavingsPlans];
 export var SavingsPlansToExclude = 64 | 0;
-
 export var SavingsPlansUtilizationDetails: StaticListSchema = [1, n0, _SPUD, 0, () => SavingsPlansUtilizationDetail];
 export var SavingsPlansUtilizationsByTime: StaticListSchema = [1, n0, _SPUBT, 0, () => SavingsPlansUtilizationByTime];
 export var SortDefinitions: StaticListSchema = [1, n0, _SDor, 0, () => SortDefinition];
 export var Subscribers: StaticListSchema = [1, n0, _S, 0, () => Subscriber];
 export var TagList = 64 | 0;
-
 export var TagValuesList: StaticListSchema = [1, n0, _TVL, 0, () => TagValues];
 export var TargetInstancesList: StaticListSchema = [1, n0, _TIL, 0, () => TargetInstance];
 export var UpdateCostAllocationTagsStatusErrors: StaticListSchema = [
@@ -2145,14 +2005,10 @@ export var UpdateCostAllocationTagsStatusErrors: StaticListSchema = [
   () => UpdateCostAllocationTagsStatusError,
 ];
 export var UsageServices = 64 | 0;
-
 export var UtilizationsByTime: StaticListSchema = [1, n0, _UBT, 0, () => UtilizationByTime];
 export var Values = 64 | 0;
-
 export var ApproximateUsageRecordsPerService = 128 | 1;
-
 export var Attributes = 128 | 0;
-
 export var ComparisonMetrics: StaticMapSchema = [2, n0, _CM, 0, 0, () => ComparisonMetricValue];
 export var Metrics: StaticMapSchema = [2, n0, _Me, 0, 0, () => MetricValue];
 export var CreateAnomalyMonitor: StaticOperationSchema = [
@@ -2412,6 +2268,14 @@ export var ListCostCategoryDefinitions: StaticOperationSchema = [
   0,
   () => ListCostCategoryDefinitionsRequest,
   () => ListCostCategoryDefinitionsResponse,
+];
+export var ListCostCategoryResourceAssociations: StaticOperationSchema = [
+  9,
+  n0,
+  _LCCRA,
+  0,
+  () => ListCostCategoryResourceAssociationsRequest,
+  () => ListCostCategoryResourceAssociationsResponse,
 ];
 export var ListSavingsPlansPurchaseRecommendationGeneration: StaticOperationSchema = [
   9,

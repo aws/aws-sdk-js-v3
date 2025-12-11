@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteConnectorV2Request, DeleteConnectorV2Response } from "../models/models_2";
+import type { DeleteConnectorV2Request, DeleteConnectorV2Response } from "../models/models_2";
 import { DeleteConnectorV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface DeleteConnectorV2CommandInput extends DeleteConnectorV2Request 
 export interface DeleteConnectorV2CommandOutput extends DeleteConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to delete a connectorV2. This API is in public preview and subject to change.</p>
+ * <p>Grants permission to delete a connectorV2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

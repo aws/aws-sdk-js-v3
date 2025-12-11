@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+**Note:** Version bump only for package @aws-sdk/client-marketplace-catalog
+
+
+
+
+
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-marketplace-catalog
+
+
+
+
+
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+**Note:** Version bump only for package @aws-sdk/client-marketplace-catalog
+
+
+
+
+
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+**Note:** Version bump only for package @aws-sdk/client-marketplace-catalog
+
+
+
+
+
+# [3.942.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.941.0...v3.942.0) (2025-12-01)
+
+
+### Features
+
+* **client-marketplace-catalog:** This release introduces offer set entity in AWS Marketplace Catalog API to enable multi-product transaction. Offer set enables sellers to group multiple private offers into a single-click purchase experience, simplifying procurement for customers purchasing multi-product solutions. ([0bb0491](https://github.com/aws/aws-sdk-js-v3/commit/0bb0491d3894dcb594fddafb89eeece9934511ed))
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-catalog

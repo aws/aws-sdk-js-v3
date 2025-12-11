@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendMessageRequest, SendMessageResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { SendMessageRequest, SendMessageResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { SendMessage } from "../schemas/schemas_0";
 
 /**
@@ -44,22 +44,51 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *     value: { // MessageData Union: only one key present
  *       text: { // TextMessage
  *         value: "STRING_VALUE",
+ *         citations: [ // Citations
+ *           { // Citation
+ *             contentId: "STRING_VALUE",
+ *             title: "STRING_VALUE",
+ *             knowledgeBaseId: "STRING_VALUE",
+ *             citationSpan: { // CitationSpan
+ *               beginOffsetInclusive: Number("int"),
+ *               endOffsetExclusive: Number("int"),
+ *             },
+ *             sourceURL: "STRING_VALUE",
+ *             referenceType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         aiGuardrailAssessment: { // AIGuardrailAssessment
+ *           blocked: true || false, // required
+ *         },
+ *       },
+ *       toolUseResult: { // ToolUseResultData
+ *         toolUseId: "STRING_VALUE", // required
+ *         toolName: "STRING_VALUE", // required
+ *         toolResult: "DOCUMENT_VALUE", // required
+ *         inputSchema: "DOCUMENT_VALUE",
  *       },
  *     },
  *   },
+ *   aiAgentId: "STRING_VALUE",
  *   conversationContext: { // ConversationContext
  *     selfServiceConversationHistory: [ // SelfServiceConversationHistoryList // required
  *       { // SelfServiceConversationHistory
- *         turnNumber: Number("int"), // required
+ *         turnNumber: Number("int"),
  *         inputTranscript: "STRING_VALUE",
  *         botResponse: "STRING_VALUE",
+ *         timestamp: new Date("TIMESTAMP"),
  *       },
  *     ],
  *   },
  *   configuration: { // MessageConfiguration
  *     generateFillerMessage: true || false,
+ *     generateChunkedMessage: true || false,
  *   },
  *   clientToken: "STRING_VALUE",
+ *   orchestratorUseCase: "STRING_VALUE",
+ *   metadata: { // MessageMetadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
@@ -67,6 +96,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * //   requestMessageId: "STRING_VALUE", // required
  * //   configuration: { // MessageConfiguration
  * //     generateFillerMessage: true || false,
+ * //     generateChunkedMessage: true || false,
  * //   },
  * //   nextMessageToken: "STRING_VALUE", // required
  * // };
@@ -85,11 +115,17 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
  *
+ * @throws {@link DependencyFailedException} (client fault)
+ *  <p>The request failed because it depends on another request that failed.</p>
+ *
  * @throws {@link RequestTimeoutException} (client fault)
  *  <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>

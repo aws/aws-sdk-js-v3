@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
+import type {
+  BillingconductorClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListCustomLineItemsInput, ListCustomLineItemsOutput } from "../models/models_0";
+import type { ListCustomLineItemsInput, ListCustomLineItemsOutput } from "../models/models_0";
 import { ListCustomLineItems } from "../schemas/schemas_0";
 
 /**
@@ -72,10 +76,13 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * //         Type: "CREDIT" || "FEE", // required
  * //         LineItemFilters: [ // LineItemFiltersList
  * //           { // LineItemFilter
- * //             Attribute: "LINE_ITEM_TYPE", // required
- * //             MatchOption: "NOT_EQUAL", // required
- * //             Values: [ // LineItemFilterValuesList // required
+ * //             Attribute: "LINE_ITEM_TYPE" || "SERVICE", // required
+ * //             MatchOption: "NOT_EQUAL" || "EQUAL", // required
+ * //             Values: [ // LineItemFilterValuesList
  * //               "SAVINGS_PLAN_NEGATION",
+ * //             ],
+ * //             AttributeValues: [ // AttributeValueList
+ * //               "STRING_VALUE",
  * //             ],
  * //           },
  * //         ],
@@ -88,7 +95,7 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * //       LastModifiedTime: Number("long"),
  * //       AssociationSize: Number("long"),
  * //       AccountId: "STRING_VALUE",
- * //       ComputationRule: "CONSOLIDATED",
+ * //       ComputationRule: "ITEMIZED" || "CONSOLIDATED",
  * //       PresentationDetails: { // PresentationObject
  * //         Service: "STRING_VALUE", // required
  * //       },

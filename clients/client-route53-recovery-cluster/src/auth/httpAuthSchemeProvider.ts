@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -17,8 +17,8 @@ import {
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
 import {
+  type Route53RecoveryClusterClientResolvedConfig,
   Route53RecoveryClusterClientConfig,
-  Route53RecoveryClusterClientResolvedConfig,
 } from "../Route53RecoveryClusterClient";
 
 /**

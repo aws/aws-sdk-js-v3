@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteIndexPolicyRequest, DeleteIndexPolicyResponse } from "../models/models_0";
+import type { DeleteIndexPolicyRequest, DeleteIndexPolicyResponse } from "../models/models_0";
 import { DeleteIndexPolicy } from "../schemas/schemas_0";
 
 /**
@@ -30,10 +34,15 @@ export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyRespons
  * <p>Deletes a log-group level field index policy that was applied to a single log group. The
  *       indexing of the log events that happened before you delete the policy will still be used for
  *       as many as 30 days to improve CloudWatch Logs Insights queries.</p>
+ *          <p>If the deleted policy included facet configurations, those facets will no longer be
+ *       available for interactive exploration in the CloudWatch Logs Insights console for this log
+ *       group. However, facet data is retained for up to 30 days.</p>
  *          <p>You can't use this operation to delete an account-level index policy. Instead, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeletAccountPolicy</a>.</p>
- *          <p>If you delete a log-group level field index policy and there is an account-level field
- *       index policy, in a few minutes the log group begins using that account-wide policy to index
- *       new incoming log events. </p>
+ *          <p>If you delete a log-group level field index policy and there is an
+ *       account-level field index policy, in a few minutes the log group begins using that
+ *       account-wide policy to index new incoming log events. This operation only affects log
+ *       group-level policies, including any facet configurations, and preserves any data source-based
+ *       account policies that may apply to the log group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

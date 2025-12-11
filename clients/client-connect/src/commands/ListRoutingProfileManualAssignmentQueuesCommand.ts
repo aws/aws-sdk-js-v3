@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ListRoutingProfileManualAssignmentQueuesRequest,
   ListRoutingProfileManualAssignmentQueuesResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { ListRoutingProfileManualAssignmentQueues } from "../schemas/schemas_0";
 
 /**
@@ -40,12 +40,10 @@ export interface ListRoutingProfileManualAssignmentQueuesCommandOutput
  *          <p>Following are common uses cases for this API:</p>
  *          <ul>
  *             <li>
- *                <p>This API returns list of queues where contacts can be manually assigned or picked by an
- *      agent who has access to the Worklist app. The user can additionally filter on queues, if they
- *      have access to those queues (otherwise a invalid request exception will be thrown).</p>
- *                <p>For information about how manual contact assignment works in the agent workspace, see the
- *       <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access the
- *       Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *                <p>This API returns list of queues where contacts can be manually assigned or picked by an agent who has access
+ *      to the Worklist app. The user can additionally filter on queues, if they have access to those queues (otherwise a
+ *      invalid request exception will be thrown).</p>
+ *                <p>For information about how manual contact assignment works in the agent workspace, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access the Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
  *             </li>
  *          </ul>
  *          <p>
@@ -53,14 +51,12 @@ export interface ListRoutingProfileManualAssignmentQueuesCommandOutput
  *          </p>
  *          <ul>
  *             <li>
- *                <p>This API only returns the manual assignment queues associated with a routing profile. Use
- *      the ListRoutingProfileQueues API to list the auto assignment queues for the routing
- *      profile.</p>
+ *                <p>This API only returns the manual assignment queues associated with a routing profile. Use the
+ *      ListRoutingProfileQueues API to list the auto assignment queues for the routing profile.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
- *    quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

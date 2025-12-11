@@ -342,7 +342,7 @@ const n0 = "com.amazonaws.codeartifact";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -363,29 +363,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var Asset: StaticSimpleSchema = [
-  0,
-  n0,
-  _A,
-  {
-    [_s]: 1,
-  },
-  42,
-];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var Asset: StaticSimpleSchema = [0, n0, _A, { [_s]: 1 }, 42];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssetSummary: StaticStructureSchema = [3, n0, _AS, 0, [_n, _si, _h], [0, 1, 128 | 0]];
 export var AssociatedPackage: StaticStructureSchema = [3, n0, _AP, 0, [_f, _na, _p, _aT], [0, 0, 0, 0]];
 export var AssociateExternalConnectionRequest: StaticStructureSchema = [
@@ -395,30 +375,10 @@ export var AssociateExternalConnectionRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _eC],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ec,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _ec }],
   ],
 ];
 export var AssociateExternalConnectionResult: StaticStructureSchema = [
@@ -429,19 +389,8 @@ export var AssociateExternalConnectionResult: StaticStructureSchema = [
   [_r],
   [() => RepositoryDescription],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CopyPackageVersionsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -449,48 +398,13 @@ export var CopyPackageVersionsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _sR, _dR, _f, _na, _p, _v, _vR, _aO, _iFU],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _sr }],
+    [0, { [_hQ]: _dr }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
     64 | 0,
     128 | 0,
     2,
@@ -511,16 +425,7 @@ export var CreateDomainRequest: StaticStructureSchema = [
   _CDR,
   0,
   [_d, _eK, _t],
-  [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    0,
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _d }], 0, () => TagList],
 ];
 export var CreateDomainResult: StaticStructureSchema = [3, n0, _CDRr, 0, [_d], [() => DomainDescription]];
 export var CreatePackageGroupRequest: StaticStructureSchema = [
@@ -529,24 +434,7 @@ export var CreatePackageGroupRequest: StaticStructureSchema = [
   _CPGR,
   0,
   [_d, _dO, _pG, _cI, _de, _t],
-  [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    0,
-    0,
-    0,
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], 0, 0, 0, () => TagList],
 ];
 export var CreatePackageGroupResult: StaticStructureSchema = [3, n0, _CPGRr, 0, [_pG], [() => PackageGroupDescription]];
 export var CreateRepositoryRequest: StaticStructureSchema = [
@@ -555,29 +443,7 @@ export var CreateRepositoryRequest: StaticStructureSchema = [
   _CRR,
   0,
   [_d, _dO, _r, _de, _u, _t],
-  [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    0,
-    () => UpstreamRepositoryList,
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, () => UpstreamRepositoryList, () => TagList],
 ];
 export var CreateRepositoryResult: StaticStructureSchema = [3, n0, _CRRr, 0, [_r], [() => RepositoryDescription]];
 export var DeleteDomainPermissionsPolicyRequest: StaticStructureSchema = [
@@ -587,24 +453,9 @@ export var DeleteDomainPermissionsPolicyRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _pR],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pr,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pr }],
   ],
 ];
 export var DeleteDomainPermissionsPolicyResult: StaticStructureSchema = [
@@ -622,18 +473,8 @@ export var DeleteDomainRequest: StaticStructureSchema = [
   0,
   [_d, _dO],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
   ],
 ];
 export var DeleteDomainResult: StaticStructureSchema = [3, n0, _DDRe, 0, [_d], [() => DomainDescription]];
@@ -644,24 +485,9 @@ export var DeletePackageGroupRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _pG],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pg,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pg }],
   ],
 ];
 export var DeletePackageGroupResult: StaticStructureSchema = [3, n0, _DPGRe, 0, [_pG], [() => PackageGroupDescription]];
@@ -672,42 +498,12 @@ export var DeletePackageRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var DeletePackageResult: StaticStructureSchema = [3, n0, _DPRe, 0, [_dP], [() => PackageSummary]];
@@ -718,42 +514,12 @@ export var DeletePackageVersionsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _v, _eS],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
     64 | 0,
     0,
   ],
@@ -773,30 +539,10 @@ export var DeleteRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _pR],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pr,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _pr }],
   ],
 ];
 export var DeleteRepositoryPermissionsPolicyResult: StaticStructureSchema = [
@@ -814,24 +560,9 @@ export var DeleteRepositoryRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var DeleteRepositoryResult: StaticStructureSchema = [3, n0, _DRRe, 0, [_r], [() => RepositoryDescription]];
@@ -842,18 +573,8 @@ export var DescribeDomainRequest: StaticStructureSchema = [
   0,
   [_d, _dO],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
   ],
 ];
 export var DescribeDomainResult: StaticStructureSchema = [3, n0, _DDResc, 0, [_d], [() => DomainDescription]];
@@ -864,24 +585,9 @@ export var DescribePackageGroupRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _pG],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pg,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pg }],
   ],
 ];
 export var DescribePackageGroupResult: StaticStructureSchema = [
@@ -899,42 +605,12 @@ export var DescribePackageRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var DescribePackageResult: StaticStructureSchema = [3, n0, _DPResc, 0, [_p], [() => PackageDescription]];
@@ -945,48 +621,13 @@ export var DescribePackageVersionRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _pV],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _ve }],
   ],
 ];
 export var DescribePackageVersionResult: StaticStructureSchema = [
@@ -1004,24 +645,9 @@ export var DescribeRepositoryRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var DescribeRepositoryResult: StaticStructureSchema = [3, n0, _DRResc, 0, [_r], [() => RepositoryDescription]];
@@ -1032,30 +658,10 @@ export var DisassociateExternalConnectionRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _eC],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ec,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _ec }],
   ],
 ];
 export var DisassociateExternalConnectionResult: StaticStructureSchema = [
@@ -1073,42 +679,12 @@ export var DisposePackageVersionsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _v, _vR, _eS],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
     64 | 0,
     128 | 0,
     0,
@@ -1139,36 +715,11 @@ export var GetAssociatedPackageGroupRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _f, _na, _p],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
   ],
 ];
 export var GetAssociatedPackageGroupResult: StaticStructureSchema = [
@@ -1186,24 +737,9 @@ export var GetAuthorizationTokenRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _dS],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _du,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [1, { [_hQ]: _du }],
   ],
 ];
 export var GetAuthorizationTokenResult: StaticStructureSchema = [3, n0, _GATRe, 8, [_aTu, _ex], [0, 4]];
@@ -1214,18 +750,8 @@ export var GetDomainPermissionsPolicyRequest: StaticStructureSchema = [
   0,
   [_d, _dO],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
   ],
 ];
 export var GetDomainPermissionsPolicyResult: StaticStructureSchema = [3, n0, _GDPPRe, 0, [_po], [() => ResourcePolicy]];
@@ -1236,60 +762,15 @@ export var GetPackageVersionAssetRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _pV, _as, _pVR],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _as,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _re,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _ve }],
+    [0, { [_hQ]: _as }],
+    [0, { [_hQ]: _re }],
   ],
 ];
 export var GetPackageVersionAssetResult: StaticStructureSchema = [
@@ -1300,24 +781,9 @@ export var GetPackageVersionAssetResult: StaticStructureSchema = [
   [_as, _aN, _pV, _pVR],
   [
     [() => Asset, 16],
-    [
-      0,
-      {
-        [_hH]: _XA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XP_,
-      },
-    ],
+    [0, { [_hH]: _XA }],
+    [0, { [_hH]: _XP }],
+    [0, { [_hH]: _XP_ }],
   ],
 ];
 export var GetPackageVersionReadmeRequest: StaticStructureSchema = [
@@ -1327,48 +793,13 @@ export var GetPackageVersionReadmeRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _pV],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _ve }],
   ],
 ];
 export var GetPackageVersionReadmeResult: StaticStructureSchema = [
@@ -1386,36 +817,11 @@ export var GetRepositoryEndpointRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _eT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _eT }],
   ],
 ];
 export var GetRepositoryEndpointResult: StaticStructureSchema = [3, n0, _GRERe, 0, [_rE], [0]];
@@ -1426,24 +832,9 @@ export var GetRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
   ],
 ];
 export var GetRepositoryPermissionsPolicyResult: StaticStructureSchema = [
@@ -1454,19 +845,8 @@ export var GetRepositoryPermissionsPolicyResult: StaticStructureSchema = [
   [_po],
   [() => ResourcePolicy],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LicenseInfo: StaticStructureSchema = [3, n0, _LI, 0, [_n, _ur], [0, 0]];
 export var ListAllowedRepositoriesForGroupRequest: StaticStructureSchema = [
   3,
@@ -1475,42 +855,12 @@ export var ListAllowedRepositoriesForGroupRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _pG, _oRT, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pg,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oRT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pg }],
+    [0, { [_hQ]: _oRT }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListAllowedRepositoriesForGroupResult: StaticStructureSchema = [3, n0, _LARFGRi, 0, [_aR, _nT], [64 | 0, 0]];
@@ -1521,42 +871,12 @@ export var ListAssociatedPackagesRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _pG, _mR, _nT, _pre],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pg,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _pre,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pg }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [2, { [_hQ]: _pre }],
   ],
 ];
 export var ListAssociatedPackagesResult: StaticStructureSchema = [
@@ -1576,36 +896,11 @@ export var ListPackageGroupsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _mR, _nT, _pref],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pref,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _pref }],
   ],
 ];
 export var ListPackageGroupsResult: StaticStructureSchema = [
@@ -1623,66 +918,16 @@ export var ListPackagesRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _pP, _mR, _nT, _pu, _up],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pp,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _up,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _pp }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _pu }],
+    [0, { [_hQ]: _up }],
   ],
 ];
 export var ListPackagesResult: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nT], [() => PackageSummaryList, 0]];
@@ -1693,60 +938,15 @@ export var ListPackageVersionAssetsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _pV, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _ve }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListPackageVersionAssetsResult: StaticStructureSchema = [
@@ -1764,54 +964,14 @@ export var ListPackageVersionDependenciesRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _pV, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _ve }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListPackageVersionDependenciesResult: StaticStructureSchema = [
@@ -1829,72 +989,17 @@ export var ListPackageVersionsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _st, _sB, _mR, _nT, _oT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oT,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _sB }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
+    [0, { [_hQ]: _oT }],
   ],
 ];
 export var ListPackageVersionsResult: StaticStructureSchema = [
@@ -1912,42 +1017,12 @@ export var ListRepositoriesInDomainRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _aA, _rP, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rp,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _aa }],
+    [0, { [_hQ]: _rp }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListRepositoriesInDomainResult: StaticStructureSchema = [
@@ -1965,24 +1040,9 @@ export var ListRepositoriesRequest: StaticStructureSchema = [
   0,
   [_rP, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rp,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _rp }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListRepositoriesResult: StaticStructureSchema = [
@@ -2000,36 +1060,11 @@ export var ListSubPackageGroupsRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _pG, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pg,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pg }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListSubPackageGroupsResult: StaticStructureSchema = [
@@ -2040,21 +1075,7 @@ export var ListSubPackageGroupsResult: StaticStructureSchema = [
   [_pGa, _nT],
   [() => PackageGroupSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_rA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, { [_hQ]: _rA }]]];
 export var ListTagsForResourceResult: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
 export var PackageDependency: StaticStructureSchema = [3, n0, _PD, 0, [_na, _p, _dT, _vRer], [0, 0, 0, 0]];
 export var PackageDescription: StaticStructureSchema = [
@@ -2141,67 +1162,17 @@ export var PublishPackageVersionRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _pV, _aC, _aN, _aSHA, _un],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ve,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
+    [0, { [_hQ]: _ve }],
     [() => Asset, 16],
-    [
-      0,
-      {
-        [_hQ]: _as,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xacs,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _un,
-      },
-    ],
+    [0, { [_hQ]: _as }],
+    [0, { [_hH]: _xacs }],
+    [2, { [_hQ]: _un }],
   ],
 ];
 export var PublishPackageVersionResult: StaticStructureSchema = [
@@ -2228,42 +1199,12 @@ export var PutPackageOriginConfigurationRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _res],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
     () => PackageOriginRestrictions,
   ],
 ];
@@ -2281,28 +1222,7 @@ export var PutRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
   _PRPPR,
   0,
   [_d, _dO, _r, _pR, _pD],
-  [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, 0],
 ];
 export var PutRepositoryPermissionsPolicyResult: StaticStructureSchema = [
   3,
@@ -2333,29 +1253,21 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicy: StaticStructureSchema = [3, n0, _RP, 0, [_rA, _re, _doc], [0, 0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SuccessfulPackageVersionInfo: StaticStructureSchema = [3, n0, _SPVI, 0, [_re, _st], [0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [
@@ -2364,54 +1276,19 @@ export var TagResourceRequest: StaticStructureSchema = [
   _TRR,
   0,
   [_rA, _t],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _rA }], () => TagList],
 ];
 export var TagResourceResult: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UntagResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _URR,
-  0,
-  [_rA, _tK],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    64 | 0,
-  ],
-];
+export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, { [_hQ]: _rA }], 64 | 0]];
 export var UntagResourceResult: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdatePackageGroupOriginConfigurationRequest: StaticStructureSchema = [
   3,
@@ -2420,24 +1297,9 @@ export var UpdatePackageGroupOriginConfigurationRequest: StaticStructureSchema =
   0,
   [_d, _dO, _pG, _res, _aAR, _rAR],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pg,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _pg }],
     128 | 0,
     () => PackageGroupAllowedRepositoryList,
     () => PackageGroupAllowedRepositoryList,
@@ -2457,23 +1319,7 @@ export var UpdatePackageGroupRequest: StaticStructureSchema = [
   _UPGR,
   0,
   [_d, _dO, _pG, _cI, _de],
-  [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    0,
-    0,
-    0,
-  ],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], 0, 0, 0],
 ];
 export var UpdatePackageGroupResult: StaticStructureSchema = [3, n0, _UPGRp, 0, [_pG], [() => PackageGroupDescription]];
 export var UpdatePackageVersionsStatusRequest: StaticStructureSchema = [
@@ -2483,42 +1329,12 @@ export var UpdatePackageVersionsStatusRequest: StaticStructureSchema = [
   0,
   [_d, _dO, _r, _f, _na, _p, _v, _vR, _eS, _tS],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _p,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _do }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _p }],
     64 | 0,
     128 | 0,
     0,
@@ -2539,50 +1355,15 @@ export var UpdateRepositoryRequest: StaticStructureSchema = [
   _URRp,
   0,
   [_d, _dO, _r, _de, _u],
-  [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _do,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    0,
-    () => UpstreamRepositoryList,
-  ],
+  [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, () => UpstreamRepositoryList],
 ];
 export var UpdateRepositoryResult: StaticStructureSchema = [3, n0, _URRpd, 0, [_r], [() => RepositoryDescription]];
 export var UpstreamRepository: StaticStructureSchema = [3, n0, _UR, 0, [_rN], [0]];
 export var UpstreamRepositoryInfo: StaticStructureSchema = [3, n0, _URI, 0, [_rN], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _reas],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _reas], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var CodeartifactServiceException: StaticErrorSchema = [-3, _sm, "CodeartifactServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeartifactServiceException, __CodeartifactServiceException);
-
 export var AssetSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AssetSummary];
 export var AssociatedPackageList: StaticListSchema = [1, n0, _APL, 0, () => AssociatedPackage];
 export var DomainSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DomainSummary];
@@ -2598,7 +1379,6 @@ export var PackageGroupAllowedRepositoryList: StaticListSchema = [
 export var PackageGroupSummaryList: StaticListSchema = [1, n0, _PGSL, 0, () => PackageGroupSummary];
 export var PackageSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PackageSummary];
 export var PackageVersionList = 64 | 0;
-
 export var PackageVersionSummaryList: StaticListSchema = [1, n0, _PVSL, 0, () => PackageVersionSummary];
 export var RepositoryExternalConnectionInfoList: StaticListSchema = [
   1,
@@ -2608,17 +1388,13 @@ export var RepositoryExternalConnectionInfoList: StaticListSchema = [
   () => RepositoryExternalConnectionInfo,
 ];
 export var RepositoryNameList = 64 | 0;
-
 export var RepositorySummaryList: StaticListSchema = [1, n0, _RSL, 0, () => RepositorySummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var UpstreamRepositoryInfoList: StaticListSchema = [1, n0, _URIL, 0, () => UpstreamRepositoryInfo];
 export var UpstreamRepositoryList: StaticListSchema = [1, n0, _URL, 0, () => UpstreamRepository];
 export var AssetHashes = 128 | 0;
-
 export var OriginRestrictions = 128 | 0;
-
 export var PackageGroupAllowedRepositoryUpdate: StaticMapSchema = [2, n0, _PGARUa, 0, 0, 64 | 0];
 export var PackageGroupAllowedRepositoryUpdates: StaticMapSchema = [
   2,
@@ -2631,15 +1407,12 @@ export var PackageGroupAllowedRepositoryUpdates: StaticMapSchema = [
 export var PackageGroupOriginRestrictions: StaticMapSchema = [2, n0, _PGORa, 0, 0, () => PackageGroupOriginRestriction];
 export var PackageVersionErrorMap: StaticMapSchema = [2, n0, _PVEM, 0, 0, () => PackageVersionError];
 export var PackageVersionRevisionMap = 128 | 0;
-
 export var SuccessfulPackageVersionInfoMap: StaticMapSchema = [2, n0, _SPVIM, 0, 0, () => SuccessfulPackageVersionInfo];
 export var AssociateExternalConnection: StaticOperationSchema = [
   9,
   n0,
   _AEC,
-  {
-    [_ht]: ["POST", "/v1/repository/external-connection", 200],
-  },
+  { [_ht]: ["POST", "/v1/repository/external-connection", 200] },
   () => AssociateExternalConnectionRequest,
   () => AssociateExternalConnectionResult,
 ];
@@ -2647,9 +1420,7 @@ export var CopyPackageVersions: StaticOperationSchema = [
   9,
   n0,
   _CPV,
-  {
-    [_ht]: ["POST", "/v1/package/versions/copy", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/versions/copy", 200] },
   () => CopyPackageVersionsRequest,
   () => CopyPackageVersionsResult,
 ];
@@ -2657,9 +1428,7 @@ export var CreateDomain: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_ht]: ["POST", "/v1/domain", 200],
-  },
+  { [_ht]: ["POST", "/v1/domain", 200] },
   () => CreateDomainRequest,
   () => CreateDomainResult,
 ];
@@ -2667,9 +1436,7 @@ export var CreatePackageGroup: StaticOperationSchema = [
   9,
   n0,
   _CPG,
-  {
-    [_ht]: ["POST", "/v1/package-group", 200],
-  },
+  { [_ht]: ["POST", "/v1/package-group", 200] },
   () => CreatePackageGroupRequest,
   () => CreatePackageGroupResult,
 ];
@@ -2677,9 +1444,7 @@ export var CreateRepository: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_ht]: ["POST", "/v1/repository", 200],
-  },
+  { [_ht]: ["POST", "/v1/repository", 200] },
   () => CreateRepositoryRequest,
   () => CreateRepositoryResult,
 ];
@@ -2687,9 +1452,7 @@ export var DeleteDomain: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_ht]: ["DELETE", "/v1/domain", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/domain", 200] },
   () => DeleteDomainRequest,
   () => DeleteDomainResult,
 ];
@@ -2697,9 +1460,7 @@ export var DeleteDomainPermissionsPolicy: StaticOperationSchema = [
   9,
   n0,
   _DDPP,
-  {
-    [_ht]: ["DELETE", "/v1/domain/permissions/policy", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/domain/permissions/policy", 200] },
   () => DeleteDomainPermissionsPolicyRequest,
   () => DeleteDomainPermissionsPolicyResult,
 ];
@@ -2707,9 +1468,7 @@ export var DeletePackage: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_ht]: ["DELETE", "/v1/package", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/package", 200] },
   () => DeletePackageRequest,
   () => DeletePackageResult,
 ];
@@ -2717,9 +1476,7 @@ export var DeletePackageGroup: StaticOperationSchema = [
   9,
   n0,
   _DPG,
-  {
-    [_ht]: ["DELETE", "/v1/package-group", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/package-group", 200] },
   () => DeletePackageGroupRequest,
   () => DeletePackageGroupResult,
 ];
@@ -2727,9 +1484,7 @@ export var DeletePackageVersions: StaticOperationSchema = [
   9,
   n0,
   _DPV,
-  {
-    [_ht]: ["POST", "/v1/package/versions/delete", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/versions/delete", 200] },
   () => DeletePackageVersionsRequest,
   () => DeletePackageVersionsResult,
 ];
@@ -2737,9 +1492,7 @@ export var DeleteRepository: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_ht]: ["DELETE", "/v1/repository", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/repository", 200] },
   () => DeleteRepositoryRequest,
   () => DeleteRepositoryResult,
 ];
@@ -2747,9 +1500,7 @@ export var DeleteRepositoryPermissionsPolicy: StaticOperationSchema = [
   9,
   n0,
   _DRPP,
-  {
-    [_ht]: ["DELETE", "/v1/repository/permissions/policies", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/repository/permissions/policies", 200] },
   () => DeleteRepositoryPermissionsPolicyRequest,
   () => DeleteRepositoryPermissionsPolicyResult,
 ];
@@ -2757,9 +1508,7 @@ export var DescribeDomain: StaticOperationSchema = [
   9,
   n0,
   _DDes,
-  {
-    [_ht]: ["GET", "/v1/domain", 200],
-  },
+  { [_ht]: ["GET", "/v1/domain", 200] },
   () => DescribeDomainRequest,
   () => DescribeDomainResult,
 ];
@@ -2767,9 +1516,7 @@ export var DescribePackage: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_ht]: ["GET", "/v1/package", 200],
-  },
+  { [_ht]: ["GET", "/v1/package", 200] },
   () => DescribePackageRequest,
   () => DescribePackageResult,
 ];
@@ -2777,9 +1524,7 @@ export var DescribePackageGroup: StaticOperationSchema = [
   9,
   n0,
   _DPGe,
-  {
-    [_ht]: ["GET", "/v1/package-group", 200],
-  },
+  { [_ht]: ["GET", "/v1/package-group", 200] },
   () => DescribePackageGroupRequest,
   () => DescribePackageGroupResult,
 ];
@@ -2787,9 +1532,7 @@ export var DescribePackageVersion: StaticOperationSchema = [
   9,
   n0,
   _DPVe,
-  {
-    [_ht]: ["GET", "/v1/package/version", 200],
-  },
+  { [_ht]: ["GET", "/v1/package/version", 200] },
   () => DescribePackageVersionRequest,
   () => DescribePackageVersionResult,
 ];
@@ -2797,9 +1540,7 @@ export var DescribeRepository: StaticOperationSchema = [
   9,
   n0,
   _DRe,
-  {
-    [_ht]: ["GET", "/v1/repository", 200],
-  },
+  { [_ht]: ["GET", "/v1/repository", 200] },
   () => DescribeRepositoryRequest,
   () => DescribeRepositoryResult,
 ];
@@ -2807,9 +1548,7 @@ export var DisassociateExternalConnection: StaticOperationSchema = [
   9,
   n0,
   _DEC,
-  {
-    [_ht]: ["DELETE", "/v1/repository/external-connection", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/repository/external-connection", 200] },
   () => DisassociateExternalConnectionRequest,
   () => DisassociateExternalConnectionResult,
 ];
@@ -2817,9 +1556,7 @@ export var DisposePackageVersions: StaticOperationSchema = [
   9,
   n0,
   _DPVi,
-  {
-    [_ht]: ["POST", "/v1/package/versions/dispose", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/versions/dispose", 200] },
   () => DisposePackageVersionsRequest,
   () => DisposePackageVersionsResult,
 ];
@@ -2827,9 +1564,7 @@ export var GetAssociatedPackageGroup: StaticOperationSchema = [
   9,
   n0,
   _GAPG,
-  {
-    [_ht]: ["GET", "/v1/get-associated-package-group", 200],
-  },
+  { [_ht]: ["GET", "/v1/get-associated-package-group", 200] },
   () => GetAssociatedPackageGroupRequest,
   () => GetAssociatedPackageGroupResult,
 ];
@@ -2837,9 +1572,7 @@ export var GetAuthorizationToken: StaticOperationSchema = [
   9,
   n0,
   _GAT,
-  {
-    [_ht]: ["POST", "/v1/authorization-token", 200],
-  },
+  { [_ht]: ["POST", "/v1/authorization-token", 200] },
   () => GetAuthorizationTokenRequest,
   () => GetAuthorizationTokenResult,
 ];
@@ -2847,9 +1580,7 @@ export var GetDomainPermissionsPolicy: StaticOperationSchema = [
   9,
   n0,
   _GDPP,
-  {
-    [_ht]: ["GET", "/v1/domain/permissions/policy", 200],
-  },
+  { [_ht]: ["GET", "/v1/domain/permissions/policy", 200] },
   () => GetDomainPermissionsPolicyRequest,
   () => GetDomainPermissionsPolicyResult,
 ];
@@ -2857,9 +1588,7 @@ export var GetPackageVersionAsset: StaticOperationSchema = [
   9,
   n0,
   _GPVA,
-  {
-    [_ht]: ["GET", "/v1/package/version/asset", 200],
-  },
+  { [_ht]: ["GET", "/v1/package/version/asset", 200] },
   () => GetPackageVersionAssetRequest,
   () => GetPackageVersionAssetResult,
 ];
@@ -2867,9 +1596,7 @@ export var GetPackageVersionReadme: StaticOperationSchema = [
   9,
   n0,
   _GPVR,
-  {
-    [_ht]: ["GET", "/v1/package/version/readme", 200],
-  },
+  { [_ht]: ["GET", "/v1/package/version/readme", 200] },
   () => GetPackageVersionReadmeRequest,
   () => GetPackageVersionReadmeResult,
 ];
@@ -2877,9 +1604,7 @@ export var GetRepositoryEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GRE,
-  {
-    [_ht]: ["GET", "/v1/repository/endpoint", 200],
-  },
+  { [_ht]: ["GET", "/v1/repository/endpoint", 200] },
   () => GetRepositoryEndpointRequest,
   () => GetRepositoryEndpointResult,
 ];
@@ -2887,9 +1612,7 @@ export var GetRepositoryPermissionsPolicy: StaticOperationSchema = [
   9,
   n0,
   _GRPP,
-  {
-    [_ht]: ["GET", "/v1/repository/permissions/policy", 200],
-  },
+  { [_ht]: ["GET", "/v1/repository/permissions/policy", 200] },
   () => GetRepositoryPermissionsPolicyRequest,
   () => GetRepositoryPermissionsPolicyResult,
 ];
@@ -2897,9 +1620,7 @@ export var ListAllowedRepositoriesForGroup: StaticOperationSchema = [
   9,
   n0,
   _LARFG,
-  {
-    [_ht]: ["GET", "/v1/package-group-allowed-repositories", 200],
-  },
+  { [_ht]: ["GET", "/v1/package-group-allowed-repositories", 200] },
   () => ListAllowedRepositoriesForGroupRequest,
   () => ListAllowedRepositoriesForGroupResult,
 ];
@@ -2907,9 +1628,7 @@ export var ListAssociatedPackages: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_ht]: ["GET", "/v1/list-associated-packages", 200],
-  },
+  { [_ht]: ["GET", "/v1/list-associated-packages", 200] },
   () => ListAssociatedPackagesRequest,
   () => ListAssociatedPackagesResult,
 ];
@@ -2917,9 +1636,7 @@ export var ListDomains: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_ht]: ["POST", "/v1/domains", 200],
-  },
+  { [_ht]: ["POST", "/v1/domains", 200] },
   () => ListDomainsRequest,
   () => ListDomainsResult,
 ];
@@ -2927,9 +1644,7 @@ export var ListPackageGroups: StaticOperationSchema = [
   9,
   n0,
   _LPG,
-  {
-    [_ht]: ["POST", "/v1/package-groups", 200],
-  },
+  { [_ht]: ["POST", "/v1/package-groups", 200] },
   () => ListPackageGroupsRequest,
   () => ListPackageGroupsResult,
 ];
@@ -2937,9 +1652,7 @@ export var ListPackages: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_ht]: ["POST", "/v1/packages", 200],
-  },
+  { [_ht]: ["POST", "/v1/packages", 200] },
   () => ListPackagesRequest,
   () => ListPackagesResult,
 ];
@@ -2947,9 +1660,7 @@ export var ListPackageVersionAssets: StaticOperationSchema = [
   9,
   n0,
   _LPVA,
-  {
-    [_ht]: ["POST", "/v1/package/version/assets", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/version/assets", 200] },
   () => ListPackageVersionAssetsRequest,
   () => ListPackageVersionAssetsResult,
 ];
@@ -2957,9 +1668,7 @@ export var ListPackageVersionDependencies: StaticOperationSchema = [
   9,
   n0,
   _LPVD,
-  {
-    [_ht]: ["POST", "/v1/package/version/dependencies", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/version/dependencies", 200] },
   () => ListPackageVersionDependenciesRequest,
   () => ListPackageVersionDependenciesResult,
 ];
@@ -2967,9 +1676,7 @@ export var ListPackageVersions: StaticOperationSchema = [
   9,
   n0,
   _LPV,
-  {
-    [_ht]: ["POST", "/v1/package/versions", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/versions", 200] },
   () => ListPackageVersionsRequest,
   () => ListPackageVersionsResult,
 ];
@@ -2977,9 +1684,7 @@ export var ListRepositories: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_ht]: ["POST", "/v1/repositories", 200],
-  },
+  { [_ht]: ["POST", "/v1/repositories", 200] },
   () => ListRepositoriesRequest,
   () => ListRepositoriesResult,
 ];
@@ -2987,9 +1692,7 @@ export var ListRepositoriesInDomain: StaticOperationSchema = [
   9,
   n0,
   _LRID,
-  {
-    [_ht]: ["POST", "/v1/domain/repositories", 200],
-  },
+  { [_ht]: ["POST", "/v1/domain/repositories", 200] },
   () => ListRepositoriesInDomainRequest,
   () => ListRepositoriesInDomainResult,
 ];
@@ -2997,9 +1700,7 @@ export var ListSubPackageGroups: StaticOperationSchema = [
   9,
   n0,
   _LSPG,
-  {
-    [_ht]: ["POST", "/v1/package-groups/sub-groups", 200],
-  },
+  { [_ht]: ["POST", "/v1/package-groups/sub-groups", 200] },
   () => ListSubPackageGroupsRequest,
   () => ListSubPackageGroupsResult,
 ];
@@ -3007,9 +1708,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["POST", "/v1/tags", 200],
-  },
+  { [_ht]: ["POST", "/v1/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResult,
 ];
@@ -3017,9 +1716,7 @@ export var PublishPackageVersion: StaticOperationSchema = [
   9,
   n0,
   _PPV,
-  {
-    [_ht]: ["POST", "/v1/package/version/publish", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/version/publish", 200] },
   () => PublishPackageVersionRequest,
   () => PublishPackageVersionResult,
 ];
@@ -3027,9 +1724,7 @@ export var PutDomainPermissionsPolicy: StaticOperationSchema = [
   9,
   n0,
   _PDPP,
-  {
-    [_ht]: ["PUT", "/v1/domain/permissions/policy", 200],
-  },
+  { [_ht]: ["PUT", "/v1/domain/permissions/policy", 200] },
   () => PutDomainPermissionsPolicyRequest,
   () => PutDomainPermissionsPolicyResult,
 ];
@@ -3037,9 +1732,7 @@ export var PutPackageOriginConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PPOC,
-  {
-    [_ht]: ["POST", "/v1/package", 200],
-  },
+  { [_ht]: ["POST", "/v1/package", 200] },
   () => PutPackageOriginConfigurationRequest,
   () => PutPackageOriginConfigurationResult,
 ];
@@ -3047,9 +1740,7 @@ export var PutRepositoryPermissionsPolicy: StaticOperationSchema = [
   9,
   n0,
   _PRPP,
-  {
-    [_ht]: ["PUT", "/v1/repository/permissions/policy", 200],
-  },
+  { [_ht]: ["PUT", "/v1/repository/permissions/policy", 200] },
   () => PutRepositoryPermissionsPolicyRequest,
   () => PutRepositoryPermissionsPolicyResult,
 ];
@@ -3057,9 +1748,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/v1/tag", 200],
-  },
+  { [_ht]: ["POST", "/v1/tag", 200] },
   () => TagResourceRequest,
   () => TagResourceResult,
 ];
@@ -3067,9 +1756,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _URn,
-  {
-    [_ht]: ["POST", "/v1/untag", 200],
-  },
+  { [_ht]: ["POST", "/v1/untag", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResult,
 ];
@@ -3077,9 +1764,7 @@ export var UpdatePackageGroup: StaticOperationSchema = [
   9,
   n0,
   _UPG,
-  {
-    [_ht]: ["PUT", "/v1/package-group", 200],
-  },
+  { [_ht]: ["PUT", "/v1/package-group", 200] },
   () => UpdatePackageGroupRequest,
   () => UpdatePackageGroupResult,
 ];
@@ -3087,9 +1772,7 @@ export var UpdatePackageGroupOriginConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UPGOC,
-  {
-    [_ht]: ["PUT", "/v1/package-group-origin-configuration", 200],
-  },
+  { [_ht]: ["PUT", "/v1/package-group-origin-configuration", 200] },
   () => UpdatePackageGroupOriginConfigurationRequest,
   () => UpdatePackageGroupOriginConfigurationResult,
 ];
@@ -3097,9 +1780,7 @@ export var UpdatePackageVersionsStatus: StaticOperationSchema = [
   9,
   n0,
   _UPVS,
-  {
-    [_ht]: ["POST", "/v1/package/versions/update_status", 200],
-  },
+  { [_ht]: ["POST", "/v1/package/versions/update_status", 200] },
   () => UpdatePackageVersionsStatusRequest,
   () => UpdatePackageVersionsStatusResult,
 ];
@@ -3107,9 +1788,7 @@ export var UpdateRepository: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_ht]: ["PUT", "/v1/repository", 200],
-  },
+  { [_ht]: ["PUT", "/v1/repository", 200] },
   () => UpdateRepositoryRequest,
   () => UpdateRepositoryResult,
 ];

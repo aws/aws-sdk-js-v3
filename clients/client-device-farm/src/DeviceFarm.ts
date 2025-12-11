@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateDevicePoolCommand,
@@ -311,7 +311,7 @@ import {
   UpdateVPCEConfigurationCommandInput,
   UpdateVPCEConfigurationCommandOutput,
 } from "./commands/UpdateVPCEConfigurationCommand";
-import { DeviceFarmClient, DeviceFarmClientConfig } from "./DeviceFarmClient";
+import { DeviceFarmClient } from "./DeviceFarmClient";
 
 const commands = {
   CreateDevicePoolCommand,

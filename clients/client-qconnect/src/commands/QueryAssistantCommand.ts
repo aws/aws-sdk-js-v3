@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { QueryAssistantRequest } from "../models/models_0";
-import { QueryAssistantResponse } from "../models/models_1";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { QueryAssistantRequest } from "../models/models_0";
+import type { QueryAssistantResponse } from "../models/models_1";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { QueryAssistant } from "../schemas/schemas_0";
 
 /**
@@ -61,6 +61,9 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *     intentInputData: { // IntentInputData
  *       intentId: "STRING_VALUE", // required
  *     },
+ *     caseSummarizationInputData: { // CaseSummarizationInputData
+ *       caseArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   overrideKnowledgeBaseSearchType: "STRING_VALUE",
  * };
@@ -113,6 +116,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //             modelId: "STRING_VALUE",
  * //             generationId: "STRING_VALUE",
  * //           },
+ * //           suggestedMessageReference: { // SuggestedMessageReference
+ * //             aiAgentId: "STRING_VALUE", // required
+ * //             aiAgentArn: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         details: { // DataDetails Union: only one key present
  * //           contentData: { // ContentDataDetails
@@ -151,6 +158,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                     modelId: "STRING_VALUE",
  * //                     generationId: "STRING_VALUE",
  * //                   },
+ * //                   suggestedMessageReference: {
+ * //                     aiAgentId: "STRING_VALUE", // required
+ * //                     aiAgentArn: "STRING_VALUE", // required
+ * //                   },
  * //                 },
  * //                 details: {//  Union: only one key present
  * //                   contentData: {
@@ -176,6 +187,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                   intentDetectedData: { // IntentDetectedDataDetails
  * //                     intent: "STRING_VALUE", // required
  * //                     intentId: "STRING_VALUE", // required
+ * //                     relevanceLevel: "STRING_VALUE",
  * //                   },
  * //                   sourceContentData: { // SourceContentDataDetails
  * //                     id: "STRING_VALUE", // required
@@ -215,6 +227,20 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                     ],
  * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
+ * //                   caseSummarizationChunkData: { // CaseSummarizationChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
+ * //                   suggestedMessageData: { // SuggestedMessageDataDetails
+ * //                     messageText: "STRING_VALUE", // required
+ * //                   },
+ * //                   notesData: { // NotesDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                   },
+ * //                   notesChunkData: { // NotesChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -226,6 +252,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //           intentDetectedData: {
  * //             intent: "STRING_VALUE", // required
  * //             intentId: "STRING_VALUE", // required
+ * //             relevanceLevel: "STRING_VALUE",
  * //           },
  * //           sourceContentData: {
  * //             id: "STRING_VALUE", // required
@@ -258,6 +285,20 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //           emailGenerativeAnswerChunkData: {
  * //             completion: "STRING_VALUE",
  * //             references: "<DataSummaryList>",
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           caseSummarizationChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           suggestedMessageData: {
+ * //             messageText: "STRING_VALUE", // required
+ * //           },
+ * //           notesData: {
+ * //             completion: "STRING_VALUE",
+ * //           },
+ * //           notesChunkData: {
+ * //             completion: "STRING_VALUE",
  * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },

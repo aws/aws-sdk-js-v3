@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptAdministratorInvitationCommand,
@@ -72,11 +72,6 @@ import {
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
-import {
-  ConnectorRegistrationsV2Command,
-  ConnectorRegistrationsV2CommandInput,
-  ConnectorRegistrationsV2CommandOutput,
-} from "./commands/ConnectorRegistrationsV2Command";
 import {
   CreateActionTargetCommand,
   CreateActionTargetCommandInput,
@@ -438,6 +433,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RegisterConnectorV2Command,
+  RegisterConnectorV2CommandInput,
+  RegisterConnectorV2CommandOutput,
+} from "./commands/RegisterConnectorV2Command";
+import {
   StartConfigurationPolicyAssociationCommand,
   StartConfigurationPolicyAssociationCommandInput,
   StartConfigurationPolicyAssociationCommandOutput,
@@ -513,7 +513,7 @@ import {
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
-import { SecurityHubClient, SecurityHubClientConfig } from "./SecurityHubClient";
+import { SecurityHubClient } from "./SecurityHubClient";
 
 const commands = {
   AcceptAdministratorInvitationCommand,
@@ -530,7 +530,6 @@ const commands = {
   BatchUpdateFindingsCommand,
   BatchUpdateFindingsV2Command,
   BatchUpdateStandardsControlAssociationsCommand,
-  ConnectorRegistrationsV2Command,
   CreateActionTargetCommand,
   CreateAggregatorV2Command,
   CreateAutomationRuleCommand,
@@ -607,6 +606,7 @@ const commands = {
   ListSecurityControlDefinitionsCommand,
   ListStandardsControlAssociationsCommand,
   ListTagsForResourceCommand,
+  RegisterConnectorV2Command,
   StartConfigurationPolicyAssociationCommand,
   StartConfigurationPolicyDisassociationCommand,
   TagResourceCommand,
@@ -863,23 +863,6 @@ export interface SecurityHub {
     args: BatchUpdateStandardsControlAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link ConnectorRegistrationsV2Command}
-   */
-  connectorRegistrationsV2(
-    args: ConnectorRegistrationsV2CommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ConnectorRegistrationsV2CommandOutput>;
-  connectorRegistrationsV2(
-    args: ConnectorRegistrationsV2CommandInput,
-    cb: (err: any, data?: ConnectorRegistrationsV2CommandOutput) => void
-  ): void;
-  connectorRegistrationsV2(
-    args: ConnectorRegistrationsV2CommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ConnectorRegistrationsV2CommandOutput) => void
   ): void;
 
   /**
@@ -2124,6 +2107,23 @@ export interface SecurityHub {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterConnectorV2Command}
+   */
+  registerConnectorV2(
+    args: RegisterConnectorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterConnectorV2CommandOutput>;
+  registerConnectorV2(
+    args: RegisterConnectorV2CommandInput,
+    cb: (err: any, data?: RegisterConnectorV2CommandOutput) => void
+  ): void;
+  registerConnectorV2(
+    args: RegisterConnectorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterConnectorV2CommandOutput) => void
   ): void;
 
   /**

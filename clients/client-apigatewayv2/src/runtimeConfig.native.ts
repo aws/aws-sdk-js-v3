@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ApiGatewayV2ClientConfig } from "./ApiGatewayV2Client";
+import type { ApiGatewayV2ClientConfig } from "./ApiGatewayV2Client";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

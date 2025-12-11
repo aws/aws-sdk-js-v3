@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ControlTowerClientConfig } from "./ControlTowerClient";
+import type { ControlTowerClientConfig } from "./ControlTowerClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

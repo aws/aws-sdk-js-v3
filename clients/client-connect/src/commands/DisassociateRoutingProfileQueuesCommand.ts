@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateRoutingProfileQueuesRequest } from "../models/models_1";
+import type { DisassociateRoutingProfileQueuesRequest } from "../models/models_1";
 import { DisassociateRoutingProfileQueues } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,8 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
 
 /**
  * <p>Disassociates a set of queues from a routing profile.</p>
- *          <p>Up to 10 queue references can be disassociated in a single API call. More than 10 queue
- *    references results in a single call results in an InvalidParameterException.</p>
+ *          <p>Up to 10 queue references can be disassociated in a single API call. More than 10 queue references results in a
+ *    single call results in an InvalidParameterException.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

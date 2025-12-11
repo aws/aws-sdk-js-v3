@@ -89,7 +89,7 @@ const n0 = "com.amazonaws.ebs";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -110,31 +110,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var BlockData: StaticSimpleSchema = [
-  0,
-  n0,
-  _BD,
-  {
-    [_s]: 1,
-    [_se]: 1,
-  },
-  42,
-];
+export var BlockData: StaticSimpleSchema = [0, n0, _BD, { [_s]: 1, [_se]: 1 }, 42];
 export var KmsKeyArn: StaticSimpleSchema = [0, n0, _KKA, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Block: StaticStructureSchema = [3, n0, _B, 0, [_BI, _BT], [1, 0]];
 export var ChangedBlock: StaticStructureSchema = [3, n0, _CB, 8, [_BI, _FBT, _SBT], [1, 0, 0]];
 export var CompleteSnapshotRequest: StaticStructureSchema = [
@@ -145,59 +124,17 @@ export var CompleteSnapshotRequest: StaticStructureSchema = [
   [_SI, _CBC, _C, _CA, _CAM],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hH]: _xaC,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaC_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaCA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaCAM,
-      },
-    ],
+    [1, { [_hH]: _xaC }],
+    [0, { [_hH]: _xaC_ }],
+    [0, { [_hH]: _xaCA }],
+    [0, { [_hH]: _xaCAM }],
   ],
 ];
 export var CompleteSnapshotResponse: StaticStructureSchema = [3, n0, _CSRo, 0, [_S], [0]];
-export var ConcurrentLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentLimitExceededException: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentLimitExceededException, __ConcurrentLimitExceededException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var GetSnapshotBlockRequest: StaticStructureSchema = [
   3,
   n0,
@@ -207,12 +144,7 @@ export var GetSnapshotBlockRequest: StaticStructureSchema = [
   [
     [0, 1],
     [1, 1],
-    [
-      0,
-      {
-        [_hQ]: _bT,
-      },
-    ],
+    [0, { [_hQ]: _bT }],
   ],
 ];
 export var GetSnapshotBlockResponse: StaticStructureSchema = [
@@ -222,40 +154,14 @@ export var GetSnapshotBlockResponse: StaticStructureSchema = [
   0,
   [_DL, _BD, _C, _CA],
   [
-    [
-      1,
-      {
-        [_hH]: _xaDL,
-      },
-    ],
+    [1, { [_hH]: _xaDL }],
     [() => BlockData, 16],
-    [
-      0,
-      {
-        [_hH]: _xaC_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaCA,
-      },
-    ],
+    [0, { [_hH]: _xaC_ }],
+    [0, { [_hH]: _xaCA }],
   ],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListChangedBlocksRequest: StaticStructureSchema = [
   3,
   n0,
@@ -263,31 +169,11 @@ export var ListChangedBlocksRequest: StaticStructureSchema = [
   0,
   [_FSI, _SSI, _NT, _MR, _SBI],
   [
-    [
-      0,
-      {
-        [_hQ]: _fSI,
-      },
-    ],
+    [0, { [_hQ]: _fSI }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _sBI,
-      },
-    ],
+    [0, { [_hQ]: _pT }],
+    [1, { [_hQ]: _mR }],
+    [1, { [_hQ]: _sBI }],
   ],
 ];
 export var ListChangedBlocksResponse: StaticStructureSchema = [
@@ -306,24 +192,9 @@ export var ListSnapshotBlocksRequest: StaticStructureSchema = [
   [_SI, _NT, _MR, _SBI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _sBI,
-      },
-    ],
+    [0, { [_hQ]: _pT }],
+    [1, { [_hQ]: _mR }],
+    [1, { [_hQ]: _sBI }],
   ],
 ];
 export var ListSnapshotBlocksResponse: StaticStructureSchema = [
@@ -344,30 +215,10 @@ export var PutSnapshotBlockRequest: StaticStructureSchema = [
     [0, 1],
     [1, 1],
     [() => BlockData, 16],
-    [
-      1,
-      {
-        [_hH]: _xaDL,
-      },
-    ],
-    [
-      1,
-      {
-        [_hH]: _xaP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaC_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaCA,
-      },
-    ],
+    [1, { [_hH]: _xaDL }],
+    [1, { [_hH]: _xaP }],
+    [0, { [_hH]: _xaC_ }],
+    [0, { [_hH]: _xaCA }],
   ],
 ];
 export var PutSnapshotBlockResponse: StaticStructureSchema = [
@@ -377,59 +228,23 @@ export var PutSnapshotBlockResponse: StaticStructureSchema = [
   0,
   [_C, _CA],
   [
-    [
-      0,
-      {
-        [_hH]: _xaC_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaCA,
-      },
-    ],
+    [0, { [_hH]: _xaC_ }],
+    [0, { [_hH]: _xaCA }],
   ],
 ];
-export var RequestThrottledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var RequestThrottledException: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(RequestThrottledException, __RequestThrottledException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _R],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartSnapshotRequest: StaticStructureSchema = [
   3,
   n0,
@@ -447,24 +262,10 @@ export var StartSnapshotResponse: StaticStructureSchema = [
   [0, 0, 0, 0, 4, 1, 1, () => Tags, 0, [() => KmsKeyArn, 0], 0],
 ];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var EBSServiceException: StaticErrorSchema = [-3, _sm, "EBSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(EBSServiceException, __EBSServiceException);
-
 export var Blocks: StaticListSchema = [1, n0, _Bl, 8, () => Block];
 export var ChangedBlocks: StaticListSchema = [1, n0, _CBh, 0, [() => ChangedBlock, 0]];
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
@@ -472,9 +273,7 @@ export var CompleteSnapshot: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/snapshots/completion/{SnapshotId}", 202],
-  },
+  { [_h]: ["POST", "/snapshots/completion/{SnapshotId}", 202] },
   () => CompleteSnapshotRequest,
   () => CompleteSnapshotResponse,
 ];
@@ -482,9 +281,7 @@ export var GetSnapshotBlock: StaticOperationSchema = [
   9,
   n0,
   _GSB,
-  {
-    [_h]: ["GET", "/snapshots/{SnapshotId}/blocks/{BlockIndex}", 200],
-  },
+  { [_h]: ["GET", "/snapshots/{SnapshotId}/blocks/{BlockIndex}", 200] },
   () => GetSnapshotBlockRequest,
   () => GetSnapshotBlockResponse,
 ];
@@ -492,9 +289,7 @@ export var ListChangedBlocks: StaticOperationSchema = [
   9,
   n0,
   _LCB,
-  {
-    [_h]: ["GET", "/snapshots/{SecondSnapshotId}/changedblocks", 200],
-  },
+  { [_h]: ["GET", "/snapshots/{SecondSnapshotId}/changedblocks", 200] },
   () => ListChangedBlocksRequest,
   () => ListChangedBlocksResponse,
 ];
@@ -502,9 +297,7 @@ export var ListSnapshotBlocks: StaticOperationSchema = [
   9,
   n0,
   _LSB,
-  {
-    [_h]: ["GET", "/snapshots/{SnapshotId}/blocks", 200],
-  },
+  { [_h]: ["GET", "/snapshots/{SnapshotId}/blocks", 200] },
   () => ListSnapshotBlocksRequest,
   () => ListSnapshotBlocksResponse,
 ];
@@ -512,9 +305,7 @@ export var PutSnapshotBlock: StaticOperationSchema = [
   9,
   n0,
   _PSB,
-  {
-    [_h]: ["PUT", "/snapshots/{SnapshotId}/blocks/{BlockIndex}", 201],
-  },
+  { [_h]: ["PUT", "/snapshots/{SnapshotId}/blocks/{BlockIndex}", 201] },
   () => PutSnapshotBlockRequest,
   () => PutSnapshotBlockResponse,
 ];
@@ -522,9 +313,7 @@ export var StartSnapshot: StaticOperationSchema = [
   9,
   n0,
   _SS,
-  {
-    [_h]: ["POST", "/snapshots", 201],
-  },
+  { [_h]: ["POST", "/snapshots", 201] },
   () => StartSnapshotRequest,
   () => StartSnapshotResponse,
 ];

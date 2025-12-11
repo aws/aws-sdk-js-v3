@@ -61,14 +61,21 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
     if (this.awsQueryCompatible) {
       this.mixin.setQueryCompatError(dataObject, response);
     }
-    const errorName = loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
+    const errorName = (() => {
+      const compatHeader = response.headers["x-amzn-query-error"];
+      if (compatHeader && this.awsQueryCompatible) {
+        return compatHeader.split(";")[0];
+      }
+      return loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
+    })();
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
       errorName,
       this.options.defaultNamespace,
       response,
       dataObject,
-      metadata
+      metadata,
+      this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined
     );
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -78,7 +85,9 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
 
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {
-      output[name] = this.deserializer.readValue(member, dataObject[name]);
+      if (dataObject[name] != null) {
+        output[name] = this.deserializer.readValue(member, dataObject[name]);
+      }
     }
 
     if (this.awsQueryCompatible) {

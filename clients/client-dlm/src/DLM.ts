@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateLifecyclePolicyCommand,
@@ -38,7 +38,7 @@ import {
   UpdateLifecyclePolicyCommandInput,
   UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
-import { DLMClient, DLMClientConfig } from "./DLMClient";
+import { DLMClient } from "./DLMClient";
 
 const commands = {
   CreateLifecyclePolicyCommand,

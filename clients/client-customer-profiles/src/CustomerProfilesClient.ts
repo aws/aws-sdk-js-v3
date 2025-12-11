@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -21,40 +21,49 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultCustomerProfilesHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
@@ -76,6 +85,7 @@ import {
   CreateIntegrationWorkflowCommandOutput,
 } from "./commands/CreateIntegrationWorkflowCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "./commands/CreateRecommenderCommand";
 import {
   CreateSegmentDefinitionCommandInput,
   CreateSegmentDefinitionCommandOutput,
@@ -95,6 +105,10 @@ import {
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteDomainLayoutCommandInput, DeleteDomainLayoutCommandOutput } from "./commands/DeleteDomainLayoutCommand";
+import {
+  DeleteDomainObjectTypeCommandInput,
+  DeleteDomainObjectTypeCommandOutput,
+} from "./commands/DeleteDomainObjectTypeCommand";
 import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand";
 import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "./commands/DeleteEventTriggerCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
@@ -108,6 +122,7 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "./commands/DeleteRecommenderCommand";
 import {
   DeleteSegmentDefinitionCommandInput,
   DeleteSegmentDefinitionCommandOutput,
@@ -131,6 +146,10 @@ import {
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import { GetDomainLayoutCommandInput, GetDomainLayoutCommandOutput } from "./commands/GetDomainLayoutCommand";
+import {
+  GetDomainObjectTypeCommandInput,
+  GetDomainObjectTypeCommandOutput,
+} from "./commands/GetDomainObjectTypeCommand";
 import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
 import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "./commands/GetEventTriggerCommand";
 import {
@@ -139,6 +158,10 @@ import {
 } from "./commands/GetIdentityResolutionJobCommand";
 import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
 import { GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
+import {
+  GetObjectTypeAttributeStatisticsCommandInput,
+  GetObjectTypeAttributeStatisticsCommandOutput,
+} from "./commands/GetObjectTypeAttributeStatisticsCommand";
 import {
   GetProfileHistoryRecordCommandInput,
   GetProfileHistoryRecordCommandOutput,
@@ -151,6 +174,11 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import {
+  GetProfileRecommendationsCommandInput,
+  GetProfileRecommendationsCommandOutput,
+} from "./commands/GetProfileRecommendationsCommand";
+import { GetRecommenderCommandInput, GetRecommenderCommandOutput } from "./commands/GetRecommenderCommand";
 import {
   GetSegmentDefinitionCommandInput,
   GetSegmentDefinitionCommandOutput,
@@ -179,6 +207,10 @@ import {
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainLayoutsCommandInput, ListDomainLayoutsCommandOutput } from "./commands/ListDomainLayoutsCommand";
+import {
+  ListDomainObjectTypesCommandInput,
+  ListDomainObjectTypesCommandOutput,
+} from "./commands/ListDomainObjectTypesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
 import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "./commands/ListEventTriggersCommand";
@@ -191,6 +223,10 @@ import {
   ListObjectTypeAttributesCommandInput,
   ListObjectTypeAttributesCommandOutput,
 } from "./commands/ListObjectTypeAttributesCommand";
+import {
+  ListObjectTypeAttributeValuesCommandInput,
+  ListObjectTypeAttributeValuesCommandOutput,
+} from "./commands/ListObjectTypeAttributeValuesCommand";
 import {
   ListProfileAttributeValuesCommandInput,
   ListProfileAttributeValuesCommandOutput,
@@ -209,6 +245,11 @@ import {
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
 import {
+  ListRecommenderRecipesCommandInput,
+  ListRecommenderRecipesCommandOutput,
+} from "./commands/ListRecommenderRecipesCommand";
+import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
+import {
   ListRuleBasedMatchesCommandInput,
   ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
@@ -223,6 +264,10 @@ import {
 import { ListUploadJobsCommandInput, ListUploadJobsCommandOutput } from "./commands/ListUploadJobsCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "./commands/MergeProfilesCommand";
+import {
+  PutDomainObjectTypeCommandInput,
+  PutDomainObjectTypeCommandOutput,
+} from "./commands/PutDomainObjectTypeCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
 import { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "./commands/PutProfileObjectCommand";
 import {
@@ -230,7 +275,9 @@ import {
   PutProfileObjectTypeCommandOutput,
 } from "./commands/PutProfileObjectTypeCommand";
 import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
+import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
 import { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "./commands/StartUploadJobCommand";
+import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
 import { StopUploadJobCommandInput, StopUploadJobCommandOutput } from "./commands/StopUploadJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -242,6 +289,7 @@ import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/
 import { UpdateDomainLayoutCommandInput, UpdateDomainLayoutCommandOutput } from "./commands/UpdateDomainLayoutCommand";
 import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "./commands/UpdateEventTriggerCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -249,7 +297,7 @@ import {
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -267,6 +315,7 @@ export type ServiceInputTypes =
   | CreateEventTriggerCommandInput
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
+  | CreateRecommenderCommandInput
   | CreateSegmentDefinitionCommandInput
   | CreateSegmentEstimateCommandInput
   | CreateSegmentSnapshotCommandInput
@@ -274,6 +323,7 @@ export type ServiceInputTypes =
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainLayoutCommandInput
+  | DeleteDomainObjectTypeCommandInput
   | DeleteEventStreamCommandInput
   | DeleteEventTriggerCommandInput
   | DeleteIntegrationCommandInput
@@ -281,6 +331,7 @@ export type ServiceInputTypes =
   | DeleteProfileKeyCommandInput
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
+  | DeleteRecommenderCommandInput
   | DeleteSegmentDefinitionCommandInput
   | DeleteWorkflowCommandInput
   | DetectProfileObjectTypeCommandInput
@@ -289,14 +340,18 @@ export type ServiceInputTypes =
   | GetCalculatedAttributeForProfileCommandInput
   | GetDomainCommandInput
   | GetDomainLayoutCommandInput
+  | GetDomainObjectTypeCommandInput
   | GetEventStreamCommandInput
   | GetEventTriggerCommandInput
   | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
   | GetMatchesCommandInput
+  | GetObjectTypeAttributeStatisticsCommandInput
   | GetProfileHistoryRecordCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
+  | GetProfileRecommendationsCommandInput
+  | GetRecommenderCommandInput
   | GetSegmentDefinitionCommandInput
   | GetSegmentEstimateCommandInput
   | GetSegmentMembershipCommandInput
@@ -310,28 +365,35 @@ export type ServiceInputTypes =
   | ListCalculatedAttributeDefinitionsCommandInput
   | ListCalculatedAttributesForProfileCommandInput
   | ListDomainLayoutsCommandInput
+  | ListDomainObjectTypesCommandInput
   | ListDomainsCommandInput
   | ListEventStreamsCommandInput
   | ListEventTriggersCommandInput
   | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
+  | ListObjectTypeAttributeValuesCommandInput
   | ListObjectTypeAttributesCommandInput
   | ListProfileAttributeValuesCommandInput
   | ListProfileHistoryRecordsCommandInput
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
+  | ListRecommenderRecipesCommandInput
+  | ListRecommendersCommandInput
   | ListRuleBasedMatchesCommandInput
   | ListSegmentDefinitionsCommandInput
   | ListTagsForResourceCommandInput
   | ListUploadJobsCommandInput
   | ListWorkflowsCommandInput
   | MergeProfilesCommandInput
+  | PutDomainObjectTypeCommandInput
   | PutIntegrationCommandInput
   | PutProfileObjectCommandInput
   | PutProfileObjectTypeCommandInput
   | SearchProfilesCommandInput
+  | StartRecommenderCommandInput
   | StartUploadJobCommandInput
+  | StopRecommenderCommandInput
   | StopUploadJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -339,7 +401,8 @@ export type ServiceInputTypes =
   | UpdateDomainCommandInput
   | UpdateDomainLayoutCommandInput
   | UpdateEventTriggerCommandInput
-  | UpdateProfileCommandInput;
+  | UpdateProfileCommandInput
+  | UpdateRecommenderCommandInput;
 
 /**
  * @public
@@ -355,6 +418,7 @@ export type ServiceOutputTypes =
   | CreateEventTriggerCommandOutput
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
+  | CreateRecommenderCommandOutput
   | CreateSegmentDefinitionCommandOutput
   | CreateSegmentEstimateCommandOutput
   | CreateSegmentSnapshotCommandOutput
@@ -362,6 +426,7 @@ export type ServiceOutputTypes =
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainLayoutCommandOutput
+  | DeleteDomainObjectTypeCommandOutput
   | DeleteEventStreamCommandOutput
   | DeleteEventTriggerCommandOutput
   | DeleteIntegrationCommandOutput
@@ -369,6 +434,7 @@ export type ServiceOutputTypes =
   | DeleteProfileKeyCommandOutput
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
+  | DeleteRecommenderCommandOutput
   | DeleteSegmentDefinitionCommandOutput
   | DeleteWorkflowCommandOutput
   | DetectProfileObjectTypeCommandOutput
@@ -377,14 +443,18 @@ export type ServiceOutputTypes =
   | GetCalculatedAttributeForProfileCommandOutput
   | GetDomainCommandOutput
   | GetDomainLayoutCommandOutput
+  | GetDomainObjectTypeCommandOutput
   | GetEventStreamCommandOutput
   | GetEventTriggerCommandOutput
   | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
   | GetMatchesCommandOutput
+  | GetObjectTypeAttributeStatisticsCommandOutput
   | GetProfileHistoryRecordCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
+  | GetProfileRecommendationsCommandOutput
+  | GetRecommenderCommandOutput
   | GetSegmentDefinitionCommandOutput
   | GetSegmentEstimateCommandOutput
   | GetSegmentMembershipCommandOutput
@@ -398,28 +468,35 @@ export type ServiceOutputTypes =
   | ListCalculatedAttributeDefinitionsCommandOutput
   | ListCalculatedAttributesForProfileCommandOutput
   | ListDomainLayoutsCommandOutput
+  | ListDomainObjectTypesCommandOutput
   | ListDomainsCommandOutput
   | ListEventStreamsCommandOutput
   | ListEventTriggersCommandOutput
   | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
+  | ListObjectTypeAttributeValuesCommandOutput
   | ListObjectTypeAttributesCommandOutput
   | ListProfileAttributeValuesCommandOutput
   | ListProfileHistoryRecordsCommandOutput
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
+  | ListRecommenderRecipesCommandOutput
+  | ListRecommendersCommandOutput
   | ListRuleBasedMatchesCommandOutput
   | ListSegmentDefinitionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUploadJobsCommandOutput
   | ListWorkflowsCommandOutput
   | MergeProfilesCommandOutput
+  | PutDomainObjectTypeCommandOutput
   | PutIntegrationCommandOutput
   | PutProfileObjectCommandOutput
   | PutProfileObjectTypeCommandOutput
   | SearchProfilesCommandOutput
+  | StartRecommenderCommandOutput
   | StartUploadJobCommandOutput
+  | StopRecommenderCommandOutput
   | StopUploadJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -427,7 +504,8 @@ export type ServiceOutputTypes =
   | UpdateDomainCommandOutput
   | UpdateDomainLayoutCommandOutput
   | UpdateEventTriggerCommandOutput
-  | UpdateProfileCommandOutput;
+  | UpdateProfileCommandOutput
+  | UpdateRecommenderCommandOutput;
 
 /**
  * @public

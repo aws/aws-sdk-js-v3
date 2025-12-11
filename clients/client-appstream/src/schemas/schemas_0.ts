@@ -592,7 +592,7 @@ const n0 = "com.amazonaws.appstream";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -621,7 +621,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 export var AccountPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 export var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
@@ -777,19 +776,8 @@ export var ComputeCapacityStatus: StaticStructureSchema = [
   [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var CopyImageRequest: StaticStructureSchema = [3, n0, _CIR, 0, [_SIN, _DIN, _DR, _DID], [0, 0, 0, 0]];
 export var CopyImageResponse: StaticStructureSchema = [3, n0, _CIRo, 0, [_DIN], [0]];
 export var CreateAppBlockBuilderRequest: StaticStructureSchema = [
@@ -1262,19 +1250,8 @@ export var DisassociateSoftwareFromImageBuilderRequest: StaticStructureSchema = 
 ];
 export var DisassociateSoftwareFromImageBuilderResult: StaticStructureSchema = [3, n0, _DSFIBRi, 0, [], []];
 export var DomainJoinInfo: StaticStructureSchema = [3, n0, _DJI, 0, [_DNi, _OUDNr], [0, 0]];
-export var DryRunOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DROE,
-  {
-    [_er]: _c,
-    [_hE]: 412,
-  },
-  [_M],
-  [0],
-];
+export var DryRunOperationException: StaticErrorSchema = [-3, n0, _DROE, { [_er]: _c, [_hE]: 412 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DryRunOperationException, __DryRunOperationException);
-
 export var EnableUserRequest: StaticStructureSchema = [3, n0, _EUR, 0, [_UN, _AT], [[() => Username, 0], 0]];
 export var EnableUserResult: StaticStructureSchema = [3, n0, _EURn, 0, [], []];
 export var EntitledApplication: StaticStructureSchema = [3, n0, _EA, 0, [_AI], [0]];
@@ -1286,33 +1263,11 @@ export var Entitlement: StaticStructureSchema = [
   [_N, _SN, _D, _AV, _At, _CT, _LMT],
   [0, 0, 0, 0, () => EntitlementAttributeList, 4, 4],
 ];
-export var EntitlementAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EAEE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var EntitlementAlreadyExistsException: StaticErrorSchema = [-3, n0, _EAEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EntitlementAlreadyExistsException, __EntitlementAlreadyExistsException);
-
 export var EntitlementAttribute: StaticStructureSchema = [3, n0, _EAn, 0, [_N, _Va], [0, 0]];
-export var EntitlementNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENFE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var EntitlementNotFoundException: StaticErrorSchema = [-3, n0, _ENFE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EntitlementNotFoundException, __EntitlementNotFoundException);
-
 export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_EC, _EM], [0, 0]];
 export var ExpireSessionRequest: StaticStructureSchema = [3, n0, _ESR, 0, [_SI], [0]];
 export var ExpireSessionResult: StaticStructureSchema = [3, n0, _ESRx, 0, [], []];
@@ -1478,72 +1433,24 @@ export var ImageBuilder: StaticStructureSchema = [
 export var ImageBuilderStateChangeReason: StaticStructureSchema = [3, n0, _IBSCR, 0, [_C, _M], [0, 0]];
 export var ImagePermissions: StaticStructureSchema = [3, n0, _IP, 0, [_aF, _aIB], [2, 2]];
 export var ImageStateChangeReason: StaticStructureSchema = [3, n0, _ISCR, 0, [_C, _M], [0, 0]];
-export var IncompatibleImageException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var IncompatibleImageException: StaticErrorSchema = [-3, n0, _IIE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IncompatibleImageException, __IncompatibleImageException);
-
-export var InvalidAccountStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IASE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidAccountStatusException: StaticErrorSchema = [-3, n0, _IASE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidAccountStatusException, __InvalidAccountStatusException);
-
 export var InvalidParameterCombinationException: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
+  { [_er]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-
-export var InvalidRoleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRoleException: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRoleException, __InvalidRoleException);
-
 export var LastReportGenerationExecutionError: StaticStructureSchema = [3, n0, _LRGEE, 0, [_EC, _EM], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAssociatedFleetsRequest: StaticStructureSchema = [3, n0, _LAFR, 0, [_SN, _NT], [0, 0]];
 export var ListAssociatedFleetsResult: StaticStructureSchema = [3, n0, _LAFRi, 0, [_Na, _NT], [64 | 0, 0]];
 export var ListAssociatedStacksRequest: StaticStructureSchema = [3, n0, _LASR, 0, [_FN, _NT], [0, 0]];
@@ -1583,85 +1490,19 @@ export var ListExportImageTasksResult: StaticStructureSchema = [
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
 export var NetworkAccessConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EIA, _EI], [0, 64 | 0, 0]];
-export var OperationNotPermittedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONPE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var OperationNotPermittedException: StaticErrorSchema = [-3, n0, _ONPE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OperationNotPermittedException, __OperationNotPermittedException);
-
-export var RequestLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var RequestLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RequestLimitExceededException, __RequestLimitExceededException);
-
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
 export var ResourceError: StaticStructureSchema = [3, n0, _RE, 0, [_EC, _EM, _ETr], [0, 0, 4]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotAvailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNAE,
-  {
-    [_er]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotAvailableException: StaticErrorSchema = [-3, n0, _RNAE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotAvailableException, __ResourceNotAvailableException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_er]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuntimeValidationConfig: StaticStructureSchema = [3, n0, _RVCu, 0, [_IIT], [0]];
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_SB, _SK], [0, 0]];
 export var ScriptDetails: StaticStructureSchema = [
@@ -1929,11 +1770,8 @@ export var UserStackAssociationError: StaticStructureSchema = [
 ];
 export var VolumeConfig: StaticStructureSchema = [3, n0, _VCo, 0, [_VSIG], [1]];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
-export var __Unit = "unit" as const;
-
 export var AppStreamServiceException: StaticErrorSchema = [-3, _s, "AppStreamServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(AppStreamServiceException, __AppStreamServiceException);
-
 export var AccessEndpointList: StaticListSchema = [1, n0, _AEL, 0, () => AccessEndpoint];
 export var AdminAppLicenseUsageList: StaticListSchema = [1, n0, _AALUL, 0, () => AdminAppLicenseUsageRecord];
 export var AppBlockBuilderAppBlockAssociationsList: StaticListSchema = [
@@ -1944,25 +1782,18 @@ export var AppBlockBuilderAppBlockAssociationsList: StaticListSchema = [
   () => AppBlockBuilderAppBlockAssociation,
 ];
 export var AppBlockBuilderAttributes = 64 | 0;
-
 export var AppBlockBuilderList: StaticListSchema = [1, n0, _ABBL, 0, () => AppBlockBuilder];
 export var AppBlocks: StaticListSchema = [1, n0, _ABp, 0, () => AppBlock];
 export var AppCatalogConfig: StaticListSchema = [1, n0, _ACC, 0, [() => ApplicationConfig, 0]];
 export var ApplicationAttributes = 64 | 0;
-
 export var ApplicationFleetAssociationList: StaticListSchema = [1, n0, _AFAL, 0, () => ApplicationFleetAssociation];
 export var Applications: StaticListSchema = [1, n0, _App, 0, () => Application];
 export var ArnList = 64 | 0;
-
 export var AwsAccountIdList = 64 | 0;
-
 export var DirectoryConfigList: StaticListSchema = [1, n0, _DCL, 0, [() => DirectoryConfig, 0]];
 export var DirectoryNameList = 64 | 0;
-
 export var DomainList = 64 | 0;
-
 export var EmbedHostDomains = 64 | 0;
-
 export var EntitledApplicationList: StaticListSchema = [1, n0, _EAL, 0, () => EntitledApplication];
 export var EntitlementAttributeList: StaticListSchema = [1, n0, _EALn, 0, () => EntitlementAttribute];
 export var EntitlementList: StaticListSchema = [1, n0, _EL, 0, () => Entitlement];
@@ -1970,9 +1801,7 @@ export var ErrorDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDeta
 export var ExportImageTasks: StaticListSchema = [1, n0, _EITx, 0, () => ExportImageTask];
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var FleetAttributes = 64 | 0;
-
 export var FleetErrors: StaticListSchema = [1, n0, _FE, 0, () => FleetError];
 export var FleetList: StaticListSchema = [1, n0, _FLl, 0, () => Fleet];
 export var ImageBuilderList: StaticListSchema = [1, n0, _IBL, 0, () => ImageBuilder];
@@ -1985,40 +1814,29 @@ export var LastReportGenerationExecutionErrors: StaticListSchema = [
   () => LastReportGenerationExecutionError,
 ];
 export var OrganizationalUnitDistinguishedNamesList = 64 | 0;
-
 export var Platforms = 64 | 0;
-
 export var ResourceErrors: StaticListSchema = [1, n0, _REe, 0, () => ResourceError];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SessionList: StaticListSchema = [1, n0, _SLe, 0, () => Session];
 export var SharedImagePermissionsList: StaticListSchema = [1, n0, _SIPL, 0, () => SharedImagePermissions];
 export var SoftwareAssociationsList: StaticListSchema = [1, n0, _SAL, 0, () => SoftwareAssociations];
 export var StackAttributes = 64 | 0;
-
 export var StackErrors: StaticListSchema = [1, n0, _SE, 0, () => StackError];
 export var StackList: StaticListSchema = [1, n0, _SLt, 0, () => Stack];
 export var StorageConnectorList: StaticListSchema = [1, n0, _SCL, 0, () => StorageConnector];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var ThemeAttributes = 64 | 0;
-
 export var ThemeFooterLinks: StaticListSchema = [1, n0, _TFL, 0, () => ThemeFooterLink];
 export var UsageReportSubscriptionList: StaticListSchema = [1, n0, _URSL, 0, () => UsageReportSubscription];
 export var UsbDeviceFilterStrings = 64 | 0;
-
 export var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User, 0]];
 export var UserSettingList: StaticListSchema = [1, n0, _USL, 0, () => UserSetting];
 export var UserStackAssociationErrorList: StaticListSchema = [1, n0, _USAEL, 0, [() => UserStackAssociationError, 0]];
 export var UserStackAssociationList: StaticListSchema = [1, n0, _USAL, 0, [() => UserStackAssociation, 0]];
 export var Metadata = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var AssociateAppBlockBuilderAppBlock: StaticOperationSchema = [
   9,
   n0,

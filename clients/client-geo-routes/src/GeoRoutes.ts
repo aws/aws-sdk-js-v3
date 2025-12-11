@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CalculateIsolinesCommand,
@@ -23,7 +23,7 @@ import {
   OptimizeWaypointsCommandOutput,
 } from "./commands/OptimizeWaypointsCommand";
 import { SnapToRoadsCommand, SnapToRoadsCommandInput, SnapToRoadsCommandOutput } from "./commands/SnapToRoadsCommand";
-import { GeoRoutesClient, GeoRoutesClientConfig } from "./GeoRoutesClient";
+import { GeoRoutesClient } from "./GeoRoutesClient";
 
 const commands = {
   CalculateIsolinesCommand,

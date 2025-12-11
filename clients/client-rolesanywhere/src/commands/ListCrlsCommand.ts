@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListCrlsResponse, ListRequest } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ListCrlsResponse, ListRequest } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ListCrls } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface ListCrlsCommandInput extends ListRequest {}
 export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListCrls</code>.
- *          </p>
+ * <p>Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListCrls</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

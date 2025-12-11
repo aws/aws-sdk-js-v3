@@ -103,7 +103,7 @@ const n0 = "com.amazonaws.cloud9";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -124,46 +124,15 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var EnvironmentDescription: StaticSimpleSchema = [0, n0, _ED, 8, 0];
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
-export var ConcurrentAccessException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CAE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var ConcurrentAccessException: StaticErrorSchema = [-3, n0, _CAE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(ConcurrentAccessException, __ConcurrentAccessException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateEnvironmentEC2Request: StaticStructureSchema = [
   3,
   n0,
@@ -216,58 +185,18 @@ export var Environment: StaticStructureSchema = [
 ];
 export var EnvironmentLifecycle: StaticStructureSchema = [3, n0, _EL, 0, [_s, _r, _fR], [0, 0, 0]];
 export var EnvironmentMember: StaticStructureSchema = [3, n0, _EM, 0, [_p, _uI, _uA, _eI, _lA], [0, 0, 0, 0, 4]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
-export var InternalServerErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _se,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var InternalServerErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _se }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListEnvironmentsRequest: StaticStructureSchema = [3, n0, _LER, 0, [_nT, _mR], [0, 1]];
 export var ListEnvironmentsResult: StaticStructureSchema = [3, n0, _LERi, 0, [_nT, _eIn], [0, 64 | 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[() => TagList, 0]]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var Tag: StaticStructureSchema = [
   3,
   n0,
@@ -281,18 +210,8 @@ export var Tag: StaticStructureSchema = [
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, [() => TagList, 0]]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-  },
-  [_m, _cN, _co],
-  [0, 0, 1],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c }, [_m, _cN, _co], [0, 0, 1]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TKa], [0, [() => TagKeyList, 0]]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateEnvironmentMembershipRequest: StaticStructureSchema = [3, n0, _UEMR, 0, [_eI, _uA, _p], [0, 0, 0]];
@@ -313,19 +232,13 @@ export var UpdateEnvironmentRequest: StaticStructureSchema = [
   [0, 0, [() => EnvironmentDescription, 0], 0],
 ];
 export var UpdateEnvironmentResult: StaticStructureSchema = [3, n0, _UERp, 0, [], []];
-export var __Unit = "unit" as const;
-
 export var Cloud9ServiceException: StaticErrorSchema = [-3, _sm, "Cloud9ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Cloud9ServiceException, __Cloud9ServiceException);
-
 export var BoundedEnvironmentIdList = 64 | 0;
-
 export var EnvironmentIdList = 64 | 0;
-
 export var EnvironmentList: StaticListSchema = [1, n0, _ELn, 0, [() => Environment, 0]];
 export var EnvironmentMembersList: StaticListSchema = [1, n0, _EML, 0, () => EnvironmentMember];
 export var PermissionsList = 64 | 0;
-
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, [() => TagKey, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 8, [() => Tag, 0]];
 export var CreateEnvironmentEC2: StaticOperationSchema = [

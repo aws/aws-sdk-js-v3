@@ -861,7 +861,7 @@ const n0 = "com.amazonaws.deadline";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -882,7 +882,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
@@ -909,15 +908,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _cl,
-    [_hE]: 403,
-  },
+  { [_e]: _cl, [_hE]: 403 },
   [_me, _co],
   [0, 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AcquiredLimit: StaticStructureSchema = [3, n0, _AL, 0, [_lI, _c], [0, 1]];
 export var AssignedEnvironmentEnterSessionActionDefinition: StaticStructureSchema = [3, n0, _AEESAD, 0, [_eI], [0]];
 export var AssignedEnvironmentExitSessionActionDefinition: StaticStructureSchema = [3, n0, _AEESADs, 0, [_eI], [0]];
@@ -1076,12 +1071,7 @@ export var AssumeQueueRoleForWorkerRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _qI,
-      },
-    ],
+    [0, { [_hQ]: _qI }],
   ],
 ];
 export var AssumeQueueRoleForWorkerResponse: StaticStructureSchema = [
@@ -1131,15 +1121,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _cl,
-    [_hE]: 409,
-  },
+  { [_e]: _cl, [_hE]: 409 },
   [_me, _re, _rI, _rT, _co],
   [0, 0, 0, 0, 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConsumedUsages: StaticStructureSchema = [3, n0, _CU, 0, [_aDU], [1]];
 export var CopyJobTemplateRequest: StaticStructureSchema = [
   3,
@@ -1157,13 +1143,7 @@ export var CreateBudgetRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _uTR, _dN, _de, _aDL, _a, _sc],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     () => UsageTrackingResource,
     0,
@@ -1180,19 +1160,7 @@ export var CreateFarmRequest: StaticStructureSchema = [
   _CFR,
   0,
   [_cT, _dN, _de, _kKA, _ta],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    [() => Description, 0],
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, 128 | 0],
 ];
 export var CreateFarmResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_fI], [0]];
 export var CreateFleetRequest: StaticStructureSchema = [
@@ -1202,13 +1170,7 @@ export var CreateFleetRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _dN, _de, _rA, _mWC, _mWCa, _con, _ta, _hC],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     0,
     [() => Description, 0],
@@ -1230,13 +1192,7 @@ export var CreateJobRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [() => JobTemplate, 0],
     0,
     1,
@@ -1257,19 +1213,7 @@ export var CreateLicenseEndpointRequest: StaticStructureSchema = [
   _CLER,
   0,
   [_cT, _vI, _sIu, _sGI, _ta],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    64 | 0,
-    64 | 0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 64 | 0, 64 | 0, 128 | 0],
 ];
 export var CreateLicenseEndpointResponse: StaticStructureSchema = [3, n0, _CLERr, 0, [_lEI], [0]];
 export var CreateLimitRequest: StaticStructureSchema = [
@@ -1278,20 +1222,7 @@ export var CreateLimitRequest: StaticStructureSchema = [
   _CLR,
   0,
   [_cT, _dN, _aRN, _mC, _fI, _de],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    0,
-    1,
-    [0, 1],
-    [() => Description, 0],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 0, 1, [0, 1], [() => Description, 0]],
 ];
 export var CreateLimitResponse: StaticStructureSchema = [3, n0, _CLRr, 0, [_lI], [0]];
 export var CreateMonitorRequest: StaticStructureSchema = [
@@ -1300,20 +1231,7 @@ export var CreateMonitorRequest: StaticStructureSchema = [
   _CMR,
   0,
   [_cT, _dN, _iCIA, _su, _rA, _ta],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 0, 0, 0, 128 | 0],
 ];
 export var CreateMonitorResponse: StaticStructureSchema = [3, n0, _CMRr, 0, [_mI, _iCAA], [0, 0]];
 export var CreateQueueEnvironmentRequest: StaticStructureSchema = [
@@ -1322,20 +1240,7 @@ export var CreateQueueEnvironmentRequest: StaticStructureSchema = [
   _CQER,
   0,
   [_cT, _fI, _qI, _pr, _tT, _te],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    [0, 1],
-    [0, 1],
-    1,
-    0,
-    [() => EnvironmentTemplate, 0],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], 1, 0, [() => EnvironmentTemplate, 0]],
 ];
 export var CreateQueueEnvironmentResponse: StaticStructureSchema = [3, n0, _CQERr, 0, [_qEI], [0]];
 export var CreateQueueFleetAssociationRequest: StaticStructureSchema = [
@@ -1363,13 +1268,7 @@ export var CreateQueueRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLN, _aSPI, _ta],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     0,
     [() => Description, 0],
@@ -1389,19 +1288,7 @@ export var CreateStorageProfileRequest: StaticStructureSchema = [
   _CSPR,
   0,
   [_cT, _fI, _dN, _oF, _fSL],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    [0, 1],
-    0,
-    0,
-    [() => FileSystemLocationsList, 0],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], 0, 0, [() => FileSystemLocationsList, 0]],
 ];
 export var CreateStorageProfileResponse: StaticStructureSchema = [3, n0, _CSPRr, 0, [_sPI], [0]];
 export var CreateWorkerRequest: StaticStructureSchema = [
@@ -1410,19 +1297,7 @@ export var CreateWorkerRequest: StaticStructureSchema = [
   _CWR,
   0,
   [_fI, _fIl, _hP, _cT, _ta],
-  [
-    [0, 1],
-    [0, 1],
-    () => HostPropertiesRequest,
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    128 | 0,
-  ],
+  [[0, 1], [0, 1], () => HostPropertiesRequest, [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0],
 ];
 export var CreateWorkerResponse: StaticStructureSchema = [3, n0, _CWRr, 0, [_wI], [0]];
 export var CustomerManagedFleetConfiguration: StaticStructureSchema = [
@@ -1473,13 +1348,7 @@ export var DeleteFleetRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _fIl],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     [0, 1],
   ],
@@ -2034,24 +1903,9 @@ export var GetSessionsStatisticsAggregationRequest: StaticStructureSchema = [
   [_fI, _aI, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _aI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetSessionsStatisticsAggregationResponse: StaticStructureSchema = [
@@ -2204,23 +2058,11 @@ export var InternalServerErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_me, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var IpAddresses: StaticStructureSchema = [3, n0, _IA, 0, [_iVA, _iVAp], [64 | 0, 64 | 0]];
 export var JobAttachmentDetailsEntity: StaticStructureSchema = [
   3,
@@ -2313,18 +2155,8 @@ export var ListAvailableMeteredProductsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAvailableMeteredProductsResponse: StaticStructureSchema = [
@@ -2342,25 +2174,10 @@ export var ListBudgetsRequest: StaticStructureSchema = [
   0,
   [_nT, _fI, _mR, _st],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListBudgetsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_nT, _b], [0, [() => BudgetSummaries, 0]]];
@@ -2372,18 +2189,8 @@ export var ListFarmMembersRequest: StaticStructureSchema = [
   [_fI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFarmMembersResponse: StaticStructureSchema = [3, n0, _LFMRi, 0, [_mem, _nT], [() => FarmMembers, 0]];
@@ -2394,24 +2201,9 @@ export var ListFarmsRequest: StaticStructureSchema = [
   0,
   [_nT, _pI, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _pI }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFarmsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_nT, _f], [0, () => FarmSummaries]];
@@ -2424,18 +2216,8 @@ export var ListFleetMembersRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFleetMembersResponse: StaticStructureSchema = [3, n0, _LFMRist, 0, [_mem, _nT], [() => FleetMembers, 0]];
@@ -2447,36 +2229,11 @@ export var ListFleetsRequest: StaticStructureSchema = [
   [_fI, _pI, _dN, _st, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _pI }],
+    [0, { [_hQ]: _dN }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFleetsResponse: StaticStructureSchema = [3, n0, _LFRist, 0, [_fl, _nT], [() => FleetSummaries, 0]];
@@ -2490,18 +2247,8 @@ export var ListJobMembersRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListJobMembersResponse: StaticStructureSchema = [3, n0, _LJMRi, 0, [_mem, _nT], [() => JobMembers, 0]];
@@ -2515,18 +2262,8 @@ export var ListJobParameterDefinitionsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListJobParameterDefinitionsResponse: StaticStructureSchema = [3, n0, _LJPDRi, 0, [_jPD, _nT], [64 | 15, 0]];
@@ -2538,25 +2275,10 @@ export var ListJobsRequest: StaticStructureSchema = [
   [_fI, _pI, _qI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
+    [0, { [_hQ]: _pI }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListJobsResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_j, _nT], [() => JobSummaries, 0]];
@@ -2567,18 +2289,8 @@ export var ListLicenseEndpointsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLicenseEndpointsResponse: StaticStructureSchema = [
@@ -2597,18 +2309,8 @@ export var ListLimitsRequest: StaticStructureSchema = [
   [_fI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLimitsResponse: StaticStructureSchema = [3, n0, _LLRi, 0, [_li, _nT], [() => LimitSummaries, 0]];
@@ -2620,18 +2322,8 @@ export var ListMeteredProductsRequest: StaticStructureSchema = [
   [_lEI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListMeteredProductsResponse: StaticStructureSchema = [
@@ -2649,18 +2341,8 @@ export var ListMonitorsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListMonitorsResponse: StaticStructureSchema = [3, n0, _LMRi, 0, [_nT, _mon], [0, () => MonitorSummaries]];
@@ -2673,18 +2355,8 @@ export var ListQueueEnvironmentsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueueEnvironmentsResponse: StaticStructureSchema = [
@@ -2703,30 +2375,10 @@ export var ListQueueFleetAssociationsRequest: StaticStructureSchema = [
   [_fI, _qI, _fIl, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _qI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fIl,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _qI }],
+    [0, { [_hQ]: _fIl }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueueFleetAssociationsResponse: StaticStructureSchema = [
@@ -2745,30 +2397,10 @@ export var ListQueueLimitAssociationsRequest: StaticStructureSchema = [
   [_fI, _qI, _lI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _qI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _lI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _qI }],
+    [0, { [_hQ]: _lI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueueLimitAssociationsResponse: StaticStructureSchema = [
@@ -2788,18 +2420,8 @@ export var ListQueueMembersRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueueMembersResponse: StaticStructureSchema = [
@@ -2818,30 +2440,10 @@ export var ListQueuesRequest: StaticStructureSchema = [
   [_fI, _pI, _st, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _pI }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListQueuesResponse: StaticStructureSchema = [3, n0, _LQRi, 0, [_q, _nT], [() => QueueSummaries, 0]];
@@ -2855,30 +2457,10 @@ export var ListSessionActionsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sIe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _sIe }],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSessionActionsResponse: StaticStructureSchema = [
@@ -2899,18 +2481,8 @@ export var ListSessionsForWorkerRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSessionsForWorkerResponse: StaticStructureSchema = [
@@ -2931,18 +2503,8 @@ export var ListSessionsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSessionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_ses, _nT], [() => SessionSummaries, 0]];
@@ -2957,18 +2519,8 @@ export var ListStepConsumersRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListStepConsumersResponse: StaticStructureSchema = [
@@ -2990,18 +2542,8 @@ export var ListStepDependenciesRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListStepDependenciesResponse: StaticStructureSchema = [
@@ -3022,18 +2564,8 @@ export var ListStepsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListStepsResponse: StaticStructureSchema = [3, n0, _LSRist, 0, [_ste, _nT], [() => StepSummaries, 0]];
@@ -3046,18 +2578,8 @@ export var ListStorageProfilesForQueueRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListStorageProfilesForQueueResponse: StaticStructureSchema = [
@@ -3076,18 +2598,8 @@ export var ListStorageProfilesRequest: StaticStructureSchema = [
   [_fI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListStorageProfilesResponse: StaticStructureSchema = [
@@ -3111,18 +2623,8 @@ export var ListTasksRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTasksResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_tas, _nT], [[() => TaskSummaries, 0], 0]];
@@ -3135,18 +2637,8 @@ export var ListWorkersRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWorkersResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_nT, _wo], [0, () => WorkerSummaries]];
@@ -3216,15 +2708,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
+  { [_e]: _cl, [_hE]: 404 },
   [_me, _rI, _rT, _co],
   [0, 0, 0, 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResponseBudgetAction: StaticStructureSchema = [
   3,
   n0,
@@ -3344,15 +2832,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _cl,
-    [_hE]: 402,
-  },
+  { [_e]: _cl, [_hE]: 402 },
   [_me, _re, _rT, _sC, _qC, _rI, _co],
   [0, 0, 0, 0, 0, 0, 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionActionSummary: StaticStructureSchema = [
   3,
   n0,
@@ -3477,26 +2961,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _cl,
-    [_hE]: 429,
-  },
+  { [_e]: _cl, [_hE]: 429 },
   [_me, _sC, _qC, _rAS, _co],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    128 | 0,
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }], 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3505,12 +2974,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -3521,13 +2985,7 @@ export var UpdateBudgetRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _bI, _dN, _de, _st, _aDL, _aTA, _aTR, _sc],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     [0, 1],
     0,
@@ -3564,13 +3022,7 @@ export var UpdateFleetRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _fIl, _dN, _de, _rA, _mWC, _mWCa, _con, _hC],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     [0, 1],
     0,
@@ -3589,24 +3041,7 @@ export var UpdateJobRequest: StaticStructureSchema = [
   _UJR,
   0,
   [_cT, _tTRS, _pr, _mFTC, _mRPT, _lS, _mWCa, _fI, _qI, _jI],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    1,
-    1,
-    1,
-    0,
-    1,
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 1, 1, 1, 0, 1, [0, 1], [0, 1], [0, 1]],
 ];
 export var UpdateJobResponse: StaticStructureSchema = [3, n0, _UJRp, 0, [], []];
 export var UpdateLimitRequest: StaticStructureSchema = [
@@ -3626,21 +3061,7 @@ export var UpdateQueueEnvironmentRequest: StaticStructureSchema = [
   _UQER,
   0,
   [_cT, _fI, _qI, _qEI, _pr, _tT, _te],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    1,
-    0,
-    [() => EnvironmentTemplate, 0],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], [0, 1], 1, 0, [() => EnvironmentTemplate, 0]],
 ];
 export var UpdateQueueEnvironmentResponse: StaticStructureSchema = [3, n0, _UQERp, 0, [], []];
 export var UpdateQueueFleetAssociationRequest: StaticStructureSchema = [
@@ -3668,13 +3089,7 @@ export var UpdateQueueRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _qI, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLNTA, _rFSLNTR, _aSPITA, _aSPITR],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     [0, 1],
     0,
@@ -3696,20 +3111,7 @@ export var UpdateSessionRequest: StaticStructureSchema = [
   _USR,
   0,
   [_cT, _tLS, _fI, _qI, _jI, _sIe],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, [0, 1], [0, 1], [0, 1], [0, 1]],
 ];
 export var UpdateSessionResponse: StaticStructureSchema = [3, n0, _USRp, 0, [], []];
 export var UpdateStepRequest: StaticStructureSchema = [
@@ -3718,20 +3120,7 @@ export var UpdateStepRequest: StaticStructureSchema = [
   _USRpd,
   0,
   [_tTRS, _cT, _fI, _qI, _jI, _sI],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
+  [0, [0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], [0, 1], [0, 1]],
 ];
 export var UpdateStepResponse: StaticStructureSchema = [3, n0, _USRpda, 0, [], []];
 export var UpdateStorageProfileRequest: StaticStructureSchema = [
@@ -3741,13 +3130,7 @@ export var UpdateStorageProfileRequest: StaticStructureSchema = [
   0,
   [_cT, _fI, _sPI, _dN, _oF, _fSLTA, _fSLTR],
   [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _XACT, [_iT]: 1 }],
     [0, 1],
     [0, 1],
     0,
@@ -3763,21 +3146,7 @@ export var UpdateTaskRequest: StaticStructureSchema = [
   _UTR,
   0,
   [_cT, _tRSa, _fI, _qI, _jI, _sI, _tI],
-  [
-    [
-      0,
-      {
-        [_hH]: _XACT,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-  ],
+  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, [0, 1], [0, 1], [0, 1], [0, 1], [0, 1]],
 ];
 export var UpdateTaskResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [], []];
 export var UpdateWorkerRequest: StaticStructureSchema = [
@@ -3822,15 +3191,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_me, _re, _fL, _co],
   [0, 0, () => ValidationExceptionFieldList, 128 | 0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _me], [0, 0]];
 export var VCpuCountRange: StaticStructureSchema = [3, n0, _VCCR, 0, [_m, _ma], [1, 1]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_rCA], [64 | 0]];
@@ -3869,20 +3234,14 @@ export var WorkerSummary: StaticStructureSchema = [
   [_wI, _fI, _fIl, _st, _hP, _l, _cA, _cB, _uA, _uB],
   [0, 0, 0, 0, () => HostPropertiesResponse, () => LogConfiguration, 5, 0, 5, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var DeadlineServiceException: StaticErrorSchema = [-3, _sm, "DeadlineServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DeadlineServiceException, __DeadlineServiceException);
-
 export var AcceleratorSelections: StaticListSchema = [1, n0, _ASc, 0, () => AcceleratorSelection];
 export var AcceleratorTypes = 64 | 0;
-
 export var AcquiredLimits: StaticListSchema = [1, n0, _ALc, 0, () => AcquiredLimit];
 export var AllowedStorageProfileIds = 64 | 0;
-
 export var AssignedSessionActions: StaticListSchema = [1, n0, _ASAs, 0, [() => AssignedSessionAction, 0]];
 export var AttributeCapabilityValuesList = 64 | 0;
-
 export var BatchGetJobEntityErrors: StaticListSchema = [1, n0, _BGJEE, 0, () => GetJobEntityError];
 export var BatchGetJobEntityList: StaticListSchema = [1, n0, _BGJEL, 0, [() => JobEntity, 0]];
 export var BudgetActionsToAdd: StaticListSchema = [1, n0, _BATAu, 0, [() => BudgetActionToAdd, 0]];
@@ -3891,55 +3250,43 @@ export var BudgetSummaries: StaticListSchema = [1, n0, _BSu, 0, [() => BudgetSum
 export var CustomFleetAmountCapabilities: StaticListSchema = [1, n0, _CFAC, 0, () => FleetAmountCapability];
 export var CustomFleetAttributeCapabilities: StaticListSchema = [1, n0, _CFACu, 0, () => FleetAttributeCapability];
 export var DependenciesList = 64 | 0;
-
 export var FarmMembers: StaticListSchema = [1, n0, _FMa, 0, () => FarmMember];
 export var FarmSummaries: StaticListSchema = [1, n0, _FSa, 0, () => FarmSummary];
 export var FileSystemLocationsList: StaticListSchema = [1, n0, _FSLL, 0, [() => FileSystemLocation, 0]];
 export var FleetAmountCapabilities: StaticListSchema = [1, n0, _FACle, 0, () => FleetAmountCapability];
 export var FleetAttributeCapabilities: StaticListSchema = [1, n0, _FAClee, 0, () => FleetAttributeCapability];
 export var FleetIds = 64 | 0;
-
 export var FleetMembers: StaticListSchema = [1, n0, _FMle, 0, () => FleetMember];
 export var FleetSummaries: StaticListSchema = [1, n0, _FSle, 0, () => FleetSummary];
 export var InstanceTypes = 64 | 0;
-
 export var IpV4Addresses = 64 | 0;
-
 export var IpV6Addresses = 64 | 0;
-
 export var JobEntityIdentifiers: StaticListSchema = [1, n0, _JEI, 0, () => JobEntityIdentifiersUnion];
 export var JobMembers: StaticListSchema = [1, n0, _JMo, 0, () => JobMember];
 export var JobParameterDefinitions = 64 | 15;
-
 export var JobSearchSummaries: StaticListSchema = [1, n0, _JSSo, 0, [() => JobSearchSummary, 0]];
 export var JobSummaries: StaticListSchema = [1, n0, _JSo, 0, () => JobSummary];
 export var LicenseEndpointSummaries: StaticListSchema = [1, n0, _LESi, 0, () => LicenseEndpointSummary];
 export var LimitSummaries: StaticListSchema = [1, n0, _LSi, 0, () => LimitSummary];
 export var ListAttributeCapabilityValue = 64 | 0;
-
 export var ListSessionsForWorkerSummaries: StaticListSchema = [1, n0, _LSFWS, 0, () => WorkerSessionSummary];
 export var ManifestPropertiesList: StaticListSchema = [1, n0, _MPL, 0, [() => ManifestProperties, 0]];
 export var MeteredProductSummaryList: StaticListSchema = [1, n0, _MPSL, 0, () => MeteredProductSummary];
 export var MonitorSummaries: StaticListSchema = [1, n0, _MSo, 0, () => MonitorSummary];
 export var OutputRelativeDirectoriesList = 64 | 0;
-
 export var PathMappingRules: StaticListSchema = [1, n0, _PMRa, 0, [() => PathMappingRule, 0]];
 export var QueueEnvironmentSummaries: StaticListSchema = [1, n0, _QESu, 0, () => QueueEnvironmentSummary];
 export var QueueFleetAssociationSummaries: StaticListSchema = [1, n0, _QFASu, 0, () => QueueFleetAssociationSummary];
 export var QueueIds = 64 | 0;
-
 export var QueueLimitAssociationSummaries: StaticListSchema = [1, n0, _QLASu, 0, () => QueueLimitAssociationSummary];
 export var QueueMemberList: StaticListSchema = [1, n0, _QML, 0, () => QueueMember];
 export var QueueSummaries: StaticListSchema = [1, n0, _QSu, 0, () => QueueSummary];
 export var RequiredFileSystemLocationNames = 64 | 0;
-
 export var ResponseBudgetActionList: StaticListSchema = [1, n0, _RBAL, 0, [() => ResponseBudgetAction, 0]];
 export var SearchFilterExpressions: StaticListSchema = [1, n0, _SFEe, 0, () => SearchFilterExpression];
 export var SearchSortExpressions: StaticListSchema = [1, n0, _SSE, 0, () => SearchSortExpression];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SessionActionIdList = 64 | 0;
-
 export var SessionActionSummaries: StaticListSchema = [1, n0, _SASe, 0, [() => SessionActionSummary, 0]];
 export var SessionSummaries: StaticListSchema = [1, n0, _SSe, 0, () => SessionSummary];
 export var StatisticsList: StaticListSchema = [1, n0, _SLt, 0, () => Statistics];
@@ -3952,9 +3299,7 @@ export var StepSearchSummaries: StaticListSchema = [1, n0, _SSSt, 0, () => StepS
 export var StepSummaries: StaticListSchema = [1, n0, _SSte, 0, () => StepSummary];
 export var StorageProfileSummaries: StaticListSchema = [1, n0, _SPSt, 0, () => StorageProfileSummary];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TaskRunManifestPropertiesListRequest: StaticListSchema = [
   1,
   n0,
@@ -3972,12 +3317,9 @@ export var TaskRunManifestPropertiesListResponse: StaticListSchema = [
 export var TaskSearchSummaries: StaticListSchema = [1, n0, _TSSa, 0, [() => TaskSearchSummary, 0]];
 export var TaskSummaries: StaticListSchema = [1, n0, _TSa, 0, [() => TaskSummary, 0]];
 export var UsageGroupBy = 64 | 0;
-
 export var UsageStatistics = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var VpcResourceConfigurationArns = 64 | 0;
-
 export var WorkerAmountCapabilityList: StaticListSchema = [1, n0, _WACL, 0, () => WorkerAmountCapability];
 export var WorkerAttributeCapabilityList: StaticListSchema = [1, n0, _WACLo, 0, () => WorkerAttributeCapability];
 export var WorkerSearchSummaries: StaticListSchema = [1, n0, _WSSor, 0, () => WorkerSearchSummary];
@@ -3985,17 +3327,12 @@ export var WorkerSummaries: StaticListSchema = [1, n0, _WSo, 0, () => WorkerSumm
 export var AssignedSessions: StaticMapSchema = [2, n0, _ASss, 0, [0, 0], [() => AssignedSession, 0]];
 export var CancelSessionActions: StaticMapSchema = [2, n0, _CSA, 0, 0, 64 | 0];
 export var ExceptionContext = 128 | 0;
-
 export var JobParameters: StaticMapSchema = [2, n0, _JP, 8, 0, () => JobParameter];
 export var LogOptions = 128 | 0;
-
 export var LogParameters = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var TaskParameters: StaticMapSchema = [2, n0, _TP, 8, [0, 0], [() => TaskParameterValue, 0]];
 export var TaskRunStatusCounts = 128 | 1;
-
 export var UpdatedSessionActions: StaticMapSchema = [2, n0, _USA, 0, [0, 0], [() => UpdatedSessionActionInfo, 0]];
 export var AssignedSessionActionDefinition: StaticStructureSchema = [
   3,
@@ -4109,10 +3446,7 @@ export var AssociateMemberToFarm: StaticOperationSchema = [
   9,
   n0,
   _AMTF,
-  {
-    [_end]: ["management."],
-    [_h]: ["PUT", "/2023-10-12/farms/{farmId}/members/{principalId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["PUT", "/2023-10-12/farms/{farmId}/members/{principalId}", 200] },
   () => AssociateMemberToFarmRequest,
   () => AssociateMemberToFarmResponse,
 ];
@@ -4120,10 +3454,7 @@ export var AssociateMemberToFleet: StaticOperationSchema = [
   9,
   n0,
   _AMTFs,
-  {
-    [_end]: ["management."],
-    [_h]: ["PUT", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/members/{principalId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["PUT", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/members/{principalId}", 200] },
   () => AssociateMemberToFleetRequest,
   () => AssociateMemberToFleetResponse,
 ];
@@ -4142,10 +3473,7 @@ export var AssociateMemberToQueue: StaticOperationSchema = [
   9,
   n0,
   _AMTQ,
-  {
-    [_end]: ["management."],
-    [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queues/{queueId}/members/{principalId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queues/{queueId}/members/{principalId}", 200] },
   () => AssociateMemberToQueueRequest,
   () => AssociateMemberToQueueResponse,
 ];
@@ -4153,10 +3481,7 @@ export var AssumeFleetRoleForRead: StaticOperationSchema = [
   9,
   n0,
   _AFRFR,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/read-roles", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/read-roles", 200], [_end]: ["management."] },
   () => AssumeFleetRoleForReadRequest,
   () => AssumeFleetRoleForReadResponse,
 ];
@@ -4175,10 +3500,7 @@ export var AssumeQueueRoleForRead: StaticOperationSchema = [
   9,
   n0,
   _AQRFR,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/read-roles", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/read-roles", 200], [_end]: ["management."] },
   () => AssumeQueueRoleForReadRequest,
   () => AssumeQueueRoleForReadResponse,
 ];
@@ -4186,10 +3508,7 @@ export var AssumeQueueRoleForUser: StaticOperationSchema = [
   9,
   n0,
   _AQRFU,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/user-roles", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/user-roles", 200], [_end]: ["management."] },
   () => AssumeQueueRoleForUserRequest,
   () => AssumeQueueRoleForUserResponse,
 ];
@@ -4219,10 +3538,7 @@ export var CopyJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _CJT,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/template", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/template", 200], [_end]: ["management."] },
   () => CopyJobTemplateRequest,
   () => CopyJobTemplateResponse,
 ];
@@ -4230,10 +3546,7 @@ export var CreateBudget: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/budgets", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/budgets", 200], [_end]: ["management."] },
   () => CreateBudgetRequest,
   () => CreateBudgetResponse,
 ];
@@ -4241,10 +3554,7 @@ export var CreateFarm: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms", 200] },
   () => CreateFarmRequest,
   () => CreateFarmResponse,
 ];
@@ -4252,10 +3562,7 @@ export var CreateFleet: StaticOperationSchema = [
   9,
   n0,
   _CFr,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/fleets", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/fleets", 200] },
   () => CreateFleetRequest,
   () => CreateFleetResponse,
 ];
@@ -4263,10 +3570,7 @@ export var CreateJob: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs", 201],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs", 201], [_end]: ["management."] },
   () => CreateJobRequest,
   () => CreateJobResponse,
 ];
@@ -4274,10 +3578,7 @@ export var CreateLicenseEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CLE,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/license-endpoints", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/license-endpoints", 200] },
   () => CreateLicenseEndpointRequest,
   () => CreateLicenseEndpointResponse,
 ];
@@ -4285,10 +3586,7 @@ export var CreateLimit: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/limits", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/limits", 200], [_end]: ["management."] },
   () => CreateLimitRequest,
   () => CreateLimitResponse,
 ];
@@ -4296,10 +3594,7 @@ export var CreateMonitor: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/monitors", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/monitors", 200] },
   () => CreateMonitorRequest,
   () => CreateMonitorResponse,
 ];
@@ -4307,10 +3602,7 @@ export var CreateQueue: StaticOperationSchema = [
   9,
   n0,
   _CQ,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues", 200] },
   () => CreateQueueRequest,
   () => CreateQueueResponse,
 ];
@@ -4318,10 +3610,7 @@ export var CreateQueueEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CQE,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments", 200], [_end]: ["management."] },
   () => CreateQueueEnvironmentRequest,
   () => CreateQueueEnvironmentResponse,
 ];
@@ -4329,10 +3618,7 @@ export var CreateQueueFleetAssociation: StaticOperationSchema = [
   9,
   n0,
   _CQFA,
-  {
-    [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-fleet-associations", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-fleet-associations", 200], [_end]: ["management."] },
   () => CreateQueueFleetAssociationRequest,
   () => CreateQueueFleetAssociationResponse,
 ];
@@ -4340,10 +3626,7 @@ export var CreateQueueLimitAssociation: StaticOperationSchema = [
   9,
   n0,
   _CQLA,
-  {
-    [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-limit-associations", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-limit-associations", 200], [_end]: ["management."] },
   () => CreateQueueLimitAssociationRequest,
   () => CreateQueueLimitAssociationResponse,
 ];
@@ -4351,10 +3634,7 @@ export var CreateStorageProfile: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/storage-profiles", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/storage-profiles", 200], [_end]: ["management."] },
   () => CreateStorageProfileRequest,
   () => CreateStorageProfileResponse,
 ];
@@ -4362,10 +3642,7 @@ export var CreateWorker: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  {
-    [_end]: ["scheduling."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers", 200],
-  },
+  { [_end]: ["scheduling."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers", 200] },
   () => CreateWorkerRequest,
   () => CreateWorkerResponse,
 ];
@@ -4373,10 +3650,7 @@ export var DeleteBudget: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200], [_end]: ["management."] },
   () => DeleteBudgetRequest,
   () => DeleteBudgetResponse,
 ];
@@ -4384,10 +3658,7 @@ export var DeleteFarm: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}", 200], [_end]: ["management."] },
   () => DeleteFarmRequest,
   () => DeleteFarmResponse,
 ];
@@ -4395,10 +3666,7 @@ export var DeleteFleet: StaticOperationSchema = [
   9,
   n0,
   _DFe,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200], [_end]: ["management."] },
   () => DeleteFleetRequest,
   () => DeleteFleetResponse,
 ];
@@ -4406,10 +3674,7 @@ export var DeleteLicenseEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DLE,
-  {
-    [_end]: ["management."],
-    [_h]: ["DELETE", "/2023-10-12/license-endpoints/{licenseEndpointId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/license-endpoints/{licenseEndpointId}", 200] },
   () => DeleteLicenseEndpointRequest,
   () => DeleteLicenseEndpointResponse,
 ];
@@ -4417,10 +3682,7 @@ export var DeleteLimit: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200], [_end]: ["management."] },
   () => DeleteLimitRequest,
   () => DeleteLimitResponse,
 ];
@@ -4439,10 +3701,7 @@ export var DeleteMonitor: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_end]: ["management."],
-    [_h]: ["DELETE", "/2023-10-12/monitors/{monitorId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/monitors/{monitorId}", 200] },
   () => DeleteMonitorRequest,
   () => DeleteMonitorResponse,
 ];
@@ -4450,10 +3709,7 @@ export var DeleteQueue: StaticOperationSchema = [
   9,
   n0,
   _DQ,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200], [_end]: ["management."] },
   () => DeleteQueueRequest,
   () => DeleteQueueResponse,
 ];
@@ -4494,10 +3750,7 @@ export var DeleteStorageProfile: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200], [_end]: ["management."] },
   () => DeleteStorageProfileRequest,
   () => DeleteStorageProfileResponse,
 ];
@@ -4505,10 +3758,7 @@ export var DeleteWorker: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200], [_end]: ["management."] },
   () => DeleteWorkerRequest,
   () => DeleteWorkerResponse,
 ];
@@ -4516,10 +3766,7 @@ export var DisassociateMemberFromFarm: StaticOperationSchema = [
   9,
   n0,
   _DMFF,
-  {
-    [_end]: ["management."],
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/members/{principalId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/members/{principalId}", 200] },
   () => DisassociateMemberFromFarmRequest,
   () => DisassociateMemberFromFarmResponse,
 ];
@@ -4560,10 +3807,7 @@ export var GetBudget: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200], [_end]: ["management."] },
   () => GetBudgetRequest,
   () => GetBudgetResponse,
 ];
@@ -4571,10 +3815,7 @@ export var GetFarm: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}", 200], [_end]: ["management."] },
   () => GetFarmRequest,
   () => GetFarmResponse,
 ];
@@ -4582,10 +3823,7 @@ export var GetFleet: StaticOperationSchema = [
   9,
   n0,
   _GFe,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200] },
   () => GetFleetRequest,
   () => GetFleetResponse,
 ];
@@ -4593,10 +3831,7 @@ export var GetJob: StaticOperationSchema = [
   9,
   n0,
   _GJ,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}", 200] },
   () => GetJobRequest,
   () => GetJobResponse,
 ];
@@ -4604,10 +3839,7 @@ export var GetLicenseEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GLE,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/license-endpoints/{licenseEndpointId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/license-endpoints/{licenseEndpointId}", 200] },
   () => GetLicenseEndpointRequest,
   () => GetLicenseEndpointResponse,
 ];
@@ -4615,10 +3847,7 @@ export var GetLimit: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200], [_end]: ["management."] },
   () => GetLimitRequest,
   () => GetLimitResponse,
 ];
@@ -4626,10 +3855,7 @@ export var GetMonitor: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/monitors/{monitorId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/monitors/{monitorId}", 200] },
   () => GetMonitorRequest,
   () => GetMonitorResponse,
 ];
@@ -4637,10 +3863,7 @@ export var GetQueue: StaticOperationSchema = [
   9,
   n0,
   _GQ,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200] },
   () => GetQueueRequest,
   () => GetQueueResponse,
 ];
@@ -4703,10 +3926,7 @@ export var GetSessionsStatisticsAggregation: StaticOperationSchema = [
   9,
   n0,
   _GSSA,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/sessions-statistics-aggregation", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/sessions-statistics-aggregation", 200] },
   () => GetSessionsStatisticsAggregationRequest,
   () => GetSessionsStatisticsAggregationResponse,
 ];
@@ -4725,10 +3945,7 @@ export var GetStorageProfile: StaticOperationSchema = [
   9,
   n0,
   _GSP,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200], [_end]: ["management."] },
   () => GetStorageProfileRequest,
   () => GetStorageProfileResponse,
 ];
@@ -4758,10 +3975,7 @@ export var GetWorker: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200], [_end]: ["management."] },
   () => GetWorkerRequest,
   () => GetWorkerResponse,
 ];
@@ -4769,10 +3983,7 @@ export var ListAvailableMeteredProducts: StaticOperationSchema = [
   9,
   n0,
   _LAMP,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/metered-products", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/metered-products", 200] },
   () => ListAvailableMeteredProductsRequest,
   () => ListAvailableMeteredProductsResponse,
 ];
@@ -4780,10 +3991,7 @@ export var ListBudgets: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/budgets", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/budgets", 200] },
   () => ListBudgetsRequest,
   () => ListBudgetsResponse,
 ];
@@ -4791,10 +3999,7 @@ export var ListFarmMembers: StaticOperationSchema = [
   9,
   n0,
   _LFM,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/members", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/members", 200] },
   () => ListFarmMembersRequest,
   () => ListFarmMembersResponse,
 ];
@@ -4802,10 +4007,7 @@ export var ListFarms: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms", 200] },
   () => ListFarmsRequest,
   () => ListFarmsResponse,
 ];
@@ -4813,10 +4015,7 @@ export var ListFleetMembers: StaticOperationSchema = [
   9,
   n0,
   _LFMi,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/members", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/members", 200] },
   () => ListFleetMembersRequest,
   () => ListFleetMembersResponse,
 ];
@@ -4824,10 +4023,7 @@ export var ListFleets: StaticOperationSchema = [
   9,
   n0,
   _LFi,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets", 200] },
   () => ListFleetsRequest,
   () => ListFleetsResponse,
 ];
@@ -4835,10 +4031,7 @@ export var ListJobMembers: StaticOperationSchema = [
   9,
   n0,
   _LJM,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/members", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/members", 200] },
   () => ListJobMembersRequest,
   () => ListJobMembersResponse,
 ];
@@ -4857,10 +4050,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs", 200] },
   () => ListJobsRequest,
   () => ListJobsResponse,
 ];
@@ -4868,10 +4058,7 @@ export var ListLicenseEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LLE,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/license-endpoints", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/license-endpoints", 200] },
   () => ListLicenseEndpointsRequest,
   () => ListLicenseEndpointsResponse,
 ];
@@ -4879,10 +4066,7 @@ export var ListLimits: StaticOperationSchema = [
   9,
   n0,
   _LL,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits", 200] },
   () => ListLimitsRequest,
   () => ListLimitsResponse,
 ];
@@ -4890,10 +4074,7 @@ export var ListMeteredProducts: StaticOperationSchema = [
   9,
   n0,
   _LMP,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/license-endpoints/{licenseEndpointId}/metered-products", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/license-endpoints/{licenseEndpointId}/metered-products", 200] },
   () => ListMeteredProductsRequest,
   () => ListMeteredProductsResponse,
 ];
@@ -4901,10 +4082,7 @@ export var ListMonitors: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/monitors", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/monitors", 200] },
   () => ListMonitorsRequest,
   () => ListMonitorsResponse,
 ];
@@ -4912,10 +4090,7 @@ export var ListQueueEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LQE,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments", 200] },
   () => ListQueueEnvironmentsRequest,
   () => ListQueueEnvironmentsResponse,
 ];
@@ -4923,10 +4098,7 @@ export var ListQueueFleetAssociations: StaticOperationSchema = [
   9,
   n0,
   _LQFA,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queue-fleet-associations", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queue-fleet-associations", 200] },
   () => ListQueueFleetAssociationsRequest,
   () => ListQueueFleetAssociationsResponse,
 ];
@@ -4934,10 +4106,7 @@ export var ListQueueLimitAssociations: StaticOperationSchema = [
   9,
   n0,
   _LQLA,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queue-limit-associations", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queue-limit-associations", 200] },
   () => ListQueueLimitAssociationsRequest,
   () => ListQueueLimitAssociationsResponse,
 ];
@@ -4945,10 +4114,7 @@ export var ListQueueMembers: StaticOperationSchema = [
   9,
   n0,
   _LQM,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/members", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/members", 200] },
   () => ListQueueMembersRequest,
   () => ListQueueMembersResponse,
 ];
@@ -4956,10 +4122,7 @@ export var ListQueues: StaticOperationSchema = [
   9,
   n0,
   _LQ,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues", 200] },
   () => ListQueuesRequest,
   () => ListQueuesResponse,
 ];
@@ -4978,10 +4141,7 @@ export var ListSessions: StaticOperationSchema = [
   9,
   n0,
   _LSis,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions", 200] },
   () => ListSessionsRequest,
   () => ListSessionsResponse,
 ];
@@ -5022,10 +4182,7 @@ export var ListSteps: StaticOperationSchema = [
   9,
   n0,
   _LSist,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps", 200] },
   () => ListStepsRequest,
   () => ListStepsResponse,
 ];
@@ -5033,10 +4190,7 @@ export var ListStorageProfiles: StaticOperationSchema = [
   9,
   n0,
   _LSP,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/storage-profiles", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/storage-profiles", 200] },
   () => ListStorageProfilesRequest,
   () => ListStorageProfilesResponse,
 ];
@@ -5044,10 +4198,7 @@ export var ListStorageProfilesForQueue: StaticOperationSchema = [
   9,
   n0,
   _LSPFQ,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/storage-profiles", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/storage-profiles", 200] },
   () => ListStorageProfilesForQueueRequest,
   () => ListStorageProfilesForQueueResponse,
 ];
@@ -5055,10 +4206,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/tags/{resourceArn}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -5077,10 +4225,7 @@ export var ListWorkers: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_end]: ["management."],
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers", 200],
-  },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers", 200] },
   () => ListWorkersRequest,
   () => ListWorkersResponse,
 ];
@@ -5099,10 +4244,7 @@ export var SearchJobs: StaticOperationSchema = [
   9,
   n0,
   _SJ,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/jobs", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/jobs", 200] },
   () => SearchJobsRequest,
   () => SearchJobsResponse,
 ];
@@ -5110,10 +4252,7 @@ export var SearchSteps: StaticOperationSchema = [
   9,
   n0,
   _SSea,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/steps", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/steps", 200] },
   () => SearchStepsRequest,
   () => SearchStepsResponse,
 ];
@@ -5121,10 +4260,7 @@ export var SearchTasks: StaticOperationSchema = [
   9,
   n0,
   _STe,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/tasks", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/tasks", 200] },
   () => SearchTasksRequest,
   () => SearchTasksResponse,
 ];
@@ -5132,10 +4268,7 @@ export var SearchWorkers: StaticOperationSchema = [
   9,
   n0,
   _SW,
-  {
-    [_end]: ["management."],
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/workers", 200],
-  },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/search/workers", 200] },
   () => SearchWorkersRequest,
   () => SearchWorkersResponse,
 ];
@@ -5143,10 +4276,7 @@ export var StartSessionsStatisticsAggregation: StaticOperationSchema = [
   9,
   n0,
   _SSSA,
-  {
-    [_h]: ["POST", "/2023-10-12/farms/{farmId}/sessions-statistics-aggregation", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/sessions-statistics-aggregation", 200], [_end]: ["management."] },
   () => StartSessionsStatisticsAggregationRequest,
   () => StartSessionsStatisticsAggregationResponse,
 ];
@@ -5154,10 +4284,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/2023-10-12/tags/{resourceArn}", 204],
-    [_end]: ["management."],
-  },
+  { [_h]: ["POST", "/2023-10-12/tags/{resourceArn}", 204], [_end]: ["management."] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -5165,10 +4292,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_end]: ["management."],
-    [_h]: ["DELETE", "/2023-10-12/tags/{resourceArn}", 204],
-  },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -5176,10 +4300,7 @@ export var UpdateBudget: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200], [_end]: ["management."] },
   () => UpdateBudgetRequest,
   () => UpdateBudgetResponse,
 ];
@@ -5187,10 +4308,7 @@ export var UpdateFarm: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}", 200], [_end]: ["management."] },
   () => UpdateFarmRequest,
   () => UpdateFarmResponse,
 ];
@@ -5198,10 +4316,7 @@ export var UpdateFleet: StaticOperationSchema = [
   9,
   n0,
   _UFp,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200], [_end]: ["management."] },
   () => UpdateFleetRequest,
   () => UpdateFleetResponse,
 ];
@@ -5209,10 +4324,7 @@ export var UpdateJob: StaticOperationSchema = [
   9,
   n0,
   _UJ,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}", 200], [_end]: ["management."] },
   () => UpdateJobRequest,
   () => UpdateJobResponse,
 ];
@@ -5220,10 +4332,7 @@ export var UpdateLimit: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200], [_end]: ["management."] },
   () => UpdateLimitRequest,
   () => UpdateLimitResponse,
 ];
@@ -5231,10 +4340,7 @@ export var UpdateMonitor: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  {
-    [_end]: ["management."],
-    [_h]: ["PATCH", "/2023-10-12/monitors/{monitorId}", 200],
-  },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/monitors/{monitorId}", 200] },
   () => UpdateMonitorRequest,
   () => UpdateMonitorResponse,
 ];
@@ -5242,10 +4348,7 @@ export var UpdateQueue: StaticOperationSchema = [
   9,
   n0,
   _UQ,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200], [_end]: ["management."] },
   () => UpdateQueueRequest,
   () => UpdateQueueResponse,
 ];
@@ -5308,10 +4411,7 @@ export var UpdateStorageProfile: StaticOperationSchema = [
   9,
   n0,
   _USP,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200],
-    [_end]: ["management."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200], [_end]: ["management."] },
   () => UpdateStorageProfileRequest,
   () => UpdateStorageProfileResponse,
 ];
@@ -5330,10 +4430,7 @@ export var UpdateWorker: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200],
-    [_end]: ["scheduling."],
-  },
+  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200], [_end]: ["scheduling."] },
   () => UpdateWorkerRequest,
   () => UpdateWorkerResponse,
 ];

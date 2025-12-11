@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/cloudfront-signer",
-  "version": "3.939.0",
+  "version": "3.946.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline cloudfront-signer",
@@ -23,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/core": "^3.18.5",
+    "@smithy/core": "^3.18.7",
     "@smithy/url-parser": "^4.2.5",
     "tslib": "^2.6.2"
   },

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchGetCollectionRequest, BatchGetCollectionResponse } from "../models/models_0";
-import {
+import type { BatchGetCollectionRequest, BatchGetCollectionResponse } from "../models/models_0";
+import type {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -61,6 +61,9 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * //       arn: "STRING_VALUE",
  * //       kmsKeyArn: "STRING_VALUE",
  * //       standbyReplicas: "STRING_VALUE",
+ * //       vectorOptions: { // VectorOptions
+ * //         ServerlessVectorAcceleration: "STRING_VALUE", // required
+ * //       },
  * //       createdDate: Number("long"),
  * //       lastModifiedDate: Number("long"),
  * //       collectionEndpoint: "STRING_VALUE",

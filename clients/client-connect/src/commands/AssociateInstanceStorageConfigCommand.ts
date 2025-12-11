@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateInstanceStorageConfigRequest, AssociateInstanceStorageConfigResponse } from "../models/models_0";
+import type { AssociateInstanceStorageConfigRequest, AssociateInstanceStorageConfigResponse } from "../models/models_0";
 import { AssociateInstanceStorageConfig } from "../schemas/schemas_0";
 
 /**
@@ -30,12 +30,12 @@ export interface AssociateInstanceStorageConfigCommandOutput
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Associates a storage resource type for the first time. You can only associate one type of
- *    storage configuration in a single call. This means, for example, that you can't define an
- *    instance with multiple S3 buckets for storing chat transcripts.</p>
- *          <p>This API does not create a resource that doesn't exist. It only associates it to the
- *    instance. Ensure that the resource being specified in the storage configuration, like an S3
- *    bucket, exists when being used for association.</p>
+ *          <p>Associates a storage resource type for the first time. You can only associate one type of storage configuration
+ *    in a single call. This means, for example, that you can't define an instance with multiple S3 buckets for storing
+ *    chat transcripts.</p>
+ *          <p>This API does not create a resource that doesn't exist. It only associates it to the instance. Ensure that the
+ *    resource being specified in the storage configuration, like an S3 bucket, exists when being used for
+ *    association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

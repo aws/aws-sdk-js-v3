@@ -17,50 +17,78 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 
 /**
  * @public
+ * @enum
  */
-export type ResourceType =
-  | "AWS::DynamoDB::Stream"
-  | "AWS::DynamoDB::Table"
-  | "AWS::EC2::Snapshot"
-  | "AWS::ECR::Repository"
-  | "AWS::EFS::FileSystem"
-  | "AWS::IAM::Role"
-  | "AWS::IAM::User"
-  | "AWS::KMS::Key"
-  | "AWS::Lambda::Function"
-  | "AWS::Lambda::LayerVersion"
-  | "AWS::RDS::DBClusterSnapshot"
-  | "AWS::RDS::DBSnapshot"
-  | "AWS::S3::Bucket"
-  | "AWS::S3Express::DirectoryBucket"
-  | "AWS::SNS::Topic"
-  | "AWS::SQS::Queue"
-  | "AWS::SecretsManager::Secret";
-
+export const ResourceType = {
+  AWS_DYNAMODB_STREAM: "AWS::DynamoDB::Stream",
+  AWS_DYNAMODB_TABLE: "AWS::DynamoDB::Table",
+  AWS_EC2_SNAPSHOT: "AWS::EC2::Snapshot",
+  AWS_ECR_REPOSITORY: "AWS::ECR::Repository",
+  AWS_EFS_FILESYSTEM: "AWS::EFS::FileSystem",
+  AWS_IAM_ROLE: "AWS::IAM::Role",
+  AWS_IAM_USER: "AWS::IAM::User",
+  AWS_KMS_KEY: "AWS::KMS::Key",
+  AWS_LAMBDA_FUNCTION: "AWS::Lambda::Function",
+  AWS_LAMBDA_LAYERVERSION: "AWS::Lambda::LayerVersion",
+  AWS_RDS_DBCLUSTERSNAPSHOT: "AWS::RDS::DBClusterSnapshot",
+  AWS_RDS_DBSNAPSHOT: "AWS::RDS::DBSnapshot",
+  AWS_S3EXPRESS_DIRECTORYBUCKET: "AWS::S3Express::DirectoryBucket",
+  AWS_S3_BUCKET: "AWS::S3::Bucket",
+  AWS_SECRETSMANAGER_SECRET: "AWS::SecretsManager::Secret",
+  AWS_SNS_TOPIC: "AWS::SNS::Topic",
+  AWS_SQS_QUEUE: "AWS::SQS::Queue",
+} as const;
 /**
  * @public
  */
-export type Type =
-  | "ACCOUNT"
-  | "ACCOUNT_INTERNAL_ACCESS"
-  | "ACCOUNT_UNUSED_ACCESS"
-  | "ORGANIZATION"
-  | "ORGANIZATION_INTERNAL_ACCESS"
-  | "ORGANIZATION_UNUSED_ACCESS";
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
+ * @enum
  */
-export type AnalyzerStatus = "ACTIVE" | "CREATING" | "DISABLED" | "FAILED";
-
+export const Type = {
+  ACCOUNT: "ACCOUNT",
+  ACCOUNT_INTERNAL_ACCESS: "ACCOUNT_INTERNAL_ACCESS",
+  ACCOUNT_UNUSED_ACCESS: "ACCOUNT_UNUSED_ACCESS",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATION_INTERNAL_ACCESS: "ORGANIZATION_INTERNAL_ACCESS",
+  ORGANIZATION_UNUSED_ACCESS: "ORGANIZATION_UNUSED_ACCESS",
+} as const;
 /**
  * @public
  */
-export type ReasonCode =
-  | "AWS_SERVICE_ACCESS_DISABLED"
-  | "DELEGATED_ADMINISTRATOR_DEREGISTERED"
-  | "ORGANIZATION_DELETED"
-  | "SERVICE_LINKED_ROLE_CREATION_FAILED";
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyzerStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type AnalyzerStatus = (typeof AnalyzerStatus)[keyof typeof AnalyzerStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReasonCode = {
+  AWS_SERVICE_ACCESS_DISABLED: "AWS_SERVICE_ACCESS_DISABLED",
+  DELEGATED_ADMINISTRATOR_DEREGISTERED: "DELEGATED_ADMINISTRATOR_DEREGISTERED",
+  ORGANIZATION_DELETED: "ORGANIZATION_DELETED",
+  SERVICE_LINKED_ROLE_CREATION_FAILED: "SERVICE_LINKED_ROLE_CREATION_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ReasonCode = (typeof ReasonCode)[keyof typeof ReasonCode];
 
 /**
  * @public
@@ -223,8 +251,17 @@ export type AccessPreviewStatusReasonCode =
 
 /**
  * @public
+ * @enum
  */
-export type FindingStatus = "ACTIVE" | "ARCHIVED" | "RESOLVED";
+export const FindingStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
 
 /**
  * @public
@@ -244,8 +281,18 @@ export type ResourceControlPolicyRestriction =
 
 /**
  * @public
+ * @enum
  */
-export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT" | "S3_ACCESS_POINT_ACCOUNT";
+export const FindingSourceType = {
+  BUCKET_ACL: "BUCKET_ACL",
+  POLICY: "POLICY",
+  S3_ACCESS_POINT: "S3_ACCESS_POINT",
+  S3_ACCESS_POINT_ACCOUNT: "S3_ACCESS_POINT_ACCOUNT",
+} as const;
+/**
+ * @public
+ */
+export type FindingSourceType = (typeof FindingSourceType)[keyof typeof FindingSourceType];
 
 /**
  * @public
@@ -392,13 +439,29 @@ export type FindingChangeType = (typeof FindingChangeType)[keyof typeof FindingC
 
 /**
  * @public
+ * @enum
  */
-export type OrderBy = "ASC" | "DESC";
-
+export const OrderBy = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 /**
  * @public
  */
-export type FindingStatusUpdate = "ACTIVE" | "ARCHIVED";
+export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatusUpdate = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type FindingStatusUpdate = (typeof FindingStatusUpdate)[keyof typeof FindingStatusUpdate];
 
 /**
  * @public

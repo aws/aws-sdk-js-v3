@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCreatePartitionCommand,
@@ -1161,7 +1161,7 @@ import {
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
-import { GlueClient, GlueClientConfig } from "./GlueClient";
+import { GlueClient } from "./GlueClient";
 
 const commands = {
   BatchCreatePartitionCommand,

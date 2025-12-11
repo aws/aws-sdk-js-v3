@@ -66,7 +66,7 @@ const n0 = "com.amazonaws.personalizeevents";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -82,59 +82,13 @@ import {
 import { PersonalizeEventsServiceException as __PersonalizeEventsServiceException } from "../models/PersonalizeEventsServiceException";
 
 /* eslint no-var: 0 */
-
 export var ActionId: StaticSimpleSchema = [0, n0, _AI, 8, 0];
 export var ItemId: StaticSimpleSchema = [0, n0, _II, 8, 0];
-export var SynthesizedJsonActionInteractionProperties: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJAIP,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
-export var SynthesizedJsonActionProperties: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJAP,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
-export var SynthesizedJsonEventPropertiesJSON: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJEPJSON,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
-export var SynthesizedJsonItemProperties: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJIP,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
-export var SynthesizedJsonUserProperties: StaticSimpleSchema = [
-  0,
-  n0,
-  _SJUP,
-  {
-    [_mT]: _a,
-    [_s]: 1,
-  },
-  0,
-];
+export var SynthesizedJsonActionInteractionProperties: StaticSimpleSchema = [0, n0, _SJAIP, { [_mT]: _a, [_s]: 1 }, 0];
+export var SynthesizedJsonActionProperties: StaticSimpleSchema = [0, n0, _SJAP, { [_mT]: _a, [_s]: 1 }, 0];
+export var SynthesizedJsonEventPropertiesJSON: StaticSimpleSchema = [0, n0, _SJEPJSON, { [_mT]: _a, [_s]: 1 }, 0];
+export var SynthesizedJsonItemProperties: StaticSimpleSchema = [0, n0, _SJIP, { [_mT]: _a, [_s]: 1 }, 0];
+export var SynthesizedJsonUserProperties: StaticSimpleSchema = [0, n0, _SJUP, { [_mT]: _a, [_s]: 1 }, 0];
 export var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
 export var Action: StaticStructureSchema = [3, n0, _A, 0, [_aI, _p], [0, [() => SynthesizedJsonActionProperties, 0]]];
 export var ActionInteraction: StaticStructureSchema = [
@@ -173,19 +127,8 @@ export var Event: StaticStructureSchema = [
     () => MetricAttribution,
   ],
 ];
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
 export var Item: StaticStructureSchema = [3, n0, _I, 0, [_iI, _p], [0, [() => SynthesizedJsonItemProperties, 0]]];
 export var MetricAttribution: StaticStructureSchema = [3, n0, _MA, 0, [_eAS], [0]];
 export var PutActionInteractionsRequest: StaticStructureSchema = [
@@ -207,35 +150,12 @@ export var PutEventsRequest: StaticStructureSchema = [
 ];
 export var PutItemsRequest: StaticStructureSchema = [3, n0, _PIR, 0, [_dA, _it], [0, [() => ItemList, 0]]];
 export var PutUsersRequest: StaticStructureSchema = [3, n0, _PUR, 0, [_dA, _u], [0, [() => UserList, 0]]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var User: StaticStructureSchema = [3, n0, _U, 0, [_uI, _p], [0, [() => SynthesizedJsonUserProperties, 0]]];
 export var __Unit = "unit" as const;
-
 export var PersonalizeEventsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -245,7 +165,6 @@ export var PersonalizeEventsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PersonalizeEventsServiceException, __PersonalizeEventsServiceException);
-
 export var ActionImpression: StaticListSchema = [1, n0, _AIct, 0, [() => ActionId, 0]];
 export var ActionInteractionsList: StaticListSchema = [1, n0, _AIL, 0, [() => ActionInteraction, 0]];
 export var ActionList: StaticListSchema = [1, n0, _AL, 0, [() => Action, 0]];
@@ -257,9 +176,7 @@ export var PutActionInteractions: StaticOperationSchema = [
   9,
   n0,
   _PAI,
-  {
-    [_h]: ["POST", "/action-interactions", 200],
-  },
+  { [_h]: ["POST", "/action-interactions", 200] },
   () => PutActionInteractionsRequest,
   () => __Unit,
 ];
@@ -267,9 +184,7 @@ export var PutActions: StaticOperationSchema = [
   9,
   n0,
   _PA,
-  {
-    [_h]: ["POST", "/actions", 200],
-  },
+  { [_h]: ["POST", "/actions", 200] },
   () => PutActionsRequest,
   () => __Unit,
 ];
@@ -277,9 +192,7 @@ export var PutEvents: StaticOperationSchema = [
   9,
   n0,
   _PE,
-  {
-    [_h]: ["POST", "/events", 200],
-  },
+  { [_h]: ["POST", "/events", 200] },
   () => PutEventsRequest,
   () => __Unit,
 ];
@@ -287,9 +200,7 @@ export var PutItems: StaticOperationSchema = [
   9,
   n0,
   _PI,
-  {
-    [_h]: ["POST", "/items", 200],
-  },
+  { [_h]: ["POST", "/items", 200] },
   () => PutItemsRequest,
   () => __Unit,
 ];
@@ -297,9 +208,7 @@ export var PutUsers: StaticOperationSchema = [
   9,
   n0,
   _PU,
-  {
-    [_h]: ["POST", "/users", 200],
-  },
+  { [_h]: ["POST", "/users", 200] },
   () => PutUsersRequest,
   () => __Unit,
 ];

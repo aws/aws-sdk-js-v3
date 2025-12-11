@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AllocateStaticIpCommand,
@@ -711,7 +711,7 @@ import {
   UpdateRelationalDatabaseParametersCommandInput,
   UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
-import { LightsailClient, LightsailClientConfig } from "./LightsailClient";
+import { LightsailClient } from "./LightsailClient";
 
 const commands = {
   AllocateStaticIpCommand,

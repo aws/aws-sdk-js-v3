@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartContactStreamingRequest, StartContactStreamingResponse } from "../models/models_2";
+import type { StartContactStreamingRequest, StartContactStreamingResponse } from "../models/models_2";
 import { StartContactStreaming } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,8 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
 
 /**
  * <p> Initiates real-time message streaming for a new chat contact.</p>
- *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
- *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
  *    Administrator Guide</i>: </p>
  *          <ul>

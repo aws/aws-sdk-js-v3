@@ -209,7 +209,7 @@ const n0 = "com.amazonaws.socialmessaging";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -232,36 +232,13 @@ import {
 import { SocialMessagingServiceException as __SocialMessagingServiceException } from "../models/SocialMessagingServiceException";
 
 /* eslint no-var: 0 */
-
 export var AssociateInProgressToken: StaticSimpleSchema = [0, n0, _AIPT, 8, 0];
 export var TwoFactorPin: StaticSimpleSchema = [0, n0, _TFP, 8, 0];
 export var WhatsAppMessageBlob: StaticSimpleSchema = [0, n0, _WAMB, 8, 21];
-export var AccessDeniedByMetaException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADBME,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedByMetaException: StaticErrorSchema = [-3, n0, _ADBME, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedByMetaException, __AccessDeniedByMetaException);
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateWhatsAppBusinessAccountInput: StaticStructureSchema = [
   3,
   n0,
@@ -319,18 +296,8 @@ export var DeleteWhatsAppMessageMediaInput: StaticStructureSchema = [
   0,
   [_mI, _oPNI],
   [
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oPNI,
-      },
-    ],
+    [0, { [_hQ]: _mI }],
+    [0, { [_hQ]: _oPNI }],
   ],
 ];
 export var DeleteWhatsAppMessageMediaOutput: StaticStructureSchema = [3, n0, _DWAMMO, 0, [_s], [2]];
@@ -341,60 +308,22 @@ export var DeleteWhatsAppMessageTemplateInput: StaticStructureSchema = [
   0,
   [_mTI, _dAL, _i, _tN],
   [
-    [
-      0,
-      {
-        [_hQ]: _mTI,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _dAT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
+    [0, { [_hQ]: _mTI }],
+    [2, { [_hQ]: _dAT }],
+    [0, { [_hQ]: _i }],
+    [0, { [_hQ]: _tN }],
   ],
 ];
 export var DeleteWhatsAppMessageTemplateOutput: StaticStructureSchema = [3, n0, _DWAMTO, 0, [], []];
-export var DependencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_m],
-  [0],
-];
+export var DependencyException: StaticErrorSchema = [-3, n0, _DE, { [_e]: _se, [_hE]: 502 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DependencyException, __DependencyException);
-
 export var DisassociateWhatsAppBusinessAccountInput: StaticStructureSchema = [
   3,
   n0,
   _DWABAI,
   0,
   [_i],
-  [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _i }]],
 ];
 export var DisassociateWhatsAppBusinessAccountOutput: StaticStructureSchema = [3, n0, _DWABAO, 0, [], []];
 export var GetLinkedWhatsAppBusinessAccountInput: StaticStructureSchema = [
@@ -403,14 +332,7 @@ export var GetLinkedWhatsAppBusinessAccountInput: StaticStructureSchema = [
   _GLWABAI,
   0,
   [_i],
-  [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _i }]],
 ];
 export var GetLinkedWhatsAppBusinessAccountOutput: StaticStructureSchema = [
   3,
@@ -426,14 +348,7 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumberInput: StaticStructureSche
   _GLWABAPNI,
   0,
   [_i],
-  [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _i }]],
 ];
 export var GetLinkedWhatsAppBusinessAccountPhoneNumberOutput: StaticStructureSchema = [
   3,
@@ -459,47 +374,15 @@ export var GetWhatsAppMessageTemplateInput: StaticStructureSchema = [
   0,
   [_mTI, _i],
   [
-    [
-      0,
-      {
-        [_hQ]: _mTI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
+    [0, { [_hQ]: _mTI }],
+    [0, { [_hQ]: _i }],
   ],
 ];
 export var GetWhatsAppMessageTemplateOutput: StaticStructureSchema = [3, n0, _GWAMTO, 0, [_t], [0]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
-export var InvalidParametersException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParametersException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParametersException, __InvalidParametersException);
-
 export var LibraryTemplateBodyInputs: StaticStructureSchema = [
   3,
   n0,
@@ -524,19 +407,8 @@ export var LibraryTemplateButtonList: StaticStructureSchema = [
   [_ty, _te, _pN, _u, _oT, _zTTA, _sA],
   [0, 0, 0, 0, 0, 2, [1, n0, _SA, 0, 128 | 0]],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var LinkedWhatsAppBusinessAccount: StaticStructureSchema = [
   3,
   n0,
@@ -568,18 +440,8 @@ export var ListLinkedWhatsAppBusinessAccountsInput: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListLinkedWhatsAppBusinessAccountsOutput: StaticStructureSchema = [
@@ -590,21 +452,7 @@ export var ListLinkedWhatsAppBusinessAccountsOutput: StaticStructureSchema = [
   [_lA, _nT],
   [() => LinkedWhatsAppBusinessAccountSummaryList, 0],
 ];
-export var ListTagsForResourceInput: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRI,
-  0,
-  [_rA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, { [_hQ]: _rA }]]];
 export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_sCt, _ta], [1, () => TagList]];
 export var ListWhatsAppMessageTemplatesInput: StaticStructureSchema = [
   3,
@@ -613,24 +461,9 @@ export var ListWhatsAppMessageTemplatesInput: StaticStructureSchema = [
   0,
   [_i, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _i }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWhatsAppMessageTemplatesOutput: StaticStructureSchema = [
@@ -647,17 +480,7 @@ export var ListWhatsAppTemplateLibraryInput: StaticStructureSchema = [
   _LWATLI,
   0,
   [_nT, _mR, _i, _f],
-  [
-    0,
-    1,
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-    128 | 0,
-  ],
+  [0, 1, [0, { [_hQ]: _i }], 128 | 0],
 ];
 export var ListWhatsAppTemplateLibraryOutput: StaticStructureSchema = [
   3,
@@ -701,19 +524,8 @@ export var PutWhatsAppBusinessAccountEventDestinationsInput: StaticStructureSche
   [0, () => WhatsAppBusinessAccountEventDestinations],
 ];
 export var PutWhatsAppBusinessAccountEventDestinationsOutput: StaticStructureSchema = [3, n0, _PWABAEDO, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3File: StaticStructureSchema = [3, n0, _SF, 8, [_bN, _k], [0, 0]];
 export var S3PresignedUrl: StaticStructureSchema = [3, n0, _SPU, 8, [_u, _h], [0, 128 | 0]];
 export var SendWhatsAppMessageInput: StaticStructureSchema = [
@@ -736,19 +548,8 @@ export var TemplateSummary: StaticStructureSchema = [
   [_tN, _mTI, _tS, _tQS, _tL, _tC],
   [0, 0, 0, 0, 0, 0],
 ];
-export var ThrottledRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottledRequestException: StaticErrorSchema = [-3, n0, _TRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottledRequestException, __ThrottledRequestException);
-
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [_sCt], [1]];
 export var UpdateWhatsAppMessageTemplateInput: StaticStructureSchema = [
@@ -760,19 +561,8 @@ export var UpdateWhatsAppMessageTemplateInput: StaticStructureSchema = [
   [0, 0, 0, 21],
 ];
 export var UpdateWhatsAppMessageTemplateOutput: StaticStructureSchema = [3, n0, _UWAMTO, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WabaPhoneNumberSetupFinalization: StaticStructureSchema = [
   3,
   n0,
@@ -828,11 +618,8 @@ export var WhatsAppSignupCallbackResult: StaticStructureSchema = [
   [_aIPT, _lAWIS],
   [[() => AssociateInProgressToken, 0], () => LinkedAccountWithIncompleteSetup],
 ];
-export var __Unit = "unit" as const;
-
 export var SocialMessagingServiceException: StaticErrorSchema = [-3, _sm, "SocialMessagingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SocialMessagingServiceException, __SocialMessagingServiceException);
-
 export var LinkedWhatsAppBusinessAccountSummaryList: StaticListSchema = [
   1,
   n0,
@@ -841,12 +628,10 @@ export var LinkedWhatsAppBusinessAccountSummaryList: StaticListSchema = [
   () => LinkedWhatsAppBusinessAccountSummary,
 ];
 export var MetaIndustries = 64 | 0;
-
 export var MetaLibraryTemplateButtonInputs: StaticListSchema = [1, n0, _MLTBI, 0, () => LibraryTemplateButtonInput];
 export var MetaLibraryTemplateButtonList: StaticListSchema = [1, n0, _MLTBL, 0, () => LibraryTemplateButtonList];
 export var MetaLibraryTemplatesList: StaticListSchema = [1, n0, _MLTL, 0, () => MetaLibraryTemplateDefinition];
 export var StringList = 64 | 0;
-
 export var SupportedApps: StaticListSchema = [1, n0, _SA, 0, 128 | 0];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TemplateSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TemplateSummary];
@@ -867,9 +652,7 @@ export var WhatsAppBusinessAccountEventDestinations: StaticListSchema = [
 export var WhatsAppPhoneNumberDetailList: StaticListSchema = [1, n0, _WAPNDL, 0, () => WhatsAppPhoneNumberDetail];
 export var WhatsAppPhoneNumberSummaryList: StaticListSchema = [1, n0, _WAPNSL, 0, () => WhatsAppPhoneNumberSummary];
 export var Filter = 128 | 0;
-
 export var Headers = 128 | 0;
-
 export var LinkedAccountWithIncompleteSetup: StaticMapSchema = [
   2,
   n0,
@@ -879,16 +662,12 @@ export var LinkedAccountWithIncompleteSetup: StaticMapSchema = [
   () => LinkedWhatsAppBusinessAccountIdMetaData,
 ];
 export var MetaUrlWithSuffixExample = 128 | 0;
-
 export var SupportedApp = 128 | 0;
-
 export var AssociateWhatsAppBusinessAccount: StaticOperationSchema = [
   9,
   n0,
   _AWABA,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/signup", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/signup", 200] },
   () => AssociateWhatsAppBusinessAccountInput,
   () => AssociateWhatsAppBusinessAccountOutput,
 ];
@@ -896,9 +675,7 @@ export var CreateWhatsAppMessageTemplate: StaticOperationSchema = [
   9,
   n0,
   _CWAMT,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/template/put", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/template/put", 200] },
   () => CreateWhatsAppMessageTemplateInput,
   () => CreateWhatsAppMessageTemplateOutput,
 ];
@@ -906,9 +683,7 @@ export var CreateWhatsAppMessageTemplateFromLibrary: StaticOperationSchema = [
   9,
   n0,
   _CWAMTFL,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/template/create", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/template/create", 200] },
   () => CreateWhatsAppMessageTemplateFromLibraryInput,
   () => CreateWhatsAppMessageTemplateFromLibraryOutput,
 ];
@@ -916,9 +691,7 @@ export var CreateWhatsAppMessageTemplateMedia: StaticOperationSchema = [
   9,
   n0,
   _CWAMTM,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/template/media", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/template/media", 200] },
   () => CreateWhatsAppMessageTemplateMediaInput,
   () => CreateWhatsAppMessageTemplateMediaOutput,
 ];
@@ -926,9 +699,7 @@ export var DeleteWhatsAppMessageMedia: StaticOperationSchema = [
   9,
   n0,
   _DWAMM,
-  {
-    [_ht]: ["DELETE", "/v1/whatsapp/media", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/whatsapp/media", 200] },
   () => DeleteWhatsAppMessageMediaInput,
   () => DeleteWhatsAppMessageMediaOutput,
 ];
@@ -936,9 +707,7 @@ export var DeleteWhatsAppMessageTemplate: StaticOperationSchema = [
   9,
   n0,
   _DWAMT,
-  {
-    [_ht]: ["DELETE", "/v1/whatsapp/template", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/whatsapp/template", 200] },
   () => DeleteWhatsAppMessageTemplateInput,
   () => DeleteWhatsAppMessageTemplateOutput,
 ];
@@ -946,9 +715,7 @@ export var DisassociateWhatsAppBusinessAccount: StaticOperationSchema = [
   9,
   n0,
   _DWABA,
-  {
-    [_ht]: ["DELETE", "/v1/whatsapp/waba/disassociate", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/whatsapp/waba/disassociate", 200] },
   () => DisassociateWhatsAppBusinessAccountInput,
   () => DisassociateWhatsAppBusinessAccountOutput,
 ];
@@ -956,9 +723,7 @@ export var GetLinkedWhatsAppBusinessAccount: StaticOperationSchema = [
   9,
   n0,
   _GLWABA,
-  {
-    [_ht]: ["GET", "/v1/whatsapp/waba/details", 200],
-  },
+  { [_ht]: ["GET", "/v1/whatsapp/waba/details", 200] },
   () => GetLinkedWhatsAppBusinessAccountInput,
   () => GetLinkedWhatsAppBusinessAccountOutput,
 ];
@@ -966,9 +731,7 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumber: StaticOperationSchema = 
   9,
   n0,
   _GLWABAPN,
-  {
-    [_ht]: ["GET", "/v1/whatsapp/waba/phone/details", 200],
-  },
+  { [_ht]: ["GET", "/v1/whatsapp/waba/phone/details", 200] },
   () => GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
   () => GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
 ];
@@ -976,9 +739,7 @@ export var GetWhatsAppMessageMedia: StaticOperationSchema = [
   9,
   n0,
   _GWAMM,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/media/get", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/media/get", 200] },
   () => GetWhatsAppMessageMediaInput,
   () => GetWhatsAppMessageMediaOutput,
 ];
@@ -986,9 +747,7 @@ export var GetWhatsAppMessageTemplate: StaticOperationSchema = [
   9,
   n0,
   _GWAMT,
-  {
-    [_ht]: ["GET", "/v1/whatsapp/template", 200],
-  },
+  { [_ht]: ["GET", "/v1/whatsapp/template", 200] },
   () => GetWhatsAppMessageTemplateInput,
   () => GetWhatsAppMessageTemplateOutput,
 ];
@@ -996,9 +755,7 @@ export var ListLinkedWhatsAppBusinessAccounts: StaticOperationSchema = [
   9,
   n0,
   _LLWABA,
-  {
-    [_ht]: ["GET", "/v1/whatsapp/waba/list", 200],
-  },
+  { [_ht]: ["GET", "/v1/whatsapp/waba/list", 200] },
   () => ListLinkedWhatsAppBusinessAccountsInput,
   () => ListLinkedWhatsAppBusinessAccountsOutput,
 ];
@@ -1006,9 +763,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/v1/tags/list", 200],
-  },
+  { [_ht]: ["GET", "/v1/tags/list", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -1016,9 +771,7 @@ export var ListWhatsAppMessageTemplates: StaticOperationSchema = [
   9,
   n0,
   _LWAMT,
-  {
-    [_ht]: ["GET", "/v1/whatsapp/template/list", 200],
-  },
+  { [_ht]: ["GET", "/v1/whatsapp/template/list", 200] },
   () => ListWhatsAppMessageTemplatesInput,
   () => ListWhatsAppMessageTemplatesOutput,
 ];
@@ -1026,9 +779,7 @@ export var ListWhatsAppTemplateLibrary: StaticOperationSchema = [
   9,
   n0,
   _LWATL,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/template/library", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/template/library", 200] },
   () => ListWhatsAppTemplateLibraryInput,
   () => ListWhatsAppTemplateLibraryOutput,
 ];
@@ -1036,9 +787,7 @@ export var PostWhatsAppMessageMedia: StaticOperationSchema = [
   9,
   n0,
   _PWAMM,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/media", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/media", 200] },
   () => PostWhatsAppMessageMediaInput,
   () => PostWhatsAppMessageMediaOutput,
 ];
@@ -1046,9 +795,7 @@ export var PutWhatsAppBusinessAccountEventDestinations: StaticOperationSchema = 
   9,
   n0,
   _PWABAED,
-  {
-    [_ht]: ["PUT", "/v1/whatsapp/waba/eventdestinations", 200],
-  },
+  { [_ht]: ["PUT", "/v1/whatsapp/waba/eventdestinations", 200] },
   () => PutWhatsAppBusinessAccountEventDestinationsInput,
   () => PutWhatsAppBusinessAccountEventDestinationsOutput,
 ];
@@ -1056,9 +803,7 @@ export var SendWhatsAppMessage: StaticOperationSchema = [
   9,
   n0,
   _SWAM,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/send", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/send", 200] },
   () => SendWhatsAppMessageInput,
   () => SendWhatsAppMessageOutput,
 ];
@@ -1066,9 +811,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/v1/tags/tag-resource", 200],
-  },
+  { [_ht]: ["POST", "/v1/tags/tag-resource", 200] },
   () => TagResourceInput,
   () => TagResourceOutput,
 ];
@@ -1076,9 +819,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["POST", "/v1/tags/untag-resource", 200],
-  },
+  { [_ht]: ["POST", "/v1/tags/untag-resource", 200] },
   () => UntagResourceInput,
   () => UntagResourceOutput,
 ];
@@ -1086,9 +827,7 @@ export var UpdateWhatsAppMessageTemplate: StaticOperationSchema = [
   9,
   n0,
   _UWAMT,
-  {
-    [_ht]: ["POST", "/v1/whatsapp/template", 200],
-  },
+  { [_ht]: ["POST", "/v1/whatsapp/template", 200] },
   () => UpdateWhatsAppMessageTemplateInput,
   () => UpdateWhatsAppMessageTemplateOutput,
 ];

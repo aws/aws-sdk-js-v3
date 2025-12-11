@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -21,40 +21,49 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultConnectHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
@@ -109,6 +118,10 @@ import {
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
 import {
+  AssociateSecurityProfilesCommandInput,
+  AssociateSecurityProfilesCommandOutput,
+} from "./commands/AssociateSecurityProfilesCommand";
+import {
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/AssociateTrafficDistributionGroupUserCommand";
@@ -116,10 +129,23 @@ import {
   AssociateUserProficienciesCommandInput,
   AssociateUserProficienciesCommandOutput,
 } from "./commands/AssociateUserProficienciesCommand";
+import { AssociateWorkspaceCommandInput, AssociateWorkspaceCommandOutput } from "./commands/AssociateWorkspaceCommand";
 import {
   BatchAssociateAnalyticsDataSetCommandInput,
   BatchAssociateAnalyticsDataSetCommandOutput,
 } from "./commands/BatchAssociateAnalyticsDataSetCommand";
+import {
+  BatchCreateDataTableValueCommandInput,
+  BatchCreateDataTableValueCommandOutput,
+} from "./commands/BatchCreateDataTableValueCommand";
+import {
+  BatchDeleteDataTableValueCommandInput,
+  BatchDeleteDataTableValueCommandOutput,
+} from "./commands/BatchDeleteDataTableValueCommand";
+import {
+  BatchDescribeDataTableValueCommandInput,
+  BatchDescribeDataTableValueCommandOutput,
+} from "./commands/BatchDescribeDataTableValueCommand";
 import {
   BatchDisassociateAnalyticsDataSetCommandInput,
   BatchDisassociateAnalyticsDataSetCommandOutput,
@@ -133,6 +159,10 @@ import {
   BatchGetFlowAssociationCommandOutput,
 } from "./commands/BatchGetFlowAssociationCommand";
 import { BatchPutContactCommandInput, BatchPutContactCommandOutput } from "./commands/BatchPutContactCommand";
+import {
+  BatchUpdateDataTableValueCommandInput,
+  BatchUpdateDataTableValueCommandOutput,
+} from "./commands/BatchUpdateDataTableValueCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "./commands/ClaimPhoneNumberCommand";
 import {
   CompleteAttachedFileUploadCommandInput,
@@ -157,6 +187,11 @@ import {
   CreateContactFlowVersionCommandInput,
   CreateContactFlowVersionCommandOutput,
 } from "./commands/CreateContactFlowVersionCommand";
+import {
+  CreateDataTableAttributeCommandInput,
+  CreateDataTableAttributeCommandOutput,
+} from "./commands/CreateDataTableAttributeCommand";
+import { CreateDataTableCommandInput, CreateDataTableCommandOutput } from "./commands/CreateDataTableCommand";
 import { CreateEmailAddressCommandInput, CreateEmailAddressCommandOutput } from "./commands/CreateEmailAddressCommand";
 import {
   CreateEvaluationFormCommandInput,
@@ -214,6 +249,11 @@ import {
 import { CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
 import { CreateViewVersionCommandInput, CreateViewVersionCommandOutput } from "./commands/CreateViewVersionCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
+import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
+import {
+  CreateWorkspacePageCommandInput,
+  CreateWorkspacePageCommandOutput,
+} from "./commands/CreateWorkspacePageCommand";
 import {
   DeactivateEvaluationFormCommandInput,
   DeactivateEvaluationFormCommandOutput,
@@ -240,6 +280,11 @@ import {
   DeleteContactFlowVersionCommandInput,
   DeleteContactFlowVersionCommandOutput,
 } from "./commands/DeleteContactFlowVersionCommand";
+import {
+  DeleteDataTableAttributeCommandInput,
+  DeleteDataTableAttributeCommandOutput,
+} from "./commands/DeleteDataTableAttributeCommand";
+import { DeleteDataTableCommandInput, DeleteDataTableCommandOutput } from "./commands/DeleteDataTableCommand";
 import { DeleteEmailAddressCommandInput, DeleteEmailAddressCommandOutput } from "./commands/DeleteEmailAddressCommand";
 import {
   DeleteEvaluationFormCommandInput,
@@ -292,6 +337,15 @@ import {
 import { DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
 import { DeleteViewVersionCommandInput, DeleteViewVersionCommandOutput } from "./commands/DeleteViewVersionCommand";
 import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "./commands/DeleteVocabularyCommand";
+import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import {
+  DeleteWorkspaceMediaCommandInput,
+  DeleteWorkspaceMediaCommandOutput,
+} from "./commands/DeleteWorkspaceMediaCommand";
+import {
+  DeleteWorkspacePageCommandInput,
+  DeleteWorkspacePageCommandOutput,
+} from "./commands/DeleteWorkspacePageCommand";
 import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
@@ -317,6 +371,11 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeDataTableAttributeCommandInput,
+  DescribeDataTableAttributeCommandOutput,
+} from "./commands/DescribeDataTableAttributeCommand";
+import { DescribeDataTableCommandInput, DescribeDataTableCommandOutput } from "./commands/DescribeDataTableCommand";
 import {
   DescribeEmailAddressCommandInput,
   DescribeEmailAddressCommandOutput,
@@ -380,6 +439,7 @@ import {
 } from "./commands/DescribeUserHierarchyStructureCommand";
 import { DescribeViewCommandInput, DescribeViewCommandOutput } from "./commands/DescribeViewCommand";
 import { DescribeVocabularyCommandInput, DescribeVocabularyCommandOutput } from "./commands/DescribeVocabularyCommand";
+import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
 import {
   DisassociateAnalyticsDataSetCommandInput,
   DisassociateAnalyticsDataSetCommandOutput,
@@ -420,6 +480,10 @@ import {
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
 import {
+  DisassociateSecurityProfilesCommandInput,
+  DisassociateSecurityProfilesCommandOutput,
+} from "./commands/DisassociateSecurityProfilesCommand";
+import {
   DisassociateTrafficDistributionGroupUserCommandInput,
   DisassociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/DisassociateTrafficDistributionGroupUserCommand";
@@ -427,7 +491,15 @@ import {
   DisassociateUserProficienciesCommandInput,
   DisassociateUserProficienciesCommandOutput,
 } from "./commands/DisassociateUserProficienciesCommand";
+import {
+  DisassociateWorkspaceCommandInput,
+  DisassociateWorkspaceCommandOutput,
+} from "./commands/DisassociateWorkspaceCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "./commands/DismissUserContactCommand";
+import {
+  EvaluateDataTableValuesCommandInput,
+  EvaluateDataTableValuesCommandOutput,
+} from "./commands/EvaluateDataTableValuesCommand";
 import { GetAttachedFileCommandInput, GetAttachedFileCommandOutput } from "./commands/GetAttachedFileCommand";
 import {
   GetContactAttributesCommandInput,
@@ -454,6 +526,10 @@ import {
   GetTrafficDistributionCommandOutput,
 } from "./commands/GetTrafficDistributionCommand";
 import { ImportPhoneNumberCommandInput, ImportPhoneNumberCommandOutput } from "./commands/ImportPhoneNumberCommand";
+import {
+  ImportWorkspaceMediaCommandInput,
+  ImportWorkspaceMediaCommandOutput,
+} from "./commands/ImportWorkspaceMediaCommand";
 import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "./commands/ListAgentStatusesCommand";
 import {
   ListAnalyticsDataAssociationsCommandInput,
@@ -502,9 +578,26 @@ import {
   ListContactReferencesCommandOutput,
 } from "./commands/ListContactReferencesCommand";
 import {
+  ListDataTableAttributesCommandInput,
+  ListDataTableAttributesCommandOutput,
+} from "./commands/ListDataTableAttributesCommand";
+import {
+  ListDataTablePrimaryValuesCommandInput,
+  ListDataTablePrimaryValuesCommandOutput,
+} from "./commands/ListDataTablePrimaryValuesCommand";
+import { ListDataTablesCommandInput, ListDataTablesCommandOutput } from "./commands/ListDataTablesCommand";
+import {
+  ListDataTableValuesCommandInput,
+  ListDataTableValuesCommandOutput,
+} from "./commands/ListDataTableValuesCommand";
+import {
   ListDefaultVocabulariesCommandInput,
   ListDefaultVocabulariesCommandOutput,
 } from "./commands/ListDefaultVocabulariesCommand";
+import {
+  ListEntitySecurityProfilesCommandInput,
+  ListEntitySecurityProfilesCommandOutput,
+} from "./commands/ListEntitySecurityProfilesCommand";
 import {
   ListEvaluationFormsCommandInput,
   ListEvaluationFormsCommandOutput,
@@ -579,6 +672,10 @@ import {
   ListSecurityProfileApplicationsCommandOutput,
 } from "./commands/ListSecurityProfileApplicationsCommand";
 import {
+  ListSecurityProfileFlowModulesCommandInput,
+  ListSecurityProfileFlowModulesCommandOutput,
+} from "./commands/ListSecurityProfileFlowModulesCommand";
+import {
   ListSecurityProfilePermissionsCommandInput,
   ListSecurityProfilePermissionsCommandOutput,
 } from "./commands/ListSecurityProfilePermissionsCommand";
@@ -611,6 +708,9 @@ import {
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
 import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "./commands/ListViewVersionsCommand";
+import { ListWorkspaceMediaCommandInput, ListWorkspaceMediaCommandOutput } from "./commands/ListWorkspaceMediaCommand";
+import { ListWorkspacePagesCommandInput, ListWorkspacePagesCommandOutput } from "./commands/ListWorkspacePagesCommand";
+import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
 import { MonitorContactCommandInput, MonitorContactCommandOutput } from "./commands/MonitorContactCommand";
 import { PauseContactCommandInput, PauseContactCommandOutput } from "./commands/PauseContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "./commands/PutUserStatusCommand";
@@ -639,6 +739,7 @@ import {
 } from "./commands/SearchContactFlowModulesCommand";
 import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "./commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand";
+import { SearchDataTablesCommandInput, SearchDataTablesCommandOutput } from "./commands/SearchDataTablesCommand";
 import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
@@ -679,7 +780,13 @@ import {
   SearchUserHierarchyGroupsCommandOutput,
 } from "./commands/SearchUserHierarchyGroupsCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
+import { SearchViewsCommandInput, SearchViewsCommandOutput } from "./commands/SearchViewsCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
+import {
+  SearchWorkspaceAssociationsCommandInput,
+  SearchWorkspaceAssociationsCommandOutput,
+} from "./commands/SearchWorkspaceAssociationsCommand";
+import { SearchWorkspacesCommandInput, SearchWorkspacesCommandOutput } from "./commands/SearchWorkspacesCommand";
 import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
@@ -694,6 +801,10 @@ import {
   StartContactEvaluationCommandInput,
   StartContactEvaluationCommandOutput,
 } from "./commands/StartContactEvaluationCommand";
+import {
+  StartContactMediaProcessingCommandInput,
+  StartContactMediaProcessingCommandOutput,
+} from "./commands/StartContactMediaProcessingCommand";
 import {
   StartContactRecordingCommandInput,
   StartContactRecordingCommandOutput,
@@ -719,6 +830,10 @@ import { StartScreenSharingCommandInput, StartScreenSharingCommandOutput } from 
 import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "./commands/StartTaskContactCommand";
 import { StartWebRTCContactCommandInput, StartWebRTCContactCommandOutput } from "./commands/StartWebRTCContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import {
+  StopContactMediaProcessingCommandInput,
+  StopContactMediaProcessingCommandOutput,
+} from "./commands/StopContactMediaProcessingCommand";
 import {
   StopContactRecordingCommandInput,
   StopContactRecordingCommandOutput,
@@ -786,6 +901,18 @@ import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
+import {
+  UpdateDataTableAttributeCommandInput,
+  UpdateDataTableAttributeCommandOutput,
+} from "./commands/UpdateDataTableAttributeCommand";
+import {
+  UpdateDataTableMetadataCommandInput,
+  UpdateDataTableMetadataCommandOutput,
+} from "./commands/UpdateDataTableMetadataCommand";
+import {
+  UpdateDataTablePrimaryValuesCommandInput,
+  UpdateDataTablePrimaryValuesCommandOutput,
+} from "./commands/UpdateDataTablePrimaryValuesCommand";
 import {
   UpdateEmailAddressMetadataCommandInput,
   UpdateEmailAddressMetadataCommandOutput,
@@ -919,13 +1046,29 @@ import {
 import { UpdateViewContentCommandInput, UpdateViewContentCommandOutput } from "./commands/UpdateViewContentCommand";
 import { UpdateViewMetadataCommandInput, UpdateViewMetadataCommandOutput } from "./commands/UpdateViewMetadataCommand";
 import {
+  UpdateWorkspaceMetadataCommandInput,
+  UpdateWorkspaceMetadataCommandOutput,
+} from "./commands/UpdateWorkspaceMetadataCommand";
+import {
+  UpdateWorkspacePageCommandInput,
+  UpdateWorkspacePageCommandOutput,
+} from "./commands/UpdateWorkspacePageCommand";
+import {
+  UpdateWorkspaceThemeCommandInput,
+  UpdateWorkspaceThemeCommandOutput,
+} from "./commands/UpdateWorkspaceThemeCommand";
+import {
+  UpdateWorkspaceVisibilityCommandInput,
+  UpdateWorkspaceVisibilityCommandOutput,
+} from "./commands/UpdateWorkspaceVisibilityCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -948,13 +1091,19 @@ export type ServiceInputTypes =
   | AssociateQueueQuickConnectsCommandInput
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
+  | AssociateSecurityProfilesCommandInput
   | AssociateTrafficDistributionGroupUserCommandInput
   | AssociateUserProficienciesCommandInput
+  | AssociateWorkspaceCommandInput
   | BatchAssociateAnalyticsDataSetCommandInput
+  | BatchCreateDataTableValueCommandInput
+  | BatchDeleteDataTableValueCommandInput
+  | BatchDescribeDataTableValueCommandInput
   | BatchDisassociateAnalyticsDataSetCommandInput
   | BatchGetAttachedFileMetadataCommandInput
   | BatchGetFlowAssociationCommandInput
   | BatchPutContactCommandInput
+  | BatchUpdateDataTableValueCommandInput
   | ClaimPhoneNumberCommandInput
   | CompleteAttachedFileUploadCommandInput
   | CreateAgentStatusCommandInput
@@ -964,6 +1113,8 @@ export type ServiceInputTypes =
   | CreateContactFlowModuleCommandInput
   | CreateContactFlowModuleVersionCommandInput
   | CreateContactFlowVersionCommandInput
+  | CreateDataTableAttributeCommandInput
+  | CreateDataTableCommandInput
   | CreateEmailAddressCommandInput
   | CreateEvaluationFormCommandInput
   | CreateHoursOfOperationCommandInput
@@ -988,6 +1139,8 @@ export type ServiceInputTypes =
   | CreateViewCommandInput
   | CreateViewVersionCommandInput
   | CreateVocabularyCommandInput
+  | CreateWorkspaceCommandInput
+  | CreateWorkspacePageCommandInput
   | DeactivateEvaluationFormCommandInput
   | DeleteAttachedFileCommandInput
   | DeleteContactEvaluationCommandInput
@@ -996,6 +1149,8 @@ export type ServiceInputTypes =
   | DeleteContactFlowModuleCommandInput
   | DeleteContactFlowModuleVersionCommandInput
   | DeleteContactFlowVersionCommandInput
+  | DeleteDataTableAttributeCommandInput
+  | DeleteDataTableCommandInput
   | DeleteEmailAddressCommandInput
   | DeleteEvaluationFormCommandInput
   | DeleteHoursOfOperationCommandInput
@@ -1018,6 +1173,9 @@ export type ServiceInputTypes =
   | DeleteViewCommandInput
   | DeleteViewVersionCommandInput
   | DeleteVocabularyCommandInput
+  | DeleteWorkspaceCommandInput
+  | DeleteWorkspaceMediaCommandInput
+  | DeleteWorkspacePageCommandInput
   | DescribeAgentStatusCommandInput
   | DescribeAuthenticationProfileCommandInput
   | DescribeContactCommandInput
@@ -1025,6 +1183,8 @@ export type ServiceInputTypes =
   | DescribeContactFlowCommandInput
   | DescribeContactFlowModuleAliasCommandInput
   | DescribeContactFlowModuleCommandInput
+  | DescribeDataTableAttributeCommandInput
+  | DescribeDataTableCommandInput
   | DescribeEmailAddressCommandInput
   | DescribeEvaluationFormCommandInput
   | DescribeHoursOfOperationCommandInput
@@ -1046,6 +1206,7 @@ export type ServiceInputTypes =
   | DescribeUserHierarchyStructureCommandInput
   | DescribeViewCommandInput
   | DescribeVocabularyCommandInput
+  | DescribeWorkspaceCommandInput
   | DisassociateAnalyticsDataSetCommandInput
   | DisassociateApprovedOriginCommandInput
   | DisassociateBotCommandInput
@@ -1058,9 +1219,12 @@ export type ServiceInputTypes =
   | DisassociateQueueQuickConnectsCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
+  | DisassociateSecurityProfilesCommandInput
   | DisassociateTrafficDistributionGroupUserCommandInput
   | DisassociateUserProficienciesCommandInput
+  | DisassociateWorkspaceCommandInput
   | DismissUserContactCommandInput
+  | EvaluateDataTableValuesCommandInput
   | GetAttachedFileCommandInput
   | GetContactAttributesCommandInput
   | GetContactMetricsCommandInput
@@ -1075,6 +1239,7 @@ export type ServiceInputTypes =
   | GetTaskTemplateCommandInput
   | GetTrafficDistributionCommandInput
   | ImportPhoneNumberCommandInput
+  | ImportWorkspaceMediaCommandInput
   | ListAgentStatusesCommandInput
   | ListAnalyticsDataAssociationsCommandInput
   | ListAnalyticsDataLakeDataSetsCommandInput
@@ -1089,7 +1254,12 @@ export type ServiceInputTypes =
   | ListContactFlowVersionsCommandInput
   | ListContactFlowsCommandInput
   | ListContactReferencesCommandInput
+  | ListDataTableAttributesCommandInput
+  | ListDataTablePrimaryValuesCommandInput
+  | ListDataTableValuesCommandInput
+  | ListDataTablesCommandInput
   | ListDefaultVocabulariesCommandInput
+  | ListEntitySecurityProfilesCommandInput
   | ListEvaluationFormVersionsCommandInput
   | ListEvaluationFormsCommandInput
   | ListFlowAssociationsCommandInput
@@ -1115,6 +1285,7 @@ export type ServiceInputTypes =
   | ListRulesCommandInput
   | ListSecurityKeysCommandInput
   | ListSecurityProfileApplicationsCommandInput
+  | ListSecurityProfileFlowModulesCommandInput
   | ListSecurityProfilePermissionsCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
@@ -1127,6 +1298,9 @@ export type ServiceInputTypes =
   | ListUsersCommandInput
   | ListViewVersionsCommandInput
   | ListViewsCommandInput
+  | ListWorkspaceMediaCommandInput
+  | ListWorkspacePagesCommandInput
+  | ListWorkspacesCommandInput
   | MonitorContactCommandInput
   | PauseContactCommandInput
   | PutUserStatusCommandInput
@@ -1140,6 +1314,7 @@ export type ServiceInputTypes =
   | SearchContactFlowModulesCommandInput
   | SearchContactFlowsCommandInput
   | SearchContactsCommandInput
+  | SearchDataTablesCommandInput
   | SearchEmailAddressesCommandInput
   | SearchEvaluationFormsCommandInput
   | SearchHoursOfOperationOverridesCommandInput
@@ -1153,12 +1328,16 @@ export type ServiceInputTypes =
   | SearchSecurityProfilesCommandInput
   | SearchUserHierarchyGroupsCommandInput
   | SearchUsersCommandInput
+  | SearchViewsCommandInput
   | SearchVocabulariesCommandInput
+  | SearchWorkspaceAssociationsCommandInput
+  | SearchWorkspacesCommandInput
   | SendChatIntegrationEventCommandInput
   | SendOutboundEmailCommandInput
   | StartAttachedFileUploadCommandInput
   | StartChatContactCommandInput
   | StartContactEvaluationCommandInput
+  | StartContactMediaProcessingCommandInput
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
   | StartEmailContactCommandInput
@@ -1169,6 +1348,7 @@ export type ServiceInputTypes =
   | StartTaskContactCommandInput
   | StartWebRTCContactCommandInput
   | StopContactCommandInput
+  | StopContactMediaProcessingCommandInput
   | StopContactRecordingCommandInput
   | StopContactStreamingCommandInput
   | SubmitContactEvaluationCommandInput
@@ -1191,6 +1371,9 @@ export type ServiceInputTypes =
   | UpdateContactFlowNameCommandInput
   | UpdateContactRoutingDataCommandInput
   | UpdateContactScheduleCommandInput
+  | UpdateDataTableAttributeCommandInput
+  | UpdateDataTableMetadataCommandInput
+  | UpdateDataTablePrimaryValuesCommandInput
   | UpdateEmailAddressMetadataCommandInput
   | UpdateEvaluationFormCommandInput
   | UpdateHoursOfOperationCommandInput
@@ -1229,7 +1412,11 @@ export type ServiceInputTypes =
   | UpdateUserRoutingProfileCommandInput
   | UpdateUserSecurityProfilesCommandInput
   | UpdateViewContentCommandInput
-  | UpdateViewMetadataCommandInput;
+  | UpdateViewMetadataCommandInput
+  | UpdateWorkspaceMetadataCommandInput
+  | UpdateWorkspacePageCommandInput
+  | UpdateWorkspaceThemeCommandInput
+  | UpdateWorkspaceVisibilityCommandInput;
 
 /**
  * @public
@@ -1250,13 +1437,19 @@ export type ServiceOutputTypes =
   | AssociateQueueQuickConnectsCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
+  | AssociateSecurityProfilesCommandOutput
   | AssociateTrafficDistributionGroupUserCommandOutput
   | AssociateUserProficienciesCommandOutput
+  | AssociateWorkspaceCommandOutput
   | BatchAssociateAnalyticsDataSetCommandOutput
+  | BatchCreateDataTableValueCommandOutput
+  | BatchDeleteDataTableValueCommandOutput
+  | BatchDescribeDataTableValueCommandOutput
   | BatchDisassociateAnalyticsDataSetCommandOutput
   | BatchGetAttachedFileMetadataCommandOutput
   | BatchGetFlowAssociationCommandOutput
   | BatchPutContactCommandOutput
+  | BatchUpdateDataTableValueCommandOutput
   | ClaimPhoneNumberCommandOutput
   | CompleteAttachedFileUploadCommandOutput
   | CreateAgentStatusCommandOutput
@@ -1266,6 +1459,8 @@ export type ServiceOutputTypes =
   | CreateContactFlowModuleCommandOutput
   | CreateContactFlowModuleVersionCommandOutput
   | CreateContactFlowVersionCommandOutput
+  | CreateDataTableAttributeCommandOutput
+  | CreateDataTableCommandOutput
   | CreateEmailAddressCommandOutput
   | CreateEvaluationFormCommandOutput
   | CreateHoursOfOperationCommandOutput
@@ -1290,6 +1485,8 @@ export type ServiceOutputTypes =
   | CreateViewCommandOutput
   | CreateViewVersionCommandOutput
   | CreateVocabularyCommandOutput
+  | CreateWorkspaceCommandOutput
+  | CreateWorkspacePageCommandOutput
   | DeactivateEvaluationFormCommandOutput
   | DeleteAttachedFileCommandOutput
   | DeleteContactEvaluationCommandOutput
@@ -1298,6 +1495,8 @@ export type ServiceOutputTypes =
   | DeleteContactFlowModuleCommandOutput
   | DeleteContactFlowModuleVersionCommandOutput
   | DeleteContactFlowVersionCommandOutput
+  | DeleteDataTableAttributeCommandOutput
+  | DeleteDataTableCommandOutput
   | DeleteEmailAddressCommandOutput
   | DeleteEvaluationFormCommandOutput
   | DeleteHoursOfOperationCommandOutput
@@ -1320,6 +1519,9 @@ export type ServiceOutputTypes =
   | DeleteViewCommandOutput
   | DeleteViewVersionCommandOutput
   | DeleteVocabularyCommandOutput
+  | DeleteWorkspaceCommandOutput
+  | DeleteWorkspaceMediaCommandOutput
+  | DeleteWorkspacePageCommandOutput
   | DescribeAgentStatusCommandOutput
   | DescribeAuthenticationProfileCommandOutput
   | DescribeContactCommandOutput
@@ -1327,6 +1529,8 @@ export type ServiceOutputTypes =
   | DescribeContactFlowCommandOutput
   | DescribeContactFlowModuleAliasCommandOutput
   | DescribeContactFlowModuleCommandOutput
+  | DescribeDataTableAttributeCommandOutput
+  | DescribeDataTableCommandOutput
   | DescribeEmailAddressCommandOutput
   | DescribeEvaluationFormCommandOutput
   | DescribeHoursOfOperationCommandOutput
@@ -1348,6 +1552,7 @@ export type ServiceOutputTypes =
   | DescribeUserHierarchyStructureCommandOutput
   | DescribeViewCommandOutput
   | DescribeVocabularyCommandOutput
+  | DescribeWorkspaceCommandOutput
   | DisassociateAnalyticsDataSetCommandOutput
   | DisassociateApprovedOriginCommandOutput
   | DisassociateBotCommandOutput
@@ -1360,9 +1565,12 @@ export type ServiceOutputTypes =
   | DisassociateQueueQuickConnectsCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
+  | DisassociateSecurityProfilesCommandOutput
   | DisassociateTrafficDistributionGroupUserCommandOutput
   | DisassociateUserProficienciesCommandOutput
+  | DisassociateWorkspaceCommandOutput
   | DismissUserContactCommandOutput
+  | EvaluateDataTableValuesCommandOutput
   | GetAttachedFileCommandOutput
   | GetContactAttributesCommandOutput
   | GetContactMetricsCommandOutput
@@ -1377,6 +1585,7 @@ export type ServiceOutputTypes =
   | GetTaskTemplateCommandOutput
   | GetTrafficDistributionCommandOutput
   | ImportPhoneNumberCommandOutput
+  | ImportWorkspaceMediaCommandOutput
   | ListAgentStatusesCommandOutput
   | ListAnalyticsDataAssociationsCommandOutput
   | ListAnalyticsDataLakeDataSetsCommandOutput
@@ -1391,7 +1600,12 @@ export type ServiceOutputTypes =
   | ListContactFlowVersionsCommandOutput
   | ListContactFlowsCommandOutput
   | ListContactReferencesCommandOutput
+  | ListDataTableAttributesCommandOutput
+  | ListDataTablePrimaryValuesCommandOutput
+  | ListDataTableValuesCommandOutput
+  | ListDataTablesCommandOutput
   | ListDefaultVocabulariesCommandOutput
+  | ListEntitySecurityProfilesCommandOutput
   | ListEvaluationFormVersionsCommandOutput
   | ListEvaluationFormsCommandOutput
   | ListFlowAssociationsCommandOutput
@@ -1417,6 +1631,7 @@ export type ServiceOutputTypes =
   | ListRulesCommandOutput
   | ListSecurityKeysCommandOutput
   | ListSecurityProfileApplicationsCommandOutput
+  | ListSecurityProfileFlowModulesCommandOutput
   | ListSecurityProfilePermissionsCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -1429,6 +1644,9 @@ export type ServiceOutputTypes =
   | ListUsersCommandOutput
   | ListViewVersionsCommandOutput
   | ListViewsCommandOutput
+  | ListWorkspaceMediaCommandOutput
+  | ListWorkspacePagesCommandOutput
+  | ListWorkspacesCommandOutput
   | MonitorContactCommandOutput
   | PauseContactCommandOutput
   | PutUserStatusCommandOutput
@@ -1442,6 +1660,7 @@ export type ServiceOutputTypes =
   | SearchContactFlowModulesCommandOutput
   | SearchContactFlowsCommandOutput
   | SearchContactsCommandOutput
+  | SearchDataTablesCommandOutput
   | SearchEmailAddressesCommandOutput
   | SearchEvaluationFormsCommandOutput
   | SearchHoursOfOperationOverridesCommandOutput
@@ -1455,12 +1674,16 @@ export type ServiceOutputTypes =
   | SearchSecurityProfilesCommandOutput
   | SearchUserHierarchyGroupsCommandOutput
   | SearchUsersCommandOutput
+  | SearchViewsCommandOutput
   | SearchVocabulariesCommandOutput
+  | SearchWorkspaceAssociationsCommandOutput
+  | SearchWorkspacesCommandOutput
   | SendChatIntegrationEventCommandOutput
   | SendOutboundEmailCommandOutput
   | StartAttachedFileUploadCommandOutput
   | StartChatContactCommandOutput
   | StartContactEvaluationCommandOutput
+  | StartContactMediaProcessingCommandOutput
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
   | StartEmailContactCommandOutput
@@ -1471,6 +1694,7 @@ export type ServiceOutputTypes =
   | StartTaskContactCommandOutput
   | StartWebRTCContactCommandOutput
   | StopContactCommandOutput
+  | StopContactMediaProcessingCommandOutput
   | StopContactRecordingCommandOutput
   | StopContactStreamingCommandOutput
   | SubmitContactEvaluationCommandOutput
@@ -1493,6 +1717,9 @@ export type ServiceOutputTypes =
   | UpdateContactFlowNameCommandOutput
   | UpdateContactRoutingDataCommandOutput
   | UpdateContactScheduleCommandOutput
+  | UpdateDataTableAttributeCommandOutput
+  | UpdateDataTableMetadataCommandOutput
+  | UpdateDataTablePrimaryValuesCommandOutput
   | UpdateEmailAddressMetadataCommandOutput
   | UpdateEvaluationFormCommandOutput
   | UpdateHoursOfOperationCommandOutput
@@ -1531,7 +1758,11 @@ export type ServiceOutputTypes =
   | UpdateUserRoutingProfileCommandOutput
   | UpdateUserSecurityProfilesCommandOutput
   | UpdateViewContentCommandOutput
-  | UpdateViewMetadataCommandOutput;
+  | UpdateViewMetadataCommandOutput
+  | UpdateWorkspaceMetadataCommandOutput
+  | UpdateWorkspacePageCommandOutput
+  | UpdateWorkspaceThemeCommandOutput
+  | UpdateWorkspaceVisibilityCommandOutput;
 
 /**
  * @public
@@ -1742,22 +1973,19 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect
- *       data types</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect data types</a>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
- *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
- *    contact routing. You can also resolve customer issues more efficiently by getting customers in
- *    touch with the appropriate agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create. There
- *    are also limits to the number of requests that you can make per second. For more information, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
- *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
- *    list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+ *          <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact
+ *    center and provide reliable customer engagement at any scale.</p>
+ *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can
+ *    also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the
+ *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *     Endpoints</a>.</p>
  * @public
  */
 export class ConnectClient extends __Client<

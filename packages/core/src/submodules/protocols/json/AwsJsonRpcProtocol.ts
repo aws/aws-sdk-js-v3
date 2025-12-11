@@ -32,22 +32,26 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     defaultNamespace,
     serviceTarget,
     awsQueryCompatible,
+    jsonCodec,
   }: {
     defaultNamespace: string;
     serviceTarget: string;
     awsQueryCompatible?: boolean;
+    jsonCodec?: JsonCodec;
   }) {
     super({
       defaultNamespace,
     });
     this.serviceTarget = serviceTarget;
-    this.codec = new JsonCodec({
-      timestampFormat: {
-        useTrait: true,
-        default: 7 as const satisfies TimestampEpochSecondsSchema,
-      },
-      jsonName: false,
-    });
+    this.codec =
+      jsonCodec ??
+      new JsonCodec({
+        timestampFormat: {
+          useTrait: true,
+          default: 7 as const satisfies TimestampEpochSecondsSchema,
+        },
+        jsonName: false,
+      });
     this.serializer = this.codec.createSerializer();
     this.deserializer = this.codec.createDeserializer();
     this.awsQueryCompatible = !!awsQueryCompatible;
@@ -106,7 +110,8 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       this.options.defaultNamespace,
       response,
       dataObject,
-      metadata
+      metadata,
+      this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined
     );
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -116,8 +121,9 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
 
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {
-      const target = member.getMergedTraits().jsonName ?? name;
-      output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+      if (dataObject[name] != null) {
+        output[name] = this.codec.createDeserializer().readObject(member, dataObject[name]);
+      }
     }
 
     if (this.awsQueryCompatible) {

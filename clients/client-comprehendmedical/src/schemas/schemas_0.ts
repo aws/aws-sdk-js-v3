@@ -176,7 +176,7 @@ const n0 = "com.amazonaws.comprehendmedical";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ComprehendMedicalServiceException as __ComprehendMedicalServiceException } from "../models/ComprehendMedicalServiceException";
 import {
@@ -191,7 +191,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Attribute: StaticStructureSchema = [
   3,
   n0,
@@ -336,45 +335,12 @@ export var InferSNOMEDCTResponse: StaticStructureSchema = [
   [() => SNOMEDCTEntityList, 0, 0, () => SNOMEDCTDetails, () => Characters],
 ];
 export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_SB, _SK], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidEncodingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidEncodingException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidEncodingException, __InvalidEncodingException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListEntitiesDetectionV2JobsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -456,19 +422,8 @@ export var ListSNOMEDCTInferenceJobsResponse: StaticStructureSchema = [
   [() => ComprehendMedicalAsyncJobPropertiesList, 0],
 ];
 export var OutputDataConfig: StaticStructureSchema = [3, n0, _ODC, 0, [_SB, _SK], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RxNormAttribute: StaticStructureSchema = [
   3,
   n0,
@@ -487,19 +442,8 @@ export var RxNormEntity: StaticStructureSchema = [
   [1, 0, 0, 0, 1, 1, 1, () => RxNormAttributeList, () => RxNormTraitList, () => RxNormConceptList],
 ];
 export var RxNormTrait: StaticStructureSchema = [3, n0, _RNT, 0, [_N, _S], [0, 1]];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SNOMEDCTAttribute: StaticStructureSchema = [
   3,
   n0,
@@ -574,49 +518,14 @@ export var StopRxNormInferenceJobRequest: StaticStructureSchema = [3, n0, _SRNIJ
 export var StopRxNormInferenceJobResponse: StaticStructureSchema = [3, n0, _SRNIJRtop, 0, [_JI], [0]];
 export var StopSNOMEDCTInferenceJobRequest: StaticStructureSchema = [3, n0, _SSNOMEDCTIJRto, 0, [_JI], [0]];
 export var StopSNOMEDCTInferenceJobResponse: StaticStructureSchema = [3, n0, _SSNOMEDCTIJRtop, 0, [_JI], [0]];
-export var TextSizeLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TSLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var TextSizeLimitExceededException: StaticErrorSchema = [-3, n0, _TSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TextSizeLimitExceededException, __TextSizeLimitExceededException);
-
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var Trait: StaticStructureSchema = [3, n0, _Tra, 0, [_N, _S], [0, 1]];
 export var UnmappedAttribute: StaticStructureSchema = [3, n0, _UAn, 0, [_T, _A], [0, () => Attribute]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var ComprehendMedicalServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -626,7 +535,6 @@ export var ComprehendMedicalServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ComprehendMedicalServiceException, __ComprehendMedicalServiceException);
-
 export var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => Attribute];
 export var ComprehendMedicalAsyncJobPropertiesList: StaticListSchema = [
   1,

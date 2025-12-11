@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeQuickConnectRequest, DescribeQuickConnectResponse } from "../models/models_1";
+import type { DescribeQuickConnectRequest, DescribeQuickConnectResponse } from "../models/models_1";
 import { DescribeQuickConnect } from "../schemas/schemas_0";
 
 /**
@@ -49,7 +49,7 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     QuickConnectConfig: { // QuickConnectConfig
- * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER" || "FLOW", // required
  * //       UserConfig: { // UserQuickConnectConfig
  * //         UserId: "STRING_VALUE", // required
  * //         ContactFlowId: "STRING_VALUE", // required
@@ -60,6 +60,9 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * //       },
  * //       PhoneConfig: { // PhoneNumberQuickConnectConfig
  * //         PhoneNumber: "STRING_VALUE", // required
+ * //       },
+ * //       FlowConfig: { // FlowQuickConnectConfig
+ * //         ContactFlowId: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     Tags: { // TagMap

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import { CreateWorkerConfigurationRequest, CreateWorkerConfigurationResponse } from "../models/models_0";
+import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
+import type { CreateWorkerConfigurationRequest, CreateWorkerConfigurationResponse } from "../models/models_0";
 import { CreateWorkerConfiguration } from "../schemas/schemas_0";
 
 /**

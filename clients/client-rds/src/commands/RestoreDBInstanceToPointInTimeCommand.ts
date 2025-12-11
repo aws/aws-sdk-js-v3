@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RestoreDBInstanceToPointInTime } from "../schemas/schemas_0";
 
 /**
@@ -110,8 +110,29 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ *     { // AdditionalStorageVolume
+ *       VolumeName: "STRING_VALUE", // required
+ *       AllocatedStorage: Number("int"),
+ *       IOPS: Number("int"),
+ *       MaxAllocatedStorage: Number("int"),
+ *       StorageThroughput: Number("int"),
+ *       StorageType: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -210,6 +231,16 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       DedicatedLogVolume: true || false,
  * //       Engine: "STRING_VALUE",
+ * //       AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ * //         { // AdditionalStorageVolume
+ * //           VolumeName: "STRING_VALUE", // required
+ * //           AllocatedStorage: Number("int"),
+ * //           IOPS: Number("int"),
+ * //           MaxAllocatedStorage: Number("int"),
+ * //           StorageThroughput: Number("int"),
+ * //           StorageType: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -341,6 +372,18 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesOutputList
+ * //       { // AdditionalStorageVolumeOutput
+ * //         VolumeName: "STRING_VALUE",
+ * //         StorageVolumeStatus: "STRING_VALUE",
+ * //         AllocatedStorage: Number("int"),
+ * //         IOPS: Number("int"),
+ * //         MaxAllocatedStorage: Number("int"),
+ * //         StorageThroughput: Number("int"),
+ * //         StorageType: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     StorageVolumeStatus: "STRING_VALUE",
  * //   },
  * // };
  *

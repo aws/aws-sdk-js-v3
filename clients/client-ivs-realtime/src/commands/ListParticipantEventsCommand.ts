@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
-import { ListParticipantEventsRequest, ListParticipantEventsResponse } from "../models/models_0";
+import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import type { ListParticipantEventsRequest, ListParticipantEventsResponse } from "../models/models_0";
 import { ListParticipantEvents } from "../schemas/schemas_0";
 
 /**
@@ -57,6 +57,26 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * //       destinationStageArn: "STRING_VALUE",
  * //       destinationSessionId: "STRING_VALUE",
  * //       replica: true || false,
+ * //       previousToken: { // ExchangedParticipantToken
+ * //         capabilities: [ // ParticipantTokenCapabilities
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         attributes: { // ParticipantTokenAttributes
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         userId: "STRING_VALUE",
+ * //         expirationTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       newToken: {
+ * //         capabilities: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         attributes: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         userId: "STRING_VALUE",
+ * //         expirationTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

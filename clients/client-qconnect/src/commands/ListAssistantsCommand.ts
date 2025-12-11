@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAssistantsRequest, ListAssistantsResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { ListAssistantsRequest, ListAssistantsResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { ListAssistants } from "../schemas/schemas_0";
 
 /**
@@ -68,6 +68,12 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * //           aiAgentId: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //         { // OrchestratorConfigurationEntry
+ * //           aiAgentId: "STRING_VALUE",
+ * //           orchestratorUseCase: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

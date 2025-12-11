@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListFindingsRequest, ListFindingsResponse } from "../models/models_1";
+import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import type { ListFindingsRequest, ListFindingsResponse } from "../models/models_1";
 import { ListFindings } from "../schemas/schemas_0";
 
 /**
@@ -63,6 +63,12 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         GreaterThanOrEqual: Number("long"),
  *         LessThan: Number("long"),
  *         LessThanOrEqual: Number("long"),
+ *         Matches: [ // Matches
+ *           "STRING_VALUE",
+ *         ],
+ *         NotMatches: [ // NotMatches
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *     },
  *   },

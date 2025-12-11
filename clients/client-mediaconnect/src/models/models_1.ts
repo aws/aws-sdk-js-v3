@@ -7,7 +7,7 @@ import {
   RoutingScope,
 } from "./enums";
 
-import {
+import type {
   MaintenanceConfiguration,
   MaintenanceSchedule,
   RouterNetworkInterface,

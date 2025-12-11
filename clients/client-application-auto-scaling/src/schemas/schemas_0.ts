@@ -189,7 +189,7 @@ const n0 = "com.amazonaws.applicationautoscaling";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -211,23 +211,17 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Alarm: StaticStructureSchema = [3, n0, _A, 0, [_AN, _AARN], [0, 0]];
 export var CapacityForecast: StaticStructureSchema = [3, n0, _CF, 0, [_T, _V], [64 | 4, 64 | 1]];
 export var ConcurrentUpdateException: StaticErrorSchema = [
   -3,
   n0,
   _CUE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`ConcurrentUpdateException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`ConcurrentUpdateException`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentUpdateException, __ConcurrentUpdateException);
-
 export var CustomizedMetricSpecification: StaticStructureSchema = [
   3,
   n0,
@@ -310,16 +304,11 @@ export var FailedResourceAccessException: StaticErrorSchema = [
   -3,
   n0,
   _FRAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`FailedResourceAccessException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`FailedResourceAccessException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(FailedResourceAccessException, __FailedResourceAccessException);
-
 export var GetPredictiveScalingForecastRequest: StaticStructureSchema = [
   3,
   n0,
@@ -340,44 +329,29 @@ export var InternalServiceException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalServiceException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServiceException`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var InvalidNextTokenException: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidNextTokenException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextTokenException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [128 | 0]];
 export var LoadForecast: StaticStructureSchema = [
@@ -394,16 +368,11 @@ export var ObjectNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ONFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ObjectNotFoundException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ObjectNotFoundException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ObjectNotFoundException, __ObjectNotFoundException);
-
 export var PredefinedMetricSpecification: StaticStructureSchema = [3, n0, _PMS, 0, [_PMT, _RL], [0, 0]];
 export var PredictiveScalingCustomizedMetricSpecification: StaticStructureSchema = [
   3,
@@ -522,19 +491,8 @@ export var RegisterScalableTargetRequest: StaticStructureSchema = [
   [0, 0, 0, 1, 1, 0, () => SuspendedState, 128 | 0],
 ];
 export var RegisterScalableTargetResponse: StaticStructureSchema = [3, n0, _RSTRe, 0, [_STARN], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ScalableTarget: StaticStructureSchema = [
   3,
   n0,
@@ -625,37 +583,19 @@ export var TargetTrackingScalingPolicyConfiguration: StaticStructureSchema = [
   [_TV, _PMS, _CMS, _SOC, _SIC, _DSI],
   [1, () => PredefinedMetricSpecification, () => CustomizedMetricSpecification, 1, 1, 2],
 ];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var ApplicationAutoScalingServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -665,15 +605,12 @@ export var ApplicationAutoScalingServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ApplicationAutoScalingServiceException, __ApplicationAutoScalingServiceException);
-
 export var Alarms: StaticListSchema = [1, n0, _Al, 0, () => Alarm];
 export var LoadForecasts: StaticListSchema = [1, n0, _LFo, 0, () => LoadForecast];
 export var MetricDimensions: StaticListSchema = [1, n0, _MDe, 0, () => MetricDimension];
 export var NotScaledReasons: StaticListSchema = [1, n0, _NSRo, 0, () => NotScaledReason];
 export var PredictiveScalingForecastTimestamps = 64 | 4;
-
 export var PredictiveScalingForecastValues = 64 | 1;
-
 export var PredictiveScalingMetricDataQueries: StaticListSchema = [
   1,
   n0,
@@ -696,18 +633,15 @@ export var PredictiveScalingMetricSpecifications: StaticListSchema = [
   () => PredictiveScalingMetricSpecification,
 ];
 export var ResourceIdsMaxLen1600 = 64 | 0;
-
 export var ScalableTargets: StaticListSchema = [1, n0, _ST, 0, () => ScalableTarget];
 export var ScalingActivities: StaticListSchema = [1, n0, _SA, 0, () => ScalingActivity];
 export var ScalingPolicies: StaticListSchema = [1, n0, _SP, 0, () => ScalingPolicy];
 export var ScheduledActions: StaticListSchema = [1, n0, _SAc, 0, () => ScheduledAction];
 export var StepAdjustments: StaticListSchema = [1, n0, _SAte, 0, () => StepAdjustment];
 export var TagKeyList = 64 | 0;
-
 export var TargetTrackingMetricDataQueries: StaticListSchema = [1, n0, _TTMDQa, 0, () => TargetTrackingMetricDataQuery];
 export var TargetTrackingMetricDimensions: StaticListSchema = [1, n0, _TTMDa, 0, () => TargetTrackingMetricDimension];
 export var TagMap = 128 | 0;
-
 export var DeleteScalingPolicy: StaticOperationSchema = [
   9,
   n0,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_2";
+import type { UpdateRoutingProfileConcurrencyRequest } from "../models/models_3";
 import { UpdateRoutingProfileConcurrency } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRouti
 export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
- *    profile.</p>
+ * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

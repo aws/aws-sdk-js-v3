@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Encoder as __Encoder } from "@smithy/types";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "stream";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Encoder as __Encoder } from "@smithy/types";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
@@ -257,7 +257,7 @@ it("Ec2QueryDateTimeWithNegativeOffset:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(1576540098 * 1000),
@@ -302,7 +302,7 @@ it("Ec2QueryDateTimeWithPositiveOffset:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(1576540098 * 1000),
@@ -379,7 +379,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -489,7 +489,7 @@ it("Ec2QueryDateTimeWithFractionalSeconds:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       datetime: new Date(9.46845296123e8 * 1000),
@@ -534,7 +534,7 @@ it("Ec2GreetingWithErrors:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       greeting: "Hello",
@@ -586,7 +586,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         message: "Hi",
@@ -642,7 +642,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         TopLevel: "Top level",
@@ -725,7 +725,7 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       foo: "bar",
@@ -847,7 +847,7 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -1257,7 +1257,7 @@ it("Ec2RecursiveShapes:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -1834,7 +1834,7 @@ it("Ec2SimpleScalarProperties:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringValue: "string",
@@ -1888,7 +1888,7 @@ it("Ec2QuerySupportsNaNFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: NaN,
@@ -1934,7 +1934,7 @@ it("Ec2QuerySupportsInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: Infinity,
@@ -1980,7 +1980,7 @@ it("Ec2QuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: -Infinity,
@@ -2026,7 +2026,7 @@ it("Ec2XmlBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("value", (c) => c.charCodeAt(0)),
@@ -2071,7 +2071,7 @@ it("Ec2XmlEmptyBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("", (c) => c.charCodeAt(0)),
@@ -2116,7 +2116,7 @@ it("Ec2XmlEmptySelfClosedBlobs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       data: Uint8Array.from("", (c) => c.charCodeAt(0)),
@@ -2161,7 +2161,7 @@ it("Ec2XmlEmptyLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: [],
@@ -2227,7 +2227,7 @@ it("Ec2XmlEnums:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       fooEnum1: "Foo",
@@ -2300,7 +2300,7 @@ it("Ec2XmlIntEnums:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       intEnum1: 1,
@@ -2412,7 +2412,7 @@ it("Ec2XmlLists:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       stringList: ["foo", "bar"],
@@ -2488,7 +2488,7 @@ it("Ec2XmlNamespaces:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       nested: {
@@ -2536,7 +2536,7 @@ it("Ec2XmlTimestamps:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       normal: new Date(1398796238 * 1000),
@@ -2581,7 +2581,7 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTime: new Date(1398796238 * 1000),
@@ -2626,7 +2626,7 @@ it("Ec2XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dateTimeOnTarget: new Date(1398796238 * 1000),
@@ -2671,7 +2671,7 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSeconds: new Date(1398796238 * 1000),
@@ -2716,7 +2716,7 @@ it("Ec2XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       epochSecondsOnTarget: new Date(1398796238 * 1000),
@@ -2761,7 +2761,7 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238 * 1000),
@@ -2806,7 +2806,7 @@ it("Ec2XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       httpDateOnTarget: new Date(1398796238 * 1000),

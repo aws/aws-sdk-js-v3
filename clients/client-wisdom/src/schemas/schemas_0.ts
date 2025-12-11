@@ -339,7 +339,7 @@ const n0 = "com.amazonaws.wisdom";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -361,7 +361,6 @@ import {
 import { WisdomServiceException as __WisdomServiceException } from "../models/WisdomServiceException";
 
 /* eslint no-var: 0 */
-
 export var Channel: StaticSimpleSchema = [0, n0, _C, 8, 0];
 export var GroupingCriteria: StaticSimpleSchema = [0, n0, _GC, 8, 0];
 export var GroupingValue: StaticSimpleSchema = [0, n0, _GV, 8, 0];
@@ -369,19 +368,8 @@ export var QueryText: StaticSimpleSchema = [0, n0, _QT, 8, 0];
 export var QuickResponseContent: StaticSimpleSchema = [0, n0, _QRC, 8, 0];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AppIntegrationsConfiguration: StaticStructureSchema = [3, n0, _AIC, 0, [_aIA, _oF], [0, 64 | 0]];
 export var AssistantAssociationData: StaticStructureSchema = [
   3,
@@ -416,19 +404,8 @@ export var AssistantSummary: StaticStructureSchema = [
   [_aI, _aA, _n, _ty, _s, _d, _t, _sSEC, _iC],
   [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration, () => AssistantIntegrationConfiguration],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_iI], [0]];
 export var ContentData: StaticStructureSchema = [
   3,
@@ -687,18 +664,8 @@ export var GetRecommendationsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _wTS,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [1, { [_hQ]: _wTS }],
   ],
 ];
 export var GetRecommendationsResponse: StaticStructureSchema = [
@@ -799,18 +766,8 @@ export var ListAssistantAssociationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _aI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -829,18 +786,8 @@ export var ListAssistantsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssistantsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_aS, _nT], [() => AssistantList, 0]];
@@ -851,18 +798,8 @@ export var ListContentsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _kBI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -874,18 +811,8 @@ export var ListImportJobsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _kBI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -897,18 +824,8 @@ export var ListKnowledgeBasesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListKnowledgeBasesResponse: StaticStructureSchema = [
@@ -926,18 +843,8 @@ export var ListQuickResponsesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _kBI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -968,19 +875,8 @@ export var NotifyRecommendationsReceivedResponse: StaticStructureSchema = [
   [_rIec, _er],
   [64 | 0, () => NotifyRecommendationsReceivedErrorList],
 ];
-export var PreconditionFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PFE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_m],
-  [0],
-];
+export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_e]: _c, [_hE]: 412 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-
 export var QueryAssistantRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1110,32 +1006,10 @@ export var RecommendationTrigger: StaticStructureSchema = [
 export var RemoveKnowledgeBaseTemplateUriRequest: StaticStructureSchema = [3, n0, _RKBTUR, 0, [_kBI], [[0, 1]]];
 export var RemoveKnowledgeBaseTemplateUriResponse: StaticStructureSchema = [3, n0, _RKBTURe, 0, [], []];
 export var RenderingConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_tU], [0]];
-export var RequestTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RTE,
-  {
-    [_e]: _c,
-    [_hE]: 408,
-  },
-  [_m],
-  [0],
-];
+export var RequestTimeoutException: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResultData: StaticStructureSchema = [3, n0, _RDe, 0, [_rIes, _do, _rS], [0, [() => Document, 0], 1]];
 export var SearchContentRequest: StaticStructureSchema = [
   3,
@@ -1143,22 +1017,7 @@ export var SearchContentRequest: StaticStructureSchema = [
   _SCR,
   0,
   [_nT, _mR, _kBI, _sE],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [0, 1],
-    () => SearchExpression,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression],
 ];
 export var SearchContentResponse: StaticStructureSchema = [3, n0, _SCRe, 0, [_cSo, _nT], [() => ContentSummaryList, 0]];
 export var SearchExpression: StaticStructureSchema = [3, n0, _SE, 0, [_fi], [() => FilterList]];
@@ -1168,23 +1027,7 @@ export var SearchQuickResponsesRequest: StaticStructureSchema = [
   _SQRR,
   0,
   [_kBI, _sE, _nT, _mR, _at],
-  [
-    [0, 1],
-    () => QuickResponseSearchExpression,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [() => ContactAttributes, 0],
-  ],
+  [[0, 1], () => QuickResponseSearchExpression, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [() => ContactAttributes, 0]],
 ];
 export var SearchQuickResponsesResponse: StaticStructureSchema = [
   3,
@@ -1200,38 +1043,12 @@ export var SearchSessionsRequest: StaticStructureSchema = [
   _SSR,
   0,
   [_nT, _mR, _aI, _sE],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [0, 1],
-    () => SearchExpression,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression],
 ];
 export var SearchSessionsResponse: StaticStructureSchema = [3, n0, _SSRe, 0, [_sS, _nT], [() => SessionSummaries, 0]];
 export var ServerSideEncryptionConfiguration: StaticStructureSchema = [3, n0, _SSEC, 0, [_kKI], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionData: StaticStructureSchema = [
   3,
   n0,
@@ -1262,19 +1079,8 @@ export var StartImportJobRequest: StaticStructureSchema = [
 export var StartImportJobResponse: StaticStructureSchema = [3, n0, _SIJRt, 0, [_iJ], [[() => ImportJobData, 0]]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1283,12 +1089,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1341,22 +1142,10 @@ export var UpdateQuickResponseResponse: StaticStructureSchema = [
   [_qR],
   [[() => QuickResponseData, 0]],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WisdomServiceException: StaticErrorSchema = [-3, _sm, "WisdomServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WisdomServiceException, __WisdomServiceException);
-
 export var AssistantAssociationSummaryList: StaticListSchema = [1, n0, _AASL, 0, () => AssistantAssociationSummary];
 export var AssistantList: StaticListSchema = [1, n0, _AL, 0, () => AssistantSummary];
 export var Channels: StaticListSchema = [1, n0, _Ch, 0, [() => Channel, 0]];
@@ -1375,14 +1164,11 @@ export var NotifyRecommendationsReceivedErrorList: StaticListSchema = [
   () => NotifyRecommendationsReceivedError,
 ];
 export var ObjectFieldsList = 64 | 0;
-
 export var QueryResultsList: StaticListSchema = [1, n0, _QRL, 0, [() => ResultData, 0]];
 export var QuickResponseFilterFieldList: StaticListSchema = [1, n0, _QRFFL, 0, () => QuickResponseFilterField];
 export var QuickResponseFilterValueList = 64 | 0;
-
 export var QuickResponseQueryFieldList: StaticListSchema = [1, n0, _QRQFL, 0, () => QuickResponseQueryField];
 export var QuickResponseQueryValueList = 64 | 0;
-
 export var QuickResponseSearchResultsList: StaticListSchema = [
   1,
   n0,
@@ -1392,19 +1178,14 @@ export var QuickResponseSearchResultsList: StaticListSchema = [
 ];
 export var QuickResponseSummaryList: StaticListSchema = [1, n0, _QRSL, 0, [() => QuickResponseSummary, 0]];
 export var RecommendationIdList = 64 | 0;
-
 export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, [() => RecommendationData, 0]];
 export var RecommendationTriggerList: StaticListSchema = [1, n0, _RTL, 0, [() => RecommendationTrigger, 0]];
 export var SessionSummaries: StaticListSchema = [1, n0, _SSes, 0, () => SessionSummary];
 export var TagKeyList = 64 | 0;
-
 export var ContactAttributes: StaticMapSchema = [2, n0, _CA, 8, 0, 0];
 export var ContentMetadata = 128 | 0;
-
 export var Headers = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var AssistantAssociationInputData: StaticStructureSchema = [3, n0, _AAID, 0, [_kBI], [0]];
 export var AssistantAssociationOutputData: StaticStructureSchema = [
   3,
@@ -1444,9 +1225,7 @@ export var CreateAssistant: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_ht]: ["POST", "/assistants", 200],
-  },
+  { [_ht]: ["POST", "/assistants", 200] },
   () => CreateAssistantRequest,
   () => CreateAssistantResponse,
 ];
@@ -1454,9 +1233,7 @@ export var CreateAssistantAssociation: StaticOperationSchema = [
   9,
   n0,
   _CAA,
-  {
-    [_ht]: ["POST", "/assistants/{assistantId}/associations", 200],
-  },
+  { [_ht]: ["POST", "/assistants/{assistantId}/associations", 200] },
   () => CreateAssistantAssociationRequest,
   () => CreateAssistantAssociationResponse,
 ];
@@ -1464,9 +1241,7 @@ export var CreateContent: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents", 200] },
   () => CreateContentRequest,
   () => CreateContentResponse,
 ];
@@ -1474,9 +1249,7 @@ export var CreateKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _CKB,
-  {
-    [_ht]: ["POST", "/knowledgeBases", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases", 200] },
   () => CreateKnowledgeBaseRequest,
   () => CreateKnowledgeBaseResponse,
 ];
@@ -1484,9 +1257,7 @@ export var CreateQuickResponse: StaticOperationSchema = [
   9,
   n0,
   _CQR,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] },
   () => CreateQuickResponseRequest,
   () => CreateQuickResponseResponse,
 ];
@@ -1494,9 +1265,7 @@ export var CreateSession: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_ht]: ["POST", "/assistants/{assistantId}/sessions", 200],
-  },
+  { [_ht]: ["POST", "/assistants/{assistantId}/sessions", 200] },
   () => CreateSessionRequest,
   () => CreateSessionResponse,
 ];
@@ -1504,9 +1273,7 @@ export var DeleteAssistant: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_ht]: ["DELETE", "/assistants/{assistantId}", 204],
-  },
+  { [_ht]: ["DELETE", "/assistants/{assistantId}", 204] },
   () => DeleteAssistantRequest,
   () => DeleteAssistantResponse,
 ];
@@ -1514,9 +1281,7 @@ export var DeleteAssistantAssociation: StaticOperationSchema = [
   9,
   n0,
   _DAA,
-  {
-    [_ht]: ["DELETE", "/assistants/{assistantId}/associations/{assistantAssociationId}", 204],
-  },
+  { [_ht]: ["DELETE", "/assistants/{assistantId}/associations/{assistantAssociationId}", 204] },
   () => DeleteAssistantAssociationRequest,
   () => DeleteAssistantAssociationResponse,
 ];
@@ -1524,9 +1289,7 @@ export var DeleteContent: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 204],
-  },
+  { [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 204] },
   () => DeleteContentRequest,
   () => DeleteContentResponse,
 ];
@@ -1534,9 +1297,7 @@ export var DeleteImportJob: StaticOperationSchema = [
   9,
   n0,
   _DIJ,
-  {
-    [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 204],
-  },
+  { [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 204] },
   () => DeleteImportJobRequest,
   () => DeleteImportJobResponse,
 ];
@@ -1544,9 +1305,7 @@ export var DeleteKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _DKB,
-  {
-    [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}", 204],
-  },
+  { [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}", 204] },
   () => DeleteKnowledgeBaseRequest,
   () => DeleteKnowledgeBaseResponse,
 ];
@@ -1554,9 +1313,7 @@ export var DeleteQuickResponse: StaticOperationSchema = [
   9,
   n0,
   _DQR,
-  {
-    [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 204],
-  },
+  { [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 204] },
   () => DeleteQuickResponseRequest,
   () => DeleteQuickResponseResponse,
 ];
@@ -1564,9 +1321,7 @@ export var GetAssistant: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_ht]: ["GET", "/assistants/{assistantId}", 200],
-  },
+  { [_ht]: ["GET", "/assistants/{assistantId}", 200] },
   () => GetAssistantRequest,
   () => GetAssistantResponse,
 ];
@@ -1574,9 +1329,7 @@ export var GetAssistantAssociation: StaticOperationSchema = [
   9,
   n0,
   _GAA,
-  {
-    [_ht]: ["GET", "/assistants/{assistantId}/associations/{assistantAssociationId}", 200],
-  },
+  { [_ht]: ["GET", "/assistants/{assistantId}/associations/{assistantAssociationId}", 200] },
   () => GetAssistantAssociationRequest,
   () => GetAssistantAssociationResponse,
 ];
@@ -1584,9 +1337,7 @@ export var GetContent: StaticOperationSchema = [
   9,
   n0,
   _GCe,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200] },
   () => GetContentRequest,
   () => GetContentResponse,
 ];
@@ -1594,9 +1345,7 @@ export var GetContentSummary: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary", 200] },
   () => GetContentSummaryRequest,
   () => GetContentSummaryResponse,
 ];
@@ -1604,9 +1353,7 @@ export var GetImportJob: StaticOperationSchema = [
   9,
   n0,
   _GIJ,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}", 200] },
   () => GetImportJobRequest,
   () => GetImportJobResponse,
 ];
@@ -1614,9 +1361,7 @@ export var GetKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _GKB,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}", 200] },
   () => GetKnowledgeBaseRequest,
   () => GetKnowledgeBaseResponse,
 ];
@@ -1624,9 +1369,7 @@ export var GetQuickResponse: StaticOperationSchema = [
   9,
   n0,
   _GQR,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200] },
   () => GetQuickResponseRequest,
   () => GetQuickResponseResponse,
 ];
@@ -1634,9 +1377,7 @@ export var GetRecommendations: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_ht]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/recommendations", 200],
-  },
+  { [_ht]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}/recommendations", 200] },
   () => GetRecommendationsRequest,
   () => GetRecommendationsResponse,
 ];
@@ -1644,9 +1385,7 @@ export var GetSession: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_ht]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}", 200],
-  },
+  { [_ht]: ["GET", "/assistants/{assistantId}/sessions/{sessionId}", 200] },
   () => GetSessionRequest,
   () => GetSessionResponse,
 ];
@@ -1654,9 +1393,7 @@ export var ListAssistantAssociations: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_ht]: ["GET", "/assistants/{assistantId}/associations", 200],
-  },
+  { [_ht]: ["GET", "/assistants/{assistantId}/associations", 200] },
   () => ListAssistantAssociationsRequest,
   () => ListAssistantAssociationsResponse,
 ];
@@ -1664,9 +1401,7 @@ export var ListAssistants: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_ht]: ["GET", "/assistants", 200],
-  },
+  { [_ht]: ["GET", "/assistants", 200] },
   () => ListAssistantsRequest,
   () => ListAssistantsResponse,
 ];
@@ -1674,9 +1409,7 @@ export var ListContents: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/contents", 200] },
   () => ListContentsRequest,
   () => ListContentsResponse,
 ];
@@ -1684,9 +1417,7 @@ export var ListImportJobs: StaticOperationSchema = [
   9,
   n0,
   _LIJ,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200] },
   () => ListImportJobsRequest,
   () => ListImportJobsResponse,
 ];
@@ -1694,9 +1425,7 @@ export var ListKnowledgeBases: StaticOperationSchema = [
   9,
   n0,
   _LKB,
-  {
-    [_ht]: ["GET", "/knowledgeBases", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases", 200] },
   () => ListKnowledgeBasesRequest,
   () => ListKnowledgeBasesResponse,
 ];
@@ -1704,9 +1433,7 @@ export var ListQuickResponses: StaticOperationSchema = [
   9,
   n0,
   _LQR,
-  {
-    [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200],
-  },
+  { [_ht]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] },
   () => ListQuickResponsesRequest,
   () => ListQuickResponsesResponse,
 ];
@@ -1714,9 +1441,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1724,9 +1449,7 @@ export var NotifyRecommendationsReceived: StaticOperationSchema = [
   9,
   n0,
   _NRR,
-  {
-    [_ht]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify", 200],
-  },
+  { [_ht]: ["POST", "/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify", 200] },
   () => NotifyRecommendationsReceivedRequest,
   () => NotifyRecommendationsReceivedResponse,
 ];
@@ -1734,9 +1457,7 @@ export var QueryAssistant: StaticOperationSchema = [
   9,
   n0,
   _QA,
-  {
-    [_ht]: ["POST", "/assistants/{assistantId}/query", 200],
-  },
+  { [_ht]: ["POST", "/assistants/{assistantId}/query", 200] },
   () => QueryAssistantRequest,
   () => QueryAssistantResponse,
 ];
@@ -1744,9 +1465,7 @@ export var RemoveKnowledgeBaseTemplateUri: StaticOperationSchema = [
   9,
   n0,
   _RKBTU,
-  {
-    [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/templateUri", 204],
-  },
+  { [_ht]: ["DELETE", "/knowledgeBases/{knowledgeBaseId}/templateUri", 204] },
   () => RemoveKnowledgeBaseTemplateUriRequest,
   () => RemoveKnowledgeBaseTemplateUriResponse,
 ];
@@ -1754,9 +1473,7 @@ export var SearchContent: StaticOperationSchema = [
   9,
   n0,
   _SCe,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search", 200] },
   () => SearchContentRequest,
   () => SearchContentResponse,
 ];
@@ -1764,9 +1481,7 @@ export var SearchQuickResponses: StaticOperationSchema = [
   9,
   n0,
   _SQR,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search/quickResponses", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/search/quickResponses", 200] },
   () => SearchQuickResponsesRequest,
   () => SearchQuickResponsesResponse,
 ];
@@ -1774,9 +1489,7 @@ export var SearchSessions: StaticOperationSchema = [
   9,
   n0,
   _SSea,
-  {
-    [_ht]: ["POST", "/assistants/{assistantId}/searchSessions", 200],
-  },
+  { [_ht]: ["POST", "/assistants/{assistantId}/searchSessions", 200] },
   () => SearchSessionsRequest,
   () => SearchSessionsResponse,
 ];
@@ -1784,9 +1497,7 @@ export var StartContentUpload: StaticOperationSchema = [
   9,
   n0,
   _SCU,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/upload", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/upload", 200] },
   () => StartContentUploadRequest,
   () => StartContentUploadResponse,
 ];
@@ -1794,9 +1505,7 @@ export var StartImportJob: StaticOperationSchema = [
   9,
   n0,
   _SIJ,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/importJobs", 200] },
   () => StartImportJobRequest,
   () => StartImportJobResponse,
 ];
@@ -1804,9 +1513,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1814,9 +1521,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1824,9 +1529,7 @@ export var UpdateContent: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}", 200] },
   () => UpdateContentRequest,
   () => UpdateContentResponse,
 ];
@@ -1834,9 +1537,7 @@ export var UpdateKnowledgeBaseTemplateUri: StaticOperationSchema = [
   9,
   n0,
   _UKBTU,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/templateUri", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/templateUri", 200] },
   () => UpdateKnowledgeBaseTemplateUriRequest,
   () => UpdateKnowledgeBaseTemplateUriResponse,
 ];
@@ -1844,9 +1545,7 @@ export var UpdateQuickResponse: StaticOperationSchema = [
   9,
   n0,
   _UQR,
-  {
-    [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200],
-  },
+  { [_ht]: ["POST", "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}", 200] },
   () => UpdateQuickResponseRequest,
   () => UpdateQuickResponseResponse,
 ];

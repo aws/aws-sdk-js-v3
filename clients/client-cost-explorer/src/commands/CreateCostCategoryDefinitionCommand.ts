@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse } from "../models/models_0";
+import type { CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse } from "../models/models_0";
 import { CreateCostCategoryDefinition } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,7 @@ export interface CreateCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new Cost Category with the requested name and rules.</p>
+ * <p>Creates a new cost category with the requested name and rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

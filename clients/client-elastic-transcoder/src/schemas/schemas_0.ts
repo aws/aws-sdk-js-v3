@@ -218,7 +218,7 @@ const n0 = "com.amazonaws.elastictranscoder";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -238,20 +238,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Artwork: StaticStructureSchema = [
   3,
   n0,
@@ -374,32 +362,11 @@ export var HlsContentProtection: StaticStructureSchema = [
   [_Me, _K, _KM, _IV, _LAU, _KSP],
   [0, 0, 0, 0, 0, 0],
 ];
-export var IncompatibleVersionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var IncompatibleVersionException: StaticErrorSchema = [-3, n0, _IVE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IncompatibleVersionException, __IncompatibleVersionException);
-
 export var InputCaptions: StaticStructureSchema = [3, n0, _IC, 0, [_MP, _CS], [0, () => CaptionSources]];
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_m],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var Job: StaticStructureSchema = [
   3,
   n0,
@@ -461,19 +428,8 @@ export var JobOutput: StaticStructureSchema = [
   ],
 ];
 export var JobWatermark: StaticStructureSchema = [3, n0, _JW, 0, [_PWI, _IK, _E], [0, 0, () => Encryption]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListJobsByPipelineRequest: StaticStructureSchema = [
   3,
   n0,
@@ -482,18 +438,8 @@ export var ListJobsByPipelineRequest: StaticStructureSchema = [
   [_PIi, _As, _PT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _As,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PT,
-      },
-    ],
+    [0, { [_hQ]: _As }],
+    [0, { [_hQ]: _PT }],
   ],
 ];
 export var ListJobsByPipelineResponse: StaticStructureSchema = [3, n0, _LJBPRi, 0, [_Jo, _NPT], [() => Jobs, 0]];
@@ -505,18 +451,8 @@ export var ListJobsByStatusRequest: StaticStructureSchema = [
   [_St, _As, _PT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _As,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PT,
-      },
-    ],
+    [0, { [_hQ]: _As }],
+    [0, { [_hQ]: _PT }],
   ],
 ];
 export var ListJobsByStatusResponse: StaticStructureSchema = [3, n0, _LJBSRi, 0, [_Jo, _NPT], [() => Jobs, 0]];
@@ -527,18 +463,8 @@ export var ListPipelinesRequest: StaticStructureSchema = [
   0,
   [_As, _PT],
   [
-    [
-      0,
-      {
-        [_hQ]: _As,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PT,
-      },
-    ],
+    [0, { [_hQ]: _As }],
+    [0, { [_hQ]: _PT }],
   ],
 ];
 export var ListPipelinesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_Pip, _NPT], [() => Pipelines, 0]];
@@ -549,18 +475,8 @@ export var ListPresetsRequest: StaticStructureSchema = [
   0,
   [_As, _PT],
   [
-    [
-      0,
-      {
-        [_hQ]: _As,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PT,
-      },
-    ],
+    [0, { [_hQ]: _As }],
+    [0, { [_hQ]: _PT }],
   ],
 ];
 export var ListPresetsResponse: StaticStructureSchema = [3, n0, _LPRist, 0, [_Pre, _NPT], [() => Presets, 0]];
@@ -613,32 +529,10 @@ export var ReadPipelineResponse: StaticStructureSchema = [
 ];
 export var ReadPresetRequest: StaticStructureSchema = [3, n0, _RPRea, 0, [_I], [[0, 1]]];
 export var ReadPresetResponse: StaticStructureSchema = [3, n0, _RPRead, 0, [_Pr], [() => Preset]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var TestRoleRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_Ro, _IB, _OB, _To], [0, 0, 0, 64 | 0]];
 export var TestRoleResponse: StaticStructureSchema = [3, n0, _TRRe, 0, [_Su, _Mes], [0, 64 | 0]];
 export var Thumbnails: StaticStructureSchema = [
@@ -678,19 +572,8 @@ export var UpdatePipelineResponse: StaticStructureSchema = [
 ];
 export var UpdatePipelineStatusRequest: StaticStructureSchema = [3, n0, _UPSR, 0, [_I, _St], [[0, 1], 0]];
 export var UpdatePipelineStatusResponse: StaticStructureSchema = [3, n0, _UPSRp, 0, [_Pi], [() => Pipeline]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VideoParameters: StaticStructureSchema = [
   3,
   n0,
@@ -709,9 +592,7 @@ export var ElasticTranscoderServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ElasticTranscoderServiceException, __ElasticTranscoderServiceException);
-
 export var AccessControls = 64 | 0;
-
 export var Artworks: StaticListSchema = [1, n0, _Art, 0, () => Artwork];
 export var CaptionFormats: StaticListSchema = [1, n0, _CFa, 0, () => CaptionFormat];
 export var CaptionSources: StaticListSchema = [1, n0, _CS, 0, () => CaptionSource];
@@ -719,32 +600,25 @@ export var Composition: StaticListSchema = [1, n0, _Co, 0, () => Clip];
 export var CreateJobOutputs: StaticListSchema = [1, n0, _CJOr, 0, () => CreateJobOutput];
 export var CreateJobPlaylists: StaticListSchema = [1, n0, _CJPr, 0, () => CreateJobPlaylist];
 export var ExceptionMessages = 64 | 0;
-
 export var JobInputs: StaticListSchema = [1, n0, _JIo, 0, () => JobInput];
 export var JobOutputs: StaticListSchema = [1, n0, _JOo, 0, () => JobOutput];
 export var Jobs: StaticListSchema = [1, n0, _Jo, 0, () => Job];
 export var JobWatermarks: StaticListSchema = [1, n0, _JWo, 0, () => JobWatermark];
 export var OutputKeys = 64 | 0;
-
 export var Permissions: StaticListSchema = [1, n0, _Per, 0, () => Permission];
 export var Pipelines: StaticListSchema = [1, n0, _Pip, 0, () => Pipeline];
 export var Playlists: StaticListSchema = [1, n0, _Pl, 0, () => Playlist];
 export var Presets: StaticListSchema = [1, n0, _Pre, 0, () => Preset];
 export var PresetWatermarks: StaticListSchema = [1, n0, _PWr, 0, () => PresetWatermark];
 export var SnsTopics = 64 | 0;
-
 export var Warnings: StaticListSchema = [1, n0, _Wa, 0, () => Warning];
 export var CodecOptions = 128 | 0;
-
 export var UserMetadata = 128 | 0;
-
 export var CancelJob: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  {
-    [_h]: ["DELETE", "/2012-09-25/jobs/{Id}", 202],
-  },
+  { [_h]: ["DELETE", "/2012-09-25/jobs/{Id}", 202] },
   () => CancelJobRequest,
   () => CancelJobResponse,
 ];
@@ -752,9 +626,7 @@ export var CreateJob: StaticOperationSchema = [
   9,
   n0,
   _CJr,
-  {
-    [_h]: ["POST", "/2012-09-25/jobs", 201],
-  },
+  { [_h]: ["POST", "/2012-09-25/jobs", 201] },
   () => CreateJobRequest,
   () => CreateJobResponse,
 ];
@@ -762,9 +634,7 @@ export var CreatePipeline: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/2012-09-25/pipelines", 201],
-  },
+  { [_h]: ["POST", "/2012-09-25/pipelines", 201] },
   () => CreatePipelineRequest,
   () => CreatePipelineResponse,
 ];
@@ -772,9 +642,7 @@ export var CreatePreset: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["POST", "/2012-09-25/presets", 201],
-  },
+  { [_h]: ["POST", "/2012-09-25/presets", 201] },
   () => CreatePresetRequest,
   () => CreatePresetResponse,
 ];
@@ -782,9 +650,7 @@ export var DeletePipeline: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["DELETE", "/2012-09-25/pipelines/{Id}", 202],
-  },
+  { [_h]: ["DELETE", "/2012-09-25/pipelines/{Id}", 202] },
   () => DeletePipelineRequest,
   () => DeletePipelineResponse,
 ];
@@ -792,9 +658,7 @@ export var DeletePreset: StaticOperationSchema = [
   9,
   n0,
   _DPel,
-  {
-    [_h]: ["DELETE", "/2012-09-25/presets/{Id}", 202],
-  },
+  { [_h]: ["DELETE", "/2012-09-25/presets/{Id}", 202] },
   () => DeletePresetRequest,
   () => DeletePresetResponse,
 ];
@@ -802,9 +666,7 @@ export var ListJobsByPipeline: StaticOperationSchema = [
   9,
   n0,
   _LJBP,
-  {
-    [_h]: ["GET", "/2012-09-25/jobsByPipeline/{PipelineId}", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/jobsByPipeline/{PipelineId}", 200] },
   () => ListJobsByPipelineRequest,
   () => ListJobsByPipelineResponse,
 ];
@@ -812,9 +674,7 @@ export var ListJobsByStatus: StaticOperationSchema = [
   9,
   n0,
   _LJBS,
-  {
-    [_h]: ["GET", "/2012-09-25/jobsByStatus/{Status}", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/jobsByStatus/{Status}", 200] },
   () => ListJobsByStatusRequest,
   () => ListJobsByStatusResponse,
 ];
@@ -822,9 +682,7 @@ export var ListPipelines: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/2012-09-25/pipelines", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/pipelines", 200] },
   () => ListPipelinesRequest,
   () => ListPipelinesResponse,
 ];
@@ -832,9 +690,7 @@ export var ListPresets: StaticOperationSchema = [
   9,
   n0,
   _LPi,
-  {
-    [_h]: ["GET", "/2012-09-25/presets", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/presets", 200] },
   () => ListPresetsRequest,
   () => ListPresetsResponse,
 ];
@@ -842,9 +698,7 @@ export var ReadJob: StaticOperationSchema = [
   9,
   n0,
   _RJ,
-  {
-    [_h]: ["GET", "/2012-09-25/jobs/{Id}", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/jobs/{Id}", 200] },
   () => ReadJobRequest,
   () => ReadJobResponse,
 ];
@@ -852,9 +706,7 @@ export var ReadPipeline: StaticOperationSchema = [
   9,
   n0,
   _RP,
-  {
-    [_h]: ["GET", "/2012-09-25/pipelines/{Id}", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/pipelines/{Id}", 200] },
   () => ReadPipelineRequest,
   () => ReadPipelineResponse,
 ];
@@ -862,9 +714,7 @@ export var ReadPreset: StaticOperationSchema = [
   9,
   n0,
   _RPe,
-  {
-    [_h]: ["GET", "/2012-09-25/presets/{Id}", 200],
-  },
+  { [_h]: ["GET", "/2012-09-25/presets/{Id}", 200] },
   () => ReadPresetRequest,
   () => ReadPresetResponse,
 ];
@@ -872,9 +722,7 @@ export var TestRole: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/2012-09-25/roleTests", 200],
-  },
+  { [_h]: ["POST", "/2012-09-25/roleTests", 200] },
   () => TestRoleRequest,
   () => TestRoleResponse,
 ];
@@ -882,9 +730,7 @@ export var UpdatePipeline: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/2012-09-25/pipelines/{Id}", 200],
-  },
+  { [_h]: ["PUT", "/2012-09-25/pipelines/{Id}", 200] },
   () => UpdatePipelineRequest,
   () => UpdatePipelineResponse,
 ];
@@ -892,9 +738,7 @@ export var UpdatePipelineNotifications: StaticOperationSchema = [
   9,
   n0,
   _UPN,
-  {
-    [_h]: ["POST", "/2012-09-25/pipelines/{Id}/notifications", 200],
-  },
+  { [_h]: ["POST", "/2012-09-25/pipelines/{Id}/notifications", 200] },
   () => UpdatePipelineNotificationsRequest,
   () => UpdatePipelineNotificationsResponse,
 ];
@@ -902,9 +746,7 @@ export var UpdatePipelineStatus: StaticOperationSchema = [
   9,
   n0,
   _UPS,
-  {
-    [_h]: ["POST", "/2012-09-25/pipelines/{Id}/status", 200],
-  },
+  { [_h]: ["POST", "/2012-09-25/pipelines/{Id}/status", 200] },
   () => UpdatePipelineStatusRequest,
   () => UpdatePipelineStatusResponse,
 ];

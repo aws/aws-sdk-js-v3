@@ -3,6 +3,20 @@
  * @public
  * @enum
  */
+export const PaymentRequestApprovalStrategy = {
+  AUTO_APPROVE_ON_EXPIRATION: "AUTO_APPROVE_ON_EXPIRATION",
+  WAIT_FOR_APPROVAL: "WAIT_FOR_APPROVAL",
+} as const;
+/**
+ * @public
+ */
+export type PaymentRequestApprovalStrategy =
+  (typeof PaymentRequestApprovalStrategy)[keyof typeof PaymentRequestApprovalStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgreementStatus = {
   ACTIVE: "ACTIVE",
   ARCHIVED: "ARCHIVED",

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateMembershipInput, CreateMembershipOutput } from "../models/models_0";
+import type { CreateMembershipInput, CreateMembershipOutput } from "../models/models_0";
 import { CreateMembership } from "../schemas/schemas_0";
 
 /**
@@ -74,6 +74,9 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *       modelInference: { // MembershipModelInferencePaymentConfig
  *         isResponsible: true || false, // required
  *       },
+ *       syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
  *     },
  *     jobCompute: { // MembershipJobComputePaymentConfig
  *       isResponsible: true || false, // required
@@ -133,6 +136,9 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //           isResponsible: true || false, // required
  * //         },
  * //         modelInference: { // MembershipModelInferencePaymentConfig
+ * //           isResponsible: true || false, // required
+ * //         },
+ * //         syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
  * //           isResponsible: true || false, // required
  * //         },
  * //       },

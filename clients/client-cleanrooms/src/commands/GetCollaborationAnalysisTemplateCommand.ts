@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCollaborationAnalysisTemplateInput, GetCollaborationAnalysisTemplateOutput } from "../models/models_0";
+import type { GetCollaborationAnalysisTemplateInput, GetCollaborationAnalysisTemplateOutput } from "../models/models_0";
 import { GetCollaborationAnalysisTemplate } from "../schemas/schemas_0";
 
 /**
@@ -113,6 +113,21 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * //     ],
  * //     errorMessageConfiguration: { // ErrorMessageConfiguration
  * //       type: "DETAILED", // required
+ * //     },
+ * //     syntheticDataParameters: { // SyntheticDataParameters Union: only one key present
+ * //       mlSyntheticDataParameters: { // MLSyntheticDataParameters
+ * //         epsilon: Number("double"), // required
+ * //         maxMembershipInferenceAttackScore: Number("double"), // required
+ * //         columnClassification: { // ColumnClassificationDetails
+ * //           columnMapping: [ // ColumnMappingList // required
+ * //             { // SyntheticDataColumnProperties
+ * //               columnName: "STRING_VALUE", // required
+ * //               columnType: "CATEGORICAL" || "NUMERICAL", // required
+ * //               isPredictiveValue: true || false, // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   },
  * // };

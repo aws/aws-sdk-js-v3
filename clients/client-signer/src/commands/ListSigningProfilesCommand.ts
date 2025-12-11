@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/models_0";
+import type { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/models_0";
 import { ListSigningProfiles } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>

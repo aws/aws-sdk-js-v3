@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchGetAttachedFileMetadataRequest, BatchGetAttachedFileMetadataResponse } from "../models/models_0";
+import type { BatchGetAttachedFileMetadataRequest, BatchGetAttachedFileMetadataResponse } from "../models/models_0";
 import { BatchGetAttachedFileMetadata } from "../schemas/schemas_0";
 
 /**
@@ -29,9 +29,8 @@ export interface BatchGetAttachedFileMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Allows you to retrieve metadata about multiple attached files on an associated resource.
- *    Each attached file provided in the input list must be associated with the input
- *    AssociatedResourceArn.</p>
+ * <p>Allows you to retrieve metadata about multiple attached files on an associated resource. Each attached file
+ *    provided in the input list must be associated with the input AssociatedResourceArn.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

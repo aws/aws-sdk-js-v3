@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchUpdateRecommendationResourceExclusionCommand,
@@ -53,7 +53,7 @@ import {
   UpdateRecommendationLifecycleCommandInput,
   UpdateRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateRecommendationLifecycleCommand";
-import { TrustedAdvisorClient, TrustedAdvisorClientConfig } from "./TrustedAdvisorClient";
+import { TrustedAdvisorClient } from "./TrustedAdvisorClient";
 
 const commands = {
   BatchUpdateRecommendationResourceExclusionCommand,

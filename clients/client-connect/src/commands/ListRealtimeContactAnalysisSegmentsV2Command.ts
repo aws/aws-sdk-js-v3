@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ListRealtimeContactAnalysisSegmentsV2Request,
   ListRealtimeContactAnalysisSegmentsV2Response,
-} from "../models/models_1";
+} from "../models/models_2";
 import { ListRealtimeContactAnalysisSegmentsV2 } from "../schemas/schemas_0";
 
 /**
@@ -33,11 +33,11 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides a list of analysis segments for a real-time chat analysis session. This API
- *    supports CHAT channels only. </p>
+ * <p>Provides a list of analysis segments for a real-time chat analysis session. This API supports CHAT channels
+ *    only. </p>
  *          <important>
- *             <p>This API does not support VOICE. If you attempt to use it for VOICE, an
- *      <code>InvalidRequestException</code> occurs.</p>
+ *             <p>This API does not support VOICE. If you attempt to use it for VOICE, an <code>InvalidRequestException</code>
+ *     occurs.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,9 +171,8 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  *  <p>The request is not valid.</p>
  *
  * @throws {@link OutputTypeNotFoundException} (client fault)
- *  <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact.
- *    For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction
- *    policy set in the flow.</p>
+ *  <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an
+ *    OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

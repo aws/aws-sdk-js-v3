@@ -71,10 +71,24 @@ export type LocalTimeZoneDetectionType = (typeof LocalTimeZoneDetectionType)[key
  * @public
  * @enum
  */
+export const ExternalCampaignType = {
+  JOURNEY: "JOURNEY",
+  MANAGED: "MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type ExternalCampaignType = (typeof ExternalCampaignType)[keyof typeof ExternalCampaignType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChannelSubtype = {
   EMAIL: "EMAIL",
   SMS: "SMS",
   TELEPHONY: "TELEPHONY",
+  WHATSAPP: "WHATSAPP",
 } as const;
 /**
  * @public
@@ -137,6 +151,7 @@ export const CommunicationTimeConfigType = {
   EMAIL: "EMAIL",
   SMS: "SMS",
   TELEPHONY: "TELEPHONY",
+  WHATSAPP: "WHATSAPP",
 } as const;
 /**
  * @public

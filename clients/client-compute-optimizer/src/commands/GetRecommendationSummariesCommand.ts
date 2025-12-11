@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import type {
+  ComputeOptimizerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
+import type { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
 import { GetRecommendationSummaries } from "../schemas/schemas_0";
 
 /**
@@ -36,7 +40,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                <p>EC2Auto Scaling groups in an account that are <code>NotOptimized</code>, or
+ *                <p>EC2Amazon EC2 Auto Scaling groups in an account that are <code>NotOptimized</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
@@ -95,11 +99,11 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //       ],
  * //       idleSummaries: [ // IdleSummaries
  * //         { // IdleSummary
- * //           name: "Idle" || "Unattached",
+ * //           name: "Idle" || "Unattached" || "Unused",
  * //           value: Number("double"),
  * //         },
  * //       ],
- * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage",
+ * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage" || "NatGateway",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),

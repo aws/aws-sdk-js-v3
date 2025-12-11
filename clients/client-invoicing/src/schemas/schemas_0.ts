@@ -220,7 +220,7 @@ const n0 = "com.amazonaws.invoicing";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -240,22 +240,16 @@ import {
 import { InvoicingServiceException as __InvoicingServiceException } from "../models/InvoicingServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveBasicStringWithoutSpace: StaticSimpleSchema = [0, n0, _SBSWS, 8, 0];
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`InvoicingAccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`InvoicingAccessDenied`, 403] },
   [_m, _rN],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AmountBreakdown: StaticStructureSchema = [
   3,
   n0,
@@ -271,16 +265,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`InvoicingConflict`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`InvoicingConflict`, 409] },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Contact: StaticStructureSchema = [3, n0, _C, 8, [_N, _E], [0, 0]];
 export var CreateInvoiceUnitRequest: StaticStructureSchema = [
   3,
@@ -367,24 +356,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InvoicingInternalServer`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InvoicingInternalServer`, 500] },
   [_rAS, _m],
-  [
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvoiceCurrencyAmount: StaticStructureSchema = [
   3,
   n0,
@@ -595,31 +571,21 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`InvoicingResourceNotFound`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`InvoicingResourceNotFound`, 404] },
   [_m, _rN],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTag: StaticStructureSchema = [3, n0, _RTes, 0, [_K, _V], [0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-    [_aQE]: [`InvoicingServiceQuotaExceeded`, 402],
-  },
+  { [_e]: _c, [_hE]: 402, [_aQE]: [`InvoicingServiceQuotaExceeded`, 402] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SupplementalDocument: StaticStructureSchema = [3, n0, _SDup, 0, [_DU, _DUED], [0, 4]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _RT], [0, () => ResourceTagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -645,16 +611,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-    [_aQE]: [`InvoicingThrottling`, 429],
-  },
+  { [_e]: _c, [_hE]: 429, [_aQE]: [`InvoicingThrottling`, 429] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RAes, _RTK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateInvoiceUnitRequest: StaticStructureSchema = [
@@ -679,36 +640,23 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvoicingValidation`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvoicingValidation`, 400] },
   [_m, _rN, _r, _fL],
   [0, 0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var InvoicingServiceException: StaticErrorSchema = [-3, _sm, "InvoicingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(InvoicingServiceException, __InvoicingServiceException);
-
 export var AccountIdList = 64 | 0;
-
 export var Contacts: StaticListSchema = [1, n0, _Co, 0, [() => Contact, 0]];
 export var DiscountsBreakdownAmountList: StaticListSchema = [1, n0, _DBAL, 0, () => DiscountsBreakdownAmount];
 export var EinvoiceDeliveryAttachmentTypes = 64 | 0;
-
 export var EinvoiceDeliveryDocumentTypes = 64 | 0;
-
 export var FeesBreakdownAmountList: StaticListSchema = [1, n0, _FBAL, 0, () => FeesBreakdownAmount];
 export var InvoiceSummaries: StaticListSchema = [1, n0, _ISn, 0, () => InvoiceSummary];
 export var InvoiceUnitArns = 64 | 0;
-
 export var InvoiceUnitNames = 64 | 0;
-
 export var InvoiceUnits: StaticListSchema = [1, n0, _IUn, 0, () => InvoiceUnit];
 export var ProcurementPortalPreferenceSummaries: StaticListSchema = [
   1,
@@ -720,12 +668,9 @@ export var ProcurementPortalPreferenceSummaries: StaticListSchema = [
 export var ProfileList: StaticListSchema = [1, n0, _PL, 0, [() => InvoiceProfile, 0]];
 export var PurchaseOrderDataSources: StaticListSchema = [1, n0, _PODS, 0, () => PurchaseOrderDataSource];
 export var ResourceTagKeyList = 64 | 0;
-
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
 export var RuleAccountIdList = 64 | 0;
-
 export var SellerOfRecords = 64 | 0;
-
 export var SupplementalDocuments: StaticListSchema = [1, n0, _SDu, 0, () => SupplementalDocument];
 export var TaxesBreakdownAmountList: StaticListSchema = [1, n0, _TBAL, 0, () => TaxesBreakdownAmount];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];

@@ -56,6 +56,8 @@ const _MDRI = "MemoryDbReservedInstances";
 const _MDRIC = "MemoryDbReservedInstancesConfiguration";
 const _MIC = "MixedInstanceConfiguration";
 const _MICL = "MixedInstanceConfigurationList";
+const _NG = "NatGateway";
+const _NGC = "NatGatewayConfiguration";
 const _OB = "OrderBy";
 const _OSRI = "OpenSearchReservedInstances";
 const _OSRIC = "OpenSearchReservedInstancesConfiguration";
@@ -100,6 +102,7 @@ const _VE = "ValidationException";
 const _VED = "ValidationExceptionDetail";
 const _VEDa = "ValidationExceptionDetails";
 const _a = "architecture";
+const _aCC = "activeConnectionCount";
 const _aDCS = "auroraDbClusterStorage";
 const _aI = "accountId";
 const _aIc = "accountIds";
@@ -184,6 +187,7 @@ const _mREC = "monthlyReservationEligibleCost";
 const _mSIMB = "memorySizeInMB";
 const _mSPEC = "monthlySavingsPlansEligibleCost";
 const _me = "metrics";
+const _nG = "natGateway";
 const _nOCUTP = "numberOfCapacityUnitsToPurchase";
 const _nOITP = "numberOfInstancesToPurchase";
 const _nT = "nextToken";
@@ -197,6 +201,8 @@ const _op = "operation";
 const _p = "platform";
 const _pC = "preferredCommitment";
 const _pCr = "productCode";
+const _pIFD = "packetsInFromDestination";
+const _pIFS = "packetsInFromSource";
 const _pO = "paymentOption";
 const _pe = "performance";
 const _pr = "pricing";
@@ -260,7 +266,7 @@ const n0 = "com.amazonaws.costoptimizationhub";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { CostOptimizationHubServiceException as __CostOptimizationHubServiceException } from "../models/CostOptimizationHubServiceException";
 import {
@@ -272,20 +278,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountEnrollmentStatus: StaticStructureSchema = [3, n0, _AES, 0, [_aI, _s, _lUT, _cT], [0, 0, 4, 4]];
 export var AuroraDbClusterStorage: StaticStructureSchema = [
   3,
@@ -513,19 +507,8 @@ export var GetRecommendationResponse: StaticStructureSchema = [
   ],
 ];
 export var InstanceConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_ty], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LambdaFunction: StaticStructureSchema = [
   3,
   n0,
@@ -617,6 +600,15 @@ export var MemoryDbReservedInstancesConfiguration: StaticStructureSchema = [
 ];
 export var MetricsByTime: StaticStructureSchema = [3, n0, _MBT, 0, [_sc, _sa, _sp, _ti], [1, 1, 1, 0]];
 export var MixedInstanceConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_ty], [0]];
+export var NatGateway: StaticStructureSchema = [
+  3,
+  n0,
+  _NG,
+  0,
+  [_co, _cC],
+  [() => NatGatewayConfiguration, () => ResourceCostCalculation],
+];
+export var NatGatewayConfiguration: StaticStructureSchema = [3, n0, _NGC, 0, [_aCC, _pIFS, _pIFD], [1, 1, 1]];
 export var OpenSearchReservedInstances: StaticStructureSchema = [
   3,
   n0,
@@ -758,15 +750,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rIes],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePricing: StaticStructureSchema = [
   3,
   n0,
@@ -796,19 +784,8 @@ export var SavingsPlansPricing: StaticStructureSchema = [3, n0, _SPP, 0, [_mSPEC
 export var StorageConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_ty, _sIG], [0, 1]];
 export var SummaryMetricsResult: StaticStructureSchema = [3, n0, _SMR, 0, [_sP], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sta, _en], [0, 0]];
 export var UpdateEnrollmentStatusRequest: StaticStructureSchema = [3, n0, _UESR, 0, [_s, _iMA], [0, 2]];
 export var UpdateEnrollmentStatusResponse: StaticStructureSchema = [3, n0, _UESRp, 0, [_s], [0]];
@@ -833,18 +810,12 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fi],
   [0, 0, () => ValidationExceptionDetails],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionDetail: StaticStructureSchema = [3, n0, _VED, 0, [_fN, _m], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var CostOptimizationHubServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -854,31 +825,21 @@ export var CostOptimizationHubServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(CostOptimizationHubServiceException, __CostOptimizationHubServiceException);
-
 export var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc, 0, () => AccountEnrollmentStatus];
 export var AccountIdList = 64 | 0;
-
 export var ActionTypeList = 64 | 0;
-
 export var EfficiencyMetricsByGroupList: StaticListSchema = [1, n0, _EMBGL, 0, () => EfficiencyMetricsByGroup];
 export var ImplementationEffortList = 64 | 0;
-
 export var MetricsByTimeList: StaticListSchema = [1, n0, _MBTL, 0, () => MetricsByTime];
 export var MixedInstanceConfigurationList: StaticListSchema = [1, n0, _MICL, 0, () => MixedInstanceConfiguration];
 export var RecommendationIdList = 64 | 0;
-
 export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, () => Recommendation];
 export var RecommendationSummariesList: StaticListSchema = [1, n0, _RSL, 0, () => RecommendationSummary];
 export var RegionList = 64 | 0;
-
 export var ResourceArnList = 64 | 0;
-
 export var ResourceIdList = 64 | 0;
-
 export var ResourceTypeList = 64 | 0;
-
 export var SummaryMetricsList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage];
 export var ValidationExceptionDetails: StaticListSchema = [1, n0, _VEDa, 0, () => ValidationExceptionDetail];
@@ -887,7 +848,27 @@ export var ResourceDetails: StaticStructureSchema = [
   n0,
   _RD,
   0,
-  [_lF, _eS, _eI, _eV, _eASG, _eRI, _rRI, _eCRI, _oSRI, _rRIe, _eISP, _cSP, _sMSP, _rDI, _rDIS, _aDCS, _dDRC, _mDRI],
+  [
+    _lF,
+    _eS,
+    _eI,
+    _eV,
+    _eASG,
+    _eRI,
+    _rRI,
+    _eCRI,
+    _oSRI,
+    _rRIe,
+    _eISP,
+    _cSP,
+    _sMSP,
+    _rDI,
+    _rDIS,
+    _aDCS,
+    _dDRC,
+    _mDRI,
+    _nG,
+  ],
   [
     () => LambdaFunction,
     () => EcsService,
@@ -907,6 +888,7 @@ export var ResourceDetails: StaticStructureSchema = [
     () => AuroraDbClusterStorage,
     () => DynamoDbReservedCapacity,
     () => MemoryDbReservedInstances,
+    () => NatGateway,
   ],
 ];
 export var GetPreferences: StaticOperationSchema = [

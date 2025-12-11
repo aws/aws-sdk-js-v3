@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTelemetryEnrichmentOutput } from "../models/models_0";
-import {
+import type { StartTelemetryEnrichmentOutput } from "../models/models_0";
+import type {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,7 +31,7 @@ export interface StartTelemetryEnrichmentCommandInput {}
 export interface StartTelemetryEnrichmentCommandOutput extends StartTelemetryEnrichmentOutput, __MetadataBearer {}
 
 /**
- * <p> Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from Amazon Web Services Resource Explorer to provide richer context for monitoring and observability. </p>
+ * <p> Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from Resource Explorer to provide richer context for monitoring and observability. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

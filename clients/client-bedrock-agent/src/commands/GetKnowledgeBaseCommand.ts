@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
+import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_1";
+import type { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_1";
 import { GetKnowledgeBase } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface GetKnowledgeBaseCommandInput extends GetKnowledgeBaseRequest {}
 export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a knoweldge base.</p>
+ * <p>Gets information about a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,20 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  * //             dimensions: Number("int"),
  * //             embeddingDataType: "FLOAT32" || "BINARY",
+ * //             audio: [ // AudioConfigurations
+ * //               { // AudioConfiguration
+ * //                 segmentationConfiguration: { // AudioSegmentationConfiguration
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //             video: [ // VideoConfigurations
+ * //               { // VideoConfiguration
+ * //                 segmentationConfiguration: { // VideoSegmentationConfiguration
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration

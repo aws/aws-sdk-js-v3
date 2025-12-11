@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartChatContactResponse } from "../models/models_2";
-import { StartChatContactRequest } from "../models/models_3";
+import type { StartChatContactResponse } from "../models/models_2";
+import type { StartChatContactRequest } from "../models/models_3";
 import { StartChatContact } from "../schemas/schemas_0";
 
 /**
@@ -28,25 +28,23 @@ export interface StartChatContactCommandInput extends StartChatContactRequest {}
 export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
- *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
- *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
- *    connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+ * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain
+ *    credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
+ *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the
+ *    created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
  *          <p>A 429 error occurs in the following situations:</p>
  *          <ul>
  *             <li>
- *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
- *      exception.</p>
+ *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code> exception.</p>
  *             </li>
  *             <li>
- *                <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for concurrent active
- *       chats</a> is exceeded. Active chat throttling returns a
- *       <code>LimitExceededException</code>.</p>
+ *                <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for
+ *       concurrent active chats</a> is exceeded. Active chat throttling returns a
+ *      <code>LimitExceededException</code>.</p>
  *             </li>
  *          </ul>
- *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
- *    account may not support the ability to configure custom chat durations. For more information,
- *    contact Amazon Web Services Support. </p>
+ *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may not
+ *    support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support. </p>
  *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
  *    Administrator Guide</i>: </p>
  *          <ul>
@@ -77,6 +75,9 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *   },
  *   ParticipantDetails: { // ParticipantDetails
  *     DisplayName: "STRING_VALUE", // required
+ *   },
+ *   ParticipantConfiguration: { // ParticipantConfiguration
+ *     ResponseMode: "INCREMENTAL" || "COMPLETE",
  *   },
  *   InitialMessage: { // ChatMessage
  *     ContentType: "STRING_VALUE", // required

@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   EC2InstanceConnectClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
+import type { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
 import { SendSerialConsoleSSHPublicKey } from "../schemas/schemas_0";
 
 /**

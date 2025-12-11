@@ -1,11 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import {
-  ApplicationDiscoveryServiceClient,
-  ApplicationDiscoveryServiceClientConfig,
-} from "./ApplicationDiscoveryServiceClient";
+import { ApplicationDiscoveryServiceClient } from "./ApplicationDiscoveryServiceClient";
 import {
   AssociateConfigurationItemsToApplicationCommand,
   AssociateConfigurationItemsToApplicationCommandInput,

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import type {
+  CustomerProfilesClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDomainRequest, GetDomainResponse } from "../models/models_0";
+import type { GetDomainRequest, GetDomainResponse } from "../models/models_0";
 import { GetDomain } from "../schemas/schemas_0";
 
 /**
@@ -113,6 +117,13 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * //         S3BucketName: "STRING_VALUE", // required
  * //         S3KeyName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //   },
+ * //   DataStore: { // DataStoreResponse
+ * //     Enabled: true || false,
+ * //     Readiness: { // Readiness
+ * //       ProgressPercentage: Number("int"),
+ * //       Message: "STRING_VALUE",
  * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required

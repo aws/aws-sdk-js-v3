@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchContactFlowsResponse } from "../models/models_2";
-import { SearchContactFlowsRequest } from "../models/models_3";
+import type { SearchContactFlowsResponse } from "../models/models_2";
+import type { SearchContactFlowsRequest } from "../models/models_3";
 import { SearchContactFlows } from "../schemas/schemas_0";
 
 /**
@@ -58,6 +58,24 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  *         },
  *       ],
  *       TagCondition: "<TagCondition>",
+ *     },
+ *     FlowAttributeFilter: { // ContactFlowAttributeFilter
+ *       OrConditions: [ // ContactFlowAttributeOrConditionList
+ *         { // ContactFlowAttributeAndCondition
+ *           TagConditions: "<TagAndConditionList>",
+ *           ContactFlowTypeCondition: { // ContactFlowTypeCondition
+ *             ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
+ *           },
+ *         },
+ *       ],
+ *       AndCondition: {
+ *         TagConditions: "<TagAndConditionList>",
+ *         ContactFlowTypeCondition: {
+ *           ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
+ *         },
+ *       },
+ *       TagCondition: "<TagCondition>",
+ *       ContactFlowTypeCondition: "<ContactFlowTypeCondition>",
  *     },
  *   },
  *   SearchCriteria: { // ContactFlowSearchCriteria

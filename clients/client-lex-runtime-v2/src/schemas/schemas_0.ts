@@ -171,7 +171,7 @@ const n0 = "com.amazonaws.lexruntimev2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -193,32 +193,12 @@ import {
 import { LexRuntimeV2ServiceException as __LexRuntimeV2ServiceException } from "../models/LexRuntimeV2ServiceException";
 
 /* eslint no-var: 0 */
-
-export var BlobStream: StaticSimpleSchema = [
-  0,
-  n0,
-  _BS,
-  {
-    [_s]: 1,
-  },
-  42,
-];
+export var BlobStream: StaticSimpleSchema = [0, n0, _BS, { [_s]: 1 }, 42];
 export var DTMFRegex: StaticSimpleSchema = [0, n0, _DTMFR, 8, 0];
 export var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
 export var Text: StaticSimpleSchema = [0, n0, _T, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActiveContext: StaticStructureSchema = [
   3,
   n0,
@@ -230,19 +210,8 @@ export var ActiveContext: StaticStructureSchema = [
 export var ActiveContextTimeToLive: StaticStructureSchema = [3, n0, _ACTTL, 0, [_tTLIS, _tTLu], [1, 1]];
 export var AudioInputEvent: StaticStructureSchema = [3, n0, _AIE, 0, [_aC, _cT, _eI, _cTM], [21, 0, 0, 1]];
 export var AudioResponseEvent: StaticStructureSchema = [3, n0, _ARE, 0, [_aC, _cT, _eI], [21, 0, 0]];
-export var BadGatewayException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BGE,
-  {
-    [_e]: _se,
-    [_hE]: 502,
-  },
-  [_m],
-  [0],
-];
+export var BadGatewayException: StaticErrorSchema = [-3, n0, _BGE, { [_e]: _se, [_hE]: 502 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadGatewayException, __BadGatewayException);
-
 export var Button: StaticStructureSchema = [3, n0, _B, 0, [_t, _v], [0, 0]];
 export var ConfidenceScore: StaticStructureSchema = [3, n0, _CS, 0, [_sc], [1]];
 export var ConfigurationEvent: StaticStructureSchema = [
@@ -253,19 +222,8 @@ export var ConfigurationEvent: StaticStructureSchema = [
   [_rA, _rCT, _sS, _wM, _dP, _eI, _cTM],
   [128 | 0, 0, [() => SessionState, 0], [() => Messages, 0], 2, 0, 1],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DeleteSessionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -280,19 +238,8 @@ export var DeleteSessionRequest: StaticStructureSchema = [
   ],
 ];
 export var DeleteSessionResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_bI, _bAI, _lI, _sI], [0, 0, 0, 0]];
-export var DependencyFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DFE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m],
-  [0],
-];
+export var DependencyFailedException: StaticErrorSchema = [-3, n0, _DFE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DependencyFailedException, __DependencyFailedException);
-
 export var DialogAction: StaticStructureSchema = [
   3,
   n0,
@@ -343,19 +290,8 @@ export var IntentResultEvent: StaticStructureSchema = [
   [_iM, _i, _sS, _rA, _sI, _eI, _rBM],
   [0, () => Interpretations, [() => SessionState, 0], 128 | 0, 0, 0, () => RecognizedBotMember],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Interpretation: StaticStructureSchema = [
   3,
   n0,
@@ -380,21 +316,7 @@ export var PutSessionRequest: StaticStructureSchema = [
   _PSR,
   0,
   [_bI, _bAI, _lI, _sI, _me, _sS, _rA, _rCT],
-  [
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    [0, 1],
-    [() => Messages, 0],
-    [() => SessionState, 0],
-    128 | 0,
-    [
-      0,
-      {
-        [_hH]: _RCT,
-      },
-    ],
-  ],
+  [[0, 1], [0, 1], [0, 1], [0, 1], [() => Messages, 0], [() => SessionState, 0], 128 | 0, [0, { [_hH]: _RCT }]],
 ];
 export var PutSessionResponse: StaticStructureSchema = [
   3,
@@ -403,36 +325,11 @@ export var PutSessionResponse: StaticStructureSchema = [
   0,
   [_cT, _me, _sS, _rA, _sI, _aS],
   [
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalm,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalss,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalsi,
-      },
-    ],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _xalm }],
+    [0, { [_hH]: _xalss }],
+    [0, { [_hH]: _xalra }],
+    [0, { [_hH]: _xalsi }],
     [() => BlobStream, 16],
   ],
 ];
@@ -464,30 +361,10 @@ export var RecognizeUtteranceRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      () => SensitiveNonEmptyString,
-      {
-        [_hH]: _xalss,
-      },
-    ],
-    [
-      () => SensitiveNonEmptyString,
-      {
-        [_hH]: _xalra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _RCT_,
-      },
-    ],
+    [() => SensitiveNonEmptyString, { [_hH]: _xalss }],
+    [() => SensitiveNonEmptyString, { [_hH]: _xalra }],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _RCT_ }],
     [() => BlobStream, 16],
   ],
 ];
@@ -498,76 +375,20 @@ export var RecognizeUtteranceResponse: StaticStructureSchema = [
   0,
   [_iM, _cT, _me, _i, _sS, _rA, _sI, _iT, _aS, _rBM],
   [
-    [
-      0,
-      {
-        [_hH]: _xalim,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalm,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xali,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalss,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalsi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xalit,
-      },
-    ],
+    [0, { [_hH]: _xalim }],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _xalm }],
+    [0, { [_hH]: _xali }],
+    [0, { [_hH]: _xalss }],
+    [0, { [_hH]: _xalra }],
+    [0, { [_hH]: _xalsi }],
+    [0, { [_hH]: _xalit }],
     [() => BlobStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xalrbm,
-      },
-    ],
+    [0, { [_hH]: _xalrbm }],
   ],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuntimeHintDetails: StaticStructureSchema = [
   3,
   n0,
@@ -607,12 +428,7 @@ export var StartConversationRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xalcm,
-      },
-    ],
+    [0, { [_hH]: _xalcm }],
     [() => StartConversationRequestEventStream, 16],
   ],
 ];
@@ -626,60 +442,31 @@ export var StartConversationResponse: StaticStructureSchema = [
 ];
 export var TextInputEvent: StaticStructureSchema = [3, n0, _TIE, 0, [_t, _eI, _cTM], [[() => Text, 0], 0, 1]];
 export var TextResponseEvent: StaticStructureSchema = [3, n0, _TRE, 0, [_me, _eI], [[() => Messages, 0], 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TranscriptEvent: StaticStructureSchema = [3, n0, _TEr, 0, [_tr, _eI], [0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Value: StaticStructureSchema = [3, n0, _V, 0, [_oV, _iV, _rV], [0, 0, 64 | 0]];
-export var __Unit = "unit" as const;
-
 export var LexRuntimeV2ServiceException: StaticErrorSchema = [-3, _sm, "LexRuntimeV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(LexRuntimeV2ServiceException, __LexRuntimeV2ServiceException);
-
 export var ActiveContextsList: StaticListSchema = [1, n0, _ACL, 0, [() => ActiveContext, 0]];
 export var ButtonsList: StaticListSchema = [1, n0, _BL, 0, () => Button];
 export var Interpretations: StaticListSchema = [1, n0, _Int, 0, () => Interpretation];
 export var Messages: StaticListSchema = [1, n0, _Me, 0, [() => Message, 0]];
 export var RuntimeHintValuesList: StaticListSchema = [1, n0, _RHVL, 0, () => RuntimeHintValue];
 export var StringList = 64 | 0;
-
 export var Values: StaticListSchema = [1, n0, _Va, 0, () => Slot];
 export var ActiveContextParametersMap: StaticMapSchema = [2, n0, _ACPM, 0, [0, 0], [() => Text, 0]];
 export var SlotHintsIntentMap: StaticMapSchema = [2, n0, _SHIM, 0, 0, () => SlotHintsSlotMap];
 export var SlotHintsSlotMap: StaticMapSchema = [2, n0, _SHSM, 0, 0, () => RuntimeHintDetails];
 export var Slots: StaticMapSchema = [2, n0, _Sl, 0, 0, () => Slot];
 export var StringMap = 128 | 0;
-
 export var StartConversationRequestEventStream: StaticStructureSchema = [
   3,
   n0,
   _SCRES,
-  {
-    [_s]: 1,
-  },
+  { [_s]: 1 },
   [_CE, _AIE, _DTMFIE, _TIE, _PCE, _DE],
   [
     [() => ConfigurationEvent, 0],
@@ -694,9 +481,7 @@ export var StartConversationResponseEventStream: StaticStructureSchema = [
   3,
   n0,
   _SCRESt,
-  {
-    [_s]: 1,
-  },
+  { [_s]: 1 },
   [_PIE, _TEr, _IRE, _TRE, _ARE, _HE, _ADE, _RNFE, _VE, _TE, _ISE, _CEo, _DFE, _BGE],
   [
     () => PlaybackInterruptionEvent,
@@ -719,9 +504,7 @@ export var DeleteSession: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", 200],
-  },
+  { [_h]: ["DELETE", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", 200] },
   () => DeleteSessionRequest,
   () => DeleteSessionResponse,
 ];
@@ -729,9 +512,7 @@ export var GetSession: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", 200],
-  },
+  { [_h]: ["GET", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", 200] },
   () => GetSessionRequest,
   () => GetSessionResponse,
 ];
@@ -739,9 +520,7 @@ export var PutSession: StaticOperationSchema = [
   9,
   n0,
   _PS,
-  {
-    [_h]: ["POST", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}", 200] },
   () => PutSessionRequest,
   () => PutSessionResponse,
 ];
@@ -749,9 +528,7 @@ export var RecognizeText: StaticOperationSchema = [
   9,
   n0,
   _RT,
-  {
-    [_h]: ["POST", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text", 200] },
   () => RecognizeTextRequest,
   () => RecognizeTextResponse,
 ];
@@ -759,9 +536,7 @@ export var RecognizeUtterance: StaticOperationSchema = [
   9,
   n0,
   _RU,
-  {
-    [_h]: ["POST", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance", 200],
-  },
+  { [_h]: ["POST", "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance", 200] },
   () => RecognizeUtteranceRequest,
   () => RecognizeUtteranceResponse,
 ];

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateLambdaFunctionRequest } from "../models/models_1";
+import type { DisassociateLambdaFunctionRequest } from "../models/models_1";
 import { DisassociateLambdaFunction } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Remove the Lambda function from the dropdown options available in the relevant
- *    flow blocks.</p>
+ *          <p>Remove the Lambda function from the dropdown options available in the relevant flow blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

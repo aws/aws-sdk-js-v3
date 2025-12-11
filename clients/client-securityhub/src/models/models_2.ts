@@ -47,6 +47,7 @@ import {
   TargetType,
   ThreatIntelIndicatorCategory,
   ThreatIntelIndicatorType,
+  TicketCreationMode,
   UnprocessedErrorCode,
   UpdateStatus,
   VerificationState,
@@ -57,135 +58,135 @@ import {
 } from "./enums";
 
 import {
+  type Action,
+  type AssociationFilters,
+  type AutomationRulesFindingFilters,
+  type AwsAmazonMqBrokerDetails,
+  type AwsApiGatewayRestApiDetails,
+  type AwsApiGatewayStageDetails,
+  type AwsApiGatewayV2ApiDetails,
+  type AwsApiGatewayV2StageDetails,
+  type AwsAppSyncGraphQlApiDetails,
+  type AwsAthenaWorkGroupDetails,
+  type AwsAutoScalingAutoScalingGroupDetails,
+  type AwsAutoScalingLaunchConfigurationDetails,
+  type AwsBackupBackupPlanDetails,
+  type AwsBackupBackupVaultDetails,
+  type AwsBackupRecoveryPointDetails,
+  type AwsCertificateManagerCertificateDetails,
+  type AwsCloudFormationStackDetails,
+  type AwsCloudFrontDistributionDetails,
+  type AwsCloudTrailTrailDetails,
+  type AwsCloudWatchAlarmDetails,
+  type AwsCodeBuildProjectDetails,
+  type AwsDmsEndpointDetails,
+  type AwsDmsReplicationInstanceDetails,
+  type AwsDmsReplicationTaskDetails,
+  type AwsDynamoDbTableDetails,
+  type AwsEc2ClientVpnEndpointDetails,
+  type AwsEc2EipDetails,
+  type AwsEc2InstanceDetails,
+  type AwsEc2LaunchTemplateDetails,
+  type AwsEc2NetworkAclDetails,
+  type AwsEc2NetworkInterfaceDetails,
+  type AwsEc2RouteTableDetails,
+  type AwsEc2SecurityGroupDetails,
+  type AwsEc2SubnetDetails,
+  type AwsEc2TransitGatewayDetails,
+  type AwsEc2VolumeDetails,
+  type AwsEc2VpcDetails,
+  type AwsEc2VpcEndpointServiceDetails,
+  type AwsEc2VpcPeeringConnectionDetails,
+  type AwsEc2VpnConnectionDetails,
+  type AwsEcrContainerImageDetails,
+  type AwsEcrRepositoryDetails,
+  type AwsEcsClusterDetails,
+  type AwsEcsContainerDetails,
+  type AwsEcsServiceDetails,
+  type NoteUpdate,
+  type SeverityUpdate,
+  type WorkflowUpdate,
   AccountDetails,
-  Action,
   ActionTarget,
   Adjustment,
   AdminAccount,
   AggregatorV2,
-  AssociationFilters,
   AutomationRulesAction,
   AutomationRulesConfig,
-  AutomationRulesFindingFilters,
   AutomationRulesMetadata,
   AutomationRulesMetadataV2,
-  AwsAmazonMqBrokerDetails,
-  AwsApiGatewayRestApiDetails,
-  AwsApiGatewayStageDetails,
-  AwsApiGatewayV2ApiDetails,
-  AwsApiGatewayV2StageDetails,
-  AwsAppSyncGraphQlApiDetails,
-  AwsAthenaWorkGroupDetails,
-  AwsAutoScalingAutoScalingGroupDetails,
-  AwsAutoScalingLaunchConfigurationDetails,
-  AwsBackupBackupPlanDetails,
-  AwsBackupBackupVaultDetails,
-  AwsBackupRecoveryPointDetails,
-  AwsCertificateManagerCertificateDetails,
-  AwsCloudFormationStackDetails,
-  AwsCloudFrontDistributionDetails,
-  AwsCloudTrailTrailDetails,
-  AwsCloudWatchAlarmDetails,
-  AwsCodeBuildProjectDetails,
-  AwsDmsEndpointDetails,
-  AwsDmsReplicationInstanceDetails,
-  AwsDmsReplicationTaskDetails,
-  AwsDynamoDbTableDetails,
-  AwsEc2ClientVpnEndpointDetails,
-  AwsEc2EipDetails,
-  AwsEc2InstanceDetails,
-  AwsEc2LaunchTemplateDetails,
-  AwsEc2NetworkAclDetails,
-  AwsEc2NetworkInterfaceDetails,
-  AwsEc2RouteTableDetails,
-  AwsEc2SecurityGroupDetails,
-  AwsEc2SubnetDetails,
-  AwsEc2TransitGatewayDetails,
-  AwsEc2VolumeDetails,
-  AwsEc2VpcDetails,
-  AwsEc2VpcEndpointServiceDetails,
-  AwsEc2VpcPeeringConnectionDetails,
-  AwsEc2VpnConnectionDetails,
-  AwsEcrContainerImageDetails,
-  AwsEcrRepositoryDetails,
-  AwsEcsClusterDetails,
-  AwsEcsContainerDetails,
-  AwsEcsServiceDetails,
   DateFilter,
   MapFilter,
-  NoteUpdate,
   NumberFilter,
   RelatedFinding,
-  SeverityUpdate,
   StringFilter,
-  WorkflowUpdate,
 } from "./models_0";
 
 import {
-  AwsEcsTaskDefinitionDetails,
-  AwsEcsTaskDetails,
-  AwsEfsAccessPointDetails,
-  AwsEksClusterDetails,
-  AwsElasticBeanstalkEnvironmentDetails,
-  AwsElasticsearchDomainDetails,
-  AwsElbLoadBalancerDetails,
-  AwsElbv2LoadBalancerDetails,
-  AwsEventSchemasRegistryDetails,
-  AwsEventsEndpointDetails,
-  AwsEventsEventbusDetails,
-  AwsGuardDutyDetectorDetails,
-  AwsIamAccessKeyDetails,
-  AwsIamGroupDetails,
-  AwsIamPolicyDetails,
-  AwsIamRoleDetails,
-  AwsIamUserDetails,
-  AwsKinesisStreamDetails,
-  AwsKmsKeyDetails,
-  AwsLambdaFunctionDetails,
-  AwsLambdaLayerVersionDetails,
-  AwsMskClusterDetails,
-  AwsNetworkFirewallFirewallDetails,
-  AwsNetworkFirewallFirewallPolicyDetails,
-  AwsNetworkFirewallRuleGroupDetails,
-  AwsOpenSearchServiceDomainDetails,
-  AwsRdsDbClusterDetails,
-  AwsRdsDbClusterSnapshotDetails,
-  AwsRdsDbInstanceDetails,
-  AwsRdsDbSecurityGroupDetails,
-  AwsRdsDbSnapshotDetails,
-  AwsRdsEventSubscriptionDetails,
-  AwsRedshiftClusterDetails,
-  AwsRoute53HostedZoneDetails,
-  AwsS3AccessPointDetails,
-  AwsS3AccountPublicAccessBlockDetails,
-  AwsS3BucketDetails,
-  AwsS3ObjectDetails,
-  AwsSageMakerNotebookInstanceDetails,
-  AwsSecretsManagerSecretDetails,
-  AwsSnsTopicDetails,
-  AwsSqsQueueDetails,
-  AwsSsmPatchComplianceDetails,
-  AwsStepFunctionStateMachineDetails,
-  AwsWafRateBasedRuleDetails,
-  AwsWafRegionalRateBasedRuleDetails,
-  AwsWafRegionalRuleDetails,
-  AwsWafRegionalRuleGroupDetails,
-  AwsWafRegionalWebAclDetails,
-  AwsWafRuleDetails,
-  AwsWafRuleGroupDetails,
+  type AwsEcsTaskDefinitionDetails,
+  type AwsEcsTaskDetails,
+  type AwsEfsAccessPointDetails,
+  type AwsEksClusterDetails,
+  type AwsElasticBeanstalkEnvironmentDetails,
+  type AwsElasticsearchDomainDetails,
+  type AwsElbLoadBalancerDetails,
+  type AwsElbv2LoadBalancerDetails,
+  type AwsEventSchemasRegistryDetails,
+  type AwsEventsEndpointDetails,
+  type AwsEventsEventbusDetails,
+  type AwsGuardDutyDetectorDetails,
+  type AwsIamAccessKeyDetails,
+  type AwsIamGroupDetails,
+  type AwsIamPolicyDetails,
+  type AwsIamRoleDetails,
+  type AwsIamUserDetails,
+  type AwsKinesisStreamDetails,
+  type AwsKmsKeyDetails,
+  type AwsLambdaFunctionDetails,
+  type AwsLambdaLayerVersionDetails,
+  type AwsMskClusterDetails,
+  type AwsNetworkFirewallFirewallDetails,
+  type AwsNetworkFirewallFirewallPolicyDetails,
+  type AwsNetworkFirewallRuleGroupDetails,
+  type AwsOpenSearchServiceDomainDetails,
+  type AwsRdsDbClusterDetails,
+  type AwsRdsDbClusterSnapshotDetails,
+  type AwsRdsDbInstanceDetails,
+  type AwsRdsDbSecurityGroupDetails,
+  type AwsRdsDbSnapshotDetails,
+  type AwsRdsEventSubscriptionDetails,
+  type AwsRedshiftClusterDetails,
+  type AwsRoute53HostedZoneDetails,
+  type AwsS3AccessPointDetails,
+  type AwsS3AccountPublicAccessBlockDetails,
+  type AwsS3BucketDetails,
+  type AwsS3ObjectDetails,
+  type AwsSageMakerNotebookInstanceDetails,
+  type AwsSecretsManagerSecretDetails,
+  type AwsSnsTopicDetails,
+  type AwsSqsQueueDetails,
+  type AwsSsmPatchComplianceDetails,
+  type AwsStepFunctionStateMachineDetails,
+  type AwsWafRateBasedRuleDetails,
+  type AwsWafRegionalRateBasedRuleDetails,
+  type AwsWafRegionalRuleDetails,
+  type AwsWafRegionalRuleGroupDetails,
+  type AwsWafRegionalWebAclDetails,
+  type AwsWafRuleDetails,
+  type AwsWafRuleGroupDetails,
+  type Compliance,
+  type DataClassificationDetails,
+  type Detection,
+  type FindingProviderFields,
+  type GeneratorDetails,
+  type Network,
+  type Note,
+  type PatchSummary,
+  type ProcessDetails,
+  type Remediation,
   AwsWafv2CustomHttpHeader,
-  Compliance,
-  DataClassificationDetails,
-  Detection,
-  FindingProviderFields,
-  GeneratorDetails,
   Malware,
-  Network,
   NetworkPathComponent,
-  Note,
-  PatchSummary,
-  ProcessDetails,
-  Remediation,
 } from "./models_1";
 
 /**
@@ -5783,40 +5784,6 @@ export interface ConfigurationPolicySummary {
 }
 
 /**
- * @public
- */
-export interface ConnectorRegistrationsV2Request {
-  /**
-   * <p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
-   * @public
-   */
-  AuthCode: string | undefined;
-
-  /**
-   * <p>The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
-   * @public
-   */
-  AuthState: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ConnectorRegistrationsV2Response {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
-   * @public
-   */
-  ConnectorArn?: string | undefined;
-
-  /**
-   * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
-}
-
-/**
  * <p>The connectorV2 third-party provider configuration summary.</p>
  * @public
  */
@@ -6352,16 +6319,10 @@ export interface ServiceNowProviderConfiguration {
   InstanceName: string | undefined;
 
   /**
-   * <p>The client ID of ServiceNow ITSM.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
    * @public
    */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The client secret of ServiceNow ITSM.</p>
-   * @public
-   */
-  ClientSecret: string | undefined;
+  SecretArn: string | undefined;
 }
 
 /**
@@ -6466,7 +6427,7 @@ export interface CreateConnectorV2Response {
    * <p>The Amazon Resource Name (ARN) of the connectorV2.</p>
    * @public
    */
-  ConnectorArn?: string | undefined;
+  ConnectorArn: string | undefined;
 
   /**
    * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
@@ -6479,6 +6440,12 @@ export interface CreateConnectorV2Response {
    * @public
    */
   AuthUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the connectorV2.</p>
+   * @public
+   */
+  ConnectorStatus?: ConnectorStatus | undefined;
 }
 
 /**
@@ -6656,6 +6623,12 @@ export interface CreateTicketV2Request {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The mode for ticket creation. When set to DRYRUN, the ticket is created using a Security Hub owned template test finding to verify the integration is working correctly.</p>
+   * @public
+   */
+  Mode?: TicketCreationMode | undefined;
 }
 
 /**
@@ -8226,13 +8199,13 @@ export interface ServiceNowDetail {
   InstanceName?: string | undefined;
 
   /**
-   * <p>The clientId of ServiceNow ITSM.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
    * @public
    */
-  ClientId?: string | undefined;
+  SecretArn: string | undefined;
 
   /**
-   * <p>The status of the authorization between Jira Cloud and the service.</p>
+   * <p>The status of the authorization between ServiceNow and the service.</p>
    * @public
    */
   AuthStatus: ConnectorAuthStatus | undefined;
@@ -9593,7 +9566,7 @@ export interface JiraCloudUpdateConfiguration {
    * <p>The project key for a JiraCloud instance.</p>
    * @public
    */
-  ProjectKey: string | undefined;
+  ProjectKey?: string | undefined;
 }
 
 /**
@@ -10246,4 +10219,34 @@ export interface StandardsControlAssociationSummary {
    * @public
    */
   StandardsControlDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsResponse {
+  /**
+   * <p> An array that provides the enablement status and other details for each security
+   *          control that applies to each enabled standard. </p>
+   * @public
+   */
+  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
 }

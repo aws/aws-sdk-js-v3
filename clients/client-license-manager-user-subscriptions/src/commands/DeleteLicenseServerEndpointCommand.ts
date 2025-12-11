@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   LicenseManagerUserSubscriptionsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import { DeleteLicenseServerEndpointRequest, DeleteLicenseServerEndpointResponse } from "../models/models_0";
+import type { DeleteLicenseServerEndpointRequest, DeleteLicenseServerEndpointResponse } from "../models/models_0";
 import { DeleteLicenseServerEndpoint } from "../schemas/schemas_0";
 
 /**

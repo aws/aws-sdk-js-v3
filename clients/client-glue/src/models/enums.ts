@@ -1457,6 +1457,19 @@ export type MetadataOperation = (typeof MetadataOperation)[keyof typeof Metadata
  * @public
  * @enum
  */
+export const LastRefreshType = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+/**
+ * @public
+ */
+export type LastRefreshType = (typeof LastRefreshType)[keyof typeof LastRefreshType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ViewDialect = {
   ATHENA: "ATHENA",
   REDSHIFT: "REDSHIFT",
@@ -2046,6 +2059,28 @@ export const Sort = {
  * @public
  */
 export type Sort = (typeof Sort)[keyof typeof Sort];
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergUpdateAction = {
+  ADD_ENCRYPTION_KEY: "add-encryption-key",
+  ADD_SCHEMA: "add-schema",
+  ADD_SORT_ORDER: "add-sort-order",
+  ADD_SPEC: "add-spec",
+  REMOVE_ENCRYPTION_KEY: "remove-encryption-key",
+  REMOVE_PROPERTIES: "remove-properties",
+  SET_CURRENT_SCHEMA: "set-current-schema",
+  SET_DEFAULT_SORT_ORDER: "set-default-sort-order",
+  SET_DEFAULT_SPEC: "set-default-spec",
+  SET_LOCATION: "set-location",
+  SET_PROPERTIES: "set-properties",
+} as const;
+/**
+ * @public
+ */
+export type IcebergUpdateAction = (typeof IcebergUpdateAction)[keyof typeof IcebergUpdateAction];
 
 /**
  * @public

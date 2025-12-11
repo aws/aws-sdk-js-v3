@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
-import { ServerlessApplicationRepositoryClientConfig } from "./ServerlessApplicationRepositoryClient";
+import type { ServerlessApplicationRepositoryClientConfig } from "./ServerlessApplicationRepositoryClient";
 
 /**
  * @internal

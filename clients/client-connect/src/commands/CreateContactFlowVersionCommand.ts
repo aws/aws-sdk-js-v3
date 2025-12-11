@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateContactFlowVersionRequest, CreateContactFlowVersionResponse } from "../models/models_0";
+import type { CreateContactFlowVersionRequest, CreateContactFlowVersionResponse } from "../models/models_0";
 import { CreateContactFlowVersion } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,10 @@ export interface CreateContactFlowVersionCommandInput extends CreateContactFlowV
 export interface CreateContactFlowVersionCommandOutput extends CreateContactFlowVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Publishes a new version of the flow provided. Versions are immutable and monotonically
- *    increasing. If the <code>FlowContentSha256</code> provided is different from the
- *     <code>FlowContentSha256</code> of the <code>$LATEST</code> published flow content, then an error
- *    is returned. This API only supports creating versions for flows of type
- *    <code>Campaign</code>.</p>
+ * <p>Publishes a new version of the flow provided. Versions are immutable and monotonically increasing. If the
+ *     <code>FlowContentSha256</code> provided is different from the <code>FlowContentSha256</code> of the
+ *     <code>$LATEST</code> published flow content, then an error is returned. This API only supports creating versions for
+ *    flows of type <code>Campaign</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

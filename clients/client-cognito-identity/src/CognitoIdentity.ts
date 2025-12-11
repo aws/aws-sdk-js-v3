@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CognitoIdentityClient, CognitoIdentityClientConfig } from "./CognitoIdentityClient";
+import { CognitoIdentityClient } from "./CognitoIdentityClient";
 import {
   CreateIdentityPoolCommand,
   CreateIdentityPoolCommandInput,

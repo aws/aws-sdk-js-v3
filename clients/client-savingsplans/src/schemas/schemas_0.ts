@@ -126,7 +126,7 @@ const n0 = "com.amazonaws.savingsplans";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -143,7 +143,6 @@ import {
 import { SavingsplansServiceException as __SavingsplansServiceException } from "../models/SavingsplansServiceException";
 
 /* eslint no-var: 0 */
-
 export var CreateSavingsPlanRequest: StaticStructureSchema = [
   3,
   n0,
@@ -237,16 +236,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-    [_aQE]: [`InternalServerException`, 500],
-  },
+  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
 export var ParentSavingsPlanOffering: StaticStructureSchema = [
@@ -261,16 +255,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _cl, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ReturnSavingsPlanRequest: StaticStructureSchema = [3, n0, _RSPR, 0, [_sPI, _cT], [0, [0, 4]]];
 export var ReturnSavingsPlanResponse: StaticStructureSchema = [3, n0, _RSPRe, 0, [_sPI], [0]];
 export var SavingsPlan: StaticStructureSchema = [
@@ -316,16 +305,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _cl,
-    [_hE]: 402,
-    [_aQE]: [`ServiceQuotaExceededException`, 402],
-  },
+  { [_e]: _cl, [_hE]: 402, [_aQE]: [`ServiceQuotaExceededException`, 402] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
@@ -334,36 +318,21 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _cl, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var SavingsplansServiceException: StaticErrorSchema = [-3, _sm, "SavingsplansServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SavingsplansServiceException, __SavingsplansServiceException);
-
 export var CurrencyList = 64 | 0;
-
 export var DurationsList = 64 | 1;
-
 export var FilterValuesList = 64 | 0;
-
 export var ListOfStrings = 64 | 0;
-
 export var SavingsPlanArnList = 64 | 0;
-
 export var SavingsPlanDescriptionsList = 64 | 0;
-
 export var SavingsPlanFilterList: StaticListSchema = [1, n0, _SPFL, 0, () => SavingsPlanFilter];
 export var SavingsPlanIdList = 64 | 0;
-
 export var SavingsPlanList: StaticListSchema = [1, n0, _SPL, 0, () => SavingsPlan];
 export var SavingsPlanOfferingFiltersList: StaticListSchema = [
   1,
@@ -390,41 +359,26 @@ export var SavingsPlanOfferingRatePropertyList: StaticListSchema = [
 export var SavingsPlanOfferingRatesList: StaticListSchema = [1, n0, _SPORL, 0, () => SavingsPlanOfferingRate];
 export var SavingsPlanOfferingsList: StaticListSchema = [1, n0, _SPOL, 0, () => SavingsPlanOffering];
 export var SavingsPlanOperationList = 64 | 0;
-
 export var SavingsPlanPaymentOptionList = 64 | 0;
-
 export var SavingsPlanProductTypeList = 64 | 0;
-
 export var SavingsPlanRateFilterList: StaticListSchema = [1, n0, _SPRFL, 0, () => SavingsPlanRateFilter];
 export var SavingsPlanRateList: StaticListSchema = [1, n0, _SPRL, 0, () => SavingsPlanRate];
 export var SavingsPlanRateOperationList = 64 | 0;
-
 export var SavingsPlanRatePropertyList: StaticListSchema = [1, n0, _SPRPL, 0, () => SavingsPlanRateProperty];
 export var SavingsPlanRateServiceCodeList = 64 | 0;
-
 export var SavingsPlanRateUsageTypeList = 64 | 0;
-
 export var SavingsPlanServiceCodeList = 64 | 0;
-
 export var SavingsPlanStateList = 64 | 0;
-
 export var SavingsPlanTypeList = 64 | 0;
-
 export var SavingsPlanUsageTypeList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var UUIDs = 64 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CreateSavingsPlan: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_h]: ["POST", "/CreateSavingsPlan", 200],
-  },
+  { [_h]: ["POST", "/CreateSavingsPlan", 200] },
   () => CreateSavingsPlanRequest,
   () => CreateSavingsPlanResponse,
 ];
@@ -432,9 +386,7 @@ export var DeleteQueuedSavingsPlan: StaticOperationSchema = [
   9,
   n0,
   _DQSP,
-  {
-    [_h]: ["POST", "/DeleteQueuedSavingsPlan", 200],
-  },
+  { [_h]: ["POST", "/DeleteQueuedSavingsPlan", 200] },
   () => DeleteQueuedSavingsPlanRequest,
   () => DeleteQueuedSavingsPlanResponse,
 ];
@@ -442,9 +394,7 @@ export var DescribeSavingsPlanRates: StaticOperationSchema = [
   9,
   n0,
   _DSPRes,
-  {
-    [_h]: ["POST", "/DescribeSavingsPlanRates", 200],
-  },
+  { [_h]: ["POST", "/DescribeSavingsPlanRates", 200] },
   () => DescribeSavingsPlanRatesRequest,
   () => DescribeSavingsPlanRatesResponse,
 ];
@@ -452,9 +402,7 @@ export var DescribeSavingsPlans: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  {
-    [_h]: ["POST", "/DescribeSavingsPlans", 200],
-  },
+  { [_h]: ["POST", "/DescribeSavingsPlans", 200] },
   () => DescribeSavingsPlansRequest,
   () => DescribeSavingsPlansResponse,
 ];
@@ -462,9 +410,7 @@ export var DescribeSavingsPlansOfferingRates: StaticOperationSchema = [
   9,
   n0,
   _DSPORes,
-  {
-    [_h]: ["POST", "/DescribeSavingsPlansOfferingRates", 200],
-  },
+  { [_h]: ["POST", "/DescribeSavingsPlansOfferingRates", 200] },
   () => DescribeSavingsPlansOfferingRatesRequest,
   () => DescribeSavingsPlansOfferingRatesResponse,
 ];
@@ -472,9 +418,7 @@ export var DescribeSavingsPlansOfferings: StaticOperationSchema = [
   9,
   n0,
   _DSPO,
-  {
-    [_h]: ["POST", "/DescribeSavingsPlansOfferings", 200],
-  },
+  { [_h]: ["POST", "/DescribeSavingsPlansOfferings", 200] },
   () => DescribeSavingsPlansOfferingsRequest,
   () => DescribeSavingsPlansOfferingsResponse,
 ];
@@ -482,9 +426,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/ListTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/ListTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -492,9 +434,7 @@ export var ReturnSavingsPlan: StaticOperationSchema = [
   9,
   n0,
   _RSP,
-  {
-    [_h]: ["POST", "/ReturnSavingsPlan", 200],
-  },
+  { [_h]: ["POST", "/ReturnSavingsPlan", 200] },
   () => ReturnSavingsPlanRequest,
   () => ReturnSavingsPlanResponse,
 ];
@@ -502,9 +442,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/TagResource", 200],
-  },
+  { [_h]: ["POST", "/TagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -512,9 +450,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/UntagResource", 200],
-  },
+  { [_h]: ["POST", "/UntagResource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

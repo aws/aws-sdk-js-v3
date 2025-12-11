@@ -1,6 +1,7 @@
 // smithy-typescript generated code
-import { EchoServiceHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
-import { HttpAuthScheme } from "@smithy/types";
+import type { HttpAuthScheme } from "@smithy/types";
+
+import type { EchoServiceHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal
@@ -26,7 +27,7 @@ export type HttpAuthRuntimeConfig = Partial<{
 export const getHttpAuthExtensionConfiguration = (
   runtimeConfig: HttpAuthRuntimeConfig
 ): HttpAuthExtensionConfiguration => {
-  let _httpAuthSchemes = runtimeConfig.httpAuthSchemes!;
+  const _httpAuthSchemes = runtimeConfig.httpAuthSchemes!;
   let _httpAuthSchemeProvider = runtimeConfig.httpAuthSchemeProvider!;
   return {
     setHttpAuthScheme(httpAuthScheme: HttpAuthScheme): void {

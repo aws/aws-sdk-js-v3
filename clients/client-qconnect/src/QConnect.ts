@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateMessageTemplateCommand,
@@ -306,6 +306,7 @@ import {
   ListQuickResponsesCommandInput,
   ListQuickResponsesCommandOutput,
 } from "./commands/ListQuickResponsesCommand";
+import { ListSpansCommand, ListSpansCommandInput, ListSpansCommandOutput } from "./commands/ListSpansCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -337,6 +338,7 @@ import {
   RenderMessageTemplateCommandInput,
   RenderMessageTemplateCommandOutput,
 } from "./commands/RenderMessageTemplateCommand";
+import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
 import {
   SearchContentCommand,
   SearchContentCommandInput,
@@ -429,7 +431,7 @@ import {
   UpdateSessionDataCommandInput,
   UpdateSessionDataCommandOutput,
 } from "./commands/UpdateSessionDataCommand";
-import { QConnectClient, QConnectClientConfig } from "./QConnectClient";
+import { QConnectClient } from "./QConnectClient";
 
 const commands = {
   ActivateMessageTemplateCommand,
@@ -496,6 +498,7 @@ const commands = {
   ListMessageTemplatesCommand,
   ListMessageTemplateVersionsCommand,
   ListQuickResponsesCommand,
+  ListSpansCommand,
   ListTagsForResourceCommand,
   NotifyRecommendationsReceivedCommand,
   PutFeedbackCommand,
@@ -503,6 +506,7 @@ const commands = {
   RemoveAssistantAIAgentCommand,
   RemoveKnowledgeBaseTemplateUriCommand,
   RenderMessageTemplateCommand,
+  RetrieveCommand,
   SearchContentCommand,
   SearchMessageTemplatesCommand,
   SearchQuickResponsesCommand,
@@ -1500,6 +1504,17 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link ListSpansCommand}
+   */
+  listSpans(args: ListSpansCommandInput, options?: __HttpHandlerOptions): Promise<ListSpansCommandOutput>;
+  listSpans(args: ListSpansCommandInput, cb: (err: any, data?: ListSpansCommandOutput) => void): void;
+  listSpans(
+    args: ListSpansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSpansCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1607,6 +1622,17 @@ export interface QConnect {
     args: RenderMessageTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RenderMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RetrieveCommand}
+   */
+  retrieve(args: RetrieveCommandInput, options?: __HttpHandlerOptions): Promise<RetrieveCommandOutput>;
+  retrieve(args: RetrieveCommandInput, cb: (err: any, data?: RetrieveCommandOutput) => void): void;
+  retrieve(
+    args: RetrieveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetrieveCommandOutput) => void
   ): void;
 
   /**

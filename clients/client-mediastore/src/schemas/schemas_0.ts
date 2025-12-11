@@ -110,7 +110,7 @@ const n0 = "com.amazonaws.mediastore";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   ContainerInUseException as __ContainerInUseException,
@@ -123,44 +123,13 @@ import {
 import { MediaStoreServiceException as __MediaStoreServiceException } from "../models/MediaStoreServiceException";
 
 /* eslint no-var: 0 */
-
 export var Container: StaticStructureSchema = [3, n0, _C, 0, [_E, _CT, _ARN, _N, _S, _ALE], [0, 4, 0, 0, 0, 2]];
-export var ContainerInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CIUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ContainerInUseException: StaticErrorSchema = [-3, n0, _CIUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ContainerInUseException, __ContainerInUseException);
-
-export var ContainerNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ContainerNotFoundException: StaticErrorSchema = [-3, n0, _CNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ContainerNotFoundException, __ContainerNotFoundException);
-
-export var CorsPolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CPNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var CorsPolicyNotFoundException: StaticErrorSchema = [-3, n0, _CPNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CorsPolicyNotFoundException, __CorsPolicyNotFoundException);
-
 export var CorsRule: StaticStructureSchema = [
   3,
   n0,
@@ -191,48 +160,18 @@ export var GetLifecyclePolicyInput: StaticStructureSchema = [3, n0, _GLPI, 0, [_
 export var GetLifecyclePolicyOutput: StaticStructureSchema = [3, n0, _GLPO, 0, [_LP], [0]];
 export var GetMetricPolicyInput: StaticStructureSchema = [3, n0, _GMPI, 0, [_CN], [0]];
 export var GetMetricPolicyOutput: StaticStructureSchema = [3, n0, _GMPO, 0, [_MP], [() => MetricPolicy]];
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListContainersInput: StaticStructureSchema = [3, n0, _LCI, 0, [_NT, _MR], [0, 1]];
 export var ListContainersOutput: StaticStructureSchema = [3, n0, _LCO, 0, [_Co, _NT], [() => ContainerList, 0]];
 export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_R], [0]];
 export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_T], [() => TagList]];
 export var MetricPolicy: StaticStructureSchema = [3, n0, _MP, 0, [_CLM, _MPR], [0, () => MetricPolicyRules]];
 export var MetricPolicyRule: StaticStructureSchema = [3, n0, _MPRe, 0, [_OG, _OGN], [0, 0]];
-export var PolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PolicyNotFoundException: StaticErrorSchema = [-3, n0, _PNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PolicyNotFoundException, __PolicyNotFoundException);
-
 export var PutContainerPolicyInput: StaticStructureSchema = [3, n0, _PCPI, 0, [_CN, _P], [0, 0]];
 export var PutContainerPolicyOutput: StaticStructureSchema = [3, n0, _PCPO, 0, [], []];
 export var PutCorsPolicyInput: StaticStructureSchema = [3, n0, _PCPIu, 0, [_CN, _CP], [0, () => CorsPolicy]];
@@ -250,24 +189,16 @@ export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_R, _T], 
 export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_R, _TK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var __Unit = "unit" as const;
-
 export var MediaStoreServiceException: StaticErrorSchema = [-3, _sm, "MediaStoreServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MediaStoreServiceException, __MediaStoreServiceException);
-
 export var AllowedHeaders = 64 | 0;
-
 export var AllowedMethods = 64 | 0;
-
 export var AllowedOrigins = 64 | 0;
-
 export var ContainerList: StaticListSchema = [1, n0, _CL, 0, () => Container];
 export var CorsPolicy: StaticListSchema = [1, n0, _CP, 0, () => CorsRule];
 export var ExposeHeaders = 64 | 0;
-
 export var MetricPolicyRules: StaticListSchema = [1, n0, _MPR, 0, () => MetricPolicyRule];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var CreateContainer: StaticOperationSchema = [
   9,

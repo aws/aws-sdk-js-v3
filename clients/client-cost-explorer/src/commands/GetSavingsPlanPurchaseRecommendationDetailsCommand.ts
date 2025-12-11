@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   GetSavingsPlanPurchaseRecommendationDetailsRequest,
   GetSavingsPlanPurchaseRecommendationDetailsResponse,
 } from "../models/models_0";
@@ -53,7 +53,7 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
  * //   RecommendationDetailData: { // RecommendationDetailData
  * //     AccountScope: "PAYER" || "LINKED",
  * //     LookbackPeriodInDays: "SEVEN_DAYS" || "THIRTY_DAYS" || "SIXTY_DAYS",
- * //     SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP",
+ * //     SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP" || "DATABASE_SP",
  * //     TermInYears: "ONE_YEAR" || "THREE_YEARS",
  * //     PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
  * //     AccountId: "STRING_VALUE",

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_1";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RestoreDBClusterToPointInTime } from "../schemas/schemas_0";
 
 /**
@@ -120,6 +120,17 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);

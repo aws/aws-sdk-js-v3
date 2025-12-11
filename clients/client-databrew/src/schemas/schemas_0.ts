@@ -362,7 +362,7 @@ const n0 = "com.amazonaws.databrew";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -382,21 +382,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ClientSessionId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AllowedStatistics: StaticStructureSchema = [3, n0, _AS, 0, [_S], [64 | 0]];
 export var BatchDeleteRecipeVersionRequest: StaticStructureSchema = [3, n0, _BDRVR, 0, [_N, _RV], [[0, 1], 64 | 0]];
 export var BatchDeleteRecipeVersionResponse: StaticStructureSchema = [
@@ -417,19 +405,8 @@ export var ColumnStatisticsConfiguration: StaticStructureSchema = [
   [() => ColumnSelectorList, () => StatisticsConfiguration],
 ];
 export var ConditionExpression: StaticStructureSchema = [3, n0, _CE, 0, [_C, _V, _TC], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateDatasetRequest: StaticStructureSchema = [
   3,
   n0,
@@ -722,12 +699,7 @@ export var DescribeRecipeRequest: StaticStructureSchema = [
   [_N, _RVe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rV,
-      },
-    ],
+    [0, { [_hQ]: _rV }],
   ],
 ];
 export var DescribeRecipeResponse: StaticStructureSchema = [
@@ -783,19 +755,8 @@ export var Input: StaticStructureSchema = [
   [_SID, _DCID, _DID, _Me],
   [() => S3Location, () => DataCatalogInputDefinition, () => DatabaseInputDefinition, () => Metadata],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Job: StaticStructureSchema = [
   3,
   n0,
@@ -890,18 +851,8 @@ export var ListDatasetsRequest: StaticStructureSchema = [
   0,
   [_MRa, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDatasetsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dat, _NT], [() => DatasetList, 0]];
@@ -913,18 +864,8 @@ export var ListJobRunsRequest: StaticStructureSchema = [
   [_N, _MRa, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListJobRunsResponse: StaticStructureSchema = [3, n0, _LJRRi, 0, [_JRo, _NT], [() => JobRunList, 0]];
@@ -935,30 +876,10 @@ export var ListJobsRequest: StaticStructureSchema = [
   0,
   [_DN, _MRa, _NT, _PN],
   [
-    [
-      0,
-      {
-        [_hQ]: _dN,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pN,
-      },
-    ],
+    [0, { [_hQ]: _dN }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _pN }],
   ],
 ];
 export var ListJobsResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_Job, _NT], [() => JobList, 0]];
@@ -969,18 +890,8 @@ export var ListProjectsRequest: StaticStructureSchema = [
   0,
   [_NT, _MRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListProjectsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_P, _NT], [() => ProjectList, 0]];
@@ -991,24 +902,9 @@ export var ListRecipesRequest: StaticStructureSchema = [
   0,
   [_MRa, _NT, _RVe],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rV,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _rV }],
   ],
 ];
 export var ListRecipesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_Re, _NT], [() => RecipeList, 0]];
@@ -1019,24 +915,9 @@ export var ListRecipeVersionsRequest: StaticStructureSchema = [
   0,
   [_MRa, _NT, _N],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var ListRecipeVersionsResponse: StaticStructureSchema = [3, n0, _LRVRi, 0, [_NT, _Re], [0, () => RecipeList]];
@@ -1047,24 +928,9 @@ export var ListRulesetsRequest: StaticStructureSchema = [
   0,
   [_TA, _MRa, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tA,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tA }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListRulesetsResponse: StaticStructureSchema = [3, n0, _LRRist, 0, [_Rul, _NT], [() => RulesetItemList, 0]];
@@ -1075,24 +941,9 @@ export var ListSchedulesRequest: StaticStructureSchema = [
   0,
   [_JNo, _MRa, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _jN,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _jN }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSchedulesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_Sc, _NT], [() => ScheduleList, 0]];
@@ -1158,19 +1009,8 @@ export var RecipeStep: StaticStructureSchema = [
   [() => RecipeAction, () => ConditionExpressionList],
 ];
 export var RecipeVersionErrorDetail: StaticStructureSchema = [3, n0, _RVED, 0, [_EC, _EMr, _RVe], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Rule: StaticStructureSchema = [
   3,
   n0,
@@ -1207,19 +1047,8 @@ export var SendProjectSessionActionRequest: StaticStructureSchema = [
   [2, [0, 1], () => RecipeStep, 1, [() => ClientSessionId, 0], () => ViewFrame],
 ];
 export var SendProjectSessionActionResponse: StaticStructureSchema = [3, n0, _SPSARe, 0, [_Res, _N, _AIc], [0, 0, 1]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartJobRunRequest: StaticStructureSchema = [3, n0, _SJRR, 0, [_N], [[0, 1]]];
 export var StartJobRunResponse: StaticStructureSchema = [3, n0, _SJRRt, 0, [_RI], [0]];
 export var StartProjectSessionRequest: StaticStructureSchema = [3, n0, _SPSR, 0, [_N, _AC], [[0, 1], 2]];
@@ -1263,12 +1092,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1335,19 +1159,8 @@ export var UpdateRulesetResponse: StaticStructureSchema = [3, n0, _URRpdat, 0, [
 export var UpdateScheduleRequest: StaticStructureSchema = [3, n0, _USR, 0, [_JN, _CEr, _N], [64 | 0, 0, [0, 1]]];
 export var UpdateScheduleResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_N], [0]];
 export var ValidationConfiguration: StaticStructureSchema = [3, n0, _VCa, 0, [_RAu, _VMa], [0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ViewFrame: StaticStructureSchema = [
   3,
   n0,
@@ -1356,14 +1169,10 @@ export var ViewFrame: StaticStructureSchema = [
   [_SCI, _CR, _HC, _SRI, _RRo, _An],
   [1, 1, 64 | 0, 1, 1, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var DataBrewServiceException: StaticErrorSchema = [-3, _sm, "DataBrewServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DataBrewServiceException, __DataBrewServiceException);
-
 export var AllowedStatisticList: StaticListSchema = [1, n0, _ASL, 0, () => AllowedStatistics];
 export var ColumnNameList = 64 | 0;
-
 export var ColumnSelectorList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSelector];
 export var ColumnStatisticsConfigurationList: StaticListSchema = [1, n0, _CSCL, 0, () => ColumnStatisticsConfiguration];
 export var ConditionExpressionList: StaticListSchema = [1, n0, _CEL, 0, () => ConditionExpression];
@@ -1371,12 +1180,9 @@ export var DatabaseOutputList: StaticListSchema = [1, n0, _DOL, 0, () => Databas
 export var DataCatalogOutputList: StaticListSchema = [1, n0, _DCOL, 0, () => DataCatalogOutput];
 export var DatasetList: StaticListSchema = [1, n0, _DL, 0, () => Dataset];
 export var EntityTypeList = 64 | 0;
-
 export var HiddenColumnList = 64 | 0;
-
 export var JobList: StaticListSchema = [1, n0, _JL, 0, () => Job];
 export var JobNameList = 64 | 0;
-
 export var JobRunList: StaticListSchema = [1, n0, _JRL, 0, () => JobRun];
 export var OutputList: StaticListSchema = [1, n0, _OLu, 0, () => Output];
 export var ProjectList: StaticListSchema = [1, n0, _PL, 0, () => Project];
@@ -1384,34 +1190,24 @@ export var RecipeErrorList: StaticListSchema = [1, n0, _REL, 0, () => RecipeVers
 export var RecipeList: StaticListSchema = [1, n0, _RL, 0, () => Recipe];
 export var RecipeStepList: StaticListSchema = [1, n0, _RSL, 0, () => RecipeStep];
 export var RecipeVersionList = 64 | 0;
-
 export var RuleList: StaticListSchema = [1, n0, _RLu, 0, () => Rule];
 export var RulesetItemList: StaticListSchema = [1, n0, _RIL, 0, () => RulesetItem];
 export var ScheduleList: StaticListSchema = [1, n0, _SLc, 0, () => Schedule];
 export var SheetIndexList = 64 | 1;
-
 export var SheetNameList = 64 | 0;
-
 export var StatisticList = 64 | 0;
-
 export var StatisticOverrideList: StaticListSchema = [1, n0, _SOL, 0, () => StatisticOverride];
 export var TagKeyList = 64 | 0;
-
 export var ValidationConfigurationList: StaticListSchema = [1, n0, _VCL, 0, () => ValidationConfiguration];
 export var ParameterMap = 128 | 0;
-
 export var PathParametersMap: StaticMapSchema = [2, n0, _PPM, 0, 0, () => DatasetParameter];
 export var TagMap = 128 | 0;
-
 export var ValuesMap = 128 | 0;
-
 export var BatchDeleteRecipeVersion: StaticOperationSchema = [
   9,
   n0,
   _BDRV,
-  {
-    [_h]: ["POST", "/recipes/{Name}/batchDeleteRecipeVersion", 200],
-  },
+  { [_h]: ["POST", "/recipes/{Name}/batchDeleteRecipeVersion", 200] },
   () => BatchDeleteRecipeVersionRequest,
   () => BatchDeleteRecipeVersionResponse,
 ];
@@ -1419,9 +1215,7 @@ export var CreateDataset: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  {
-    [_h]: ["POST", "/datasets", 200],
-  },
+  { [_h]: ["POST", "/datasets", 200] },
   () => CreateDatasetRequest,
   () => CreateDatasetResponse,
 ];
@@ -1429,9 +1223,7 @@ export var CreateProfileJob: StaticOperationSchema = [
   9,
   n0,
   _CPJ,
-  {
-    [_h]: ["POST", "/profileJobs", 200],
-  },
+  { [_h]: ["POST", "/profileJobs", 200] },
   () => CreateProfileJobRequest,
   () => CreateProfileJobResponse,
 ];
@@ -1439,9 +1231,7 @@ export var CreateProject: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/projects", 200],
-  },
+  { [_h]: ["POST", "/projects", 200] },
   () => CreateProjectRequest,
   () => CreateProjectResponse,
 ];
@@ -1449,9 +1239,7 @@ export var CreateRecipe: StaticOperationSchema = [
   9,
   n0,
   _CRr,
-  {
-    [_h]: ["POST", "/recipes", 200],
-  },
+  { [_h]: ["POST", "/recipes", 200] },
   () => CreateRecipeRequest,
   () => CreateRecipeResponse,
 ];
@@ -1459,9 +1247,7 @@ export var CreateRecipeJob: StaticOperationSchema = [
   9,
   n0,
   _CRJ,
-  {
-    [_h]: ["POST", "/recipeJobs", 200],
-  },
+  { [_h]: ["POST", "/recipeJobs", 200] },
   () => CreateRecipeJobRequest,
   () => CreateRecipeJobResponse,
 ];
@@ -1469,9 +1255,7 @@ export var CreateRuleset: StaticOperationSchema = [
   9,
   n0,
   _CRre,
-  {
-    [_h]: ["POST", "/rulesets", 200],
-  },
+  { [_h]: ["POST", "/rulesets", 200] },
   () => CreateRulesetRequest,
   () => CreateRulesetResponse,
 ];
@@ -1479,9 +1263,7 @@ export var CreateSchedule: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["POST", "/schedules", 200],
-  },
+  { [_h]: ["POST", "/schedules", 200] },
   () => CreateScheduleRequest,
   () => CreateScheduleResponse,
 ];
@@ -1489,9 +1271,7 @@ export var DeleteDataset: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/datasets/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/datasets/{Name}", 200] },
   () => DeleteDatasetRequest,
   () => DeleteDatasetResponse,
 ];
@@ -1499,9 +1279,7 @@ export var DeleteJob: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_h]: ["DELETE", "/jobs/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/jobs/{Name}", 200] },
   () => DeleteJobRequest,
   () => DeleteJobResponse,
 ];
@@ -1509,9 +1287,7 @@ export var DeleteProject: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["DELETE", "/projects/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/projects/{Name}", 200] },
   () => DeleteProjectRequest,
   () => DeleteProjectResponse,
 ];
@@ -1519,9 +1295,7 @@ export var DeleteRecipeVersion: StaticOperationSchema = [
   9,
   n0,
   _DRV,
-  {
-    [_h]: ["DELETE", "/recipes/{Name}/recipeVersion/{RecipeVersion}", 200],
-  },
+  { [_h]: ["DELETE", "/recipes/{Name}/recipeVersion/{RecipeVersion}", 200] },
   () => DeleteRecipeVersionRequest,
   () => DeleteRecipeVersionResponse,
 ];
@@ -1529,9 +1303,7 @@ export var DeleteRuleset: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/rulesets/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/rulesets/{Name}", 200] },
   () => DeleteRulesetRequest,
   () => DeleteRulesetResponse,
 ];
@@ -1539,9 +1311,7 @@ export var DeleteSchedule: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/schedules/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/schedules/{Name}", 200] },
   () => DeleteScheduleRequest,
   () => DeleteScheduleResponse,
 ];
@@ -1549,9 +1319,7 @@ export var DescribeDataset: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["GET", "/datasets/{Name}", 200],
-  },
+  { [_h]: ["GET", "/datasets/{Name}", 200] },
   () => DescribeDatasetRequest,
   () => DescribeDatasetResponse,
 ];
@@ -1559,9 +1327,7 @@ export var DescribeJob: StaticOperationSchema = [
   9,
   n0,
   _DJe,
-  {
-    [_h]: ["GET", "/jobs/{Name}", 200],
-  },
+  { [_h]: ["GET", "/jobs/{Name}", 200] },
   () => DescribeJobRequest,
   () => DescribeJobResponse,
 ];
@@ -1569,9 +1335,7 @@ export var DescribeJobRun: StaticOperationSchema = [
   9,
   n0,
   _DJRescr,
-  {
-    [_h]: ["GET", "/jobs/{Name}/jobRun/{RunId}", 200],
-  },
+  { [_h]: ["GET", "/jobs/{Name}/jobRun/{RunId}", 200] },
   () => DescribeJobRunRequest,
   () => DescribeJobRunResponse,
 ];
@@ -1579,9 +1343,7 @@ export var DescribeProject: StaticOperationSchema = [
   9,
   n0,
   _DPes,
-  {
-    [_h]: ["GET", "/projects/{Name}", 200],
-  },
+  { [_h]: ["GET", "/projects/{Name}", 200] },
   () => DescribeProjectRequest,
   () => DescribeProjectResponse,
 ];
@@ -1589,9 +1351,7 @@ export var DescribeRecipe: StaticOperationSchema = [
   9,
   n0,
   _DRe,
-  {
-    [_h]: ["GET", "/recipes/{Name}", 200],
-  },
+  { [_h]: ["GET", "/recipes/{Name}", 200] },
   () => DescribeRecipeRequest,
   () => DescribeRecipeResponse,
 ];
@@ -1599,9 +1359,7 @@ export var DescribeRuleset: StaticOperationSchema = [
   9,
   n0,
   _DRes,
-  {
-    [_h]: ["GET", "/rulesets/{Name}", 200],
-  },
+  { [_h]: ["GET", "/rulesets/{Name}", 200] },
   () => DescribeRulesetRequest,
   () => DescribeRulesetResponse,
 ];
@@ -1609,9 +1367,7 @@ export var DescribeSchedule: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["GET", "/schedules/{Name}", 200],
-  },
+  { [_h]: ["GET", "/schedules/{Name}", 200] },
   () => DescribeScheduleRequest,
   () => DescribeScheduleResponse,
 ];
@@ -1619,9 +1375,7 @@ export var ListDatasets: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/datasets", 200],
-  },
+  { [_h]: ["GET", "/datasets", 200] },
   () => ListDatasetsRequest,
   () => ListDatasetsResponse,
 ];
@@ -1629,9 +1383,7 @@ export var ListJobRuns: StaticOperationSchema = [
   9,
   n0,
   _LJRis,
-  {
-    [_h]: ["GET", "/jobs/{Name}/jobRuns", 200],
-  },
+  { [_h]: ["GET", "/jobs/{Name}/jobRuns", 200] },
   () => ListJobRunsRequest,
   () => ListJobRunsResponse,
 ];
@@ -1639,9 +1391,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_h]: ["GET", "/jobs", 200],
-  },
+  { [_h]: ["GET", "/jobs", 200] },
   () => ListJobsRequest,
   () => ListJobsResponse,
 ];
@@ -1649,9 +1399,7 @@ export var ListProjects: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/projects", 200],
-  },
+  { [_h]: ["GET", "/projects", 200] },
   () => ListProjectsRequest,
   () => ListProjectsResponse,
 ];
@@ -1659,9 +1407,7 @@ export var ListRecipes: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/recipes", 200],
-  },
+  { [_h]: ["GET", "/recipes", 200] },
   () => ListRecipesRequest,
   () => ListRecipesResponse,
 ];
@@ -1669,9 +1415,7 @@ export var ListRecipeVersions: StaticOperationSchema = [
   9,
   n0,
   _LRV,
-  {
-    [_h]: ["GET", "/recipeVersions", 200],
-  },
+  { [_h]: ["GET", "/recipeVersions", 200] },
   () => ListRecipeVersionsRequest,
   () => ListRecipeVersionsResponse,
 ];
@@ -1679,9 +1423,7 @@ export var ListRulesets: StaticOperationSchema = [
   9,
   n0,
   _LRi,
-  {
-    [_h]: ["GET", "/rulesets", 200],
-  },
+  { [_h]: ["GET", "/rulesets", 200] },
   () => ListRulesetsRequest,
   () => ListRulesetsResponse,
 ];
@@ -1689,9 +1431,7 @@ export var ListSchedules: StaticOperationSchema = [
   9,
   n0,
   _LSi,
-  {
-    [_h]: ["GET", "/schedules", 200],
-  },
+  { [_h]: ["GET", "/schedules", 200] },
   () => ListSchedulesRequest,
   () => ListSchedulesResponse,
 ];
@@ -1699,9 +1439,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1709,9 +1447,7 @@ export var PublishRecipe: StaticOperationSchema = [
   9,
   n0,
   _PR,
-  {
-    [_h]: ["POST", "/recipes/{Name}/publishRecipe", 200],
-  },
+  { [_h]: ["POST", "/recipes/{Name}/publishRecipe", 200] },
   () => PublishRecipeRequest,
   () => PublishRecipeResponse,
 ];
@@ -1719,9 +1455,7 @@ export var SendProjectSessionAction: StaticOperationSchema = [
   9,
   n0,
   _SPSA,
-  {
-    [_h]: ["PUT", "/projects/{Name}/sendProjectSessionAction", 200],
-  },
+  { [_h]: ["PUT", "/projects/{Name}/sendProjectSessionAction", 200] },
   () => SendProjectSessionActionRequest,
   () => SendProjectSessionActionResponse,
 ];
@@ -1729,9 +1463,7 @@ export var StartJobRun: StaticOperationSchema = [
   9,
   n0,
   _SJR,
-  {
-    [_h]: ["POST", "/jobs/{Name}/startJobRun", 200],
-  },
+  { [_h]: ["POST", "/jobs/{Name}/startJobRun", 200] },
   () => StartJobRunRequest,
   () => StartJobRunResponse,
 ];
@@ -1739,9 +1471,7 @@ export var StartProjectSession: StaticOperationSchema = [
   9,
   n0,
   _SPS,
-  {
-    [_h]: ["PUT", "/projects/{Name}/startProjectSession", 200],
-  },
+  { [_h]: ["PUT", "/projects/{Name}/startProjectSession", 200] },
   () => StartProjectSessionRequest,
   () => StartProjectSessionResponse,
 ];
@@ -1749,9 +1479,7 @@ export var StopJobRun: StaticOperationSchema = [
   9,
   n0,
   _SJRt,
-  {
-    [_h]: ["POST", "/jobs/{Name}/jobRun/{RunId}/stopJobRun", 200],
-  },
+  { [_h]: ["POST", "/jobs/{Name}/jobRun/{RunId}/stopJobRun", 200] },
   () => StopJobRunRequest,
   () => StopJobRunResponse,
 ];
@@ -1759,9 +1487,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1769,9 +1495,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1779,9 +1503,7 @@ export var UpdateDataset: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PUT", "/datasets/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/datasets/{Name}", 200] },
   () => UpdateDatasetRequest,
   () => UpdateDatasetResponse,
 ];
@@ -1789,9 +1511,7 @@ export var UpdateProfileJob: StaticOperationSchema = [
   9,
   n0,
   _UPJ,
-  {
-    [_h]: ["PUT", "/profileJobs/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/profileJobs/{Name}", 200] },
   () => UpdateProfileJobRequest,
   () => UpdateProfileJobResponse,
 ];
@@ -1799,9 +1519,7 @@ export var UpdateProject: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/projects/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/projects/{Name}", 200] },
   () => UpdateProjectRequest,
   () => UpdateProjectResponse,
 ];
@@ -1809,9 +1527,7 @@ export var UpdateRecipe: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["PUT", "/recipes/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/recipes/{Name}", 200] },
   () => UpdateRecipeRequest,
   () => UpdateRecipeResponse,
 ];
@@ -1819,9 +1535,7 @@ export var UpdateRecipeJob: StaticOperationSchema = [
   9,
   n0,
   _URJ,
-  {
-    [_h]: ["PUT", "/recipeJobs/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/recipeJobs/{Name}", 200] },
   () => UpdateRecipeJobRequest,
   () => UpdateRecipeJobResponse,
 ];
@@ -1829,9 +1543,7 @@ export var UpdateRuleset: StaticOperationSchema = [
   9,
   n0,
   _URpd,
-  {
-    [_h]: ["PUT", "/rulesets/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/rulesets/{Name}", 200] },
   () => UpdateRulesetRequest,
   () => UpdateRulesetResponse,
 ];
@@ -1839,9 +1551,7 @@ export var UpdateSchedule: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/schedules/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/schedules/{Name}", 200] },
   () => UpdateScheduleRequest,
   () => UpdateScheduleResponse,
 ];

@@ -254,7 +254,7 @@ const n0 = "com.amazonaws.route53domains";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -274,7 +274,6 @@ import {
 import { Route53DomainsServiceException as __Route53DomainsServiceException } from "../models/Route53DomainsServiceException";
 
 /* eslint no-var: 0 */
-
 export var AddressLine: StaticSimpleSchema = [0, n0, _AL, 8, 0];
 export var City: StaticSimpleSchema = [0, n0, _C, 8, 0];
 export var ContactName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
@@ -375,33 +374,11 @@ export var DisassociateDelegationSignerFromDomainRequest: StaticStructureSchema 
 ];
 export var DisassociateDelegationSignerFromDomainResponse: StaticStructureSchema = [3, n0, _DDSFDRi, 0, [_OI], [0]];
 export var DnssecKey: StaticStructureSchema = [3, n0, _DK, 0, [_Al, _Fl, _PK, _DT, _D, _KT, _I], [1, 1, 0, 1, 0, 1, 0]];
-export var DnssecLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _DLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DnssecLimitExceeded: StaticErrorSchema = [-3, n0, _DLE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DnssecLimitExceeded, __DnssecLimitExceeded);
-
 export var DnssecSigningAttributes: StaticStructureSchema = [3, n0, _DSA, 0, [_Al, _Fl, _PK], [1, 1, 0]];
-export var DomainLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _DLEo,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DomainLimitExceeded: StaticErrorSchema = [-3, n0, _DLEo, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DomainLimitExceeded, __DomainLimitExceeded);
-
 export var DomainPrice: StaticStructureSchema = [
   3,
   n0,
@@ -420,19 +397,8 @@ export var DomainPrice: StaticStructureSchema = [
 export var DomainSuggestion: StaticStructureSchema = [3, n0, _DS, 0, [_DN, _A], [0, 0]];
 export var DomainSummary: StaticStructureSchema = [3, n0, _DSo, 0, [_DN, _AR, _TL, _Ex], [0, 2, 2, 4]];
 export var DomainTransferability: StaticStructureSchema = [3, n0, _DTo, 0, [_Tr], [0]];
-export var DuplicateRequest: StaticErrorSchema = [
-  -3,
-  n0,
-  _DR,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_rI, _m],
-  [0, 0],
-];
+export var DuplicateRequest: StaticErrorSchema = [-3, n0, _DR, { [_e]: _c, [_hE]: 400 }, [_rI, _m], [0, 0]];
 TypeRegistry.for(n0).registerError(DuplicateRequest, __DuplicateRequest);
-
 export var EnableDomainAutoRenewRequest: StaticStructureSchema = [3, n0, _EDARR, 0, [_DN], [0]];
 export var EnableDomainAutoRenewResponse: StaticStructureSchema = [3, n0, _EDARRn, 0, [], []];
 export var EnableDomainTransferLockRequest: StaticStructureSchema = [3, n0, _EDTLR, 0, [_DN], [0]];
@@ -518,19 +484,8 @@ export var GetOperationDetailResponse: StaticStructureSchema = [
   [_OI, _St, _M, _DN, _Ty, _SD, _LUD, _SF],
   [0, 0, 0, 0, 0, 4, 4, 0],
 ];
-export var InvalidInput: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInput: StaticErrorSchema = [-3, n0, _IIn, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInput, __InvalidInput);
-
 export var ListDomainsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -561,19 +516,8 @@ export var ListPricesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_Pri, 
 export var ListTagsForDomainRequest: StaticStructureSchema = [3, n0, _LTFDR, 0, [_DN], [0]];
 export var ListTagsForDomainResponse: StaticStructureSchema = [3, n0, _LTFDRi, 0, [_TLa], [() => TagList]];
 export var Nameserver: StaticStructureSchema = [3, n0, _Nam, 0, [_N, _GI], [0, 64 | 0]];
-export var OperationLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _OLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var OperationLimitExceeded: StaticErrorSchema = [-3, n0, _OLE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OperationLimitExceeded, __OperationLimitExceeded);
-
 export var OperationSummary: StaticStructureSchema = [
   3,
   n0,
@@ -638,19 +582,8 @@ export var RetrieveDomainAuthCodeResponse: StaticStructureSchema = [
 ];
 export var SortCondition: StaticStructureSchema = [3, n0, _SCo, 0, [_N, _SO], [0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TLDRulesViolation: StaticErrorSchema = [
-  -3,
-  n0,
-  _TLDRV,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TLDRulesViolation: StaticErrorSchema = [-3, n0, _TLDRV, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TLDRulesViolation, __TLDRulesViolation);
-
 export var TransferDomainRequest: StaticStructureSchema = [
   3,
   n0,
@@ -684,19 +617,8 @@ export var TransferDomainToAnotherAwsAccountResponse: StaticStructureSchema = [
   [_OI, _P],
   [0, [() => Password, 0]],
 ];
-export var UnsupportedTLD: StaticErrorSchema = [
-  -3,
-  n0,
-  _UTLD,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedTLD: StaticErrorSchema = [-3, n0, _UTLD, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedTLD, __UnsupportedTLD);
-
 export var UpdateDomainContactPrivacyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -736,32 +658,24 @@ export var UpdateTagsForDomainResponse: StaticStructureSchema = [3, n0, _UTFDRp,
 export var ViewBillingRequest: StaticStructureSchema = [3, n0, _VBR, 0, [_Sta, _En, _Ma, _MI], [4, 4, 0, 1]];
 export var ViewBillingResponse: StaticStructureSchema = [3, n0, _VBRi, 0, [_NPM, _BRi], [0, () => BillingRecords]];
 export var __Unit = "unit" as const;
-
 export var Route53DomainsServiceException: StaticErrorSchema = [-3, _sm, "Route53DomainsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Route53DomainsServiceException, __Route53DomainsServiceException);
-
 export var BillingRecords: StaticListSchema = [1, n0, _BRi, 0, () => BillingRecord];
 export var DnssecKeyList: StaticListSchema = [1, n0, _DKL, 0, () => DnssecKey];
 export var DomainPriceList: StaticListSchema = [1, n0, _DPL, 0, () => DomainPrice];
 export var DomainStatusList = 64 | 0;
-
 export var DomainSuggestionsList: StaticListSchema = [1, n0, _DSL, 0, () => DomainSuggestion];
 export var DomainSummaryList: StaticListSchema = [1, n0, _DSLo, 0, () => DomainSummary];
 export var ExtraParamList: StaticListSchema = [1, n0, _EPL, 0, [() => ExtraParam, 0]];
 export var FilterConditions: StaticListSchema = [1, n0, _FCi, 0, () => FilterCondition];
 export var GlueIpList = 64 | 0;
-
 export var NameserverList: StaticListSchema = [1, n0, _NL, 0, () => Nameserver];
 export var OperationStatusList = 64 | 0;
-
 export var OperationSummaryList: StaticListSchema = [1, n0, _OSL, 0, () => OperationSummary];
 export var OperationTypeList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
 export var Values = 64 | 0;
-
 export var AcceptDomainTransferFromAnotherAwsAccount: StaticOperationSchema = [
   9,
   n0,

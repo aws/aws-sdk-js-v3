@@ -14,6 +14,7 @@ import {
   ImportErrorType,
   ImportStatus,
   InitiatedBy,
+  InternetProtocol,
   JobLogEvent,
   JobStatus,
   JobType,
@@ -748,6 +749,12 @@ export interface ExportTask {
   exportID?: string | undefined;
 
   /**
+   * <p>ExportTask arn.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
    * <p>Export task s3 bucket.</p>
    * @public
    */
@@ -794,6 +801,12 @@ export interface ExportTask {
    * @public
    */
   summary?: ExportTaskSummary | undefined;
+
+  /**
+   * <p>Export task tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -836,6 +849,12 @@ export interface StartExportRequest {
    * @public
    */
   s3BucketOwner?: string | undefined;
+
+  /**
+   * <p>Start import request tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1114,6 +1133,12 @@ export interface ImportTask {
   importID?: string | undefined;
 
   /**
+   * <p>ImportTask arn.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
    * <p>Import task s3 bucket source.</p>
    * @public
    */
@@ -1148,6 +1173,12 @@ export interface ImportTask {
    * @public
    */
   summary?: ImportTaskSummary | undefined;
+
+  /**
+   * <p>Import task tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1184,6 +1215,12 @@ export interface StartImportRequest {
    * @public
    */
   s3BucketSource: S3BucketSource | undefined;
+
+  /**
+   * <p>Start import request tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1287,6 +1324,18 @@ export interface JobLogEventData {
    * @public
    */
   rawError?: string | undefined;
+
+  /**
+   * <p>Retries for this operation.</p>
+   * @public
+   */
+  attemptCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of retries that will be attempted if this operation failed.</p>
+   * @public
+   */
+  maxAttemptsCount?: number | undefined;
 }
 
 /**
@@ -1800,6 +1849,18 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * @public
    */
   largeVolumeConf?: LaunchTemplateDiskConf | undefined;
+
+  /**
+   * <p>Enable parameters encryption.</p>
+   * @public
+   */
+  enableParametersEncryption?: boolean | undefined;
+
+  /**
+   * <p>Parameters encryption key.</p>
+   * @public
+   */
+  parametersEncryptionKey?: string | undefined;
 }
 
 /**
@@ -1907,6 +1968,18 @@ export interface LaunchConfigurationTemplate {
    * @public
    */
   largeVolumeConf?: LaunchTemplateDiskConf | undefined;
+
+  /**
+   * <p>Enable parameters encryption.</p>
+   * @public
+   */
+  enableParametersEncryption?: boolean | undefined;
+
+  /**
+   * <p>Parameters encryption key.</p>
+   * @public
+   */
+  parametersEncryptionKey?: string | undefined;
 }
 
 /**
@@ -2304,6 +2377,18 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * @public
    */
   largeVolumeConf?: LaunchTemplateDiskConf | undefined;
+
+  /**
+   * <p>Enable parameters encryption.</p>
+   * @public
+   */
+  enableParametersEncryption?: boolean | undefined;
+
+  /**
+   * <p>Parameters encryption key.</p>
+   * @public
+   */
+  parametersEncryptionKey?: string | undefined;
 }
 
 /**
@@ -2435,7 +2520,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   bandwidthThrottling: number | undefined;
 
   /**
-   * <p>Request to configure  data plane routing during Replication Settings template creation.</p>
+   * <p>Request to configure data plane routing during Replication Settings template creation.</p>
    * @public
    */
   dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | undefined;
@@ -2463,6 +2548,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Request to configure the internet protocol to IPv4 or IPv6.</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -2564,6 +2655,12 @@ export interface ReplicationConfigurationTemplate {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Replication Configuration template internet protocol.</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -2715,6 +2812,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
+
+  /**
+   * <p>Update replication configuration template internet protocol request.</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -2912,6 +3015,12 @@ export interface DataReplicationInfo {
    * @public
    */
   lastSnapshotDateTime?: string | undefined;
+
+  /**
+   * <p>Replication server instance ID.</p>
+   * @public
+   */
+  replicatorId?: string | undefined;
 }
 
 /**
@@ -3753,6 +3862,12 @@ export interface ReplicationConfiguration {
    * @public
    */
   useFipsEndpoint?: boolean | undefined;
+
+  /**
+   * <p>Replication Configuration internet protocol.</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -4399,6 +4514,12 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    */
   accountID?: string | undefined;
+
+  /**
+   * <p>Update replication configuration internet protocol.</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**

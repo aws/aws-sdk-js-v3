@@ -54,7 +54,7 @@ const n0 = "com.amazonaws.sagemakerfeaturestoreruntime";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AccessForbidden as __AccessForbidden,
@@ -66,20 +66,8 @@ import {
 import { SageMakerFeatureStoreRuntimeServiceException as __SageMakerFeatureStoreRuntimeServiceException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessForbidden: StaticErrorSchema = [
-  -3,
-  n0,
-  _AF,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessForbidden: StaticErrorSchema = [-3, n0, _AF, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessForbidden, __AccessForbidden);
-
 export var BatchGetRecordError: StaticStructureSchema = [3, n0, _BGRE, 0, [_FGN, _RIVAS, _EC, _EM], [0, 0, 0, 0]];
 export var BatchGetRecordIdentifier: StaticStructureSchema = [
   3,
@@ -121,30 +109,10 @@ export var DeleteRecordRequest: StaticStructureSchema = [
   [_FGN, _RIVAS, _ET, _TS, _DM],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _RIVAS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _TS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _DM,
-      },
-    ],
+    [0, { [_hQ]: _RIVAS }],
+    [0, { [_hQ]: _ET }],
+    [64 | 0, { [_hQ]: _TS }],
+    [0, { [_hQ]: _DM }],
   ],
 ];
 export var FeatureValue: StaticStructureSchema = [3, n0, _FV, 0, [_FNe, _VAS, _VASL], [0, 0, 64 | 0]];
@@ -156,40 +124,14 @@ export var GetRecordRequest: StaticStructureSchema = [
   [_FGN, _RIVAS, _FN, _ETR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _RIVAS,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _FNe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ETR,
-      },
-    ],
+    [0, { [_hQ]: _RIVAS }],
+    [64 | 0, { [_hQ]: _FNe }],
+    [0, { [_hQ]: _ETR }],
   ],
 ];
 export var GetRecordResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_Re, _EA], [() => _Record, 0]];
-export var InternalFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _IF,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalFailure: StaticErrorSchema = [-3, n0, _IF, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalFailure, __InternalFailure);
-
 export var PutRecordRequest: StaticStructureSchema = [
   3,
   n0,
@@ -198,48 +140,14 @@ export var PutRecordRequest: StaticStructureSchema = [
   [_FGN, _Re, _TS, _TD],
   [[0, 1], () => _Record, 64 | 0, () => TtlDuration],
 ];
-export var ResourceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFound: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFound, __ResourceNotFound);
-
-export var ServiceUnavailable: StaticErrorSchema = [
-  -3,
-  n0,
-  _SU,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var ServiceUnavailable: StaticErrorSchema = [-3, n0, _SU, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailable, __ServiceUnavailable);
-
 export var TtlDuration: StaticStructureSchema = [3, n0, _TD, 0, [_U, _V], [0, 1]];
-export var ValidationError: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationError: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationError, __ValidationError);
-
 export var __Unit = "unit" as const;
-
 export var SageMakerFeatureStoreRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -252,27 +160,20 @@ TypeRegistry.for(_sm).registerError(
   SageMakerFeatureStoreRuntimeServiceException,
   __SageMakerFeatureStoreRuntimeServiceException
 );
-
 export var BatchGetRecordErrors: StaticListSchema = [1, n0, _BGREa, 0, () => BatchGetRecordError];
 export var BatchGetRecordIdentifiers: StaticListSchema = [1, n0, _BGRIa, 0, () => BatchGetRecordIdentifier];
 export var BatchGetRecordResultDetails: StaticListSchema = [1, n0, _BGRRDa, 0, () => BatchGetRecordResultDetail];
 export var FeatureNames = 64 | 0;
-
 export var _Record: StaticListSchema = [1, n0, _Re, 0, () => FeatureValue];
 export var RecordIdentifiers = 64 | 0;
-
 export var TargetStores = 64 | 0;
-
 export var UnprocessedIdentifiers: StaticListSchema = [1, n0, _UI, 0, () => BatchGetRecordIdentifier];
 export var ValueAsStringList = 64 | 0;
-
 export var BatchGetRecord: StaticOperationSchema = [
   9,
   n0,
   _BGR,
-  {
-    [_h]: ["POST", "/BatchGetRecord", 200],
-  },
+  { [_h]: ["POST", "/BatchGetRecord", 200] },
   () => BatchGetRecordRequest,
   () => BatchGetRecordResponse,
 ];
@@ -280,9 +181,7 @@ export var DeleteRecord: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/FeatureGroup/{FeatureGroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/FeatureGroup/{FeatureGroupName}", 200] },
   () => DeleteRecordRequest,
   () => __Unit,
 ];
@@ -290,9 +189,7 @@ export var GetRecord: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/FeatureGroup/{FeatureGroupName}", 200],
-  },
+  { [_h]: ["GET", "/FeatureGroup/{FeatureGroupName}", 200] },
   () => GetRecordRequest,
   () => GetRecordResponse,
 ];
@@ -300,9 +197,7 @@ export var PutRecord: StaticOperationSchema = [
   9,
   n0,
   _PR,
-  {
-    [_h]: ["PUT", "/FeatureGroup/{FeatureGroupName}", 200],
-  },
+  { [_h]: ["PUT", "/FeatureGroup/{FeatureGroupName}", 200] },
   () => PutRecordRequest,
   () => __Unit,
 ];

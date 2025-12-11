@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import type {
+  ComputeOptimizerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   ExportAutoScalingGroupRecommendationsRequest,
   ExportAutoScalingGroupRecommendationsResponse,
 } from "../models/models_0";
@@ -33,12 +37,12 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Exports optimization recommendations for Auto Scaling groups.</p>
+ * <p>Exports optimization recommendations for Amazon EC2 Auto Scaling groups.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
  *                 Recommendations</a> in the <i>Compute Optimizer User
  *             Guide</i>.</p>
- *          <p>You can have only one Auto Scaling group export job in progress per Amazon Web Services Region.</p>
+ *          <p>You can have only one Amazon EC2 Auto Scaling group export job in progress per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

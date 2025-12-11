@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
+import type { CreateUserRequest, CreateUserResponse } from "../models/models_0";
 import { CreateUser } from "../schemas/schemas_0";
 
 /**
@@ -29,12 +29,12 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 /**
  * <p>Creates a user account for the specified Amazon Connect instance.</p>
  *          <important>
- *             <p>Certain <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html">UserIdentityInfo</a> parameters
- *     are required in some situations. For example, <code>Email</code>, <code>FirstName</code> and
- *      <code>LastName</code> are required if you are using Amazon Connect or SAML for identity
- *     management.</p>
+ *             <p>Certain <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html">UserIdentityInfo</a> parameters are required in some situations. For example, <code>Email</code>,
+ *      <code>FirstName</code> and <code>LastName</code> are required if you are using Amazon Connect or SAML for
+ *     identity management.</p>
  *          </important>
- *          <p>For information about how to create users using the Amazon Connect admin website, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For information about how to create users using the Amazon Connect admin website, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in the <i>Amazon Connect
+ *     Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

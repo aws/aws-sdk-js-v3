@@ -124,39 +124,39 @@ export interface AccountEnrollmentStatus {
 }
 
 /**
- * <p>Describes the configuration of an EC2 Auto Scaling group.</p>
+ * <p>Describes the configuration of an EC2 Amazon EC2 Auto Scaling group.</p>
  * @public
  */
 export interface AutoScalingGroupConfiguration {
   /**
-   * <p>The desired capacity, or number of instances, for the EC2 Auto Scaling group.</p>
+   * <p>The desired capacity, or number of instances, for the EC2 Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   desiredCapacity?: number | undefined;
 
   /**
-   * <p>The minimum size, or minimum number of instances, for the EC2 Auto Scaling
+   * <p>The minimum size, or minimum number of instances, for the EC2 Amazon EC2 Auto Scaling
    *             group.</p>
    * @public
    */
   minSize?: number | undefined;
 
   /**
-   * <p>The maximum size, or maximum number of instances, for the EC2 Auto Scaling
+   * <p>The maximum size, or maximum number of instances, for the EC2 Amazon EC2 Auto Scaling
    *             group.</p>
    * @public
    */
   maxSize?: number | undefined;
 
   /**
-   * <p>The instance type for the EC2 Auto Scaling group.</p>
+   * <p>The instance type for the EC2 Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   instanceType?: string | undefined;
 
   /**
    * <p>
-   *             Describes the allocation strategy that the EC2 Auto Scaling group uses. This field is only available for EC2 Auto Scaling groups with mixed instance types.
+   *             Describes the allocation strategy that the EC2 Amazon EC2 Auto Scaling group uses. This field is only available for EC2 Amazon EC2 Auto Scaling groups with mixed instance types.
    *         </p>
    * @public
    */
@@ -164,7 +164,7 @@ export interface AutoScalingGroupConfiguration {
 
   /**
    * <p>
-   *             Describes the projected percentage reduction in instance hours after adopting the recommended configuration. This field is only available for EC2 Auto Scaling groups with scaling policies.
+   *             Describes the projected percentage reduction in instance hours after adopting the recommended configuration. This field is only available for EC2 Amazon EC2 Auto Scaling groups with scaling policies.
    *         </p>
    * @public
    */
@@ -172,7 +172,7 @@ export interface AutoScalingGroupConfiguration {
 
   /**
    * <p>
-   *             Describes whether the EC2 Auto Scaling group has a single instance type or a mixed instance type configuration.
+   *             Describes whether the EC2 Amazon EC2 Auto Scaling group has a single instance type or a mixed instance type configuration.
    *         </p>
    * @public
    */
@@ -180,7 +180,7 @@ export interface AutoScalingGroupConfiguration {
 
   /**
    * <p>
-   *             List the instance types within an EC2 Auto Scaling group that has mixed instance types.
+   *             List the instance types within an EC2 Amazon EC2 Auto Scaling group that has mixed instance types.
    *         </p>
    * @public
    */
@@ -189,7 +189,7 @@ export interface AutoScalingGroupConfiguration {
 
 /**
  * <p>
- *             An object that describes the estimated monthly savings  possible by adopting Compute Optimizer’s Auto Scaling group recommendations. This is based on the
+ *             An object that describes the estimated monthly savings  possible by adopting Compute Optimizer’s Amazon EC2 Auto Scaling group recommendations. This is based on the
  *             Savings Plans and Reserved Instances discounts.
  *         </p>
  * @public
@@ -395,7 +395,7 @@ export interface UtilizationPreference {
  */
 export interface EffectiveRecommendationPreferences {
   /**
-   * <p>Describes the CPU vendor and architecture for an instance or Auto Scaling group
+   * <p>Describes the CPU vendor and architecture for an instance or Amazon EC2 Auto Scaling group
    *             recommendations.</p>
    *          <p>For example, when you specify <code>AWS_ARM64</code> with:</p>
    *          <ul>
@@ -706,7 +706,7 @@ export interface SavingsOpportunity {
 
 /**
  * <p>
- *             Describes the savings opportunity for Auto Scaling group recommendations after applying the Savings Plans and Reserved Instances discounts.
+ *             Describes the savings opportunity for Amazon EC2 Auto Scaling group recommendations after applying the Savings Plans and Reserved Instances discounts.
  *         </p>
  *          <p>Savings opportunity represents the estimated monthly savings you can achieve by implementing Compute Optimizer recommendations.</p>
  * @public
@@ -715,7 +715,7 @@ export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
   /**
    * <p>
    *             The estimated monthly savings possible as a percentage of monthly cost after applying the Savings Plans and Reserved Instances discounts. This saving can be
-   *             achieved by adopting Compute Optimizer’s Auto Scaling group recommendations.
+   *             achieved by adopting Compute Optimizer’s Amazon EC2 Auto Scaling group recommendations.
    *         </p>
    * @public
    */
@@ -723,7 +723,7 @@ export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
 
   /**
    * <p>
-   *             An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Auto Scaling group recommendations. This is based on the
+   *             An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EC2 Auto Scaling group recommendations. This is based on the
    *             Savings Plans and Reserved Instances pricing discounts.
    *         </p>
    * @public
@@ -732,26 +732,26 @@ export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
 }
 
 /**
- * <p>Describes a recommendation option for an Auto Scaling group.</p>
+ * <p>Describes a recommendation option for an Amazon EC2 Auto Scaling group.</p>
  * @public
  */
 export interface AutoScalingGroupRecommendationOption {
   /**
-   * <p>An array of objects that describe an Auto Scaling group configuration.</p>
+   * <p>An array of objects that describe an Amazon EC2 Auto Scaling group configuration.</p>
    * @public
    */
   configuration?: AutoScalingGroupConfiguration | undefined;
 
   /**
    * <p>
-   *             Describes the GPU accelerator settings for the recommended instance type of the Auto Scaling group.
+   *             Describes the GPU accelerator settings for the recommended instance type of the Amazon EC2 Auto Scaling group.
    *         </p>
    * @public
    */
   instanceGpuInfo?: GpuInfo | undefined;
 
   /**
-   * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group recommendation option.</p>
+   * <p>An array of objects that describe the projected utilization metrics of the Amazon EC2 Auto Scaling group recommendation option.</p>
    *          <note>
    *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
    *                 utilization metrics returned. Additionally, the <code>Memory</code> metric is
@@ -764,7 +764,7 @@ export interface AutoScalingGroupRecommendationOption {
   projectedUtilizationMetrics?: UtilizationMetric[] | undefined;
 
   /**
-   * <p>The performance risk of the Auto Scaling group configuration
+   * <p>The performance risk of the Amazon EC2 Auto Scaling group configuration
    *             recommendation.</p>
    *          <p>Performance risk indicates the likelihood of the recommended instance type not meeting
    *             the resource needs of your workload. Compute Optimizer calculates an individual
@@ -784,14 +784,14 @@ export interface AutoScalingGroupRecommendationOption {
   performanceRisk?: number | undefined;
 
   /**
-   * <p>The rank of the Auto Scaling group recommendation option.</p>
+   * <p>The rank of the Amazon EC2 Auto Scaling group recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    * @public
    */
   rank?: number | undefined;
 
   /**
-   * <p>An object that describes the savings opportunity for the Auto Scaling group
+   * <p>An object that describes the savings opportunity for the Amazon EC2 Auto Scaling group
    *             recommendation option. Savings opportunity includes the estimated monthly savings amount
    *             and percentage.</p>
    * @public
@@ -800,7 +800,7 @@ export interface AutoScalingGroupRecommendationOption {
 
   /**
    * <p>
-   *             An object that describes the savings opportunity for the Auto Scaling group recommendation option that includes Savings Plans and Reserved Instances discounts.
+   *             An object that describes the savings opportunity for the Amazon EC2 Auto Scaling group recommendation option that includes Savings Plans and Reserved Instances discounts.
    *             Savings opportunity includes the estimated monthly savings and percentage.
    *         </p>
    * @public
@@ -822,44 +822,44 @@ export interface AutoScalingGroupRecommendationOption {
 }
 
 /**
- * <p>Describes an Auto Scaling group recommendation.</p>
+ * <p>Describes an Amazon EC2 Auto Scaling group recommendation.</p>
  * @public
  */
 export interface AutoScalingGroupRecommendation {
   /**
-   * <p>The Amazon Web Services account ID of the Auto Scaling group.</p>
+   * <p>The Amazon Web Services account ID of the Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   autoScalingGroupArn?: string | undefined;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
+   * <p>The name of the Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   autoScalingGroupName?: string | undefined;
 
   /**
-   * <p>The finding classification of the Auto Scaling group.</p>
-   *          <p>Findings for Auto Scaling groups include:</p>
+   * <p>The finding classification of the Amazon EC2 Auto Scaling group.</p>
+   *          <p>Findings for Amazon EC2 Auto Scaling groups include:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>NotOptimized</code>
-   *                   </b>—An Auto Scaling group is considered not optimized when Compute Optimizer identifies a
+   *                   </b>—An Amazon EC2 Auto Scaling group is considered not optimized when Compute Optimizer identifies a
    *                     recommendation that can provide better performance for your workload.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>Optimized</code>
-   *                   </b>—An Auto Scaling
+   *                   </b>—An Amazon EC2 Auto Scaling
    *                     group is considered optimized when Compute Optimizer determines that the group
    *                     is correctly provisioned to run your workload based on the chosen instance type.
    *                     For optimized resources, Compute Optimizer might recommend a new generation
@@ -871,20 +871,20 @@ export interface AutoScalingGroupRecommendation {
   finding?: Finding | undefined;
 
   /**
-   * <p>An array of objects that describe the utilization metrics of the Auto Scaling
+   * <p>An array of objects that describe the utilization metrics of the Amazon EC2 Auto Scaling
    *             group.</p>
    * @public
    */
   utilizationMetrics?: UtilizationMetric[] | undefined;
 
   /**
-   * <p>The number of days for which utilization metrics were analyzed for the Auto Scaling group.</p>
+   * <p>The number of days for which utilization metrics were analyzed for the Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   lookBackPeriodInDays?: number | undefined;
 
   /**
-   * <p>An array of objects that describe the current configuration of the Auto Scaling
+   * <p>An array of objects that describe the current configuration of the Amazon EC2 Auto Scaling
    *             group.</p>
    * @public
    */
@@ -892,42 +892,42 @@ export interface AutoScalingGroupRecommendation {
 
   /**
    * <p>
-   *             Describes the GPU accelerator settings for the current instance type of the Auto Scaling group.
+   *             Describes the GPU accelerator settings for the current instance type of the Amazon EC2 Auto Scaling group.
    *         </p>
    * @public
    */
   currentInstanceGpuInfo?: GpuInfo | undefined;
 
   /**
-   * <p>An array of objects that describe the recommendation options for the Auto Scaling
+   * <p>An array of objects that describe the recommendation options for the Amazon EC2 Auto Scaling
    *             group.</p>
    * @public
    */
   recommendationOptions?: AutoScalingGroupRecommendationOption[] | undefined;
 
   /**
-   * <p>The timestamp of when the Auto Scaling group recommendation was last
+   * <p>The timestamp of when the Amazon EC2 Auto Scaling group recommendation was last
    *             generated.</p>
    * @public
    */
   lastRefreshTimestamp?: Date | undefined;
 
   /**
-   * <p>The risk of the current Auto Scaling group not meeting the performance needs of
-   *             its workloads. The higher the risk, the more likely the current Auto Scaling group
+   * <p>The risk of the current Amazon EC2 Auto Scaling group not meeting the performance needs of
+   *             its workloads. The higher the risk, the more likely the current Amazon EC2 Auto Scaling group
    *             configuration has insufficient capacity and cannot meet workload requirements.</p>
    * @public
    */
   currentPerformanceRisk?: CurrentPerformanceRisk | undefined;
 
   /**
-   * <p>An object that describes the effective recommendation preferences for the Auto Scaling group.</p>
+   * <p>An object that describes the effective recommendation preferences for the Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   effectiveRecommendationPreferences?: EffectiveRecommendationPreferences | undefined;
 
   /**
-   * <p>The applications that might be running on the instances in the Auto Scaling group
+   * <p>The applications that might be running on the instances in the Amazon EC2 Auto Scaling group
    *             as inferred by Compute Optimizer.</p>
    *          <p>Compute Optimizer can infer if one of the following applications might be running on
    *             the instances:</p>
@@ -991,13 +991,13 @@ export interface AutoScalingGroupRecommendation {
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
  *                 Guide</i>.</p>
  *          <note>
- *             <p>You cannot create recommendation preferences for Auto Scaling groups at the
+ *             <p>You cannot create recommendation preferences for Amazon EC2 Auto Scaling groups at the
  *                 organization and account levels. You can create recommendation preferences for
- *                     Auto Scaling groups only at the resource level by specifying a scope name
- *                 of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon
+ *                     Amazon EC2 Auto Scaling groups only at the resource level by specifying a scope name
+ *                 of <code>ResourceArn</code> and a scope value of the Amazon EC2 Auto Scaling group Amazon
  *                 Resource Name (ARN). This will configure the preference for all instances that are
- *                 part of the specified Auto Scaling group. You also cannot create recommendation
- *                 preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for
+ *                 part of the specified Amazon EC2 Auto Scaling group. You also cannot create recommendation
+ *                 preferences at the resource level for instances that are part of an Amazon EC2 Auto Scaling group. You can create recommendation preferences at the resource level only for
  *                 standalone instances.</p>
  *          </note>
  * @public
@@ -1045,10 +1045,10 @@ export interface Scope {
    *             <li>
    *                <p>
    *                   <code>ResourceArn</code> - The <code>value</code> must be the Amazon Resource
-   *                     Name (ARN) of an EC2 instance or an Auto Scaling group.</p>
+   *                     Name (ARN) of an EC2 instance or an Amazon EC2 Auto Scaling group.</p>
    *             </li>
    *          </ul>
-   *          <p>Only EC2 instance and Auto Scaling group ARNs are currently supported.</p>
+   *          <p>Only EC2 instance and Amazon EC2 Auto Scaling group ARNs are currently supported.</p>
    * @public
    */
   value?: string | undefined;
@@ -1061,8 +1061,8 @@ export interface DeleteRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference to delete.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
-   *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
-   *             encompasses only instances that are part of an Auto Scaling group.</p>
+   *             that are part of Amazon EC2 Auto Scaling groups. The <code>AutoScalingGroup</code> option
+   *             encompasses only instances that are part of an Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -1322,7 +1322,7 @@ export interface Filter {
    *             <li>
    *                <p>Specify <code>Optimized</code> or <code>NotOptimized</code> if you specify the
    *                         <code>name</code> parameter as <code>Finding</code> and you want to filter
-   *                     results for Auto Scaling groups.</p>
+   *                     results for Amazon EC2 Auto Scaling groups.</p>
    *             </li>
    *             <li>
    *                <p>Specify <code>Underprovisioned</code>, <code>Overprovisioned</code>, or
@@ -1491,7 +1491,7 @@ export interface Filter {
  */
 export interface RecommendationPreferences {
   /**
-   * <p>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling group recommendations.</p>
+   * <p>Specifies the CPU vendor and architecture for Amazon EC2 instance and Amazon EC2 Auto Scaling group recommendations.</p>
    *          <p>For example, when you specify <code>AWS_ARM64</code> with:</p>
    *          <ul>
    *             <li>
@@ -1544,7 +1544,7 @@ export interface S3DestinationConfig {
  */
 export interface ExportAutoScalingGroupRecommendationsRequest {
   /**
-   * <p>The IDs of the Amazon Web Services accounts for which to export Auto Scaling group
+   * <p>The IDs of the Amazon Web Services accounts for which to export Amazon EC2 Auto Scaling group
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
    *             specify the member account for which you want to export recommendations.</p>
@@ -1558,7 +1558,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   accountIds?: string[] | undefined;
 
   /**
-   * <p>An array of objects to specify a filter that exports a more specific set of Auto Scaling group recommendations.</p>
+   * <p>An array of objects to specify a filter that exports a more specific set of Amazon EC2 Auto Scaling group recommendations.</p>
    * @public
    */
   filters?: Filter[] | undefined;
@@ -1610,7 +1610,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   includeMemberAccounts?: boolean | undefined;
 
   /**
-   * <p>An object to specify the preferences for the Auto Scaling group recommendations
+   * <p>An object to specify the preferences for the Amazon EC2 Auto Scaling group recommendations
    *             to export.</p>
    * @public
    */
@@ -2587,10 +2587,10 @@ export interface ExportRDSDatabaseRecommendationsResponse {
  */
 export interface GetAutoScalingGroupRecommendationsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account for which to return Auto Scaling group
+   * <p>The ID of the Amazon Web Services account for which to return Amazon EC2 Auto Scaling group
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
-   *             specify the member account for which you want to return Auto Scaling group
+   *             specify the member account for which you want to return Amazon EC2 Auto Scaling group
    *             recommendations.</p>
    *          <p>Only one account ID can be specified per request.</p>
    * @public
@@ -2598,21 +2598,21 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   accountIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return
+   * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Auto Scaling groups for which to return
    *             recommendations.</p>
    * @public
    */
   autoScalingGroupArns?: string[] | undefined;
 
   /**
-   * <p>The token to advance to the next page of Auto Scaling group
+   * <p>The token to advance to the next page of Amazon EC2 Auto Scaling group
    *             recommendations.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of Auto Scaling group recommendations to return with a single
+   * <p>The maximum number of Amazon EC2 Auto Scaling group recommendations to return with a single
    *             request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *                 <code>nextToken</code> value.</p>
@@ -2621,13 +2621,13 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>An array of objects to specify a filter that returns a more specific list of Auto Scaling group recommendations.</p>
+   * <p>An array of objects to specify a filter that returns a more specific list of Amazon EC2 Auto Scaling group recommendations.</p>
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>An object to specify the preferences for the Auto Scaling group recommendations
+   * <p>An object to specify the preferences for the Amazon EC2 Auto Scaling group recommendations
    *             to return in the response.</p>
    * @public
    */
@@ -2637,7 +2637,7 @@ export interface GetAutoScalingGroupRecommendationsRequest {
 /**
  * <p>Describes an error experienced when getting recommendations.</p>
  *          <p>For example, an error is returned if you request recommendations for an unsupported
- *                 Auto Scaling group, or if you request recommendations for an instance of an
+ *                 Amazon EC2 Auto Scaling group, or if you request recommendations for an instance of an
  *             unsupported instance family.</p>
  * @public
  */
@@ -2666,16 +2666,16 @@ export interface GetRecommendationError {
  */
 export interface GetAutoScalingGroupRecommendationsResponse {
   /**
-   * <p>The token to use to advance to the next page of Auto Scaling group
+   * <p>The token to use to advance to the next page of Amazon EC2 Auto Scaling group
    *             recommendations.</p>
-   *          <p>This value is null when there are no more pages of Auto Scaling group
+   *          <p>This value is null when there are no more pages of Amazon EC2 Auto Scaling group
    *             recommendations to return.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of objects that describe Auto Scaling group recommendations.</p>
+   * <p>An array of objects that describe Amazon EC2 Auto Scaling group recommendations.</p>
    * @public
    */
   autoScalingGroupRecommendations?: AutoScalingGroupRecommendation[] | undefined;
@@ -2683,7 +2683,7 @@ export interface GetAutoScalingGroupRecommendationsResponse {
   /**
    * <p>An array of objects that describe errors of the request.</p>
    *          <p>For example, an error is returned if you request recommendations for an unsupported
-   *                 Auto Scaling group.</p>
+   *                 Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   errors?: GetRecommendationError[] | undefined;
@@ -3477,7 +3477,7 @@ export interface InstanceRecommendationOption {
 
 /**
  * <p>Describes the source of a recommendation, such as an Amazon EC2 instance or
- *                 Auto Scaling group.</p>
+ *                 Amazon EC2 Auto Scaling group.</p>
  * @public
  */
 export interface RecommendationSource {
@@ -4970,7 +4970,7 @@ export interface GetECSServiceRecommendationsResponse {
 export interface GetEffectiveRecommendationPreferencesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which to confirm effective
-   *             recommendation preferences. Only EC2 instance and Auto Scaling group ARNs are
+   *             recommendation preferences. Only EC2 instance and Amazon EC2 Auto Scaling group ARNs are
    *             currently supported.</p>
    * @public
    */
@@ -7123,8 +7123,8 @@ export interface GetRecommendationPreferencesRequest {
    * <p>The target resource type of the recommendation preference for which to return
    *             preferences.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
-   *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
-   *             encompasses only instances that are part of an Auto Scaling group.</p>
+   *             that are part of Amazon EC2 Auto Scaling groups. The <code>AutoScalingGroup</code> option
+   *             encompasses only instances that are part of an Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -7175,8 +7175,8 @@ export interface RecommendationPreferencesDetail {
   /**
    * <p>The target resource type of the recommendation preference to create.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
-   *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
-   *             encompasses only instances that are part of an Auto Scaling group.</p>
+   *             that are part of Amazon EC2 Auto Scaling groups. The <code>AutoScalingGroup</code> option
+   *             encompasses only instances that are part of an Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -7598,7 +7598,7 @@ export interface GetRecommendationSummariesResponse {
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This preference is only available for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+ *                   <p>This preference is only available for the Amazon EC2 instance and Amazon EC2 Auto Scaling group resource types.</p>
  *                </li>
  *                <li>
  *                   <p>Compute Optimizer only supports the customization of <code>Ec2InstanceTypes</code>.</p>
@@ -7646,8 +7646,8 @@ export interface PutRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference to create.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
-   *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
-   *             encompasses only instances that are part of an Auto Scaling group.</p>
+   *             that are part of Amazon EC2 Auto Scaling groups. The <code>AutoScalingGroup</code> option
+   *             encompasses only instances that are part of an Amazon EC2 Auto Scaling group.</p>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -7660,13 +7660,13 @@ export interface PutRecommendationPreferencesRequest {
    *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    *          <note>
-   *             <p>You cannot create recommendation preferences for Auto Scaling groups at the
+   *             <p>You cannot create recommendation preferences for Amazon EC2 Auto Scaling groups at the
    *                 organization and account levels. You can create recommendation preferences for
-   *                     Auto Scaling groups only at the resource level by specifying a scope name
-   *                 of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon
+   *                     Amazon EC2 Auto Scaling groups only at the resource level by specifying a scope name
+   *                 of <code>ResourceArn</code> and a scope value of the Amazon EC2 Auto Scaling group Amazon
    *                 Resource Name (ARN). This will configure the preference for all instances that are
-   *                 part of the specified Auto Scaling group. You also cannot create recommendation
-   *                 preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for
+   *                 part of the specified Amazon EC2 Auto Scaling group. You also cannot create recommendation
+   *                 preferences at the resource level for instances that are part of an Amazon EC2 Auto Scaling group. You can create recommendation preferences at the resource level only for
    *                 standalone instances.</p>
    *          </note>
    * @public
@@ -7719,7 +7719,7 @@ export interface PutRecommendationPreferencesRequest {
    *             The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed.
    *             When this preference isn't specified, we use the default value <code>DAYS_14</code>.
    *         </p>
-   *          <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.
+   *          <p>You can only set this preference for the Amazon EC2 instance and Amazon EC2 Auto Scaling group resource types.
    *             </p>
    *          <note>
    *             <ul>
@@ -7727,7 +7727,7 @@ export interface PutRecommendationPreferencesRequest {
    *                   <p>Amazon EC2 instance lookback preferences can be set at the organization, account, and resource levels.</p>
    *                </li>
    *                <li>
-   *                   <p>Auto Scaling group lookback preferences can only be set at the resource level.</p>
+   *                   <p>Amazon EC2 Auto Scaling group lookback preferences can only be set at the resource level.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -7780,7 +7780,7 @@ export interface PutRecommendationPreferencesRequest {
    *             an error occurs.
    *         </p>
    *          <note>
-   *             <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+   *             <p>You can only set this preference for the Amazon EC2 instance and Amazon EC2 Auto Scaling group resource types.</p>
    *          </note>
    * @public
    */

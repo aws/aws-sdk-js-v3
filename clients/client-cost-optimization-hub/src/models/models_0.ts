@@ -1124,6 +1124,48 @@ export interface MemoryDbReservedInstances {
 }
 
 /**
+ * <p>The NAT Gateway configuration used for recommendations.</p>
+ * @public
+ */
+export interface NatGatewayConfiguration {
+  /**
+   * <p>The number of active connections through the NAT Gateway.</p>
+   * @public
+   */
+  activeConnectionCount?: number | undefined;
+
+  /**
+   * <p>The number of packets received from the source through the NAT Gateway.</p>
+   * @public
+   */
+  packetsInFromSource?: number | undefined;
+
+  /**
+   * <p>The number of packets received from the destination through the NAT Gateway.</p>
+   * @public
+   */
+  packetsInFromDestination?: number | undefined;
+}
+
+/**
+ * <p>The NAT Gateway recommendation details.</p>
+ * @public
+ */
+export interface NatGateway {
+  /**
+   * <p>The NAT Gateway configuration used for recommendations.</p>
+   * @public
+   */
+  configuration?: NatGatewayConfiguration | undefined;
+
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation | undefined;
+}
+
+/**
  * <p>The OpenSearch reserved instances configuration used for recommendations.</p>
  * @public
  */
@@ -1602,6 +1644,7 @@ export type ResourceDetails =
   | ResourceDetails.ElastiCacheReservedInstancesMember
   | ResourceDetails.LambdaFunctionMember
   | ResourceDetails.MemoryDbReservedInstancesMember
+  | ResourceDetails.NatGatewayMember
   | ResourceDetails.OpenSearchReservedInstancesMember
   | ResourceDetails.RdsDbInstanceMember
   | ResourceDetails.RdsDbInstanceStorageMember
@@ -1637,6 +1680,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1663,6 +1707,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1689,6 +1734,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1715,6 +1761,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1741,6 +1788,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1767,6 +1815,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1793,6 +1842,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1819,6 +1869,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1845,6 +1896,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1871,6 +1923,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1897,6 +1950,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1923,6 +1977,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1949,6 +2004,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -1975,6 +2031,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -2001,6 +2058,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -2027,6 +2085,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage: AuroraDbClusterStorage;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -2053,6 +2112,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity: DynamoDbReservedCapacity;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown?: never;
   }
 
@@ -2079,6 +2139,34 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances: MemoryDbReservedInstances;
+    natGateway?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The NAT Gateway recommendation details.</p>
+   * @public
+   */
+  export interface NatGatewayMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    auroraDbClusterStorage?: never;
+    dynamoDbReservedCapacity?: never;
+    memoryDbReservedInstances?: never;
+    natGateway: NatGateway;
     $unknown?: never;
   }
 
@@ -2104,6 +2192,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage?: never;
     dynamoDbReservedCapacity?: never;
     memoryDbReservedInstances?: never;
+    natGateway?: never;
     $unknown: [string, any];
   }
 
@@ -2130,6 +2219,7 @@ export namespace ResourceDetails {
     auroraDbClusterStorage: (value: AuroraDbClusterStorage) => T;
     dynamoDbReservedCapacity: (value: DynamoDbReservedCapacity) => T;
     memoryDbReservedInstances: (value: MemoryDbReservedInstances) => T;
+    natGateway: (value: NatGateway) => T;
     _: (name: string, value: any) => T;
   }
 }

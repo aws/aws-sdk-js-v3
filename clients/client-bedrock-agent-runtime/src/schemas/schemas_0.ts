@@ -21,6 +21,7 @@ const _APp = "ApiParameter";
 const _APpi = "ApiParameters";
 const _AR = "ApiResult";
 const _ARB = "ApiRequestBody";
+const _AS = "AudioSegment";
 const _AT = "AgentTraces";
 const _BCB = "ByteContentBlob";
 const _BCD = "ByteContentDoc";
@@ -206,8 +207,9 @@ const _IIARn = "InvokeInlineAgentResponse";
 const _IIM = "InvocationInputMember";
 const _IIS = "ImageInputSource";
 const _IIm = "ImageInputs";
-const _IIn = "InvocationInput";
-const _IInv = "InvocationInputs";
+const _IIn = "InputImage";
+const _IInv = "InvocationInput";
+const _IInvo = "InvocationInputs";
 const _IP = "InputPrompt";
 const _IRM = "InvocationResultMember";
 const _IS = "InvocationStep";
@@ -427,6 +429,7 @@ const _USR = "UpdateSessionRequest";
 const _USRp = "UpdateSessionResponse";
 const _V = "Verb";
 const _VE = "ValidationException";
+const _VS = "VideoSegment";
 const _VSBRC = "VectorSearchBedrockRerankingConfiguration";
 const _VSBRMC = "VectorSearchBedrockRerankingModelConfiguration";
 const _VSRC = "VectorSearchRerankingConfiguration";
@@ -459,6 +462,7 @@ const _aS = "apiSchema";
 const _aT = "agentTraces";
 const _aV = "agentVersion";
 const _at = "attribution";
+const _au = "audio";
 const _b = "body";
 const _bC = "byteContent";
 const _bGE = "badGatewayException";
@@ -585,7 +589,8 @@ const _hSC = "httpStatusCode";
 const _i = "input";
 const _iA = "inputAssessments";
 const _iC = "inferenceConfig";
-const _iCn = "inferenceConfiguration";
+const _iCn = "inlineContent";
+const _iCnf = "inferenceConfiguration";
 const _iDS = "inlineDocumentSource";
 const _iFC = "implicitFilterConfiguration";
 const _iFN = "inputFieldName";
@@ -783,6 +788,7 @@ const _sSt = "stopSequences";
 const _sT = "sourceType";
 const _sTt = "startTime";
 const _sTu = "summaryText";
+const _sU = "s3Uri";
 const _sW = "startsWith";
 const _s_ = "s3";
 const _sc = "score";
@@ -796,6 +802,7 @@ const _st = "status";
 const _sta = "start";
 const _str = "stream";
 const _stre = "streaming";
+const _su = "summary";
 const _t = "text";
 const _tC = "transformationConfiguration";
 const _tD = "textDocument";
@@ -818,7 +825,8 @@ const _ta = "tags";
 const _te = "temperature";
 const _ti = "timestamp";
 const _to = "topics";
-const _tr = "trace";
+const _tr = "transcription";
+const _tra = "trace";
 const _ty = "type";
 const _u = "usage";
 const _uC = "useCase";
@@ -828,6 +836,7 @@ const _v = "verb";
 const _vE = "validationException";
 const _vSC = "vectorSearchConfiguration";
 const _va = "value";
+const _vi = "video";
 const _wL = "webLocation";
 const _wP = "wordPolicy";
 const _xabact = "x-amzn-bedrock-agent-content-type";
@@ -840,7 +849,7 @@ const n0 = "com.amazonaws.bedrockagentruntime";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -864,7 +873,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ActionGroupName: StaticSimpleSchema = [0, n0, _AGN, 8, 0];
 export var ActionGroupOutputString: StaticSimpleSchema = [0, n0, _AGOS, 8, 0];
 export var AgentCollaboratorPayloadString: StaticSimpleSchema = [0, n0, _ACPS, 8, 0];
@@ -893,19 +901,8 @@ export var Source: StaticSimpleSchema = [0, n0, _S, 8, 0];
 export var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
 export var TraceKnowledgeBaseId: StaticSimpleSchema = [0, n0, _TKBI, 8, 0];
 export var Verb: StaticSimpleSchema = [0, n0, _V, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActionGroupInvocationInput: StaticStructureSchema = [
   3,
   n0,
@@ -1002,19 +999,9 @@ export var ApiResult: StaticStructureSchema = [
   [0, 0, [() => ApiPath, 0], 0, 0, 1, () => ResponseBody, 0],
 ];
 export var Attribution: StaticStructureSchema = [3, n0, _A, 0, [_ci], [[() => Citations, 0]]];
-export var BadGatewayException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BGE,
-  {
-    [_e]: _s,
-    [_hE]: 502,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var AudioSegment: StaticStructureSchema = [3, n0, _AS, 0, [_sU, _tr], [0, 0]];
+export var BadGatewayException: StaticErrorSchema = [-3, n0, _BGE, { [_e]: _s, [_hE]: 502 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(BadGatewayException, __BadGatewayException);
-
 export var BedrockModelConfigurations: StaticStructureSchema = [
   3,
   n0,
@@ -1109,19 +1096,8 @@ export var ConditionResultEvent: StaticStructureSchema = [
   [_nN, _ti, _sC],
   [0, 5, [() => SatisfiedConditions, 0]],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentBody: StaticStructureSchema = [3, n0, _CB, 0, [_b, _im], [0, () => ImageInputs]];
 export var ConversationHistory: StaticStructureSchema = [3, n0, _CH, 0, [_mes], [[() => Messages, 0]]];
 export var CreateInvocationRequest: StaticStructureSchema = [3, n0, _CIR, 0, [_iI, _d, _sI], [0, 0, [0, 1]]];
@@ -1147,36 +1123,15 @@ export var DeleteAgentMemoryRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sIe,
-      },
-    ],
+    [0, { [_hQ]: _mI }],
+    [0, { [_hQ]: _sIe }],
   ],
 ];
 export var DeleteAgentMemoryResponse: StaticStructureSchema = [3, n0, _DAMRe, 0, [], []];
 export var DeleteSessionRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_sI], [[0, 1]]];
 export var DeleteSessionResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
-export var DependencyFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DFE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var DependencyFailedException: StaticErrorSchema = [-3, n0, _DFE, { [_e]: _c, [_hE]: 424 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(DependencyFailedException, __DependencyFailedException);
-
 export var EndSessionRequest: StaticStructureSchema = [3, n0, _ESR, 0, [_sI], [[0, 1]]];
 export var EndSessionResponse: StaticStructureSchema = [3, n0, _ESRn, 0, [_sIe, _sA, _sS], [0, 0, 0]];
 export var ExternalSource: StaticStructureSchema = [
@@ -1302,7 +1257,7 @@ export var FlowTraceDependencyEvent: StaticStructureSchema = [
   [_nN, _ti, _tE],
   [0, 5, [() => TraceElements, 0]],
 ];
-export var FlowTraceEvent: StaticStructureSchema = [3, n0, _FTE, 0, [_tr], [[() => FlowTrace, 0]]];
+export var FlowTraceEvent: StaticStructureSchema = [3, n0, _FTE, 0, [_tra], [[() => FlowTrace, 0]]];
 export var FlowTraceNodeActionEvent: StaticStructureSchema = [
   3,
   n0,
@@ -1424,32 +1379,12 @@ export var GetAgentMemoryRequest: StaticStructureSchema = [
   0,
   [_nTe, _mIa, _aI, _aAI, _mTe, _mI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mIa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mIa }],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mTe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
+    [0, { [_hQ]: _mTe }],
+    [0, { [_hQ]: _mI }],
   ],
 ];
 export var GetAgentMemoryResponse: StaticStructureSchema = [3, n0, _GAMRe, 0, [_nTe, _mCe], [0, () => Memories]];
@@ -1616,7 +1551,7 @@ export var InlineAgentTracePart: StaticStructureSchema = [
   n0,
   _IATP,
   8,
-  [_sIe, _tr, _cCa, _eTv, _cN],
+  [_sIe, _tra, _cCa, _eTv, _cN],
   [0, [() => Trace, 0], () => CallerChain, 5, [() => Name, 0]],
 ];
 export var InlineBedrockModelConfigurations: StaticStructureSchema = [
@@ -1643,23 +1578,13 @@ export var InlineSessionState: StaticStructureSchema = [
   ],
 ];
 export var InputFile: StaticStructureSchema = [3, n0, _IF, 0, [_n, _sou, _uC], [0, [() => FileSource, 0], 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m, _rea],
-  [0, 0],
-];
+export var InputImage: StaticStructureSchema = [3, n0, _IIn, 0, [_fo, _iCn], [0, [() => ByteContentBlob, 0]]];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m, _rea], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvocationInput: StaticStructureSchema = [
   3,
   n0,
-  _IIn,
+  _IInv,
   8,
   [_tI, _iT, _aGII, _kBLI, _cIII, _aCII],
   [
@@ -1699,12 +1624,7 @@ export var InvokeAgentRequest: StaticStructureSchema = [
     () => BedrockModelConfigurations,
     () => StreamingConfigurations,
     () => PromptCreationConfigurations,
-    [
-      0,
-      {
-        [_hH]: _xasa,
-      },
-    ],
+    [0, { [_hH]: _xasa }],
   ],
 ];
 export var InvokeAgentResponse: StaticStructureSchema = [
@@ -1715,24 +1635,9 @@ export var InvokeAgentResponse: StaticStructureSchema = [
   [_com, _cT, _sIe, _mI],
   [
     [() => ResponseStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xabact,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xabasi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xabami,
-      },
-    ],
+    [0, { [_hH]: _xabact }],
+    [0, { [_hH]: _xabasi }],
+    [0, { [_hH]: _xabami }],
   ],
 ];
 export var InvokeFlowRequest: StaticStructureSchema = [
@@ -1751,12 +1656,7 @@ export var InvokeFlowResponse: StaticStructureSchema = [
   [_rSe, _eIx],
   [
     [() => FlowResponseStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xabfei,
-      },
-    ],
+    [0, { [_hH]: _xabfei }],
   ],
 ];
 export var InvokeInlineAgentRequest: StaticStructureSchema = [
@@ -1821,18 +1721,8 @@ export var InvokeInlineAgentResponse: StaticStructureSchema = [
   [_com, _cT, _sIe],
   [
     [() => InlineAgentResponseStream, 16],
-    [
-      0,
-      {
-        [_hH]: _xabact,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xabasi,
-      },
-    ],
+    [0, { [_hH]: _xabact }],
+    [0, { [_hH]: _xabasi }],
   ],
 ];
 export var KnowledgeBase: StaticStructureSchema = [
@@ -1873,7 +1763,7 @@ export var KnowledgeBaseLookupOutput: StaticStructureSchema = [
     [() => Metadata, 0],
   ],
 ];
-export var KnowledgeBaseQuery: StaticStructureSchema = [3, n0, _KBQ, 8, [_t], [0]];
+export var KnowledgeBaseQuery: StaticStructureSchema = [3, n0, _KBQ, 8, [_ty, _t, _ima], [0, 0, [() => InputImage, 0]]];
 export var KnowledgeBaseRetrievalConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1928,24 +1818,9 @@ export var ListFlowExecutionEventsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eTve,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nTe }],
+    [0, { [_hQ]: _eTve }],
   ],
 ];
 export var ListFlowExecutionEventsResponse: StaticStructureSchema = [
@@ -1964,24 +1839,9 @@ export var ListFlowExecutionsRequest: StaticStructureSchema = [
   [_fI, _fAI, _mR, _nTe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _fAI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
+    [0, { [_hQ]: _fAI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListFlowExecutionsResponse: StaticStructureSchema = [
@@ -1999,18 +1859,8 @@ export var ListInvocationsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mR, _sI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -2028,22 +1878,7 @@ export var ListInvocationStepsRequest: StaticStructureSchema = [
   _LISR,
   0,
   [_iIn, _nTe, _mR, _sI],
-  [
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [0, 1],
-  ],
+  [0, [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }], [0, 1]],
 ];
 export var ListInvocationStepsResponse: StaticStructureSchema = [
   3,
@@ -2060,18 +1895,8 @@ export var ListSessionsRequest: StaticStructureSchema = [
   0,
   [_mR, _nTe],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListSessionsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sSes, _nTe], [() => SessionSummaries, 0]];
@@ -2108,22 +1933,11 @@ export var ModelInvocationInput: StaticStructureSchema = [
   n0,
   _MII,
   8,
-  [_tI, _t, _ty, _oL, _pCM, _iCn, _pM, _fM],
+  [_tI, _t, _ty, _oL, _pCM, _iCnf, _pM, _fM],
   [0, [() => PromptText, 0], 0, 0, 0, () => InferenceConfiguration, 0, 0],
 ];
-export var ModelNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MNRE,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
-  [_m],
-  [0],
-];
+export var ModelNotReadyException: StaticErrorSchema = [-3, n0, _MNRE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ModelNotReadyException, __ModelNotReadyException);
-
 export var ModelPerformanceConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2297,7 +2111,7 @@ export var PromptConfiguration: StaticStructureSchema = [
   n0,
   _PCr,
   0,
-  [_pTr, _pCM, _pS, _bPT, _iCn, _pM, _fM, _aMRF],
+  [_pTr, _pCM, _pS, _bPT, _iCnf, _pM, _fM, _aMRF],
   [0, 0, 0, [() => BasePromptTemplate, 0], () => InferenceConfiguration, 0, 0, 15],
 ];
 export var PromptCreationConfigurations: StaticStructureSchema = [3, n0, _PCC, 0, [_pCTTI, _ePTS], [1, 2]];
@@ -2363,27 +2177,16 @@ export var RerankResult: StaticStructureSchema = [
 ];
 export var RerankSource: StaticStructureSchema = [3, n0, _RSe, 8, [_ty, _iDS], [0, [() => RerankDocument, 0]]];
 export var RerankTextDocument: StaticStructureSchema = [3, n0, _RTD, 8, [_t], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetrievalResultConfluenceLocation: StaticStructureSchema = [3, n0, _RRCL, 0, [_ur], [0]];
 export var RetrievalResultContent: StaticStructureSchema = [
   3,
   n0,
   _RRC,
   8,
-  [_ty, _t, _bC, _row],
-  [0, 0, 0, [() => RetrievalResultContentRow, 0]],
+  [_ty, _t, _bC, _vi, _au, _row],
+  [0, 0, 0, () => VideoSegment, () => AudioSegment, [() => RetrievalResultContentRow, 0]],
 ];
 export var RetrievalResultContentColumn: StaticStructureSchema = [3, n0, _RRCC, 8, [_cNol, _cV, _ty], [0, 0, 0]];
 export var RetrievalResultCustomDocumentLocation: StaticStructureSchema = [3, n0, _RRCDL, 0, [_id_], [0]];
@@ -2469,12 +2272,7 @@ export var RetrieveAndGenerateStreamResponse: StaticStructureSchema = [
   [_str, _sIe],
   [
     [() => RetrieveAndGenerateStreamResponseOutput, 16],
-    [
-      0,
-      {
-        [_hH]: _xabkbsi,
-      },
-    ],
+    [0, { [_hH]: _xabkbsi }],
   ],
 ];
 export var RetrievedReference: StaticStructureSchema = [
@@ -2540,19 +2338,8 @@ export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_uri], [0]];
 export var S3ObjectDoc: StaticStructureSchema = [3, n0, _SOD, 0, [_uri], [0]];
 export var S3ObjectFile: StaticStructureSchema = [3, n0, _SOF, 0, [_uri], [0]];
 export var SatisfiedCondition: StaticStructureSchema = [3, n0, _SC, 8, [_cNo], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionState: StaticStructureSchema = [
   3,
   n0,
@@ -2608,25 +2395,14 @@ export var TextToSqlConfiguration: StaticStructureSchema = [
   [0, () => TextToSqlKnowledgeBaseConfiguration],
 ];
 export var TextToSqlKnowledgeBaseConfiguration: StaticStructureSchema = [3, n0, _TTSKBC, 0, [_kBA], [0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TracePart: StaticStructureSchema = [
   3,
   n0,
   _TPr,
   8,
-  [_sIe, _tr, _cCa, _eTv, _cN, _aI, _aAI, _aV],
+  [_sIe, _tra, _cCa, _eTv, _cN, _aI, _aAI, _aV],
   [0, [() => Trace, 0], () => CallerChain, 5, [() => Name, 0], 0, 0, 0],
 ];
 export var TransformationConfiguration: StaticStructureSchema = [
@@ -2645,12 +2421,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tKa],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tKa,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tKa }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2664,19 +2435,8 @@ export var UpdateSessionResponse: StaticStructureSchema = [
   [0, 0, 0, 5, 5],
 ];
 export var Usage: StaticStructureSchema = [3, n0, _U, 8, [_iTnp, _oTu], [1, 1]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VectorSearchBedrockRerankingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2701,8 +2461,7 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
   [_ty, _bRC],
   [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
 ];
-export var __Unit = "unit" as const;
-
+export var VideoSegment: StaticStructureSchema = [3, n0, _VS, 0, [_sU, _su], [0, 0]];
 export var BedrockAgentRuntimeServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -2712,7 +2471,6 @@ export var BedrockAgentRuntimeServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(BedrockAgentRuntimeServiceException, __BedrockAgentRuntimeServiceException);
-
 export var AgentActionGroups: StaticListSchema = [1, n0, _AAGg, 0, [() => AgentActionGroup, 0]];
 export var AgentTraces: StaticListSchema = [1, n0, _AT, 0, [() => TracePart, 0]];
 export var ApiParameters: StaticListSchema = [1, n0, _APpi, 0, () => ApiParameter];
@@ -2725,7 +2483,6 @@ export var ContentBlocks: StaticListSchema = [1, n0, _CBo, 0, [() => ContentBloc
 export var ExternalSources: StaticListSchema = [1, n0, _ESx, 0, [() => ExternalSource, 0]];
 export var FieldsForReranking: StaticListSchema = [1, n0, _FFRi, 8, () => FieldForReranking];
 export var Files = 64 | 0;
-
 export var FlowExecutionErrors: StaticListSchema = [1, n0, _FEEl, 0, () => FlowExecutionError];
 export var FlowExecutionEvents: StaticListSchema = [1, n0, _FEElo, 0, [() => FlowExecutionEvent, 0]];
 export var FlowExecutionSummaries: StaticListSchema = [1, n0, _FESl, 0, () => FlowExecutionSummary];
@@ -2755,7 +2512,7 @@ export var GuardrailRegexFilterList: StaticListSchema = [1, n0, _GRFL, 8, [() =>
 export var GuardrailTopicList: StaticListSchema = [1, n0, _GTL, 8, [() => GuardrailTopic, 0]];
 export var ImageInputs: StaticListSchema = [1, n0, _IIm, 0, () => ImageInput];
 export var InputFiles: StaticListSchema = [1, n0, _IFn, 0, [() => InputFile, 0]];
-export var InvocationInputs: StaticListSchema = [1, n0, _IInv, 0, [() => InvocationInputMember, 0]];
+export var InvocationInputs: StaticListSchema = [1, n0, _IInvo, 0, [() => InvocationInputMember, 0]];
 export var InvocationStepSummaries: StaticListSchema = [1, n0, _ISSnv, 0, () => InvocationStepSummary];
 export var InvocationSummaries: StaticListSchema = [1, n0, _ISnv, 0, () => InvocationSummary];
 export var KnowledgeBaseConfigurations: StaticListSchema = [1, n0, _KBCn, 0, [() => KnowledgeBaseConfiguration, 0]];
@@ -2779,7 +2536,6 @@ export var ParameterList: StaticListSchema = [1, n0, _PL, 0, () => Parameter];
 export var _Parameters: StaticListSchema = [1, n0, _Par, 0, () => Parameter];
 export var PromptConfigurations: StaticListSchema = [1, n0, _PCro, 0, [() => PromptConfiguration, 0]];
 export var RAGStopSequences = 64 | 0;
-
 export var RerankQueriesList: StaticListSchema = [1, n0, _RQL, 8, [() => RerankQuery, 0]];
 export var RerankResultsList: StaticListSchema = [1, n0, _RRLe, 0, [() => RerankResult, 0]];
 export var RerankSourcesList: StaticListSchema = [1, n0, _RSL, 8, [() => RerankSource, 0]];
@@ -2790,26 +2546,18 @@ export var ReturnControlInvocationResults: StaticListSchema = [1, n0, _RCIR, 0, 
 export var SatisfiedConditions: StaticListSchema = [1, n0, _SCa, 0, [() => SatisfiedCondition, 0]];
 export var SessionSummaries: StaticListSchema = [1, n0, _SSes, 0, () => SessionSummary];
 export var StopSequences = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var ActionGroupSignatureParams = 128 | 0;
-
 export var AdditionalModelRequestFields = 128 | 15;
-
 export var ApiContentMap: StaticMapSchema = [2, n0, _ACM, 0, 0, () => PropertyParameters];
 export var ContentMap: StaticMapSchema = [2, n0, _CM, 0, 0, () => _Parameters];
 export var ParameterMap: StaticMapSchema = [2, n0, _PM, 0, 0, () => ParameterDetail];
 export var PromptSessionAttributesMap = 128 | 0;
-
 export var ResponseBody: StaticMapSchema = [2, n0, _RBe, 0, 0, () => ContentBody];
 export var RetrievalResultMetadata: StaticMapSchema = [2, n0, _RRM, 8, 0, 15];
 export var SessionAttributesMap = 128 | 0;
-
 export var SessionMetadataMap = 128 | 0;
-
 export var TagsMap = 128 | 0;
-
 export var ActionGroupExecutor: StaticStructureSchema = [3, n0, _AGE, 0, [_lam, _cCu], [0, 0]];
 export var APISchema: StaticStructureSchema = [3, n0, _APIS, 0, [_s_, _pa], [() => S3Identifier, [() => Payload, 0]]];
 export var BedrockSessionContentBlock: StaticStructureSchema = [3, n0, _BSCBe, 8, [_t, _ima], [0, () => ImageBlock]];
@@ -2841,9 +2589,7 @@ export var FlowResponseStream: StaticStructureSchema = [
   3,
   n0,
   _FRSl,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_fOE, _fCE, _fTE, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fMTIRE],
   [
     [() => FlowOutputEvent, 0],
@@ -2884,10 +2630,8 @@ export var InlineAgentResponseStream: StaticStructureSchema = [
   3,
   n0,
   _IARS,
-  {
-    [_stre]: 1,
-  },
-  [_ch, _tr, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fi],
+  { [_stre]: 1 },
+  [_ch, _tra, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _fi],
   [
     [() => InlineAgentPayloadPart, 0],
     [() => InlineAgentTracePart, 0],
@@ -2940,9 +2684,7 @@ export var OptimizedPromptStream: StaticStructureSchema = [
   3,
   n0,
   _OPS,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_oPE, _aPE, _iSE, _tEh, _vE, _dFE, _aDE, _bGE],
   [
     [() => OptimizedPromptEvent, 0],
@@ -3015,10 +2757,8 @@ export var ResponseStream: StaticStructureSchema = [
   3,
   n0,
   _RSes,
-  {
-    [_stre]: 1,
-  },
-  [_ch, _tr, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _mNRE, _fi],
+  { [_stre]: 1 },
+  [_ch, _tra, _rCet, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE, _mNRE, _fi],
   [
     [() => PayloadPart, 0],
     [() => TracePart, 0],
@@ -3062,9 +2802,7 @@ export var RetrieveAndGenerateStreamResponseOutput: StaticStructureSchema = [
   3,
   n0,
   _RAGSRO,
-  {
-    [_stre]: 1,
-  },
+  { [_stre]: 1 },
   [_o, _cit, _g, _iSE, _vE, _rNFE, _sQEE, _tEh, _aDE, _cE, _dFE, _bGE],
   [
     [() => RetrieveAndGenerateOutputEvent, 0],
@@ -3115,9 +2853,7 @@ export var CreateInvocation: StaticOperationSchema = [
   9,
   n0,
   _CIr,
-  {
-    [_h]: ["PUT", "/sessions/{sessionIdentifier}/invocations/", 201],
-  },
+  { [_h]: ["PUT", "/sessions/{sessionIdentifier}/invocations/", 201] },
   () => CreateInvocationRequest,
   () => CreateInvocationResponse,
 ];
@@ -3125,9 +2861,7 @@ export var CreateSession: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["PUT", "/sessions/", 201],
-  },
+  { [_h]: ["PUT", "/sessions/", 201] },
   () => CreateSessionRequest,
   () => CreateSessionResponse,
 ];
@@ -3135,9 +2869,7 @@ export var DeleteAgentMemory: StaticOperationSchema = [
   9,
   n0,
   _DAM,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/agentAliases/{agentAliasId}/memories", 202],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/agentAliases/{agentAliasId}/memories", 202] },
   () => DeleteAgentMemoryRequest,
   () => DeleteAgentMemoryResponse,
 ];
@@ -3145,9 +2877,7 @@ export var DeleteSession: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/sessions/{sessionIdentifier}/", 200],
-  },
+  { [_h]: ["DELETE", "/sessions/{sessionIdentifier}/", 200] },
   () => DeleteSessionRequest,
   () => DeleteSessionResponse,
 ];
@@ -3155,9 +2885,7 @@ export var EndSession: StaticOperationSchema = [
   9,
   n0,
   _ESn,
-  {
-    [_h]: ["PATCH", "/sessions/{sessionIdentifier}", 200],
-  },
+  { [_h]: ["PATCH", "/sessions/{sessionIdentifier}", 200] },
   () => EndSessionRequest,
   () => EndSessionResponse,
 ];
@@ -3165,9 +2893,7 @@ export var GenerateQuery: StaticOperationSchema = [
   9,
   n0,
   _GQen,
-  {
-    [_h]: ["POST", "/generateQuery", 200],
-  },
+  { [_h]: ["POST", "/generateQuery", 200] },
   () => GenerateQueryRequest,
   () => GenerateQueryResponse,
 ];
@@ -3175,9 +2901,7 @@ export var GetAgentMemory: StaticOperationSchema = [
   9,
   n0,
   _GAM,
-  {
-    [_h]: ["GET", "/agents/{agentId}/agentAliases/{agentAliasId}/memories", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/agentAliases/{agentAliasId}/memories", 200] },
   () => GetAgentMemoryRequest,
   () => GetAgentMemoryResponse,
 ];
@@ -3199,9 +2923,7 @@ export var GetFlowExecution: StaticOperationSchema = [
   9,
   n0,
   _GFE,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}", 200] },
   () => GetFlowExecutionRequest,
   () => GetFlowExecutionResponse,
 ];
@@ -3209,9 +2931,7 @@ export var GetInvocationStep: StaticOperationSchema = [
   9,
   n0,
   _GIS,
-  {
-    [_h]: ["POST", "/sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}", 200],
-  },
+  { [_h]: ["POST", "/sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}", 200] },
   () => GetInvocationStepRequest,
   () => GetInvocationStepResponse,
 ];
@@ -3219,9 +2939,7 @@ export var GetSession: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/sessions/{sessionIdentifier}/", 200],
-  },
+  { [_h]: ["GET", "/sessions/{sessionIdentifier}/", 200] },
   () => GetSessionRequest,
   () => GetSessionResponse,
 ];
@@ -3229,9 +2947,7 @@ export var InvokeAgent: StaticOperationSchema = [
   9,
   n0,
   _IA,
-  {
-    [_h]: ["POST", "/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text", 200],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text", 200] },
   () => InvokeAgentRequest,
   () => InvokeAgentResponse,
 ];
@@ -3239,9 +2955,7 @@ export var InvokeFlow: StaticOperationSchema = [
   9,
   n0,
   _IFnv,
-  {
-    [_h]: ["POST", "/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}", 200],
-  },
+  { [_h]: ["POST", "/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}", 200] },
   () => InvokeFlowRequest,
   () => InvokeFlowResponse,
 ];
@@ -3249,9 +2963,7 @@ export var InvokeInlineAgent: StaticOperationSchema = [
   9,
   n0,
   _IIA,
-  {
-    [_h]: ["POST", "/agents/{sessionId}", 200],
-  },
+  { [_h]: ["POST", "/agents/{sessionId}", 200] },
   () => InvokeInlineAgentRequest,
   () => InvokeInlineAgentResponse,
 ];
@@ -3269,9 +2981,7 @@ export var ListFlowExecutions: StaticOperationSchema = [
   9,
   n0,
   _LFE,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/executions", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/executions", 200] },
   () => ListFlowExecutionsRequest,
   () => ListFlowExecutionsResponse,
 ];
@@ -3279,9 +2989,7 @@ export var ListInvocations: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["POST", "/sessions/{sessionIdentifier}/invocations/", 200],
-  },
+  { [_h]: ["POST", "/sessions/{sessionIdentifier}/invocations/", 200] },
   () => ListInvocationsRequest,
   () => ListInvocationsResponse,
 ];
@@ -3289,9 +2997,7 @@ export var ListInvocationSteps: StaticOperationSchema = [
   9,
   n0,
   _LIS,
-  {
-    [_h]: ["POST", "/sessions/{sessionIdentifier}/invocationSteps/", 200],
-  },
+  { [_h]: ["POST", "/sessions/{sessionIdentifier}/invocationSteps/", 200] },
   () => ListInvocationStepsRequest,
   () => ListInvocationStepsResponse,
 ];
@@ -3299,9 +3005,7 @@ export var ListSessions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["POST", "/sessions/", 200],
-  },
+  { [_h]: ["POST", "/sessions/", 200] },
   () => ListSessionsRequest,
   () => ListSessionsResponse,
 ];
@@ -3309,9 +3013,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3319,9 +3021,7 @@ export var OptimizePrompt: StaticOperationSchema = [
   9,
   n0,
   _OPp,
-  {
-    [_h]: ["POST", "/optimize-prompt", 200],
-  },
+  { [_h]: ["POST", "/optimize-prompt", 200] },
   () => OptimizePromptRequest,
   () => OptimizePromptResponse,
 ];
@@ -3329,9 +3029,7 @@ export var PutInvocationStep: StaticOperationSchema = [
   9,
   n0,
   _PIS,
-  {
-    [_h]: ["PUT", "/sessions/{sessionIdentifier}/invocationSteps/", 201],
-  },
+  { [_h]: ["PUT", "/sessions/{sessionIdentifier}/invocationSteps/", 201] },
   () => PutInvocationStepRequest,
   () => PutInvocationStepResponse,
 ];
@@ -3339,9 +3037,7 @@ export var Rerank: StaticOperationSchema = [
   9,
   n0,
   _Re,
-  {
-    [_h]: ["POST", "/rerank", 200],
-  },
+  { [_h]: ["POST", "/rerank", 200] },
   () => RerankRequest,
   () => RerankResponse,
 ];
@@ -3349,9 +3045,7 @@ export var Retrieve: StaticOperationSchema = [
   9,
   n0,
   _Ret,
-  {
-    [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/retrieve", 200],
-  },
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/retrieve", 200] },
   () => RetrieveRequest,
   () => RetrieveResponse,
 ];
@@ -3359,9 +3053,7 @@ export var RetrieveAndGenerate: StaticOperationSchema = [
   9,
   n0,
   _RAG,
-  {
-    [_h]: ["POST", "/retrieveAndGenerate", 200],
-  },
+  { [_h]: ["POST", "/retrieveAndGenerate", 200] },
   () => RetrieveAndGenerateRequest,
   () => RetrieveAndGenerateResponse,
 ];
@@ -3369,9 +3061,7 @@ export var RetrieveAndGenerateStream: StaticOperationSchema = [
   9,
   n0,
   _RAGS,
-  {
-    [_h]: ["POST", "/retrieveAndGenerateStream", 200],
-  },
+  { [_h]: ["POST", "/retrieveAndGenerateStream", 200] },
   () => RetrieveAndGenerateStreamRequest,
   () => RetrieveAndGenerateStreamResponse,
 ];
@@ -3379,9 +3069,7 @@ export var StartFlowExecution: StaticOperationSchema = [
   9,
   n0,
   _SFE,
-  {
-    [_h]: ["POST", "/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions", 200],
-  },
+  { [_h]: ["POST", "/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions", 200] },
   () => StartFlowExecutionRequest,
   () => StartFlowExecutionResponse,
 ];
@@ -3399,9 +3087,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -3409,9 +3095,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -3419,9 +3103,7 @@ export var UpdateSession: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/sessions/{sessionIdentifier}/", 200],
-  },
+  { [_h]: ["PUT", "/sessions/{sessionIdentifier}/", 200] },
   () => UpdateSessionRequest,
   () => UpdateSessionResponse,
 ];

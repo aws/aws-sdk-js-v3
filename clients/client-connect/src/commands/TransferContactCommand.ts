@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TransferContactRequest, TransferContactResponse } from "../models/models_2";
+import type { TransferContactRequest, TransferContactResponse } from "../models/models_3";
 import { TransferContact } from "../schemas/schemas_0";
 
 /**
@@ -28,11 +28,10 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
 
 /**
  * <p>Transfers <code>TASK</code> or <code>EMAIL</code>
- *     contacts from one agent or queue to another agent or queue at any point
- *    after a contact is created. You can transfer a contact to another queue by providing the flow
- *    which orchestrates the contact to the destination queue. This gives you more control over contact
- *    handling and helps you adhere to the service level agreement (SLA) guaranteed to your
- *    customers.</p>
+ *     contacts from one agent or queue to another agent or queue at any point after a contact is
+ *    created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the
+ *    destination queue. This gives you more control over contact handling and helps you adhere to the service level
+ *    agreement (SLA) guaranteed to your customers.</p>
  *          <p>Note the following requirements:</p>
  *          <ul>
  *             <li>
@@ -42,8 +41,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  *                <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p>
  *             </li>
  *             <li>
- *                <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer
- *      to queue flow.</p>
+ *                <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue
+ *      flow.</p>
  *             </li>
  *             <li>
  *                <p>The <code>TransferContact</code> API can be called only on active contacts.</p>

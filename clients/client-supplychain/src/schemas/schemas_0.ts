@@ -237,7 +237,7 @@ const n0 = "com.amazonaws.supplychain";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -258,22 +258,10 @@ import {
 import { SupplyChainServiceException as __SupplyChainServiceException } from "../models/SupplyChainServiceException";
 
 /* eslint no-var: 0 */
-
 export var DataIntegrationEventData: StaticSimpleSchema = [0, n0, _DIED, 8, 0];
 export var DataIntegrationFlowSQLQuery: StaticSimpleSchema = [0, n0, _DIFSQLQ, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var BillOfMaterialsImportJob: StaticStructureSchema = [
   3,
   n0,
@@ -282,19 +270,8 @@ export var BillOfMaterialsImportJob: StaticStructureSchema = [
   [_iI, _jI, _s, _su, _m],
   [0, 0, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateBillOfMaterialsImportJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -705,19 +682,8 @@ export var Instance: StaticStructureSchema = [
   [_iI, _aAI, _st, _eM, _wADD, _cTr, _lMT, _iN, _iD, _kKA, _vN],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListDataIntegrationEventsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -726,24 +692,9 @@ export var ListDataIntegrationEventsRequest: StaticStructureSchema = [
   [_iI, _eT, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _eT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataIntegrationEventsResponse: StaticStructureSchema = [
@@ -763,18 +714,8 @@ export var ListDataIntegrationFlowExecutionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataIntegrationFlowExecutionsResponse: StaticStructureSchema = [
@@ -793,18 +734,8 @@ export var ListDataIntegrationFlowsRequest: StaticStructureSchema = [
   [_iI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataIntegrationFlowsResponse: StaticStructureSchema = [
@@ -824,18 +755,8 @@ export var ListDataLakeDatasetsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataLakeDatasetsResponse: StaticStructureSchema = [
@@ -854,18 +775,8 @@ export var ListDataLakeNamespacesRequest: StaticStructureSchema = [
   [_iI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataLakeNamespacesResponse: StaticStructureSchema = [
@@ -883,48 +794,17 @@ export var ListInstancesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _iNF, _iSF],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _iNF,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _iSF,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [64 | 0, { [_hQ]: _iNF }],
+    [64 | 0, { [_hQ]: _iSF }],
   ],
 ];
 export var ListInstancesResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_in, _nT], [() => InstanceList, 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_tag], [128 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SendDataIntegrationEventRequest: StaticStructureSchema = [
   3,
   n0,
@@ -934,34 +814,12 @@ export var SendDataIntegrationEventRequest: StaticStructureSchema = [
   [[0, 1], 0, [() => DataIntegrationEventData, 0], 0, 7, [0, 4], () => DataIntegrationEventDatasetTargetConfiguration],
 ];
 export var SendDataIntegrationEventResponse: StaticStructureSchema = [3, n0, _SDIERe, 0, [_eI], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _tag], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -970,12 +828,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1028,24 +881,10 @@ export var UpdateDataLakeNamespaceResponse: StaticStructureSchema = [
 ];
 export var UpdateInstanceRequest: StaticStructureSchema = [3, n0, _UIR, 0, [_iI, _iN, _iD], [[0, 1], 0, 0]];
 export var UpdateInstanceResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [_i], [() => Instance]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var SupplyChainServiceException: StaticErrorSchema = [-3, _sm, "SupplyChainServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SupplyChainServiceException, __SupplyChainServiceException);
-
 export var DataIntegrationEventList: StaticListSchema = [1, n0, _DIEL, 0, () => DataIntegrationEvent];
 export var DataIntegrationFlowExecutionList: StaticListSchema = [1, n0, _DIFEL, 0, () => DataIntegrationFlowExecution];
 export var DataIntegrationFlowFieldPriorityDedupeFieldList: StaticListSchema = [
@@ -1076,20 +915,14 @@ export var DataLakeDatasetSchemaFieldList: StaticListSchema = [1, n0, _DLDSFL, 0
 export var DataLakeNamespaceList: StaticListSchema = [1, n0, _DLNL, 0, () => DataLakeNamespace];
 export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance];
 export var InstanceNameList = 64 | 0;
-
 export var InstanceStateList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CreateBillOfMaterialsImportJob: StaticOperationSchema = [
   9,
   n0,
   _CBOMIJ,
-  {
-    [_h]: ["POST", "/api/configuration/instances/{instanceId}/bill-of-materials-import-jobs", 200],
-  },
+  { [_h]: ["POST", "/api/configuration/instances/{instanceId}/bill-of-materials-import-jobs", 200] },
   () => CreateBillOfMaterialsImportJobRequest,
   () => CreateBillOfMaterialsImportJobResponse,
 ];
@@ -1097,9 +930,7 @@ export var CreateDataIntegrationFlow: StaticOperationSchema = [
   9,
   n0,
   _CDIF,
-  {
-    [_h]: ["PUT", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200],
-  },
+  { [_h]: ["PUT", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200] },
   () => CreateDataIntegrationFlowRequest,
   () => CreateDataIntegrationFlowResponse,
 ];
@@ -1107,9 +938,7 @@ export var CreateDataLakeDataset: StaticOperationSchema = [
   9,
   n0,
   _CDLD,
-  {
-    [_h]: ["PUT", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200],
-  },
+  { [_h]: ["PUT", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200] },
   () => CreateDataLakeDatasetRequest,
   () => CreateDataLakeDatasetResponse,
 ];
@@ -1117,9 +946,7 @@ export var CreateDataLakeNamespace: StaticOperationSchema = [
   9,
   n0,
   _CDLN,
-  {
-    [_h]: ["PUT", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200],
-  },
+  { [_h]: ["PUT", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200] },
   () => CreateDataLakeNamespaceRequest,
   () => CreateDataLakeNamespaceResponse,
 ];
@@ -1127,9 +954,7 @@ export var CreateInstance: StaticOperationSchema = [
   9,
   n0,
   _CI,
-  {
-    [_h]: ["POST", "/api/instance", 200],
-  },
+  { [_h]: ["POST", "/api/instance", 200] },
   () => CreateInstanceRequest,
   () => CreateInstanceResponse,
 ];
@@ -1137,9 +962,7 @@ export var DeleteDataIntegrationFlow: StaticOperationSchema = [
   9,
   n0,
   _DDIF,
-  {
-    [_h]: ["DELETE", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200],
-  },
+  { [_h]: ["DELETE", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200] },
   () => DeleteDataIntegrationFlowRequest,
   () => DeleteDataIntegrationFlowResponse,
 ];
@@ -1147,9 +970,7 @@ export var DeleteDataLakeDataset: StaticOperationSchema = [
   9,
   n0,
   _DDLD,
-  {
-    [_h]: ["DELETE", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200],
-  },
+  { [_h]: ["DELETE", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200] },
   () => DeleteDataLakeDatasetRequest,
   () => DeleteDataLakeDatasetResponse,
 ];
@@ -1157,9 +978,7 @@ export var DeleteDataLakeNamespace: StaticOperationSchema = [
   9,
   n0,
   _DDLN,
-  {
-    [_h]: ["DELETE", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200],
-  },
+  { [_h]: ["DELETE", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200] },
   () => DeleteDataLakeNamespaceRequest,
   () => DeleteDataLakeNamespaceResponse,
 ];
@@ -1167,9 +986,7 @@ export var DeleteInstance: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["DELETE", "/api/instance/{instanceId}", 200],
-  },
+  { [_h]: ["DELETE", "/api/instance/{instanceId}", 200] },
   () => DeleteInstanceRequest,
   () => DeleteInstanceResponse,
 ];
@@ -1177,9 +994,7 @@ export var GetBillOfMaterialsImportJob: StaticOperationSchema = [
   9,
   n0,
   _GBOMIJ,
-  {
-    [_h]: ["GET", "/api/configuration/instances/{instanceId}/bill-of-materials-import-jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/api/configuration/instances/{instanceId}/bill-of-materials-import-jobs/{jobId}", 200] },
   () => GetBillOfMaterialsImportJobRequest,
   () => GetBillOfMaterialsImportJobResponse,
 ];
@@ -1187,9 +1002,7 @@ export var GetDataIntegrationEvent: StaticOperationSchema = [
   9,
   n0,
   _GDIE,
-  {
-    [_h]: ["GET", "/api-data/data-integration/instance/{instanceId}/data-integration-events/{eventId}", 200],
-  },
+  { [_h]: ["GET", "/api-data/data-integration/instance/{instanceId}/data-integration-events/{eventId}", 200] },
   () => GetDataIntegrationEventRequest,
   () => GetDataIntegrationEventResponse,
 ];
@@ -1197,9 +1010,7 @@ export var GetDataIntegrationFlow: StaticOperationSchema = [
   9,
   n0,
   _GDIF,
-  {
-    [_h]: ["GET", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200],
-  },
+  { [_h]: ["GET", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200] },
   () => GetDataIntegrationFlowRequest,
   () => GetDataIntegrationFlowResponse,
 ];
@@ -1221,9 +1032,7 @@ export var GetDataLakeDataset: StaticOperationSchema = [
   9,
   n0,
   _GDLD,
-  {
-    [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200],
-  },
+  { [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200] },
   () => GetDataLakeDatasetRequest,
   () => GetDataLakeDatasetResponse,
 ];
@@ -1231,9 +1040,7 @@ export var GetDataLakeNamespace: StaticOperationSchema = [
   9,
   n0,
   _GDLN,
-  {
-    [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200],
-  },
+  { [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200] },
   () => GetDataLakeNamespaceRequest,
   () => GetDataLakeNamespaceResponse,
 ];
@@ -1241,9 +1048,7 @@ export var GetInstance: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_h]: ["GET", "/api/instance/{instanceId}", 200],
-  },
+  { [_h]: ["GET", "/api/instance/{instanceId}", 200] },
   () => GetInstanceRequest,
   () => GetInstanceResponse,
 ];
@@ -1251,9 +1056,7 @@ export var ListDataIntegrationEvents: StaticOperationSchema = [
   9,
   n0,
   _LDIE,
-  {
-    [_h]: ["GET", "/api-data/data-integration/instance/{instanceId}/data-integration-events", 200],
-  },
+  { [_h]: ["GET", "/api-data/data-integration/instance/{instanceId}/data-integration-events", 200] },
   () => ListDataIntegrationEventsRequest,
   () => ListDataIntegrationEventsResponse,
 ];
@@ -1271,9 +1074,7 @@ export var ListDataIntegrationFlows: StaticOperationSchema = [
   9,
   n0,
   _LDIF,
-  {
-    [_h]: ["GET", "/api/data-integration/instance/{instanceId}/data-integration-flows", 200],
-  },
+  { [_h]: ["GET", "/api/data-integration/instance/{instanceId}/data-integration-flows", 200] },
   () => ListDataIntegrationFlowsRequest,
   () => ListDataIntegrationFlowsResponse,
 ];
@@ -1281,9 +1082,7 @@ export var ListDataLakeDatasets: StaticOperationSchema = [
   9,
   n0,
   _LDLD,
-  {
-    [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets", 200],
-  },
+  { [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets", 200] },
   () => ListDataLakeDatasetsRequest,
   () => ListDataLakeDatasetsResponse,
 ];
@@ -1291,9 +1090,7 @@ export var ListDataLakeNamespaces: StaticOperationSchema = [
   9,
   n0,
   _LDLN,
-  {
-    [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces", 200],
-  },
+  { [_h]: ["GET", "/api/datalake/instance/{instanceId}/namespaces", 200] },
   () => ListDataLakeNamespacesRequest,
   () => ListDataLakeNamespacesResponse,
 ];
@@ -1301,9 +1098,7 @@ export var ListInstances: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["GET", "/api/instance", 200],
-  },
+  { [_h]: ["GET", "/api/instance", 200] },
   () => ListInstancesRequest,
   () => ListInstancesResponse,
 ];
@@ -1311,9 +1106,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/api/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/api/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1321,9 +1114,7 @@ export var SendDataIntegrationEvent: StaticOperationSchema = [
   9,
   n0,
   _SDIE,
-  {
-    [_h]: ["POST", "/api-data/data-integration/instance/{instanceId}/data-integration-events", 200],
-  },
+  { [_h]: ["POST", "/api-data/data-integration/instance/{instanceId}/data-integration-events", 200] },
   () => SendDataIntegrationEventRequest,
   () => SendDataIntegrationEventResponse,
 ];
@@ -1331,9 +1122,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/api/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/api/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1341,9 +1130,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/api/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/api/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1351,9 +1138,7 @@ export var UpdateDataIntegrationFlow: StaticOperationSchema = [
   9,
   n0,
   _UDIF,
-  {
-    [_h]: ["PATCH", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200],
-  },
+  { [_h]: ["PATCH", "/api/data-integration/instance/{instanceId}/data-integration-flows/{name}", 200] },
   () => UpdateDataIntegrationFlowRequest,
   () => UpdateDataIntegrationFlowResponse,
 ];
@@ -1361,9 +1146,7 @@ export var UpdateDataLakeDataset: StaticOperationSchema = [
   9,
   n0,
   _UDLD,
-  {
-    [_h]: ["PATCH", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200],
-  },
+  { [_h]: ["PATCH", "/api/datalake/instance/{instanceId}/namespaces/{namespace}/datasets/{name}", 200] },
   () => UpdateDataLakeDatasetRequest,
   () => UpdateDataLakeDatasetResponse,
 ];
@@ -1371,9 +1154,7 @@ export var UpdateDataLakeNamespace: StaticOperationSchema = [
   9,
   n0,
   _UDLN,
-  {
-    [_h]: ["PATCH", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200],
-  },
+  { [_h]: ["PATCH", "/api/datalake/instance/{instanceId}/namespaces/{name}", 200] },
   () => UpdateDataLakeNamespaceRequest,
   () => UpdateDataLakeNamespaceResponse,
 ];
@@ -1381,9 +1162,7 @@ export var UpdateInstance: StaticOperationSchema = [
   9,
   n0,
   _UI,
-  {
-    [_h]: ["PATCH", "/api/instance/{instanceId}", 200],
-  },
+  { [_h]: ["PATCH", "/api/instance/{instanceId}", 200] },
   () => UpdateInstanceRequest,
   () => UpdateInstanceResponse,
 ];

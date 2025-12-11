@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AutocompleteCommand,
@@ -21,7 +21,7 @@ import {
 } from "./commands/SearchNearbyCommand";
 import { SearchTextCommand, SearchTextCommandInput, SearchTextCommandOutput } from "./commands/SearchTextCommand";
 import { SuggestCommand, SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
-import { GeoPlacesClient, GeoPlacesClientConfig } from "./GeoPlacesClient";
+import { GeoPlacesClient } from "./GeoPlacesClient";
 
 const commands = {
   AutocompleteCommand,

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListCustomModelsRequest, ListCustomModelsResponse } from "../models/models_0";
+import type { ListCustomModelsRequest, ListCustomModelsResponse } from "../models/models_0";
 import { ListCustomModels } from "../schemas/schemas_0";
 
 /**
@@ -60,7 +60,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       baseModelArn: "STRING_VALUE", // required
  * //       baseModelName: "STRING_VALUE", // required
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "REINFORCEMENT_FINE_TUNING" || "IMPORTED",
  * //       ownerAccountId: "STRING_VALUE",
  * //       modelStatus: "Active" || "Creating" || "Failed",
  * //     },

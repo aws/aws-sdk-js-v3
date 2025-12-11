@@ -219,7 +219,7 @@ const n0 = "com.amazonaws.acmpca";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ACMPCAServiceException as __ACMPCAServiceException } from "../models/ACMPCAServiceException";
 import {
@@ -245,7 +245,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessDescription: StaticStructureSchema = [
   3,
   n0,
@@ -280,30 +279,10 @@ export var CertificateAuthorityConfiguration: StaticStructureSchema = [
   [_KA, _SA, _S, _CE],
   [0, 0, () => ASN1Subject, () => CsrExtensions],
 ];
-export var CertificateMismatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var CertificateMismatchException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(CertificateMismatchException, __CertificateMismatchException);
-
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CMEo,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CMEo, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var CreateCertificateAuthorityAuditReportRequest: StaticStructureSchema = [
   3,
   n0,
@@ -417,90 +396,20 @@ export var ImportCertificateAuthorityCertificateRequest: StaticStructureSchema =
   [_CAA, _Ce, _CCe],
   [0, 21, 21],
 ];
-export var InvalidArgsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArgsException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgsException, __InvalidArgsException);
-
-export var InvalidArnException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEn,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArnException: StaticErrorSchema = [-3, n0, _IAEn, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArnException, __InvalidArnException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPolicyException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPolicyException, __InvalidPolicyException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
-export var InvalidTagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagException, __InvalidTagException);
-
 export var IssueCertificateRequest: StaticStructureSchema = [
   3,
   n0,
@@ -518,18 +427,8 @@ export var KeyUsage: StaticStructureSchema = [
   [_DS, _NR, _KE, _DE, _KAe, _KCS, _CRLS, _EO, _DO],
   [2, 2, 2, 2, 2, 2, 2, 2, 2],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListCertificateAuthoritiesRequest: StaticStructureSchema = [3, n0, _LCAR, 0, [_MR, _NT, _RO], [1, 0, 0]];
 export var ListCertificateAuthoritiesResponse: StaticStructureSchema = [
   3,
@@ -543,42 +442,12 @@ export var ListPermissionsRequest: StaticStructureSchema = [3, n0, _LPR, 0, [_MR
 export var ListPermissionsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_NT, _Pe], [0, () => PermissionList]];
 export var ListTagsRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_MR, _NT, _CAA], [1, 0, 0]];
 export var ListTagsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_NT, _Ta], [0, () => TagList]];
-export var LockoutPreventedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LockoutPreventedException: StaticErrorSchema = [-3, n0, _LPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LockoutPreventedException, __LockoutPreventedException);
-
-export var MalformedCertificateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MCE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var MalformedCertificateException: StaticErrorSchema = [-3, n0, _MCE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MalformedCertificateException, __MalformedCertificateException);
-
-export var MalformedCSRException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MCSRE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var MalformedCSRException: StaticErrorSchema = [-3, n0, _MCSRE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(MalformedCSRException, __MalformedCSRException);
-
 export var OcspConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_En, _OCC], [2, 0]];
 export var OtherName: StaticStructureSchema = [3, n0, _ON, 0, [_TI, _V], [0, 0]];
 export var Permission: StaticStructureSchema = [
@@ -589,70 +458,20 @@ export var Permission: StaticStructureSchema = [
   [_CAA, _CAr, _Pr, _SAo, _Ac, _Po],
   [0, 4, 0, 0, 64 | 0, 0],
 ];
-export var PermissionAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var PermissionAlreadyExistsException: StaticErrorSchema = [-3, n0, _PAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PermissionAlreadyExistsException, __PermissionAlreadyExistsException);
-
 export var PolicyInformation: StaticStructureSchema = [3, n0, _PI, 0, [_CPI, _PQ], [0, () => PolicyQualifierInfoList]];
 export var PolicyQualifierInfo: StaticStructureSchema = [3, n0, _PQI, 0, [_PQIo, _Q], [0, () => Qualifier]];
 export var PutPolicyRequest: StaticStructureSchema = [3, n0, _PPR, 0, [_RA, _Po], [0, 0]];
 export var Qualifier: StaticStructureSchema = [3, n0, _Q, 0, [_CU], [0]];
-export var RequestAlreadyProcessedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RequestAlreadyProcessedException: StaticErrorSchema = [-3, n0, _RAPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestAlreadyProcessedException, __RequestAlreadyProcessedException);
-
-export var RequestFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RequestFailedException: StaticErrorSchema = [-3, n0, _RFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestFailedException, __RequestFailedException);
-
-export var RequestInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RequestInProgressException: StaticErrorSchema = [-3, n0, _RIPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RequestInProgressException, __RequestInProgressException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestoreCertificateAuthorityRequest: StaticStructureSchema = [3, n0, _RCAR, 0, [_CAA], [0]];
 export var RevocationConfiguration: StaticStructureSchema = [
   3,
@@ -665,18 +484,8 @@ export var RevocationConfiguration: StaticStructureSchema = [
 export var RevokeCertificateRequest: StaticStructureSchema = [3, n0, _RCR, 0, [_CAA, _CS, _RR], [0, 0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagCertificateAuthorityRequest: StaticStructureSchema = [3, n0, _TCAR, 0, [_CAA, _Ta], [0, () => TagList]];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagCertificateAuthorityRequest: StaticStructureSchema = [3, n0, _UCAR, 0, [_CAA, _Ta], [0, () => TagList]];
 export var UpdateCertificateAuthorityRequest: StaticStructureSchema = [
   3,
@@ -688,13 +497,10 @@ export var UpdateCertificateAuthorityRequest: StaticStructureSchema = [
 ];
 export var Validity: StaticStructureSchema = [3, n0, _Va, 0, [_V, _Ty], [1, 0]];
 export var __Unit = "unit" as const;
-
 export var ACMPCAServiceException: StaticErrorSchema = [-3, _s, "ACMPCAServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(ACMPCAServiceException, __ACMPCAServiceException);
-
 export var AccessDescriptionList: StaticListSchema = [1, n0, _ADL, 0, () => AccessDescription];
 export var ActionList = 64 | 0;
-
 export var CertificateAuthorities: StaticListSchema = [1, n0, _CAert, 0, () => CertificateAuthority];
 export var CertificatePolicyList: StaticListSchema = [1, n0, _CPL, 0, () => PolicyInformation];
 export var CustomAttributeList: StaticListSchema = [1, n0, _CAL, 0, () => CustomAttribute];

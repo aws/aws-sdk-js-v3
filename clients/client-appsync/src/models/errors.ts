@@ -1,9 +1,9 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppSyncServiceException as __BaseException } from "./AppSyncServiceException";
 import { BadRequestReason } from "./enums";
-import { BadRequestDetail } from "./models_0";
+import type { BadRequestDetail } from "./models_0";
 
 /**
  * <p>You don't have access to perform this operation on this resource.</p>

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListModelCustomizationJobsRequest, ListModelCustomizationJobsResponse } from "../models/models_1";
+import type { ListModelCustomizationJobsRequest, ListModelCustomizationJobsResponse } from "../models/models_1";
 import { ListModelCustomizationJobs } from "../schemas/schemas_0";
 
 /**
@@ -78,7 +78,7 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * //       endTime: new Date("TIMESTAMP"),
  * //       customModelArn: "STRING_VALUE",
  * //       customModelName: "STRING_VALUE",
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "REINFORCEMENT_FINE_TUNING" || "IMPORTED",
  * //     },
  * //   ],
  * // };

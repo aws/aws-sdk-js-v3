@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.949.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.948.0...v3.949.0) (2025-12-10)
+
+
+### Features
+
+* **client-cloudwatch:** This release introduces two additional protocols AWS JSON 1.1 and Smithy RPC v2 CBOR, replacing the currently utilized one, AWSQuery. AWS SDKs will prioritize the protocol that is the most performant for each language. ([82cfae7](https://github.com/aws/aws-sdk-js-v3/commit/82cfae7dcaf413d1812b85431b62f03e4b72fd8d))
+
+
+
+
+
+# [3.948.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.947.0...v3.948.0) (2025-12-09)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.947.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.946.0...v3.947.0) (2025-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.946.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.945.0...v3.946.0) (2025-12-05)
+
+
+### Bug Fixes
+
+* **core/protocols:** awsQueryCompatibility error structuring ([#7541](https://github.com/aws/aws-sdk-js-v3/issues/7541)) ([ab68395](https://github.com/aws/aws-sdk-js-v3/commit/ab6839561b259612ec9524938277804f59d3048f))
+
+
+
+
+
+# [3.943.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.942.0...v3.943.0) (2025-12-02)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
 # [3.940.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.939.0...v3.940.0) (2025-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

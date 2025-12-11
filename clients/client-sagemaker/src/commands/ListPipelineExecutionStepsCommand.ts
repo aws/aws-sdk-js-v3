@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse } from "../models/models_3";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse } from "../models/models_3";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListPipelineExecutionSteps } from "../schemas/schemas_0";
 
 /**
@@ -137,6 +137,38 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //         },
  * //         EndpointConfig: { // EndpointConfigStepMetadata
  * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockCustomModel: { // BedrockCustomModelMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockCustomModelDeployment: { // BedrockCustomModelDeploymentMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockProvisionedModelThroughput: { // BedrockProvisionedModelThroughputMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         BedrockModelImport: { // BedrockModelImportMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         InferenceComponent: { // InferenceComponentMetadata
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Lineage: { // LineageMetadata
+ * //           ActionArns: { // MapString2048
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           ArtifactArns: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           ContextArns: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           Associations: [ // AssociationInfoList
+ * //             { // AssociationInfo
+ * //               SourceArn: "STRING_VALUE", // required
+ * //               DestinationArn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       AttemptCount: Number("int"),

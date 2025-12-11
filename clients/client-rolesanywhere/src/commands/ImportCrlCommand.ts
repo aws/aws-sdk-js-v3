@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CrlDetailResponse, ImportCrlRequest } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { CrlDetailResponse, ImportCrlRequest } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ImportCrl } from "../schemas/schemas_0";
 
 /**
@@ -27,14 +27,7 @@ export interface ImportCrlCommandInput extends ImportCrlRequest {}
 export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have
- *          been revoked by the issuing certificate Authority (CA).In order to be properly imported, a CRL must be in PEM
- *          format. IAM Roles Anywhere
- *          validates against the CRL before issuing credentials. </p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ImportCrl</code>.
- *          </p>
+ * <p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have been revoked by the issuing certificate Authority (CA).In order to be properly imported, a CRL must be in PEM format. IAM Roles Anywhere validates against the CRL before issuing credentials. </p> <p> <b>Required permissions: </b> <code>rolesanywhere:ImportCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

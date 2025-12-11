@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateEventSourceCommand,
@@ -247,7 +247,7 @@ import {
   UpdateEventBusCommandInput,
   UpdateEventBusCommandOutput,
 } from "./commands/UpdateEventBusCommand";
-import { EventBridgeClient, EventBridgeClientConfig } from "./EventBridgeClient";
+import { EventBridgeClient } from "./EventBridgeClient";
 
 const commands = {
   ActivateEventSourceCommand,

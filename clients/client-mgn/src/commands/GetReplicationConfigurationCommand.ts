@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { GetReplicationConfigurationRequest, ReplicationConfiguration } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { GetReplicationConfigurationRequest, ReplicationConfiguration } from "../models/models_0";
 import { GetReplicationConfiguration } from "../schemas/schemas_0";
 
 /**
@@ -71,6 +71,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   useFipsEndpoint: true || false,
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

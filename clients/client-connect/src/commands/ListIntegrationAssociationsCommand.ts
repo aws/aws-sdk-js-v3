@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from "../models/models_1";
+import type { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from "../models/models_2";
 import { ListIntegrationAssociations } from "../schemas/schemas_0";
 
 /**
@@ -29,8 +29,7 @@ export interface ListIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the Amazon Web Services resource associations for the
- *    specified Amazon Connect instance.</p>
+ * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,7 +40,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * const client = new ConnectClient(config);
  * const input = { // ListIntegrationAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL",
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL" || "MESSAGE_PROCESSOR",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   IntegrationArn: "STRING_VALUE",
@@ -54,7 +53,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //       IntegrationAssociationArn: "STRING_VALUE",
  * //       InstanceId: "STRING_VALUE",
- * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL",
+ * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL" || "MESSAGE_PROCESSOR",
  * //       IntegrationArn: "STRING_VALUE",
  * //       SourceApplicationUrl: "STRING_VALUE",
  * //       SourceApplicationName: "STRING_VALUE",

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ActivateEvaluationFormRequest, ActivateEvaluationFormResponse } from "../models/models_0";
+import type { ActivateEvaluationFormRequest, ActivateEvaluationFormResponse } from "../models/models_0";
 import { ActivateEvaluationForm } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface ActivateEvaluationFormCommandInput extends ActivateEvaluationFo
 export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * <p>Activates an evaluation form in the specified Amazon Connect instance. After the
- *    evaluation form is activated, it is available to start new evaluations based on the form. </p>
+ * <p>Activates an evaluation form in the specified Amazon Connect instance. After the evaluation form is
+ *    activated, it is available to start new evaluations based on the form. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

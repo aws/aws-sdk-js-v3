@@ -99,7 +99,7 @@ const n0 = "com.amazonaws.codestarnotifications";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -121,48 +121,14 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var NotificationRuleName: StaticSimpleSchema = [0, n0, _NRN, 8, 0];
 export var TargetAddress: StaticSimpleSchema = [0, n0, _TA, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConfigurationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ConfigurationException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConfigurationException, __ConfigurationException);
-
 export var CreateNotificationRuleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -186,32 +152,10 @@ export var DescribeNotificationRuleResult: StaticStructureSchema = [
   [0, [() => NotificationRuleName, 0], () => EventTypeBatch, 0, [() => TargetsBatch, 0], 0, 0, 0, 4, 4, 128 | 0],
 ];
 export var EventTypeSummary: StaticStructureSchema = [3, n0, _ETS, 0, [_ETIv, _SN, _ETN, _RT], [0, 0, 0, 0]];
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListEventTypesFilter: StaticStructureSchema = [3, n0, _LETF, 0, [_N, _V], [0, 0]];
 export var ListEventTypesRequest: StaticStructureSchema = [
   3,
@@ -252,32 +196,10 @@ export var ListTargetsRequest: StaticStructureSchema = [
 ];
 export var ListTargetsResult: StaticStructureSchema = [3, n0, _LTRi, 0, [_T, _NT], [[() => TargetsBatch, 0], 0]];
 export var NotificationRuleSummary: StaticStructureSchema = [3, n0, _NRS, 0, [_I, _A], [0, 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SubscribeRequest: StaticStructureSchema = [3, n0, _SR, 0, [_A, _Tar, _CRT], [0, [() => Target, 0], 0]];
 export var SubscribeResult: StaticStructureSchema = [3, n0, _SRu, 0, [_A], [0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_A, _Ta], [0, 128 | 0]];
@@ -294,12 +216,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_A, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResult: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -312,21 +229,8 @@ export var UpdateNotificationRuleRequest: StaticStructureSchema = [
   [0, [() => NotificationRuleName, 0], 0, 64 | 0, [() => Targets, 0], 0],
 ];
 export var UpdateNotificationRuleResult: StaticStructureSchema = [3, n0, _UNRRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var CodestarNotificationsServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -336,27 +240,21 @@ export var CodestarNotificationsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_s).registerError(CodestarNotificationsServiceException, __CodestarNotificationsServiceException);
-
 export var EventTypeBatch: StaticListSchema = [1, n0, _ETB, 0, () => EventTypeSummary];
 export var EventTypeIds = 64 | 0;
-
 export var ListEventTypesFilters: StaticListSchema = [1, n0, _LETFi, 0, () => ListEventTypesFilter];
 export var ListNotificationRulesFilters: StaticListSchema = [1, n0, _LNRFi, 0, () => ListNotificationRulesFilter];
 export var ListTargetsFilters: StaticListSchema = [1, n0, _LTFi, 0, () => ListTargetsFilter];
 export var NotificationRuleBatch: StaticListSchema = [1, n0, _NRB, 0, () => NotificationRuleSummary];
 export var TagKeys = 64 | 0;
-
 export var Targets: StaticListSchema = [1, n0, _T, 0, [() => Target, 0]];
 export var TargetsBatch: StaticListSchema = [1, n0, _TB, 0, [() => TargetSummary, 0]];
 export var Tags = 128 | 0;
-
 export var CreateNotificationRule: StaticOperationSchema = [
   9,
   n0,
   _CNR,
-  {
-    [_h]: ["POST", "/createNotificationRule", 200],
-  },
+  { [_h]: ["POST", "/createNotificationRule", 200] },
   () => CreateNotificationRuleRequest,
   () => CreateNotificationRuleResult,
 ];
@@ -364,9 +262,7 @@ export var DeleteNotificationRule: StaticOperationSchema = [
   9,
   n0,
   _DNR,
-  {
-    [_h]: ["POST", "/deleteNotificationRule", 200],
-  },
+  { [_h]: ["POST", "/deleteNotificationRule", 200] },
   () => DeleteNotificationRuleRequest,
   () => DeleteNotificationRuleResult,
 ];
@@ -374,9 +270,7 @@ export var DeleteTarget: StaticOperationSchema = [
   9,
   n0,
   _DTe,
-  {
-    [_h]: ["POST", "/deleteTarget", 200],
-  },
+  { [_h]: ["POST", "/deleteTarget", 200] },
   () => DeleteTargetRequest,
   () => DeleteTargetResult,
 ];
@@ -384,9 +278,7 @@ export var DescribeNotificationRule: StaticOperationSchema = [
   9,
   n0,
   _DNRe,
-  {
-    [_h]: ["POST", "/describeNotificationRule", 200],
-  },
+  { [_h]: ["POST", "/describeNotificationRule", 200] },
   () => DescribeNotificationRuleRequest,
   () => DescribeNotificationRuleResult,
 ];
@@ -394,9 +286,7 @@ export var ListEventTypes: StaticOperationSchema = [
   9,
   n0,
   _LET,
-  {
-    [_h]: ["POST", "/listEventTypes", 200],
-  },
+  { [_h]: ["POST", "/listEventTypes", 200] },
   () => ListEventTypesRequest,
   () => ListEventTypesResult,
 ];
@@ -404,9 +294,7 @@ export var ListNotificationRules: StaticOperationSchema = [
   9,
   n0,
   _LNR,
-  {
-    [_h]: ["POST", "/listNotificationRules", 200],
-  },
+  { [_h]: ["POST", "/listNotificationRules", 200] },
   () => ListNotificationRulesRequest,
   () => ListNotificationRulesResult,
 ];
@@ -414,9 +302,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/listTagsForResource", 200],
-  },
+  { [_h]: ["POST", "/listTagsForResource", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResult,
 ];
@@ -424,9 +310,7 @@ export var ListTargets: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["POST", "/listTargets", 200],
-  },
+  { [_h]: ["POST", "/listTargets", 200] },
   () => ListTargetsRequest,
   () => ListTargetsResult,
 ];
@@ -434,9 +318,7 @@ export var Subscribe: StaticOperationSchema = [
   9,
   n0,
   _Su,
-  {
-    [_h]: ["POST", "/subscribe", 200],
-  },
+  { [_h]: ["POST", "/subscribe", 200] },
   () => SubscribeRequest,
   () => SubscribeResult,
 ];
@@ -444,9 +326,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tagResource", 200],
-  },
+  { [_h]: ["POST", "/tagResource", 200] },
   () => TagResourceRequest,
   () => TagResourceResult,
 ];
@@ -454,9 +334,7 @@ export var Unsubscribe: StaticOperationSchema = [
   9,
   n0,
   _U,
-  {
-    [_h]: ["POST", "/unsubscribe", 200],
-  },
+  { [_h]: ["POST", "/unsubscribe", 200] },
   () => UnsubscribeRequest,
   () => UnsubscribeResult,
 ];
@@ -464,9 +342,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _URnt,
-  {
-    [_h]: ["POST", "/untagResource/{Arn}", 200],
-  },
+  { [_h]: ["POST", "/untagResource/{Arn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResult,
 ];
@@ -474,9 +350,7 @@ export var UpdateNotificationRule: StaticOperationSchema = [
   9,
   n0,
   _UNR,
-  {
-    [_h]: ["POST", "/updateNotificationRule", 200],
-  },
+  { [_h]: ["POST", "/updateNotificationRule", 200] },
   () => UpdateNotificationRuleRequest,
   () => UpdateNotificationRuleResult,
 ];

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateAwsLogSourceCommand,
@@ -153,7 +153,7 @@ import {
   UpdateSubscriberNotificationCommandInput,
   UpdateSubscriberNotificationCommandOutput,
 } from "./commands/UpdateSubscriberNotificationCommand";
-import { SecurityLakeClient, SecurityLakeClientConfig } from "./SecurityLakeClient";
+import { SecurityLakeClient } from "./SecurityLakeClient";
 
 const commands = {
   CreateAwsLogSourceCommand,

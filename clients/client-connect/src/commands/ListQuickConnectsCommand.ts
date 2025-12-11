@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQuickConnectsRequest, ListQuickConnectsResponse } from "../models/models_1";
+import type { ListQuickConnectsRequest, ListQuickConnectsResponse } from "../models/models_2";
 import { ListQuickConnects } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface ListQuickConnectsCommandInput extends ListQuickConnectsRequest 
 export interface ListQuickConnectsCommandOutput extends ListQuickConnectsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the quick connects for the specified Amazon Connect instance.
- *   </p>
+ * <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,7 +41,7 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   QuickConnectTypes: [ // QuickConnectTypes
- *     "USER" || "QUEUE" || "PHONE_NUMBER",
+ *     "USER" || "QUEUE" || "PHONE_NUMBER" || "FLOW",
  *   ],
  * };
  * const command = new ListQuickConnectsCommand(input);
@@ -53,7 +52,7 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
+ * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER" || "FLOW",
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",
  * //     },

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
+import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCollaborationMLInputChannelRequest, GetCollaborationMLInputChannelResponse } from "../models/models_0";
+import type { GetCollaborationMLInputChannelRequest, GetCollaborationMLInputChannelResponse } from "../models/models_0";
 import { GetCollaborationMLInputChannel } from "../schemas/schemas_0";
 
 /**
@@ -78,6 +78,31 @@ export interface GetCollaborationMLInputChannelCommandOutput
  * //     ],
  * //   },
  * //   description: "STRING_VALUE",
+ * //   syntheticDataConfiguration: { // SyntheticDataConfiguration
+ * //     syntheticDataParameters: { // MLSyntheticDataParameters
+ * //       epsilon: Number("double"), // required
+ * //       maxMembershipInferenceAttackScore: Number("double"), // required
+ * //       columnClassification: { // ColumnClassificationDetails
+ * //         columnMapping: [ // ColumnMappingList // required
+ * //           { // SyntheticDataColumnProperties
+ * //             columnName: "STRING_VALUE", // required
+ * //             columnType: "CATEGORICAL" || "NUMERICAL", // required
+ * //             isPredictiveValue: true || false, // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     syntheticDataEvaluationScores: { // SyntheticDataEvaluationScores
+ * //       dataPrivacyScores: { // DataPrivacyScores
+ * //         membershipInferenceAttackScores: [ // MembershipInferenceAttackScoreList // required
+ * //           { // MembershipInferenceAttackScore
+ * //             attackVersion: "DISTANCE_TO_CLOSEST_RECORD_V1", // required
+ * //             score: Number("double"), // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
  * //   createTime: new Date("TIMESTAMP"), // required
  * //   updateTime: new Date("TIMESTAMP"), // required
  * //   creatorAccountId: "STRING_VALUE", // required

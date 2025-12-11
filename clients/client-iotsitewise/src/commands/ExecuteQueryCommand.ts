@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ExecuteQueryRequest } from "../models/models_0";
-import { ExecuteQueryResponse } from "../models/models_1";
+import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import type { ExecuteQueryRequest } from "../models/models_0";
+import type { ExecuteQueryResponse } from "../models/models_1";
 import { ExecuteQuery } from "../schemas/schemas_0";
 
 /**

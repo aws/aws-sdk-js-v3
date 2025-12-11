@@ -1,7 +1,65 @@
 // smithy-typescript generated code
 import {
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
+  getHostHeaderPlugin,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
+import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
+  getUserAgentPlugin,
+  resolveUserAgentConfig,
+} from "@aws-sdk/middleware-user-agent";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import {
+  type EndpointInputConfig,
+  type EndpointRequiredInputConfig,
+  type EndpointRequiredResolvedConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+  resolveEndpointRequiredConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+  Client as __Client,
+} from "@smithy/smithy-client";
+import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
+  Provider,
+  UserAgent as __UserAgent,
+} from "@smithy/types";
+
+import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultWeatherHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
@@ -35,65 +93,13 @@ import {
 } from "./commands/OnlySigv4AuthOptionalCommand";
 import { SameAsServiceCommandInput, SameAsServiceCommandOutput } from "./commands/SameAsServiceCommand";
 import {
-  ClientInputEndpointParameters,
-  ClientResolvedEndpointParameters,
-  EndpointParameters,
+  type ClientInputEndpointParameters,
+  type ClientResolvedEndpointParameters,
+  type EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { RuntimeExtension, RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
-import {
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
-import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
-import {
-  DefaultIdentityProviderConfig,
-  getHttpAuthSchemeEndpointRuleSetPlugin,
-  getHttpSigningPlugin,
-} from "@smithy/core";
-import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import {
-  EndpointInputConfig,
-  EndpointRequiredInputConfig,
-  EndpointRequiredResolvedConfig,
-  EndpointResolvedConfig,
-  resolveEndpointConfig,
-  resolveEndpointRequiredConfig,
-} from "@smithy/middleware-endpoint";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
-import {
-  Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@smithy/smithy-client";
-import {
-  Provider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  Logger as __Logger,
-  Provider as __Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  UserAgent as __UserAgent,
-} from "@smithy/types";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -319,18 +325,18 @@ export class WeatherClient extends __Client<
   readonly config: WeatherClientResolvedConfig;
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
-    let _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_0 = __getRuntimeConfig(configuration || {});
     super(_config_0 as any);
     this.initConfig = _config_0;
-    let _config_1 = resolveClientEndpointParameters(_config_0);
-    let _config_2 = resolveUserAgentConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveRegionConfig(_config_3);
-    let _config_5 = resolveHostHeaderConfig(_config_4);
-    let _config_6 = resolveEndpointConfig(_config_5);
-    let _config_7 = resolveEndpointRequiredConfig(_config_6);
-    let _config_8 = resolveHttpAuthSchemeConfig(_config_7);
-    let _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveEndpointRequiredConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     this.config = _config_9;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

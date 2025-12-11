@@ -2,11 +2,11 @@
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBCluster } from "../schemas/schemas_0";
 
 /**
@@ -133,6 +133,17 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new CreateDBClusterCommand(input);

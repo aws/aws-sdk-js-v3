@@ -1,9 +1,13 @@
 // smithy-typescript generated code
 import {
+  ConnectionScope,
+  ConnectionType,
+  EnvironmentStatus,
   FilterStatus,
   GroupProfileStatus,
   InventorySearchScope,
   ProjectStatus,
+  ResolutionStrategy,
   SearchOutputAdditionalAttribute,
   Status,
   SubscriptionGrantOverallStatus,
@@ -15,20 +19,29 @@ import {
 } from "./enums";
 
 import {
-  ActionParameters,
+  type AccountSource,
+  type ActionParameters,
+  type AwsLocation,
+  type ConnectionPropertiesOutput,
+  type ConnectionPropertiesPatch,
+  type Deployment,
+  type DeploymentProperties,
+  type EnvironmentDeploymentDetails,
+  type FailureCause,
+  type GrantedEntity,
+  type ProvisioningProperties,
+  type UserProfileDetails,
   AggregationListItem,
   ColumnFilterConfiguration,
+  ConfigurableEnvironmentAction,
   CustomParameter,
-  DeploymentProperties,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
-  EnvironmentDeploymentDetails,
   EnvironmentParameter,
-  FailureCause,
   FormOutput,
-  GrantedEntity,
+  PhysicalEndpoint,
   ProjectDeletionError,
-  ProvisioningProperties,
+  Resource,
   ResourceTag,
   ResourceTagParameter,
   RowFilterExpression,
@@ -36,10 +49,411 @@ import {
   SubscribedListing,
   SubscribedPrincipal,
   SubscriptionTargetForm,
-  UserProfileDetails,
 } from "./models_0";
 
-import { Filter, SearchInItem, SearchSort } from "./models_1";
+import { type SearchSort, Filter, SearchInItem } from "./models_1";
+
+/**
+ * @public
+ */
+export interface UpdateAccountPoolInput {
+  /**
+   * <p>The domain ID where the account pool that is to be updated lives.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the account pool that is to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the account pool that is to be updated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the account pool that is to be udpated.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy?: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+   * @public
+   */
+  accountSource?: AccountSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountPoolOutput {
+  /**
+   * <p>The domain ID where the account pool that is to be updated lives.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The name of the account pool that is to be updated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The ID of the account pool that is to be updated.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The description of the account pool that is to be udpated.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * @public
+   */
+  resolutionStrategy?: ResolutionStrategy | undefined;
+
+  /**
+   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+   * @public
+   */
+  accountSource: AccountSource | undefined;
+
+  /**
+   * <p>The user who created the account pool.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the account pool was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the account pool was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who last updated the account pool.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The domain ID in which the account pool that is to be updated lives.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectionInput {
+  /**
+   * <p>The ID of the domain where a connection is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the connection to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The description of a connection.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The location where a connection is to be updated.</p>
+   * @public
+   */
+  awsLocation?: AwsLocation | undefined;
+
+  /**
+   * <p>The connection props.</p>
+   * @public
+   */
+  props?: ConnectionPropertiesPatch | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectionOutput {
+  /**
+   * <p>The ID of the connection.</p>
+   * @public
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The connection description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ID of the domain where a connection is to be updated.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the domain unit where a connection is to be updated.</p>
+   * @public
+   */
+  domainUnitId: string | undefined;
+
+  /**
+   * <p>The ID of the environment where a connection is to be updated.</p>
+   * @public
+   */
+  environmentId?: string | undefined;
+
+  /**
+   * <p>The name of the connection.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The physical endpoints of the connection.</p>
+   * @public
+   */
+  physicalEndpoints: PhysicalEndpoint[] | undefined;
+
+  /**
+   * <p>The project ID of the connection.</p>
+   * @public
+   */
+  projectId?: string | undefined;
+
+  /**
+   * <p>The connection props.</p>
+   * @public
+   */
+  props?: ConnectionPropertiesOutput | undefined;
+
+  /**
+   * <p>The connection type.</p>
+   * @public
+   */
+  type: ConnectionType | undefined;
+
+  /**
+   * <p>The scope of the connection.</p>
+   * @public
+   */
+  scope?: ConnectionScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentInput {
+  /**
+   * <p>The identifier of the domain in which the environment is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment that is to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The blueprint version to which the environment should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
+   * @public
+   */
+  blueprintVersion?: string | undefined;
+
+  /**
+   * <p>The user parameters of the environment.</p>
+   * @public
+   */
+  userParameters?: EnvironmentParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentOutput {
+  /**
+   * <p>The project identifier of the environment.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The identifier of the environment that is to be updated.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The identifier of the domain in which the environment is to be updated.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the environment.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp of when the environment was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the environment was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The profile identifier of the environment.</p>
+   * @public
+   */
+  environmentProfileId?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account in which the environment is to be updated.</p>
+   * @public
+   */
+  awsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region in which the environment is updated.</p>
+   * @public
+   */
+  awsAccountRegion?: string | undefined;
+
+  /**
+   * <p>The provider identifier of the environment.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioned resources to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  provisionedResources?: Resource[] | undefined;
+
+  /**
+   * <p>The status to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  status?: EnvironmentStatus | undefined;
+
+  /**
+   * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  environmentActions?: ConfigurableEnvironmentAction[] | undefined;
+
+  /**
+   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The last deployment of the environment.</p>
+   * @public
+   */
+  lastDeployment?: Deployment | undefined;
+
+  /**
+   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  provisioningProperties?: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
+   */
+  deploymentProperties?: DeploymentProperties | undefined;
+
+  /**
+   * <p>The blueprint identifier of the environment.</p>
+   * @public
+   */
+  environmentBlueprintId?: string | undefined;
+
+  /**
+   * <p>The configuration ID of the environment.</p>
+   * @public
+   */
+  environmentConfigurationId?: string | undefined;
+}
 
 /**
  * @public

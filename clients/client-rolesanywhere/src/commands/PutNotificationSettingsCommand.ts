@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutNotificationSettingsRequest, PutNotificationSettingsResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { PutNotificationSettingsRequest, PutNotificationSettingsResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { PutNotificationSettings } from "../schemas/schemas_0";
 
 /**
@@ -27,13 +27,7 @@ export interface PutNotificationSettingsCommandInput extends PutNotificationSett
 export interface PutNotificationSettingsCommandOutput extends PutNotificationSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches a list of <i>notification settings</i> to a trust anchor.</p>
- *          <p>A notification setting includes information such as event name, threshold, status of
- *          the notification setting, and the channel to notify.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:PutNotificationSettings</code>.
- *          </p>
+ * <p>Attaches a list of <i>notification settings</i> to a trust anchor.</p> <p>A notification setting includes information such as event name, threshold, status of the notification setting, and the channel to notify.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:PutNotificationSettings</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

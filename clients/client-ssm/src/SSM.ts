@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddTagsToResourceCommand,
@@ -716,7 +716,7 @@ import {
   UpdateServiceSettingCommandInput,
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
-import { SSMClient, SSMClientConfig } from "./SSMClient";
+import { SSMClient } from "./SSMClient";
 
 const commands = {
   AddTagsToResourceCommand,

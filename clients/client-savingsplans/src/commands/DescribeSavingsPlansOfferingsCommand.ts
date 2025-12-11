@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
-import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
+import type { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
+import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { DescribeSavingsPlansOfferings } from "../schemas/schemas_0";
 
 /**
@@ -45,15 +45,15 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  *   paymentOptions: [ // SavingsPlanPaymentOptionList
  *     "All Upfront" || "Partial Upfront" || "No Upfront",
  *   ],
- *   productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ *   productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
  *   planTypes: [ // SavingsPlanTypeList
- *     "Compute" || "EC2Instance" || "SageMaker",
+ *     "Compute" || "EC2Instance" || "SageMaker" || "Database",
  *   ],
  *   durations: [ // DurationsList
  *     Number("long"),
  *   ],
  *   currencies: [ // CurrencyList
- *     "CNY" || "USD",
+ *     "CNY" || "USD" || "EUR",
  *   ],
  *   descriptions: [ // SavingsPlanDescriptionsList
  *     "STRING_VALUE",
@@ -85,13 +85,13 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * //     { // SavingsPlanOffering
  * //       offeringId: "STRING_VALUE",
  * //       productTypes: [ // SavingsPlanProductTypeList
- * //         "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ * //         "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
  * //       ],
- * //       planType: "Compute" || "EC2Instance" || "SageMaker",
+ * //       planType: "Compute" || "EC2Instance" || "SageMaker" || "Database",
  * //       description: "STRING_VALUE",
  * //       paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
  * //       durationSeconds: Number("long"),
- * //       currency: "CNY" || "USD",
+ * //       currency: "CNY" || "USD" || "EUR",
  * //       serviceCode: "STRING_VALUE",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/models_0";
-import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
+import type { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/models_0";
+import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { DescribeSavingsPlanRates } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface DescribeSavingsPlanRatesCommandInput extends DescribeSavingsPla
 export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPlanRatesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the rates for the specified Savings Plan.</p>
+ * <p>Describes the rates for a specific, existing Savings Plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,10 +56,10 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * //   searchResults: [ // SavingsPlanRateList
  * //     { // SavingsPlanRate
  * //       rate: "STRING_VALUE",
- * //       currency: "CNY" || "USD",
- * //       unit: "Hrs" || "Lambda-GB-Second" || "Request",
- * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
- * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
+ * //       currency: "CNY" || "USD" || "EUR",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request" || "ACU-Hr" || "ReadRequestUnits" || "WriteRequestUnits" || "ReadCapacityUnit-Hrs" || "WriteCapacityUnit-Hrs" || "ReplicatedWriteRequestUnits" || "ReplicatedWriteCapacityUnit-Hrs" || "GB-Hours" || "DPU" || "ElastiCacheProcessingUnit" || "DCU-Hr" || "NCU-hr",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanRatePropertyList
@@ -80,6 +80,9 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * @see {@link DescribeSavingsPlanRatesCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlanRatesCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateTrainingJobRequest } from "../models/models_1";
-import { CreateTrainingJobResponse } from "../models/models_2";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { CreateTrainingJobRequest, CreateTrainingJobResponse } from "../models/models_2";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateTrainingJob } from "../schemas/schemas_0";
 
 /**
@@ -93,6 +92,9 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *           FileSystemAccessMode: "rw" || "ro", // required
  *           FileSystemType: "EFS" || "FSxLustre", // required
  *           DirectoryPath: "STRING_VALUE", // required
+ *         },
+ *         DatasetSource: { // DatasetSource
+ *           DatasetArn: "STRING_VALUE", // required
  *         },
  *       },
  *       ContentType: "STRING_VALUE",
@@ -232,6 +234,24 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *   },
  *   SessionChainingConfig: { // SessionChainingConfig
  *     EnableSessionTagChaining: true || false,
+ *   },
+ *   ServerlessJobConfig: { // ServerlessJobConfig
+ *     BaseModelArn: "STRING_VALUE", // required
+ *     AcceptEula: true || false,
+ *     JobType: "FineTuning" || "Evaluation", // required
+ *     CustomizationTechnique: "SFT" || "DPO" || "RLVR" || "RLAIF",
+ *     Peft: "LORA",
+ *     EvaluationType: "LLMAJEvaluation" || "CustomScorerEvaluation" || "BenchmarkEvaluation",
+ *     EvaluatorArn: "STRING_VALUE",
+ *   },
+ *   MlflowConfig: { // MlflowConfig
+ *     MlflowResourceArn: "STRING_VALUE", // required
+ *     MlflowExperimentName: "STRING_VALUE",
+ *     MlflowRunName: "STRING_VALUE",
+ *   },
+ *   ModelPackageConfig: { // ModelPackageConfig
+ *     ModelPackageGroupArn: "STRING_VALUE", // required
+ *     SourceModelPackageArn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateTrainingJobCommand(input);

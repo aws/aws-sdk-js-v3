@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetNotificationSettingsRequest, ResetNotificationSettingsResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ResetNotificationSettingsRequest, ResetNotificationSettingsResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ResetNotificationSettings } from "../schemas/schemas_0";
 
 /**
@@ -27,12 +27,7 @@ export interface ResetNotificationSettingsCommandInput extends ResetNotification
 export interface ResetNotificationSettingsCommandOutput extends ResetNotificationSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the <i>custom notification setting</i> to IAM Roles Anywhere default setting.
- *       </p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ResetNotificationSettings</code>.
- *          </p>
+ * <p>Resets the <i>custom notification setting</i> to IAM Roles Anywhere default setting. </p> <p> <b>Required permissions: </b> <code>rolesanywhere:ResetNotificationSettings</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

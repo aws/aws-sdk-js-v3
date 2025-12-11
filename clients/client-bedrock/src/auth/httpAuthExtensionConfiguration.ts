@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import {
+  type HttpAuthScheme,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
-  HttpAuthScheme,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
 
-import { BedrockHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
+import type { BedrockHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal

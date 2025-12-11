@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMessagesRequest, ListMessagesResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { ListMessagesRequest, ListMessagesResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { ListMessages } from "../schemas/schemas_0";
 
 /**
@@ -41,6 +41,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  *   sessionId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   filter: "STRING_VALUE",
  * };
  * const command = new ListMessagesCommand(input);
  * const response = await client.send(command);
@@ -50,6 +51,28 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //       value: { // MessageData Union: only one key present
  * //         text: { // TextMessage
  * //           value: "STRING_VALUE",
+ * //           citations: [ // Citations
+ * //             { // Citation
+ * //               contentId: "STRING_VALUE",
+ * //               title: "STRING_VALUE",
+ * //               knowledgeBaseId: "STRING_VALUE",
+ * //               citationSpan: { // CitationSpan
+ * //                 beginOffsetInclusive: Number("int"),
+ * //                 endOffsetExclusive: Number("int"),
+ * //               },
+ * //               sourceURL: "STRING_VALUE",
+ * //               referenceType: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           aiGuardrailAssessment: { // AIGuardrailAssessment
+ * //             blocked: true || false, // required
+ * //           },
+ * //         },
+ * //         toolUseResult: { // ToolUseResultData
+ * //           toolUseId: "STRING_VALUE", // required
+ * //           toolName: "STRING_VALUE", // required
+ * //           toolResult: "DOCUMENT_VALUE", // required
+ * //           inputSchema: "DOCUMENT_VALUE",
  * //         },
  * //       },
  * //       messageId: "STRING_VALUE", // required

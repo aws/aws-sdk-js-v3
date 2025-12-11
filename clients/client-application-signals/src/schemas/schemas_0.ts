@@ -275,7 +275,7 @@ const n0 = "com.amazonaws.applicationsignals";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -294,21 +294,15 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AttributeFilter: StaticStructureSchema = [3, n0, _AF, 0, [_AFN, _AFV], [0, 64 | 0]];
 export var AuditFinding: StaticStructureSchema = [
   3,
@@ -364,19 +358,8 @@ export var ChangeEvent: StaticStructureSchema = [
   [_Ti, _AI, _Re, _En, _CET, _EI, _UN, _EN],
   [4, 0, 0, 128 | 0, 0, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateServiceLevelObjectiveInput: StaticStructureSchema = [
   3,
   n0,
@@ -422,21 +405,7 @@ export var GetServiceInput: StaticStructureSchema = [
   _GSI,
   0,
   [_ST, _ET, _KA],
-  [
-    [
-      4,
-      {
-        [_hQ]: _ST,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    128 | 0,
-  ],
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0],
 ];
 export var GetServiceLevelObjectiveInput: StaticStructureSchema = [3, n0, _GSLOI, 0, [_I], [[0, 1]]];
 export var GetServiceLevelObjectiveOutput: StaticStructureSchema = [
@@ -471,25 +440,7 @@ export var ListAuditFindingsInput: StaticStructureSchema = [
   _LAFI,
   0,
   [_ST, _ET, _Au, _ATu, _DL, _NT, _MR],
-  [
-    [
-      4,
-      {
-        [_hQ]: _ST,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    64 | 0,
-    () => AuditTargets,
-    0,
-    0,
-    1,
-  ],
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 64 | 0, () => AuditTargets, 0, 0, 1],
 ];
 export var ListAuditFindingsOutput: StaticStructureSchema = [
   3,
@@ -505,23 +456,7 @@ export var ListEntityEventsInput: StaticStructureSchema = [
   _LEEI,
   0,
   [_En, _ST, _ET, _MR, _NT],
-  [
-    128 | 0,
-    4,
-    4,
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-  ],
+  [128 | 0, 4, 4, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]],
 ];
 export var ListEntityEventsOutput: StaticStructureSchema = [
   3,
@@ -538,24 +473,9 @@ export var ListGroupingAttributeDefinitionsInput: StaticStructureSchema = [
   0,
   [_NT, _AAI, _ILA],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AAI,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _ILA,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [0, { [_hQ]: _AAI }],
+    [2, { [_hQ]: _ILA }],
   ],
 ];
 export var ListGroupingAttributeDefinitionsOutput: StaticStructureSchema = [
@@ -572,33 +492,7 @@ export var ListServiceDependenciesInput: StaticStructureSchema = [
   _LSDI,
   0,
   [_ST, _ET, _KA, _MR, _NT],
-  [
-    [
-      4,
-      {
-        [_hQ]: _ST,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    128 | 0,
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-  ],
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]],
 ];
 export var ListServiceDependenciesOutput: StaticStructureSchema = [
   3,
@@ -614,33 +508,7 @@ export var ListServiceDependentsInput: StaticStructureSchema = [
   _LSDIi,
   0,
   [_ST, _ET, _KA, _MR, _NT],
-  [
-    [
-      4,
-      {
-        [_hQ]: _ST,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    128 | 0,
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-  ],
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]],
 ];
 export var ListServiceDependentsOutput: StaticStructureSchema = [
   3,
@@ -658,18 +526,8 @@ export var ListServiceLevelObjectiveExclusionWindowsInput: StaticStructureSchema
   [_I, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListServiceLevelObjectiveExclusionWindowsOutput: StaticStructureSchema = [
@@ -688,37 +546,12 @@ export var ListServiceLevelObjectivesInput: StaticStructureSchema = [
   [_KA, _ON, _DC, _MR, _NT, _ILA, _SOAAI, _MST],
   [
     128 | 0,
-    [
-      0,
-      {
-        [_hQ]: _ON,
-      },
-    ],
+    [0, { [_hQ]: _ON }],
     () => DependencyConfig,
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _ILA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SOAAI,
-      },
-    ],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
+    [2, { [_hQ]: _ILA }],
+    [0, { [_hQ]: _SOAAI }],
     64 | 0,
   ],
 ];
@@ -736,33 +569,7 @@ export var ListServiceOperationsInput: StaticStructureSchema = [
   _LSOI,
   0,
   [_ST, _ET, _KA, _MR, _NT],
-  [
-    [
-      4,
-      {
-        [_hQ]: _ST,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    128 | 0,
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-  ],
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]],
 ];
 export var ListServiceOperationsOutput: StaticStructureSchema = [
   3,
@@ -779,42 +586,12 @@ export var ListServicesInput: StaticStructureSchema = [
   0,
   [_ST, _ET, _MR, _NT, _ILA, _AAI],
   [
-    [
-      4,
-      {
-        [_hQ]: _ST,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _ET,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _ILA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _AAI,
-      },
-    ],
+    [4, { [_hQ]: _ST }],
+    [4, { [_hQ]: _ET }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
+    [2, { [_hQ]: _ILA }],
+    [0, { [_hQ]: _AAI }],
   ],
 ];
 export var ListServicesOutput: StaticStructureSchema = [
@@ -841,21 +618,7 @@ export var ListServiceStatesOutput: StaticStructureSchema = [
   [_ST, _ET, _SSer, _NT],
   [4, 4, () => ServiceStates, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_RA],
-  [
-    [
-      0,
-      {
-        [_hQ]: _RA,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, { [_hQ]: _RA }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
 export var Metric: StaticStructureSchema = [3, n0, _Me, 0, [_Na, _MN, _Dim], [0, 0, () => Dimensions]];
 export var MetricDataQuery: StaticStructureSchema = [
@@ -937,15 +700,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_RT, _RI, _M],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RollingInterval: StaticStructureSchema = [3, n0, _RIo, 0, [_DU, _Du], [0, 1]];
 export var Service: StaticStructureSchema = [
   3,
@@ -1059,19 +818,8 @@ export var ServiceOperationEntity: StaticStructureSchema = [
   [_Se, _O, _MT],
   [() => ServiceEntity, 0, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ServiceState: StaticStructureSchema = [
   3,
   n0,
@@ -1093,19 +841,8 @@ export var StartDiscoveryOutput: StaticStructureSchema = [3, n0, _SDO, 0, [], []
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateServiceLevelObjectiveInput: StaticStructureSchema = [
@@ -1135,19 +872,13 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationError`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationError`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Window: StaticStructureSchema = [3, n0, _W, 0, [_DU, _Du], [0, 1]];
 export var __Unit = "unit" as const;
-
 export var ApplicationSignalsServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -1157,15 +888,12 @@ export var ApplicationSignalsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_s).registerError(ApplicationSignalsServiceException, __ApplicationSignalsServiceException);
-
 export var AttributeFilters: StaticListSchema = [1, n0, _AFt, 0, () => AttributeFilter];
 export var AttributeFilterValues = 64 | 0;
-
 export var AttributeMaps: StaticListSchema = [1, n0, _AM, 0, 128 | 0];
 export var AuditFindings: StaticListSchema = [1, n0, _AFud, 0, () => AuditFinding];
 export var AuditorResults: StaticListSchema = [1, n0, _AR, 0, () => AuditorResult];
 export var Auditors = 64 | 0;
-
 export var AuditTargets: StaticListSchema = [1, n0, _ATu, 0, () => AuditTarget];
 export var BatchUpdateExclusionWindowsErrors: StaticListSchema = [
   1,
@@ -1181,13 +909,11 @@ export var Edges: StaticListSchema = [1, n0, _Ed, 0, () => Edge];
 export var ExclusionWindows: StaticListSchema = [1, n0, _EWx, 0, () => ExclusionWindow];
 export var GroupingAttributeDefinitions: StaticListSchema = [1, n0, _GADr, 0, () => GroupingAttributeDefinition];
 export var GroupingSourceKeyStringList = 64 | 0;
-
 export var LatestChangeEvents: StaticListSchema = [1, n0, _LCE, 0, () => ChangeEvent];
 export var LogGroupReferences: StaticListSchema = [1, n0, _LGR, 0, 128 | 0];
 export var MetricDataQueries: StaticListSchema = [1, n0, _MDQe, 0, () => MetricDataQuery];
 export var MetricReferences: StaticListSchema = [1, n0, _MRet, 0, () => MetricReference];
 export var MetricSourceTypes = 64 | 0;
-
 export var Nodes: StaticListSchema = [1, n0, _No, 0, () => Node];
 export var ServiceDependencies: StaticListSchema = [1, n0, _SD, 0, () => ServiceDependency];
 export var ServiceDependents: StaticListSchema = [1, n0, _SDe, 0, () => ServiceDependent];
@@ -1207,20 +933,15 @@ export var ServiceLevelObjectiveBudgetReports: StaticListSchema = [
   () => ServiceLevelObjectiveBudgetReport,
 ];
 export var ServiceLevelObjectiveIds = 64 | 0;
-
 export var ServiceLevelObjectiveSummaries: StaticListSchema = [1, n0, _SLOSe, 0, () => ServiceLevelObjectiveSummary];
 export var ServiceOperations: StaticListSchema = [1, n0, _SO, 0, () => ServiceOperation];
 export var ServiceStates: StaticListSchema = [1, n0, _SSer, 0, () => ServiceState];
 export var ServiceSummaries: StaticListSchema = [1, n0, _SSe, 0, () => ServiceSummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var AttributeMap = 128 | 0;
-
 export var Attributes = 128 | 0;
-
 export var DataMap = 128 | 0;
-
 export var AuditTargetEntity: StaticStructureSchema = [
   3,
   n0,
@@ -1249,9 +970,7 @@ export var BatchGetServiceLevelObjectiveBudgetReport: StaticOperationSchema = [
   9,
   n0,
   _BGSLOBR,
-  {
-    [_h]: ["POST", "/budget-report", 200],
-  },
+  { [_h]: ["POST", "/budget-report", 200] },
   () => BatchGetServiceLevelObjectiveBudgetReportInput,
   () => BatchGetServiceLevelObjectiveBudgetReportOutput,
 ];
@@ -1259,9 +978,7 @@ export var BatchUpdateExclusionWindows: StaticOperationSchema = [
   9,
   n0,
   _BUEW,
-  {
-    [_h]: ["PATCH", "/exclusion-windows", 200],
-  },
+  { [_h]: ["PATCH", "/exclusion-windows", 200] },
   () => BatchUpdateExclusionWindowsInput,
   () => BatchUpdateExclusionWindowsOutput,
 ];
@@ -1269,9 +986,7 @@ export var CreateServiceLevelObjective: StaticOperationSchema = [
   9,
   n0,
   _CSLO,
-  {
-    [_h]: ["POST", "/slo", 200],
-  },
+  { [_h]: ["POST", "/slo", 200] },
   () => CreateServiceLevelObjectiveInput,
   () => CreateServiceLevelObjectiveOutput,
 ];
@@ -1279,9 +994,7 @@ export var DeleteGroupingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DGC,
-  {
-    [_h]: ["DELETE", "/grouping-configuration", 200],
-  },
+  { [_h]: ["DELETE", "/grouping-configuration", 200] },
   () => __Unit,
   () => DeleteGroupingConfigurationOutput,
 ];
@@ -1289,9 +1002,7 @@ export var DeleteServiceLevelObjective: StaticOperationSchema = [
   9,
   n0,
   _DSLO,
-  {
-    [_h]: ["DELETE", "/slo/{Id}", 200],
-  },
+  { [_h]: ["DELETE", "/slo/{Id}", 200] },
   () => DeleteServiceLevelObjectiveInput,
   () => DeleteServiceLevelObjectiveOutput,
 ];
@@ -1299,9 +1010,7 @@ export var GetService: StaticOperationSchema = [
   9,
   n0,
   _GSe,
-  {
-    [_h]: ["POST", "/service", 200],
-  },
+  { [_h]: ["POST", "/service", 200] },
   () => GetServiceInput,
   () => GetServiceOutput,
 ];
@@ -1309,9 +1018,7 @@ export var GetServiceLevelObjective: StaticOperationSchema = [
   9,
   n0,
   _GSLO,
-  {
-    [_h]: ["GET", "/slo/{Id}", 200],
-  },
+  { [_h]: ["GET", "/slo/{Id}", 200] },
   () => GetServiceLevelObjectiveInput,
   () => GetServiceLevelObjectiveOutput,
 ];
@@ -1319,9 +1026,7 @@ export var ListAuditFindings: StaticOperationSchema = [
   9,
   n0,
   _LAF,
-  {
-    [_h]: ["POST", "/auditFindings", 200],
-  },
+  { [_h]: ["POST", "/auditFindings", 200] },
   () => ListAuditFindingsInput,
   () => ListAuditFindingsOutput,
 ];
@@ -1329,9 +1034,7 @@ export var ListEntityEvents: StaticOperationSchema = [
   9,
   n0,
   _LEE,
-  {
-    [_h]: ["POST", "/events", 200],
-  },
+  { [_h]: ["POST", "/events", 200] },
   () => ListEntityEventsInput,
   () => ListEntityEventsOutput,
 ];
@@ -1339,9 +1042,7 @@ export var ListGroupingAttributeDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LGAD,
-  {
-    [_h]: ["POST", "/grouping-attribute-definitions", 200],
-  },
+  { [_h]: ["POST", "/grouping-attribute-definitions", 200] },
   () => ListGroupingAttributeDefinitionsInput,
   () => ListGroupingAttributeDefinitionsOutput,
 ];
@@ -1349,9 +1050,7 @@ export var ListServiceDependencies: StaticOperationSchema = [
   9,
   n0,
   _LSD,
-  {
-    [_h]: ["POST", "/service-dependencies", 200],
-  },
+  { [_h]: ["POST", "/service-dependencies", 200] },
   () => ListServiceDependenciesInput,
   () => ListServiceDependenciesOutput,
 ];
@@ -1359,9 +1058,7 @@ export var ListServiceDependents: StaticOperationSchema = [
   9,
   n0,
   _LSDi,
-  {
-    [_h]: ["POST", "/service-dependents", 200],
-  },
+  { [_h]: ["POST", "/service-dependents", 200] },
   () => ListServiceDependentsInput,
   () => ListServiceDependentsOutput,
 ];
@@ -1369,9 +1066,7 @@ export var ListServiceLevelObjectiveExclusionWindows: StaticOperationSchema = [
   9,
   n0,
   _LSLOEW,
-  {
-    [_h]: ["GET", "/slo/{Id}/exclusion-windows", 200],
-  },
+  { [_h]: ["GET", "/slo/{Id}/exclusion-windows", 200] },
   () => ListServiceLevelObjectiveExclusionWindowsInput,
   () => ListServiceLevelObjectiveExclusionWindowsOutput,
 ];
@@ -1379,9 +1074,7 @@ export var ListServiceLevelObjectives: StaticOperationSchema = [
   9,
   n0,
   _LSLO,
-  {
-    [_h]: ["POST", "/slos", 200],
-  },
+  { [_h]: ["POST", "/slos", 200] },
   () => ListServiceLevelObjectivesInput,
   () => ListServiceLevelObjectivesOutput,
 ];
@@ -1389,9 +1082,7 @@ export var ListServiceOperations: StaticOperationSchema = [
   9,
   n0,
   _LSOi,
-  {
-    [_h]: ["POST", "/service-operations", 200],
-  },
+  { [_h]: ["POST", "/service-operations", 200] },
   () => ListServiceOperationsInput,
   () => ListServiceOperationsOutput,
 ];
@@ -1399,9 +1090,7 @@ export var ListServices: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/services", 200],
-  },
+  { [_h]: ["GET", "/services", 200] },
   () => ListServicesInput,
   () => ListServicesOutput,
 ];
@@ -1409,9 +1098,7 @@ export var ListServiceStates: StaticOperationSchema = [
   9,
   n0,
   _LSS,
-  {
-    [_h]: ["POST", "/service/states", 200],
-  },
+  { [_h]: ["POST", "/service/states", 200] },
   () => ListServiceStatesInput,
   () => ListServiceStatesOutput,
 ];
@@ -1419,9 +1106,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1429,9 +1114,7 @@ export var PutGroupingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PGC,
-  {
-    [_h]: ["PUT", "/grouping-configuration", 200],
-  },
+  { [_h]: ["PUT", "/grouping-configuration", 200] },
   () => PutGroupingConfigurationInput,
   () => PutGroupingConfigurationOutput,
 ];
@@ -1439,9 +1122,7 @@ export var StartDiscovery: StaticOperationSchema = [
   9,
   n0,
   _SDt,
-  {
-    [_h]: ["POST", "/start-discovery", 200],
-  },
+  { [_h]: ["POST", "/start-discovery", 200] },
   () => StartDiscoveryInput,
   () => StartDiscoveryOutput,
 ];
@@ -1449,9 +1130,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tag-resource", 200],
-  },
+  { [_h]: ["POST", "/tag-resource", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1459,9 +1138,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/untag-resource", 200],
-  },
+  { [_h]: ["POST", "/untag-resource", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1469,9 +1146,7 @@ export var UpdateServiceLevelObjective: StaticOperationSchema = [
   9,
   n0,
   _USLO,
-  {
-    [_h]: ["PATCH", "/slo/{Id}", 200],
-  },
+  { [_h]: ["PATCH", "/slo/{Id}", 200] },
   () => UpdateServiceLevelObjectiveInput,
   () => UpdateServiceLevelObjectiveOutput,
 ];

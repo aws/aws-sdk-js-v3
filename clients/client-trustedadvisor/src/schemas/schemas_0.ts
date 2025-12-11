@@ -127,7 +127,7 @@ const n0 = "com.amazonaws.trustedadvisor";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -147,21 +147,9 @@ import {
 import { TrustedAdvisorServiceException as __TrustedAdvisorServiceException } from "../models/TrustedAdvisorServiceException";
 
 /* eslint no-var: 0 */
-
 export var RecommendationUpdateReason: StaticSimpleSchema = [0, n0, _RUR, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountRecommendationLifecycleSummary: StaticStructureSchema = [
   3,
   n0,
@@ -194,19 +182,8 @@ export var CheckSummary: StaticStructureSchema = [
   [_i, _a, _n, _d, _p, _aS, _s, _me],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var GetOrganizationRecommendationRequest: StaticStructureSchema = [3, n0, _GORR, 0, [_oRI], [[0, 1]]];
 export var GetOrganizationRecommendationResponse: StaticStructureSchema = [
   3,
@@ -218,19 +195,8 @@ export var GetOrganizationRecommendationResponse: StaticStructureSchema = [
 ];
 export var GetRecommendationRequest: StaticStructureSchema = [3, n0, _GRR, 0, [_rI], [[0, 1]]];
 export var GetRecommendationResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_r], [[() => Recommendation, 0]]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListChecksRequest: StaticStructureSchema = [
   3,
   n0,
@@ -238,42 +204,12 @@ export var ListChecksRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _pi, _aSw, _s, _l],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aSw,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _pi }],
+    [0, { [_hQ]: _aSw }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _l }],
   ],
 ];
 export var ListChecksResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _cS], [0, () => CheckSummaryList]];
@@ -284,25 +220,10 @@ export var ListOrganizationRecommendationAccountsRequest: StaticStructureSchema 
   0,
   [_nT, _mR, _oRI, _aAI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aAI,
-      },
-    ],
+    [0, { [_hQ]: _aAI }],
   ],
 ];
 export var ListOrganizationRecommendationAccountsResponse: StaticStructureSchema = [
@@ -320,43 +241,13 @@ export var ListOrganizationRecommendationResourcesRequest: StaticStructureSchema
   0,
   [_nT, _mR, _st, _eS, _rC, _oRI, _aAI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _eS }],
+    [0, { [_hQ]: _rC }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _aAI,
-      },
-    ],
+    [0, { [_hQ]: _aAI }],
   ],
 ];
 export var ListOrganizationRecommendationResourcesResponse: StaticStructureSchema = [
@@ -374,66 +265,16 @@ export var ListOrganizationRecommendationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _t, _st, _pi, _aSw, _s, _cI, _aLUA, _bLUA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aSw,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _aLUA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _bLUA,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _t }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _pi }],
+    [0, { [_hQ]: _aSw }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _cI }],
+    [4, { [_hQ]: _aLUA }],
+    [4, { [_hQ]: _bLUA }],
   ],
 ];
 export var ListOrganizationRecommendationsResponse: StaticStructureSchema = [
@@ -451,36 +292,11 @@ export var ListRecommendationResourcesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _st, _eS, _rC, _rI],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rC,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _eS }],
+    [0, { [_hQ]: _rC }],
     [0, 1],
   ],
 ];
@@ -499,66 +315,16 @@ export var ListRecommendationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _t, _st, _pi, _aSw, _s, _cI, _aLUA, _bLUA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pi,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aSw,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _aLUA,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _bLUA,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _t }],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _pi }],
+    [0, { [_hQ]: _aSw }],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _cI }],
+    [4, { [_hQ]: _aLUA }],
+    [4, { [_hQ]: _bLUA }],
   ],
 ];
 export var ListRecommendationsResponse: StaticStructureSchema = [
@@ -702,32 +468,10 @@ export var RecommendationSummary: StaticStructureSchema = [
     0,
   ],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpdateOrganizationRecommendationLifecycleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -752,24 +496,11 @@ export var UpdateRecommendationResourceExclusionError: StaticStructureSchema = [
   [_a, _eCr, _eM],
   [0, 0, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var TrustedAdvisorServiceException: StaticErrorSchema = [-3, _sm, "TrustedAdvisorServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TrustedAdvisorServiceException, __TrustedAdvisorServiceException);
-
 export var AccountRecommendationLifecycleSummaryList: StaticListSchema = [
   1,
   n0,
@@ -793,9 +524,7 @@ export var OrganizationRecommendationSummaryList: StaticListSchema = [
   () => OrganizationRecommendationSummary,
 ];
 export var RecommendationAwsServiceList = 64 | 0;
-
 export var RecommendationPillarList = 64 | 0;
-
 export var RecommendationResourceExclusionList: StaticListSchema = [
   1,
   n0,
@@ -813,14 +542,11 @@ export var UpdateRecommendationResourceExclusionErrorList: StaticListSchema = [
   () => UpdateRecommendationResourceExclusionError,
 ];
 export var StringMap = 128 | 0;
-
 export var BatchUpdateRecommendationResourceExclusion: StaticOperationSchema = [
   9,
   n0,
   _BURRE,
-  {
-    [_h]: ["PUT", "/v1/batch-update-recommendation-resource-exclusion", 200],
-  },
+  { [_h]: ["PUT", "/v1/batch-update-recommendation-resource-exclusion", 200] },
   () => BatchUpdateRecommendationResourceExclusionRequest,
   () => BatchUpdateRecommendationResourceExclusionResponse,
 ];
@@ -828,9 +554,7 @@ export var GetOrganizationRecommendation: StaticOperationSchema = [
   9,
   n0,
   _GOR,
-  {
-    [_h]: ["GET", "/v1/organization-recommendations/{organizationRecommendationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/v1/organization-recommendations/{organizationRecommendationIdentifier}", 200] },
   () => GetOrganizationRecommendationRequest,
   () => GetOrganizationRecommendationResponse,
 ];
@@ -838,9 +562,7 @@ export var GetRecommendation: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/v1/recommendations/{recommendationIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/v1/recommendations/{recommendationIdentifier}", 200] },
   () => GetRecommendationRequest,
   () => GetRecommendationResponse,
 ];
@@ -848,9 +570,7 @@ export var ListChecks: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/v1/checks", 200],
-  },
+  { [_h]: ["GET", "/v1/checks", 200] },
   () => ListChecksRequest,
   () => ListChecksResponse,
 ];
@@ -858,9 +578,7 @@ export var ListOrganizationRecommendationAccounts: StaticOperationSchema = [
   9,
   n0,
   _LORA,
-  {
-    [_h]: ["GET", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts", 200],
-  },
+  { [_h]: ["GET", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts", 200] },
   () => ListOrganizationRecommendationAccountsRequest,
   () => ListOrganizationRecommendationAccountsResponse,
 ];
@@ -868,9 +586,7 @@ export var ListOrganizationRecommendationResources: StaticOperationSchema = [
   9,
   n0,
   _LORRis,
-  {
-    [_h]: ["GET", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/resources", 200],
-  },
+  { [_h]: ["GET", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/resources", 200] },
   () => ListOrganizationRecommendationResourcesRequest,
   () => ListOrganizationRecommendationResourcesResponse,
 ];
@@ -878,9 +594,7 @@ export var ListOrganizationRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LOR,
-  {
-    [_h]: ["GET", "/v1/organization-recommendations", 200],
-  },
+  { [_h]: ["GET", "/v1/organization-recommendations", 200] },
   () => ListOrganizationRecommendationsRequest,
   () => ListOrganizationRecommendationsResponse,
 ];
@@ -888,9 +602,7 @@ export var ListRecommendationResources: StaticOperationSchema = [
   9,
   n0,
   _LRRis,
-  {
-    [_h]: ["GET", "/v1/recommendations/{recommendationIdentifier}/resources", 200],
-  },
+  { [_h]: ["GET", "/v1/recommendations/{recommendationIdentifier}/resources", 200] },
   () => ListRecommendationResourcesRequest,
   () => ListRecommendationResourcesResponse,
 ];
@@ -898,9 +610,7 @@ export var ListRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/v1/recommendations", 200],
-  },
+  { [_h]: ["GET", "/v1/recommendations", 200] },
   () => ListRecommendationsRequest,
   () => ListRecommendationsResponse,
 ];
@@ -908,9 +618,7 @@ export var UpdateOrganizationRecommendationLifecycle: StaticOperationSchema = [
   9,
   n0,
   _UORL,
-  {
-    [_h]: ["PUT", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle", 200],
-  },
+  { [_h]: ["PUT", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle", 200] },
   () => UpdateOrganizationRecommendationLifecycleRequest,
   () => __Unit,
 ];
@@ -918,9 +626,7 @@ export var UpdateRecommendationLifecycle: StaticOperationSchema = [
   9,
   n0,
   _URL,
-  {
-    [_h]: ["PUT", "/v1/recommendations/{recommendationIdentifier}/lifecycle", 200],
-  },
+  { [_h]: ["PUT", "/v1/recommendations/{recommendationIdentifier}/lifecycle", 200] },
   () => UpdateRecommendationLifecycleRequest,
   () => __Unit,
 ];

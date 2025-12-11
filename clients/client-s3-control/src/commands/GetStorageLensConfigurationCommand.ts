@@ -2,11 +2,11 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { GetStorageLensConfiguration } from "../schemas/schemas_0";
 
 /**
@@ -39,9 +39,6 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  *                <code>s3:GetStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
  *                <i>Amazon S3 User Guide</i>.</p>
  *          </note>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +83,9 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * //         DetailedStatusCodesMetrics: { // DetailedStatusCodesMetrics
  * //           IsEnabled: true || false,
  * //         },
+ * //         AdvancedPerformanceMetrics: { // AdvancedPerformanceMetrics
+ * //           IsEnabled: true || false,
+ * //         },
  * //       },
  * //       AdvancedCostOptimizationMetrics: {
  * //         IsEnabled: true || false,
@@ -94,6 +94,9 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * //         IsEnabled: true || false,
  * //       },
  * //       DetailedStatusCodesMetrics: {
+ * //         IsEnabled: true || false,
+ * //       },
+ * //       AdvancedPerformanceMetrics: {
  * //         IsEnabled: true || false,
  * //       },
  * //       StorageLensGroupLevel: { // StorageLensGroupLevel
@@ -140,12 +143,46 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * //       CloudWatchMetrics: { // CloudWatchMetrics
  * //         IsEnabled: true || false, // required
  * //       },
+ * //       StorageLensTableDestination: { // StorageLensTableDestination
+ * //         IsEnabled: true || false, // required
+ * //         Encryption: {
+ * //           SSES3: {},
+ * //           SSEKMS: {
+ * //             KeyId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     ExpandedPrefixesDataExport: { // StorageLensExpandedPrefixesDataExport
+ * //       S3BucketDestination: {
+ * //         Format: "CSV" || "Parquet", // required
+ * //         OutputSchemaVersion: "V_1", // required
+ * //         AccountId: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
+ * //         Prefix: "STRING_VALUE",
+ * //         Encryption: {
+ * //           SSES3: {},
+ * //           SSEKMS: {
+ * //             KeyId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       StorageLensTableDestination: {
+ * //         IsEnabled: true || false, // required
+ * //         Encryption: {
+ * //           SSES3: {},
+ * //           SSEKMS: {
+ * //             KeyId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     IsEnabled: true || false, // required
  * //     AwsOrg: { // StorageLensAwsOrg
  * //       Arn: "STRING_VALUE", // required
  * //     },
  * //     StorageLensArn: "STRING_VALUE",
+ * //     PrefixDelimiter: "STRING_VALUE",
  * //   },
  * // };
  *

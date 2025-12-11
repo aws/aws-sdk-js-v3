@@ -2,11 +2,11 @@
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetBucketAbacOutput, GetBucketAbacRequest } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { GetBucketAbacOutput, GetBucketAbacRequest } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketAbac } from "../schemas/schemas_0";
 
 /**
@@ -28,7 +28,7 @@ export interface GetBucketAbacCommandInput extends GetBucketAbacRequest {}
 export interface GetBucketAbacCommandOutput extends GetBucketAbacOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the attribute-based access control (ABAC) property of the general purpose bucket. If the bucket ABAC is enabled, you can use tags for bucket access control. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling ABAC in general purpose buckets</a>. Whether ABAC is enabled or disabled, you can use tags for cost tracking. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>.</p>
+ * <p>Returns the attribute-based access control (ABAC) property of the general purpose bucket. If ABAC is enabled on your bucket, you can use tags on the bucket for access control. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling ABAC in general purpose buckets</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

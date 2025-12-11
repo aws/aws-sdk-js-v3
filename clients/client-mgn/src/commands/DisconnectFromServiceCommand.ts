@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DisconnectFromServiceRequest, SourceServer } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { DisconnectFromServiceRequest, SourceServer } from "../models/models_0";
 import { DisconnectFromService } from "../schemas/schemas_0";
 
 /**
@@ -82,6 +82,7 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * //       rawError: "STRING_VALUE",
  * //     },
  * //     lastSnapshotDateTime: "STRING_VALUE",
+ * //     replicatorId: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",

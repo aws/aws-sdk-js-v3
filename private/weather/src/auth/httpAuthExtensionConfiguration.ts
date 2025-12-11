@@ -1,14 +1,15 @@
 // smithy-typescript generated code
-import { WeatherHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 import {
+  type HttpAuthScheme,
   ApiKeyIdentity,
   ApiKeyIdentityProvider,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
-  HttpAuthScheme,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
+
+import type { WeatherHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
 /**
  * @internal
@@ -43,7 +44,7 @@ export type HttpAuthRuntimeConfig = Partial<{
 export const getHttpAuthExtensionConfiguration = (
   runtimeConfig: HttpAuthRuntimeConfig
 ): HttpAuthExtensionConfiguration => {
-  let _httpAuthSchemes = runtimeConfig.httpAuthSchemes!;
+  const _httpAuthSchemes = runtimeConfig.httpAuthSchemes!;
   let _httpAuthSchemeProvider = runtimeConfig.httpAuthSchemeProvider!;
   let _apiKey = runtimeConfig.apiKey;
   let _credentials = runtimeConfig.credentials;

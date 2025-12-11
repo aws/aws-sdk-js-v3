@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { XmlEmptyListsRequest, XmlEmptyListsResponse } from "../models/models_0";
-import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import type { XmlEmptyListsRequest, XmlEmptyListsResponse } from "../models/models_0";
+import type {
+  RestXmlProtocolClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../RestXmlProtocolClient";
 import { XmlEmptyLists } from "../schemas/schemas_0";
 
 /**

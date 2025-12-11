@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddApplicationCloudWatchLoggingOptionCommand,
@@ -98,7 +98,7 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { KinesisAnalyticsClient, KinesisAnalyticsClientConfig } from "./KinesisAnalyticsClient";
+import { KinesisAnalyticsClient } from "./KinesisAnalyticsClient";
 
 const commands = {
   AddApplicationCloudWatchLoggingOptionCommand,

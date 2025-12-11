@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeOrderableDBInstanceOptions } from "../schemas/schemas_0";
 
 /**
@@ -114,6 +114,23 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //       SupportsClusters: true || false,
  * //       SupportsDedicatedLogVolume: true || false,
  * //       SupportsHttpEndpoint: true || false,
+ * //       SupportsAdditionalStorageVolumes: true || false,
+ * //       AvailableAdditionalStorageVolumesOptions: [ // AvailableAdditionalStorageVolumesOptionList
+ * //         { // AvailableAdditionalStorageVolumesOption
+ * //           SupportsStorageAutoscaling: true || false,
+ * //           SupportsStorageThroughput: true || false,
+ * //           SupportsIops: true || false,
+ * //           StorageType: "STRING_VALUE",
+ * //           MinStorageSize: Number("int"),
+ * //           MaxStorageSize: Number("int"),
+ * //           MinIops: Number("int"),
+ * //           MaxIops: Number("int"),
+ * //           MinIopsPerGib: Number("double"),
+ * //           MaxIopsPerGib: Number("double"),
+ * //           MinStorageThroughput: Number("int"),
+ * //           MaxStorageThroughput: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

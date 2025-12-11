@@ -187,6 +187,7 @@ const _HPOC = "HPOConfig";
 const _HPOO = "HPOObjective";
 const _HPORC = "HPOResourceConfig";
 const _HPR = "HyperParameterRanges";
+const _IDC = "IncludedDatasetColumns";
 const _IHPR = "IntegerHyperParameterRange";
 const _IHPRn = "IntegerHyperParameterRanges";
 const _IIE = "InvalidInputException";
@@ -390,6 +391,7 @@ const _hE = "httpError";
 const _hO = "hpoObjective";
 const _hRC = "hpoResourceConfig";
 const _iA = "itemAttribute";
+const _iDC = "includedDatasetColumns";
 const _iEC = "itemExplorationConfig";
 const _iHPR = "integerHyperParameterRanges";
 const _iM = "ingestionMode";
@@ -433,12 +435,14 @@ const _pAML = "performAutoML";
 const _pAMTS = "publishAttributionMetricsToS3";
 const _pAT = "performAutoTraining";
 const _pHPO = "performHPO";
+const _pIU = "performIncrementalUpdate";
 const _r = "recipe";
 const _rA = "roleArn";
 const _rAe = "recipeArn";
 const _rAec = "recommenderArn";
 const _rAes = "resourceArn";
 const _rC = "recommenderConfig";
+const _rI = "rankingInfluence";
 const _rL = "recipeList";
 const _rM = "removeMetrics";
 const _rP = "recipeProvider";
@@ -482,7 +486,7 @@ const n0 = "com.amazonaws.personalize";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -504,7 +508,6 @@ import {
 import { PersonalizeServiceException as __PersonalizeServiceException } from "../models/PersonalizeServiceException";
 
 /* eslint no-var: 0 */
-
 export var FilterExpression: StaticSimpleSchema = [0, n0, _FE, 8, 0];
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
@@ -544,7 +547,7 @@ export var BatchInferenceJob: StaticStructureSchema = [
     4,
   ],
 ];
-export var BatchInferenceJobConfig: StaticStructureSchema = [3, n0, _BIJC, 0, [_iEC], [128 | 0]];
+export var BatchInferenceJobConfig: StaticStructureSchema = [3, n0, _BIJC, 0, [_iEC, _rI], [128 | 0, 128 | 1]];
 export var BatchInferenceJobInput: StaticStructureSchema = [3, n0, _BIJI, 0, [_sDS], [() => S3DataConfig]];
 export var BatchInferenceJobOutput: StaticStructureSchema = [3, n0, _BIJO, 0, [_sDD], [() => S3DataConfig]];
 export var BatchInferenceJobSummary: StaticStructureSchema = [
@@ -581,7 +584,14 @@ export var Campaign: StaticStructureSchema = [
   [_n, _cA, _sVA, _mPTPS, _cC, _s, _fR, _cDT, _lUDT, _lCU],
   [0, 0, 0, 1, () => CampaignConfig, 0, 0, 4, 4, () => CampaignUpdateSummary],
 ];
-export var CampaignConfig: StaticStructureSchema = [3, n0, _CC, 0, [_iEC, _eMWR, _sWLSV], [128 | 0, 2, 2]];
+export var CampaignConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _CC,
+  0,
+  [_iEC, _eMWR, _sWLSV, _rI],
+  [128 | 0, 2, 2, 128 | 1],
+];
 export var CampaignSummary: StaticStructureSchema = [
   3,
   n0,
@@ -727,8 +737,8 @@ export var CreateSolutionRequest: StaticStructureSchema = [
   n0,
   _CSRre,
   0,
-  [_n, _pHPO, _pAML, _pAT, _rAe, _dGA, _eT, _sC, _t],
-  [0, 2, 2, 2, 0, 0, 0, () => SolutionConfig, [() => Tags, 0]],
+  [_n, _pHPO, _pAML, _pAT, _pIU, _rAe, _dGA, _eT, _sC, _t],
+  [0, 2, 2, 2, 2, 0, 0, 0, () => SolutionConfig, [() => Tags, 0]],
 ];
 export var CreateSolutionResponse: StaticStructureSchema = [3, n0, _CSRrea, 0, [_sAo], [0]];
 export var CreateSolutionVersionRequest: StaticStructureSchema = [
@@ -1012,45 +1022,12 @@ export var HyperParameterRanges: StaticStructureSchema = [
   [() => IntegerHyperParameterRanges, () => ContinuousHyperParameterRanges, () => CategoricalHyperParameterRanges],
 ];
 export var IntegerHyperParameterRange: StaticStructureSchema = [3, n0, _IHPR, 0, [_n, _mV, _mVa], [0, 1, 1]];
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListBatchInferenceJobsRequest: StaticStructureSchema = [3, n0, _LBIJR, 0, [_sVA, _nT, _mRa], [0, 0, 1]];
 export var ListBatchInferenceJobsResponse: StaticStructureSchema = [
   3,
@@ -1217,55 +1194,23 @@ export var RecommenderUpdateSummary: StaticStructureSchema = [
   [_rC, _cDT, _lUDT, _s, _fR],
   [() => RecommenderConfig, 4, 4, 0, 0],
 ];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _cl,
-    [_hE]: 403,
-  },
-  [_me],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _cl, [_hE]: 403 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3DataConfig: StaticStructureSchema = [3, n0, _SDC, 0, [_p, _kKA], [0, 0]];
 export var Solution: StaticStructureSchema = [
   3,
   n0,
   _S,
   0,
-  [_n, _sAo, _pHPO, _pAML, _pAT, _rAe, _dGA, _eT, _sC, _aMLR, _s, _cDT, _lUDT, _lSV, _lSU],
+  [_n, _sAo, _pHPO, _pAML, _pAT, _pIU, _rAe, _dGA, _eT, _sC, _aMLR, _s, _cDT, _lUDT, _lSV, _lSU],
   [
     0,
     0,
+    2,
     2,
     2,
     2,
@@ -1320,16 +1265,16 @@ export var SolutionUpdateSummary: StaticStructureSchema = [
   n0,
   _SUS,
   0,
-  [_sUC, _s, _pAT, _cDT, _lUDT, _fR],
-  [() => SolutionUpdateConfig, 0, 2, 4, 4, 0],
+  [_sUC, _s, _pAT, _pIU, _cDT, _lUDT, _fR],
+  [() => SolutionUpdateConfig, 0, 2, 2, 4, 4, 0],
 ];
 export var SolutionVersion: StaticStructureSchema = [
   3,
   n0,
   _SV,
   0,
-  [_n, _sVA, _sAo, _pHPO, _pAML, _rAe, _eT, _dGA, _sC, _tH, _tM, _tHPOP, _s, _fR, _cDT, _lUDT, _tT],
-  [0, 0, 0, 2, 2, 0, 0, 0, () => SolutionConfig, 1, 0, () => TunedHPOParams, 0, 0, 4, 4, 0],
+  [_n, _sVA, _sAo, _pHPO, _pAML, _pIU, _rAe, _eT, _dGA, _sC, _tH, _tM, _tHPOP, _s, _fR, _cDT, _lUDT, _tT],
+  [0, 0, 0, 2, 2, 2, 0, 0, 0, () => SolutionConfig, 1, 0, () => TunedHPOParams, 0, 0, 4, 4, 0],
 ];
 export var SolutionVersionSummary: StaticStructureSchema = [
   3,
@@ -1358,33 +1303,21 @@ export var Tag: StaticStructureSchema = [
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAes, _t], [0, [() => Tags, 0]]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThemeGenerationConfig: StaticStructureSchema = [3, n0, _TGC, 0, [_fFTG], [() => FieldsForThemeGeneration]];
-export var TooManyTagKeysException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTKE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var TooManyTagKeysException: StaticErrorSchema = [-3, n0, _TMTKE, { [_e]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagKeysException, __TooManyTagKeysException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
-export var TrainingDataConfig: StaticStructureSchema = [3, n0, _TDC, 0, [_eDC], [[2, n0, _EDC, 0, 0, 64 | 0]]];
+export var TrainingDataConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _TDC,
+  0,
+  [_eDC, _iDC],
+  [
+    [2, n0, _EDC, 0, 0, 64 | 0],
+    [2, n0, _IDC, 0, 0, 64 | 0],
+  ],
+];
 export var TunedHPOParams: StaticStructureSchema = [3, n0, _THPOP, 0, [_aHP], [128 | 0]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rAes, _tKa], [0, [() => TagKeys, 0]]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1422,25 +1355,20 @@ export var UpdateSolutionRequest: StaticStructureSchema = [
   n0,
   _USR,
   0,
-  [_sAo, _pAT, _sUC],
-  [0, 2, () => SolutionUpdateConfig],
+  [_sAo, _pAT, _pIU, _sUC],
+  [0, 2, 2, () => SolutionUpdateConfig],
 ];
 export var UpdateSolutionResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_sAo], [0]];
 export var __Unit = "unit" as const;
-
 export var PersonalizeServiceException: StaticErrorSchema = [-3, _sm, "PersonalizeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PersonalizeServiceException, __PersonalizeServiceException);
-
 export var ArnList = 64 | 0;
-
 export var BatchInferenceJobs: StaticListSchema = [1, n0, _BIJa, 0, () => BatchInferenceJobSummary];
 export var BatchSegmentJobs: StaticListSchema = [1, n0, _BSJa, 0, () => BatchSegmentJobSummary];
 export var Campaigns: StaticListSchema = [1, n0, _Ca, 0, () => CampaignSummary];
 export var CategoricalHyperParameterRanges: StaticListSchema = [1, n0, _CHPRa, 0, () => CategoricalHyperParameterRange];
 export var CategoricalValues = 64 | 0;
-
 export var ColumnNamesList = 64 | 0;
-
 export var ContinuousHyperParameterRanges: StaticListSchema = [1, n0, _CHPRon, 0, () => ContinuousHyperParameterRange];
 export var DataDeletionJobs: StaticListSchema = [1, n0, _DDJa, 0, () => DataDeletionJobSummary];
 export var DatasetExportJobs: StaticListSchema = [1, n0, _DEJa, 0, () => DatasetExportJobSummary];
@@ -1474,7 +1402,6 @@ export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => FilterSummary];
 export var IntegerHyperParameterRanges: StaticListSchema = [1, n0, _IHPRn, 0, () => IntegerHyperParameterRange];
 export var MetricAttributes: StaticListSchema = [1, n0, _MAet, 0, () => MetricAttribute];
 export var MetricAttributesNamesList = 64 | 0;
-
 export var MetricAttributions: StaticListSchema = [1, n0, _MAetr, 0, () => MetricAttributionSummary];
 export var Recipes: StaticListSchema = [1, n0, _Rec, 0, () => RecipeSummary];
 export var Recommenders: StaticListSchema = [1, n0, _Reco, 0, () => RecommenderSummary];
@@ -1485,15 +1412,12 @@ export var TagKeys: StaticListSchema = [1, n0, _TKa, 0, [() => TagKey, 0]];
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, [() => Tag, 0]];
 export var ExcludedDatasetColumns: StaticMapSchema = [2, n0, _EDC, 0, 0, 64 | 0];
 export var FeatureTransformationParameters = 128 | 0;
-
 export var FeaturizationParameters = 128 | 0;
-
 export var HyperParameters = 128 | 0;
-
+export var IncludedDatasetColumns: StaticMapSchema = [2, n0, _IDC, 0, 0, 64 | 0];
 export var Metrics = 128 | 1;
-
+export var RankingInfluence = 128 | 1;
 export var ResourceConfig = 128 | 0;
-
 export var CreateBatchInferenceJob: StaticOperationSchema = [
   9,
   n0,

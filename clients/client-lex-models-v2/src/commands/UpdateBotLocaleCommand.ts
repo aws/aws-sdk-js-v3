@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { UpdateBotLocaleRequest, UpdateBotLocaleResponse } from "../models/models_1";
+import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import type { UpdateBotLocaleRequest, UpdateBotLocaleResponse } from "../models/models_1";
 import { UpdateBotLocale } from "../schemas/schemas_0";
 
 /**
@@ -43,8 +43,23 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *   description: "STRING_VALUE",
  *   nluIntentConfidenceThreshold: Number("double"), // required
  *   voiceSettings: { // VoiceSettings
- *     voiceId: "STRING_VALUE", // required
  *     engine: "standard" || "neural" || "long-form" || "generative",
+ *     voiceId: "STRING_VALUE", // required
+ *   },
+ *   unifiedSpeechSettings: { // UnifiedSpeechSettings
+ *     speechFoundationModel: { // SpeechFoundationModel
+ *       modelArn: "STRING_VALUE", // required
+ *       voiceId: "STRING_VALUE",
+ *     },
+ *   },
+ *   speechRecognitionSettings: { // SpeechRecognitionSettings
+ *     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ *     speechModelConfig: { // SpeechModelConfig
+ *       deepgramConfig: { // DeepgramSpeechModelConfig
+ *         apiTokenSecretArn: "STRING_VALUE", // required
+ *         modelId: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   generativeAISettings: { // GenerativeAISettings
  *     runtimeSettings: { // RuntimeSettings
@@ -109,8 +124,23 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //   description: "STRING_VALUE",
  * //   nluIntentConfidenceThreshold: Number("double"),
  * //   voiceSettings: { // VoiceSettings
- * //     voiceId: "STRING_VALUE", // required
  * //     engine: "standard" || "neural" || "long-form" || "generative",
+ * //     voiceId: "STRING_VALUE", // required
+ * //   },
+ * //   unifiedSpeechSettings: { // UnifiedSpeechSettings
+ * //     speechFoundationModel: { // SpeechFoundationModel
+ * //       modelArn: "STRING_VALUE", // required
+ * //       voiceId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   speechRecognitionSettings: { // SpeechRecognitionSettings
+ * //     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //     speechModelConfig: { // SpeechModelConfig
+ * //       deepgramConfig: { // DeepgramSpeechModelConfig
+ * //         apiTokenSecretArn: "STRING_VALUE", // required
+ * //         modelId: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
  * //   failureReasons: [ // FailureReasons

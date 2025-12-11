@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AcceptLinkCommand, AcceptLinkCommandInput, AcceptLinkCommandOutput } from "./commands/AcceptLinkCommand";
 import {
@@ -105,7 +105,7 @@ import {
   UpdateResponderGatewayCommandInput,
   UpdateResponderGatewayCommandOutput,
 } from "./commands/UpdateResponderGatewayCommand";
-import { RTBFabricClient, RTBFabricClientConfig } from "./RTBFabricClient";
+import { RTBFabricClient } from "./RTBFabricClient";
 
 const commands = {
   AcceptLinkCommand,

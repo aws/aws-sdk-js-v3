@@ -3581,11 +3581,19 @@ export interface DelegationRequest {
 
   /**
    * <p>The state of this delegation request.</p>
-   *          <p>See the <a href="IAM/latest/UserGuide/temporary-delegation-building-integration.html">Understanding the Request Lifecycle</a> for an explanation of how these
+   *          <p>See the <a href="IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for an explanation of how these
    *       states are transitioned.</p>
    * @public
    */
   State?: StateType | undefined;
+
+  /**
+   * <p>The expiry time of this delegation request</p>
+   *          <p>See the <a href="IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for
+   *                details on the life time of a delegation request at each state.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
 
   /**
    * <p>Identity of the requestor of this delegation request. This will be an Amazon Web Services account ID.</p>

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { CodeConnectionsClientConfig } from "./CodeConnectionsClient";
+import type { CodeConnectionsClientConfig } from "./CodeConnectionsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

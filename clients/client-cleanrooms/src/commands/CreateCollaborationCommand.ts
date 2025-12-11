@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCollaborationInput, CreateCollaborationOutput } from "../models/models_0";
+import type { CreateCollaborationInput, CreateCollaborationOutput } from "../models/models_0";
 import { CreateCollaboration } from "../schemas/schemas_0";
 
 /**
@@ -60,6 +60,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *           modelInference: { // ModelInferencePaymentConfig
  *             isResponsible: true || false, // required
  *           },
+ *           syntheticDataGeneration: { // SyntheticDataGenerationPaymentConfig
+ *             isResponsible: true || false, // required
+ *           },
  *         },
  *         jobCompute: { // JobComputePaymentConfig
  *           isResponsible: true || false, // required
@@ -98,6 +101,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *         isResponsible: true || false, // required
  *       },
  *       modelInference: {
+ *         isResponsible: true || false, // required
+ *       },
+ *       syntheticDataGeneration: {
  *         isResponsible: true || false, // required
  *       },
  *     },

@@ -333,7 +333,7 @@ const n0 = "com.amazonaws.chimesdkmediapipelines";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -356,7 +356,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Arn: StaticSimpleSchema = [0, n0, _A, 8, 0];
 export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 export var ExternalUserIdType: StaticSimpleSchema = [0, n0, _EUIT, 8, 0];
@@ -409,19 +408,8 @@ export var ArtifactsConfiguration: StaticStructureSchema = [
 ];
 export var AudioArtifactsConfiguration: StaticStructureSchema = [3, n0, _AAC, 0, [_MT], [0]];
 export var AudioConcatenationConfiguration: StaticStructureSchema = [3, n0, _ACCu, 0, [_S], [0]];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Co, _M, _RI],
-  [0, 0, 0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_Co, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var ChannelDefinition: StaticStructureSchema = [3, n0, _CD, 0, [_CI, _PR], [1, 0]];
 export var ChimeSdkMeetingConcatenationConfiguration: StaticStructureSchema = [
   3,
@@ -472,19 +460,8 @@ export var ConcatenationSource: StaticStructureSchema = [
   [_T, _MCPSC],
   [0, [() => MediaCapturePipelineSourceConfiguration, 0]],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_Co, _M, _RI],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_Co, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContentArtifactsConfiguration: StaticStructureSchema = [3, n0, _CAC, 0, [_S, _MT], [0, 0]];
 export var ContentConcatenationConfiguration: StaticStructureSchema = [3, n0, _CCC, 0, [_S], [0]];
 export var CreateMediaCapturePipelineRequest: StaticStructureSchema = [
@@ -636,19 +613,8 @@ export var DeleteMediaPipelineKinesisVideoStreamPoolRequest: StaticStructureSche
   [[0, 1]],
 ];
 export var DeleteMediaPipelineRequest: StaticStructureSchema = [3, n0, _DMPR, 0, [_MPI], [[0, 1]]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_Co, _M, _RI],
-  [0, 0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_Co, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var FragmentSelector: StaticStructureSchema = [3, n0, _FS, 0, [_FST, _TR], [0, () => TimestampRange]];
 export var GetMediaCapturePipelineRequest: StaticStructureSchema = [3, n0, _GMCPR, 0, [_MPI], [[0, 1]]];
 export var GetMediaCapturePipelineResponse: StaticStructureSchema = [
@@ -780,18 +746,8 @@ export var ListMediaCapturePipelinesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListMediaCapturePipelinesResponse: StaticStructureSchema = [
@@ -809,18 +765,8 @@ export var ListMediaInsightsPipelineConfigurationsRequest: StaticStructureSchema
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListMediaInsightsPipelineConfigurationsResponse: StaticStructureSchema = [
@@ -838,18 +784,8 @@ export var ListMediaPipelineKinesisVideoStreamPoolsRequest: StaticStructureSchem
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListMediaPipelineKinesisVideoStreamPoolsResponse: StaticStructureSchema = [
@@ -867,18 +803,8 @@ export var ListMediaPipelinesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListMediaPipelinesResponse: StaticStructureSchema = [
@@ -889,21 +815,7 @@ export var ListMediaPipelinesResponse: StaticStructureSchema = [
   [_MPe, _NT],
   [() => MediaPipelineList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_RARN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [[0, { [_hQ]: _a }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
 export var LiveConnectorRTMPConfiguration: StaticStructureSchema = [
   3,
@@ -1072,19 +984,8 @@ export var MediaStreamSink: StaticStructureSchema = [
 ];
 export var MediaStreamSource: StaticStructureSchema = [3, n0, _MSSe, 0, [_ST, _SA], [0, [() => Arn, 0]]];
 export var MeetingEventsConcatenationConfiguration: StaticStructureSchema = [3, n0, _MECC, 0, [_S], [0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_Co, _M, _RI],
-  [0, 0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_Co, _M, _RI], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PostCallAnalyticsSettings: StaticStructureSchema = [
   3,
   n0,
@@ -1115,15 +1016,11 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Co, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
 export var S3BucketSinkConfiguration: StaticStructureSchema = [3, n0, _SBSC, 0, [_De], [[() => Arn, 0]]];
 export var S3RecordingSinkConfiguration: StaticStructureSchema = [3, n0, _SRSC, 0, [_De, _RFF], [[() => Arn, 0], 0]];
 export var S3RecordingSinkRuntimeConfiguration: StaticStructureSchema = [
@@ -1147,28 +1044,20 @@ export var ServiceFailureException: StaticErrorSchema = [
   -3,
   n0,
   _SFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_Co, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
+  { [_e]: _s, [_hE]: 503 },
   [_Co, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SnsTopicSinkConfiguration: StaticStructureSchema = [3, n0, _STSC, 0, [_IT], [[() => Arn, 0]]];
 export var SourceConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_SVS], [[() => SelectedVideoStreams, 0]]];
 export var SpeakerSearchTask: StaticStructureSchema = [3, n0, _SST, 0, [_SSTI, _SSTS, _CT, _UT], [0, 0, 5, 5]];
@@ -1251,30 +1140,22 @@ export var ThrottledClientException: StaticErrorSchema = [
   -3,
   n0,
   _TCE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_Co, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ThrottledClientException, __ThrottledClientException);
-
 export var TimestampRange: StaticStructureSchema = [3, n0, _TR, 0, [_STt, _ET], [4, 4]];
 export var TranscriptionMessagesConcatenationConfiguration: StaticStructureSchema = [3, n0, _TMCC, 0, [_S], [0]];
 export var UnauthorizedClientException: StaticErrorSchema = [
   -3,
   n0,
   _UCE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
+  { [_e]: _c, [_hE]: 401 },
   [_Co, _M, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedClientException, __UnauthorizedClientException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateMediaInsightsPipelineConfigurationRequest: StaticStructureSchema = [
@@ -1325,7 +1206,6 @@ export var VoiceAnalyticsProcessorConfiguration: StaticStructureSchema = [3, n0,
 export var VoiceEnhancementSinkConfiguration: StaticStructureSchema = [3, n0, _VESC, 0, [_D], [2]];
 export var VoiceToneAnalysisTask: StaticStructureSchema = [3, n0, _VTAT, 0, [_VTATI, _VTATS, _CT, _UT], [0, 0, 5, 5]];
 export var __Unit = "unit" as const;
-
 export var ChimeSDKMediaPipelinesServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1335,17 +1215,13 @@ export var ChimeSDKMediaPipelinesServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ChimeSDKMediaPipelinesServiceException, __ChimeSDKMediaPipelinesServiceException);
-
 export var AttendeeIdList = 64 | 0;
-
 export var CategoryNameList = 64 | 0;
-
 export var ChannelDefinitions: StaticListSchema = [1, n0, _CDh, 0, () => ChannelDefinition];
 export var ConcatenationSinkList: StaticListSchema = [1, n0, _CSLo, 0, [() => ConcatenationSink, 0]];
 export var ConcatenationSourceList: StaticListSchema = [1, n0, _CSLon, 0, [() => ConcatenationSource, 0]];
 export var ExternalUserIdList: StaticListSchema = [1, n0, _EUIL, 0, [() => ExternalUserIdType, 0]];
 export var KeywordMatchWordList = 64 | 0;
-
 export var KinesisVideoStreamPoolSummaryList: StaticListSchema = [
   1,
   n0,
@@ -1384,16 +1260,13 @@ export var RealTimeAlertRuleList: StaticListSchema = [1, n0, _RTARL, 0, () => Re
 export var RecordingStreamList: StaticListSchema = [1, n0, _RSL, 0, () => RecordingStreamConfiguration];
 export var Streams: StaticListSchema = [1, n0, _St, 0, () => StreamConfiguration];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var MediaInsightsRuntimeMetadata: StaticMapSchema = [2, n0, _MIRM, 8, 0, 0];
 export var CreateMediaCapturePipeline: StaticOperationSchema = [
   9,
   n0,
   _CMCP,
-  {
-    [_h]: ["POST", "/sdk-media-capture-pipelines", 201],
-  },
+  { [_h]: ["POST", "/sdk-media-capture-pipelines", 201] },
   () => CreateMediaCapturePipelineRequest,
   () => CreateMediaCapturePipelineResponse,
 ];
@@ -1401,9 +1274,7 @@ export var CreateMediaConcatenationPipeline: StaticOperationSchema = [
   9,
   n0,
   _CMCPr,
-  {
-    [_h]: ["POST", "/sdk-media-concatenation-pipelines", 201],
-  },
+  { [_h]: ["POST", "/sdk-media-concatenation-pipelines", 201] },
   () => CreateMediaConcatenationPipelineRequest,
   () => CreateMediaConcatenationPipelineResponse,
 ];
@@ -1411,9 +1282,7 @@ export var CreateMediaInsightsPipeline: StaticOperationSchema = [
   9,
   n0,
   _CMIP,
-  {
-    [_h]: ["POST", "/media-insights-pipelines", 201],
-  },
+  { [_h]: ["POST", "/media-insights-pipelines", 201] },
   () => CreateMediaInsightsPipelineRequest,
   () => CreateMediaInsightsPipelineResponse,
 ];
@@ -1421,9 +1290,7 @@ export var CreateMediaInsightsPipelineConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CMIPC,
-  {
-    [_h]: ["POST", "/media-insights-pipeline-configurations", 201],
-  },
+  { [_h]: ["POST", "/media-insights-pipeline-configurations", 201] },
   () => CreateMediaInsightsPipelineConfigurationRequest,
   () => CreateMediaInsightsPipelineConfigurationResponse,
 ];
@@ -1431,9 +1298,7 @@ export var CreateMediaLiveConnectorPipeline: StaticOperationSchema = [
   9,
   n0,
   _CMLCP,
-  {
-    [_h]: ["POST", "/sdk-media-live-connector-pipelines", 201],
-  },
+  { [_h]: ["POST", "/sdk-media-live-connector-pipelines", 201] },
   () => CreateMediaLiveConnectorPipelineRequest,
   () => CreateMediaLiveConnectorPipelineResponse,
 ];
@@ -1441,9 +1306,7 @@ export var CreateMediaPipelineKinesisVideoStreamPool: StaticOperationSchema = [
   9,
   n0,
   _CMPKVSP,
-  {
-    [_h]: ["POST", "/media-pipeline-kinesis-video-stream-pools", 201],
-  },
+  { [_h]: ["POST", "/media-pipeline-kinesis-video-stream-pools", 201] },
   () => CreateMediaPipelineKinesisVideoStreamPoolRequest,
   () => CreateMediaPipelineKinesisVideoStreamPoolResponse,
 ];
@@ -1451,9 +1314,7 @@ export var CreateMediaStreamPipeline: StaticOperationSchema = [
   9,
   n0,
   _CMSP,
-  {
-    [_h]: ["POST", "/sdk-media-stream-pipelines", 201],
-  },
+  { [_h]: ["POST", "/sdk-media-stream-pipelines", 201] },
   () => CreateMediaStreamPipelineRequest,
   () => CreateMediaStreamPipelineResponse,
 ];
@@ -1461,9 +1322,7 @@ export var DeleteMediaCapturePipeline: StaticOperationSchema = [
   9,
   n0,
   _DMCP,
-  {
-    [_h]: ["DELETE", "/sdk-media-capture-pipelines/{MediaPipelineId}", 204],
-  },
+  { [_h]: ["DELETE", "/sdk-media-capture-pipelines/{MediaPipelineId}", 204] },
   () => DeleteMediaCapturePipelineRequest,
   () => __Unit,
 ];
@@ -1471,9 +1330,7 @@ export var DeleteMediaInsightsPipelineConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DMIPC,
-  {
-    [_h]: ["DELETE", "/media-insights-pipeline-configurations/{Identifier}", 204],
-  },
+  { [_h]: ["DELETE", "/media-insights-pipeline-configurations/{Identifier}", 204] },
   () => DeleteMediaInsightsPipelineConfigurationRequest,
   () => __Unit,
 ];
@@ -1481,9 +1338,7 @@ export var DeleteMediaPipeline: StaticOperationSchema = [
   9,
   n0,
   _DMP,
-  {
-    [_h]: ["DELETE", "/sdk-media-pipelines/{MediaPipelineId}", 204],
-  },
+  { [_h]: ["DELETE", "/sdk-media-pipelines/{MediaPipelineId}", 204] },
   () => DeleteMediaPipelineRequest,
   () => __Unit,
 ];
@@ -1491,9 +1346,7 @@ export var DeleteMediaPipelineKinesisVideoStreamPool: StaticOperationSchema = [
   9,
   n0,
   _DMPKVSP,
-  {
-    [_h]: ["DELETE", "/media-pipeline-kinesis-video-stream-pools/{Identifier}", 204],
-  },
+  { [_h]: ["DELETE", "/media-pipeline-kinesis-video-stream-pools/{Identifier}", 204] },
   () => DeleteMediaPipelineKinesisVideoStreamPoolRequest,
   () => __Unit,
 ];
@@ -1501,9 +1354,7 @@ export var GetMediaCapturePipeline: StaticOperationSchema = [
   9,
   n0,
   _GMCP,
-  {
-    [_h]: ["GET", "/sdk-media-capture-pipelines/{MediaPipelineId}", 200],
-  },
+  { [_h]: ["GET", "/sdk-media-capture-pipelines/{MediaPipelineId}", 200] },
   () => GetMediaCapturePipelineRequest,
   () => GetMediaCapturePipelineResponse,
 ];
@@ -1511,9 +1362,7 @@ export var GetMediaInsightsPipelineConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GMIPC,
-  {
-    [_h]: ["GET", "/media-insights-pipeline-configurations/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/media-insights-pipeline-configurations/{Identifier}", 200] },
   () => GetMediaInsightsPipelineConfigurationRequest,
   () => GetMediaInsightsPipelineConfigurationResponse,
 ];
@@ -1521,9 +1370,7 @@ export var GetMediaPipeline: StaticOperationSchema = [
   9,
   n0,
   _GMP,
-  {
-    [_h]: ["GET", "/sdk-media-pipelines/{MediaPipelineId}", 200],
-  },
+  { [_h]: ["GET", "/sdk-media-pipelines/{MediaPipelineId}", 200] },
   () => GetMediaPipelineRequest,
   () => GetMediaPipelineResponse,
 ];
@@ -1531,9 +1378,7 @@ export var GetMediaPipelineKinesisVideoStreamPool: StaticOperationSchema = [
   9,
   n0,
   _GMPKVSP,
-  {
-    [_h]: ["GET", "/media-pipeline-kinesis-video-stream-pools/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/media-pipeline-kinesis-video-stream-pools/{Identifier}", 200] },
   () => GetMediaPipelineKinesisVideoStreamPoolRequest,
   () => GetMediaPipelineKinesisVideoStreamPoolResponse,
 ];
@@ -1541,9 +1386,7 @@ export var GetSpeakerSearchTask: StaticOperationSchema = [
   9,
   n0,
   _GSST,
-  {
-    [_h]: ["GET", "/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}", 200],
-  },
+  { [_h]: ["GET", "/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}", 200] },
   () => GetSpeakerSearchTaskRequest,
   () => GetSpeakerSearchTaskResponse,
 ];
@@ -1551,9 +1394,7 @@ export var GetVoiceToneAnalysisTask: StaticOperationSchema = [
   9,
   n0,
   _GVTAT,
-  {
-    [_h]: ["GET", "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}", 200],
-  },
+  { [_h]: ["GET", "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}", 200] },
   () => GetVoiceToneAnalysisTaskRequest,
   () => GetVoiceToneAnalysisTaskResponse,
 ];
@@ -1561,9 +1402,7 @@ export var ListMediaCapturePipelines: StaticOperationSchema = [
   9,
   n0,
   _LMCP,
-  {
-    [_h]: ["GET", "/sdk-media-capture-pipelines", 200],
-  },
+  { [_h]: ["GET", "/sdk-media-capture-pipelines", 200] },
   () => ListMediaCapturePipelinesRequest,
   () => ListMediaCapturePipelinesResponse,
 ];
@@ -1571,9 +1410,7 @@ export var ListMediaInsightsPipelineConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LMIPC,
-  {
-    [_h]: ["GET", "/media-insights-pipeline-configurations", 200],
-  },
+  { [_h]: ["GET", "/media-insights-pipeline-configurations", 200] },
   () => ListMediaInsightsPipelineConfigurationsRequest,
   () => ListMediaInsightsPipelineConfigurationsResponse,
 ];
@@ -1581,9 +1418,7 @@ export var ListMediaPipelineKinesisVideoStreamPools: StaticOperationSchema = [
   9,
   n0,
   _LMPKVSP,
-  {
-    [_h]: ["GET", "/media-pipeline-kinesis-video-stream-pools", 200],
-  },
+  { [_h]: ["GET", "/media-pipeline-kinesis-video-stream-pools", 200] },
   () => ListMediaPipelineKinesisVideoStreamPoolsRequest,
   () => ListMediaPipelineKinesisVideoStreamPoolsResponse,
 ];
@@ -1591,9 +1426,7 @@ export var ListMediaPipelines: StaticOperationSchema = [
   9,
   n0,
   _LMP,
-  {
-    [_h]: ["GET", "/sdk-media-pipelines", 200],
-  },
+  { [_h]: ["GET", "/sdk-media-pipelines", 200] },
   () => ListMediaPipelinesRequest,
   () => ListMediaPipelinesResponse,
 ];
@@ -1601,9 +1434,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1611,9 +1442,7 @@ export var StartSpeakerSearchTask: StaticOperationSchema = [
   9,
   n0,
   _SSST,
-  {
-    [_h]: ["POST", "/media-insights-pipelines/{Identifier}/speaker-search-tasks?operation=start", 201],
-  },
+  { [_h]: ["POST", "/media-insights-pipelines/{Identifier}/speaker-search-tasks?operation=start", 201] },
   () => StartSpeakerSearchTaskRequest,
   () => StartSpeakerSearchTaskResponse,
 ];
@@ -1621,9 +1450,7 @@ export var StartVoiceToneAnalysisTask: StaticOperationSchema = [
   9,
   n0,
   _SVTAT,
-  {
-    [_h]: ["POST", "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks?operation=start", 201],
-  },
+  { [_h]: ["POST", "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks?operation=start", 201] },
   () => StartVoiceToneAnalysisTaskRequest,
   () => StartVoiceToneAnalysisTaskResponse,
 ];
@@ -1659,9 +1486,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags?operation=tag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=tag-resource", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1669,9 +1494,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/tags?operation=untag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=untag-resource", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1679,9 +1502,7 @@ export var UpdateMediaInsightsPipelineConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UMIPC,
-  {
-    [_h]: ["PUT", "/media-insights-pipeline-configurations/{Identifier}", 200],
-  },
+  { [_h]: ["PUT", "/media-insights-pipeline-configurations/{Identifier}", 200] },
   () => UpdateMediaInsightsPipelineConfigurationRequest,
   () => UpdateMediaInsightsPipelineConfigurationResponse,
 ];
@@ -1689,9 +1510,7 @@ export var UpdateMediaInsightsPipelineStatus: StaticOperationSchema = [
   9,
   n0,
   _UMIPS,
-  {
-    [_h]: ["PUT", "/media-insights-pipeline-status/{Identifier}", 200],
-  },
+  { [_h]: ["PUT", "/media-insights-pipeline-status/{Identifier}", 200] },
   () => UpdateMediaInsightsPipelineStatusRequest,
   () => __Unit,
 ];
@@ -1699,9 +1518,7 @@ export var UpdateMediaPipelineKinesisVideoStreamPool: StaticOperationSchema = [
   9,
   n0,
   _UMPKVSP,
-  {
-    [_h]: ["PUT", "/media-pipeline-kinesis-video-stream-pools/{Identifier}", 200],
-  },
+  { [_h]: ["PUT", "/media-pipeline-kinesis-video-stream-pools/{Identifier}", 200] },
   () => UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   () => UpdateMediaPipelineKinesisVideoStreamPoolResponse,
 ];

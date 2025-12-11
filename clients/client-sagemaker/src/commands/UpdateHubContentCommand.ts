@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateHubContentRequest, UpdateHubContentResponse } from "../models/models_4";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { UpdateHubContentRequest, UpdateHubContentResponse } from "../models/models_4";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateHubContent } from "../schemas/schemas_0";
 
 /**
@@ -39,7 +39,7 @@ export interface UpdateHubContentCommandOutput extends UpdateHubContentResponse,
  * const input = { // UpdateHubContentRequest
  *   HubName: "STRING_VALUE", // required
  *   HubContentName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
  *   HubContentVersion: "STRING_VALUE", // required
  *   HubContentDisplayName: "STRING_VALUE",
  *   HubContentDescription: "STRING_VALUE",

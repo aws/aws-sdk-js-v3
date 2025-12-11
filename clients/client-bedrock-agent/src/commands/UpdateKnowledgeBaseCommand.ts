@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
+import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateKnowledgeBaseRequest, UpdateKnowledgeBaseResponse } from "../models/models_1";
+import type { UpdateKnowledgeBaseRequest, UpdateKnowledgeBaseResponse } from "../models/models_1";
 import { UpdateKnowledgeBase } from "../schemas/schemas_0";
 
 /**
@@ -49,6 +49,20 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *         bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  *           dimensions: Number("int"),
  *           embeddingDataType: "FLOAT32" || "BINARY",
+ *           audio: [ // AudioConfigurations
+ *             { // AudioConfiguration
+ *               segmentationConfiguration: { // AudioSegmentationConfiguration
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
+ *           video: [ // VideoConfigurations
+ *             { // VideoConfiguration
+ *               segmentationConfiguration: { // VideoSegmentationConfiguration
+ *                 fixedLengthDuration: Number("int"), // required
+ *               },
+ *             },
+ *           ],
  *         },
  *       },
  *       supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration
@@ -225,6 +239,20 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  * //             dimensions: Number("int"),
  * //             embeddingDataType: "FLOAT32" || "BINARY",
+ * //             audio: [ // AudioConfigurations
+ * //               { // AudioConfiguration
+ * //                 segmentationConfiguration: { // AudioSegmentationConfiguration
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //             video: [ // VideoConfigurations
+ * //               { // VideoConfiguration
+ * //                 segmentationConfiguration: { // VideoSegmentationConfiguration
+ * //                   fixedLengthDuration: Number("int"), // required
+ * //                 },
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration

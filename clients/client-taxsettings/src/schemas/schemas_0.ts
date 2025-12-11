@@ -264,7 +264,7 @@ const n0 = "com.amazonaws.taxsettings";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -285,21 +285,16 @@ import {
 import { TaxSettingsServiceException as __TaxSettingsServiceException } from "../models/TaxSettingsServiceException";
 
 /* eslint no-var: 0 */
-
 export var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
+  { [_e]: _c, [_hE]: 401 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountDetails: StaticStructureSchema = [
   3,
   n0,
@@ -428,15 +423,11 @@ export var AttachmentUploadException: StaticErrorSchema = [
   -3,
   n0,
   _AUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(AttachmentUploadException, __AttachmentUploadException);
-
 export var Authority: StaticStructureSchema = [3, n0, _Au, 0, [_co, _st], [0, 0]];
 export var BatchDeleteTaxRegistrationError: StaticStructureSchema = [
   3,
@@ -494,28 +485,20 @@ export var CaseCreationLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _CCLEE,
-  {
-    [_e]: _c,
-    [_hE]: 413,
-  },
+  { [_e]: _c, [_hE]: 413 },
   [_m],
   [[() => ErrorMessage, 0]],
 ];
 TypeRegistry.for(n0).registerError(CaseCreationLimitExceededException, __CaseCreationLimitExceededException);
-
 export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m, _eC],
   [[() => ErrorMessage, 0], 0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DeleteSupplementalTaxRegistrationRequest: StaticStructureSchema = [3, n0, _DSTRR, 0, [_aIu], [0]];
 export var DeleteSupplementalTaxRegistrationResponse: StaticStructureSchema = [3, n0, _DSTRRe, 0, [], []];
 export var DeleteTaxRegistrationRequest: StaticStructureSchema = [3, n0, _DTRR, 0, [_aI], [0]];
@@ -547,15 +530,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _eC],
   [[() => ErrorMessage, 0], 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IsraelAdditionalInfo: StaticStructureSchema = [3, n0, _IAIs, 0, [_dT, _cT], [0, 0]];
 export var ItalyAdditionalInfo: StaticStructureSchema = [3, n0, _IAIt, 0, [_sAId, _cN, _cNu, _tC], [0, 0, 0, 0]];
 export var Jurisdiction: StaticStructureSchema = [3, n0, _J, 0, [_sOR, _cC], [0, 0]];
@@ -622,15 +601,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _eC],
   [[() => ErrorMessage, 0], 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RomaniaAdditionalInfo: StaticStructureSchema = [3, n0, _RAI, 0, [_tRNT], [0]];
 export var SaudiArabiaAdditionalInfo: StaticStructureSchema = [3, n0, _SAAI, 0, [_tRNT], [0]];
 export var SourceS3Location: StaticStructureSchema = [3, n0, _SSL, 0, [_b, _k], [0, 0]];
@@ -711,15 +686,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _eC, _fL],
   [[() => ErrorMessage, 0], 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n], [0]];
 export var VerificationDetails: StaticStructureSchema = [
   3,
@@ -730,14 +701,10 @@ export var VerificationDetails: StaticStructureSchema = [
   [0, () => TaxRegistrationDocuments],
 ];
 export var VietnamAdditionalInfo: StaticStructureSchema = [3, n0, _VAI, 0, [_eIN, _eTCN, _pVN, _pVND], [0, 0, 0, 0]];
-export var __Unit = "unit" as const;
-
 export var TaxSettingsServiceException: StaticErrorSchema = [-3, _sm, "TaxSettingsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TaxSettingsServiceException, __TaxSettingsServiceException);
-
 export var AccountDetailsList: StaticListSchema = [1, n0, _ADL, 0, [() => AccountDetails, 0]];
 export var AccountIds = 64 | 0;
-
 export var Authorities: StaticListSchema = [1, n0, _Aut, 0, () => Authority];
 export var BatchDeleteTaxRegistrationErrors: StaticListSchema = [
   1,
@@ -754,7 +721,6 @@ export var BatchPutTaxRegistrationErrors: StaticListSchema = [
   [() => BatchPutTaxRegistrationError, 0],
 ];
 export var MalaysiaServiceTaxCodesList = 64 | 0;
-
 export var SupplementalTaxRegistrationList: StaticListSchema = [
   1,
   n0,
@@ -773,9 +739,7 @@ export var BatchDeleteTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _BDTR,
-  {
-    [_h]: ["POST", "/BatchDeleteTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/BatchDeleteTaxRegistration", 200] },
   () => BatchDeleteTaxRegistrationRequest,
   () => BatchDeleteTaxRegistrationResponse,
 ];
@@ -783,9 +747,7 @@ export var BatchGetTaxExemptions: StaticOperationSchema = [
   9,
   n0,
   _BGTE,
-  {
-    [_h]: ["POST", "/BatchGetTaxExemptions", 200],
-  },
+  { [_h]: ["POST", "/BatchGetTaxExemptions", 200] },
   () => BatchGetTaxExemptionsRequest,
   () => BatchGetTaxExemptionsResponse,
 ];
@@ -793,9 +755,7 @@ export var BatchPutTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _BPTR,
-  {
-    [_h]: ["POST", "/BatchPutTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/BatchPutTaxRegistration", 200] },
   () => BatchPutTaxRegistrationRequest,
   () => BatchPutTaxRegistrationResponse,
 ];
@@ -803,9 +763,7 @@ export var DeleteSupplementalTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _DSTR,
-  {
-    [_h]: ["POST", "/DeleteSupplementalTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/DeleteSupplementalTaxRegistration", 200] },
   () => DeleteSupplementalTaxRegistrationRequest,
   () => DeleteSupplementalTaxRegistrationResponse,
 ];
@@ -813,9 +771,7 @@ export var DeleteTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _DTR,
-  {
-    [_h]: ["POST", "/DeleteTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/DeleteTaxRegistration", 200] },
   () => DeleteTaxRegistrationRequest,
   () => DeleteTaxRegistrationResponse,
 ];
@@ -823,9 +779,7 @@ export var GetTaxExemptionTypes: StaticOperationSchema = [
   9,
   n0,
   _GTET,
-  {
-    [_h]: ["POST", "/GetTaxExemptionTypes", 200],
-  },
+  { [_h]: ["POST", "/GetTaxExemptionTypes", 200] },
   () => GetTaxExemptionTypesRequest,
   () => GetTaxExemptionTypesResponse,
 ];
@@ -833,9 +787,7 @@ export var GetTaxInheritance: StaticOperationSchema = [
   9,
   n0,
   _GTI,
-  {
-    [_h]: ["POST", "/GetTaxInheritance", 200],
-  },
+  { [_h]: ["POST", "/GetTaxInheritance", 200] },
   () => GetTaxInheritanceRequest,
   () => GetTaxInheritanceResponse,
 ];
@@ -843,9 +795,7 @@ export var GetTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _GTR,
-  {
-    [_h]: ["POST", "/GetTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/GetTaxRegistration", 200] },
   () => GetTaxRegistrationRequest,
   () => GetTaxRegistrationResponse,
 ];
@@ -853,9 +803,7 @@ export var GetTaxRegistrationDocument: StaticOperationSchema = [
   9,
   n0,
   _GTRD,
-  {
-    [_h]: ["POST", "/GetTaxRegistrationDocument", 200],
-  },
+  { [_h]: ["POST", "/GetTaxRegistrationDocument", 200] },
   () => GetTaxRegistrationDocumentRequest,
   () => GetTaxRegistrationDocumentResponse,
 ];
@@ -863,9 +811,7 @@ export var ListSupplementalTaxRegistrations: StaticOperationSchema = [
   9,
   n0,
   _LSTR,
-  {
-    [_h]: ["POST", "/ListSupplementalTaxRegistrations", 200],
-  },
+  { [_h]: ["POST", "/ListSupplementalTaxRegistrations", 200] },
   () => ListSupplementalTaxRegistrationsRequest,
   () => ListSupplementalTaxRegistrationsResponse,
 ];
@@ -873,9 +819,7 @@ export var ListTaxExemptions: StaticOperationSchema = [
   9,
   n0,
   _LTE,
-  {
-    [_h]: ["POST", "/ListTaxExemptions", 200],
-  },
+  { [_h]: ["POST", "/ListTaxExemptions", 200] },
   () => ListTaxExemptionsRequest,
   () => ListTaxExemptionsResponse,
 ];
@@ -883,9 +827,7 @@ export var ListTaxRegistrations: StaticOperationSchema = [
   9,
   n0,
   _LTR,
-  {
-    [_h]: ["POST", "/ListTaxRegistrations", 200],
-  },
+  { [_h]: ["POST", "/ListTaxRegistrations", 200] },
   () => ListTaxRegistrationsRequest,
   () => ListTaxRegistrationsResponse,
 ];
@@ -893,9 +835,7 @@ export var PutSupplementalTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _PSTR,
-  {
-    [_h]: ["POST", "/PutSupplementalTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/PutSupplementalTaxRegistration", 200] },
   () => PutSupplementalTaxRegistrationRequest,
   () => PutSupplementalTaxRegistrationResponse,
 ];
@@ -903,9 +843,7 @@ export var PutTaxExemption: StaticOperationSchema = [
   9,
   n0,
   _PTE,
-  {
-    [_h]: ["POST", "/PutTaxExemption", 200],
-  },
+  { [_h]: ["POST", "/PutTaxExemption", 200] },
   () => PutTaxExemptionRequest,
   () => PutTaxExemptionResponse,
 ];
@@ -913,9 +851,7 @@ export var PutTaxInheritance: StaticOperationSchema = [
   9,
   n0,
   _PTI,
-  {
-    [_h]: ["POST", "/PutTaxInheritance", 200],
-  },
+  { [_h]: ["POST", "/PutTaxInheritance", 200] },
   () => PutTaxInheritanceRequest,
   () => PutTaxInheritanceResponse,
 ];
@@ -923,9 +859,7 @@ export var PutTaxRegistration: StaticOperationSchema = [
   9,
   n0,
   _PTR,
-  {
-    [_h]: ["POST", "/PutTaxRegistration", 200],
-  },
+  { [_h]: ["POST", "/PutTaxRegistration", 200] },
   () => PutTaxRegistrationRequest,
   () => PutTaxRegistrationResponse,
 ];

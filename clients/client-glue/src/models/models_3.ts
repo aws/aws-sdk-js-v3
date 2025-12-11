@@ -2,97 +2,109 @@
 import { ExecutionClass, JobMode, Permission, ResourceAction, ResourceState, WorkerType } from "./enums";
 
 import {
-  Aggregate,
-  AmazonRedshiftSource,
-  AmazonRedshiftTarget,
-  AthenaConnectorSource,
-  BasicCatalogTarget,
-  CatalogDeltaSource,
-  CatalogHudiSource,
-  CatalogIcebergSource,
-  CatalogKafkaSource,
-  CatalogKinesisSource,
-  CatalogSource,
+  type Aggregate,
+  type AmazonRedshiftSource,
+  type AmazonRedshiftTarget,
+  type AthenaConnectorSource,
+  type BasicCatalogTarget,
+  type CatalogDeltaSource,
+  type CatalogHudiSource,
+  type CatalogIcebergSource,
+  type CatalogKafkaSource,
+  type CatalogKinesisSource,
+  type CatalogSource,
+  type ConnectionsList,
+  type ConnectorDataSource,
+  type ConnectorDataTarget,
+  type CustomCode,
+  type DirectJDBCSource,
+  type DirectKafkaSource,
+  type DirectKinesisSource,
+  type DropDuplicates,
+  type DropFields,
+  type DropNullFields,
+  type DynamicTransform,
+  type DynamoDBCatalogSource,
+  type DynamoDBELTConnectorSource,
+  type ErrorDetail,
+  type EvaluateDataQuality,
+  type EvaluateDataQualityMultiFrame,
+  type ExecutionProperty,
+  type FillMissingValues,
+  type Filter,
+  type GovernedCatalogSource,
+  type GovernedCatalogTarget,
+  type JDBCConnectorSource,
+  type JDBCConnectorTarget,
+  type JobCommand,
+  type Join,
+  type Merge,
+  type MicrosoftSQLServerCatalogSource,
+  type MicrosoftSQLServerCatalogTarget,
+  type MySQLCatalogSource,
+  type MySQLCatalogTarget,
+  type NotificationProperty,
+  type OracleSQLCatalogSource,
+  type OracleSQLCatalogTarget,
+  type PIIDetection,
+  type PostgreSQLCatalogSource,
+  type PostgreSQLCatalogTarget,
+  type Recipe,
+  type RedshiftSource,
+  type RedshiftTarget,
+  type RelationalCatalogSource,
+  type RenameField,
+  type Route,
+  type S3CatalogDeltaSource,
+  type S3CatalogHudiSource,
+  type S3CatalogIcebergSource,
+  type S3CatalogSource,
+  type S3CatalogTarget,
+  type S3CsvSource,
+  type S3DeltaCatalogTarget,
+  type S3DeltaDirectTarget,
+  type S3DeltaSource,
+  type S3DirectTarget,
+  type S3ExcelSource,
+  type S3GlueParquetTarget,
+  type S3HudiCatalogTarget,
+  type S3HudiDirectTarget,
+  type S3HudiSource,
+  type S3HyperDirectTarget,
+  type S3IcebergCatalogTarget,
+  type S3IcebergDirectTarget,
+  type S3JsonSource,
+  type S3ParquetSource,
+  type SelectFields,
+  type SelectFromCollection,
+  type SnowflakeSource,
+  type SnowflakeTarget,
+  type SourceControlDetails,
+  type SparkConnectorSource,
+  type SparkConnectorTarget,
+  type SparkSQL,
+  type Spigot,
+  type SplitFields,
+  type StorageDescriptor,
+  type Trigger,
+  type Union,
   Column,
-  ConnectionsList,
-  ConnectorDataSource,
-  ConnectorDataTarget,
-  CustomCode,
-  DirectJDBCSource,
-  DirectKafkaSource,
-  DirectKinesisSource,
-  DropDuplicates,
-  DropFields,
-  DropNullFields,
-  DynamicTransform,
-  DynamoDBCatalogSource,
-  DynamoDBELTConnectorSource,
-  ErrorDetail,
-  EvaluateDataQuality,
-  EvaluateDataQualityMultiFrame,
-  ExecutionProperty,
-  FillMissingValues,
-  Filter,
-  GovernedCatalogSource,
-  GovernedCatalogTarget,
-  JDBCConnectorSource,
-  JDBCConnectorTarget,
-  JobCommand,
-  Join,
-  Merge,
-  MicrosoftSQLServerCatalogSource,
-  MicrosoftSQLServerCatalogTarget,
-  MySQLCatalogSource,
-  MySQLCatalogTarget,
-  NotificationProperty,
-  OracleSQLCatalogSource,
-  OracleSQLCatalogTarget,
-  PIIDetection,
-  PostgreSQLCatalogSource,
-  PostgreSQLCatalogTarget,
-  Recipe,
-  RedshiftSource,
-  RedshiftTarget,
-  RelationalCatalogSource,
-  RenameField,
-  Route,
-  S3CatalogDeltaSource,
-  S3CatalogHudiSource,
-  S3CatalogIcebergSource,
-  S3CatalogSource,
-  S3CatalogTarget,
-  S3CsvSource,
-  S3DeltaCatalogTarget,
-  S3DeltaDirectTarget,
-  S3DeltaSource,
-  S3DirectTarget,
-  S3ExcelSource,
-  S3GlueParquetTarget,
-  S3HudiCatalogTarget,
-  S3HudiDirectTarget,
-  S3HudiSource,
-  S3HyperDirectTarget,
-  S3IcebergCatalogTarget,
-  S3IcebergDirectTarget,
-  S3JsonSource,
-  S3ParquetSource,
-  SelectFields,
-  SelectFromCollection,
-  SnowflakeSource,
-  SnowflakeTarget,
-  SourceControlDetails,
-  SparkConnectorSource,
-  SparkConnectorTarget,
-  SparkSQL,
-  Spigot,
-  SplitFields,
-  StorageDescriptor,
-  Union,
 } from "./models_0";
 
-import { ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
+import type { ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
 
-import { ColumnRowFilter, FederatedTable, ViewDefinition, ViewValidation } from "./models_2";
+import { type FederatedTable, type ViewDefinition, ColumnRowFilter, ViewValidation } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateTriggerResponse {
+  /**
+   * <p>The resulting trigger definition.</p>
+   * @public
+   */
+  Trigger?: Trigger | undefined;
+}
 
 /**
  * @public
@@ -491,7 +503,13 @@ export interface Table {
   IsMultiDialectView?: boolean | undefined;
 
   /**
-   * <p>A structure containing information about the state of an asynchronous change to a table.</p>
+   * <p>Indicates a table is a <code>MaterializedView</code>.</p>
+   * @public
+   */
+  IsMaterializedView?: boolean | undefined;
+
+  /**
+   * <p>Indicates the the state of an asynchronous change to a table.</p>
    * @public
    */
   Status?: TableStatus | undefined;
@@ -1084,6 +1102,12 @@ export interface GetUnfilteredTableMetadataResponse {
    * @public
    */
   IsMultiDialectView?: boolean | undefined;
+
+  /**
+   * <p>Indicates if a table is a materialized view.</p>
+   * @public
+   */
+  IsMaterializedView?: boolean | undefined;
 
   /**
    * <p>The resource ARN of the parent resource extracted from the request.</p>

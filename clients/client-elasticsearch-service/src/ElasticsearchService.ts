@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptInboundCrossClusterSearchConnectionCommand,
@@ -245,7 +245,7 @@ import {
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
 } from "./commands/UpgradeElasticsearchDomainCommand";
-import { ElasticsearchServiceClient, ElasticsearchServiceClientConfig } from "./ElasticsearchServiceClient";
+import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
 
 const commands = {
   AcceptInboundCrossClusterSearchConnectionCommand,

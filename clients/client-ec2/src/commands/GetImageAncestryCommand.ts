@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetImageAncestryRequest, GetImageAncestryResult } from "../models/models_5";
+import type { GetImageAncestryRequest, GetImageAncestryResult } from "../models/models_5";
 import { GetImageAncestry } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,7 @@ export interface GetImageAncestryCommandOutput extends GetImageAncestryResult, _
 /**
  * <p>Retrieves the ancestry chain of the specified AMI, tracing its lineage back to the root
  *       AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html">AMI ancestry</a> in
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

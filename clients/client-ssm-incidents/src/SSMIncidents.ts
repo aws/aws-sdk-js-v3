@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchGetIncidentFindingsCommand,
@@ -153,7 +153,7 @@ import {
   UpdateTimelineEventCommandInput,
   UpdateTimelineEventCommandOutput,
 } from "./commands/UpdateTimelineEventCommand";
-import { SSMIncidentsClient, SSMIncidentsClientConfig } from "./SSMIncidentsClient";
+import { SSMIncidentsClient } from "./SSMIncidentsClient";
 
 const commands = {
   BatchGetIncidentFindingsCommand,

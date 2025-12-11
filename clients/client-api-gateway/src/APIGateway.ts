@@ -1,511 +1,583 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { APIGatewayClient, APIGatewayClientConfig } from "./APIGatewayClient";
+import { APIGatewayClient } from "./APIGatewayClient";
 import {
+  type CreateApiKeyCommandInput,
+  type CreateApiKeyCommandOutput,
   CreateApiKeyCommand,
-  CreateApiKeyCommandInput,
-  CreateApiKeyCommandOutput,
 } from "./commands/CreateApiKeyCommand";
 import {
+  type CreateAuthorizerCommandInput,
+  type CreateAuthorizerCommandOutput,
   CreateAuthorizerCommand,
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput,
 } from "./commands/CreateAuthorizerCommand";
 import {
+  type CreateBasePathMappingCommandInput,
+  type CreateBasePathMappingCommandOutput,
   CreateBasePathMappingCommand,
-  CreateBasePathMappingCommandInput,
-  CreateBasePathMappingCommandOutput,
 } from "./commands/CreateBasePathMappingCommand";
 import {
+  type CreateDeploymentCommandInput,
+  type CreateDeploymentCommandOutput,
   CreateDeploymentCommand,
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand";
 import {
+  type CreateDocumentationPartCommandInput,
+  type CreateDocumentationPartCommandOutput,
   CreateDocumentationPartCommand,
-  CreateDocumentationPartCommandInput,
-  CreateDocumentationPartCommandOutput,
 } from "./commands/CreateDocumentationPartCommand";
 import {
+  type CreateDocumentationVersionCommandInput,
+  type CreateDocumentationVersionCommandOutput,
   CreateDocumentationVersionCommand,
-  CreateDocumentationVersionCommandInput,
-  CreateDocumentationVersionCommandOutput,
 } from "./commands/CreateDocumentationVersionCommand";
 import {
+  type CreateDomainNameAccessAssociationCommandInput,
+  type CreateDomainNameAccessAssociationCommandOutput,
   CreateDomainNameAccessAssociationCommand,
-  CreateDomainNameAccessAssociationCommandInput,
-  CreateDomainNameAccessAssociationCommandOutput,
 } from "./commands/CreateDomainNameAccessAssociationCommand";
 import {
+  type CreateDomainNameCommandInput,
+  type CreateDomainNameCommandOutput,
   CreateDomainNameCommand,
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput,
 } from "./commands/CreateDomainNameCommand";
-import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
+  type CreateModelCommandInput,
+  type CreateModelCommandOutput,
+  CreateModelCommand,
+} from "./commands/CreateModelCommand";
+import {
+  type CreateRequestValidatorCommandInput,
+  type CreateRequestValidatorCommandOutput,
   CreateRequestValidatorCommand,
-  CreateRequestValidatorCommandInput,
-  CreateRequestValidatorCommandOutput,
 } from "./commands/CreateRequestValidatorCommand";
 import {
+  type CreateResourceCommandInput,
+  type CreateResourceCommandOutput,
   CreateResourceCommand,
-  CreateResourceCommandInput,
-  CreateResourceCommandOutput,
 } from "./commands/CreateResourceCommand";
 import {
+  type CreateRestApiCommandInput,
+  type CreateRestApiCommandOutput,
   CreateRestApiCommand,
-  CreateRestApiCommandInput,
-  CreateRestApiCommandOutput,
 } from "./commands/CreateRestApiCommand";
-import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
 import {
+  type CreateStageCommandInput,
+  type CreateStageCommandOutput,
+  CreateStageCommand,
+} from "./commands/CreateStageCommand";
+import {
+  type CreateUsagePlanCommandInput,
+  type CreateUsagePlanCommandOutput,
   CreateUsagePlanCommand,
-  CreateUsagePlanCommandInput,
-  CreateUsagePlanCommandOutput,
 } from "./commands/CreateUsagePlanCommand";
 import {
+  type CreateUsagePlanKeyCommandInput,
+  type CreateUsagePlanKeyCommandOutput,
   CreateUsagePlanKeyCommand,
-  CreateUsagePlanKeyCommandInput,
-  CreateUsagePlanKeyCommandOutput,
 } from "./commands/CreateUsagePlanKeyCommand";
 import {
+  type CreateVpcLinkCommandInput,
+  type CreateVpcLinkCommandOutput,
   CreateVpcLinkCommand,
-  CreateVpcLinkCommandInput,
-  CreateVpcLinkCommandOutput,
 } from "./commands/CreateVpcLinkCommand";
 import {
+  type DeleteApiKeyCommandInput,
+  type DeleteApiKeyCommandOutput,
   DeleteApiKeyCommand,
-  DeleteApiKeyCommandInput,
-  DeleteApiKeyCommandOutput,
 } from "./commands/DeleteApiKeyCommand";
 import {
+  type DeleteAuthorizerCommandInput,
+  type DeleteAuthorizerCommandOutput,
   DeleteAuthorizerCommand,
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput,
 } from "./commands/DeleteAuthorizerCommand";
 import {
+  type DeleteBasePathMappingCommandInput,
+  type DeleteBasePathMappingCommandOutput,
   DeleteBasePathMappingCommand,
-  DeleteBasePathMappingCommandInput,
-  DeleteBasePathMappingCommandOutput,
 } from "./commands/DeleteBasePathMappingCommand";
 import {
+  type DeleteClientCertificateCommandInput,
+  type DeleteClientCertificateCommandOutput,
   DeleteClientCertificateCommand,
-  DeleteClientCertificateCommandInput,
-  DeleteClientCertificateCommandOutput,
 } from "./commands/DeleteClientCertificateCommand";
 import {
+  type DeleteDeploymentCommandInput,
+  type DeleteDeploymentCommandOutput,
   DeleteDeploymentCommand,
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput,
 } from "./commands/DeleteDeploymentCommand";
 import {
+  type DeleteDocumentationPartCommandInput,
+  type DeleteDocumentationPartCommandOutput,
   DeleteDocumentationPartCommand,
-  DeleteDocumentationPartCommandInput,
-  DeleteDocumentationPartCommandOutput,
 } from "./commands/DeleteDocumentationPartCommand";
 import {
+  type DeleteDocumentationVersionCommandInput,
+  type DeleteDocumentationVersionCommandOutput,
   DeleteDocumentationVersionCommand,
-  DeleteDocumentationVersionCommandInput,
-  DeleteDocumentationVersionCommandOutput,
 } from "./commands/DeleteDocumentationVersionCommand";
 import {
+  type DeleteDomainNameAccessAssociationCommandInput,
+  type DeleteDomainNameAccessAssociationCommandOutput,
   DeleteDomainNameAccessAssociationCommand,
-  DeleteDomainNameAccessAssociationCommandInput,
-  DeleteDomainNameAccessAssociationCommandOutput,
 } from "./commands/DeleteDomainNameAccessAssociationCommand";
 import {
+  type DeleteDomainNameCommandInput,
+  type DeleteDomainNameCommandOutput,
   DeleteDomainNameCommand,
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput,
 } from "./commands/DeleteDomainNameCommand";
 import {
+  type DeleteGatewayResponseCommandInput,
+  type DeleteGatewayResponseCommandOutput,
   DeleteGatewayResponseCommand,
-  DeleteGatewayResponseCommandInput,
-  DeleteGatewayResponseCommandOutput,
 } from "./commands/DeleteGatewayResponseCommand";
 import {
+  type DeleteIntegrationCommandInput,
+  type DeleteIntegrationCommandOutput,
   DeleteIntegrationCommand,
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  type DeleteIntegrationResponseCommandInput,
+  type DeleteIntegrationResponseCommandOutput,
   DeleteIntegrationResponseCommand,
-  DeleteIntegrationResponseCommandInput,
-  DeleteIntegrationResponseCommandOutput,
 } from "./commands/DeleteIntegrationResponseCommand";
 import {
+  type DeleteMethodCommandInput,
+  type DeleteMethodCommandOutput,
   DeleteMethodCommand,
-  DeleteMethodCommandInput,
-  DeleteMethodCommandOutput,
 } from "./commands/DeleteMethodCommand";
 import {
+  type DeleteMethodResponseCommandInput,
+  type DeleteMethodResponseCommandOutput,
   DeleteMethodResponseCommand,
-  DeleteMethodResponseCommandInput,
-  DeleteMethodResponseCommandOutput,
 } from "./commands/DeleteMethodResponseCommand";
-import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
+  type DeleteModelCommandInput,
+  type DeleteModelCommandOutput,
+  DeleteModelCommand,
+} from "./commands/DeleteModelCommand";
+import {
+  type DeleteRequestValidatorCommandInput,
+  type DeleteRequestValidatorCommandOutput,
   DeleteRequestValidatorCommand,
-  DeleteRequestValidatorCommandInput,
-  DeleteRequestValidatorCommandOutput,
 } from "./commands/DeleteRequestValidatorCommand";
 import {
+  type DeleteResourceCommandInput,
+  type DeleteResourceCommandOutput,
   DeleteResourceCommand,
-  DeleteResourceCommandInput,
-  DeleteResourceCommandOutput,
 } from "./commands/DeleteResourceCommand";
 import {
+  type DeleteRestApiCommandInput,
+  type DeleteRestApiCommandOutput,
   DeleteRestApiCommand,
-  DeleteRestApiCommandInput,
-  DeleteRestApiCommandOutput,
 } from "./commands/DeleteRestApiCommand";
-import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
+  type DeleteStageCommandInput,
+  type DeleteStageCommandOutput,
+  DeleteStageCommand,
+} from "./commands/DeleteStageCommand";
+import {
+  type DeleteUsagePlanCommandInput,
+  type DeleteUsagePlanCommandOutput,
   DeleteUsagePlanCommand,
-  DeleteUsagePlanCommandInput,
-  DeleteUsagePlanCommandOutput,
 } from "./commands/DeleteUsagePlanCommand";
 import {
+  type DeleteUsagePlanKeyCommandInput,
+  type DeleteUsagePlanKeyCommandOutput,
   DeleteUsagePlanKeyCommand,
-  DeleteUsagePlanKeyCommandInput,
-  DeleteUsagePlanKeyCommandOutput,
 } from "./commands/DeleteUsagePlanKeyCommand";
 import {
+  type DeleteVpcLinkCommandInput,
+  type DeleteVpcLinkCommandOutput,
   DeleteVpcLinkCommand,
-  DeleteVpcLinkCommandInput,
-  DeleteVpcLinkCommandOutput,
 } from "./commands/DeleteVpcLinkCommand";
 import {
+  type FlushStageAuthorizersCacheCommandInput,
+  type FlushStageAuthorizersCacheCommandOutput,
   FlushStageAuthorizersCacheCommand,
-  FlushStageAuthorizersCacheCommandInput,
-  FlushStageAuthorizersCacheCommandOutput,
 } from "./commands/FlushStageAuthorizersCacheCommand";
 import {
+  type FlushStageCacheCommandInput,
+  type FlushStageCacheCommandOutput,
   FlushStageCacheCommand,
-  FlushStageCacheCommandInput,
-  FlushStageCacheCommandOutput,
 } from "./commands/FlushStageCacheCommand";
 import {
+  type GenerateClientCertificateCommandInput,
+  type GenerateClientCertificateCommandOutput,
   GenerateClientCertificateCommand,
-  GenerateClientCertificateCommandInput,
-  GenerateClientCertificateCommandOutput,
 } from "./commands/GenerateClientCertificateCommand";
-import { GetAccountCommand, GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
-import { GetApiKeyCommand, GetApiKeyCommandInput, GetApiKeyCommandOutput } from "./commands/GetApiKeyCommand";
-import { GetApiKeysCommand, GetApiKeysCommandInput, GetApiKeysCommandOutput } from "./commands/GetApiKeysCommand";
 import {
+  type GetAccountCommandInput,
+  type GetAccountCommandOutput,
+  GetAccountCommand,
+} from "./commands/GetAccountCommand";
+import { type GetApiKeyCommandInput, type GetApiKeyCommandOutput, GetApiKeyCommand } from "./commands/GetApiKeyCommand";
+import {
+  type GetApiKeysCommandInput,
+  type GetApiKeysCommandOutput,
+  GetApiKeysCommand,
+} from "./commands/GetApiKeysCommand";
+import {
+  type GetAuthorizerCommandInput,
+  type GetAuthorizerCommandOutput,
   GetAuthorizerCommand,
-  GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput,
 } from "./commands/GetAuthorizerCommand";
 import {
+  type GetAuthorizersCommandInput,
+  type GetAuthorizersCommandOutput,
   GetAuthorizersCommand,
-  GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput,
 } from "./commands/GetAuthorizersCommand";
 import {
+  type GetBasePathMappingCommandInput,
+  type GetBasePathMappingCommandOutput,
   GetBasePathMappingCommand,
-  GetBasePathMappingCommandInput,
-  GetBasePathMappingCommandOutput,
 } from "./commands/GetBasePathMappingCommand";
 import {
+  type GetBasePathMappingsCommandInput,
+  type GetBasePathMappingsCommandOutput,
   GetBasePathMappingsCommand,
-  GetBasePathMappingsCommandInput,
-  GetBasePathMappingsCommandOutput,
 } from "./commands/GetBasePathMappingsCommand";
 import {
+  type GetClientCertificateCommandInput,
+  type GetClientCertificateCommandOutput,
   GetClientCertificateCommand,
-  GetClientCertificateCommandInput,
-  GetClientCertificateCommandOutput,
 } from "./commands/GetClientCertificateCommand";
 import {
+  type GetClientCertificatesCommandInput,
+  type GetClientCertificatesCommandOutput,
   GetClientCertificatesCommand,
-  GetClientCertificatesCommandInput,
-  GetClientCertificatesCommandOutput,
 } from "./commands/GetClientCertificatesCommand";
 import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
   GetDeploymentCommand,
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
 import {
+  type GetDeploymentsCommandInput,
+  type GetDeploymentsCommandOutput,
   GetDeploymentsCommand,
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput,
 } from "./commands/GetDeploymentsCommand";
 import {
+  type GetDocumentationPartCommandInput,
+  type GetDocumentationPartCommandOutput,
   GetDocumentationPartCommand,
-  GetDocumentationPartCommandInput,
-  GetDocumentationPartCommandOutput,
 } from "./commands/GetDocumentationPartCommand";
 import {
+  type GetDocumentationPartsCommandInput,
+  type GetDocumentationPartsCommandOutput,
   GetDocumentationPartsCommand,
-  GetDocumentationPartsCommandInput,
-  GetDocumentationPartsCommandOutput,
 } from "./commands/GetDocumentationPartsCommand";
 import {
+  type GetDocumentationVersionCommandInput,
+  type GetDocumentationVersionCommandOutput,
   GetDocumentationVersionCommand,
-  GetDocumentationVersionCommandInput,
-  GetDocumentationVersionCommandOutput,
 } from "./commands/GetDocumentationVersionCommand";
 import {
+  type GetDocumentationVersionsCommandInput,
+  type GetDocumentationVersionsCommandOutput,
   GetDocumentationVersionsCommand,
-  GetDocumentationVersionsCommandInput,
-  GetDocumentationVersionsCommandOutput,
 } from "./commands/GetDocumentationVersionsCommand";
 import {
+  type GetDomainNameAccessAssociationsCommandInput,
+  type GetDomainNameAccessAssociationsCommandOutput,
   GetDomainNameAccessAssociationsCommand,
-  GetDomainNameAccessAssociationsCommandInput,
-  GetDomainNameAccessAssociationsCommandOutput,
 } from "./commands/GetDomainNameAccessAssociationsCommand";
 import {
+  type GetDomainNameCommandInput,
+  type GetDomainNameCommandOutput,
   GetDomainNameCommand,
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput,
 } from "./commands/GetDomainNameCommand";
 import {
+  type GetDomainNamesCommandInput,
+  type GetDomainNamesCommandOutput,
   GetDomainNamesCommand,
-  GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput,
 } from "./commands/GetDomainNamesCommand";
-import { GetExportCommand, GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
+import { type GetExportCommandInput, type GetExportCommandOutput, GetExportCommand } from "./commands/GetExportCommand";
 import {
+  type GetGatewayResponseCommandInput,
+  type GetGatewayResponseCommandOutput,
   GetGatewayResponseCommand,
-  GetGatewayResponseCommandInput,
-  GetGatewayResponseCommandOutput,
 } from "./commands/GetGatewayResponseCommand";
 import {
+  type GetGatewayResponsesCommandInput,
+  type GetGatewayResponsesCommandOutput,
   GetGatewayResponsesCommand,
-  GetGatewayResponsesCommandInput,
-  GetGatewayResponsesCommandOutput,
 } from "./commands/GetGatewayResponsesCommand";
 import {
+  type GetIntegrationCommandInput,
+  type GetIntegrationCommandOutput,
   GetIntegrationCommand,
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput,
 } from "./commands/GetIntegrationCommand";
 import {
+  type GetIntegrationResponseCommandInput,
+  type GetIntegrationResponseCommandOutput,
   GetIntegrationResponseCommand,
-  GetIntegrationResponseCommandInput,
-  GetIntegrationResponseCommandOutput,
 } from "./commands/GetIntegrationResponseCommand";
-import { GetMethodCommand, GetMethodCommandInput, GetMethodCommandOutput } from "./commands/GetMethodCommand";
+import { type GetMethodCommandInput, type GetMethodCommandOutput, GetMethodCommand } from "./commands/GetMethodCommand";
 import {
+  type GetMethodResponseCommandInput,
+  type GetMethodResponseCommandOutput,
   GetMethodResponseCommand,
-  GetMethodResponseCommandInput,
-  GetMethodResponseCommandOutput,
 } from "./commands/GetMethodResponseCommand";
-import { GetModelCommand, GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import { type GetModelCommandInput, type GetModelCommandOutput, GetModelCommand } from "./commands/GetModelCommand";
+import { type GetModelsCommandInput, type GetModelsCommandOutput, GetModelsCommand } from "./commands/GetModelsCommand";
 import {
+  type GetModelTemplateCommandInput,
+  type GetModelTemplateCommandOutput,
   GetModelTemplateCommand,
-  GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput,
 } from "./commands/GetModelTemplateCommand";
 import {
+  type GetRequestValidatorCommandInput,
+  type GetRequestValidatorCommandOutput,
   GetRequestValidatorCommand,
-  GetRequestValidatorCommandInput,
-  GetRequestValidatorCommandOutput,
 } from "./commands/GetRequestValidatorCommand";
 import {
+  type GetRequestValidatorsCommandInput,
+  type GetRequestValidatorsCommandOutput,
   GetRequestValidatorsCommand,
-  GetRequestValidatorsCommandInput,
-  GetRequestValidatorsCommandOutput,
 } from "./commands/GetRequestValidatorsCommand";
-import { GetResourceCommand, GetResourceCommandInput, GetResourceCommandOutput } from "./commands/GetResourceCommand";
 import {
+  type GetResourceCommandInput,
+  type GetResourceCommandOutput,
+  GetResourceCommand,
+} from "./commands/GetResourceCommand";
+import {
+  type GetResourcesCommandInput,
+  type GetResourcesCommandOutput,
   GetResourcesCommand,
-  GetResourcesCommandInput,
-  GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand";
-import { GetRestApiCommand, GetRestApiCommandInput, GetRestApiCommandOutput } from "./commands/GetRestApiCommand";
-import { GetRestApisCommand, GetRestApisCommandInput, GetRestApisCommandOutput } from "./commands/GetRestApisCommand";
-import { GetSdkCommand, GetSdkCommandInput, GetSdkCommandOutput } from "./commands/GetSdkCommand";
-import { GetSdkTypeCommand, GetSdkTypeCommandInput, GetSdkTypeCommandOutput } from "./commands/GetSdkTypeCommand";
-import { GetSdkTypesCommand, GetSdkTypesCommandInput, GetSdkTypesCommandOutput } from "./commands/GetSdkTypesCommand";
-import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
-import { GetStagesCommand, GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
-import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
-import { GetUsageCommand, GetUsageCommandInput, GetUsageCommandOutput } from "./commands/GetUsageCommand";
 import {
+  type GetRestApiCommandInput,
+  type GetRestApiCommandOutput,
+  GetRestApiCommand,
+} from "./commands/GetRestApiCommand";
+import {
+  type GetRestApisCommandInput,
+  type GetRestApisCommandOutput,
+  GetRestApisCommand,
+} from "./commands/GetRestApisCommand";
+import { type GetSdkCommandInput, type GetSdkCommandOutput, GetSdkCommand } from "./commands/GetSdkCommand";
+import {
+  type GetSdkTypeCommandInput,
+  type GetSdkTypeCommandOutput,
+  GetSdkTypeCommand,
+} from "./commands/GetSdkTypeCommand";
+import {
+  type GetSdkTypesCommandInput,
+  type GetSdkTypesCommandOutput,
+  GetSdkTypesCommand,
+} from "./commands/GetSdkTypesCommand";
+import { type GetStageCommandInput, type GetStageCommandOutput, GetStageCommand } from "./commands/GetStageCommand";
+import { type GetStagesCommandInput, type GetStagesCommandOutput, GetStagesCommand } from "./commands/GetStagesCommand";
+import { type GetTagsCommandInput, type GetTagsCommandOutput, GetTagsCommand } from "./commands/GetTagsCommand";
+import { type GetUsageCommandInput, type GetUsageCommandOutput, GetUsageCommand } from "./commands/GetUsageCommand";
+import {
+  type GetUsagePlanCommandInput,
+  type GetUsagePlanCommandOutput,
   GetUsagePlanCommand,
-  GetUsagePlanCommandInput,
-  GetUsagePlanCommandOutput,
 } from "./commands/GetUsagePlanCommand";
 import {
+  type GetUsagePlanKeyCommandInput,
+  type GetUsagePlanKeyCommandOutput,
   GetUsagePlanKeyCommand,
-  GetUsagePlanKeyCommandInput,
-  GetUsagePlanKeyCommandOutput,
 } from "./commands/GetUsagePlanKeyCommand";
 import {
+  type GetUsagePlanKeysCommandInput,
+  type GetUsagePlanKeysCommandOutput,
   GetUsagePlanKeysCommand,
-  GetUsagePlanKeysCommandInput,
-  GetUsagePlanKeysCommandOutput,
 } from "./commands/GetUsagePlanKeysCommand";
 import {
+  type GetUsagePlansCommandInput,
+  type GetUsagePlansCommandOutput,
   GetUsagePlansCommand,
-  GetUsagePlansCommandInput,
-  GetUsagePlansCommandOutput,
 } from "./commands/GetUsagePlansCommand";
-import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
-import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import {
+  type GetVpcLinkCommandInput,
+  type GetVpcLinkCommandOutput,
+  GetVpcLinkCommand,
+} from "./commands/GetVpcLinkCommand";
+import {
+  type GetVpcLinksCommandInput,
+  type GetVpcLinksCommandOutput,
+  GetVpcLinksCommand,
+} from "./commands/GetVpcLinksCommand";
+import {
+  type ImportApiKeysCommandInput,
+  type ImportApiKeysCommandOutput,
   ImportApiKeysCommand,
-  ImportApiKeysCommandInput,
-  ImportApiKeysCommandOutput,
 } from "./commands/ImportApiKeysCommand";
 import {
+  type ImportDocumentationPartsCommandInput,
+  type ImportDocumentationPartsCommandOutput,
   ImportDocumentationPartsCommand,
-  ImportDocumentationPartsCommandInput,
-  ImportDocumentationPartsCommandOutput,
 } from "./commands/ImportDocumentationPartsCommand";
 import {
+  type ImportRestApiCommandInput,
+  type ImportRestApiCommandOutput,
   ImportRestApiCommand,
-  ImportRestApiCommandInput,
-  ImportRestApiCommandOutput,
 } from "./commands/ImportRestApiCommand";
 import {
+  type PutGatewayResponseCommandInput,
+  type PutGatewayResponseCommandOutput,
   PutGatewayResponseCommand,
-  PutGatewayResponseCommandInput,
-  PutGatewayResponseCommandOutput,
 } from "./commands/PutGatewayResponseCommand";
 import {
+  type PutIntegrationCommandInput,
+  type PutIntegrationCommandOutput,
   PutIntegrationCommand,
-  PutIntegrationCommandInput,
-  PutIntegrationCommandOutput,
 } from "./commands/PutIntegrationCommand";
 import {
+  type PutIntegrationResponseCommandInput,
+  type PutIntegrationResponseCommandOutput,
   PutIntegrationResponseCommand,
-  PutIntegrationResponseCommandInput,
-  PutIntegrationResponseCommandOutput,
 } from "./commands/PutIntegrationResponseCommand";
-import { PutMethodCommand, PutMethodCommandInput, PutMethodCommandOutput } from "./commands/PutMethodCommand";
+import { type PutMethodCommandInput, type PutMethodCommandOutput, PutMethodCommand } from "./commands/PutMethodCommand";
 import {
+  type PutMethodResponseCommandInput,
+  type PutMethodResponseCommandOutput,
   PutMethodResponseCommand,
-  PutMethodResponseCommandInput,
-  PutMethodResponseCommandOutput,
 } from "./commands/PutMethodResponseCommand";
-import { PutRestApiCommand, PutRestApiCommandInput, PutRestApiCommandOutput } from "./commands/PutRestApiCommand";
 import {
+  type PutRestApiCommandInput,
+  type PutRestApiCommandOutput,
+  PutRestApiCommand,
+} from "./commands/PutRestApiCommand";
+import {
+  type RejectDomainNameAccessAssociationCommandInput,
+  type RejectDomainNameAccessAssociationCommandOutput,
   RejectDomainNameAccessAssociationCommand,
-  RejectDomainNameAccessAssociationCommandInput,
-  RejectDomainNameAccessAssociationCommandOutput,
 } from "./commands/RejectDomainNameAccessAssociationCommand";
-import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type TestInvokeAuthorizerCommandInput,
+  type TestInvokeAuthorizerCommandOutput,
   TestInvokeAuthorizerCommand,
-  TestInvokeAuthorizerCommandInput,
-  TestInvokeAuthorizerCommandOutput,
 } from "./commands/TestInvokeAuthorizerCommand";
 import {
+  type TestInvokeMethodCommandInput,
+  type TestInvokeMethodCommandOutput,
   TestInvokeMethodCommand,
-  TestInvokeMethodCommandInput,
-  TestInvokeMethodCommandOutput,
 } from "./commands/TestInvokeMethodCommand";
 import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
   UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateAccountCommandInput,
+  type UpdateAccountCommandOutput,
   UpdateAccountCommand,
-  UpdateAccountCommandInput,
-  UpdateAccountCommandOutput,
 } from "./commands/UpdateAccountCommand";
 import {
+  type UpdateApiKeyCommandInput,
+  type UpdateApiKeyCommandOutput,
   UpdateApiKeyCommand,
-  UpdateApiKeyCommandInput,
-  UpdateApiKeyCommandOutput,
 } from "./commands/UpdateApiKeyCommand";
 import {
+  type UpdateAuthorizerCommandInput,
+  type UpdateAuthorizerCommandOutput,
   UpdateAuthorizerCommand,
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput,
 } from "./commands/UpdateAuthorizerCommand";
 import {
+  type UpdateBasePathMappingCommandInput,
+  type UpdateBasePathMappingCommandOutput,
   UpdateBasePathMappingCommand,
-  UpdateBasePathMappingCommandInput,
-  UpdateBasePathMappingCommandOutput,
 } from "./commands/UpdateBasePathMappingCommand";
 import {
+  type UpdateClientCertificateCommandInput,
+  type UpdateClientCertificateCommandOutput,
   UpdateClientCertificateCommand,
-  UpdateClientCertificateCommandInput,
-  UpdateClientCertificateCommandOutput,
 } from "./commands/UpdateClientCertificateCommand";
 import {
+  type UpdateDeploymentCommandInput,
+  type UpdateDeploymentCommandOutput,
   UpdateDeploymentCommand,
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput,
 } from "./commands/UpdateDeploymentCommand";
 import {
+  type UpdateDocumentationPartCommandInput,
+  type UpdateDocumentationPartCommandOutput,
   UpdateDocumentationPartCommand,
-  UpdateDocumentationPartCommandInput,
-  UpdateDocumentationPartCommandOutput,
 } from "./commands/UpdateDocumentationPartCommand";
 import {
+  type UpdateDocumentationVersionCommandInput,
+  type UpdateDocumentationVersionCommandOutput,
   UpdateDocumentationVersionCommand,
-  UpdateDocumentationVersionCommandInput,
-  UpdateDocumentationVersionCommandOutput,
 } from "./commands/UpdateDocumentationVersionCommand";
 import {
+  type UpdateDomainNameCommandInput,
+  type UpdateDomainNameCommandOutput,
   UpdateDomainNameCommand,
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput,
 } from "./commands/UpdateDomainNameCommand";
 import {
+  type UpdateGatewayResponseCommandInput,
+  type UpdateGatewayResponseCommandOutput,
   UpdateGatewayResponseCommand,
-  UpdateGatewayResponseCommandInput,
-  UpdateGatewayResponseCommandOutput,
 } from "./commands/UpdateGatewayResponseCommand";
 import {
+  type UpdateIntegrationCommandInput,
+  type UpdateIntegrationCommandOutput,
   UpdateIntegrationCommand,
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput,
 } from "./commands/UpdateIntegrationCommand";
 import {
+  type UpdateIntegrationResponseCommandInput,
+  type UpdateIntegrationResponseCommandOutput,
   UpdateIntegrationResponseCommand,
-  UpdateIntegrationResponseCommandInput,
-  UpdateIntegrationResponseCommandOutput,
 } from "./commands/UpdateIntegrationResponseCommand";
 import {
+  type UpdateMethodCommandInput,
+  type UpdateMethodCommandOutput,
   UpdateMethodCommand,
-  UpdateMethodCommandInput,
-  UpdateMethodCommandOutput,
 } from "./commands/UpdateMethodCommand";
 import {
+  type UpdateMethodResponseCommandInput,
+  type UpdateMethodResponseCommandOutput,
   UpdateMethodResponseCommand,
-  UpdateMethodResponseCommandInput,
-  UpdateMethodResponseCommandOutput,
 } from "./commands/UpdateMethodResponseCommand";
-import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
+  type UpdateModelCommandInput,
+  type UpdateModelCommandOutput,
+  UpdateModelCommand,
+} from "./commands/UpdateModelCommand";
+import {
+  type UpdateRequestValidatorCommandInput,
+  type UpdateRequestValidatorCommandOutput,
   UpdateRequestValidatorCommand,
-  UpdateRequestValidatorCommandInput,
-  UpdateRequestValidatorCommandOutput,
 } from "./commands/UpdateRequestValidatorCommand";
 import {
+  type UpdateResourceCommandInput,
+  type UpdateResourceCommandOutput,
   UpdateResourceCommand,
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
 import {
+  type UpdateRestApiCommandInput,
+  type UpdateRestApiCommandOutput,
   UpdateRestApiCommand,
-  UpdateRestApiCommandInput,
-  UpdateRestApiCommandOutput,
 } from "./commands/UpdateRestApiCommand";
-import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
-import { UpdateUsageCommand, UpdateUsageCommandInput, UpdateUsageCommandOutput } from "./commands/UpdateUsageCommand";
 import {
+  type UpdateStageCommandInput,
+  type UpdateStageCommandOutput,
+  UpdateStageCommand,
+} from "./commands/UpdateStageCommand";
+import {
+  type UpdateUsageCommandInput,
+  type UpdateUsageCommandOutput,
+  UpdateUsageCommand,
+} from "./commands/UpdateUsageCommand";
+import {
+  type UpdateUsagePlanCommandInput,
+  type UpdateUsagePlanCommandOutput,
   UpdateUsagePlanCommand,
-  UpdateUsagePlanCommandInput,
-  UpdateUsagePlanCommandOutput,
 } from "./commands/UpdateUsagePlanCommand";
 import {
+  type UpdateVpcLinkCommandInput,
+  type UpdateVpcLinkCommandOutput,
   UpdateVpcLinkCommand,
-  UpdateVpcLinkCommandInput,
-  UpdateVpcLinkCommandOutput,
 } from "./commands/UpdateVpcLinkCommand";
 
 const commands = {

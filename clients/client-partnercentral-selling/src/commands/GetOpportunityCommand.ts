@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetOpportunityRequest, GetOpportunityResponse } from "../models/models_0";
-import {
+import type { GetOpportunityRequest, GetOpportunityResponse } from "../models/models_0";
+import type {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -85,7 +85,7 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //     ],
  * //     ExpectedCustomerSpend: [ // ExpectedCustomerSpendList
  * //       { // ExpectedCustomerSpend
- * //         Amount: "STRING_VALUE", // required
+ * //         Amount: "STRING_VALUE",
  * //         CurrencyCode: "USD" || "EUR" || "GBP" || "AUD" || "CAD" || "CNY" || "NZD" || "INR" || "JPY" || "CHF" || "SEK" || "AED" || "AFN" || "ALL" || "AMD" || "ANG" || "AOA" || "ARS" || "AWG" || "AZN" || "BAM" || "BBD" || "BDT" || "BGN" || "BHD" || "BIF" || "BMD" || "BND" || "BOB" || "BOV" || "BRL" || "BSD" || "BTN" || "BWP" || "BYN" || "BZD" || "CDF" || "CHE" || "CHW" || "CLF" || "CLP" || "COP" || "COU" || "CRC" || "CUC" || "CUP" || "CVE" || "CZK" || "DJF" || "DKK" || "DOP" || "DZD" || "EGP" || "ERN" || "ETB" || "FJD" || "FKP" || "GEL" || "GHS" || "GIP" || "GMD" || "GNF" || "GTQ" || "GYD" || "HKD" || "HNL" || "HRK" || "HTG" || "HUF" || "IDR" || "ILS" || "IQD" || "IRR" || "ISK" || "JMD" || "JOD" || "KES" || "KGS" || "KHR" || "KMF" || "KPW" || "KRW" || "KWD" || "KYD" || "KZT" || "LAK" || "LBP" || "LKR" || "LRD" || "LSL" || "LYD" || "MAD" || "MDL" || "MGA" || "MKD" || "MMK" || "MNT" || "MOP" || "MRU" || "MUR" || "MVR" || "MWK" || "MXN" || "MXV" || "MYR" || "MZN" || "NAD" || "NGN" || "NIO" || "NOK" || "NPR" || "OMR" || "PAB" || "PEN" || "PGK" || "PHP" || "PKR" || "PLN" || "PYG" || "QAR" || "RON" || "RSD" || "RUB" || "RWF" || "SAR" || "SBD" || "SCR" || "SDG" || "SGD" || "SHP" || "SLL" || "SOS" || "SRD" || "SSP" || "STN" || "SVC" || "SYP" || "SZL" || "THB" || "TJS" || "TMT" || "TND" || "TOP" || "TRY" || "TTD" || "TWD" || "TZS" || "UAH" || "UGX" || "USN" || "UYI" || "UYU" || "UZS" || "VEF" || "VND" || "VUV" || "WST" || "XAF" || "XCD" || "XDR" || "XOF" || "XPF" || "XSU" || "XUA" || "YER" || "ZAR" || "ZMW" || "ZWL", // required
  * //         Frequency: "Monthly", // required
  * //         TargetCompany: "STRING_VALUE", // required
@@ -106,6 +106,7 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //     OtherCompetitorNames: "STRING_VALUE",
  * //     OtherSolutionDescription: "STRING_VALUE",
  * //     AdditionalComments: "STRING_VALUE",
+ * //     AwsPartition: "aws-eusc",
  * //   },
  * //   OpportunityType: "Net New Business" || "Flat Renewal" || "Expansion",
  * //   Marketing: { // Marketing
@@ -134,6 +135,9 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //   CreatedDate: new Date("TIMESTAMP"), // required
  * //   RelatedEntityIdentifiers: { // RelatedEntityIdentifiers
  * //     AwsMarketplaceOffers: [ // AwsMarketplaceOfferIdentifiers
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AwsMarketplaceOfferSets: [ // AwsMarketplaceOfferSetIdentifiers
  * //       "STRING_VALUE",
  * //     ],
  * //     Solutions: [ // SolutionIdentifiers

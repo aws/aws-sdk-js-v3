@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { StartImportRequest, StartImportResponse } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { StartImportRequest, StartImportResponse } from "../models/models_0";
 import { StartImport } from "../schemas/schemas_0";
 
 /**
@@ -43,12 +43,16 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *     s3Key: "STRING_VALUE", // required
  *     s3BucketOwner: "STRING_VALUE",
  *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
  * // { // StartImportResponse
  * //   importTask: { // ImportTask
  * //     importID: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     s3BucketSource: { // S3BucketSource
  * //       s3Bucket: "STRING_VALUE", // required
  * //       s3Key: "STRING_VALUE", // required
@@ -71,6 +75,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //         createdCount: Number("long"),
  * //         modifiedCount: Number("long"),
  * //       },
+ * //     },
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };

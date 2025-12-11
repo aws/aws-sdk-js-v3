@@ -571,7 +571,7 @@ const n0 = "com.amazonaws.servicecatalog";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -592,7 +592,6 @@ import {
 import { ServiceCatalogServiceException as __ServiceCatalogServiceException } from "../models/ServiceCatalogServiceException";
 
 /* eslint no-var: 0 */
-
 export var AcceptPortfolioShareInput: StaticStructureSchema = [3, n0, _APSI, 0, [_AL, _PI, _PST], [0, 0, 0]];
 export var AcceptPortfolioShareOutput: StaticStructureSchema = [3, n0, _APSO, 0, [], []];
 export var AccessLevelFilter: StaticStructureSchema = [3, n0, _ALF, 0, [_K, _V], [0, 0]];
@@ -794,21 +793,7 @@ export var DeleteProvisioningArtifactInput: StaticStructureSchema = [3, n0, _DPA
 export var DeleteProvisioningArtifactOutput: StaticStructureSchema = [3, n0, _DPAO, 0, [], []];
 export var DeleteServiceActionInput: StaticStructureSchema = [3, n0, _DSAI, 0, [_Id, _AL, _IT], [0, 0, [0, 4]]];
 export var DeleteServiceActionOutput: StaticStructureSchema = [3, n0, _DSAO, 0, [], []];
-export var DeleteTagOptionInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DTOI,
-  0,
-  [_Id],
-  [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-  ],
-];
+export var DeleteTagOptionInput: StaticStructureSchema = [3, n0, _DTOI, 0, [_Id], [[0, { [_hQ]: _i }]]];
 export var DeleteTagOptionOutput: StaticStructureSchema = [3, n0, _DTOO, 0, [], []];
 export var DescribeConstraintInput: StaticStructureSchema = [3, n0, _DCIe, 0, [_AL, _Id], [0, 0]];
 export var DescribeConstraintOutput: StaticStructureSchema = [
@@ -967,21 +952,7 @@ export var DescribeServiceActionExecutionParametersOutput: StaticStructureSchema
 ];
 export var DescribeServiceActionInput: StaticStructureSchema = [3, n0, _DSAIe, 0, [_Id, _AL], [0, 0]];
 export var DescribeServiceActionOutput: StaticStructureSchema = [3, n0, _DSAOe, 0, [_SAD], [() => ServiceActionDetail]];
-export var DescribeTagOptionInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DTOIe,
-  0,
-  [_Id],
-  [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-  ],
-];
+export var DescribeTagOptionInput: StaticStructureSchema = [3, n0, _DTOIe, 0, [_Id], [[0, { [_hQ]: _i }]]];
 export var DescribeTagOptionOutput: StaticStructureSchema = [3, n0, _DTOOe, 0, [_TOD], [() => TagOptionDetail]];
 export var DisableAWSOrganizationsAccessInput: StaticStructureSchema = [3, n0, _DAWSOAI, 0, [], []];
 export var DisableAWSOrganizationsAccessOutput: StaticStructureSchema = [3, n0, _DAWSOAO, 0, [], []];
@@ -1028,33 +999,13 @@ export var DisassociateTagOptionFromResourceInput: StaticStructureSchema = [
   0,
   [_RI, _TOI],
   [
-    [
-      0,
-      {
-        [_hQ]: _rI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tOI,
-      },
-    ],
+    [0, { [_hQ]: _rI }],
+    [0, { [_hQ]: _tOI }],
   ],
 ];
 export var DisassociateTagOptionFromResourceOutput: StaticStructureSchema = [3, n0, _DTOFRO, 0, [], []];
-export var DuplicateResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateResourceException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateResourceException, __DuplicateResourceException);
-
 export var EnableAWSOrganizationsAccessInput: StaticStructureSchema = [3, n0, _EAWSOAI, 0, [], []];
 export var EnableAWSOrganizationsAccessOutput: StaticStructureSchema = [3, n0, _EAWSOAO, 0, [], []];
 export var EngineWorkflowResourceIdentifier: StaticStructureSchema = [
@@ -1126,30 +1077,10 @@ export var ImportAsProvisionedProductInput: StaticStructureSchema = [
   [0, 0, 0, 0, 0, [0, 4]],
 ];
 export var ImportAsProvisionedProductOutput: StaticStructureSchema = [3, n0, _IAPPO, 0, [_RD], [() => RecordDetail]];
-export var InvalidParametersException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParametersException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParametersException, __InvalidParametersException);
-
-export var InvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
 export var LastSync: StaticStructureSchema = [3, n0, _LS, 0, [_LST, _LSS, _LSSM, _LSST, _LSSPAI], [4, 0, 0, 4, 0]];
 export var LaunchPath: StaticStructureSchema = [3, n0, _LPa, 0, [_Id, _N], [0, 0]];
 export var LaunchPathSummary: StaticStructureSchema = [
@@ -1160,18 +1091,8 @@ export var LaunchPathSummary: StaticStructureSchema = [
   [_Id, _CSo, _Ta, _N],
   [0, () => ConstraintSummaries, () => Tags, 0],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListAcceptedPortfolioSharesInput: StaticStructureSchema = [
   3,
   n0,
@@ -1332,30 +1253,10 @@ export var ListResourcesForTagOptionInput: StaticStructureSchema = [
   0,
   [_TOI, _RT, _PS, _PTa],
   [
-    [
-      0,
-      {
-        [_hQ]: _tOI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [0, { [_hQ]: _tOI }],
+    [0, { [_hQ]: _rT }],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _pT }],
   ],
 ];
 export var ListResourcesForTagOptionOutput: StaticStructureSchema = [
@@ -1458,18 +1359,8 @@ export var NotifyUpdateProvisionedProductEngineWorkflowResultOutput: StaticStruc
   [],
   [],
 ];
-export var OperationNotSupportedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONSE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var OperationNotSupportedException: StaticErrorSchema = [-3, n0, _ONSE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OperationNotSupportedException, __OperationNotSupportedException);
-
 export var OrganizationNode: StaticStructureSchema = [3, n0, _ON, 0, [_T, _V], [0, 0]];
 export var ParameterConstraints: StaticStructureSchema = [
   3,
@@ -1629,30 +1520,10 @@ export var ResourceChangeDetail: StaticStructureSchema = [
   [() => ResourceTargetDefinition, 0, 0],
 ];
 export var ResourceDetail: StaticStructureSchema = [3, n0, _RDeso, 0, [_Id, _ARN, _N, _D, _CT], [0, 0, 0, 0, 4]];
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceTargetDefinition: StaticStructureSchema = [3, n0, _RTD, 0, [_At, _N, _RR], [0, 0, 0]];
 export var ScanProvisionedProductsInput: StaticStructureSchema = [
   3,
@@ -1743,18 +1614,8 @@ export var SourceConnectionParameters: StaticStructureSchema = [3, n0, _SCP, 0, 
 export var StackInstance: StaticStructureSchema = [3, n0, _SIt, 0, [_Acco, _Reg, _SIS], [0, 0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagOptionDetail: StaticStructureSchema = [3, n0, _TOD, 0, [_K, _V, _A, _Id, _O], [0, 0, 2, 0, 0]];
-export var TagOptionNotMigratedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TONME,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var TagOptionNotMigratedException: StaticErrorSchema = [-3, n0, _TONME, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TagOptionNotMigratedException, __TagOptionNotMigratedException);
-
 export var TagOptionSummary: StaticStructureSchema = [3, n0, _TOS, 0, [_K, _Va], [0, 64 | 0]];
 export var TerminateProvisionedProductInput: StaticStructureSchema = [
   3,
@@ -1892,48 +1753,36 @@ export var UpdateServiceActionOutput: StaticStructureSchema = [3, n0, _USAO, 0, 
 export var UpdateTagOptionInput: StaticStructureSchema = [3, n0, _UTOI, 0, [_Id, _V, _A], [0, 0, 2]];
 export var UpdateTagOptionOutput: StaticStructureSchema = [3, n0, _UTOO, 0, [_TOD], [() => TagOptionDetail]];
 export var UsageInstruction: StaticStructureSchema = [3, n0, _UIs, 0, [_T, _V], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var ServiceCatalogServiceException: StaticErrorSchema = [-3, _s, "ServiceCatalogServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(ServiceCatalogServiceException, __ServiceCatalogServiceException);
-
 export var AccountIds = 64 | 0;
-
 export var AddTags: StaticListSchema = [1, n0, _AT, 0, () => Tag];
 export var AllowedValues = 64 | 0;
-
 export var Budgets: StaticListSchema = [1, n0, _Bu, 0, () => BudgetDetail];
 export var CloudWatchDashboards: StaticListSchema = [1, n0, _CWDl, 0, () => CloudWatchDashboard];
 export var ConstraintDetails: StaticListSchema = [1, n0, _CDo, 0, () => ConstraintDetail];
 export var ConstraintSummaries: StaticListSchema = [1, n0, _CSo, 0, () => ConstraintSummary];
 export var CopyOptions = 64 | 0;
-
 export var ExecutionParameters: StaticListSchema = [1, n0, _EPx, 0, () => ExecutionParameter];
 export var ExecutionParameterValueList = 64 | 0;
-
 export var FailedServiceActionAssociations: StaticListSchema = [1, n0, _FSAA, 0, () => FailedServiceActionAssociation];
 export var LaunchPaths: StaticListSchema = [1, n0, _LP, 0, () => LaunchPath];
 export var LaunchPathSummaries: StaticListSchema = [1, n0, _LPSa, 0, () => LaunchPathSummary];
 export var Namespaces = 64 | 0;
-
 export var NotificationArns = 64 | 0;
-
 export var OrganizationNodes: StaticListSchema = [1, n0, _ONr, 0, () => OrganizationNode];
 export var OutputKeys = 64 | 0;
-
 export var PortfolioDetails: StaticListSchema = [1, n0, _PDo, 0, () => PortfolioDetail];
 export var PortfolioShareDetails: StaticListSchema = [1, n0, _PSD, 0, () => PortfolioShareDetail];
 export var Principals: StaticListSchema = [1, n0, _Pr, 0, () => Principal];
 export var ProductViewAggregationValues: StaticListSchema = [1, n0, _PVAVr, 0, () => ProductViewAggregationValue];
 export var ProductViewDetails: StaticListSchema = [1, n0, _PVDr, 0, () => ProductViewDetail];
 export var ProductViewFilterValues = 64 | 0;
-
 export var ProductViewSummaries: StaticListSchema = [1, n0, _PVSr, 0, () => ProductViewSummary];
 export var ProvisionedProductAttributes: StaticListSchema = [1, n0, _PPAr, 0, () => ProvisionedProductAttribute];
 export var ProvisionedProductDetails: StaticListSchema = [1, n0, _PPDr, 0, () => ProvisionedProductDetail];
 export var ProvisionedProductPlans: StaticListSchema = [1, n0, _PPP, 0, () => ProvisionedProductPlanSummary];
 export var ProvisionedProductViewFilterValues = 64 | 0;
-
 export var ProvisioningArtifactDetails: StaticListSchema = [1, n0, _PADr, 0, () => ProvisioningArtifactDetail];
 export var ProvisioningArtifactOutputs: StaticListSchema = [1, n0, _PAO, 0, () => ProvisioningArtifactOutput];
 export var ProvisioningArtifactParameters: StaticListSchema = [1, n0, _PAP, 0, () => ProvisioningArtifactParameter];
@@ -1949,24 +1798,18 @@ export var ResourceChangeDetails: StaticListSchema = [1, n0, _RCDe, 0, () => Res
 export var ResourceChanges: StaticListSchema = [1, n0, _RC, 0, () => ResourceChange];
 export var ResourceDetails: StaticListSchema = [1, n0, _RDes, 0, () => ResourceDetail];
 export var Scope = 64 | 0;
-
 export var ServiceActionAssociations: StaticListSchema = [1, n0, _SAA, 0, () => ServiceActionAssociation];
 export var ServiceActionSummaries: StaticListSchema = [1, n0, _SAS, 0, () => ServiceActionSummary];
 export var ShareErrors: StaticListSchema = [1, n0, _SEh, 0, () => ShareError];
 export var SourceProvisioningArtifactProperties: StaticListSchema = [1, n0, _SPAP, 0, 128 | 0];
 export var StackInstances: StaticListSchema = [1, n0, _SI, 0, () => StackInstance];
 export var StackSetAccounts = 64 | 0;
-
 export var StackSetRegions = 64 | 0;
-
 export var SuccessfulShares = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var TagOptionDetails: StaticListSchema = [1, n0, _TODa, 0, () => TagOptionDetail];
 export var TagOptionSummaries: StaticListSchema = [1, n0, _TOSa, 0, () => TagOptionSummary];
 export var TagOptionValues = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag];
 export var UpdateProvisioningParameters: StaticListSchema = [1, n0, _UPPpd, 0, () => UpdateProvisioningParameter];
 export var UsageInstructions: StaticListSchema = [1, n0, _UI, 0, () => UsageInstruction];
@@ -1975,13 +1818,9 @@ export var ProductViewAggregations: StaticMapSchema = [2, n0, _PVA, 0, 0, () => 
 export var ProductViewFilters: StaticMapSchema = [2, n0, _PVF, 0, 0, 64 | 0];
 export var ProvisionedProductFilters: StaticMapSchema = [2, n0, _PPF, 0, 0, 64 | 0];
 export var ProvisionedProductProperties = 128 | 0;
-
 export var ProvisioningArtifactInfo = 128 | 0;
-
 export var ServiceActionDefinitionMap = 128 | 0;
-
 export var SourceProvisioningArtifactPropertiesMap = 128 | 0;
-
 export var AcceptPortfolioShare: StaticOperationSchema = [
   9,
   n0,

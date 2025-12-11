@@ -22,7 +22,7 @@ Project</a>, you can sign container images stored in a container registry such
 as Amazon Elastic Container Registry (ECR). The signatures are stored in the registry
 alongside the images, where they are available for verifying image authenticity and
 integrity.</p>
-<p>For more information about Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer
+<p>For more information about Signer, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer
 Guide</a>.</p>
 
 ## Installing

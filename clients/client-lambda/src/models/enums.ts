@@ -106,6 +106,119 @@ export type Architecture = (typeof Architecture)[keyof typeof Architecture];
  * @public
  * @enum
  */
+export const CapacityProviderScalingMode = {
+  Auto: "Auto",
+  Manual: "Manual",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderScalingMode =
+  (typeof CapacityProviderScalingMode)[keyof typeof CapacityProviderScalingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderPredefinedMetricType = {
+  LambdaCapacityProviderAverageCPUUtilization: "LambdaCapacityProviderAverageCPUUtilization",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderPredefinedMetricType =
+  (typeof CapacityProviderPredefinedMetricType)[keyof typeof CapacityProviderPredefinedMetricType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderState = {
+  Active: "Active",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Pending: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderState = (typeof CapacityProviderState)[keyof typeof CapacityProviderState];
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  Active: "Active",
+  ActiveNonInvocable: "ActiveNonInvocable",
+  Deactivated: "Deactivated",
+  Deactivating: "Deactivating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Inactive: "Inactive",
+  Pending: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationAction = {
+  CANCEL: "CANCEL",
+  FAIL: "FAIL",
+  RETRY: "RETRY",
+  START: "START",
+  SUCCEED: "SUCCEED",
+} as const;
+/**
+ * @public
+ */
+export type OperationAction = (typeof OperationAction)[keyof typeof OperationAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  CALLBACK: "CALLBACK",
+  CHAINED_INVOKE: "CHAINED_INVOKE",
+  CONTEXT: "CONTEXT",
+  EXECUTION: "EXECUTION",
+  STEP: "STEP",
+  WAIT: "WAIT",
+} as const;
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeSigningPolicy = {
   Enforce: "Enforce",
   Warn: "Warn",
@@ -241,6 +354,19 @@ export type PackageType = (typeof PackageType)[keyof typeof PackageType];
  * @public
  * @enum
  */
+export const FunctionVersionLatestPublished = {
+  LATEST_PUBLISHED: "LATEST_PUBLISHED",
+} as const;
+/**
+ * @public
+ */
+export type FunctionVersionLatestPublished =
+  (typeof FunctionVersionLatestPublished)[keyof typeof FunctionVersionLatestPublished];
+
+/**
+ * @public
+ * @enum
+ */
 export const Runtime = {
   dotnet6: "dotnet6",
   dotnet8: "dotnet8",
@@ -349,15 +475,27 @@ export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdate
  * @enum
  */
 export const LastUpdateStatusReasonCode = {
+  CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   DisabledKMSKey: "DisabledKMSKey",
+  DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
+  EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
   EFSMountConnectivityError: "EFSMountConnectivityError",
   EFSMountFailure: "EFSMountFailure",
   EFSMountTimeout: "EFSMountTimeout",
   EniLimitExceeded: "EniLimitExceeded",
   FunctionError: "FunctionError",
+  FunctionErrorExtensionInitError: "FunctionError.ExtensionInitError",
+  FunctionErrorInitResourceExhausted: "FunctionError.InitResourceExhausted",
+  FunctionErrorInitTimeout: "FunctionError.InitTimeout",
+  FunctionErrorInvalidEntryPoint: "FunctionError.InvalidEntryPoint",
+  FunctionErrorInvalidWorkingDirectory: "FunctionError.InvalidWorkingDirectory",
+  FunctionErrorPermissionDenied: "FunctionError.PermissionDenied",
+  FunctionErrorRuntimeInitError: "FunctionError.RuntimeInitError",
+  FunctionErrorTooManyExtensions: "FunctionError.TooManyExtensions",
   ImageAccessDenied: "ImageAccessDenied",
   ImageDeleted: "ImageDeleted",
+  InsufficientCapacity: "InsufficientCapacity",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
   InvalidConfiguration: "InvalidConfiguration",
@@ -370,6 +508,7 @@ export const LastUpdateStatusReasonCode = {
   KMSKeyAccessDenied: "KMSKeyAccessDenied",
   KMSKeyNotFound: "KMSKeyNotFound",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+  VcpuLimitExceeded: "VcpuLimitExceeded",
 } as const;
 /**
  * @public
@@ -394,33 +533,31 @@ export type SnapStartOptimizationStatus =
  * @public
  * @enum
  */
-export const State = {
-  Active: "Active",
-  Failed: "Failed",
-  Inactive: "Inactive",
-  Pending: "Pending",
-} as const;
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
- * @public
- * @enum
- */
 export const StateReasonCode = {
+  CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   Creating: "Creating",
   DisabledKMSKey: "DisabledKMSKey",
+  DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
+  DrainingDurableExecutions: "DrainingDurableExecutions",
+  EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
   EFSIOError: "EFSIOError",
   EFSMountConnectivityError: "EFSMountConnectivityError",
   EFSMountFailure: "EFSMountFailure",
   EFSMountTimeout: "EFSMountTimeout",
   EniLimitExceeded: "EniLimitExceeded",
   FunctionError: "FunctionError",
+  FunctionErrorExtensionInitError: "FunctionError.ExtensionInitError",
+  FunctionErrorInitResourceExhausted: "FunctionError.InitResourceExhausted",
+  FunctionErrorInitTimeout: "FunctionError.InitTimeout",
+  FunctionErrorInvalidEntryPoint: "FunctionError.InvalidEntryPoint",
+  FunctionErrorInvalidWorkingDirectory: "FunctionError.InvalidWorkingDirectory",
+  FunctionErrorPermissionDenied: "FunctionError.PermissionDenied",
+  FunctionErrorRuntimeInitError: "FunctionError.RuntimeInitError",
+  FunctionErrorTooManyExtensions: "FunctionError.TooManyExtensions",
   Idle: "Idle",
   ImageAccessDenied: "ImageAccessDenied",
   ImageDeleted: "ImageDeleted",
+  InsufficientCapacity: "InsufficientCapacity",
   InsufficientRolePermissions: "InsufficientRolePermissions",
   InternalError: "InternalError",
   InvalidConfiguration: "InvalidConfiguration",
@@ -434,6 +571,7 @@ export const StateReasonCode = {
   KMSKeyNotFound: "KMSKeyNotFound",
   Restoring: "Restoring",
   SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+  VcpuLimitExceeded: "VcpuLimitExceeded",
 } as const;
 /**
  * @public
@@ -547,3 +685,54 @@ export const ProvisionedConcurrencyStatusEnum = {
  */
 export type ProvisionedConcurrencyStatusEnum =
   (typeof ProvisionedConcurrencyStatusEnum)[keyof typeof ProvisionedConcurrencyStatusEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  CallbackFailed: "CallbackFailed",
+  CallbackStarted: "CallbackStarted",
+  CallbackSucceeded: "CallbackSucceeded",
+  CallbackTimedOut: "CallbackTimedOut",
+  ChainedInvokeFailed: "ChainedInvokeFailed",
+  ChainedInvokeStarted: "ChainedInvokeStarted",
+  ChainedInvokeStopped: "ChainedInvokeStopped",
+  ChainedInvokeSucceeded: "ChainedInvokeSucceeded",
+  ChainedInvokeTimedOut: "ChainedInvokeTimedOut",
+  ContextFailed: "ContextFailed",
+  ContextStarted: "ContextStarted",
+  ContextSucceeded: "ContextSucceeded",
+  ExecutionFailed: "ExecutionFailed",
+  ExecutionStarted: "ExecutionStarted",
+  ExecutionStopped: "ExecutionStopped",
+  ExecutionSucceeded: "ExecutionSucceeded",
+  ExecutionTimedOut: "ExecutionTimedOut",
+  InvocationCompleted: "InvocationCompleted",
+  StepFailed: "StepFailed",
+  StepStarted: "StepStarted",
+  StepSucceeded: "StepSucceeded",
+  WaitCancelled: "WaitCancelled",
+  WaitStarted: "WaitStarted",
+  WaitSucceeded: "WaitSucceeded",
+} as const;
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];

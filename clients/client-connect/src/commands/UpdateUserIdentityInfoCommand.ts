@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserIdentityInfoRequest } from "../models/models_2";
+import type { UpdateUserIdentityInfoRequest } from "../models/models_3";
 import { UpdateUserIdentityInfo } from "../schemas/schemas_0";
 
 /**
@@ -29,13 +29,11 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the identity information for the specified user.</p>
  *          <important>
- *             <p>We strongly recommend limiting who has the ability to invoke
- *      <code>UpdateUserIdentityInfo</code>. Someone with that ability can change the login credentials
- *     of other users by changing their email address. This poses a security risk to your organization.
- *     They can change the email address of a user to the attacker's email address, and then reset the
- *     password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for
- *      Security Profiles</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
+ *             <p>We strongly recommend limiting who has the ability to invoke <code>UpdateUserIdentityInfo</code>. Someone with
+ *     that ability can change the login credentials of other users by changing their email address. This poses a security
+ *     risk to your organization. They can change the email address of a user to the attacker's email address, and then
+ *     reset the password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for Security Profiles</a>
+ *     in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

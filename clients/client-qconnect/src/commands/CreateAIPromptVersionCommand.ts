@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAIPromptVersionRequest, CreateAIPromptVersionResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { CreateAIPromptVersionRequest, CreateAIPromptVersionResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateAIPromptVersion } from "../schemas/schemas_0";
 
 /**
@@ -58,6 +58,14 @@ export interface CreateAIPromptVersionCommandOutput extends CreateAIPromptVersio
  * //     templateConfiguration: { // AIPromptTemplateConfiguration Union: only one key present
  * //       textFullAIPromptEditTemplateConfiguration: { // TextFullAIPromptEditTemplateConfiguration
  * //         text: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     inferenceConfiguration: { // AIPromptInferenceConfiguration Union: only one key present
+ * //       textAIPromptInferenceConfiguration: { // TextAIPromptInferenceConfiguration
+ * //         temperature: Number("float"),
+ * //         topP: Number("float"),
+ * //         topK: Number("int"),
+ * //         maxTokensToSample: Number("int"),
  * //       },
  * //     },
  * //     modifiedTime: new Date("TIMESTAMP"),

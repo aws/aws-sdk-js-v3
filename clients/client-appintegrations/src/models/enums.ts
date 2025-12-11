@@ -16,6 +16,20 @@ export type ContactHandlingScope = (typeof ContactHandlingScope)[keyof typeof Co
  * @public
  * @enum
  */
+export const ApplicationType = {
+  MCP_SERVER: "MCP_SERVER",
+  SERVICE: "SERVICE",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionMode = {
   ON_DEMAND: "ON_DEMAND",
   SCHEDULED: "SCHEDULED",

@@ -244,7 +244,7 @@ const n0 = "com.amazonaws.ssmsap";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -263,7 +263,6 @@ import {
 import { SsmSapServiceException as __SsmSapServiceException } from "../models/SsmSapServiceException";
 
 /* eslint no-var: 0 */
-
 export var SecretId: StaticSimpleSchema = [0, n0, _SI, 8, 0];
 export var Application: StaticStructureSchema = [
   3,
@@ -331,19 +330,8 @@ export var ConfigurationCheckOperation: StaticStructureSchema = [
   [_I, _AI, _S, _SM, _CCI, _CCN, _CCDo, _ST, _ET, _RSC],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, () => RuleStatusCounts],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var Database: StaticStructureSchema = [
   3,
   n0,
@@ -386,19 +374,8 @@ export var GetOperationOutput: StaticStructureSchema = [3, n0, _GOO, 0, [_Op], [
 export var GetResourcePermissionInput: StaticStructureSchema = [3, n0, _GRPI, 0, [_AT, _RA], [0, 0]];
 export var GetResourcePermissionOutput: StaticStructureSchema = [3, n0, _GRPO, 0, [_P], [0]];
 export var Host: StaticStructureSchema = [3, n0, _Hos, 0, [_HN, _HI, _ECII, _II, _HR, _OV], [0, 0, 0, 0, 0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IpAddressMember: StaticStructureSchema = [3, n0, _IAM, 0, [_IAp, _Pr, _ATl], [0, 2, 0]];
 export var ListApplicationsInput: StaticStructureSchema = [3, n0, _LAI, 0, [_NT, _MR, _Fi], [0, 1, () => FilterList]];
 export var ListApplicationsOutput: StaticStructureSchema = [
@@ -512,19 +489,8 @@ export var RegisterApplicationInput: StaticStructureSchema = [
 export var RegisterApplicationOutput: StaticStructureSchema = [3, n0, _RAO, 0, [_A, _OI], [() => Application, 0]];
 export var Resilience: StaticStructureSchema = [3, n0, _R, 0, [_HT, _HRM, _HOM, _CSl, _ER], [0, 0, 0, 0, 2]];
 export var Resource: StaticStructureSchema = [3, n0, _Re, 0, [_RA, _RT], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuleResult: StaticStructureSchema = [3, n0, _RRu, 0, [_I, _De, _S, _M, _Me], [0, 0, 0, 0, 128 | 0]];
 export var RuleStatusCounts: StaticStructureSchema = [3, n0, _RSC, 0, [_Fa, _W, _Inf, _Pa, _U], [1, 1, 1, 1, 1]];
 export var StartApplicationInput: StaticStructureSchema = [3, n0, _SAI, 0, [_AI], [0]];
@@ -545,19 +511,8 @@ export var StopApplicationOutput: StaticStructureSchema = [3, n0, _SAOt, 0, [_OI
 export var SubCheckResult: StaticStructureSchema = [3, n0, _SCRu, 0, [_I, _N, _De, _Ref], [0, 0, 0, 64 | 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_M],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -566,12 +521,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -584,79 +534,42 @@ export var UpdateApplicationSettingsInput: StaticStructureSchema = [
   [0, [() => ApplicationCredentialList, 0], [() => ApplicationCredentialList, 0], () => BackintConfig, 0],
 ];
 export var UpdateApplicationSettingsOutput: StaticStructureSchema = [3, n0, _UASO, 0, [_M, _OIp], [0, 64 | 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var SsmSapServiceException: StaticErrorSchema = [-3, _sm, "SsmSapServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SsmSapServiceException, __SsmSapServiceException);
-
 export var ApplicationArnList = 64 | 0;
-
 export var ApplicationCredentialList: StaticListSchema = [1, n0, _ACL, 0, [() => ApplicationCredential, 0]];
 export var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ApplicationSummary];
 export var ApplicationTypeList = 64 | 0;
-
 export var ComponentArnList = 64 | 0;
-
 export var ComponentIdList = 64 | 0;
-
 export var ComponentInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ComponentInfo];
 export var ComponentSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentSummary];
 export var ConfigurationCheckDefinitionList: StaticListSchema = [1, n0, _CCDL, 0, () => ConfigurationCheckDefinition];
 export var ConfigurationCheckOperationList: StaticListSchema = [1, n0, _CCOL, 0, () => ConfigurationCheckOperation];
 export var ConfigurationCheckTypeList = 64 | 0;
-
 export var DatabaseIdList = 64 | 0;
-
 export var DatabaseSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DatabaseSummary];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var HostList: StaticListSchema = [1, n0, _HL, 0, () => Host];
 export var InstanceList = 64 | 0;
-
 export var IpAddressList: StaticListSchema = [1, n0, _IAL, 0, () => IpAddressMember];
 export var OperationEventList: StaticListSchema = [1, n0, _OEL, 0, () => OperationEvent];
 export var OperationIdList = 64 | 0;
-
 export var OperationList: StaticListSchema = [1, n0, _OL, 0, [() => Operation, 0]];
 export var RuleResultList: StaticListSchema = [1, n0, _RRL, 0, () => RuleResult];
 export var SubCheckReferencesList = 64 | 0;
-
 export var SubCheckResultList: StaticListSchema = [1, n0, _SCRL, 0, () => SubCheckResult];
 export var TagKeyList = 64 | 0;
-
-export var OperationProperties: StaticMapSchema = [
-  2,
-  n0,
-  _OP,
-  {
-    [_sp]: 1,
-  },
-  0,
-  0,
-];
+export var OperationProperties: StaticMapSchema = [2, n0, _OP, { [_sp]: 1 }, 0, 0];
 export var RuleResultMetadata = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var DeleteResourcePermission: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["POST", "/delete-resource-permission", 200],
-  },
+  { [_h]: ["POST", "/delete-resource-permission", 200] },
   () => DeleteResourcePermissionInput,
   () => DeleteResourcePermissionOutput,
 ];
@@ -664,9 +577,7 @@ export var DeregisterApplication: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["POST", "/deregister-application", 200],
-  },
+  { [_h]: ["POST", "/deregister-application", 200] },
   () => DeregisterApplicationInput,
   () => DeregisterApplicationOutput,
 ];
@@ -674,9 +585,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["POST", "/get-application", 200],
-  },
+  { [_h]: ["POST", "/get-application", 200] },
   () => GetApplicationInput,
   () => GetApplicationOutput,
 ];
@@ -684,9 +593,7 @@ export var GetComponent: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["POST", "/get-component", 200],
-  },
+  { [_h]: ["POST", "/get-component", 200] },
   () => GetComponentInput,
   () => GetComponentOutput,
 ];
@@ -694,9 +601,7 @@ export var GetConfigurationCheckOperation: StaticOperationSchema = [
   9,
   n0,
   _GCCO,
-  {
-    [_h]: ["POST", "/get-configuration-check-operation", 200],
-  },
+  { [_h]: ["POST", "/get-configuration-check-operation", 200] },
   () => GetConfigurationCheckOperationInput,
   () => GetConfigurationCheckOperationOutput,
 ];
@@ -704,9 +609,7 @@ export var GetDatabase: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["POST", "/get-database", 200],
-  },
+  { [_h]: ["POST", "/get-database", 200] },
   () => GetDatabaseInput,
   () => GetDatabaseOutput,
 ];
@@ -714,9 +617,7 @@ export var GetOperation: StaticOperationSchema = [
   9,
   n0,
   _GO,
-  {
-    [_h]: ["POST", "/get-operation", 200],
-  },
+  { [_h]: ["POST", "/get-operation", 200] },
   () => GetOperationInput,
   () => GetOperationOutput,
 ];
@@ -724,9 +625,7 @@ export var GetResourcePermission: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["POST", "/get-resource-permission", 200],
-  },
+  { [_h]: ["POST", "/get-resource-permission", 200] },
   () => GetResourcePermissionInput,
   () => GetResourcePermissionOutput,
 ];
@@ -734,9 +633,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["POST", "/list-applications", 200],
-  },
+  { [_h]: ["POST", "/list-applications", 200] },
   () => ListApplicationsInput,
   () => ListApplicationsOutput,
 ];
@@ -744,9 +641,7 @@ export var ListComponents: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/list-components", 200],
-  },
+  { [_h]: ["POST", "/list-components", 200] },
   () => ListComponentsInput,
   () => ListComponentsOutput,
 ];
@@ -754,9 +649,7 @@ export var ListConfigurationCheckDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LCCD,
-  {
-    [_h]: ["POST", "/list-configuration-check-definitions", 200],
-  },
+  { [_h]: ["POST", "/list-configuration-check-definitions", 200] },
   () => ListConfigurationCheckDefinitionsInput,
   () => ListConfigurationCheckDefinitionsOutput,
 ];
@@ -764,9 +657,7 @@ export var ListConfigurationCheckOperations: StaticOperationSchema = [
   9,
   n0,
   _LCCO,
-  {
-    [_h]: ["POST", "/list-configuration-check-operations", 200],
-  },
+  { [_h]: ["POST", "/list-configuration-check-operations", 200] },
   () => ListConfigurationCheckOperationsInput,
   () => ListConfigurationCheckOperationsOutput,
 ];
@@ -774,9 +665,7 @@ export var ListDatabases: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["POST", "/list-databases", 200],
-  },
+  { [_h]: ["POST", "/list-databases", 200] },
   () => ListDatabasesInput,
   () => ListDatabasesOutput,
 ];
@@ -784,9 +673,7 @@ export var ListOperationEvents: StaticOperationSchema = [
   9,
   n0,
   _LOE,
-  {
-    [_h]: ["POST", "/list-operation-events", 200],
-  },
+  { [_h]: ["POST", "/list-operation-events", 200] },
   () => ListOperationEventsInput,
   () => ListOperationEventsOutput,
 ];
@@ -794,9 +681,7 @@ export var ListOperations: StaticOperationSchema = [
   9,
   n0,
   _LO,
-  {
-    [_h]: ["POST", "/list-operations", 200],
-  },
+  { [_h]: ["POST", "/list-operations", 200] },
   () => ListOperationsInput,
   () => ListOperationsOutput,
 ];
@@ -804,9 +689,7 @@ export var ListSubCheckResults: StaticOperationSchema = [
   9,
   n0,
   _LSCR,
-  {
-    [_h]: ["POST", "/list-sub-check-results", 200],
-  },
+  { [_h]: ["POST", "/list-sub-check-results", 200] },
   () => ListSubCheckResultsInput,
   () => ListSubCheckResultsOutput,
 ];
@@ -814,9 +697,7 @@ export var ListSubCheckRuleResults: StaticOperationSchema = [
   9,
   n0,
   _LSCRR,
-  {
-    [_h]: ["POST", "/list-sub-check-rule-results", 200],
-  },
+  { [_h]: ["POST", "/list-sub-check-rule-results", 200] },
   () => ListSubCheckRuleResultsInput,
   () => ListSubCheckRuleResultsOutput,
 ];
@@ -824,9 +705,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -834,9 +713,7 @@ export var PutResourcePermission: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["POST", "/put-resource-permission", 200],
-  },
+  { [_h]: ["POST", "/put-resource-permission", 200] },
   () => PutResourcePermissionInput,
   () => PutResourcePermissionOutput,
 ];
@@ -844,9 +721,7 @@ export var RegisterApplication: StaticOperationSchema = [
   9,
   n0,
   _RAe,
-  {
-    [_h]: ["POST", "/register-application", 200],
-  },
+  { [_h]: ["POST", "/register-application", 200] },
   () => RegisterApplicationInput,
   () => RegisterApplicationOutput,
 ];
@@ -854,9 +729,7 @@ export var StartApplication: StaticOperationSchema = [
   9,
   n0,
   _SA,
-  {
-    [_h]: ["POST", "/start-application", 200],
-  },
+  { [_h]: ["POST", "/start-application", 200] },
   () => StartApplicationInput,
   () => StartApplicationOutput,
 ];
@@ -864,9 +737,7 @@ export var StartApplicationRefresh: StaticOperationSchema = [
   9,
   n0,
   _SAR,
-  {
-    [_h]: ["POST", "/start-application-refresh", 200],
-  },
+  { [_h]: ["POST", "/start-application-refresh", 200] },
   () => StartApplicationRefreshInput,
   () => StartApplicationRefreshOutput,
 ];
@@ -874,9 +745,7 @@ export var StartConfigurationChecks: StaticOperationSchema = [
   9,
   n0,
   _SCC,
-  {
-    [_h]: ["POST", "/start-configuration-checks", 200],
-  },
+  { [_h]: ["POST", "/start-configuration-checks", 200] },
   () => StartConfigurationChecksInput,
   () => StartConfigurationChecksOutput,
 ];
@@ -884,9 +753,7 @@ export var StopApplication: StaticOperationSchema = [
   9,
   n0,
   _SAt,
-  {
-    [_h]: ["POST", "/stop-application", 200],
-  },
+  { [_h]: ["POST", "/stop-application", 200] },
   () => StopApplicationInput,
   () => StopApplicationOutput,
 ];
@@ -894,9 +761,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -904,9 +769,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -914,9 +777,7 @@ export var UpdateApplicationSettings: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["POST", "/update-application-settings", 200],
-  },
+  { [_h]: ["POST", "/update-application-settings", 200] },
   () => UpdateApplicationSettingsInput,
   () => UpdateApplicationSettingsOutput,
 ];

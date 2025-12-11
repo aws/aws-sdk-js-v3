@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateConfigurationSetCommand,
@@ -42,7 +42,7 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
-import { PinpointSMSVoiceClient, PinpointSMSVoiceClientConfig } from "./PinpointSMSVoiceClient";
+import { PinpointSMSVoiceClient } from "./PinpointSMSVoiceClient";
 
 const commands = {
   CreateConfigurationSetCommand,

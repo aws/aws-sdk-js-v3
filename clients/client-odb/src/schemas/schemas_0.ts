@@ -470,7 +470,7 @@ const n0 = "com.amazonaws.odb";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -491,23 +491,11 @@ import {
 import { OdbServiceException as __OdbServiceException } from "../models/OdbServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AcceptMarketplaceRegistrationInput: StaticStructureSchema = [3, n0, _AMRI, 0, [_mRT], [0]];
 export var AcceptMarketplaceRegistrationOutput: StaticStructureSchema = [3, n0, _AMRO, 0, [], []];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateIamRoleToResourceInput: StaticStructureSchema = [3, n0, _AIRTRI, 0, [_iRA, _aI, _rA], [0, 0, 0]];
 export var AssociateIamRoleToResourceOutput: StaticStructureSchema = [3, n0, _AIRTRO, 0, [], []];
 export var AutonomousVirtualMachineSummary: StaticStructureSchema = [
@@ -527,12 +515,14 @@ export var CloudAutonomousVmCluster: StaticStructureSchema = [
     _cAVCI,
     _cAVCA,
     _oNI,
+    _oNA,
     _oRAN,
     _pP,
     _dN,
     _s,
     _sR,
     _cEII,
+    _cEIA,
     _aDSP,
     _aDSSITB,
     _aADSSITB,
@@ -579,7 +569,9 @@ export var CloudAutonomousVmCluster: StaticStructureSchema = [
     0,
     0,
     0,
+    0,
     1,
+    0,
     0,
     0,
     0,
@@ -643,12 +635,14 @@ export var CloudAutonomousVmClusterSummary: StaticStructureSchema = [
     _cAVCI,
     _cAVCA,
     _oNI,
+    _oNA,
     _oRAN,
     _pP,
     _dN,
     _s,
     _sR,
     _cEII,
+    _cEIA,
     _aDSP,
     _aDSSITB,
     _aADSSITB,
@@ -695,7 +689,9 @@ export var CloudAutonomousVmClusterSummary: StaticStructureSchema = [
     0,
     0,
     0,
+    0,
     1,
+    0,
     0,
     0,
     0,
@@ -934,6 +930,7 @@ export var CloudVmCluster: StaticStructureSchema = [
     _sR,
     _cVCA,
     _cEII,
+    _cEIA,
     _cN,
     _cCC,
     _dCO,
@@ -966,11 +963,13 @@ export var CloudVmCluster: StaticStructureSchema = [
     _tZ,
     _vI,
     _oNI,
+    _oNA,
     _pP,
     _cM,
     _iR,
   ],
   [
+    0,
     0,
     0,
     0,
@@ -1008,6 +1007,7 @@ export var CloudVmCluster: StaticStructureSchema = [
     5,
     0,
     64 | 0,
+    0,
     0,
     1,
     0,
@@ -1026,6 +1026,7 @@ export var CloudVmClusterSummary: StaticStructureSchema = [
     _sR,
     _cVCA,
     _cEII,
+    _cEIA,
     _cN,
     _cCC,
     _dCO,
@@ -1058,11 +1059,13 @@ export var CloudVmClusterSummary: StaticStructureSchema = [
     _tZ,
     _vI,
     _oNI,
+    _oNA,
     _pP,
     _cM,
     _iR,
   ],
   [
+    0,
     0,
     0,
     0,
@@ -1101,24 +1104,14 @@ export var CloudVmClusterSummary: StaticStructureSchema = [
     0,
     64 | 0,
     0,
+    0,
     1,
     0,
     () => IamRoleList,
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCloudAutonomousVmClusterInput: StaticStructureSchema = [
   3,
   n0,
@@ -1498,23 +1491,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KmsAccess: StaticStructureSchema = [3, n0, _KA, 0, [_s, _iA, _dNo, _kPD], [0, 64 | 0, 0, 0]];
 export var ListAutonomousVirtualMachinesInput: StaticStructureSchema = [
   3,
@@ -1523,18 +1504,8 @@ export var ListAutonomousVirtualMachinesInput: StaticStructureSchema = [
   0,
   [_mR, _nT, _cAVCI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -1552,21 +1523,7 @@ export var ListCloudAutonomousVmClustersInput: StaticStructureSchema = [
   _LCAVCI,
   0,
   [_mR, _nT, _cEII],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListCloudAutonomousVmClustersOutput: StaticStructureSchema = [
   3,
@@ -1583,18 +1540,8 @@ export var ListCloudExadataInfrastructuresInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCloudExadataInfrastructuresOutput: StaticStructureSchema = [
@@ -1611,21 +1558,7 @@ export var ListCloudVmClustersInput: StaticStructureSchema = [
   _LCVCI,
   0,
   [_mR, _nT, _cEII],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListCloudVmClustersOutput: StaticStructureSchema = [
   3,
@@ -1642,18 +1575,8 @@ export var ListDbNodesInput: StaticStructureSchema = [
   0,
   [_mR, _nT, _cVCI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -1666,18 +1589,8 @@ export var ListDbServersInput: StaticStructureSchema = [
   [_cEII, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDbServersOutput: StaticStructureSchema = [3, n0, _LDSO, 0, [_nT, _dS], [0, () => DbServerList]];
@@ -1687,22 +1600,7 @@ export var ListDbSystemShapesInput: StaticStructureSchema = [
   _LDSSI,
   0,
   [_mR, _nT, _aZ, _aZI],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0, 0],
 ];
 export var ListDbSystemShapesOutput: StaticStructureSchema = [
   3,
@@ -1718,21 +1616,7 @@ export var ListGiVersionsInput: StaticStructureSchema = [
   _LGVI,
   0,
   [_mR, _nT, _sh],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListGiVersionsOutput: StaticStructureSchema = [3, n0, _LGVO, 0, [_nT, _gVi], [0, () => GiVersionList]];
 export var ListOdbNetworksInput: StaticStructureSchema = [
@@ -1742,18 +1626,8 @@ export var ListOdbNetworksInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListOdbNetworksOutput: StaticStructureSchema = [3, n0, _LONO, 0, [_nT, _oNd], [0, () => OdbNetworkList]];
@@ -1763,21 +1637,7 @@ export var ListOdbPeeringConnectionsInput: StaticStructureSchema = [
   _LOPCI,
   0,
   [_mR, _nT, _oNI],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0],
 ];
 export var ListOdbPeeringConnectionsOutput: StaticStructureSchema = [
   3,
@@ -1793,22 +1653,7 @@ export var ListSystemVersionsInput: StaticStructureSchema = [
   _LSVI,
   0,
   [_mR, _nT, _gV, _sh],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0, 0],
 ];
 export var ListSystemVersionsOutput: StaticStructureSchema = [
   3,
@@ -1994,30 +1839,22 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Access: StaticStructureSchema = [3, n0, _SA, 0, [_s, _iA, _dNo, _sPD], [0, 64 | 0, 0, 0]];
 export var ServiceNetworkEndpoint: StaticStructureSchema = [3, n0, _SNE, 0, [_vEI, _vET], [0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _qC],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StartDbNodeInput: StaticStructureSchema = [
   3,
   n0,
@@ -2050,23 +1887,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, 1], 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateCloudExadataInfrastructureInput: StaticStructureSchema = [
@@ -2114,22 +1939,15 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var ZeroEtlAccess: StaticStructureSchema = [3, n0, _ZEA, 0, [_s, _ci], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var OdbServiceException: StaticErrorSchema = [-3, _sm, "OdbServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OdbServiceException, __OdbServiceException);
-
 export var AutonomousVirtualMachineList: StaticListSchema = [1, n0, _AVML, 0, () => AutonomousVirtualMachineSummary];
 export var CloudAutonomousVmClusterList: StaticListSchema = [1, n0, _CAVCL, 0, () => CloudAutonomousVmClusterSummary];
 export var CloudAutonomousVmClusterResourceDetailsList: StaticListSchema = [
@@ -2162,27 +1980,20 @@ export var DbServerList: StaticListSchema = [1, n0, _DSL, 0, () => DbServerSumma
 export var DbSystemShapeList: StaticListSchema = [1, n0, _DSSL, 0, () => DbSystemShapeSummary];
 export var GiVersionList: StaticListSchema = [1, n0, _GVL, 0, () => GiVersionSummary];
 export var HoursOfDay = 64 | 1;
-
 export var IamRoleList: StaticListSchema = [1, n0, _IRL, 0, () => IamRole];
 export var Months: StaticListSchema = [1, n0, _Mo, 0, () => Month];
 export var OciDnsForwardingConfigList: StaticListSchema = [1, n0, _ODFCL, 0, () => OciDnsForwardingConfig];
 export var OdbNetworkList: StaticListSchema = [1, n0, _ONL, 0, () => OdbNetworkSummary];
 export var OdbPeeringConnectionList: StaticListSchema = [1, n0, _OPCL, 0, () => OdbPeeringConnectionSummary];
 export var PeeredCidrList = 64 | 0;
-
 export var SensitiveStringList: StaticListSchema = [1, n0, _SSL, 0, [() => SensitiveString, 0]];
 export var StringList = 64 | 0;
-
 export var SystemVersionList: StaticListSchema = [1, n0, _SVL, 0, () => SystemVersionSummary];
 export var TagKeys = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var WeeksOfMonth = 64 | 1;
-
 export var RequestTagMap = 128 | 0;
-
 export var ResponseTagMap = 128 | 0;
-
 export var AcceptMarketplaceRegistration: StaticOperationSchema = [
   9,
   n0,

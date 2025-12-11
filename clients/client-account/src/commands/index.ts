@@ -6,6 +6,7 @@ export * from "./EnableRegionCommand";
 export * from "./GetAccountInformationCommand";
 export * from "./GetAlternateContactCommand";
 export * from "./GetContactInformationCommand";
+export * from "./GetGovCloudAccountInformationCommand";
 export * from "./GetPrimaryEmailCommand";
 export * from "./GetRegionOptStatusCommand";
 export * from "./ListRegionsCommand";

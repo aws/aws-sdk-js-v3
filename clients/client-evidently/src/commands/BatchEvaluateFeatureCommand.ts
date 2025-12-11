@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { BatchEvaluateFeatureRequest, BatchEvaluateFeatureResponse } from "../models/models_0";
+import type { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
+import type { BatchEvaluateFeatureRequest, BatchEvaluateFeatureResponse } from "../models/models_0";
 import { BatchEvaluateFeature } from "../schemas/schemas_0";
 
 /**

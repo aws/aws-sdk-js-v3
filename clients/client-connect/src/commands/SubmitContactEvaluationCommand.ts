@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_2";
+import type { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_3";
 import { SubmitContactEvaluation } from "../schemas/schemas_0";
 
 /**
@@ -27,12 +27,11 @@ export interface SubmitContactEvaluationCommandInput extends SubmitContactEvalua
 export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a contact evaluation in the specified Amazon Connect instance. Answers included
- *    in the request are merged with existing answers for the given evaluation. If no answers or notes
- *    are passed, the evaluation is submitted with the existing answers and notes. You can delete an
- *    answer or note by passing an empty object (<code>\{\}</code>) to the question identifier. </p>
- *          <p>If a contact evaluation is already in submitted state, this operation will trigger a
- *    resubmission.</p>
+ * <p>Submits a contact evaluation in the specified Amazon Connect instance. Answers included in the request are
+ *    merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted
+ *    with the existing answers and notes. You can delete an answer or note by passing an empty object (<code>\{\}</code>) to
+ *    the question identifier. </p>
+ *          <p>If a contact evaluation is already in submitted state, this operation will trigger a resubmission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +48,10 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  *       Value: { // EvaluationAnswerData Union: only one key present
  *         StringValue: "STRING_VALUE",
  *         NumericValue: Number("double"),
+ *         StringValues: [ // EvaluationAnswerDataStringValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         DateTimeValue: "STRING_VALUE",
  *         NotApplicable: true || false,
  *       },
  *     },

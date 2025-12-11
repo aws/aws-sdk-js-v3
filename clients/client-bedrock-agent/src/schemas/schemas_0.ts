@@ -16,6 +16,8 @@ const _AASg = "AgentAliasSummaries";
 const _AC = "AgentCollaborator";
 const _ACS = "AgentCollaboratorSummary";
 const _ACSg = "AgentCollaboratorSummaries";
+const _ACu = "AudioConfiguration";
+const _ACud = "AudioConfigurations";
 const _AD = "AgentDescriptor";
 const _ADE = "AccessDeniedException";
 const _AFNC = "AgentFlowNodeConfiguration";
@@ -27,6 +29,7 @@ const _AKBS = "AgentKnowledgeBaseSummary";
 const _AKBSg = "AgentKnowledgeBaseSummaries";
 const _APIS = "APISchema";
 const _AS = "AgentSummary";
+const _ASC = "AudioSegmentationConfiguration";
 const _ASg = "AgentSummaries";
 const _ATC = "AnyToolChoice";
 const _ATCu = "AutoToolChoice";
@@ -519,6 +522,8 @@ const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _VBA = "VectorBucketArn";
+const _VC = "VideoConfiguration";
+const _VCi = "VideoConfigurations";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
@@ -529,12 +534,13 @@ const _VIC = "VectorIngestionConfiguration";
 const _VKBC = "VectorKnowledgeBaseConfiguration";
 const _VSBRC = "VectorSearchBedrockRerankingConfiguration";
 const _VSBRMC = "VectorSearchBedrockRerankingModelConfiguration";
+const _VSC = "VideoSegmentationConfiguration";
 const _VSRC = "VectorSearchRerankingConfiguration";
 const _WCC = "WebCrawlerConfiguration";
 const _WCL = "WebCrawlerLimits";
 const _WDSC = "WebDataSourceConfiguration";
 const _WSC = "WebSourceConfiguration";
-const _a = "agent";
+const _a = "audio";
 const _aA = "agentArn";
 const _aAA = "agentAliasArn";
 const _aAG = "agentActionGroup";
@@ -571,6 +577,7 @@ const _aSp = "apiSchema";
 const _aT = "authType";
 const _aV = "agentVersion";
 const _aVS = "agentVersionSummaries";
+const _ag = "agent";
 const _an = "any";
 const _ar = "arn";
 const _at = "attribute";
@@ -673,6 +680,7 @@ const _fC = "filterConfiguration";
 const _fI = "flowIdentifier";
 const _fIl = "flowId";
 const _fL = "fieldList";
+const _fLD = "fixedLengthDuration";
 const _fM = "foundationModel";
 const _fMi = "fieldMapping";
 const _fN = "fieldName";
@@ -865,12 +873,13 @@ const _s = "system";
 const _sA = "startedAt";
 const _sB = "sortBy";
 const _sBN = "s3BucketName";
-const _sC = "sourceConfiguration";
+const _sC = "segmentationConfiguration";
 const _sCC = "semanticChunkingConfiguration";
 const _sCa = "salesforceConfiguration";
 const _sCe = "serverlessConfiguration";
 const _sCer = "serviceConfiguration";
-const _sCo = "s3Configuration";
+const _sCo = "sourceConfiguration";
+const _sCon = "s3Configuration";
 const _sCt = "storageConfiguration";
 const _sCto = "storageConfigurations";
 const _sD = "startDate";
@@ -961,13 +970,14 @@ const _va = "variants";
 const _val = "validations";
 const _valu = "values";
 const _value = "value";
+const _vi = "video";
 const _wA = "workgroupArn";
 const _wC = "webConfiguration";
 const n0 = "com.amazonaws.bedrockagent";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -988,7 +998,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var BasePromptTemplate: StaticSimpleSchema = [0, n0, _BPT, 8, 0];
 export var ByteContentBlob: StaticSimpleSchema = [0, n0, _BCB, 8, 21];
 export var CollaborationInstruction: StaticSimpleSchema = [0, n0, _CI, 8, 0];
@@ -1015,19 +1024,8 @@ export var TextPrompt: StaticSimpleSchema = [0, n0, _TP, 8, 0];
 export var UserAgent: StaticSimpleSchema = [0, n0, _UA, 8, 0];
 export var UserAgentHeader: StaticSimpleSchema = [0, n0, _UAH, 8, 0];
 export var VectorBucketArn: StaticSimpleSchema = [0, n0, _VBA, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ActionGroupSummary: StaticStructureSchema = [3, n0, _AGS, 0, [_aGI, _aGN, _aGS, _d, _uA], [0, 0, 0, 0, 5]];
 export var Agent: StaticStructureSchema = [
   3,
@@ -1222,9 +1220,18 @@ export var AssociateAgentKnowledgeBaseResponse: StaticStructureSchema = [
   [_aKB],
   [() => AgentKnowledgeBase],
 ];
+export var AudioConfiguration: StaticStructureSchema = [3, n0, _ACu, 0, [_sC], [() => AudioSegmentationConfiguration]];
+export var AudioSegmentationConfiguration: StaticStructureSchema = [3, n0, _ASC, 0, [_fLD], [1]];
 export var AutoToolChoice: StaticStructureSchema = [3, n0, _ATCu, 0, [], []];
 export var BedrockDataAutomationConfiguration: StaticStructureSchema = [3, n0, _BDAC, 0, [_pM], [0]];
-export var BedrockEmbeddingModelConfiguration: StaticStructureSchema = [3, n0, _BEMC, 0, [_di, _eDT], [1, 0]];
+export var BedrockEmbeddingModelConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _BEMC,
+  0,
+  [_di, _eDT, _a, _vi],
+  [1, 0, () => AudioConfigurations, () => VideoConfigurations],
+];
 export var BedrockFoundationModelConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1278,19 +1285,8 @@ export var ConditionFlowNodeConfiguration: StaticStructureSchema = [
   [_co],
   [[() => FlowConditions, 0]],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConfluenceCrawlerConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1304,7 +1300,7 @@ export var ConfluenceDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _CDSC,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => ConfluenceSourceConfiguration, [() => ConfluenceCrawlerConfiguration, 0]],
 ];
 export var ConfluenceSourceConfiguration: StaticStructureSchema = [3, n0, _CSC, 0, [_hU, _hT, _aT, _cSA], [0, 0, 0, 0]];
@@ -1373,7 +1369,7 @@ export var CreateAgentRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateAgentResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_a], [[() => Agent, 0]]];
+export var CreateAgentResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_ag], [[() => Agent, 0]]];
 export var CreateDataSourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1521,7 +1517,7 @@ export var DataSourceConfiguration: StaticStructureSchema = [
   n0,
   _DSC,
   0,
-  [_t, _sCo, _wC, _cCon, _sCa, _sPC],
+  [_t, _sCon, _wC, _cCon, _sCa, _sPC],
   [
     0,
     [() => S3DataSourceConfiguration, 0],
@@ -1549,12 +1545,7 @@ export var DeleteAgentActionGroupRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteAgentActionGroupResponse: StaticStructureSchema = [3, n0, _DAAGRe, 0, [], []];
@@ -1578,12 +1569,7 @@ export var DeleteAgentRequest: StaticStructureSchema = [
   [_aI, _sRIUC],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteAgentResponse: StaticStructureSchema = [3, n0, _DARe, 0, [_aI, _aS], [0, 0]];
@@ -1596,12 +1582,7 @@ export var DeleteAgentVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteAgentVersionResponse: StaticStructureSchema = [3, n0, _DAVRe, 0, [_aI, _aV, _aS], [0, 0, 0]];
@@ -1637,12 +1618,7 @@ export var DeleteFlowRequest: StaticStructureSchema = [
   [_fI, _sRIUC],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteFlowResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [_id], [0]];
@@ -1655,12 +1631,7 @@ export var DeleteFlowVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sRIUC,
-      },
-    ],
+    [2, { [_hQ]: _sRIUC }],
   ],
 ];
 export var DeleteFlowVersionResponse: StaticStructureSchema = [3, n0, _DFVRe, 0, [_id, _v], [0, 0]];
@@ -1690,12 +1661,7 @@ export var DeletePromptRequest: StaticStructureSchema = [
   [_pI, _pV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pV,
-      },
-    ],
+    [0, { [_hQ]: _pV }],
   ],
 ];
 export var DeletePromptResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [_id, _v], [0, 0]];
@@ -1906,7 +1872,7 @@ export var GetAgentKnowledgeBaseResponse: StaticStructureSchema = [
   [() => AgentKnowledgeBase],
 ];
 export var GetAgentRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
-export var GetAgentResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_a], [[() => Agent, 0]]];
+export var GetAgentResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_ag], [[() => Agent, 0]]];
 export var GetAgentVersionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2017,12 +1983,7 @@ export var GetPromptRequest: StaticStructureSchema = [
   [_pI, _pV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pV,
-      },
-    ],
+    [0, { [_hQ]: _pV }],
   ],
 ];
 export var GetPromptResponse: StaticStructureSchema = [
@@ -2124,19 +2085,8 @@ export var InlineContent: StaticStructureSchema = [
 ];
 export var InputFlowNodeConfiguration: StaticStructureSchema = [3, n0, _IFNC, 0, [], []];
 export var IntermediateStorage: StaticStructureSchema = [3, n0, _IS, 0, [_sL], [() => S3Location]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvalidLoopBoundaryFlowValidationDetails: StaticStructureSchema = [
   3,
   n0,
@@ -2313,18 +2263,8 @@ export var ListFlowAliasesRequest: StaticStructureSchema = [
   [_fI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListFlowAliasesResponse: StaticStructureSchema = [
@@ -2342,18 +2282,8 @@ export var ListFlowsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListFlowsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_fSl, _nT], [() => FlowSummaries, 0]];
@@ -2365,18 +2295,8 @@ export var ListFlowVersionsRequest: StaticStructureSchema = [
   [_fI, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListFlowVersionsResponse: StaticStructureSchema = [
@@ -2435,24 +2355,9 @@ export var ListPromptsRequest: StaticStructureSchema = [
   0,
   [_pI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _pI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPromptsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pS, _nT], [() => PromptSummaries, 0]];
@@ -2672,7 +2577,7 @@ export var PromptFlowNodeConfiguration: StaticStructureSchema = [
   n0,
   _PFNC,
   0,
-  [_sC, _gC],
+  [_sCo, _gC],
   [[() => PromptFlowNodeSourceConfiguration, 0], () => GuardrailConfiguration],
 ];
 export var PromptFlowNodeInlineConfiguration: StaticStructureSchema = [
@@ -2839,19 +2744,8 @@ export var RedshiftServerlessConfiguration: StaticStructureSchema = [
   [_wA, _aCu],
   [0, () => RedshiftServerlessAuthConfiguration],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetrievalFlowNodeConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2897,26 +2791,15 @@ export var SalesforceDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _SDSCa,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => SalesforceSourceConfiguration, [() => SalesforceCrawlerConfiguration, 0]],
 ];
 export var SalesforceSourceConfiguration: StaticStructureSchema = [3, n0, _SSC, 0, [_hU, _aT, _cSA], [0, 0, 0]];
 export var SeedUrl: StaticStructureSchema = [3, n0, _SU, 0, [_ur], [0]];
 export var SemanticChunkingConfiguration: StaticStructureSchema = [3, n0, _SCCe, 0, [_mTa, _bS, _bPTr], [1, 1, 1]];
 export var ServerSideEncryptionConfiguration: StaticStructureSchema = [3, n0, _SSEC, 0, [_kKA], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SessionSummaryConfiguration: StaticStructureSchema = [3, n0, _SSCe, 0, [_mRS], [1]];
 export var SharePointCrawlerConfiguration: StaticStructureSchema = [
   3,
@@ -2931,7 +2814,7 @@ export var SharePointDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _SPDSC,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => SharePointSourceConfiguration, [() => SharePointCrawlerConfiguration, 0]],
 ];
 export var SharePointSourceConfiguration: StaticStructureSchema = [
@@ -3020,19 +2903,8 @@ export var TextPromptTemplateConfiguration: StaticStructureSchema = [
   [_tex, _cP, _iV],
   [[() => TextPrompt, 0], () => CachePointBlock, [() => PromptInputVariablesList, 0]],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ToolConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -3088,12 +2960,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tKa],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tKa,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tKa }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -3177,7 +3044,7 @@ export var UpdateAgentRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var UpdateAgentResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_a], [[() => Agent, 0]]];
+export var UpdateAgentResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_ag], [[() => Agent, 0]]];
 export var UpdateDataSourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3267,15 +3134,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var VectorIngestionConfiguration: StaticStructureSchema = [
   3,
@@ -3322,6 +3185,8 @@ export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
   [_t, _bRC],
   [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
 ];
+export var VideoConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_sC], [() => VideoSegmentationConfiguration]];
+export var VideoSegmentationConfiguration: StaticStructureSchema = [3, n0, _VSC, 0, [_fLD], [1]];
 export var WebCrawlerConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -3343,15 +3208,12 @@ export var WebDataSourceConfiguration: StaticStructureSchema = [
   n0,
   _WDSC,
   0,
-  [_sC, _cC],
+  [_sCo, _cC],
   [() => WebSourceConfiguration, [() => WebCrawlerConfiguration, 0]],
 ];
 export var WebSourceConfiguration: StaticStructureSchema = [3, n0, _WSC, 0, [_uC], [() => UrlConfiguration]];
-export var __Unit = "unit" as const;
-
 export var BedrockAgentServiceException: StaticErrorSchema = [-3, _sm, "BedrockAgentServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockAgentServiceException, __BedrockAgentServiceException);
-
 export var ActionGroupSummaries: StaticListSchema = [1, n0, _AGSc, 0, () => ActionGroupSummary];
 export var AgentAliasHistoryEvents: StaticListSchema = [1, n0, _AAHEg, 0, () => AgentAliasHistoryEvent];
 export var AgentAliasRoutingConfiguration: StaticListSchema = [
@@ -3366,16 +3228,14 @@ export var AgentCollaboratorSummaries: StaticListSchema = [1, n0, _ACSg, 0, [() 
 export var AgentKnowledgeBaseSummaries: StaticListSchema = [1, n0, _AKBSg, 0, () => AgentKnowledgeBaseSummary];
 export var AgentSummaries: StaticListSchema = [1, n0, _ASg, 0, () => AgentSummary];
 export var AgentVersionSummaries: StaticListSchema = [1, n0, _AVSg, 0, () => AgentVersionSummary];
+export var AudioConfigurations: StaticListSchema = [1, n0, _ACud, 0, () => AudioConfiguration];
 export var AwsDataCatalogTableNames = 64 | 0;
-
 export var ContentBlocks: StaticListSchema = [1, n0, _CB, 0, [() => ContentBlock, 0]];
 export var CuratedQueries: StaticListSchema = [1, n0, _CQu, 0, () => CuratedQuery];
 export var DataSourceSummaries: StaticListSchema = [1, n0, _DSSa, 0, () => DataSourceSummary];
 export var DocumentIdentifiers: StaticListSchema = [1, n0, _DIo, 0, () => DocumentIdentifier];
 export var EnabledMemoryTypes = 64 | 0;
-
 export var FailureReasons = 64 | 0;
-
 export var FieldsForReranking: StaticListSchema = [1, n0, _FFRi, 8, () => FieldForReranking];
 export var FilterList: StaticListSchema = [1, n0, _FL, 8, [() => FilterPattern, 0]];
 export var FlowAliasRoutingConfiguration: StaticListSchema = [
@@ -3404,7 +3264,6 @@ export var HierarchicalChunkingLevelConfigurations: StaticListSchema = [
 ];
 export var IngestionJobFilters: StaticListSchema = [1, n0, _IJFn, 0, () => IngestionJobFilter];
 export var IngestionJobFilterValues = 64 | 0;
-
 export var IngestionJobSummaries: StaticListSchema = [1, n0, _IJSng, 0, () => IngestionJobSummary];
 export var KnowledgeBaseDocumentDetails: StaticListSchema = [1, n0, _KBDDn, 0, () => KnowledgeBaseDocumentDetail];
 export var KnowledgeBaseDocuments: StaticListSchema = [1, n0, _KBDn, 0, [() => KnowledgeBaseDocument, 0]];
@@ -3420,7 +3279,6 @@ export var PromptVariantList: StaticListSchema = [1, n0, _PVL, 8, [() => PromptV
 export var QueryGenerationColumns: StaticListSchema = [1, n0, _QGCuer, 0, () => QueryGenerationColumn];
 export var QueryGenerationTables: StaticListSchema = [1, n0, _QGTu, 0, () => QueryGenerationTable];
 export var RecommendedActions = 64 | 0;
-
 export var RedshiftQueryEngineStorageConfigurations: StaticListSchema = [
   1,
   n0,
@@ -3431,9 +3289,7 @@ export var RedshiftQueryEngineStorageConfigurations: StaticListSchema = [
 export var S3Prefixes: StaticListSchema = [1, n0, _SPr, 0, [() => S3Prefix, 0]];
 export var SeedUrls: StaticListSchema = [1, n0, _SUe, 0, () => SeedUrl];
 export var SharePointSiteUrls = 64 | 0;
-
 export var StopSequences = 64 | 0;
-
 export var StringListValue: StaticListSchema = [1, n0, _SLV, 0, [() => StringValue, 0]];
 export var SupplementalDataStorageLocations: StaticListSchema = [
   1,
@@ -3444,17 +3300,14 @@ export var SupplementalDataStorageLocations: StaticListSchema = [
 ];
 export var SystemContentBlocks: StaticListSchema = [1, n0, _SCB, 0, [() => SystemContentBlock, 0]];
 export var TagKeyList = 64 | 0;
-
 export var Tools: StaticListSchema = [1, n0, _To, 8, () => Tool];
 export var Transformations: StaticListSchema = [1, n0, _Tr, 0, () => Transformation];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
+export var VideoConfigurations: StaticListSchema = [1, n0, _VCi, 0, () => VideoConfiguration];
 export var ActionGroupSignatureParams = 128 | 0;
-
 export var AdditionalModelRequestFields = 128 | 15;
-
 export var ParameterMap: StaticMapSchema = [2, n0, _PM, 0, 0, () => ParameterDetail];
 export var TagsMap = 128 | 0;
-
 export var ActionGroupExecutor: StaticStructureSchema = [3, n0, _AGE, 0, [_lam, _cCu], [0, 0]];
 export var APISchema: StaticStructureSchema = [3, n0, _APIS, 0, [_s_, _pa], [() => S3Identifier, [() => Payload, 0]]];
 export var ContentBlock: StaticStructureSchema = [3, n0, _CBo, 8, [_tex, _cP], [0, () => CachePointBlock]];
@@ -3471,7 +3324,7 @@ export var FlowNodeConfiguration: StaticStructureSchema = [
   n0,
   _FNC,
   0,
-  [_inp, _ou, _kB, _cond, _le, _pr, _lF, _sto, _a, _ret, _it, _coll, _iCnl, _lo, _lIo, _lCo],
+  [_inp, _ou, _kB, _cond, _le, _pr, _lF, _sto, _ag, _ret, _it, _coll, _iCnl, _lo, _lIo, _lCo],
   [
     () => InputFlowNodeConfiguration,
     () => OutputFlowNodeConfiguration,
@@ -3577,7 +3430,7 @@ export var PromptFlowNodeSourceConfiguration: StaticStructureSchema = [
   [_res, _inl],
   [() => PromptFlowNodeResourceConfiguration, [() => PromptFlowNodeInlineConfiguration, 0]],
 ];
-export var PromptGenAiResource: StaticStructureSchema = [3, n0, _PGAR, 8, [_a], [[() => PromptAgentResource, 0]]];
+export var PromptGenAiResource: StaticStructureSchema = [3, n0, _PGAR, 8, [_ag], [[() => PromptAgentResource, 0]]];
 export var PromptInferenceConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -3639,9 +3492,7 @@ export var AssociateAgentCollaborator: StaticOperationSchema = [
   9,
   n0,
   _AAC,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/", 200],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/", 200] },
   () => AssociateAgentCollaboratorRequest,
   () => AssociateAgentCollaboratorResponse,
 ];
@@ -3649,9 +3500,7 @@ export var AssociateAgentKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _AAKB,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/", 200],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/", 200] },
   () => AssociateAgentKnowledgeBaseRequest,
   () => AssociateAgentKnowledgeBaseResponse,
 ];
@@ -3659,9 +3508,7 @@ export var CreateAgent: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["PUT", "/agents/", 202],
-  },
+  { [_h]: ["PUT", "/agents/", 202] },
   () => CreateAgentRequest,
   () => CreateAgentResponse,
 ];
@@ -3669,9 +3516,7 @@ export var CreateAgentActionGroup: StaticOperationSchema = [
   9,
   n0,
   _CAAG,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/", 200],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/", 200] },
   () => CreateAgentActionGroupRequest,
   () => CreateAgentActionGroupResponse,
 ];
@@ -3679,9 +3524,7 @@ export var CreateAgentAlias: StaticOperationSchema = [
   9,
   n0,
   _CAA,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentaliases/", 202],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentaliases/", 202] },
   () => CreateAgentAliasRequest,
   () => CreateAgentAliasResponse,
 ];
@@ -3689,9 +3532,7 @@ export var CreateDataSource: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/", 200],
-  },
+  { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/", 200] },
   () => CreateDataSourceRequest,
   () => CreateDataSourceResponse,
 ];
@@ -3699,9 +3540,7 @@ export var CreateFlow: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/flows/", 201],
-  },
+  { [_h]: ["POST", "/flows/", 201] },
   () => CreateFlowRequest,
   () => CreateFlowResponse,
 ];
@@ -3709,9 +3548,7 @@ export var CreateFlowAlias: StaticOperationSchema = [
   9,
   n0,
   _CFA,
-  {
-    [_h]: ["POST", "/flows/{flowIdentifier}/aliases", 201],
-  },
+  { [_h]: ["POST", "/flows/{flowIdentifier}/aliases", 201] },
   () => CreateFlowAliasRequest,
   () => CreateFlowAliasResponse,
 ];
@@ -3719,9 +3556,7 @@ export var CreateFlowVersion: StaticOperationSchema = [
   9,
   n0,
   _CFV,
-  {
-    [_h]: ["POST", "/flows/{flowIdentifier}/versions", 201],
-  },
+  { [_h]: ["POST", "/flows/{flowIdentifier}/versions", 201] },
   () => CreateFlowVersionRequest,
   () => CreateFlowVersionResponse,
 ];
@@ -3729,9 +3564,7 @@ export var CreateKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _CKB,
-  {
-    [_h]: ["PUT", "/knowledgebases/", 202],
-  },
+  { [_h]: ["PUT", "/knowledgebases/", 202] },
   () => CreateKnowledgeBaseRequest,
   () => CreateKnowledgeBaseResponse,
 ];
@@ -3739,9 +3572,7 @@ export var CreatePrompt: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_h]: ["POST", "/prompts/", 201],
-  },
+  { [_h]: ["POST", "/prompts/", 201] },
   () => CreatePromptRequest,
   () => CreatePromptResponse,
 ];
@@ -3749,9 +3580,7 @@ export var CreatePromptVersion: StaticOperationSchema = [
   9,
   n0,
   _CPV,
-  {
-    [_h]: ["POST", "/prompts/{promptIdentifier}/versions", 201],
-  },
+  { [_h]: ["POST", "/prompts/{promptIdentifier}/versions", 201] },
   () => CreatePromptVersionRequest,
   () => CreatePromptVersionResponse,
 ];
@@ -3759,9 +3588,7 @@ export var DeleteAgent: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/", 202],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/", 202] },
   () => DeleteAgentRequest,
   () => DeleteAgentResponse,
 ];
@@ -3769,9 +3596,7 @@ export var DeleteAgentActionGroup: StaticOperationSchema = [
   9,
   n0,
   _DAAG,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/", 204],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/", 204] },
   () => DeleteAgentActionGroupRequest,
   () => DeleteAgentActionGroupResponse,
 ];
@@ -3779,9 +3604,7 @@ export var DeleteAgentAlias: StaticOperationSchema = [
   9,
   n0,
   _DAA,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/agentaliases/{agentAliasId}/", 202],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/agentaliases/{agentAliasId}/", 202] },
   () => DeleteAgentAliasRequest,
   () => DeleteAgentAliasResponse,
 ];
@@ -3789,9 +3612,7 @@ export var DeleteAgentVersion: StaticOperationSchema = [
   9,
   n0,
   _DAV,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/", 202],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/", 202] },
   () => DeleteAgentVersionRequest,
   () => DeleteAgentVersionResponse,
 ];
@@ -3799,9 +3620,7 @@ export var DeleteDataSource: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_h]: ["DELETE", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}", 202],
-  },
+  { [_h]: ["DELETE", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}", 202] },
   () => DeleteDataSourceRequest,
   () => DeleteDataSourceResponse,
 ];
@@ -3809,9 +3628,7 @@ export var DeleteFlow: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/flows/{flowIdentifier}/", 200],
-  },
+  { [_h]: ["DELETE", "/flows/{flowIdentifier}/", 200] },
   () => DeleteFlowRequest,
   () => DeleteFlowResponse,
 ];
@@ -3819,9 +3636,7 @@ export var DeleteFlowAlias: StaticOperationSchema = [
   9,
   n0,
   _DFA,
-  {
-    [_h]: ["DELETE", "/flows/{flowIdentifier}/aliases/{aliasIdentifier}", 200],
-  },
+  { [_h]: ["DELETE", "/flows/{flowIdentifier}/aliases/{aliasIdentifier}", 200] },
   () => DeleteFlowAliasRequest,
   () => DeleteFlowAliasResponse,
 ];
@@ -3829,9 +3644,7 @@ export var DeleteFlowVersion: StaticOperationSchema = [
   9,
   n0,
   _DFV,
-  {
-    [_h]: ["DELETE", "/flows/{flowIdentifier}/versions/{flowVersion}/", 200],
-  },
+  { [_h]: ["DELETE", "/flows/{flowIdentifier}/versions/{flowVersion}/", 200] },
   () => DeleteFlowVersionRequest,
   () => DeleteFlowVersionResponse,
 ];
@@ -3839,9 +3652,7 @@ export var DeleteKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _DKB,
-  {
-    [_h]: ["DELETE", "/knowledgebases/{knowledgeBaseId}", 202],
-  },
+  { [_h]: ["DELETE", "/knowledgebases/{knowledgeBaseId}", 202] },
   () => DeleteKnowledgeBaseRequest,
   () => DeleteKnowledgeBaseResponse,
 ];
@@ -3849,9 +3660,7 @@ export var DeleteKnowledgeBaseDocuments: StaticOperationSchema = [
   9,
   n0,
   _DKBD,
-  {
-    [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents/deleteDocuments", 202],
-  },
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents/deleteDocuments", 202] },
   () => DeleteKnowledgeBaseDocumentsRequest,
   () => DeleteKnowledgeBaseDocumentsResponse,
 ];
@@ -3859,9 +3668,7 @@ export var DeletePrompt: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/prompts/{promptIdentifier}/", 200],
-  },
+  { [_h]: ["DELETE", "/prompts/{promptIdentifier}/", 200] },
   () => DeletePromptRequest,
   () => DeletePromptResponse,
 ];
@@ -3869,9 +3676,7 @@ export var DisassociateAgentCollaborator: StaticOperationSchema = [
   9,
   n0,
   _DAC,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 204],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 204] },
   () => DisassociateAgentCollaboratorRequest,
   () => DisassociateAgentCollaboratorResponse,
 ];
@@ -3879,9 +3684,7 @@ export var DisassociateAgentKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _DAKB,
-  {
-    [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/", 204],
-  },
+  { [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/", 204] },
   () => DisassociateAgentKnowledgeBaseRequest,
   () => DisassociateAgentKnowledgeBaseResponse,
 ];
@@ -3889,9 +3692,7 @@ export var GetAgent: StaticOperationSchema = [
   9,
   n0,
   _GAe,
-  {
-    [_h]: ["GET", "/agents/{agentId}/", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/", 200] },
   () => GetAgentRequest,
   () => GetAgentResponse,
 ];
@@ -3899,9 +3700,7 @@ export var GetAgentActionGroup: StaticOperationSchema = [
   9,
   n0,
   _GAAG,
-  {
-    [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/", 200] },
   () => GetAgentActionGroupRequest,
   () => GetAgentActionGroupResponse,
 ];
@@ -3909,9 +3708,7 @@ export var GetAgentAlias: StaticOperationSchema = [
   9,
   n0,
   _GAA,
-  {
-    [_h]: ["GET", "/agents/{agentId}/agentaliases/{agentAliasId}/", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/agentaliases/{agentAliasId}/", 200] },
   () => GetAgentAliasRequest,
   () => GetAgentAliasResponse,
 ];
@@ -3919,9 +3716,7 @@ export var GetAgentCollaborator: StaticOperationSchema = [
   9,
   n0,
   _GAC,
-  {
-    [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 200] },
   () => GetAgentCollaboratorRequest,
   () => GetAgentCollaboratorResponse,
 ];
@@ -3929,9 +3724,7 @@ export var GetAgentKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _GAKB,
-  {
-    [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/", 200] },
   () => GetAgentKnowledgeBaseRequest,
   () => GetAgentKnowledgeBaseResponse,
 ];
@@ -3939,9 +3732,7 @@ export var GetAgentVersion: StaticOperationSchema = [
   9,
   n0,
   _GAV,
-  {
-    [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/", 200],
-  },
+  { [_h]: ["GET", "/agents/{agentId}/agentversions/{agentVersion}/", 200] },
   () => GetAgentVersionRequest,
   () => GetAgentVersionResponse,
 ];
@@ -3949,9 +3740,7 @@ export var GetDataSource: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}", 200],
-  },
+  { [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}", 200] },
   () => GetDataSourceRequest,
   () => GetDataSourceResponse,
 ];
@@ -3959,9 +3748,7 @@ export var GetFlow: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/", 200] },
   () => GetFlowRequest,
   () => GetFlowResponse,
 ];
@@ -3969,9 +3756,7 @@ export var GetFlowAlias: StaticOperationSchema = [
   9,
   n0,
   _GFA,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/aliases/{aliasIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/aliases/{aliasIdentifier}", 200] },
   () => GetFlowAliasRequest,
   () => GetFlowAliasResponse,
 ];
@@ -3979,9 +3764,7 @@ export var GetFlowVersion: StaticOperationSchema = [
   9,
   n0,
   _GFV,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/versions/{flowVersion}/", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/versions/{flowVersion}/", 200] },
   () => GetFlowVersionRequest,
   () => GetFlowVersionResponse,
 ];
@@ -3989,9 +3772,7 @@ export var GetIngestionJob: StaticOperationSchema = [
   9,
   n0,
   _GIJ,
-  {
-    [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}", 200],
-  },
+  { [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}", 200] },
   () => GetIngestionJobRequest,
   () => GetIngestionJobResponse,
 ];
@@ -3999,9 +3780,7 @@ export var GetKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _GKB,
-  {
-    [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}", 200],
-  },
+  { [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}", 200] },
   () => GetKnowledgeBaseRequest,
   () => GetKnowledgeBaseResponse,
 ];
@@ -4009,9 +3788,7 @@ export var GetKnowledgeBaseDocuments: StaticOperationSchema = [
   9,
   n0,
   _GKBD,
-  {
-    [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents/getDocuments", 200],
-  },
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents/getDocuments", 200] },
   () => GetKnowledgeBaseDocumentsRequest,
   () => GetKnowledgeBaseDocumentsResponse,
 ];
@@ -4019,9 +3796,7 @@ export var GetPrompt: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/prompts/{promptIdentifier}/", 200],
-  },
+  { [_h]: ["GET", "/prompts/{promptIdentifier}/", 200] },
   () => GetPromptRequest,
   () => GetPromptResponse,
 ];
@@ -4029,9 +3804,7 @@ export var IngestKnowledgeBaseDocuments: StaticOperationSchema = [
   9,
   n0,
   _IKBD,
-  {
-    [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents", 202],
-  },
+  { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents", 202] },
   () => IngestKnowledgeBaseDocumentsRequest,
   () => IngestKnowledgeBaseDocumentsResponse,
 ];
@@ -4039,9 +3812,7 @@ export var ListAgentActionGroups: StaticOperationSchema = [
   9,
   n0,
   _LAAG,
-  {
-    [_h]: ["POST", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/", 200],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/", 200] },
   () => ListAgentActionGroupsRequest,
   () => ListAgentActionGroupsResponse,
 ];
@@ -4049,9 +3820,7 @@ export var ListAgentAliases: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  {
-    [_h]: ["POST", "/agents/{agentId}/agentaliases/", 200],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/agentaliases/", 200] },
   () => ListAgentAliasesRequest,
   () => ListAgentAliasesResponse,
 ];
@@ -4059,9 +3828,7 @@ export var ListAgentCollaborators: StaticOperationSchema = [
   9,
   n0,
   _LAC,
-  {
-    [_h]: ["POST", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/", 200],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/", 200] },
   () => ListAgentCollaboratorsRequest,
   () => ListAgentCollaboratorsResponse,
 ];
@@ -4069,9 +3836,7 @@ export var ListAgentKnowledgeBases: StaticOperationSchema = [
   9,
   n0,
   _LAKB,
-  {
-    [_h]: ["POST", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/", 200],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/", 200] },
   () => ListAgentKnowledgeBasesRequest,
   () => ListAgentKnowledgeBasesResponse,
 ];
@@ -4079,9 +3844,7 @@ export var ListAgents: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["POST", "/agents/", 200],
-  },
+  { [_h]: ["POST", "/agents/", 200] },
   () => ListAgentsRequest,
   () => ListAgentsResponse,
 ];
@@ -4089,9 +3852,7 @@ export var ListAgentVersions: StaticOperationSchema = [
   9,
   n0,
   _LAV,
-  {
-    [_h]: ["POST", "/agents/{agentId}/agentversions/", 200],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/agentversions/", 200] },
   () => ListAgentVersionsRequest,
   () => ListAgentVersionsResponse,
 ];
@@ -4099,9 +3860,7 @@ export var ListDataSources: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/", 200],
-  },
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/", 200] },
   () => ListDataSourcesRequest,
   () => ListDataSourcesResponse,
 ];
@@ -4109,9 +3868,7 @@ export var ListFlowAliases: StaticOperationSchema = [
   9,
   n0,
   _LFA,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/aliases", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/aliases", 200] },
   () => ListFlowAliasesRequest,
   () => ListFlowAliasesResponse,
 ];
@@ -4119,9 +3876,7 @@ export var ListFlows: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["GET", "/flows/", 200],
-  },
+  { [_h]: ["GET", "/flows/", 200] },
   () => ListFlowsRequest,
   () => ListFlowsResponse,
 ];
@@ -4129,9 +3884,7 @@ export var ListFlowVersions: StaticOperationSchema = [
   9,
   n0,
   _LFV,
-  {
-    [_h]: ["GET", "/flows/{flowIdentifier}/versions", 200],
-  },
+  { [_h]: ["GET", "/flows/{flowIdentifier}/versions", 200] },
   () => ListFlowVersionsRequest,
   () => ListFlowVersionsResponse,
 ];
@@ -4139,9 +3892,7 @@ export var ListIngestionJobs: StaticOperationSchema = [
   9,
   n0,
   _LIJ,
-  {
-    [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/", 200],
-  },
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/", 200] },
   () => ListIngestionJobsRequest,
   () => ListIngestionJobsResponse,
 ];
@@ -4149,9 +3900,7 @@ export var ListKnowledgeBaseDocuments: StaticOperationSchema = [
   9,
   n0,
   _LKBD,
-  {
-    [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents", 200],
-  },
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents", 200] },
   () => ListKnowledgeBaseDocumentsRequest,
   () => ListKnowledgeBaseDocumentsResponse,
 ];
@@ -4159,9 +3908,7 @@ export var ListKnowledgeBases: StaticOperationSchema = [
   9,
   n0,
   _LKB,
-  {
-    [_h]: ["POST", "/knowledgebases/", 200],
-  },
+  { [_h]: ["POST", "/knowledgebases/", 200] },
   () => ListKnowledgeBasesRequest,
   () => ListKnowledgeBasesResponse,
 ];
@@ -4169,9 +3916,7 @@ export var ListPrompts: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/prompts/", 200],
-  },
+  { [_h]: ["GET", "/prompts/", 200] },
   () => ListPromptsRequest,
   () => ListPromptsResponse,
 ];
@@ -4179,9 +3924,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -4189,9 +3932,7 @@ export var PrepareAgent: StaticOperationSchema = [
   9,
   n0,
   _PA,
-  {
-    [_h]: ["POST", "/agents/{agentId}/", 202],
-  },
+  { [_h]: ["POST", "/agents/{agentId}/", 202] },
   () => PrepareAgentRequest,
   () => PrepareAgentResponse,
 ];
@@ -4199,9 +3940,7 @@ export var PrepareFlow: StaticOperationSchema = [
   9,
   n0,
   _PF,
-  {
-    [_h]: ["POST", "/flows/{flowIdentifier}/", 202],
-  },
+  { [_h]: ["POST", "/flows/{flowIdentifier}/", 202] },
   () => PrepareFlowRequest,
   () => PrepareFlowResponse,
 ];
@@ -4209,9 +3948,7 @@ export var StartIngestionJob: StaticOperationSchema = [
   9,
   n0,
   _SIJ,
-  {
-    [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/", 202],
-  },
+  { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/", 202] },
   () => StartIngestionJobRequest,
   () => StartIngestionJobResponse,
 ];
@@ -4233,9 +3970,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -4243,9 +3978,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -4253,9 +3986,7 @@ export var UpdateAgent: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/", 202],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/", 202] },
   () => UpdateAgentRequest,
   () => UpdateAgentResponse,
 ];
@@ -4263,9 +3994,7 @@ export var UpdateAgentActionGroup: StaticOperationSchema = [
   9,
   n0,
   _UAAG,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/", 200],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/", 200] },
   () => UpdateAgentActionGroupRequest,
   () => UpdateAgentActionGroupResponse,
 ];
@@ -4273,9 +4002,7 @@ export var UpdateAgentAlias: StaticOperationSchema = [
   9,
   n0,
   _UAA,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentaliases/{agentAliasId}/", 202],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentaliases/{agentAliasId}/", 202] },
   () => UpdateAgentAliasRequest,
   () => UpdateAgentAliasResponse,
 ];
@@ -4283,9 +4010,7 @@ export var UpdateAgentCollaborator: StaticOperationSchema = [
   9,
   n0,
   _UAC,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 200],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 200] },
   () => UpdateAgentCollaboratorRequest,
   () => UpdateAgentCollaboratorResponse,
 ];
@@ -4293,9 +4018,7 @@ export var UpdateAgentKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _UAKB,
-  {
-    [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/", 200],
-  },
+  { [_h]: ["PUT", "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/", 200] },
   () => UpdateAgentKnowledgeBaseRequest,
   () => UpdateAgentKnowledgeBaseResponse,
 ];
@@ -4303,9 +4026,7 @@ export var UpdateDataSource: StaticOperationSchema = [
   9,
   n0,
   _UDS,
-  {
-    [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}", 200],
-  },
+  { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}", 200] },
   () => UpdateDataSourceRequest,
   () => UpdateDataSourceResponse,
 ];
@@ -4313,9 +4034,7 @@ export var UpdateFlow: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PUT", "/flows/{flowIdentifier}/", 200],
-  },
+  { [_h]: ["PUT", "/flows/{flowIdentifier}/", 200] },
   () => UpdateFlowRequest,
   () => UpdateFlowResponse,
 ];
@@ -4323,9 +4042,7 @@ export var UpdateFlowAlias: StaticOperationSchema = [
   9,
   n0,
   _UFA,
-  {
-    [_h]: ["PUT", "/flows/{flowIdentifier}/aliases/{aliasIdentifier}", 200],
-  },
+  { [_h]: ["PUT", "/flows/{flowIdentifier}/aliases/{aliasIdentifier}", 200] },
   () => UpdateFlowAliasRequest,
   () => UpdateFlowAliasResponse,
 ];
@@ -4333,9 +4050,7 @@ export var UpdateKnowledgeBase: StaticOperationSchema = [
   9,
   n0,
   _UKB,
-  {
-    [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}", 202],
-  },
+  { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}", 202] },
   () => UpdateKnowledgeBaseRequest,
   () => UpdateKnowledgeBaseResponse,
 ];
@@ -4343,9 +4058,7 @@ export var UpdatePrompt: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/prompts/{promptIdentifier}/", 200],
-  },
+  { [_h]: ["PUT", "/prompts/{promptIdentifier}/", 200] },
   () => UpdatePromptRequest,
   () => UpdatePromptResponse,
 ];
@@ -4353,9 +4066,7 @@ export var ValidateFlowDefinition: StaticOperationSchema = [
   9,
   n0,
   _VFD,
-  {
-    [_h]: ["POST", "/flows/validate-definition", 200],
-  },
+  { [_h]: ["POST", "/flows/validate-definition", 200] },
   () => ValidateFlowDefinitionRequest,
   () => ValidateFlowDefinitionResponse,
 ];

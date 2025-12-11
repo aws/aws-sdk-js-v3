@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RemoveAssistantAIAgentRequest, RemoveAssistantAIAgentResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { RemoveAssistantAIAgentRequest, RemoveAssistantAIAgentResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { RemoveAssistantAIAgent } from "../schemas/schemas_0";
 
 /**
@@ -39,6 +39,7 @@ export interface RemoveAssistantAIAgentCommandOutput extends RemoveAssistantAIAg
  * const input = { // RemoveAssistantAIAgentRequest
  *   assistantId: "STRING_VALUE", // required
  *   aiAgentType: "STRING_VALUE", // required
+ *   orchestratorUseCase: "STRING_VALUE",
  * };
  * const command = new RemoveAssistantAIAgentCommand(input);
  * const response = await client.send(command);

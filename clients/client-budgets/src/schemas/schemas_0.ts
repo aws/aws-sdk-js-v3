@@ -221,7 +221,7 @@ const n0 = "com.amazonaws.budgets";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -247,21 +247,9 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var SubscriberAddress: StaticSimpleSchema = [0, n0, _SA, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Action: StaticStructureSchema = [
   3,
   n0,
@@ -288,19 +276,8 @@ export var AutoAdjustData: StaticStructureSchema = [
   [_AAT, _HO, _LAAT],
   [0, () => HistoricalOptions, 4],
 ];
-export var BillingViewHealthStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BVHSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BillingViewHealthStatusException: StaticErrorSchema = [-3, n0, _BVHSE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BillingViewHealthStatusException, __BillingViewHealthStatusException);
-
 export var Budget: StaticStructureSchema = [
   3,
   n0,
@@ -395,19 +372,8 @@ export var CreateSubscriberRequest: StaticStructureSchema = [
   [0, 0, () => Notification, [() => Subscriber, 0]],
 ];
 export var CreateSubscriberResponse: StaticStructureSchema = [3, n0, _CSRr, 0, [], []];
-export var CreationLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CLEE,
-  {
-    [_e]: _c,
-    [_hE]: 405,
-  },
-  [_M],
-  [0],
-];
+export var CreationLimitExceededException: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c, [_hE]: 405 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CreationLimitExceededException, __CreationLimitExceededException);
-
 export var Definition: StaticStructureSchema = [
   3,
   n0,
@@ -570,19 +536,8 @@ export var DescribeSubscribersForNotificationResponse: StaticStructureSchema = [
   [_Su, _NTe],
   [[() => Subscribers, 0], 0],
 ];
-export var DuplicateRecordException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateRecordException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateRecordException, __DuplicateRecordException);
-
 export var ExecuteBudgetActionRequest: StaticStructureSchema = [3, n0, _EBAR, 0, [_AIc, _BN, _AI, _ETx], [0, 0, 0, 0]];
 export var ExecuteBudgetActionResponse: StaticStructureSchema = [
   3,
@@ -592,19 +547,8 @@ export var ExecuteBudgetActionResponse: StaticStructureSchema = [
   [_AIc, _BN, _AI, _ETx],
   [0, 0, 0, 0],
 ];
-export var ExpiredNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ExpiredNextTokenException: StaticErrorSchema = [-3, n0, _ENTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ExpiredNextTokenException, __ExpiredNextTokenException);
-
 export var Expression: StaticStructureSchema = [
   3,
   n0,
@@ -631,60 +575,16 @@ export var IamActionDefinition: StaticStructureSchema = [
   [_PA, _R, _G, _U],
   [0, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var InternalErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalErrorException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_RT], [() => ResourceTagList]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var Notification: StaticStructureSchema = [3, n0, _No, 0, [_NT, _CO, _Th, _TT, _NS], [0, 0, 1, 0, 0]];
 export var NotificationWithSubscribers: StaticStructureSchema = [
   3,
@@ -694,53 +594,20 @@ export var NotificationWithSubscribers: StaticStructureSchema = [
   [_No, _Su],
   [() => Notification, [() => Subscribers, 0]],
 ];
-export var ResourceLockedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLE,
-  {
-    [_e]: _c,
-    [_hE]: 423,
-  },
-  [_M],
-  [0],
-];
+export var ResourceLockedException: StaticErrorSchema = [-3, n0, _RLE, { [_e]: _c, [_hE]: 423 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceLockedException, __ResourceLockedException);
-
 export var ResourceTag: StaticStructureSchema = [3, n0, _RTe, 0, [_K, _Va], [0, 0]];
 export var ScpActionDefinition: StaticStructureSchema = [3, n0, _SAD, 0, [_PI, _TI], [0, 64 | 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Spend: StaticStructureSchema = [3, n0, _Sp, 0, [_Am, _Un], [0, 0]];
 export var SsmActionDefinition: StaticStructureSchema = [3, n0, _SADs, 0, [_AST, _Re, _II], [0, 0, 64 | 0]];
 export var Subscriber: StaticStructureSchema = [3, n0, _Sub, 0, [_ST, _Ad], [0, [() => SubscriberAddress, 0]]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _RT], [0, () => ResourceTagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TagValues: StaticStructureSchema = [3, n0, _TV, 0, [_K, _V, _MO], [0, 64 | 0, 64 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_St, _En], [4, 4]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _RTK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -780,11 +647,8 @@ export var UpdateSubscriberRequest: StaticStructureSchema = [
   [0, 0, () => Notification, [() => Subscriber, 0], [() => Subscriber, 0]],
 ];
 export var UpdateSubscriberResponse: StaticStructureSchema = [3, n0, _USRp, 0, [], []];
-export var __Unit = "unit" as const;
-
 export var BudgetsServiceException: StaticErrorSchema = [-3, _sm, "BudgetsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BudgetsServiceException, __BudgetsServiceException);
-
 export var ActionHistories: StaticListSchema = [1, n0, _AHc, 0, [() => ActionHistory, 0]];
 export var Actions: StaticListSchema = [1, n0, _Ac, 0, [() => Action, 0]];
 export var BudgetedAndActualAmountsList: StaticListSchema = [1, n0, _BAAAL, 0, () => BudgetedAndActualAmounts];
@@ -797,16 +661,11 @@ export var BudgetNotificationsForAccountList: StaticListSchema = [
 ];
 export var Budgets: StaticListSchema = [1, n0, _Bu, 0, () => Budget];
 export var DimensionValues = 64 | 0;
-
 export var Expressions: StaticListSchema = [1, n0, _Ex, 0, () => Expression];
 export var Groups = 64 | 0;
-
 export var InstanceIds = 64 | 0;
-
 export var MatchOptions = 64 | 0;
-
 export var Metrics = 64 | 0;
-
 export var Notifications: StaticListSchema = [1, n0, _N, 0, () => Notification];
 export var NotificationWithSubscribersList: StaticListSchema = [
   1,
@@ -816,17 +675,12 @@ export var NotificationWithSubscribersList: StaticListSchema = [
   [() => NotificationWithSubscribers, 0],
 ];
 export var ResourceTagKeyList = 64 | 0;
-
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
 export var Roles = 64 | 0;
-
 export var Subscribers: StaticListSchema = [1, n0, _Su, 0, [() => Subscriber, 0]];
 export var TargetIds = 64 | 0;
-
 export var Users = 64 | 0;
-
 export var Values = 64 | 0;
-
 export var CostFilters: StaticMapSchema = [2, n0, _CF, 0, 0, 64 | 0];
 export var PlannedBudgetLimits: StaticMapSchema = [2, n0, _PBL, 0, 0, () => Spend];
 export var CreateBudget: StaticOperationSchema = [9, n0, _CB, 0, () => CreateBudgetRequest, () => CreateBudgetResponse];

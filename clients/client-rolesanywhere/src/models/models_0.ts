@@ -60,7 +60,7 @@ export interface CreateProfileRequest {
   name: string | undefined;
 
   /**
-   * <p>Specifies whether instance properties are required in temporary credential requests with this profile. </p>
+   * <p>Unused, saved for future use. Will likely specify whether instance properties are required in temporary credential requests with this profile. </p>
    * @public
    */
   requireInstanceProperties?: boolean | undefined;
@@ -84,9 +84,7 @@ export interface CreateProfileRequest {
   managedPolicyArns?: string[] | undefined;
 
   /**
-   * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the
-   * <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
-   * page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
+   * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a> page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
    * @public
    */
   durationSeconds?: number | undefined;
@@ -134,7 +132,7 @@ export interface ProfileDetail {
   name?: string | undefined;
 
   /**
-   * <p>Specifies whether instance properties are required in temporary credential requests with this profile. </p>
+   * <p>Unused, saved for future use. Will likely specify whether instance properties are required in temporary credential requests with this profile. </p>
    * @public
    */
   requireInstanceProperties?: boolean | undefined;
@@ -182,9 +180,7 @@ export interface ProfileDetail {
   updatedAt?: Date | undefined;
 
   /**
-   * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the
-   * <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
-   * page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
+   * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a> page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
    * @public
    */
   durationSeconds?: number | undefined;
@@ -214,10 +210,7 @@ export interface ProfileDetailResponse {
 }
 
 /**
- * <p>
- *          Customizable notification settings that will be applied to notification events.
- *          IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge, and Health Dashboard.
- *       </p>
+ * <p> Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge, and Health Dashboard. </p>
  * @public
  */
 export interface NotificationSetting {
@@ -240,11 +233,7 @@ export interface NotificationSetting {
   threshold?: number | undefined;
 
   /**
-   * <p>The specified channel of notification.
-   *       IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p>
-   *          <note>
-   *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
-   *          </note>
+   * <p>The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p> <note> <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p> </note>
    * @public
    */
   channel?: NotificationChannel | undefined;
@@ -271,10 +260,7 @@ export namespace SourceData {
   }
 
   /**
-   * <p>
-   *          The root certificate of the Private Certificate Authority specified by this ARN is used in trust
-   *          validation for temporary credential requests. Included for trust anchors of type <code>AWS_ACM_PCA</code>.
-   *       </p>
+   * <p> The root certificate of the Private Certificate Authority specified by this ARN is used in trust validation for temporary credential requests. Included for trust anchors of type <code>AWS_ACM_PCA</code>. </p>
    * @public
    */
   export interface AcmPcaArnMember {
@@ -357,9 +343,7 @@ export interface CreateTrustAnchorRequest {
 }
 
 /**
- * <p>The state of a notification setting.</p>
- *          <p>A notification setting includes information such as event name, threshold, status of
- *          the notification setting, and the channel to notify.</p>
+ * <p>The state of a notification setting.</p> <p>A notification setting includes information such as event name, threshold, status of the notification setting, and the channel to notify.</p>
  * @public
  */
 export interface NotificationSettingDetail {
@@ -382,21 +366,13 @@ export interface NotificationSettingDetail {
   threshold?: number | undefined;
 
   /**
-   * <p>The specified channel of notification.
-   *       IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p>
-   *          <note>
-   *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
-   *          </note>
+   * <p>The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p> <note> <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p> </note>
    * @public
    */
   channel?: NotificationChannel | undefined;
 
   /**
-   * <p>The principal that configured the notification setting.
-   *       For default settings configured by IAM Roles Anywhere,
-   *       the value is <code>rolesanywhere.amazonaws.com</code>, and
-   *       for customized notifications settings, it is the respective account ID.
-   *       </p>
+   * <p>The principal that configured the notification setting. For default settings configured by IAM Roles Anywhere, the value is <code>rolesanywhere.amazonaws.com</code>, and for customized notifications settings, it is the respective account ID. </p>
    * @public
    */
   configuredBy?: string | undefined;
@@ -961,9 +937,7 @@ export interface ListTrustAnchorsResponse {
 }
 
 /**
- * <p>A notification setting key to reset.
- *          A notification setting key includes the event and the channel.
- *       </p>
+ * <p>A notification setting key to reset. A notification setting key includes the event and the channel. </p>
  * @public
  */
 export interface NotificationSettingKey {
@@ -1049,9 +1023,7 @@ export interface UpdateProfileRequest {
   managedPolicyArns?: string[] | undefined;
 
   /**
-   * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the
-   * <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
-   * page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
+   * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a> page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
    * @public
    */
   durationSeconds?: number | undefined;
@@ -1102,9 +1074,7 @@ export interface ResetNotificationSettingsRequest {
   trustAnchorId: string | undefined;
 
   /**
-   * <p>A list of notification setting keys to reset.
-   *          A notification setting key includes the event and the channel.
-   *       </p>
+   * <p>A list of notification setting keys to reset. A notification setting key includes the event and the channel. </p>
    * @public
    */
   notificationSettingKeys: NotificationSettingKey[] | undefined;

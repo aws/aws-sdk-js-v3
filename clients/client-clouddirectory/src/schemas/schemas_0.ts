@@ -470,7 +470,7 @@ const n0 = "com.amazonaws.clouddirectory";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -518,55 +518,18 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddFacetToObjectRequest: StaticStructureSchema = [
   3,
   n0,
   _AFTOR,
   0,
   [_DA, _SF, _OAL, _OR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => SchemaFacet,
-    () => AttributeKeyAndValueList,
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => SchemaFacet, () => AttributeKeyAndValueList, () => ObjectReference],
 ];
 export var AddFacetToObjectResponse: StaticStructureSchema = [3, n0, _AFTORd, 0, [], []];
-export var ApplySchemaRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _ASR,
-  0,
-  [_PSA, _DA],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var ApplySchemaRequest: StaticStructureSchema = [3, n0, _ASR, 0, [_PSA, _DA], [0, [0, { [_hH]: _xadp }]]];
 export var ApplySchemaResponse: StaticStructureSchema = [3, n0, _ASRp, 0, [_ASA, _DA], [0, 0]];
 export var AttachObjectRequest: StaticStructureSchema = [
   3,
@@ -574,17 +537,7 @@ export var AttachObjectRequest: StaticStructureSchema = [
   _AOR,
   0,
   [_DA, _PR, _CR, _LN],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    () => ObjectReference,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, () => ObjectReference, 0],
 ];
 export var AttachObjectResponse: StaticStructureSchema = [3, n0, _AORt, 0, [_AOI], [0]];
 export var AttachPolicyRequest: StaticStructureSchema = [
@@ -593,16 +546,7 @@ export var AttachPolicyRequest: StaticStructureSchema = [
   _APR,
   0,
   [_DA, _PRo, _OR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, () => ObjectReference],
 ];
 export var AttachPolicyResponse: StaticStructureSchema = [3, n0, _APRt, 0, [], []];
 export var AttachToIndexRequest: StaticStructureSchema = [
@@ -611,16 +555,7 @@ export var AttachToIndexRequest: StaticStructureSchema = [
   _ATIR,
   0,
   [_DA, _IR, _TR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, () => ObjectReference],
 ];
 export var AttachToIndexResponse: StaticStructureSchema = [3, n0, _ATIRt, 0, [_AOI], [0]];
 export var AttachTypedLinkRequest: StaticStructureSchema = [
@@ -630,12 +565,7 @@ export var AttachTypedLinkRequest: StaticStructureSchema = [
   0,
   [_DA, _SOR, _TOR, _TLF, _A],
   [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
+    [0, { [_hH]: _xadp }],
     () => ObjectReference,
     () => ObjectReference,
     () => TypedLinkSchemaAndFacetName,
@@ -974,21 +904,7 @@ export var BatchReadRequest: StaticStructureSchema = [
   _BRR,
   0,
   [_DA, _O, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => BatchReadOperationList,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => BatchReadOperationList, [0, { [_hH]: _xacl }]],
 ];
 export var BatchReadResponse: StaticStructureSchema = [3, n0, _BRRa, 0, [_R], [() => BatchReadOperationResponseList]];
 export var BatchReadSuccessfulResponse: StaticStructureSchema = [
@@ -1041,18 +957,8 @@ export var BatchUpdateObjectAttributes: StaticStructureSchema = [
   [() => ObjectReference, () => ObjectAttributeUpdateList],
 ];
 export var BatchUpdateObjectAttributesResponse: StaticStructureSchema = [3, n0, _BUOAR, 0, [_OI], [0]];
-export var BatchWriteException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BWE,
-  {
-    [_e]: _c,
-  },
-  [_I, _T, _M],
-  [1, 0, 0],
-];
+export var BatchWriteException: StaticErrorSchema = [-3, n0, _BWE, { [_e]: _c }, [_I, _T, _M], [1, 0, 0]];
 TypeRegistry.for(n0).registerError(BatchWriteException, __BatchWriteException);
-
 export var BatchWriteOperation: StaticStructureSchema = [
   3,
   n0,
@@ -1107,46 +1013,12 @@ export var BatchWriteRequest: StaticStructureSchema = [
   _BWR,
   0,
   [_DA, _O],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => BatchWriteOperationList,
-  ],
+  [[0, { [_hH]: _xadp }], () => BatchWriteOperationList],
 ];
 export var BatchWriteResponse: StaticStructureSchema = [3, n0, _BWRa, 0, [_R], [() => BatchWriteOperationResponseList]];
-export var CannotListParentOfRootException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CLPORE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var CannotListParentOfRootException: StaticErrorSchema = [-3, n0, _CLPORE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CannotListParentOfRootException, __CannotListParentOfRootException);
-
-export var CreateDirectoryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CDR,
-  0,
-  [_N, _SA],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var CreateDirectoryRequest: StaticStructureSchema = [3, n0, _CDR, 0, [_N, _SA], [0, [0, { [_hH]: _xadp }]]];
 export var CreateDirectoryResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_DA, _N, _OI, _ASA], [0, 0, 0, 0]];
 export var CreateFacetRequest: StaticStructureSchema = [
   3,
@@ -1154,18 +1026,7 @@ export var CreateFacetRequest: StaticStructureSchema = [
   _CFR,
   0,
   [_SA, _N, _A, _OT, _FS],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    () => FacetAttributeList,
-    0,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], 0, () => FacetAttributeList, 0, 0],
 ];
 export var CreateFacetResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [], []];
 export var CreateIndexRequest: StaticStructureSchema = [
@@ -1174,18 +1035,7 @@ export var CreateIndexRequest: StaticStructureSchema = [
   _CIR,
   0,
   [_DA, _OIAL, _IU, _PR, _LN],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => AttributeKeyList,
-    2,
-    () => ObjectReference,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], () => AttributeKeyList, 2, () => ObjectReference, 0],
 ];
 export var CreateIndexResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_OI], [0]];
 export var CreateObjectRequest: StaticStructureSchema = [
@@ -1194,18 +1044,7 @@ export var CreateObjectRequest: StaticStructureSchema = [
   _COR,
   0,
   [_DA, _SFc, _OAL, _PR, _LN],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => SchemaFacetList,
-    () => AttributeKeyAndValueList,
-    () => ObjectReference,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], () => SchemaFacetList, () => AttributeKeyAndValueList, () => ObjectReference, 0],
 ];
 export var CreateObjectResponse: StaticStructureSchema = [3, n0, _CORr, 0, [_OI], [0]];
 export var CreateSchemaRequest: StaticStructureSchema = [3, n0, _CSR, 0, [_N], [0]];
@@ -1216,49 +1055,12 @@ export var CreateTypedLinkFacetRequest: StaticStructureSchema = [
   _CTLFR,
   0,
   [_SA, _F],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => TypedLinkFacet,
-  ],
+  [[0, { [_hH]: _xadp }], () => TypedLinkFacet],
 ];
 export var CreateTypedLinkFacetResponse: StaticStructureSchema = [3, n0, _CTLFRr, 0, [], []];
-export var DeleteDirectoryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DDR,
-  0,
-  [_DA],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var DeleteDirectoryRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_DA], [[0, { [_hH]: _xadp }]]];
 export var DeleteDirectoryResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [_DA], [0]];
-export var DeleteFacetRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DFR,
-  0,
-  [_SA, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-  ],
-];
+export var DeleteFacetRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_SA, _N], [[0, { [_hH]: _xadp }], 0]];
 export var DeleteFacetResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [], []];
 export var DeleteObjectRequest: StaticStructureSchema = [
   3,
@@ -1266,32 +1068,10 @@ export var DeleteObjectRequest: StaticStructureSchema = [
   _DOR,
   0,
   [_DA, _OR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference],
 ];
 export var DeleteObjectResponse: StaticStructureSchema = [3, n0, _DORe, 0, [], []];
-export var DeleteSchemaRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DSR,
-  0,
-  [_SA],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var DeleteSchemaRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_SA], [[0, { [_hH]: _xadp }]]];
 export var DeleteSchemaResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_SA], [0]];
 export var DeleteTypedLinkFacetRequest: StaticStructureSchema = [
   3,
@@ -1299,15 +1079,7 @@ export var DeleteTypedLinkFacetRequest: StaticStructureSchema = [
   _DTLFR,
   0,
   [_SA, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], 0],
 ];
 export var DeleteTypedLinkFacetResponse: StaticStructureSchema = [3, n0, _DTLFRe, 0, [], []];
 export var DetachFromIndexRequest: StaticStructureSchema = [
@@ -1316,16 +1088,7 @@ export var DetachFromIndexRequest: StaticStructureSchema = [
   _DFIR,
   0,
   [_DA, _IR, _TR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, () => ObjectReference],
 ];
 export var DetachFromIndexResponse: StaticStructureSchema = [3, n0, _DFIRe, 0, [_DOI], [0]];
 export var DetachObjectRequest: StaticStructureSchema = [
@@ -1334,16 +1097,7 @@ export var DetachObjectRequest: StaticStructureSchema = [
   _DORet,
   0,
   [_DA, _PR, _LN],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0],
 ];
 export var DetachObjectResponse: StaticStructureSchema = [3, n0, _DOReta, 0, [_DOI], [0]];
 export var DetachPolicyRequest: StaticStructureSchema = [
@@ -1352,16 +1106,7 @@ export var DetachPolicyRequest: StaticStructureSchema = [
   _DPR,
   0,
   [_DA, _PRo, _OR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, () => ObjectReference],
 ];
 export var DetachPolicyResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
 export var DetachTypedLinkRequest: StaticStructureSchema = [
@@ -1370,115 +1115,24 @@ export var DetachTypedLinkRequest: StaticStructureSchema = [
   _DTLR,
   0,
   [_DA, _TLS],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => TypedLinkSpecifier,
-  ],
+  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier],
 ];
 export var Directory: StaticStructureSchema = [3, n0, _D, 0, [_N, _DA, _S, _CDT], [0, 0, 0, 4]];
-export var DirectoryAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryAlreadyExistsException: StaticErrorSchema = [-3, n0, _DAEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DirectoryAlreadyExistsException, __DirectoryAlreadyExistsException);
-
-export var DirectoryDeletedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryDeletedException: StaticErrorSchema = [-3, n0, _DDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DirectoryDeletedException, __DirectoryDeletedException);
-
-export var DirectoryNotDisabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DNDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryNotDisabledException: StaticErrorSchema = [-3, n0, _DNDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DirectoryNotDisabledException, __DirectoryNotDisabledException);
-
-export var DirectoryNotEnabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DNEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var DirectoryNotEnabledException: StaticErrorSchema = [-3, n0, _DNEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DirectoryNotEnabledException, __DirectoryNotEnabledException);
-
-export var DisableDirectoryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DDRi,
-  0,
-  [_DA],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var DisableDirectoryRequest: StaticStructureSchema = [3, n0, _DDRi, 0, [_DA], [[0, { [_hH]: _xadp }]]];
 export var DisableDirectoryResponse: StaticStructureSchema = [3, n0, _DDRis, 0, [_DA], [0]];
-export var EnableDirectoryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _EDR,
-  0,
-  [_DA],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var EnableDirectoryRequest: StaticStructureSchema = [3, n0, _EDR, 0, [_DA], [[0, { [_hH]: _xadp }]]];
 export var EnableDirectoryResponse: StaticStructureSchema = [3, n0, _EDRn, 0, [_DA], [0]];
 export var Facet: StaticStructureSchema = [3, n0, _F, 0, [_N, _OT, _FS], [0, 0, 0]];
-export var FacetAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var FacetAlreadyExistsException: StaticErrorSchema = [-3, n0, _FAEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FacetAlreadyExistsException, __FacetAlreadyExistsException);
-
 export var FacetAttribute: StaticStructureSchema = [
   3,
   n0,
@@ -1497,79 +1151,17 @@ export var FacetAttributeDefinition: StaticStructureSchema = [
 ];
 export var FacetAttributeReference: StaticStructureSchema = [3, n0, _FARa, 0, [_TFN, _TAN], [0, 0]];
 export var FacetAttributeUpdate: StaticStructureSchema = [3, n0, _FAU, 0, [_At, _Ac], [() => FacetAttribute, 0]];
-export var FacetInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var FacetInUseException: StaticErrorSchema = [-3, n0, _FIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FacetInUseException, __FacetInUseException);
-
-export var FacetNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var FacetNotFoundException: StaticErrorSchema = [-3, n0, _FNFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FacetNotFoundException, __FacetNotFoundException);
-
-export var FacetValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var FacetValidationException: StaticErrorSchema = [-3, n0, _FVE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(FacetValidationException, __FacetValidationException);
-
 export var GetAppliedSchemaVersionRequest: StaticStructureSchema = [3, n0, _GASVR, 0, [_SA], [0]];
 export var GetAppliedSchemaVersionResponse: StaticStructureSchema = [3, n0, _GASVRe, 0, [_ASA], [0]];
-export var GetDirectoryRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GDR,
-  0,
-  [_DA],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var GetDirectoryRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_DA], [[0, { [_hH]: _xadp }]]];
 export var GetDirectoryResponse: StaticStructureSchema = [3, n0, _GDRe, 0, [_D], [() => Directory]];
-export var GetFacetRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GFR,
-  0,
-  [_SA, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-  ],
-];
+export var GetFacetRequest: StaticStructureSchema = [3, n0, _GFR, 0, [_SA, _N], [[0, { [_hH]: _xadp }], 0]];
 export var GetFacetResponse: StaticStructureSchema = [3, n0, _GFRe, 0, [_F], [() => Facet]];
 export var GetLinkAttributesRequest: StaticStructureSchema = [
   3,
@@ -1577,17 +1169,7 @@ export var GetLinkAttributesRequest: StaticStructureSchema = [
   _GLAR,
   0,
   [_DA, _TLS, _ANt, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => TypedLinkSpecifier,
-    64 | 0,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier, 64 | 0, 0],
 ];
 export var GetLinkAttributesResponse: StaticStructureSchema = [
   3,
@@ -1603,23 +1185,7 @@ export var GetObjectAttributesRequest: StaticStructureSchema = [
   _GOAR,
   0,
   [_DA, _OR, _CL, _SF, _ANt],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-    () => SchemaFacet,
-    64 | 0,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, [0, { [_hH]: _xacl }], () => SchemaFacet, 64 | 0],
 ];
 export var GetObjectAttributesResponse: StaticStructureSchema = [
   3,
@@ -1635,21 +1201,7 @@ export var GetObjectInformationRequest: StaticStructureSchema = [
   _GOIR,
   0,
   [_DA, _OR, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, [0, { [_hH]: _xacl }]],
 ];
 export var GetObjectInformationResponse: StaticStructureSchema = [
   3,
@@ -1659,21 +1211,7 @@ export var GetObjectInformationResponse: StaticStructureSchema = [
   [_SFc, _OI],
   [() => SchemaFacetList, 0],
 ];
-export var GetSchemaAsJsonRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GSAJR,
-  0,
-  [_SA],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-  ],
-];
+export var GetSchemaAsJsonRequest: StaticStructureSchema = [3, n0, _GSAJR, 0, [_SA], [[0, { [_hH]: _xadp }]]];
 export var GetSchemaAsJsonResponse: StaticStructureSchema = [3, n0, _GSAJRe, 0, [_N, _Do], [0, 0]];
 export var GetTypedLinkFacetInformationRequest: StaticStructureSchema = [
   3,
@@ -1681,161 +1219,32 @@ export var GetTypedLinkFacetInformationRequest: StaticStructureSchema = [
   _GTLFIR,
   0,
   [_SA, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], 0],
 ];
 export var GetTypedLinkFacetInformationResponse: StaticStructureSchema = [3, n0, _GTLFIRe, 0, [_IAO], [64 | 0]];
-export var IncompatibleSchemaException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var IncompatibleSchemaException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IncompatibleSchemaException, __IncompatibleSchemaException);
-
 export var IndexAttachment: StaticStructureSchema = [3, n0, _IAn, 0, [_IAnd, _OI], [() => AttributeKeyAndValueList, 0]];
-export var IndexedAttributeMissingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var IndexedAttributeMissingException: StaticErrorSchema = [-3, n0, _IAME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(IndexedAttributeMissingException, __IndexedAttributeMissingException);
-
-export var InternalServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
-export var InvalidArnException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidArnException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidArnException, __InvalidArnException);
-
-export var InvalidAttachmentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidAttachmentException: StaticErrorSchema = [-3, n0, _IAEn, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidAttachmentException, __InvalidAttachmentException);
-
-export var InvalidFacetUpdateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidFacetUpdateException: StaticErrorSchema = [-3, n0, _IFUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidFacetUpdateException, __InvalidFacetUpdateException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidRuleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRuleException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRuleException, __InvalidRuleException);
-
-export var InvalidSchemaDocException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidSchemaDocException: StaticErrorSchema = [-3, n0, _ISDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidSchemaDocException, __InvalidSchemaDocException);
-
-export var InvalidTaggingRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidTaggingRequestException: StaticErrorSchema = [-3, n0, _ITRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTaggingRequestException, __InvalidTaggingRequestException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var LinkAttributeAction: StaticStructureSchema = [3, n0, _LAA, 0, [_AAT, _AUV], [0, () => TypedAttributeValue]];
 export var LinkAttributeUpdate: StaticStructureSchema = [
   3,
@@ -1845,19 +1254,8 @@ export var LinkAttributeUpdate: StaticStructureSchema = [
   [_AK, _AA],
   [() => AttributeKey, () => LinkAttributeAction],
 ];
-export var LinkNameAlreadyInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LNAIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var LinkNameAlreadyInUseException: StaticErrorSchema = [-3, n0, _LNAIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LinkNameAlreadyInUseException, __LinkNameAlreadyInUseException);
-
 export var ListAppliedSchemaArnsRequest: StaticStructureSchema = [3, n0, _LASAR, 0, [_DA, _SA, _NT, _MR], [0, 0, 0, 1]];
 export var ListAppliedSchemaArnsResponse: StaticStructureSchema = [3, n0, _LASARi, 0, [_SAc, _NT], [64 | 0, 0]];
 export var ListAttachedIndicesRequest: StaticStructureSchema = [
@@ -1866,23 +1264,7 @@ export var ListAttachedIndicesRequest: StaticStructureSchema = [
   _LAIR,
   0,
   [_DA, _TR, _NT, _MR, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1, [0, { [_hH]: _xacl }]],
 ];
 export var ListAttachedIndicesResponse: StaticStructureSchema = [
   3,
@@ -1902,17 +1284,7 @@ export var ListFacetAttributesRequest: StaticStructureSchema = [
   _LFAR,
   0,
   [_SA, _N, _NT, _MR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    0,
-    1,
-  ],
+  [[0, { [_hH]: _xadp }], 0, 0, 1],
 ];
 export var ListFacetAttributesResponse: StaticStructureSchema = [
   3,
@@ -1928,16 +1300,7 @@ export var ListFacetNamesRequest: StaticStructureSchema = [
   _LFNR,
   0,
   [_SA, _NT, _MR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    1,
-  ],
+  [[0, { [_hH]: _xadp }], 0, 1],
 ];
 export var ListFacetNamesResponse: StaticStructureSchema = [3, n0, _LFNRi, 0, [_FNa, _NT], [64 | 0, 0]];
 export var ListIncomingTypedLinksRequest: StaticStructureSchema = [
@@ -1947,12 +1310,7 @@ export var ListIncomingTypedLinksRequest: StaticStructureSchema = [
   0,
   [_DA, _OR, _FAR, _FTL, _NT, _MR, _CL],
   [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
+    [0, { [_hH]: _xadp }],
     () => ObjectReference,
     () => TypedLinkAttributeRangeList,
     () => TypedLinkSchemaAndFacetName,
@@ -1975,24 +1333,7 @@ export var ListIndexRequest: StaticStructureSchema = [
   _LIR,
   0,
   [_DA, _ROIV, _IR, _MR, _NT, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectAttributeRangeList,
-    () => ObjectReference,
-    1,
-    0,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectAttributeRangeList, () => ObjectReference, 1, 0, [0, { [_hH]: _xacl }]],
 ];
 export var ListIndexResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_IA, _NT], [() => IndexAttachmentList, 0]];
 export var ListManagedSchemaArnsRequest: StaticStructureSchema = [3, n0, _LMSAR, 0, [_SA, _NT, _MR], [0, 0, 1]];
@@ -2003,24 +1344,7 @@ export var ListObjectAttributesRequest: StaticStructureSchema = [
   _LOAR,
   0,
   [_DA, _OR, _NT, _MR, _CL, _FF],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-    () => SchemaFacet,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1, [0, { [_hH]: _xacl }], () => SchemaFacet],
 ];
 export var ListObjectAttributesResponse: StaticStructureSchema = [
   3,
@@ -2036,23 +1360,7 @@ export var ListObjectChildrenRequest: StaticStructureSchema = [
   _LOCR,
   0,
   [_DA, _OR, _NT, _MR, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1, [0, { [_hH]: _xacl }]],
 ];
 export var ListObjectChildrenResponse: StaticStructureSchema = [3, n0, _LOCRi, 0, [_C, _NT], [128 | 0, 0]];
 export var ListObjectParentPathsRequest: StaticStructureSchema = [
@@ -2061,17 +1369,7 @@ export var ListObjectParentPathsRequest: StaticStructureSchema = [
   _LOPPR,
   0,
   [_DA, _OR, _NT, _MR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1],
 ];
 export var ListObjectParentPathsResponse: StaticStructureSchema = [
   3,
@@ -2087,24 +1385,7 @@ export var ListObjectParentsRequest: StaticStructureSchema = [
   _LOPR,
   0,
   [_DA, _OR, _NT, _MR, _CL, _IALTEP],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-    2,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1, [0, { [_hH]: _xacl }], 2],
 ];
 export var ListObjectParentsResponse: StaticStructureSchema = [
   3,
@@ -2120,23 +1401,7 @@ export var ListObjectPoliciesRequest: StaticStructureSchema = [
   _LOPRis,
   0,
   [_DA, _OR, _NT, _MR, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1, [0, { [_hH]: _xacl }]],
 ];
 export var ListObjectPoliciesResponse: StaticStructureSchema = [3, n0, _LOPRist, 0, [_API, _NT], [64 | 0, 0]];
 export var ListOutgoingTypedLinksRequest: StaticStructureSchema = [
@@ -2146,12 +1411,7 @@ export var ListOutgoingTypedLinksRequest: StaticStructureSchema = [
   0,
   [_DA, _OR, _FAR, _FTL, _NT, _MR, _CL],
   [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
+    [0, { [_hH]: _xadp }],
     () => ObjectReference,
     () => TypedLinkAttributeRangeList,
     () => TypedLinkSchemaAndFacetName,
@@ -2174,23 +1434,7 @@ export var ListPolicyAttachmentsRequest: StaticStructureSchema = [
   _LPAR,
   0,
   [_DA, _PRo, _NT, _MR, _CL],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-    [
-      0,
-      {
-        [_hH]: _xacl,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1, [0, { [_hH]: _xacl }]],
 ];
 export var ListPolicyAttachmentsResponse: StaticStructureSchema = [3, n0, _LPARi, 0, [_OIb, _NT], [64 | 0, 0]];
 export var ListPublishedSchemaArnsRequest: StaticStructureSchema = [3, n0, _LPSAR, 0, [_SA, _NT, _MR], [0, 0, 1]];
@@ -2203,17 +1447,7 @@ export var ListTypedLinkFacetAttributesRequest: StaticStructureSchema = [
   _LTLFAR,
   0,
   [_SA, _N, _NT, _MR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    0,
-    1,
-  ],
+  [[0, { [_hH]: _xadp }], 0, 0, 1],
 ];
 export var ListTypedLinkFacetAttributesResponse: StaticStructureSchema = [
   3,
@@ -2229,16 +1463,7 @@ export var ListTypedLinkFacetNamesRequest: StaticStructureSchema = [
   _LTLFNR,
   0,
   [_SA, _NT, _MR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    1,
-  ],
+  [[0, { [_hH]: _xadp }], 0, 1],
 ];
 export var ListTypedLinkFacetNamesResponse: StaticStructureSchema = [3, n0, _LTLFNRi, 0, [_FNa, _NT], [64 | 0, 0]];
 export var LookupPolicyRequest: StaticStructureSchema = [
@@ -2247,71 +1472,17 @@ export var LookupPolicyRequest: StaticStructureSchema = [
   _LPR,
   0,
   [_DA, _OR, _NT, _MR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    0,
-    1,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, 0, 1],
 ];
 export var LookupPolicyResponse: StaticStructureSchema = [3, n0, _LPRo, 0, [_PTPL, _NT], [() => PolicyToPathList, 0]];
-export var NotIndexException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var NotIndexException: StaticErrorSchema = [-3, n0, _NIE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotIndexException, __NotIndexException);
-
-export var NotNodeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NNE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var NotNodeException: StaticErrorSchema = [-3, n0, _NNE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotNodeException, __NotNodeException);
-
-export var NotPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var NotPolicyException: StaticErrorSchema = [-3, n0, _NPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotPolicyException, __NotPolicyException);
-
-export var ObjectAlreadyDetachedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _OADE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ObjectAlreadyDetachedException: StaticErrorSchema = [-3, n0, _OADE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ObjectAlreadyDetachedException, __ObjectAlreadyDetachedException);
-
 export var ObjectAttributeAction: StaticStructureSchema = [
   3,
   n0,
@@ -2337,19 +1508,8 @@ export var ObjectAttributeUpdate: StaticStructureSchema = [
   [() => AttributeKey, () => ObjectAttributeAction],
 ];
 export var ObjectIdentifierAndLinkNameTuple: StaticStructureSchema = [3, n0, _OIALNT, 0, [_OI, _LN], [0, 0]];
-export var ObjectNotDetachedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ObjectNotDetachedException: StaticErrorSchema = [-3, n0, _ONDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ObjectNotDetachedException, __ObjectNotDetachedException);
-
 export var ObjectReference: StaticStructureSchema = [3, n0, _OR, 0, [_Se], [0]];
 export var PathToObjectIdentifiers: StaticStructureSchema = [3, n0, _PTOI, 0, [_Pa, _OIb], [0, 64 | 0]];
 export var PolicyAttachment: StaticStructureSchema = [3, n0, _PA, 0, [_PI, _OI, _PT], [0, 0, 0]];
@@ -2360,35 +1520,10 @@ export var PublishSchemaRequest: StaticStructureSchema = [
   _PSR,
   0,
   [_DSA, _Ve, _MV, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    0,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], 0, 0, 0],
 ];
 export var PublishSchemaResponse: StaticStructureSchema = [3, n0, _PSRu, 0, [_PSA], [0]];
-export var PutSchemaFromJsonRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _PSFJR,
-  0,
-  [_SA, _Do],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-  ],
-];
+export var PutSchemaFromJsonRequest: StaticStructureSchema = [3, n0, _PSFJR, 0, [_SA, _Do], [[0, { [_hH]: _xadp }], 0]];
 export var PutSchemaFromJsonResponse: StaticStructureSchema = [3, n0, _PSFJRu, 0, [_Ar], [0]];
 export var RemoveFacetFromObjectRequest: StaticStructureSchema = [
   3,
@@ -2396,85 +1531,21 @@ export var RemoveFacetFromObjectRequest: StaticStructureSchema = [
   _RFFOR,
   0,
   [_DA, _SF, _OR],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => SchemaFacet,
-    () => ObjectReference,
-  ],
+  [[0, { [_hH]: _xadp }], () => SchemaFacet, () => ObjectReference],
 ];
 export var RemoveFacetFromObjectResponse: StaticStructureSchema = [3, n0, _RFFORe, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var RetryableConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RCE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var RetryableConflictException: StaticErrorSchema = [-3, n0, _RCE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RetryableConflictException, __RetryableConflictException);
-
 export var Rule: StaticStructureSchema = [3, n0, _Rul, 0, [_T, _Par], [0, 128 | 0]];
-export var SchemaAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var SchemaAlreadyExistsException: StaticErrorSchema = [-3, n0, _SAEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(SchemaAlreadyExistsException, __SchemaAlreadyExistsException);
-
-export var SchemaAlreadyPublishedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var SchemaAlreadyPublishedException: StaticErrorSchema = [-3, n0, _SAPE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(SchemaAlreadyPublishedException, __SchemaAlreadyPublishedException);
-
 export var SchemaFacet: StaticStructureSchema = [3, n0, _SF, 0, [_SA, _FN], [0, 0]];
-export var StillContainsLinksException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCLE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var StillContainsLinksException: StaticErrorSchema = [-3, n0, _SCLE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(StillContainsLinksException, __StillContainsLinksException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -2527,19 +1598,8 @@ export var TypedLinkSpecifier: StaticStructureSchema = [
   [_TLF, _SOR, _TOR, _IAV],
   [() => TypedLinkSchemaAndFacetName, () => ObjectReference, () => ObjectReference, () => AttributeNameAndValueList],
 ];
-export var UnsupportedIndexTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UITE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var UnsupportedIndexTypeException: StaticErrorSchema = [-3, n0, _UITE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedIndexTypeException, __UnsupportedIndexTypeException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateFacetRequest: StaticStructureSchema = [
@@ -2548,17 +1608,7 @@ export var UpdateFacetRequest: StaticStructureSchema = [
   _UFR,
   0,
   [_SA, _N, _AU, _OT],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    () => FacetAttributeUpdateList,
-    0,
-  ],
+  [[0, { [_hH]: _xadp }], 0, () => FacetAttributeUpdateList, 0],
 ];
 export var UpdateFacetResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [], []];
 export var UpdateLinkAttributesRequest: StaticStructureSchema = [
@@ -2567,16 +1617,7 @@ export var UpdateLinkAttributesRequest: StaticStructureSchema = [
   _ULAR,
   0,
   [_DA, _TLS, _AU],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => TypedLinkSpecifier,
-    () => LinkAttributeUpdateList,
-  ],
+  [[0, { [_hH]: _xadp }], () => TypedLinkSpecifier, () => LinkAttributeUpdateList],
 ];
 export var UpdateLinkAttributesResponse: StaticStructureSchema = [3, n0, _ULARp, 0, [], []];
 export var UpdateObjectAttributesRequest: StaticStructureSchema = [
@@ -2585,34 +1626,10 @@ export var UpdateObjectAttributesRequest: StaticStructureSchema = [
   _UOAR,
   0,
   [_DA, _OR, _AU],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    () => ObjectReference,
-    () => ObjectAttributeUpdateList,
-  ],
+  [[0, { [_hH]: _xadp }], () => ObjectReference, () => ObjectAttributeUpdateList],
 ];
 export var UpdateObjectAttributesResponse: StaticStructureSchema = [3, n0, _UOARp, 0, [_OI], [0]];
-export var UpdateSchemaRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _USR,
-  0,
-  [_SA, _N],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-  ],
-];
+export var UpdateSchemaRequest: StaticStructureSchema = [3, n0, _USR, 0, [_SA, _N], [[0, { [_hH]: _xadp }], 0]];
 export var UpdateSchemaResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_SA], [0]];
 export var UpdateTypedLinkFacetRequest: StaticStructureSchema = [
   3,
@@ -2620,17 +1637,7 @@ export var UpdateTypedLinkFacetRequest: StaticStructureSchema = [
   _UTLFR,
   0,
   [_SA, _N, _AU, _IAO],
-  [
-    [
-      0,
-      {
-        [_hH]: _xadp,
-      },
-    ],
-    0,
-    () => TypedLinkFacetAttributeUpdateList,
-    64 | 0,
-  ],
+  [[0, { [_hH]: _xadp }], 0, () => TypedLinkFacetAttributeUpdateList, 64 | 0],
 ];
 export var UpdateTypedLinkFacetResponse: StaticStructureSchema = [3, n0, _UTLFRp, 0, [], []];
 export var UpgradeAppliedSchemaRequest: StaticStructureSchema = [3, n0, _UASR, 0, [_PSA, _DA, _DR], [0, 0, 2]];
@@ -2644,31 +1651,16 @@ export var UpgradePublishedSchemaRequest: StaticStructureSchema = [
   [0, 0, 0, 2],
 ];
 export var UpgradePublishedSchemaResponse: StaticStructureSchema = [3, n0, _UPSRp, 0, [_USA], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var CloudDirectoryServiceException: StaticErrorSchema = [-3, _sm, "CloudDirectoryServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudDirectoryServiceException, __CloudDirectoryServiceException);
-
 export var Arns = 64 | 0;
-
 export var AttributeKeyAndValueList: StaticListSchema = [1, n0, _AKAVL, 0, () => AttributeKeyAndValue];
 export var AttributeKeyList: StaticListSchema = [1, n0, _AKL, 0, () => AttributeKey];
 export var AttributeNameAndValueList: StaticListSchema = [1, n0, _ANAVL, 0, () => AttributeNameAndValue];
 export var AttributeNameList = 64 | 0;
-
 export var BatchReadOperationList: StaticListSchema = [1, n0, _BROL, 0, () => BatchReadOperation];
 export var BatchReadOperationResponseList: StaticListSchema = [1, n0, _BRORL, 0, () => BatchReadOperationResponse];
 export var BatchWriteOperationList: StaticListSchema = [1, n0, _BWOL, 0, () => BatchWriteOperation];
@@ -2677,7 +1669,6 @@ export var DirectoryList: StaticListSchema = [1, n0, _DL, 0, () => Directory];
 export var FacetAttributeList: StaticListSchema = [1, n0, _FAL, 0, () => FacetAttribute];
 export var FacetAttributeUpdateList: StaticListSchema = [1, n0, _FAUL, 0, () => FacetAttributeUpdate];
 export var FacetNameList = 64 | 0;
-
 export var IndexAttachmentList: StaticListSchema = [1, n0, _IAL, 0, () => IndexAttachment];
 export var LinkAttributeUpdateList: StaticListSchema = [1, n0, _LAUL, 0, () => LinkAttributeUpdate];
 export var ObjectAttributeRangeList: StaticListSchema = [1, n0, _OARL, 0, () => ObjectAttributeRange];
@@ -2690,13 +1681,11 @@ export var ObjectIdentifierAndLinkNameList: StaticListSchema = [
   () => ObjectIdentifierAndLinkNameTuple,
 ];
 export var ObjectIdentifierList = 64 | 0;
-
 export var PathToObjectIdentifiersList: StaticListSchema = [1, n0, _PTOIL, 0, () => PathToObjectIdentifiers];
 export var PolicyAttachmentList: StaticListSchema = [1, n0, _PAL, 0, () => PolicyAttachment];
 export var PolicyToPathList: StaticListSchema = [1, n0, _PTPL, 0, () => PolicyToPath];
 export var SchemaFacetList: StaticListSchema = [1, n0, _SFL, 0, () => SchemaFacet];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TypedLinkAttributeDefinitionList: StaticListSchema = [1, n0, _TLADL, 0, () => TypedLinkAttributeDefinition];
 export var TypedLinkAttributeRangeList: StaticListSchema = [1, n0, _TLARL, 0, () => TypedLinkAttributeRange];
@@ -2708,15 +1697,11 @@ export var TypedLinkFacetAttributeUpdateList: StaticListSchema = [
   () => TypedLinkFacetAttributeUpdate,
 ];
 export var TypedLinkNameList = 64 | 0;
-
 export var TypedLinkSpecifierList: StaticListSchema = [1, n0, _TLSL, 0, () => TypedLinkSpecifier];
 export var LinkNameToObjectIdentifierMap = 128 | 0;
-
 export var ObjectIdentifierToLinkNameMap = 128 | 0;
-
 export var RuleMap: StaticMapSchema = [2, n0, _RM, 0, 0, () => Rule];
 export var RuleParameterMap = 128 | 0;
-
 export var TypedAttributeValue: StaticStructureSchema = [
   3,
   n0,
@@ -2729,9 +1714,7 @@ export var AddFacetToObject: StaticOperationSchema = [
   9,
   n0,
   _AFTO,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/facets", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/facets", 200] },
   () => AddFacetToObjectRequest,
   () => AddFacetToObjectResponse,
 ];
@@ -2739,9 +1722,7 @@ export var ApplySchema: StaticOperationSchema = [
   9,
   n0,
   _AS,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/apply", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/apply", 200] },
   () => ApplySchemaRequest,
   () => ApplySchemaResponse,
 ];
@@ -2749,9 +1730,7 @@ export var AttachObject: StaticOperationSchema = [
   9,
   n0,
   _AO,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/attach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/attach", 200] },
   () => AttachObjectRequest,
   () => AttachObjectResponse,
 ];
@@ -2759,9 +1738,7 @@ export var AttachPolicy: StaticOperationSchema = [
   9,
   n0,
   _AP,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/policy/attach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/policy/attach", 200] },
   () => AttachPolicyRequest,
   () => AttachPolicyResponse,
 ];
@@ -2769,9 +1746,7 @@ export var AttachToIndex: StaticOperationSchema = [
   9,
   n0,
   _ATI,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/index/attach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/index/attach", 200] },
   () => AttachToIndexRequest,
   () => AttachToIndexResponse,
 ];
@@ -2779,9 +1754,7 @@ export var AttachTypedLink: StaticOperationSchema = [
   9,
   n0,
   _ATL,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/attach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/attach", 200] },
   () => AttachTypedLinkRequest,
   () => AttachTypedLinkResponse,
 ];
@@ -2789,9 +1762,7 @@ export var BatchRead: StaticOperationSchema = [
   9,
   n0,
   _BR,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/batchread", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/batchread", 200] },
   () => BatchReadRequest,
   () => BatchReadResponse,
 ];
@@ -2799,9 +1770,7 @@ export var BatchWrite: StaticOperationSchema = [
   9,
   n0,
   _BW,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/batchwrite", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/batchwrite", 200] },
   () => BatchWriteRequest,
   () => BatchWriteResponse,
 ];
@@ -2809,9 +1778,7 @@ export var CreateDirectory: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory/create", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory/create", 200] },
   () => CreateDirectoryRequest,
   () => CreateDirectoryResponse,
 ];
@@ -2819,9 +1786,7 @@ export var CreateFacet: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/facet/create", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/facet/create", 200] },
   () => CreateFacetRequest,
   () => CreateFacetResponse,
 ];
@@ -2829,9 +1794,7 @@ export var CreateIndex: StaticOperationSchema = [
   9,
   n0,
   _CI,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/index", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/index", 200] },
   () => CreateIndexRequest,
   () => CreateIndexResponse,
 ];
@@ -2839,9 +1802,7 @@ export var CreateObject: StaticOperationSchema = [
   9,
   n0,
   _CO,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object", 200] },
   () => CreateObjectRequest,
   () => CreateObjectResponse,
 ];
@@ -2849,9 +1810,7 @@ export var CreateSchema: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/create", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/create", 200] },
   () => CreateSchemaRequest,
   () => CreateSchemaResponse,
 ];
@@ -2859,9 +1818,7 @@ export var CreateTypedLinkFacet: StaticOperationSchema = [
   9,
   n0,
   _CTLF,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/facet/create", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/facet/create", 200] },
   () => CreateTypedLinkFacetRequest,
   () => CreateTypedLinkFacetResponse,
 ];
@@ -2869,9 +1826,7 @@ export var DeleteDirectory: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory", 200] },
   () => DeleteDirectoryRequest,
   () => DeleteDirectoryResponse,
 ];
@@ -2879,9 +1834,7 @@ export var DeleteFacet: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/facet/delete", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/facet/delete", 200] },
   () => DeleteFacetRequest,
   () => DeleteFacetResponse,
 ];
@@ -2889,9 +1842,7 @@ export var DeleteObject: StaticOperationSchema = [
   9,
   n0,
   _DOe,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/delete", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/delete", 200] },
   () => DeleteObjectRequest,
   () => DeleteObjectResponse,
 ];
@@ -2899,9 +1850,7 @@ export var DeleteSchema: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema", 200] },
   () => DeleteSchemaRequest,
   () => DeleteSchemaResponse,
 ];
@@ -2909,9 +1858,7 @@ export var DeleteTypedLinkFacet: StaticOperationSchema = [
   9,
   n0,
   _DTLF,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/facet/delete", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/facet/delete", 200] },
   () => DeleteTypedLinkFacetRequest,
   () => DeleteTypedLinkFacetResponse,
 ];
@@ -2919,9 +1866,7 @@ export var DetachFromIndex: StaticOperationSchema = [
   9,
   n0,
   _DFI,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/index/detach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/index/detach", 200] },
   () => DetachFromIndexRequest,
   () => DetachFromIndexResponse,
 ];
@@ -2929,9 +1874,7 @@ export var DetachObject: StaticOperationSchema = [
   9,
   n0,
   _DO,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/detach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/detach", 200] },
   () => DetachObjectRequest,
   () => DetachObjectResponse,
 ];
@@ -2939,9 +1882,7 @@ export var DetachPolicy: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/policy/detach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/policy/detach", 200] },
   () => DetachPolicyRequest,
   () => DetachPolicyResponse,
 ];
@@ -2949,9 +1890,7 @@ export var DetachTypedLink: StaticOperationSchema = [
   9,
   n0,
   _DTL,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/detach", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/detach", 200] },
   () => DetachTypedLinkRequest,
   () => __Unit,
 ];
@@ -2959,9 +1898,7 @@ export var DisableDirectory: StaticOperationSchema = [
   9,
   n0,
   _DDi,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory/disable", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory/disable", 200] },
   () => DisableDirectoryRequest,
   () => DisableDirectoryResponse,
 ];
@@ -2969,9 +1906,7 @@ export var EnableDirectory: StaticOperationSchema = [
   9,
   n0,
   _ED,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory/enable", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/directory/enable", 200] },
   () => EnableDirectoryRequest,
   () => EnableDirectoryResponse,
 ];
@@ -2979,9 +1914,7 @@ export var GetAppliedSchemaVersion: StaticOperationSchema = [
   9,
   n0,
   _GASV,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/getappliedschema", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/getappliedschema", 200] },
   () => GetAppliedSchemaVersionRequest,
   () => GetAppliedSchemaVersionResponse,
 ];
@@ -2989,9 +1922,7 @@ export var GetDirectory: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/directory/get", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/directory/get", 200] },
   () => GetDirectoryRequest,
   () => GetDirectoryResponse,
 ];
@@ -2999,9 +1930,7 @@ export var GetFacet: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/facet", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/facet", 200] },
   () => GetFacetRequest,
   () => GetFacetResponse,
 ];
@@ -3009,9 +1938,7 @@ export var GetLinkAttributes: StaticOperationSchema = [
   9,
   n0,
   _GLA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/attributes/get", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/attributes/get", 200] },
   () => GetLinkAttributesRequest,
   () => GetLinkAttributesResponse,
 ];
@@ -3019,9 +1946,7 @@ export var GetObjectAttributes: StaticOperationSchema = [
   9,
   n0,
   _GOA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/attributes/get", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/attributes/get", 200] },
   () => GetObjectAttributesRequest,
   () => GetObjectAttributesResponse,
 ];
@@ -3029,9 +1954,7 @@ export var GetObjectInformation: StaticOperationSchema = [
   9,
   n0,
   _GOI,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/information", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/information", 200] },
   () => GetObjectInformationRequest,
   () => GetObjectInformationResponse,
 ];
@@ -3039,9 +1962,7 @@ export var GetSchemaAsJson: StaticOperationSchema = [
   9,
   n0,
   _GSAJ,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/json", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/json", 200] },
   () => GetSchemaAsJsonRequest,
   () => GetSchemaAsJsonResponse,
 ];
@@ -3049,9 +1970,7 @@ export var GetTypedLinkFacetInformation: StaticOperationSchema = [
   9,
   n0,
   _GTLFI,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/facet/get", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/facet/get", 200] },
   () => GetTypedLinkFacetInformationRequest,
   () => GetTypedLinkFacetInformationResponse,
 ];
@@ -3059,9 +1978,7 @@ export var ListAppliedSchemaArns: StaticOperationSchema = [
   9,
   n0,
   _LASA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/applied", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/applied", 200] },
   () => ListAppliedSchemaArnsRequest,
   () => ListAppliedSchemaArnsResponse,
 ];
@@ -3069,9 +1986,7 @@ export var ListAttachedIndices: StaticOperationSchema = [
   9,
   n0,
   _LAI,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/indices", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/indices", 200] },
   () => ListAttachedIndicesRequest,
   () => ListAttachedIndicesResponse,
 ];
@@ -3079,9 +1994,7 @@ export var ListDevelopmentSchemaArns: StaticOperationSchema = [
   9,
   n0,
   _LDSA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/development", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/development", 200] },
   () => ListDevelopmentSchemaArnsRequest,
   () => ListDevelopmentSchemaArnsResponse,
 ];
@@ -3089,9 +2002,7 @@ export var ListDirectories: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/directory/list", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/directory/list", 200] },
   () => ListDirectoriesRequest,
   () => ListDirectoriesResponse,
 ];
@@ -3099,9 +2010,7 @@ export var ListFacetAttributes: StaticOperationSchema = [
   9,
   n0,
   _LFA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/facet/attributes", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/facet/attributes", 200] },
   () => ListFacetAttributesRequest,
   () => ListFacetAttributesResponse,
 ];
@@ -3109,9 +2018,7 @@ export var ListFacetNames: StaticOperationSchema = [
   9,
   n0,
   _LFN,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/facet/list", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/facet/list", 200] },
   () => ListFacetNamesRequest,
   () => ListFacetNamesResponse,
 ];
@@ -3119,9 +2026,7 @@ export var ListIncomingTypedLinks: StaticOperationSchema = [
   9,
   n0,
   _LITL,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/incoming", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/incoming", 200] },
   () => ListIncomingTypedLinksRequest,
   () => ListIncomingTypedLinksResponse,
 ];
@@ -3129,9 +2034,7 @@ export var ListIndex: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/index/targets", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/index/targets", 200] },
   () => ListIndexRequest,
   () => ListIndexResponse,
 ];
@@ -3139,9 +2042,7 @@ export var ListManagedSchemaArns: StaticOperationSchema = [
   9,
   n0,
   _LMSA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/managed", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/managed", 200] },
   () => ListManagedSchemaArnsRequest,
   () => ListManagedSchemaArnsResponse,
 ];
@@ -3149,9 +2050,7 @@ export var ListObjectAttributes: StaticOperationSchema = [
   9,
   n0,
   _LOA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/attributes", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/attributes", 200] },
   () => ListObjectAttributesRequest,
   () => ListObjectAttributesResponse,
 ];
@@ -3159,9 +2058,7 @@ export var ListObjectChildren: StaticOperationSchema = [
   9,
   n0,
   _LOC,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/children", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/children", 200] },
   () => ListObjectChildrenRequest,
   () => ListObjectChildrenResponse,
 ];
@@ -3169,9 +2066,7 @@ export var ListObjectParentPaths: StaticOperationSchema = [
   9,
   n0,
   _LOPP,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/parentpaths", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/parentpaths", 200] },
   () => ListObjectParentPathsRequest,
   () => ListObjectParentPathsResponse,
 ];
@@ -3179,9 +2074,7 @@ export var ListObjectParents: StaticOperationSchema = [
   9,
   n0,
   _LOP,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/parent", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/parent", 200] },
   () => ListObjectParentsRequest,
   () => ListObjectParentsResponse,
 ];
@@ -3189,9 +2082,7 @@ export var ListObjectPolicies: StaticOperationSchema = [
   9,
   n0,
   _LOPi,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/policy", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/object/policy", 200] },
   () => ListObjectPoliciesRequest,
   () => ListObjectPoliciesResponse,
 ];
@@ -3199,9 +2090,7 @@ export var ListOutgoingTypedLinks: StaticOperationSchema = [
   9,
   n0,
   _LOTL,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/outgoing", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/outgoing", 200] },
   () => ListOutgoingTypedLinksRequest,
   () => ListOutgoingTypedLinksResponse,
 ];
@@ -3209,9 +2098,7 @@ export var ListPolicyAttachments: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/policy/attachment", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/policy/attachment", 200] },
   () => ListPolicyAttachmentsRequest,
   () => ListPolicyAttachmentsResponse,
 ];
@@ -3219,9 +2106,7 @@ export var ListPublishedSchemaArns: StaticOperationSchema = [
   9,
   n0,
   _LPSA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/published", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/schema/published", 200] },
   () => ListPublishedSchemaArnsRequest,
   () => ListPublishedSchemaArnsResponse,
 ];
@@ -3229,9 +2114,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/tags", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3239,9 +2122,7 @@ export var ListTypedLinkFacetAttributes: StaticOperationSchema = [
   9,
   n0,
   _LTLFA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes", 200] },
   () => ListTypedLinkFacetAttributesRequest,
   () => ListTypedLinkFacetAttributesResponse,
 ];
@@ -3249,9 +2130,7 @@ export var ListTypedLinkFacetNames: StaticOperationSchema = [
   9,
   n0,
   _LTLFN,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/facet/list", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/facet/list", 200] },
   () => ListTypedLinkFacetNamesRequest,
   () => ListTypedLinkFacetNamesResponse,
 ];
@@ -3259,9 +2138,7 @@ export var LookupPolicy: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/policy/lookup", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/policy/lookup", 200] },
   () => LookupPolicyRequest,
   () => LookupPolicyResponse,
 ];
@@ -3269,9 +2146,7 @@ export var PublishSchema: StaticOperationSchema = [
   9,
   n0,
   _PS,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/publish", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/publish", 200] },
   () => PublishSchemaRequest,
   () => PublishSchemaResponse,
 ];
@@ -3279,9 +2154,7 @@ export var PutSchemaFromJson: StaticOperationSchema = [
   9,
   n0,
   _PSFJ,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/json", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/json", 200] },
   () => PutSchemaFromJsonRequest,
   () => PutSchemaFromJsonResponse,
 ];
@@ -3289,9 +2162,7 @@ export var RemoveFacetFromObject: StaticOperationSchema = [
   9,
   n0,
   _RFFO,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/facets/delete", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/facets/delete", 200] },
   () => RemoveFacetFromObjectRequest,
   () => RemoveFacetFromObjectResponse,
 ];
@@ -3299,9 +2170,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/tags/add", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/tags/add", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -3309,9 +2178,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/tags/remove", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/tags/remove", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -3319,9 +2186,7 @@ export var UpdateFacet: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/facet", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/facet", 200] },
   () => UpdateFacetRequest,
   () => UpdateFacetResponse,
 ];
@@ -3329,9 +2194,7 @@ export var UpdateLinkAttributes: StaticOperationSchema = [
   9,
   n0,
   _ULA,
-  {
-    [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/attributes/update", 200],
-  },
+  { [_h]: ["POST", "/amazonclouddirectory/2017-01-11/typedlink/attributes/update", 200] },
   () => UpdateLinkAttributesRequest,
   () => UpdateLinkAttributesResponse,
 ];
@@ -3339,9 +2202,7 @@ export var UpdateObjectAttributes: StaticOperationSchema = [
   9,
   n0,
   _UOA,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/update", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/object/update", 200] },
   () => UpdateObjectAttributesRequest,
   () => UpdateObjectAttributesResponse,
 ];
@@ -3349,9 +2210,7 @@ export var UpdateSchema: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/update", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/update", 200] },
   () => UpdateSchemaRequest,
   () => UpdateSchemaResponse,
 ];
@@ -3359,9 +2218,7 @@ export var UpdateTypedLinkFacet: StaticOperationSchema = [
   9,
   n0,
   _UTLF,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/facet", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/typedlink/facet", 200] },
   () => UpdateTypedLinkFacetRequest,
   () => UpdateTypedLinkFacetResponse,
 ];
@@ -3369,9 +2226,7 @@ export var UpgradeAppliedSchema: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/upgradeapplied", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/upgradeapplied", 200] },
   () => UpgradeAppliedSchemaRequest,
   () => UpgradeAppliedSchemaResponse,
 ];
@@ -3379,9 +2234,7 @@ export var UpgradePublishedSchema: StaticOperationSchema = [
   9,
   n0,
   _UPS,
-  {
-    [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/upgradepublished", 200],
-  },
+  { [_h]: ["PUT", "/amazonclouddirectory/2017-01-11/schema/upgradepublished", 200] },
   () => UpgradePublishedSchemaRequest,
   () => UpgradePublishedSchemaResponse,
 ];

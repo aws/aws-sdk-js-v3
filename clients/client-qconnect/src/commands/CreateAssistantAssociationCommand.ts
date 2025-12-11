@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAssistantAssociationRequest, CreateAssistantAssociationResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { CreateAssistantAssociationRequest, CreateAssistantAssociationResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateAssistantAssociation } from "../schemas/schemas_0";
 
 /**
@@ -41,6 +41,10 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  *   associationType: "STRING_VALUE", // required
  *   association: { // AssistantAssociationInputData Union: only one key present
  *     knowledgeBaseId: "STRING_VALUE",
+ *     externalBedrockKnowledgeBaseConfig: { // ExternalBedrockKnowledgeBaseConfig
+ *       bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ *       accessRoleArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // Tags
@@ -60,6 +64,10 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * //       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
  * //         knowledgeBaseId: "STRING_VALUE",
  * //         knowledgeBaseArn: "STRING_VALUE",
+ * //       },
+ * //       externalBedrockKnowledgeBaseConfig: { // ExternalBedrockKnowledgeBaseConfig
+ * //         bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ * //         accessRoleArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     tags: { // Tags

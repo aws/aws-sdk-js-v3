@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { UpdateCodeSecurityIntegrationRequest, UpdateCodeSecurityIntegrationResponse } from "../models/models_1";
+import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import type { UpdateCodeSecurityIntegrationRequest, UpdateCodeSecurityIntegrationResponse } from "../models/models_1";
 import { UpdateCodeSecurityIntegration } from "../schemas/schemas_0";
 
 /**

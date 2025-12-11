@@ -982,7 +982,7 @@ const n0 = "com.amazonaws.inspector2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -1004,25 +1004,13 @@ import {
 import { Inspector2ServiceException as __Inspector2ServiceException } from "../models/Inspector2ServiceException";
 
 /* eslint no-var: 0 */
-
 export var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
 export var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
 export var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
 export var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
 export var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Account: StaticStructureSchema = [3, n0, _A, 0, [_aI, _s, _rS], [0, 0, () => ResourceStatus]];
 export var AccountAggregation: StaticStructureSchema = [3, n0, _AA, 0, [_fT, _rT, _sO, _sB], [0, 0, 0, 0]];
 export var AccountAggregationResponse: StaticStructureSchema = [
@@ -1122,19 +1110,8 @@ export var AwsLambdaFunctionDetails: StaticStructureSchema = [
   [_fN, _ru, _cS, _v, _eRA, _la, _vC, _pT, _ar, _lMA],
   [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig, 0, 64 | 0, 4],
 ];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BatchAssociateCodeSecurityScanConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1433,19 +1410,8 @@ export var CodeVulnerabilityDetails: StaticStructureSchema = [
   [() => CodeFilePath, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0],
 ];
 export var ComputePlatform: StaticStructureSchema = [3, n0, _CP, 0, [_ve, _pr, _v], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rIe, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rIe, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContinuousIntegrationScanConfiguration: StaticStructureSchema = [3, n0, _CISC, 0, [_sE], [64 | 0]];
 export var Counts: StaticStructureSchema = [3, n0, _C, 0, [_cou, _gK], [1, 0]];
 export var CoverageDateFilter: StaticStructureSchema = [3, n0, _CDFo, 0, [_sIt, _eI], [4, 4]];
@@ -2012,18 +1978,8 @@ export var GetEncryptionKeyRequest: StaticStructureSchema = [
   0,
   [_sT, _rT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _sT }],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var GetEncryptionKeyResponse: StaticStructureSchema = [3, n0, _GEKRe, 0, [_kKI], [0]];
@@ -2068,23 +2024,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
+  { [_e]: _ser, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var LambdaFunctionAggregation: StaticStructureSchema = [
   3,
   n0,
@@ -2226,18 +2170,8 @@ export var ListCodeSecurityIntegrationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCodeSecurityIntegrationsResponse: StaticStructureSchema = [
@@ -2254,21 +2188,7 @@ export var ListCodeSecurityScanConfigurationAssociationsRequest: StaticStructure
   _LCSSCAR,
   0,
   [_sCA, _nT, _mR],
-  [
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-  ],
+  [0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
 export var ListCodeSecurityScanConfigurationAssociationsResponse: StaticStructureSchema = [
   3,
@@ -2285,18 +2205,8 @@ export var ListCodeSecurityScanConfigurationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCodeSecurityScanConfigurationsResponse: StaticStructureSchema = [
@@ -2518,19 +2428,8 @@ export var ResourceFilterCriteria: StaticStructureSchema = [
   ],
 ];
 export var ResourceMapFilter: StaticStructureSchema = [3, n0, _RMF, 0, [_co, _k, _va], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceScanMetadata: StaticStructureSchema = [
   3,
   n0,
@@ -2589,15 +2488,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rIe],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SeverityCounts: StaticStructureSchema = [3, n0, _SC, 0, [_al, _med, _h, _cri], [1, 1, 1, 1]];
 export var SortCriteria: StaticStructureSchema = [3, n0, _SCo, 0, [_fie, _sO], [0, 0]];
 export var StartCisSessionMessage: StaticStructureSchema = [3, n0, _SCSM, 0, [_sTe], [0]];
@@ -2664,23 +2559,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Time: StaticStructureSchema = [3, n0, _T, 0, [_tOD, _tim], [0, 0]];
 export var TitleAggregation: StaticStructureSchema = [
   3,
@@ -2706,12 +2589,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2826,15 +2704,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fiel],
   [0, 0, () => ValidationExceptionFields],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _m], [0, 0]];
 export var Vulnerability: StaticStructureSchema = [
   3,
@@ -2872,24 +2746,18 @@ export var VulnerablePackage: StaticStructureSchema = [
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var WeeklySchedule: StaticStructureSchema = [3, n0, _WS, 0, [_sTt, _day], [() => Time, 64 | 0]];
-export var __Unit = "unit" as const;
-
 export var Inspector2ServiceException: StaticErrorSchema = [-3, _sm, "Inspector2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Inspector2ServiceException, __Inspector2ServiceException);
-
 export var AccountIdFilterList: StaticListSchema = [1, n0, _AIFL, 0, () => CisStringFilter];
 export var AccountIdSet = 64 | 0;
-
 export var AccountList: StaticListSchema = [1, n0, _AL, 0, () => Account];
 export var AccountStateList: StaticListSchema = [1, n0, _ASL, 0, () => AccountState];
 export var AggregationResponseList: StaticListSchema = [1, n0, _ARL, 0, () => AggregationResponse];
 export var ArchitectureList = 64 | 0;
-
 export var AssociateConfigurationRequestList: StaticListSchema = [1, n0, _ACRL, 0, () => AssociateConfigurationRequest];
 export var AwsEksWorkloadInfoList: StaticListSchema = [1, n0, _AEWIL, 0, () => AwsEksWorkloadInfo];
 export var CheckIdFilterList: StaticListSchema = [1, n0, _CIFL, 0, () => CisStringFilter];
 export var CisAccountIdList = 64 | 0;
-
 export var CisCheckAggregationList: StaticListSchema = [1, n0, _CCAL, 0, () => CisCheckAggregation];
 export var CisFindingArnFilterList: StaticListSchema = [1, n0, _CFAFL, 0, () => CisStringFilter];
 export var CisFindingStatusFilterList: StaticListSchema = [1, n0, _CFSFL, 0, () => CisFindingStatusFilter];
@@ -2927,7 +2795,6 @@ export var CodeSecurityScanConfigurationSummaries: StaticListSchema = [
 export var CodeSnippetErrorList: StaticListSchema = [1, n0, _CSEL, 0, () => CodeSnippetError];
 export var CodeSnippetResultList: StaticListSchema = [1, n0, _CSRL, 0, () => CodeSnippetResult];
 export var ContinuousIntegrationScanSupportedEvents = 64 | 0;
-
 export var CountsList: StaticListSchema = [1, n0, _CLo, 0, () => Counts];
 export var CoverageDateFilterList: StaticListSchema = [1, n0, _CDFL, 0, () => CoverageDateFilter];
 export var CoverageMapFilterList: StaticListSchema = [1, n0, _CMFL, 0, () => CoverageMapFilter];
@@ -2937,19 +2804,13 @@ export var CoveredResources: StaticListSchema = [1, n0, _CRo, 0, () => CoveredRe
 export var CvssScoreAdjustmentList: StaticListSchema = [1, n0, _CSAL, 0, () => CvssScoreAdjustment];
 export var CvssScoreList: StaticListSchema = [1, n0, _CSLv, 0, () => CvssScore];
 export var CweList = 64 | 0;
-
 export var Cwes = 64 | 0;
-
 export var DateFilterList: StaticListSchema = [1, n0, _DFL, 0, () => DateFilter];
 export var DaysList = 64 | 0;
-
 export var DelegatedAdminAccountList: StaticListSchema = [1, n0, _DAAL, 0, () => DelegatedAdminAccount];
 export var DetectionPlatforms = 64 | 0;
-
 export var DetectorTagList = 64 | 0;
-
 export var DisableResourceTypeList = 64 | 0;
-
 export var DisassociateConfigurationRequestList: StaticListSchema = [
   1,
   n0,
@@ -2958,7 +2819,6 @@ export var DisassociateConfigurationRequestList: StaticListSchema = [
   () => DisassociateConfigurationRequest,
 ];
 export var EnableResourceTypeList = 64 | 0;
-
 export var EvidenceList: StaticListSchema = [1, n0, _EL, 0, () => Evidence];
 export var FailedAccountList: StaticListSchema = [1, n0, _FAL, 0, () => FailedAccount];
 export var FailedAssociationResultList: StaticListSchema = [1, n0, _FARL, 0, () => FailedAssociationResult];
@@ -2970,12 +2830,9 @@ export var FailedMemberAccountEc2DeepInspectionStatusStateList: StaticListSchema
   () => FailedMemberAccountEc2DeepInspectionStatusState,
 ];
 export var FilterArnList = 64 | 0;
-
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FindingArnList = 64 | 0;
-
 export var FindingArns = 64 | 0;
-
 export var FindingDetails: StaticListSchema = [1, n0, _FDi, 0, () => FindingDetail];
 export var FindingDetailsErrorList: StaticListSchema = [1, n0, _FDEL, 0, () => FindingDetailsError];
 export var FindingList: StaticListSchema = [1, n0, _FLi, 0, () => Finding];
@@ -2983,16 +2840,11 @@ export var FreeTrialAccountInfoList: StaticListSchema = [1, n0, _FTAIL, 0, () =>
 export var FreeTrialInfoErrorList: StaticListSchema = [1, n0, _FTIEL, 0, () => FreeTrialInfoError];
 export var FreeTrialInfoList: StaticListSchema = [1, n0, _FTIL, 0, () => FreeTrialInfo];
 export var ImageTagList = 64 | 0;
-
 export var IntegrationSummaries: StaticListSchema = [1, n0, _IS, 0, () => CodeSecurityIntegrationSummary];
 export var IpV4AddressList = 64 | 0;
-
 export var IpV6AddressList = 64 | 0;
-
 export var LambdaLayerList = 64 | 0;
-
 export var LayerList = 64 | 0;
-
 export var MapFilterList: StaticListSchema = [1, n0, _MFL, 0, () => MapFilter];
 export var MemberAccountEc2DeepInspectionStatusList: StaticListSchema = [
   1,
@@ -3010,14 +2862,11 @@ export var MemberAccountEc2DeepInspectionStatusStateList: StaticListSchema = [
 ];
 export var MemberList: StaticListSchema = [1, n0, _ML, 0, () => Member];
 export var MeteringAccountIdList = 64 | 0;
-
 export var NonEmptyStringList = 64 | 0;
-
 export var NumberFilterList: StaticListSchema = [1, n0, _NFL, 0, () => NumberFilter];
 export var OneAccountIdFilterList: StaticListSchema = [1, n0, _OAIFL, 0, () => CisStringFilter];
 export var PackageFilterList: StaticListSchema = [1, n0, _PFL, 0, () => PackageFilter];
 export var PathList = 64 | 0;
-
 export var Permissions: StaticListSchema = [1, n0, _Pe, 0, () => Permission];
 export var PlatformFilterList: StaticListSchema = [1, n0, _PFLl, 0, () => CisStringFilter];
 export var PortRangeFilterList: StaticListSchema = [1, n0, _PRFL, 0, () => PortRangeFilter];
@@ -3036,62 +2885,42 @@ export var ProjectPeriodicScanConfigurationList: StaticListSchema = [
   () => ProjectPeriodicScanConfiguration,
 ];
 export var ReferenceUrls = 64 | 0;
-
 export var RelatedVulnerabilities = 64 | 0;
-
 export var ReportTargetAccounts = 64 | 0;
-
 export var ResourceIdFilterList: StaticListSchema = [1, n0, _RIFL, 0, () => CisStringFilter];
 export var ResourceList: StaticListSchema = [1, n0, _RL, 0, () => Resource];
 export var ResourceMapFilterList: StaticListSchema = [1, n0, _RMFL, 0, () => ResourceMapFilter];
 export var ResourceStringFilterList: StaticListSchema = [1, n0, _RSFL, 0, () => ResourceStringFilter];
 export var ResourceTagFilterList: StaticListSchema = [1, n0, _RTFL, 0, () => TagFilter];
 export var RuleSetCategories = 64 | 0;
-
 export var SecurityGroupIdList = 64 | 0;
-
 export var StepList: StaticListSchema = [1, n0, _SL, 0, () => Step];
 export var StringFilterList: StaticListSchema = [1, n0, _SFL, 0, () => StringFilter];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var SuccessfulAssociationResultList: StaticListSchema = [1, n0, _SARL, 0, () => SuccessfulAssociationResult];
 export var SuggestedFixes: StaticListSchema = [1, n0, _SFug, 0, () => SuggestedFix];
 export var TagKeyList = 64 | 0;
-
 export var TagList = 64 | 0;
-
 export var TagValueList = 64 | 0;
-
 export var TargetAccountList = 64 | 0;
-
 export var Targets = 64 | 0;
-
 export var TargetStatusFilterList: StaticListSchema = [1, n0, _TSFL, 0, () => CisTargetStatusFilter];
 export var TargetStatusReasonFilterList: StaticListSchema = [1, n0, _TSRFL, 0, () => CisTargetStatusReasonFilter];
 export var TitleFilterList: StaticListSchema = [1, n0, _TFL, 0, () => CisStringFilter];
 export var Tools = 64 | 0;
-
 export var Ttps = 64 | 0;
-
 export var UsageAccountIdList = 64 | 0;
-
 export var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage];
 export var UsageTotalList: StaticListSchema = [1, n0, _UTL, 0, () => UsageTotal];
 export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
 export var Vulnerabilities: StaticListSchema = [1, n0, _Vu, 0, () => Vulnerability];
 export var VulnerabilityIdList = 64 | 0;
-
 export var VulnerabilityReferenceUrls = 64 | 0;
-
 export var VulnerablePackageList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage];
 export var VulnIdList = 64 | 0;
-
 export var CisTagMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var TargetResourceTags: StaticMapSchema = [2, n0, _TRT, 0, 0, 64 | 0];
 export var AggregationRequest: StaticStructureSchema = [
   3,
@@ -3175,9 +3004,7 @@ export var AssociateMember: StaticOperationSchema = [
   9,
   n0,
   _AM,
-  {
-    [_ht]: ["POST", "/members/associate", 200],
-  },
+  { [_ht]: ["POST", "/members/associate", 200] },
   () => AssociateMemberRequest,
   () => AssociateMemberResponse,
 ];
@@ -3185,9 +3012,7 @@ export var BatchAssociateCodeSecurityScanConfiguration: StaticOperationSchema = 
   9,
   n0,
   _BACSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/batch/associate", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/batch/associate", 200] },
   () => BatchAssociateCodeSecurityScanConfigurationRequest,
   () => BatchAssociateCodeSecurityScanConfigurationResponse,
 ];
@@ -3195,9 +3020,7 @@ export var BatchDisassociateCodeSecurityScanConfiguration: StaticOperationSchema
   9,
   n0,
   _BDCSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/batch/disassociate", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/batch/disassociate", 200] },
   () => BatchDisassociateCodeSecurityScanConfigurationRequest,
   () => BatchDisassociateCodeSecurityScanConfigurationResponse,
 ];
@@ -3205,9 +3028,7 @@ export var BatchGetAccountStatus: StaticOperationSchema = [
   9,
   n0,
   _BGAS,
-  {
-    [_ht]: ["POST", "/status/batch/get", 200],
-  },
+  { [_ht]: ["POST", "/status/batch/get", 200] },
   () => BatchGetAccountStatusRequest,
   () => BatchGetAccountStatusResponse,
 ];
@@ -3215,9 +3036,7 @@ export var BatchGetCodeSnippet: StaticOperationSchema = [
   9,
   n0,
   _BGCS,
-  {
-    [_ht]: ["POST", "/codesnippet/batchget", 200],
-  },
+  { [_ht]: ["POST", "/codesnippet/batchget", 200] },
   () => BatchGetCodeSnippetRequest,
   () => BatchGetCodeSnippetResponse,
 ];
@@ -3225,9 +3044,7 @@ export var BatchGetFindingDetails: StaticOperationSchema = [
   9,
   n0,
   _BGFD,
-  {
-    [_ht]: ["POST", "/findings/details/batch/get", 200],
-  },
+  { [_ht]: ["POST", "/findings/details/batch/get", 200] },
   () => BatchGetFindingDetailsRequest,
   () => BatchGetFindingDetailsResponse,
 ];
@@ -3235,9 +3052,7 @@ export var BatchGetFreeTrialInfo: StaticOperationSchema = [
   9,
   n0,
   _BGFTI,
-  {
-    [_ht]: ["POST", "/freetrialinfo/batchget", 200],
-  },
+  { [_ht]: ["POST", "/freetrialinfo/batchget", 200] },
   () => BatchGetFreeTrialInfoRequest,
   () => BatchGetFreeTrialInfoResponse,
 ];
@@ -3245,9 +3060,7 @@ export var BatchGetMemberEc2DeepInspectionStatus: StaticOperationSchema = [
   9,
   n0,
   _BGMEDIS,
-  {
-    [_ht]: ["POST", "/ec2deepinspectionstatus/member/batch/get", 200],
-  },
+  { [_ht]: ["POST", "/ec2deepinspectionstatus/member/batch/get", 200] },
   () => BatchGetMemberEc2DeepInspectionStatusRequest,
   () => BatchGetMemberEc2DeepInspectionStatusResponse,
 ];
@@ -3255,9 +3068,7 @@ export var BatchUpdateMemberEc2DeepInspectionStatus: StaticOperationSchema = [
   9,
   n0,
   _BUMEDIS,
-  {
-    [_ht]: ["POST", "/ec2deepinspectionstatus/member/batch/update", 200],
-  },
+  { [_ht]: ["POST", "/ec2deepinspectionstatus/member/batch/update", 200] },
   () => BatchUpdateMemberEc2DeepInspectionStatusRequest,
   () => BatchUpdateMemberEc2DeepInspectionStatusResponse,
 ];
@@ -3265,9 +3076,7 @@ export var CancelFindingsReport: StaticOperationSchema = [
   9,
   n0,
   _CFRa,
-  {
-    [_ht]: ["POST", "/reporting/cancel", 200],
-  },
+  { [_ht]: ["POST", "/reporting/cancel", 200] },
   () => CancelFindingsReportRequest,
   () => CancelFindingsReportResponse,
 ];
@@ -3275,9 +3084,7 @@ export var CancelSbomExport: StaticOperationSchema = [
   9,
   n0,
   _CSEa,
-  {
-    [_ht]: ["POST", "/sbomexport/cancel", 200],
-  },
+  { [_ht]: ["POST", "/sbomexport/cancel", 200] },
   () => CancelSbomExportRequest,
   () => CancelSbomExportResponse,
 ];
@@ -3285,9 +3092,7 @@ export var CreateCisScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CCSC,
-  {
-    [_ht]: ["POST", "/cis/scan-configuration/create", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-configuration/create", 200] },
   () => CreateCisScanConfigurationRequest,
   () => CreateCisScanConfigurationResponse,
 ];
@@ -3295,9 +3100,7 @@ export var CreateCodeSecurityIntegration: StaticOperationSchema = [
   9,
   n0,
   _CCSI,
-  {
-    [_ht]: ["POST", "/codesecurity/integration/create", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/integration/create", 200] },
   () => CreateCodeSecurityIntegrationRequest,
   () => CreateCodeSecurityIntegrationResponse,
 ];
@@ -3305,9 +3108,7 @@ export var CreateCodeSecurityScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CCSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/create", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/create", 200] },
   () => CreateCodeSecurityScanConfigurationRequest,
   () => CreateCodeSecurityScanConfigurationResponse,
 ];
@@ -3315,9 +3116,7 @@ export var CreateFilter: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_ht]: ["POST", "/filters/create", 200],
-  },
+  { [_ht]: ["POST", "/filters/create", 200] },
   () => CreateFilterRequest,
   () => CreateFilterResponse,
 ];
@@ -3325,9 +3124,7 @@ export var CreateFindingsReport: StaticOperationSchema = [
   9,
   n0,
   _CFRre,
-  {
-    [_ht]: ["POST", "/reporting/create", 200],
-  },
+  { [_ht]: ["POST", "/reporting/create", 200] },
   () => CreateFindingsReportRequest,
   () => CreateFindingsReportResponse,
 ];
@@ -3335,9 +3132,7 @@ export var CreateSbomExport: StaticOperationSchema = [
   9,
   n0,
   _CSEr,
-  {
-    [_ht]: ["POST", "/sbomexport/create", 200],
-  },
+  { [_ht]: ["POST", "/sbomexport/create", 200] },
   () => CreateSbomExportRequest,
   () => CreateSbomExportResponse,
 ];
@@ -3345,9 +3140,7 @@ export var DeleteCisScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DCSC,
-  {
-    [_ht]: ["POST", "/cis/scan-configuration/delete", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-configuration/delete", 200] },
   () => DeleteCisScanConfigurationRequest,
   () => DeleteCisScanConfigurationResponse,
 ];
@@ -3355,9 +3148,7 @@ export var DeleteCodeSecurityIntegration: StaticOperationSchema = [
   9,
   n0,
   _DCSI,
-  {
-    [_ht]: ["POST", "/codesecurity/integration/delete", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/integration/delete", 200] },
   () => DeleteCodeSecurityIntegrationRequest,
   () => DeleteCodeSecurityIntegrationResponse,
 ];
@@ -3365,9 +3156,7 @@ export var DeleteCodeSecurityScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DCSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/delete", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/delete", 200] },
   () => DeleteCodeSecurityScanConfigurationRequest,
   () => DeleteCodeSecurityScanConfigurationResponse,
 ];
@@ -3375,9 +3164,7 @@ export var DeleteFilter: StaticOperationSchema = [
   9,
   n0,
   _DFe,
-  {
-    [_ht]: ["POST", "/filters/delete", 200],
-  },
+  { [_ht]: ["POST", "/filters/delete", 200] },
   () => DeleteFilterRequest,
   () => DeleteFilterResponse,
 ];
@@ -3385,9 +3172,7 @@ export var DescribeOrganizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DOC,
-  {
-    [_ht]: ["POST", "/organizationconfiguration/describe", 200],
-  },
+  { [_ht]: ["POST", "/organizationconfiguration/describe", 200] },
   () => DescribeOrganizationConfigurationRequest,
   () => DescribeOrganizationConfigurationResponse,
 ];
@@ -3395,9 +3180,7 @@ export var Disable: StaticOperationSchema = [
   9,
   n0,
   _Di,
-  {
-    [_ht]: ["POST", "/disable", 200],
-  },
+  { [_ht]: ["POST", "/disable", 200] },
   () => DisableRequest,
   () => DisableResponse,
 ];
@@ -3405,9 +3188,7 @@ export var DisableDelegatedAdminAccount: StaticOperationSchema = [
   9,
   n0,
   _DDAA,
-  {
-    [_ht]: ["POST", "/delegatedadminaccounts/disable", 200],
-  },
+  { [_ht]: ["POST", "/delegatedadminaccounts/disable", 200] },
   () => DisableDelegatedAdminAccountRequest,
   () => DisableDelegatedAdminAccountResponse,
 ];
@@ -3415,9 +3196,7 @@ export var DisassociateMember: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_ht]: ["POST", "/members/disassociate", 200],
-  },
+  { [_ht]: ["POST", "/members/disassociate", 200] },
   () => DisassociateMemberRequest,
   () => DisassociateMemberResponse,
 ];
@@ -3425,9 +3204,7 @@ export var Enable: StaticOperationSchema = [
   9,
   n0,
   _En,
-  {
-    [_ht]: ["POST", "/enable", 200],
-  },
+  { [_ht]: ["POST", "/enable", 200] },
   () => EnableRequest,
   () => EnableResponse,
 ];
@@ -3435,9 +3212,7 @@ export var EnableDelegatedAdminAccount: StaticOperationSchema = [
   9,
   n0,
   _EDAA,
-  {
-    [_ht]: ["POST", "/delegatedadminaccounts/enable", 200],
-  },
+  { [_ht]: ["POST", "/delegatedadminaccounts/enable", 200] },
   () => EnableDelegatedAdminAccountRequest,
   () => EnableDelegatedAdminAccountResponse,
 ];
@@ -3445,9 +3220,7 @@ export var GetCisScanReport: StaticOperationSchema = [
   9,
   n0,
   _GCSR,
-  {
-    [_ht]: ["POST", "/cis/scan/report/get", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan/report/get", 200] },
   () => GetCisScanReportRequest,
   () => GetCisScanReportResponse,
 ];
@@ -3455,9 +3228,7 @@ export var GetCisScanResultDetails: StaticOperationSchema = [
   9,
   n0,
   _GCSRD,
-  {
-    [_ht]: ["POST", "/cis/scan-result/details/get", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-result/details/get", 200] },
   () => GetCisScanResultDetailsRequest,
   () => GetCisScanResultDetailsResponse,
 ];
@@ -3465,9 +3236,7 @@ export var GetClustersForImage: StaticOperationSchema = [
   9,
   n0,
   _GCFI,
-  {
-    [_ht]: ["POST", "/cluster/get", 200],
-  },
+  { [_ht]: ["POST", "/cluster/get", 200] },
   () => GetClustersForImageRequest,
   () => GetClustersForImageResponse,
 ];
@@ -3475,9 +3244,7 @@ export var GetCodeSecurityIntegration: StaticOperationSchema = [
   9,
   n0,
   _GCSI,
-  {
-    [_ht]: ["POST", "/codesecurity/integration/get", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/integration/get", 200] },
   () => GetCodeSecurityIntegrationRequest,
   () => GetCodeSecurityIntegrationResponse,
 ];
@@ -3485,9 +3252,7 @@ export var GetCodeSecurityScan: StaticOperationSchema = [
   9,
   n0,
   _GCSS,
-  {
-    [_ht]: ["POST", "/codesecurity/scan/get", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan/get", 200] },
   () => GetCodeSecurityScanRequest,
   () => GetCodeSecurityScanResponse,
 ];
@@ -3495,9 +3260,7 @@ export var GetCodeSecurityScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GCSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/get", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/get", 200] },
   () => GetCodeSecurityScanConfigurationRequest,
   () => GetCodeSecurityScanConfigurationResponse,
 ];
@@ -3505,9 +3268,7 @@ export var GetConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_ht]: ["POST", "/configuration/get", 200],
-  },
+  { [_ht]: ["POST", "/configuration/get", 200] },
   () => GetConfigurationRequest,
   () => GetConfigurationResponse,
 ];
@@ -3515,9 +3276,7 @@ export var GetDelegatedAdminAccount: StaticOperationSchema = [
   9,
   n0,
   _GDAA,
-  {
-    [_ht]: ["POST", "/delegatedadminaccounts/get", 200],
-  },
+  { [_ht]: ["POST", "/delegatedadminaccounts/get", 200] },
   () => GetDelegatedAdminAccountRequest,
   () => GetDelegatedAdminAccountResponse,
 ];
@@ -3525,9 +3284,7 @@ export var GetEc2DeepInspectionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GEDIC,
-  {
-    [_ht]: ["POST", "/ec2deepinspectionconfiguration/get", 200],
-  },
+  { [_ht]: ["POST", "/ec2deepinspectionconfiguration/get", 200] },
   () => GetEc2DeepInspectionConfigurationRequest,
   () => GetEc2DeepInspectionConfigurationResponse,
 ];
@@ -3535,9 +3292,7 @@ export var GetEncryptionKey: StaticOperationSchema = [
   9,
   n0,
   _GEK,
-  {
-    [_ht]: ["GET", "/encryptionkey/get", 200],
-  },
+  { [_ht]: ["GET", "/encryptionkey/get", 200] },
   () => GetEncryptionKeyRequest,
   () => GetEncryptionKeyResponse,
 ];
@@ -3545,9 +3300,7 @@ export var GetFindingsReportStatus: StaticOperationSchema = [
   9,
   n0,
   _GFRS,
-  {
-    [_ht]: ["POST", "/reporting/status/get", 200],
-  },
+  { [_ht]: ["POST", "/reporting/status/get", 200] },
   () => GetFindingsReportStatusRequest,
   () => GetFindingsReportStatusResponse,
 ];
@@ -3555,9 +3308,7 @@ export var GetMember: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_ht]: ["POST", "/members/get", 200],
-  },
+  { [_ht]: ["POST", "/members/get", 200] },
   () => GetMemberRequest,
   () => GetMemberResponse,
 ];
@@ -3565,9 +3316,7 @@ export var GetSbomExport: StaticOperationSchema = [
   9,
   n0,
   _GSE,
-  {
-    [_ht]: ["POST", "/sbomexport/get", 200],
-  },
+  { [_ht]: ["POST", "/sbomexport/get", 200] },
   () => GetSbomExportRequest,
   () => GetSbomExportResponse,
 ];
@@ -3575,9 +3324,7 @@ export var ListAccountPermissions: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_ht]: ["POST", "/accountpermissions/list", 200],
-  },
+  { [_ht]: ["POST", "/accountpermissions/list", 200] },
   () => ListAccountPermissionsRequest,
   () => ListAccountPermissionsResponse,
 ];
@@ -3585,9 +3332,7 @@ export var ListCisScanConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LCSC,
-  {
-    [_ht]: ["POST", "/cis/scan-configuration/list", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-configuration/list", 200] },
   () => ListCisScanConfigurationsRequest,
   () => ListCisScanConfigurationsResponse,
 ];
@@ -3595,9 +3340,7 @@ export var ListCisScanResultsAggregatedByChecks: StaticOperationSchema = [
   9,
   n0,
   _LCSRABC,
-  {
-    [_ht]: ["POST", "/cis/scan-result/check/list", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-result/check/list", 200] },
   () => ListCisScanResultsAggregatedByChecksRequest,
   () => ListCisScanResultsAggregatedByChecksResponse,
 ];
@@ -3605,9 +3348,7 @@ export var ListCisScanResultsAggregatedByTargetResource: StaticOperationSchema =
   9,
   n0,
   _LCSRABTR,
-  {
-    [_ht]: ["POST", "/cis/scan-result/resource/list", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-result/resource/list", 200] },
   () => ListCisScanResultsAggregatedByTargetResourceRequest,
   () => ListCisScanResultsAggregatedByTargetResourceResponse,
 ];
@@ -3615,9 +3356,7 @@ export var ListCisScans: StaticOperationSchema = [
   9,
   n0,
   _LCS,
-  {
-    [_ht]: ["POST", "/cis/scan/list", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan/list", 200] },
   () => ListCisScansRequest,
   () => ListCisScansResponse,
 ];
@@ -3625,9 +3364,7 @@ export var ListCodeSecurityIntegrations: StaticOperationSchema = [
   9,
   n0,
   _LCSI,
-  {
-    [_ht]: ["POST", "/codesecurity/integration/list", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/integration/list", 200] },
   () => ListCodeSecurityIntegrationsRequest,
   () => ListCodeSecurityIntegrationsResponse,
 ];
@@ -3635,9 +3372,7 @@ export var ListCodeSecurityScanConfigurationAssociations: StaticOperationSchema 
   9,
   n0,
   _LCSSCA,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/associations/list", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/associations/list", 200] },
   () => ListCodeSecurityScanConfigurationAssociationsRequest,
   () => ListCodeSecurityScanConfigurationAssociationsResponse,
 ];
@@ -3645,9 +3380,7 @@ export var ListCodeSecurityScanConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LCSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/list", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/list", 200] },
   () => ListCodeSecurityScanConfigurationsRequest,
   () => ListCodeSecurityScanConfigurationsResponse,
 ];
@@ -3655,9 +3388,7 @@ export var ListCoverage: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["POST", "/coverage/list", 200],
-  },
+  { [_ht]: ["POST", "/coverage/list", 200] },
   () => ListCoverageRequest,
   () => ListCoverageResponse,
 ];
@@ -3665,9 +3396,7 @@ export var ListCoverageStatistics: StaticOperationSchema = [
   9,
   n0,
   _LCSi,
-  {
-    [_ht]: ["POST", "/coverage/statistics/list", 200],
-  },
+  { [_ht]: ["POST", "/coverage/statistics/list", 200] },
   () => ListCoverageStatisticsRequest,
   () => ListCoverageStatisticsResponse,
 ];
@@ -3675,9 +3404,7 @@ export var ListDelegatedAdminAccounts: StaticOperationSchema = [
   9,
   n0,
   _LDAA,
-  {
-    [_ht]: ["POST", "/delegatedadminaccounts/list", 200],
-  },
+  { [_ht]: ["POST", "/delegatedadminaccounts/list", 200] },
   () => ListDelegatedAdminAccountsRequest,
   () => ListDelegatedAdminAccountsResponse,
 ];
@@ -3685,9 +3412,7 @@ export var ListFilters: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_ht]: ["POST", "/filters/list", 200],
-  },
+  { [_ht]: ["POST", "/filters/list", 200] },
   () => ListFiltersRequest,
   () => ListFiltersResponse,
 ];
@@ -3695,9 +3420,7 @@ export var ListFindingAggregations: StaticOperationSchema = [
   9,
   n0,
   _LFAi,
-  {
-    [_ht]: ["POST", "/findings/aggregation/list", 200],
-  },
+  { [_ht]: ["POST", "/findings/aggregation/list", 200] },
   () => ListFindingAggregationsRequest,
   () => ListFindingAggregationsResponse,
 ];
@@ -3705,9 +3428,7 @@ export var ListFindings: StaticOperationSchema = [
   9,
   n0,
   _LFi,
-  {
-    [_ht]: ["POST", "/findings/list", 200],
-  },
+  { [_ht]: ["POST", "/findings/list", 200] },
   () => ListFindingsRequest,
   () => ListFindingsResponse,
 ];
@@ -3715,9 +3436,7 @@ export var ListMembers: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  {
-    [_ht]: ["POST", "/members/list", 200],
-  },
+  { [_ht]: ["POST", "/members/list", 200] },
   () => ListMembersRequest,
   () => ListMembersResponse,
 ];
@@ -3725,9 +3444,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3735,9 +3452,7 @@ export var ListUsageTotals: StaticOperationSchema = [
   9,
   n0,
   _LUT,
-  {
-    [_ht]: ["POST", "/usage/list", 200],
-  },
+  { [_ht]: ["POST", "/usage/list", 200] },
   () => ListUsageTotalsRequest,
   () => ListUsageTotalsResponse,
 ];
@@ -3745,9 +3460,7 @@ export var ResetEncryptionKey: StaticOperationSchema = [
   9,
   n0,
   _REK,
-  {
-    [_ht]: ["PUT", "/encryptionkey/reset", 200],
-  },
+  { [_ht]: ["PUT", "/encryptionkey/reset", 200] },
   () => ResetEncryptionKeyRequest,
   () => ResetEncryptionKeyResponse,
 ];
@@ -3755,9 +3468,7 @@ export var SearchVulnerabilities: StaticOperationSchema = [
   9,
   n0,
   _SV,
-  {
-    [_ht]: ["POST", "/vulnerabilities/search", 200],
-  },
+  { [_ht]: ["POST", "/vulnerabilities/search", 200] },
   () => SearchVulnerabilitiesRequest,
   () => SearchVulnerabilitiesResponse,
 ];
@@ -3765,9 +3476,7 @@ export var SendCisSessionHealth: StaticOperationSchema = [
   9,
   n0,
   _SCSH,
-  {
-    [_ht]: ["PUT", "/cissession/health/send", 200],
-  },
+  { [_ht]: ["PUT", "/cissession/health/send", 200] },
   () => SendCisSessionHealthRequest,
   () => SendCisSessionHealthResponse,
 ];
@@ -3775,9 +3484,7 @@ export var SendCisSessionTelemetry: StaticOperationSchema = [
   9,
   n0,
   _SCST,
-  {
-    [_ht]: ["PUT", "/cissession/telemetry/send", 200],
-  },
+  { [_ht]: ["PUT", "/cissession/telemetry/send", 200] },
   () => SendCisSessionTelemetryRequest,
   () => SendCisSessionTelemetryResponse,
 ];
@@ -3785,9 +3492,7 @@ export var StartCisSession: StaticOperationSchema = [
   9,
   n0,
   _SCS,
-  {
-    [_ht]: ["PUT", "/cissession/start", 200],
-  },
+  { [_ht]: ["PUT", "/cissession/start", 200] },
   () => StartCisSessionRequest,
   () => StartCisSessionResponse,
 ];
@@ -3795,9 +3500,7 @@ export var StartCodeSecurityScan: StaticOperationSchema = [
   9,
   n0,
   _SCSS,
-  {
-    [_ht]: ["POST", "/codesecurity/scan/start", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan/start", 200] },
   () => StartCodeSecurityScanRequest,
   () => StartCodeSecurityScanResponse,
 ];
@@ -3805,9 +3508,7 @@ export var StopCisSession: StaticOperationSchema = [
   9,
   n0,
   _SCSt,
-  {
-    [_ht]: ["PUT", "/cissession/stop", 200],
-  },
+  { [_ht]: ["PUT", "/cissession/stop", 200] },
   () => StopCisSessionRequest,
   () => StopCisSessionResponse,
 ];
@@ -3815,9 +3516,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -3825,9 +3524,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -3835,9 +3532,7 @@ export var UpdateCisScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UCSC,
-  {
-    [_ht]: ["POST", "/cis/scan-configuration/update", 200],
-  },
+  { [_ht]: ["POST", "/cis/scan-configuration/update", 200] },
   () => UpdateCisScanConfigurationRequest,
   () => UpdateCisScanConfigurationResponse,
 ];
@@ -3845,9 +3540,7 @@ export var UpdateCodeSecurityIntegration: StaticOperationSchema = [
   9,
   n0,
   _UCSI,
-  {
-    [_ht]: ["POST", "/codesecurity/integration/update", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/integration/update", 200] },
   () => UpdateCodeSecurityIntegrationRequest,
   () => UpdateCodeSecurityIntegrationResponse,
 ];
@@ -3855,9 +3548,7 @@ export var UpdateCodeSecurityScanConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UCSSC,
-  {
-    [_ht]: ["POST", "/codesecurity/scan-configuration/update", 200],
-  },
+  { [_ht]: ["POST", "/codesecurity/scan-configuration/update", 200] },
   () => UpdateCodeSecurityScanConfigurationRequest,
   () => UpdateCodeSecurityScanConfigurationResponse,
 ];
@@ -3865,9 +3556,7 @@ export var UpdateConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["POST", "/configuration/update", 200],
-  },
+  { [_ht]: ["POST", "/configuration/update", 200] },
   () => UpdateConfigurationRequest,
   () => UpdateConfigurationResponse,
 ];
@@ -3875,9 +3564,7 @@ export var UpdateEc2DeepInspectionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UEDIC,
-  {
-    [_ht]: ["POST", "/ec2deepinspectionconfiguration/update", 200],
-  },
+  { [_ht]: ["POST", "/ec2deepinspectionconfiguration/update", 200] },
   () => UpdateEc2DeepInspectionConfigurationRequest,
   () => UpdateEc2DeepInspectionConfigurationResponse,
 ];
@@ -3885,9 +3572,7 @@ export var UpdateEncryptionKey: StaticOperationSchema = [
   9,
   n0,
   _UEK,
-  {
-    [_ht]: ["PUT", "/encryptionkey/update", 200],
-  },
+  { [_ht]: ["PUT", "/encryptionkey/update", 200] },
   () => UpdateEncryptionKeyRequest,
   () => UpdateEncryptionKeyResponse,
 ];
@@ -3895,9 +3580,7 @@ export var UpdateFilter: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_ht]: ["POST", "/filters/update", 200],
-  },
+  { [_ht]: ["POST", "/filters/update", 200] },
   () => UpdateFilterRequest,
   () => UpdateFilterResponse,
 ];
@@ -3905,9 +3588,7 @@ export var UpdateOrganizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UOC,
-  {
-    [_ht]: ["POST", "/organizationconfiguration/update", 200],
-  },
+  { [_ht]: ["POST", "/organizationconfiguration/update", 200] },
   () => UpdateOrganizationConfigurationRequest,
   () => UpdateOrganizationConfigurationResponse,
 ];
@@ -3915,9 +3596,7 @@ export var UpdateOrgEc2DeepInspectionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UOEDIC,
-  {
-    [_ht]: ["POST", "/ec2deepinspectionconfiguration/org/update", 200],
-  },
+  { [_ht]: ["POST", "/ec2deepinspectionconfiguration/org/update", 200] },
   () => UpdateOrgEc2DeepInspectionConfigurationRequest,
   () => UpdateOrgEc2DeepInspectionConfigurationResponse,
 ];

@@ -153,7 +153,7 @@ const n0 = "com.amazonaws.dlm";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -170,7 +170,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Action: StaticStructureSchema = [3, n0, _A, 0, [_N, _CRC], [0, () => CrossRegionCopyActionList]];
 export var ArchiveRetainRule: StaticStructureSchema = [3, n0, _ARR, 0, [_RAT], [() => RetentionArchiveTier]];
 export var ArchiveRule: StaticStructureSchema = [3, n0, _AR, 0, [_RR], [() => ArchiveRetainRule]];
@@ -225,42 +224,12 @@ export var GetLifecyclePoliciesRequest: StaticStructureSchema = [
   0,
   [_PIo, _S, _RT, _TT, _TTA, _DPT],
   [
-    [
-      64 | 0,
-      {
-        [_hQ]: _pI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tTA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dPT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _pI }],
+    [0, { [_hQ]: _s }],
+    [64 | 0, { [_hQ]: _rT }],
+    [64 | 0, { [_hQ]: _tT }],
+    [64 | 0, { [_hQ]: _tTA }],
+    [0, { [_hQ]: _dPT }],
   ],
 ];
 export var GetLifecyclePoliciesResponse: StaticStructureSchema = [
@@ -273,32 +242,17 @@ export var GetLifecyclePoliciesResponse: StaticStructureSchema = [
 ];
 export var GetLifecyclePolicyRequest: StaticStructureSchema = [3, n0, _GLPRet, 0, [_PI], [[0, 1]]];
 export var GetLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _GLPReti, 0, [_Pol], [() => LifecyclePolicy]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_M, _Co],
-  [0, 0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M, _Co], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvalidRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _Co, _RP, _MEP],
   [0, 0, 64 | 0, 64 | 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var LifecyclePolicy: StaticStructureSchema = [
   3,
   n0,
@@ -319,15 +273,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _Co, _RTe],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
 export var _Parameters: StaticStructureSchema = [
@@ -367,15 +317,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _Co, _RTe, _RIe],
   [0, 0, 0, 64 | 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetainRule: StaticStructureSchema = [3, n0, _RR, 0, [_C, _I, _IU], [1, 1, 0]];
 export var RetentionArchiveTier: StaticStructureSchema = [3, n0, _RAT, 0, [_C, _I, _IU], [1, 1, 0]];
 export var Schedule: StaticStructureSchema = [
@@ -418,12 +364,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -436,59 +377,40 @@ export var UpdateLifecyclePolicyRequest: StaticStructureSchema = [
   [[0, 1], 0, 0, 0, () => PolicyDetails, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions],
 ];
 export var UpdateLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _ULPRp, 0, [], []];
-export var __Unit = "unit" as const;
-
 export var DLMServiceException: StaticErrorSchema = [-3, _sm, "DLMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DLMServiceException, __DLMServiceException);
-
 export var ActionList: StaticListSchema = [1, n0, _AL, 0, () => Action];
 export var AvailabilityZoneList = 64 | 0;
-
 export var CrossRegionCopyActionList: StaticListSchema = [1, n0, _CRCAL, 0, () => CrossRegionCopyAction];
 export var CrossRegionCopyRules: StaticListSchema = [1, n0, _CRCRr, 0, () => CrossRegionCopyRule];
 export var CrossRegionCopyTargetList: StaticListSchema = [1, n0, _CRCTL, 0, () => CrossRegionCopyTarget];
 export var ExcludeDataVolumeTagList: StaticListSchema = [1, n0, _EDVTL, 0, () => Tag];
 export var ExcludeTagsList: StaticListSchema = [1, n0, _ETL, 0, () => Tag];
 export var ExcludeVolumeTypesList = 64 | 0;
-
 export var LifecyclePolicySummaryList: StaticListSchema = [1, n0, _LPSL, 0, () => LifecyclePolicySummary];
 export var ParameterList = 64 | 0;
-
 export var PolicyIdList = 64 | 0;
-
 export var ResourceLocationList = 64 | 0;
-
 export var ResourceTypeValuesList = 64 | 0;
-
 export var ScheduleList: StaticListSchema = [1, n0, _SL, 0, () => Schedule];
 export var ScriptsList: StaticListSchema = [1, n0, _SLc, 0, () => Script];
 export var ShareRules: StaticListSchema = [1, n0, _SR, 0, () => ShareRule];
 export var ShareTargetAccountList = 64 | 0;
-
 export var SnapshotOwnerList = 64 | 0;
-
 export var StagesList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagsToAddFilterList = 64 | 0;
-
 export var TagsToAddList: StaticListSchema = [1, n0, _TTAL, 0, () => Tag];
 export var TargetTagList: StaticListSchema = [1, n0, _TTL, 0, () => Tag];
 export var TargetTagsFilterList = 64 | 0;
-
 export var TimesList = 64 | 0;
-
 export var VariableTagsList: StaticListSchema = [1, n0, _VTL, 0, () => Tag];
 export var TagMap = 128 | 0;
-
 export var CreateLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _CLP,
-  {
-    [_h]: ["POST", "/policies", 200],
-  },
+  { [_h]: ["POST", "/policies", 200] },
   () => CreateLifecyclePolicyRequest,
   () => CreateLifecyclePolicyResponse,
 ];
@@ -496,9 +418,7 @@ export var DeleteLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _DLP,
-  {
-    [_h]: ["DELETE", "/policies/{PolicyId}", 200],
-  },
+  { [_h]: ["DELETE", "/policies/{PolicyId}", 200] },
   () => DeleteLifecyclePolicyRequest,
   () => DeleteLifecyclePolicyResponse,
 ];
@@ -506,9 +426,7 @@ export var GetLifecyclePolicies: StaticOperationSchema = [
   9,
   n0,
   _GLP,
-  {
-    [_h]: ["GET", "/policies", 200],
-  },
+  { [_h]: ["GET", "/policies", 200] },
   () => GetLifecyclePoliciesRequest,
   () => GetLifecyclePoliciesResponse,
 ];
@@ -516,9 +434,7 @@ export var GetLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _GLPe,
-  {
-    [_h]: ["GET", "/policies/{PolicyId}", 200],
-  },
+  { [_h]: ["GET", "/policies/{PolicyId}", 200] },
   () => GetLifecyclePolicyRequest,
   () => GetLifecyclePolicyResponse,
 ];
@@ -526,9 +442,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -536,9 +450,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -546,9 +458,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -556,9 +466,7 @@ export var UpdateLifecyclePolicy: StaticOperationSchema = [
   9,
   n0,
   _ULP,
-  {
-    [_h]: ["PATCH", "/policies/{PolicyId}", 200],
-  },
+  { [_h]: ["PATCH", "/policies/{PolicyId}", 200] },
   () => UpdateLifecyclePolicyRequest,
   () => UpdateLifecyclePolicyResponse,
 ];

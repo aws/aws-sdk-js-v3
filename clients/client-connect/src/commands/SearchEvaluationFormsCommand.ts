@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchEvaluationFormsResponse } from "../models/models_2";
-import { SearchEvaluationFormsRequest } from "../models/models_3";
+import type { SearchEvaluationFormsResponse } from "../models/models_2";
+import type { SearchEvaluationFormsRequest } from "../models/models_3";
 import { SearchEvaluationForms } from "../schemas/schemas_0";
 
 /**
@@ -49,14 +49,13 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  *          </p>
  *          <ul>
  *             <li>
- *                <p>A Search operation, unlike a List operation, takes time to index changes to resource
- *       (create, update or delete). If you don't see updated information for recently changed
- *       contact evaluations, try calling the API again in a few seconds.</p>
+ *                <p>A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
+ *      delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
+ *      in a few seconds.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
- *     quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -169,6 +168,8 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  * //       LatestVersion: Number("int"), // required
  * //       ActiveVersion: Number("int"),
  * //       AutoEvaluationEnabled: true || false,
+ * //       EvaluationFormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
+ * //       ContactInteractionType: "AGENT" || "AUTOMATED",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

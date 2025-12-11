@@ -1162,6 +1162,12 @@ export interface CreateUserRequest {
    * @public
    */
   Birthdate?: string | undefined;
+
+  /**
+   * <p>A map with additional attribute extensions for the user. Each map key corresponds to an extension name, while map values represent extension data in <code>Document</code> type (not supported by Java V1, Go V1 and older versions of the CLI). <code>aws:identitystore:enterprise</code> is the only supported extension name.</p>
+   * @public
+   */
+  Extensions?: Record<string, __DocumentType> | undefined;
 }
 
 /**
@@ -1218,6 +1224,12 @@ export interface DescribeUserRequest {
    * @public
    */
   UserId: string | undefined;
+
+  /**
+   * <p>A collection of extension names indicating what extensions the service should retrieve alongside other user attributes. <code>aws:identitystore:enterprise</code> is the only supported extension name.</p>
+   * @public
+   */
+  Extensions?: string[] | undefined;
 }
 
 /**
@@ -1367,6 +1379,12 @@ export interface DescribeUserResponse {
    * @public
    */
   UpdatedBy?: string | undefined;
+
+  /**
+   * <p>A map of explicitly requested attribute extensions associated with the user. Not populated if the user has no requested extensions.</p>
+   * @public
+   */
+  Extensions?: Record<string, __DocumentType> | undefined;
 }
 
 /**
@@ -1378,6 +1396,12 @@ export interface ListUsersRequest {
    * @public
    */
   IdentityStoreId: string | undefined;
+
+  /**
+   * <p>A collection of extension names indicating what extensions the service should retrieve alongside other user attributes. <code>aws:identitystore:enterprise</code> is the only supported extension name.</p>
+   * @public
+   */
+  Extensions?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request. This parameter is used in the <code> ListUsers</code> and <code>ListGroups</code> requests to specify how many results to return in one page. The length limit is 50 characters.</p>
@@ -1548,6 +1572,12 @@ export interface User {
    * @public
    */
   UpdatedBy?: string | undefined;
+
+  /**
+   * <p>A map of explicitly requested attribute extensions associated with the user. Not populated if the user has no requested extensions.</p>
+   * @public
+   */
+  Extensions?: Record<string, __DocumentType> | undefined;
 }
 
 /**

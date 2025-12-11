@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeLogGroupsRequest, DescribeLogGroupsResponse } from "../models/models_0";
+import type { DescribeLogGroupsRequest, DescribeLogGroupsResponse } from "../models/models_0";
 import { DescribeLogGroups } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +31,9 @@ export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest 
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about log groups. You can return all your log groups or filter the
- *       results by prefix. The results are ASCII-sorted by log group name.</p>
+ * <p>Returns information about log groups, including data sources that ingest into each log
+ *       group. You can return all your log groups or filter the results by prefix. The results are
+ *       ASCII-sorted by log group name.</p>
  *          <p>CloudWatch Logs doesn't support IAM policies that control access to the
  *         <code>DescribeLogGroups</code> action by using the
  *           <code>aws:ResourceTag/<i>key-name</i>

@@ -159,7 +159,7 @@ const n0 = "com.amazonaws.codegurureviewer";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -179,20 +179,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateRepositoryRequest: StaticStructureSchema = [
   3,
   n0,
@@ -230,19 +218,8 @@ export var CodeReviewSummary: StaticStructureSchema = [
 ];
 export var CodeReviewType: StaticStructureSchema = [3, n0, _CRTo, 0, [_RAe, _AT], [() => RepositoryAnalysis, 64 | 0]];
 export var CommitDiffSourceCodeType: StaticStructureSchema = [3, n0, _CDSCT, 0, [_SC, _DC, _MBC], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateCodeReviewRequest: StaticStructureSchema = [
   3,
   n0,
@@ -262,18 +239,8 @@ export var DescribeRecommendationFeedbackRequest: StaticStructureSchema = [
   [_CRA, _RI, _UI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _RI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _UI,
-      },
-    ],
+    [0, { [_hQ]: _RI }],
+    [0, { [_hQ]: _UI }],
   ],
 ];
 export var DescribeRecommendationFeedbackResponse: StaticStructureSchema = [
@@ -303,19 +270,8 @@ export var DisassociateRepositoryResponse: StaticStructureSchema = [
   [() => RepositoryAssociation, 128 | 0],
 ];
 export var EventInfo: StaticStructureSchema = [3, n0, _EI, 0, [_N, _S], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KMSKeyDetails: StaticStructureSchema = [3, n0, _KMSKD, 0, [_KMSKI, _EO], [0, 0]];
 export var ListCodeReviewsRequest: StaticStructureSchema = [
   3,
@@ -324,42 +280,12 @@ export var ListCodeReviewsRequest: StaticStructureSchema = [
   0,
   [_PTr, _St, _RNe, _Ty, _MR, _NT],
   [
-    [
-      64 | 0,
-      {
-        [_hQ]: _PTr,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _St,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _RNe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _Ty,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _PTr }],
+    [64 | 0, { [_hQ]: _St }],
+    [64 | 0, { [_hQ]: _RNe }],
+    [0, { [_hQ]: _Ty }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListCodeReviewsResponse: StaticStructureSchema = [
@@ -377,31 +303,11 @@ export var ListRecommendationFeedbackRequest: StaticStructureSchema = [
   0,
   [_NT, _MR, _CRA, _UIs, _RIe],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _UIs,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _RIe,
-      },
-    ],
+    [64 | 0, { [_hQ]: _UIs }],
+    [64 | 0, { [_hQ]: _RIe }],
   ],
 ];
 export var ListRecommendationFeedbackResponse: StaticStructureSchema = [
@@ -419,18 +325,8 @@ export var ListRecommendationsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR, _CRA],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [1, { [_hQ]: _MR }],
     [0, 1],
   ],
 ];
@@ -449,42 +345,12 @@ export var ListRepositoryAssociationsRequest: StaticStructureSchema = [
   0,
   [_PTr, _St, _Na, _Ow, _MR, _NT],
   [
-    [
-      64 | 0,
-      {
-        [_hQ]: _PT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _S,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _N,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _O,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _MR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
+    [64 | 0, { [_hQ]: _PT }],
+    [64 | 0, { [_hQ]: _S }],
+    [64 | 0, { [_hQ]: _N }],
+    [64 | 0, { [_hQ]: _O }],
+    [1, { [_hQ]: _MR }],
+    [0, { [_hQ]: _NT }],
   ],
 ];
 export var ListRepositoryAssociationsResponse: StaticStructureSchema = [
@@ -499,19 +365,8 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
 export var Metrics: StaticStructureSchema = [3, n0, _Me, 0, [_MLOCC, _SLOCC, _FC], [1, 1, 1]];
 export var MetricsSummary: StaticStructureSchema = [3, n0, _MS, 0, [_MLOCC, _SLOCC, _FC], [1, 1, 1]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PutRecommendationFeedbackRequest: StaticStructureSchema = [
   3,
   n0,
@@ -579,19 +434,8 @@ export var RequestMetadata: StaticStructureSchema = [
   [_RIeq, _Req, _EI, _VN],
   [0, 0, () => EventInfo, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RuleMetadata: StaticStructureSchema = [3, n0, _RM, 0, [_RIu, _RNu, _SD, _LD, _RT], [0, 0, 0, 0, 64 | 0]];
 export var S3BucketRepository: StaticStructureSchema = [3, n0, _SBR, 0, [_N, _De], [0, () => S3RepositoryDetails]];
 export var S3Repository: StaticStructureSchema = [3, n0, _SRe, 0, [_N, _BNu], [0, 0]];
@@ -613,19 +457,8 @@ export var SourceCodeType: StaticStructureSchema = [
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _T], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThirdPartySourceRepository: StaticStructureSchema = [3, n0, _TPSR, 0, [_N, _CAo, _O], [0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -634,30 +467,12 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var CodeGuruReviewerServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -667,44 +482,28 @@ export var CodeGuruReviewerServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(CodeGuruReviewerServiceException, __CodeGuruReviewerServiceException);
-
 export var AnalysisTypes = 64 | 0;
-
 export var CodeReviewSummaries: StaticListSchema = [1, n0, _CRSo, 0, () => CodeReviewSummary];
 export var JobStates = 64 | 0;
-
 export var Names = 64 | 0;
-
 export var Owners = 64 | 0;
-
 export var ProviderTypes = 64 | 0;
-
 export var Reactions = 64 | 0;
-
 export var RecommendationFeedbackSummaries: StaticListSchema = [1, n0, _RFS, 0, () => RecommendationFeedbackSummary];
 export var RecommendationIds = 64 | 0;
-
 export var RecommendationSummaries: StaticListSchema = [1, n0, _RS, 0, () => RecommendationSummary];
 export var RepositoryAssociationStates = 64 | 0;
-
 export var RepositoryAssociationSummaries: StaticListSchema = [1, n0, _RAS, 0, () => RepositoryAssociationSummary];
 export var RepositoryNames = 64 | 0;
-
 export var RuleTags = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var UserIds = 64 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssociateRepository: StaticOperationSchema = [
   9,
   n0,
   _AR,
-  {
-    [_h]: ["POST", "/associations", 200],
-  },
+  { [_h]: ["POST", "/associations", 200] },
   () => AssociateRepositoryRequest,
   () => AssociateRepositoryResponse,
 ];
@@ -712,9 +511,7 @@ export var CreateCodeReview: StaticOperationSchema = [
   9,
   n0,
   _CCRr,
-  {
-    [_h]: ["POST", "/codereviews", 200],
-  },
+  { [_h]: ["POST", "/codereviews", 200] },
   () => CreateCodeReviewRequest,
   () => CreateCodeReviewResponse,
 ];
@@ -722,9 +519,7 @@ export var DescribeCodeReview: StaticOperationSchema = [
   9,
   n0,
   _DCR,
-  {
-    [_h]: ["GET", "/codereviews/{CodeReviewArn}", 200],
-  },
+  { [_h]: ["GET", "/codereviews/{CodeReviewArn}", 200] },
   () => DescribeCodeReviewRequest,
   () => DescribeCodeReviewResponse,
 ];
@@ -732,9 +527,7 @@ export var DescribeRecommendationFeedback: StaticOperationSchema = [
   9,
   n0,
   _DRF,
-  {
-    [_h]: ["GET", "/feedback/{CodeReviewArn}", 200],
-  },
+  { [_h]: ["GET", "/feedback/{CodeReviewArn}", 200] },
   () => DescribeRecommendationFeedbackRequest,
   () => DescribeRecommendationFeedbackResponse,
 ];
@@ -742,9 +535,7 @@ export var DescribeRepositoryAssociation: StaticOperationSchema = [
   9,
   n0,
   _DRA,
-  {
-    [_h]: ["GET", "/associations/{AssociationArn}", 200],
-  },
+  { [_h]: ["GET", "/associations/{AssociationArn}", 200] },
   () => DescribeRepositoryAssociationRequest,
   () => DescribeRepositoryAssociationResponse,
 ];
@@ -752,9 +543,7 @@ export var DisassociateRepository: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/associations/{AssociationArn}", 200],
-  },
+  { [_h]: ["DELETE", "/associations/{AssociationArn}", 200] },
   () => DisassociateRepositoryRequest,
   () => DisassociateRepositoryResponse,
 ];
@@ -762,9 +551,7 @@ export var ListCodeReviews: StaticOperationSchema = [
   9,
   n0,
   _LCR,
-  {
-    [_h]: ["GET", "/codereviews", 200],
-  },
+  { [_h]: ["GET", "/codereviews", 200] },
   () => ListCodeReviewsRequest,
   () => ListCodeReviewsResponse,
 ];
@@ -772,9 +559,7 @@ export var ListRecommendationFeedback: StaticOperationSchema = [
   9,
   n0,
   _LRF,
-  {
-    [_h]: ["GET", "/feedback/{CodeReviewArn}/RecommendationFeedback", 200],
-  },
+  { [_h]: ["GET", "/feedback/{CodeReviewArn}/RecommendationFeedback", 200] },
   () => ListRecommendationFeedbackRequest,
   () => ListRecommendationFeedbackResponse,
 ];
@@ -782,9 +567,7 @@ export var ListRecommendations: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/codereviews/{CodeReviewArn}/Recommendations", 200],
-  },
+  { [_h]: ["GET", "/codereviews/{CodeReviewArn}/Recommendations", 200] },
   () => ListRecommendationsRequest,
   () => ListRecommendationsResponse,
 ];
@@ -792,9 +575,7 @@ export var ListRepositoryAssociations: StaticOperationSchema = [
   9,
   n0,
   _LRA,
-  {
-    [_h]: ["GET", "/associations", 200],
-  },
+  { [_h]: ["GET", "/associations", 200] },
   () => ListRepositoryAssociationsRequest,
   () => ListRepositoryAssociationsResponse,
 ];
@@ -802,9 +583,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -812,9 +591,7 @@ export var PutRecommendationFeedback: StaticOperationSchema = [
   9,
   n0,
   _PRF,
-  {
-    [_h]: ["PUT", "/feedback", 200],
-  },
+  { [_h]: ["PUT", "/feedback", 200] },
   () => PutRecommendationFeedbackRequest,
   () => PutRecommendationFeedbackResponse,
 ];
@@ -822,9 +599,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -832,9 +607,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];

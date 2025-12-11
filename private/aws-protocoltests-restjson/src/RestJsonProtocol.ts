@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AllQueryStringTypesCommand,
@@ -543,7 +543,7 @@ import {
   UnitInputAndOutputCommandInput,
   UnitInputAndOutputCommandOutput,
 } from "./commands/UnitInputAndOutputCommand";
-import { RestJsonProtocolClient, RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
+import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
 
 const commands = {
   AllQueryStringTypesCommand,

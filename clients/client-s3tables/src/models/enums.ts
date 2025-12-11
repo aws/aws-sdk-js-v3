@@ -28,6 +28,19 @@ export type OpenTableFormat = (typeof OpenTableFormat)[keyof typeof OpenTableFor
  * @public
  * @enum
  */
+export const StorageClass = {
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
+
+/**
+ * @public
+ * @enum
+ */
 export const TableType = {
   AWS: "aws",
   CUSTOMER: "customer",
@@ -131,3 +144,47 @@ export const JobStatus = {
  * @public
  */
 export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableRecordExpirationStatus = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type TableRecordExpirationStatus =
+  (typeof TableRecordExpirationStatus)[keyof typeof TableRecordExpirationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableRecordExpirationJobStatus = {
+  DISABLED: "Disabled",
+  FAILED: "Failed",
+  NOT_YET_RUN: "NotYetRun",
+  SUCCESSFUL: "Successful",
+} as const;
+/**
+ * @public
+ */
+export type TableRecordExpirationJobStatus =
+  (typeof TableRecordExpirationJobStatus)[keyof typeof TableRecordExpirationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationStatus = {
+  COMPLETED: "completed",
+  FAILED: "failed",
+  PENDING: "pending",
+} as const;
+/**
+ * @public
+ */
+export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];

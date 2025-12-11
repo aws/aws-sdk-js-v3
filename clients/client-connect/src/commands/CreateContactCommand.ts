@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateContactResponse } from "../models/models_0";
-import { CreateContactRequest } from "../models/models_3";
+import type { CreateContactResponse } from "../models/models_0";
+import type { CreateContactRequest } from "../models/models_3";
 import { CreateContact } from "../schemas/schemas_0";
 
 /**
@@ -32,25 +32,23 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *             <p>Only the VOICE, EMAIL, and TASK channels are supported. </p>
  *             <ul>
  *                <li>
- *                   <p>For VOICE: The supported initiation method is <code>TRANSFER</code>. The contacts created
- *       with this initiation method have a subtype <code>connect:ExternalAudio</code>. </p>
+ *                   <p>For VOICE: The supported initiation method is <code>TRANSFER</code>. The contacts created with this
+ *       initiation method have a subtype <code>connect:ExternalAudio</code>. </p>
  *                </li>
  *                <li>
- *                   <p>For EMAIL: The supported initiation methods are <code>OUTBOUND</code>,
- *        <code>AGENT_REPLY</code>, and <code>FLOW</code>. </p>
+ *                   <p>For EMAIL: The supported initiation methods are <code>OUTBOUND</code>, <code>AGENT_REPLY</code>, and
+ *        <code>FLOW</code>. </p>
  *                </li>
  *                <li>
- *                   <p>For TASK: The supported initiation method is <code>API</code>. Contacts created with this
- *       API have a sub-type of <code>connect:ExternalTask</code>.</p>
+ *                   <p>For TASK: The supported initiation method is <code>API</code>. Contacts created with this API have a sub-type
+ *       of <code>connect:ExternalTask</code>.</p>
  *                </li>
  *             </ul>
  *          </important>
  *          <p>Creates a new VOICE, EMAIL, or TASK contact. </p>
- *          <p>After a contact is created, you can move it to the desired state by using the
- *     <code>InitiateAs</code> parameter. While you can use API to create task contacts that are in the
- *     <code>COMPLETED</code> state, you must contact Amazon Web Services Support before using it for
- *    bulk import use cases. Bulk import causes your requests to be throttled or fail if your
- *    CreateContact limits aren't high enough. </p>
+ *          <p>After a contact is created, you can move it to the desired state by using the <code>InitiateAs</code> parameter.
+ *    While you can use API to create task contacts that are in the <code>COMPLETED</code> state, you must contact Amazon Web Services Support before using it for bulk import use cases. Bulk import causes your requests to be throttled or
+ *    fail if your CreateContact limits aren't high enough. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +67,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
  *       Value: "STRING_VALUE",
- *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  *       Arn: "STRING_VALUE",
  *       StatusReason: "STRING_VALUE",
@@ -128,8 +126,8 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  *
  * @throws {@link IdempotencyException} (client fault)
  *  <p>An entity with the same name already exists.</p>

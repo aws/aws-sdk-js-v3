@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeUserRequest, DescribeUserResponse } from "../models/models_1";
+import type { DescribeUserRequest, DescribeUserResponse } from "../models/models_1";
 import { DescribeUser } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,9 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the specified user. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
- *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
+ * <p>Describes the specified user. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect
+ *     console</a> (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users
+ *    and note the IDs provided in the output.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

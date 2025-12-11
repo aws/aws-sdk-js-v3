@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   ActivateKeySigningKeyCommand,
@@ -349,7 +349,7 @@ import {
   UpdateTrafficPolicyInstanceCommandInput,
   UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
-import { Route53Client, Route53ClientConfig } from "./Route53Client";
+import { Route53Client } from "./Route53Client";
 
 const commands = {
   ActivateKeySigningKeyCommand,

@@ -1,12 +1,13 @@
 // smithy-typescript generated code
-import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
-import { commonParams } from "../endpoint/EndpointParameters";
-import { de_OnlyHttpBearerAuthCommand, se_OnlyHttpBearerAuthCommand } from "../protocols/Aws_restJson1";
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { de_OnlyHttpBearerAuthCommand, se_OnlyHttpBearerAuthCommand } from "../protocols/Aws_restJson1";
+import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public

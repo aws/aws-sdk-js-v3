@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddPermissionCommand,
@@ -184,7 +184,7 @@ import {
   VerifySMSSandboxPhoneNumberCommandInput,
   VerifySMSSandboxPhoneNumberCommandOutput,
 } from "./commands/VerifySMSSandboxPhoneNumberCommand";
-import { SNSClient, SNSClientConfig } from "./SNSClient";
+import { SNSClient } from "./SNSClient";
 
 const commands = {
   AddPermissionCommand,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateConfigurationManagerCommand,
@@ -68,7 +68,7 @@ import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
-import { SSMQuickSetupClient, SSMQuickSetupClientConfig } from "./SSMQuickSetupClient";
+import { SSMQuickSetupClient } from "./SSMQuickSetupClient";
 
 const commands = {
   CreateConfigurationManagerCommand,

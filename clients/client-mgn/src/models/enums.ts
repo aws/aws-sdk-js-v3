@@ -185,6 +185,7 @@ export type PostLaunchActionExecutionStatus =
  * @enum
  */
 export const SsmParameterStoreParameterType = {
+  SECURE_STRING: "SECURE_STRING",
   STRING: "STRING",
 } as const;
 /**
@@ -349,6 +350,19 @@ export const ReplicationConfigurationEbsEncryption = {
  */
 export type ReplicationConfigurationEbsEncryption =
   (typeof ReplicationConfigurationEbsEncryption)[keyof typeof ReplicationConfigurationEbsEncryption];
+
+/**
+ * @public
+ * @enum
+ */
+export const InternetProtocol = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+/**
+ * @public
+ */
+export type InternetProtocol = (typeof InternetProtocol)[keyof typeof InternetProtocol];
 
 /**
  * @public

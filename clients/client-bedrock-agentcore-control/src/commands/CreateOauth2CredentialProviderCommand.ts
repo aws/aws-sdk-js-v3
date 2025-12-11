@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   BedrockAgentCoreControlClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateOauth2CredentialProviderRequest, CreateOauth2CredentialProviderResponse } from "../models/models_0";
+import type { CreateOauth2CredentialProviderRequest, CreateOauth2CredentialProviderResponse } from "../models/models_0";
 import { CreateOauth2CredentialProvider } from "../schemas/schemas_0";
 
 /**

@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   BedrockAgentCoreControlClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateGatewayTargetRequest, UpdateGatewayTargetResponse } from "../models/models_0";
+import type { UpdateGatewayTargetRequest, UpdateGatewayTargetResponse } from "../models/models_1";
 import { UpdateGatewayTarget } from "../schemas/schemas_0";
 
 /**
@@ -101,6 +101,28 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *       mcpServer: { // McpServerTargetConfiguration
  *         endpoint: "STRING_VALUE", // required
  *       },
+ *       apiGateway: { // ApiGatewayTargetConfiguration
+ *         restApiId: "STRING_VALUE", // required
+ *         stage: "STRING_VALUE", // required
+ *         apiGatewayToolConfiguration: { // ApiGatewayToolConfiguration
+ *           toolOverrides: [ // ApiGatewayToolOverrides
+ *             { // ApiGatewayToolOverride
+ *               name: "STRING_VALUE", // required
+ *               description: "STRING_VALUE",
+ *               path: "STRING_VALUE", // required
+ *               method: "GET" || "DELETE" || "HEAD" || "OPTIONS" || "PATCH" || "PUT" || "POST", // required
+ *             },
+ *           ],
+ *           toolFilters: [ // ApiGatewayToolFilters // required
+ *             { // ApiGatewayToolFilter
+ *               filterPath: "STRING_VALUE", // required
+ *               methods: [ // RestApiMethods // required
+ *                 "GET" || "DELETE" || "HEAD" || "OPTIONS" || "PATCH" || "PUT" || "POST",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   },
  *   credentialProviderConfigurations: [ // CredentialProviderConfigurations
@@ -115,6 +137,8 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *           customParameters: { // OAuthCustomParameters
  *             "<keys>": "STRING_VALUE",
  *           },
+ *           grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ *           defaultReturnUrl: "STRING_VALUE",
  *         },
  *         apiKeyCredentialProvider: { // GatewayApiKeyCredentialProvider
  *           providerArn: "STRING_VALUE", // required
@@ -195,6 +219,28 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //       mcpServer: { // McpServerTargetConfiguration
  * //         endpoint: "STRING_VALUE", // required
  * //       },
+ * //       apiGateway: { // ApiGatewayTargetConfiguration
+ * //         restApiId: "STRING_VALUE", // required
+ * //         stage: "STRING_VALUE", // required
+ * //         apiGatewayToolConfiguration: { // ApiGatewayToolConfiguration
+ * //           toolOverrides: [ // ApiGatewayToolOverrides
+ * //             { // ApiGatewayToolOverride
+ * //               name: "STRING_VALUE", // required
+ * //               description: "STRING_VALUE",
+ * //               path: "STRING_VALUE", // required
+ * //               method: "GET" || "DELETE" || "HEAD" || "OPTIONS" || "PATCH" || "PUT" || "POST", // required
+ * //             },
+ * //           ],
+ * //           toolFilters: [ // ApiGatewayToolFilters // required
+ * //             { // ApiGatewayToolFilter
+ * //               filterPath: "STRING_VALUE", // required
+ * //               methods: [ // RestApiMethods // required
+ * //                 "GET" || "DELETE" || "HEAD" || "OPTIONS" || "PATCH" || "PUT" || "POST",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   },
  * //   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
@@ -209,6 +255,8 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //           customParameters: { // OAuthCustomParameters
  * //             "<keys>": "STRING_VALUE",
  * //           },
+ * //           grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ * //           defaultReturnUrl: "STRING_VALUE",
  * //         },
  * //         apiKeyCredentialProvider: { // GatewayApiKeyCredentialProvider
  * //           providerArn: "STRING_VALUE", // required

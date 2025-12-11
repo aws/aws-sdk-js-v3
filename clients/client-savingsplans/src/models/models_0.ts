@@ -409,7 +409,7 @@ export interface SavingsPlan {
 
   /**
    * <p>The time until when a return for the Savings Plan can be requested. If the
-   *             Savings Plan is not returnable, the field reflects the Savings Plan start time.</p>
+   *             Savings Plan is not returnable, the field reflects the Savings Plans start time.</p>
    * @public
    */
   returnableUntil?: string | undefined;

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchDeleteTaxRegistrationCommand,
@@ -82,7 +82,7 @@ import {
   PutTaxRegistrationCommandInput,
   PutTaxRegistrationCommandOutput,
 } from "./commands/PutTaxRegistrationCommand";
-import { TaxSettingsClient, TaxSettingsClientConfig } from "./TaxSettingsClient";
+import { TaxSettingsClient } from "./TaxSettingsClient";
 
 const commands = {
   BatchDeleteTaxRegistrationCommand,

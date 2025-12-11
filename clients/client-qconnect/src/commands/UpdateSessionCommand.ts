@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { UpdateSession } from "../schemas/schemas_0";
 
 /**
@@ -65,6 +65,13 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *       aiAgentId: "STRING_VALUE", // required
  *     },
  *   },
+ *   orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ *     { // OrchestratorConfigurationEntry
+ *       aiAgentId: "STRING_VALUE",
+ *       orchestratorUseCase: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   removeOrchestratorConfigurationList: true || false,
  * };
  * const command = new UpdateSessionCommand(input);
  * const response = await client.send(command);
@@ -106,6 +113,12 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * //       },
  * //     },
  * //     origin: "STRING_VALUE",
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

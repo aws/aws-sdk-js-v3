@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TrustAnchorDetailResponse, UpdateTrustAnchorRequest } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { TrustAnchorDetailResponse, UpdateTrustAnchorRequest } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { UpdateTrustAnchor } from "../schemas/schemas_0";
 
 /**
@@ -27,16 +27,7 @@ export interface UpdateTrustAnchorCommandInput extends UpdateTrustAnchorRequest 
 export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a trust anchor. You establish trust between IAM Roles Anywhere
- *          and your certificate authority (CA) by configuring a trust anchor. You can define a trust
- *          anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a
- *          CA certificate. Your Amazon Web Services workloads can authenticate with the trust anchor
- *          using certificates issued by the CA in exchange for temporary Amazon Web Services
- *          credentials.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:UpdateTrustAnchor</code>.
- *          </p>
+ * <p>Updates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. You can define a trust anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a CA certificate. Your Amazon Web Services workloads can authenticate with the trust anchor using certificates issued by the CA in exchange for temporary Amazon Web Services credentials.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:UpdateTrustAnchor</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

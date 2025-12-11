@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBInstance } from "../schemas/schemas_0";
 
 /**
@@ -127,7 +127,28 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   MultiTenant: true || false,
  *   DedicatedLogVolume: true || false,
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
+ *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ *     { // AdditionalStorageVolume
+ *       VolumeName: "STRING_VALUE", // required
+ *       AllocatedStorage: Number("int"),
+ *       IOPS: Number("int"),
+ *       MaxAllocatedStorage: Number("int"),
+ *       StorageThroughput: Number("int"),
+ *       StorageType: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -226,6 +247,16 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       DedicatedLogVolume: true || false,
  * //       Engine: "STRING_VALUE",
+ * //       AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ * //         { // AdditionalStorageVolume
+ * //           VolumeName: "STRING_VALUE", // required
+ * //           AllocatedStorage: Number("int"),
+ * //           IOPS: Number("int"),
+ * //           MaxAllocatedStorage: Number("int"),
+ * //           StorageThroughput: Number("int"),
+ * //           StorageType: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -357,6 +388,18 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     EngineLifecycleSupport: "STRING_VALUE",
+ * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesOutputList
+ * //       { // AdditionalStorageVolumeOutput
+ * //         VolumeName: "STRING_VALUE",
+ * //         StorageVolumeStatus: "STRING_VALUE",
+ * //         AllocatedStorage: Number("int"),
+ * //         IOPS: Number("int"),
+ * //         MaxAllocatedStorage: Number("int"),
+ * //         StorageThroughput: Number("int"),
+ * //         StorageType: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     StorageVolumeStatus: "STRING_VALUE",
  * //   },
  * // };
  *

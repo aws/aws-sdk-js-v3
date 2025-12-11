@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateVehicleFleetCommand,
@@ -255,7 +255,7 @@ import {
   UpdateVehicleCommandInput,
   UpdateVehicleCommandOutput,
 } from "./commands/UpdateVehicleCommand";
-import { IoTFleetWiseClient, IoTFleetWiseClientConfig } from "./IoTFleetWiseClient";
+import { IoTFleetWiseClient } from "./IoTFleetWiseClient";
 
 const commands = {
   AssociateVehicleFleetCommand,

@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0";
+import type { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0";
 import { ListRegexMatchSets } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public

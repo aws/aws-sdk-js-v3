@@ -249,7 +249,7 @@ const n0 = "com.amazonaws.glacier";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -271,16 +271,7 @@ import {
 import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
-
-export var _Stream: StaticSimpleSchema = [
-  0,
-  n0,
-  _S,
-  {
-    [_s]: 1,
-  },
-  42,
-];
+export var _Stream: StaticSimpleSchema = [0, n0, _S, { [_s]: 1 }, 42];
 export var AbortMultipartUploadInput: StaticStructureSchema = [
   3,
   n0,
@@ -312,24 +303,9 @@ export var ArchiveCreationOutput: StaticStructureSchema = [
   0,
   [_l, _c, _aIr],
   [
-    [
-      0,
-      {
-        [_hH]: _L,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xasth,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaai,
-      },
-    ],
+    [0, { [_hH]: _L }],
+    [0, { [_hH]: _xasth }],
+    [0, { [_hH]: _xaai }],
   ],
 ];
 export var CompleteMultipartUploadInput: StaticStructureSchema = [
@@ -342,18 +318,8 @@ export var CompleteMultipartUploadInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xaas,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xasth,
-      },
-    ],
+    [0, { [_hH]: _xaas }],
+    [0, { [_hH]: _xasth }],
   ],
 ];
 export var CompleteVaultLockInput: StaticStructureSchema = [
@@ -379,21 +345,7 @@ export var CreateVaultInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateVaultOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _CVO,
-  0,
-  [_l],
-  [
-    [
-      0,
-      {
-        [_hH]: _L,
-      },
-    ],
-  ],
-];
+export var CreateVaultOutput: StaticStructureSchema = [3, n0, _CVO, 0, [_l], [[0, { [_hH]: _L }]]];
 export var CSVInput: StaticStructureSchema = [3, n0, _CSVI, 0, [_FHI, _C, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0, 0]];
 export var CSVOutput: StaticStructureSchema = [3, n0, _CSVO, 0, [_QF, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0]];
 export var DataRetrievalPolicy: StaticStructureSchema = [3, n0, _DRP, 0, [_R], [() => DataRetrievalRulesList]];
@@ -487,12 +439,7 @@ export var GetJobOutputInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _Ra,
-      },
-    ],
+    [0, { [_hH]: _Ra }],
   ],
 ];
 export var GetJobOutputOutput: StaticStructureSchema = [
@@ -503,37 +450,12 @@ export var GetJobOutputOutput: StaticStructureSchema = [
   [_b, _c, _st, _cR, _aR, _cT, _aD],
   [
     [() => _Stream, 16],
-    [
-      0,
-      {
-        [_hH]: _xasth,
-      },
-    ],
+    [0, { [_hH]: _xasth }],
     [1, 32],
-    [
-      0,
-      {
-        [_hH]: _CR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _AR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaad,
-      },
-    ],
+    [0, { [_hH]: _CR }],
+    [0, { [_hH]: _AR }],
+    [0, { [_hH]: _CT }],
+    [0, { [_hH]: _xaad }],
   ],
 ];
 export var GetVaultAccessPolicyInput: StaticStructureSchema = [
@@ -659,24 +581,9 @@ export var InitiateJobOutput: StaticStructureSchema = [
   0,
   [_l, _jI, _jOP],
   [
-    [
-      0,
-      {
-        [_hH]: _L,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaji,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xajop,
-      },
-    ],
+    [0, { [_hH]: _L }],
+    [0, { [_hH]: _xaji }],
+    [0, { [_hH]: _xajop }],
   ],
 ];
 export var InitiateMultipartUploadInput: StaticStructureSchema = [
@@ -688,18 +595,8 @@ export var InitiateMultipartUploadInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xaad,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xaps,
-      },
-    ],
+    [0, { [_hH]: _xaad }],
+    [0, { [_hH]: _xaps }],
   ],
 ];
 export var InitiateMultipartUploadOutput: StaticStructureSchema = [
@@ -709,18 +606,8 @@ export var InitiateMultipartUploadOutput: StaticStructureSchema = [
   0,
   [_l, _uI],
   [
-    [
-      0,
-      {
-        [_hH]: _L,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xamui,
-      },
-    ],
+    [0, { [_hH]: _L }],
+    [0, { [_hH]: _xamui }],
   ],
 ];
 export var InitiateVaultLockInput: StaticStructureSchema = [
@@ -735,48 +622,26 @@ export var InitiateVaultLockInput: StaticStructureSchema = [
     [() => VaultLockPolicy, 16],
   ],
 ];
-export var InitiateVaultLockOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _IVLO,
-  0,
-  [_lI],
-  [
-    [
-      0,
-      {
-        [_hH]: _xali,
-      },
-    ],
-  ],
-];
+export var InitiateVaultLockOutput: StaticStructureSchema = [3, n0, _IVLO, 0, [_lI], [[0, { [_hH]: _xali }]]];
 export var InputSerialization: StaticStructureSchema = [3, n0, _IS, 0, [_cs], [() => CSVInput]];
 export var InsufficientCapacityException: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientCapacityException, __InsufficientCapacityException);
-
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
 export var InventoryRetrievalJobDescription: StaticStructureSchema = [
   3,
   n0,
@@ -798,15 +663,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListJobsInput: StaticStructureSchema = [
   3,
   n0,
@@ -816,30 +677,10 @@ export var ListJobsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _com,
-      },
-    ],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _sta }],
+    [0, { [_hQ]: _com }],
   ],
 ];
 export var ListJobsOutput: StaticStructureSchema = [3, n0, _LJO, 0, [_JL, _M], [() => JobList, 0]];
@@ -852,18 +693,8 @@ export var ListMultipartUploadsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [1, { [_hQ]: _li }],
+    [0, { [_hQ]: _ma }],
   ],
 ];
 export var ListMultipartUploadsOutput: StaticStructureSchema = [3, n0, _LMUO, 0, [_UL, _M], [() => UploadsList, 0]];
@@ -877,18 +708,8 @@ export var ListPartsInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var ListPartsOutput: StaticStructureSchema = [
@@ -928,18 +749,8 @@ export var ListVaultsInput: StaticStructureSchema = [
   [_aI, _ma, _li],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _li,
-      },
-    ],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _li }],
   ],
 ];
 export var ListVaultsOutput: StaticStructureSchema = [3, n0, _LVO, 0, [_VL, _M], [() => VaultList, 0]];
@@ -947,15 +758,11 @@ export var MissingParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _MPVE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(MissingParameterValueException, __MissingParameterValueException);
-
 export var OutputLocation: StaticStructureSchema = [3, n0, _OL, 0, [_S_], [() => S3Location]];
 export var OutputSerialization: StaticStructureSchema = [3, n0, _OS, 0, [_cs], [() => CSVOutput]];
 export var PartListElement: StaticStructureSchema = [3, n0, _PLE, 0, [_RIB, _SHATH], [0, 0]];
@@ -963,32 +770,14 @@ export var PolicyEnforcedException: StaticErrorSchema = [
   -3,
   n0,
   _PEE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
+  { [_e]: _cl, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(PolicyEnforcedException, __PolicyEnforcedException);
-
 export var ProvisionedCapacityDescription: StaticStructureSchema = [3, n0, _PCD, 0, [_CI, _SD, _ED], [0, 0, 0]];
 export var PurchaseProvisionedCapacityInput: StaticStructureSchema = [3, n0, _PPCI, 0, [_aI], [[0, 1]]];
-export var PurchaseProvisionedCapacityOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _PPCO,
-  0,
-  [_cI],
-  [
-    [
-      0,
-      {
-        [_hH]: _xaci,
-      },
-    ],
-  ],
-];
+export var PurchaseProvisionedCapacityOutput: StaticStructureSchema = [3, n0, _PPCO, 0, [_cI], [[0, { [_hH]: _xaci }]]];
 export var RemoveTagsFromVaultInput: StaticStructureSchema = [
   3,
   n0,
@@ -1001,28 +790,20 @@ export var RequestTimeoutException: StaticErrorSchema = [
   -3,
   n0,
   _RTE,
-  {
-    [_e]: _cl,
-    [_hE]: 408,
-  },
+  { [_e]: _cl, [_hE]: 408 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _cl,
-    [_hE]: 404,
-  },
+  { [_e]: _cl, [_hE]: 404 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Location: StaticStructureSchema = [
   3,
   n0,
@@ -1043,15 +824,11 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_t, _co, _m],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SetDataRetrievalPolicyInput: StaticStructureSchema = [
   3,
   n0,
@@ -1093,18 +870,8 @@ export var UploadArchiveInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xaad,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xasth,
-      },
-    ],
+    [0, { [_hH]: _xaad }],
+    [0, { [_hH]: _xasth }],
     [() => _Stream, 16],
   ],
 ];
@@ -1119,66 +886,34 @@ export var UploadMultipartPartInput: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xasth,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _CR,
-      },
-    ],
+    [0, { [_hH]: _xasth }],
+    [0, { [_hH]: _CR }],
     [() => _Stream, 16],
   ],
 ];
-export var UploadMultipartPartOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _UMPO,
-  0,
-  [_c],
-  [
-    [
-      0,
-      {
-        [_hH]: _xasth,
-      },
-    ],
-  ],
-];
+export var UploadMultipartPartOutput: StaticStructureSchema = [3, n0, _UMPO, 0, [_c], [[0, { [_hH]: _xasth }]]];
 export var VaultAccessPolicy: StaticStructureSchema = [3, n0, _VAP, 0, [_P], [0]];
 export var VaultLockPolicy: StaticStructureSchema = [3, n0, _VLP, 0, [_P], [0]];
 export var VaultNotificationConfig: StaticStructureSchema = [3, n0, _VNC, 0, [_SNST, _Ev], [0, 64 | 0]];
 export var __Unit = "unit" as const;
-
 export var GlacierServiceException: StaticErrorSchema = [-3, _sm, "GlacierServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GlacierServiceException, __GlacierServiceException);
-
 export var AccessControlPolicyList: StaticListSchema = [1, n0, _ACPL, 0, () => Grant];
 export var DataRetrievalRulesList: StaticListSchema = [1, n0, _DRRL, 0, () => DataRetrievalRule];
 export var JobList: StaticListSchema = [1, n0, _JL, 0, () => GlacierJobDescription];
 export var NotificationEventList = 64 | 0;
-
 export var PartList: StaticListSchema = [1, n0, _PL, 0, () => PartListElement];
 export var ProvisionedCapacityList: StaticListSchema = [1, n0, _PCL, 0, () => ProvisionedCapacityDescription];
 export var TagKeyList = 64 | 0;
-
 export var UploadsList: StaticListSchema = [1, n0, _UL, 0, () => UploadListElement];
 export var VaultList: StaticListSchema = [1, n0, _VL, 0, () => DescribeVaultOutput];
 export var hashmap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AbortMultipartUpload: StaticOperationSchema = [
   9,
   n0,
   _AMU,
-  {
-    [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 204],
-  },
+  { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 204] },
   () => AbortMultipartUploadInput,
   () => __Unit,
 ];
@@ -1186,9 +921,7 @@ export var AbortVaultLock: StaticOperationSchema = [
   9,
   n0,
   _AVL,
-  {
-    [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/lock-policy", 204],
-  },
+  { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/lock-policy", 204] },
   () => AbortVaultLockInput,
   () => __Unit,
 ];
@@ -1196,9 +929,7 @@ export var AddTagsToVault: StaticOperationSchema = [
   9,
   n0,
   _ATTV,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/tags?operation=add", 204],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/tags?operation=add", 204] },
   () => AddTagsToVaultInput,
   () => __Unit,
 ];
@@ -1206,9 +937,7 @@ export var CompleteMultipartUpload: StaticOperationSchema = [
   9,
   n0,
   _CMU,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 201],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 201] },
   () => CompleteMultipartUploadInput,
   () => ArchiveCreationOutput,
 ];
@@ -1216,9 +945,7 @@ export var CompleteVaultLock: StaticOperationSchema = [
   9,
   n0,
   _CVL,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}", 204],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}", 204] },
   () => CompleteVaultLockInput,
   () => __Unit,
 ];
@@ -1226,9 +953,7 @@ export var CreateVault: StaticOperationSchema = [
   9,
   n0,
   _CV,
-  {
-    [_h]: ["PUT", "/{accountId}/vaults/{vaultName}", 201],
-  },
+  { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}", 201] },
   () => CreateVaultInput,
   () => CreateVaultOutput,
 ];
@@ -1236,9 +961,7 @@ export var DeleteArchive: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/archives/{archiveId}", 204],
-  },
+  { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/archives/{archiveId}", 204] },
   () => DeleteArchiveInput,
   () => __Unit,
 ];
@@ -1246,9 +969,7 @@ export var DeleteVault: StaticOperationSchema = [
   9,
   n0,
   _DV,
-  {
-    [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}", 204],
-  },
+  { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}", 204] },
   () => DeleteVaultInput,
   () => __Unit,
 ];
@@ -1256,9 +977,7 @@ export var DeleteVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _DVAP,
-  {
-    [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/access-policy", 204],
-  },
+  { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/access-policy", 204] },
   () => DeleteVaultAccessPolicyInput,
   () => __Unit,
 ];
@@ -1266,9 +985,7 @@ export var DeleteVaultNotifications: StaticOperationSchema = [
   9,
   n0,
   _DVN,
-  {
-    [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/notification-configuration", 204],
-  },
+  { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/notification-configuration", 204] },
   () => DeleteVaultNotificationsInput,
   () => __Unit,
 ];
@@ -1276,9 +993,7 @@ export var DescribeJob: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs/{jobId}", 200] },
   () => DescribeJobInput,
   () => GlacierJobDescription,
 ];
@@ -1286,9 +1001,7 @@ export var DescribeVault: StaticOperationSchema = [
   9,
   n0,
   _DVe,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}", 200] },
   () => DescribeVaultInput,
   () => DescribeVaultOutput,
 ];
@@ -1296,9 +1009,7 @@ export var GetDataRetrievalPolicy: StaticOperationSchema = [
   9,
   n0,
   _GDRP,
-  {
-    [_h]: ["GET", "/{accountId}/policies/data-retrieval", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/policies/data-retrieval", 200] },
   () => GetDataRetrievalPolicyInput,
   () => GetDataRetrievalPolicyOutput,
 ];
@@ -1306,9 +1017,7 @@ export var GetJobOutput: StaticOperationSchema = [
   9,
   n0,
   _GJO,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output", 200] },
   () => GetJobOutputInput,
   () => GetJobOutputOutput,
 ];
@@ -1316,9 +1025,7 @@ export var GetVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _GVAP,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/access-policy", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/access-policy", 200] },
   () => GetVaultAccessPolicyInput,
   () => GetVaultAccessPolicyOutput,
 ];
@@ -1326,9 +1033,7 @@ export var GetVaultLock: StaticOperationSchema = [
   9,
   n0,
   _GVL,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/lock-policy", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/lock-policy", 200] },
   () => GetVaultLockInput,
   () => GetVaultLockOutput,
 ];
@@ -1336,9 +1041,7 @@ export var GetVaultNotifications: StaticOperationSchema = [
   9,
   n0,
   _GVN,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/notification-configuration", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/notification-configuration", 200] },
   () => GetVaultNotificationsInput,
   () => GetVaultNotificationsOutput,
 ];
@@ -1346,9 +1049,7 @@ export var InitiateJob: StaticOperationSchema = [
   9,
   n0,
   _IJ,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/jobs", 202],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/jobs", 202] },
   () => InitiateJobInput,
   () => InitiateJobOutput,
 ];
@@ -1356,9 +1057,7 @@ export var InitiateMultipartUpload: StaticOperationSchema = [
   9,
   n0,
   _IMU,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/multipart-uploads", 201],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/multipart-uploads", 201] },
   () => InitiateMultipartUploadInput,
   () => InitiateMultipartUploadOutput,
 ];
@@ -1366,9 +1065,7 @@ export var InitiateVaultLock: StaticOperationSchema = [
   9,
   n0,
   _IVL,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/lock-policy", 201],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/lock-policy", 201] },
   () => InitiateVaultLockInput,
   () => InitiateVaultLockOutput,
 ];
@@ -1376,9 +1073,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs", 200] },
   () => ListJobsInput,
   () => ListJobsOutput,
 ];
@@ -1386,9 +1081,7 @@ export var ListMultipartUploads: StaticOperationSchema = [
   9,
   n0,
   _LMU,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/multipart-uploads", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/multipart-uploads", 200] },
   () => ListMultipartUploadsInput,
   () => ListMultipartUploadsOutput,
 ];
@@ -1396,9 +1089,7 @@ export var ListParts: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 200] },
   () => ListPartsInput,
   () => ListPartsOutput,
 ];
@@ -1406,9 +1097,7 @@ export var ListProvisionedCapacity: StaticOperationSchema = [
   9,
   n0,
   _LPC,
-  {
-    [_h]: ["GET", "/{accountId}/provisioned-capacity", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/provisioned-capacity", 200] },
   () => ListProvisionedCapacityInput,
   () => ListProvisionedCapacityOutput,
 ];
@@ -1416,9 +1105,7 @@ export var ListTagsForVault: StaticOperationSchema = [
   9,
   n0,
   _LTFV,
-  {
-    [_h]: ["GET", "/{accountId}/vaults/{vaultName}/tags", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/tags", 200] },
   () => ListTagsForVaultInput,
   () => ListTagsForVaultOutput,
 ];
@@ -1426,9 +1113,7 @@ export var ListVaults: StaticOperationSchema = [
   9,
   n0,
   _LV,
-  {
-    [_h]: ["GET", "/{accountId}/vaults", 200],
-  },
+  { [_h]: ["GET", "/{accountId}/vaults", 200] },
   () => ListVaultsInput,
   () => ListVaultsOutput,
 ];
@@ -1436,9 +1121,7 @@ export var PurchaseProvisionedCapacity: StaticOperationSchema = [
   9,
   n0,
   _PPC,
-  {
-    [_h]: ["POST", "/{accountId}/provisioned-capacity", 201],
-  },
+  { [_h]: ["POST", "/{accountId}/provisioned-capacity", 201] },
   () => PurchaseProvisionedCapacityInput,
   () => PurchaseProvisionedCapacityOutput,
 ];
@@ -1446,9 +1129,7 @@ export var RemoveTagsFromVault: StaticOperationSchema = [
   9,
   n0,
   _RTFV,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/tags?operation=remove", 204],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/tags?operation=remove", 204] },
   () => RemoveTagsFromVaultInput,
   () => __Unit,
 ];
@@ -1456,9 +1137,7 @@ export var SetDataRetrievalPolicy: StaticOperationSchema = [
   9,
   n0,
   _SDRP,
-  {
-    [_h]: ["PUT", "/{accountId}/policies/data-retrieval", 204],
-  },
+  { [_h]: ["PUT", "/{accountId}/policies/data-retrieval", 204] },
   () => SetDataRetrievalPolicyInput,
   () => __Unit,
 ];
@@ -1466,9 +1145,7 @@ export var SetVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
   _SVAP,
-  {
-    [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/access-policy", 204],
-  },
+  { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/access-policy", 204] },
   () => SetVaultAccessPolicyInput,
   () => __Unit,
 ];
@@ -1476,9 +1153,7 @@ export var SetVaultNotifications: StaticOperationSchema = [
   9,
   n0,
   _SVN,
-  {
-    [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/notification-configuration", 204],
-  },
+  { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/notification-configuration", 204] },
   () => SetVaultNotificationsInput,
   () => __Unit,
 ];
@@ -1486,9 +1161,7 @@ export var UploadArchive: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["POST", "/{accountId}/vaults/{vaultName}/archives", 201],
-  },
+  { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/archives", 201] },
   () => UploadArchiveInput,
   () => ArchiveCreationOutput,
 ];
@@ -1496,9 +1169,7 @@ export var UploadMultipartPart: StaticOperationSchema = [
   9,
   n0,
   _UMP,
-  {
-    [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 204],
-  },
+  { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 204] },
   () => UploadMultipartPartInput,
   () => UploadMultipartPartOutput,
 ];

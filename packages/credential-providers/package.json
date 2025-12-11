@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.940.0",
+  "version": "3.948.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -45,7 +45,7 @@
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
     "@smithy/config-resolver": "^4.4.3",
-    "@smithy/core": "^3.18.5",
+    "@smithy/core": "^3.18.7",
     "@smithy/credential-provider-imds": "^4.2.5",
     "@smithy/node-config-provider": "^4.3.5",
     "@smithy/property-provider": "^4.2.5",

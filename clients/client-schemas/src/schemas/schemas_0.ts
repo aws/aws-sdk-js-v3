@@ -176,7 +176,7 @@ const n0 = "com.amazonaws.schemas";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -200,59 +200,18 @@ import {
 import { SchemasServiceException as __SchemasServiceException } from "../models/SchemasServiceException";
 
 /* eslint no-var: 0 */
-
-export var SynthesizedJson__string: StaticSimpleSchema = [
-  0,
-  n0,
-  _Ss,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var SynthesizedJson__string: StaticSimpleSchema = [0, n0, _Ss, { [_mT]: _a }, 0];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateDiscovererRequest: StaticStructureSchema = [
   3,
   n0,
   _CDR,
   0,
   [_D, _SA, _CA, _T],
-  [
-    0,
-    0,
-    2,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 2, [128 | 0, { [_jN]: _t }]],
 ];
 export var CreateDiscovererResponse: StaticStructureSchema = [
   3,
@@ -260,20 +219,7 @@ export var CreateDiscovererResponse: StaticStructureSchema = [
   _CDRr,
   0,
   [_D, _DA, _DI, _SA, _S, _CA, _T],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 0, 0, 2, [128 | 0, { [_jN]: _t }]],
 ];
 export var CreateRegistryRequest: StaticStructureSchema = [
   3,
@@ -281,16 +227,7 @@ export var CreateRegistryRequest: StaticStructureSchema = [
   _CRR,
   0,
   [_D, _RN, _T],
-  [
-    0,
-    [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, [0, 1], [128 | 0, { [_jN]: _t }]],
 ];
 export var CreateRegistryResponse: StaticStructureSchema = [
   3,
@@ -298,17 +235,7 @@ export var CreateRegistryResponse: StaticStructureSchema = [
   _CRRr,
   0,
   [_D, _RA, _RN, _T],
-  [
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var CreateSchemaRequest: StaticStructureSchema = [
   3,
@@ -316,19 +243,7 @@ export var CreateSchemaRequest: StaticStructureSchema = [
   _CSR,
   0,
   [_Co, _D, _RN, _SN, _T, _Ty],
-  [
-    0,
-    0,
-    [0, 1],
-    [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-  ],
+  [0, 0, [0, 1], [0, 1], [128 | 0, { [_jN]: _t }], 0],
 ];
 export var CreateSchemaResponse: StaticStructureSchema = [
   3,
@@ -336,39 +251,11 @@ export var CreateSchemaResponse: StaticStructureSchema = [
   _CSRr,
   0,
   [_D, _LM, _SAc, _SN, _SV, _T, _Ty, _VCD],
-  [
-    0,
-    5,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    5,
-  ],
+  [0, 5, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 5],
 ];
 export var DeleteDiscovererRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_DI], [[0, 1]]];
 export var DeleteRegistryRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_RN], [[0, 1]]];
-export var DeleteResourcePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DRPR,
-  0,
-  [_RN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rN,
-      },
-    ],
-  ],
-];
+export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_RN], [[0, { [_hQ]: _rN }]]];
 export var DeleteSchemaRequest: StaticStructureSchema = [
   3,
   n0,
@@ -402,12 +289,7 @@ export var DescribeCodeBindingRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
   ],
 ];
 export var DescribeCodeBindingResponse: StaticStructureSchema = [3, n0, _DCBRe, 0, [_CD, _LM, _SV, _St], [5, 5, 0, 0]];
@@ -418,20 +300,7 @@ export var DescribeDiscovererResponse: StaticStructureSchema = [
   _DDRes,
   0,
   [_D, _DA, _DI, _SA, _S, _CA, _T],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 0, 0, 2, [128 | 0, { [_jN]: _t }]],
 ];
 export var DescribeRegistryRequest: StaticStructureSchema = [3, n0, _DRRe, 0, [_RN], [[0, 1]]];
 export var DescribeRegistryResponse: StaticStructureSchema = [
@@ -440,17 +309,7 @@ export var DescribeRegistryResponse: StaticStructureSchema = [
   _DRRes,
   0,
   [_D, _RA, _RN, _T],
-  [
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var DescribeSchemaRequest: StaticStructureSchema = [
   3,
@@ -461,12 +320,7 @@ export var DescribeSchemaRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
   ],
 ];
 export var DescribeSchemaResponse: StaticStructureSchema = [
@@ -475,22 +329,7 @@ export var DescribeSchemaResponse: StaticStructureSchema = [
   _DSRes,
   0,
   [_Co, _D, _LM, _SAc, _SN, _SV, _T, _Ty, _VCD],
-  [
-    0,
-    0,
-    5,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    5,
-  ],
+  [0, 0, 5, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 5],
 ];
 export var DiscovererSummary: StaticStructureSchema = [
   3,
@@ -498,19 +337,7 @@ export var DiscovererSummary: StaticStructureSchema = [
   _DS,
   0,
   [_DA, _DI, _SA, _S, _CA, _T],
-  [
-    0,
-    0,
-    0,
-    0,
-    2,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 0, 2, [128 | 0, { [_jN]: _t }]],
 ];
 export var ExportSchemaRequest: StaticStructureSchema = [
   3,
@@ -521,34 +348,13 @@ export var ExportSchemaRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
+    [0, { [_hQ]: _ty }],
   ],
 ];
 export var ExportSchemaResponse: StaticStructureSchema = [3, n0, _ESRx, 0, [_Co, _SAc, _SN, _SV, _Ty], [0, 0, 0, 0, 0]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetCodeBindingSourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -559,32 +365,13 @@ export var GetCodeBindingSourceRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
   ],
 ];
 export var GetCodeBindingSourceResponse: StaticStructureSchema = [3, n0, _GCBSRe, 0, [_B], [[21, 16]]];
 export var GetDiscoveredSchemaRequest: StaticStructureSchema = [3, n0, _GDSR, 0, [_E, _Ty], [64 | 0, 0]];
 export var GetDiscoveredSchemaResponse: StaticStructureSchema = [3, n0, _GDSRe, 0, [_Co], [0]];
-export var GetResourcePolicyRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GRPR,
-  0,
-  [_RN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rN,
-      },
-    ],
-  ],
-];
+export var GetResourcePolicyRequest: StaticStructureSchema = [3, n0, _GRPR, 0, [_RN], [[0, { [_hQ]: _rN }]]];
 export var GetResourcePolicyResponse: StaticStructureSchema = [
   3,
   n0,
@@ -593,32 +380,17 @@ export var GetResourcePolicyResponse: StaticStructureSchema = [
   [_P, _RI],
   [[() => SynthesizedJson__string, 0], 0],
 ];
-export var GoneException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GE,
-  {
-    [_e]: _c,
-    [_hE]: 410,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var GoneException: StaticErrorSchema = [-3, n0, _GE, { [_e]: _c, [_hE]: 410 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(GoneException, __GoneException);
-
 export var InternalServerErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_C, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var ListDiscoverersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -626,30 +398,10 @@ export var ListDiscoverersRequest: StaticStructureSchema = [
   0,
   [_DIP, _Li, _NT, _SAP],
   [
-    [
-      0,
-      {
-        [_hQ]: _dIP,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sAP,
-      },
-    ],
+    [0, { [_hQ]: _dIP }],
+    [1, { [_hQ]: _l }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sAP }],
   ],
 ];
 export var ListDiscoverersResponse: StaticStructureSchema = [
@@ -667,30 +419,10 @@ export var ListRegistriesRequest: StaticStructureSchema = [
   0,
   [_Li, _NT, _RNP, _Sc],
   [
-    [
-      1,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _rNP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sc,
-      },
-    ],
+    [1, { [_hQ]: _l }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _rNP }],
+    [0, { [_hQ]: _sc }],
   ],
 ];
 export var ListRegistriesResponse: StaticStructureSchema = [
@@ -708,25 +440,10 @@ export var ListSchemasRequest: StaticStructureSchema = [
   0,
   [_Li, _NT, _RN, _SNP],
   [
-    [
-      1,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _l }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sNP,
-      },
-    ],
+    [0, { [_hQ]: _sNP }],
   ],
 ];
 export var ListSchemasResponse: StaticStructureSchema = [
@@ -744,18 +461,8 @@ export var ListSchemaVersionsRequest: StaticStructureSchema = [
   0,
   [_Li, _NT, _RN, _SN],
   [
-    [
-      1,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _l }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
     [0, 1],
   ],
@@ -769,47 +476,11 @@ export var ListSchemaVersionsResponse: StaticStructureSchema = [
   [0, () => __listOfSchemaVersionSummary],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRRi,
-  0,
-  [_T],
-  [
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
-export var PreconditionFailedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PFE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var PreconditionFailedException: StaticErrorSchema = [-3, n0, _PFE, { [_e]: _c, [_hE]: 412 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(PreconditionFailedException, __PreconditionFailedException);
-
 export var PutCodeBindingRequest: StaticStructureSchema = [
   3,
   n0,
@@ -820,12 +491,7 @@ export var PutCodeBindingRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sV,
-      },
-    ],
+    [0, { [_hQ]: _sV }],
   ],
 ];
 export var PutCodeBindingResponse: StaticStructureSchema = [3, n0, _PCBRu, 0, [_CD, _LM, _SV, _St], [5, 5, 0, 0]];
@@ -835,16 +501,7 @@ export var PutResourcePolicyRequest: StaticStructureSchema = [
   _PRPR,
   0,
   [_P, _RN, _RI],
-  [
-    [() => SynthesizedJson__string, 0],
-    [
-      0,
-      {
-        [_hQ]: _rN,
-      },
-    ],
-    0,
-  ],
+  [[() => SynthesizedJson__string, 0], [0, { [_hQ]: _rN }], 0],
 ];
 export var PutResourcePolicyResponse: StaticStructureSchema = [
   3,
@@ -854,41 +511,14 @@ export var PutResourcePolicyResponse: StaticStructureSchema = [
   [_P, _RI],
   [[() => SynthesizedJson__string, 0], 0],
 ];
-export var RegistrySummary: StaticStructureSchema = [
-  3,
-  n0,
-  _RS,
-  0,
-  [_RA, _RN, _T],
-  [
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
+export var RegistrySummary: StaticStructureSchema = [3, n0, _RS, 0, [_RA, _RN, _T], [0, 0, [128 | 0, { [_jN]: _t }]]];
 export var SchemaSummary: StaticStructureSchema = [
   3,
   n0,
   _SS,
   0,
   [_LM, _SAc, _SN, _T, _VC],
-  [
-    5,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    1,
-  ],
+  [5, 0, 0, [128 | 0, { [_jN]: _t }], 1],
 ];
 export var SchemaVersionSummary: StaticStructureSchema = [3, n0, _SVS, 0, [_SAc, _SN, _SV, _Ty], [0, 0, 0, 0]];
 export var SearchSchemasRequest: StaticStructureSchema = [
@@ -898,24 +528,9 @@ export var SearchSchemasRequest: StaticStructureSchema = [
   0,
   [_K, _Li, _NT, _RN],
   [
-    [
-      0,
-      {
-        [_hQ]: _k,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _k }],
+    [1, { [_hQ]: _l }],
+    [0, { [_hQ]: _nT }],
     [0, 1],
   ],
 ];
@@ -936,19 +551,8 @@ export var SearchSchemaSummary: StaticStructureSchema = [
   [0, 0, 0, () => __listOfSearchSchemaVersionSummary],
 ];
 export var SearchSchemaVersionSummary: StaticStructureSchema = [3, n0, _SSVS, 0, [_CDr, _SV, _Ty], [5, 0, 0]];
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var StartDiscovererRequest: StaticStructureSchema = [3, n0, _SDR, 0, [_DI], [[0, 1]]];
 export var StartDiscovererResponse: StaticStructureSchema = [3, n0, _SDRt, 0, [_DI, _S], [0, 0]];
 export var StopDiscovererRequest: StaticStructureSchema = [3, n0, _SDRto, 0, [_DI], [[0, 1]]];
@@ -961,40 +565,13 @@ export var TagResourceRequest: StaticStructureSchema = [
   [_RAe, _T],
   [
     [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_C, _M],
-  [0, 0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_C, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1003,12 +580,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateDiscovererRequest: StaticStructureSchema = [3, n0, _UDR, 0, [_D, _DI, _CA], [0, [0, 1], 2]];
@@ -1018,20 +590,7 @@ export var UpdateDiscovererResponse: StaticStructureSchema = [
   _UDRp,
   0,
   [_D, _DA, _DI, _SA, _S, _CA, _T],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 0, 0, 2, [128 | 0, { [_jN]: _t }]],
 ];
 export var UpdateRegistryRequest: StaticStructureSchema = [3, n0, _URRp, 0, [_D, _RN], [0, [0, 1]]];
 export var UpdateRegistryResponse: StaticStructureSchema = [
@@ -1040,17 +599,7 @@ export var UpdateRegistryResponse: StaticStructureSchema = [
   _URRpd,
   0,
   [_D, _RA, _RN, _T],
-  [
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var UpdateSchemaRequest: StaticStructureSchema = [
   3,
@@ -1066,46 +615,25 @@ export var UpdateSchemaResponse: StaticStructureSchema = [
   _USRp,
   0,
   [_D, _LM, _SAc, _SN, _SV, _T, _Ty, _VCD],
-  [
-    0,
-    5,
-    0,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    0,
-    5,
-  ],
+  [0, 5, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 5],
 ];
 export var __Unit = "unit" as const;
-
 export var SchemasServiceException: StaticErrorSchema = [-3, _sm, "SchemasServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SchemasServiceException, __SchemasServiceException);
-
 export var __listOf__string = 64 | 0;
-
 export var __listOfDiscovererSummary: StaticListSchema = [1, n0, _lODS, 0, [() => DiscovererSummary, 0]];
 export var __listOfGetDiscoveredSchemaVersionItemInput = 64 | 0;
-
 export var __listOfRegistrySummary: StaticListSchema = [1, n0, _lORS, 0, [() => RegistrySummary, 0]];
 export var __listOfSchemaSummary: StaticListSchema = [1, n0, _lOSS, 0, [() => SchemaSummary, 0]];
 export var __listOfSchemaVersionSummary: StaticListSchema = [1, n0, _lOSVS, 0, () => SchemaVersionSummary];
 export var __listOfSearchSchemaSummary: StaticListSchema = [1, n0, _lOSSS, 0, () => SearchSchemaSummary];
 export var __listOfSearchSchemaVersionSummary: StaticListSchema = [1, n0, _lOSSVS, 0, () => SearchSchemaVersionSummary];
 export var Tags = 128 | 0;
-
 export var CreateDiscoverer: StaticOperationSchema = [
   9,
   n0,
   _CDre,
-  {
-    [_h]: ["POST", "/v1/discoverers", 201],
-  },
+  { [_h]: ["POST", "/v1/discoverers", 201] },
   () => CreateDiscovererRequest,
   () => CreateDiscovererResponse,
 ];
@@ -1113,9 +641,7 @@ export var CreateRegistry: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/v1/registries/name/{RegistryName}", 201],
-  },
+  { [_h]: ["POST", "/v1/registries/name/{RegistryName}", 201] },
   () => CreateRegistryRequest,
   () => CreateRegistryResponse,
 ];
@@ -1123,9 +649,7 @@ export var CreateSchema: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  {
-    [_h]: ["POST", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 201],
-  },
+  { [_h]: ["POST", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 201] },
   () => CreateSchemaRequest,
   () => CreateSchemaResponse,
 ];
@@ -1133,9 +657,7 @@ export var DeleteDiscoverer: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/v1/discoverers/id/{DiscovererId}", 204],
-  },
+  { [_h]: ["DELETE", "/v1/discoverers/id/{DiscovererId}", 204] },
   () => DeleteDiscovererRequest,
   () => __Unit,
 ];
@@ -1143,9 +665,7 @@ export var DeleteRegistry: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/v1/registries/name/{RegistryName}", 204],
-  },
+  { [_h]: ["DELETE", "/v1/registries/name/{RegistryName}", 204] },
   () => DeleteRegistryRequest,
   () => __Unit,
 ];
@@ -1153,9 +673,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["DELETE", "/v1/policy", 204],
-  },
+  { [_h]: ["DELETE", "/v1/policy", 204] },
   () => DeleteResourcePolicyRequest,
   () => __Unit,
 ];
@@ -1163,9 +681,7 @@ export var DeleteSchema: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["DELETE", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 204],
-  },
+  { [_h]: ["DELETE", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 204] },
   () => DeleteSchemaRequest,
   () => __Unit,
 ];
@@ -1173,9 +689,7 @@ export var DeleteSchemaVersion: StaticOperationSchema = [
   9,
   n0,
   _DSV,
-  {
-    [_h]: ["DELETE", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}", 204],
-  },
+  { [_h]: ["DELETE", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}", 204] },
   () => DeleteSchemaVersionRequest,
   () => __Unit,
 ];
@@ -1183,9 +697,7 @@ export var DescribeCodeBinding: StaticOperationSchema = [
   9,
   n0,
   _DCB,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}", 200] },
   () => DescribeCodeBindingRequest,
   () => DescribeCodeBindingResponse,
 ];
@@ -1193,9 +705,7 @@ export var DescribeDiscoverer: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["GET", "/v1/discoverers/id/{DiscovererId}", 200],
-  },
+  { [_h]: ["GET", "/v1/discoverers/id/{DiscovererId}", 200] },
   () => DescribeDiscovererRequest,
   () => DescribeDiscovererResponse,
 ];
@@ -1203,9 +713,7 @@ export var DescribeRegistry: StaticOperationSchema = [
   9,
   n0,
   _DRe,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}", 200] },
   () => DescribeRegistryRequest,
   () => DescribeRegistryResponse,
 ];
@@ -1213,9 +721,7 @@ export var DescribeSchema: StaticOperationSchema = [
   9,
   n0,
   _DSes,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 200] },
   () => DescribeSchemaRequest,
   () => DescribeSchemaResponse,
 ];
@@ -1223,9 +729,7 @@ export var ExportSchema: StaticOperationSchema = [
   9,
   n0,
   _ES,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export", 200] },
   () => ExportSchemaRequest,
   () => ExportSchemaResponse,
 ];
@@ -1233,9 +737,7 @@ export var GetCodeBindingSource: StaticOperationSchema = [
   9,
   n0,
   _GCBS,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source", 200] },
   () => GetCodeBindingSourceRequest,
   () => GetCodeBindingSourceResponse,
 ];
@@ -1243,9 +745,7 @@ export var GetDiscoveredSchema: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_h]: ["POST", "/v1/discover", 200],
-  },
+  { [_h]: ["POST", "/v1/discover", 200] },
   () => GetDiscoveredSchemaRequest,
   () => GetDiscoveredSchemaResponse,
 ];
@@ -1253,9 +753,7 @@ export var GetResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/v1/policy", 200],
-  },
+  { [_h]: ["GET", "/v1/policy", 200] },
   () => GetResourcePolicyRequest,
   () => GetResourcePolicyResponse,
 ];
@@ -1263,9 +761,7 @@ export var ListDiscoverers: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/v1/discoverers", 200],
-  },
+  { [_h]: ["GET", "/v1/discoverers", 200] },
   () => ListDiscoverersRequest,
   () => ListDiscoverersResponse,
 ];
@@ -1273,9 +769,7 @@ export var ListRegistries: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/v1/registries", 200],
-  },
+  { [_h]: ["GET", "/v1/registries", 200] },
   () => ListRegistriesRequest,
   () => ListRegistriesResponse,
 ];
@@ -1283,9 +777,7 @@ export var ListSchemas: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas", 200] },
   () => ListSchemasRequest,
   () => ListSchemasResponse,
 ];
@@ -1293,9 +785,7 @@ export var ListSchemaVersions: StaticOperationSchema = [
   9,
   n0,
   _LSV,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions", 200] },
   () => ListSchemaVersionsRequest,
   () => ListSchemaVersionsResponse,
 ];
@@ -1303,9 +793,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1313,9 +801,7 @@ export var PutCodeBinding: StaticOperationSchema = [
   9,
   n0,
   _PCB,
-  {
-    [_h]: ["POST", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}", 202],
-  },
+  { [_h]: ["POST", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}", 202] },
   () => PutCodeBindingRequest,
   () => PutCodeBindingResponse,
 ];
@@ -1323,9 +809,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["PUT", "/v1/policy", 200],
-  },
+  { [_h]: ["PUT", "/v1/policy", 200] },
   () => PutResourcePolicyRequest,
   () => PutResourcePolicyResponse,
 ];
@@ -1333,9 +817,7 @@ export var SearchSchemas: StaticOperationSchema = [
   9,
   n0,
   _SSe,
-  {
-    [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/search", 200],
-  },
+  { [_h]: ["GET", "/v1/registries/name/{RegistryName}/schemas/search", 200] },
   () => SearchSchemasRequest,
   () => SearchSchemasResponse,
 ];
@@ -1343,9 +825,7 @@ export var StartDiscoverer: StaticOperationSchema = [
   9,
   n0,
   _SD,
-  {
-    [_h]: ["POST", "/v1/discoverers/id/{DiscovererId}/start", 200],
-  },
+  { [_h]: ["POST", "/v1/discoverers/id/{DiscovererId}/start", 200] },
   () => StartDiscovererRequest,
   () => StartDiscovererResponse,
 ];
@@ -1353,9 +833,7 @@ export var StopDiscoverer: StaticOperationSchema = [
   9,
   n0,
   _SDt,
-  {
-    [_h]: ["POST", "/v1/discoverers/id/{DiscovererId}/stop", 200],
-  },
+  { [_h]: ["POST", "/v1/discoverers/id/{DiscovererId}/stop", 200] },
   () => StopDiscovererRequest,
   () => StopDiscovererResponse,
 ];
@@ -1363,9 +841,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -1373,9 +849,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -1383,9 +857,7 @@ export var UpdateDiscoverer: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PUT", "/v1/discoverers/id/{DiscovererId}", 200],
-  },
+  { [_h]: ["PUT", "/v1/discoverers/id/{DiscovererId}", 200] },
   () => UpdateDiscovererRequest,
   () => UpdateDiscovererResponse,
 ];
@@ -1393,9 +865,7 @@ export var UpdateRegistry: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["PUT", "/v1/registries/name/{RegistryName}", 200],
-  },
+  { [_h]: ["PUT", "/v1/registries/name/{RegistryName}", 200] },
   () => UpdateRegistryRequest,
   () => UpdateRegistryResponse,
 ];
@@ -1403,9 +873,7 @@ export var UpdateSchema: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 200],
-  },
+  { [_h]: ["PUT", "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}", 200] },
   () => UpdateSchemaRequest,
   () => UpdateSchemaResponse,
 ];

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import type {
+  ComputeOptimizerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExportIdleRecommendationsRequest, ExportIdleRecommendationsResponse } from "../models/models_0";
+import type { ExportIdleRecommendationsRequest, ExportIdleRecommendationsResponse } from "../models/models_0";
 import { ExportIdleRecommendations } from "../schemas/schemas_0";
 
 /**
@@ -56,7 +60,7 @@ export interface ExportIdleRecommendationsCommandOutput extends ExportIdleRecomm
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableIdleFields
- *     "AccountId" || "ResourceArn" || "ResourceId" || "ResourceType" || "LastRefreshTimestamp" || "LookbackPeriodInDays" || "SavingsOpportunity" || "SavingsOpportunityAfterDiscount" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsNetworkOutBytesPerSecondMaximum" || "UtilizationMetricsNetworkInBytesPerSecondMaximum" || "UtilizationMetricsDatabaseConnectionsMaximum" || "UtilizationMetricsEBSVolumeReadIOPSMaximum" || "UtilizationMetricsEBSVolumeWriteIOPSMaximum" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "Finding" || "FindingDescription" || "Tags",
+ *     "AccountId" || "ResourceArn" || "ResourceId" || "ResourceType" || "LastRefreshTimestamp" || "LookbackPeriodInDays" || "SavingsOpportunity" || "SavingsOpportunityAfterDiscount" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsNetworkOutBytesPerSecondMaximum" || "UtilizationMetricsNetworkInBytesPerSecondMaximum" || "UtilizationMetricsDatabaseConnectionsMaximum" || "UtilizationMetricsEBSVolumeReadIOPSMaximum" || "UtilizationMetricsEBSVolumeWriteIOPSMaximum" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsActiveConnectionCountMaximum" || "UtilizationMetricsPacketsInFromSourceMaximum" || "UtilizationMetricsPacketsInFromDestinationMaximum" || "Finding" || "FindingDescription" || "Tags",
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",

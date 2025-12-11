@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { JSONRPC10ClientConfig } from "./JSONRPC10Client";
+import type { JSONRPC10ClientConfig } from "./JSONRPC10Client";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchPredefinedAttributesResponse } from "../models/models_2";
-import { SearchPredefinedAttributesRequest } from "../models/models_3";
+import type { SearchPredefinedAttributesResponse } from "../models/models_2";
+import type { SearchPredefinedAttributesRequest } from "../models/models_3";
 import { SearchPredefinedAttributes } from "../schemas/schemas_0";
 
 /**
@@ -28,25 +28,23 @@ export interface SearchPredefinedAttributesCommandInput extends SearchPredefined
 export interface SearchPredefinedAttributesCommandOutput extends SearchPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches predefined attributes that meet certain criteria. A <i>predefined
- *     attribute</i> is made up of a name and a value. You can use predefined attributes
- *    for:</p>
+ * <p>Searches predefined attributes that meet certain criteria. A <i>predefined attribute</i> is made
+ *    up of a name and a value. You can use predefined attributes for:</p>
  *          <ul>
  *             <li>
- *                <p>Routing proficiency (for example, agent certification) that has predefined values (for
- *      example, a list of possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
- *       predefined attributes for routing contacts to agents</a>.</p>
+ *                <p>Routing proficiency (for example, agent certification) that has predefined values (for example, a list of
+ *      possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create predefined attributes for routing contacts to
+ *       agents</a>.</p>
  *             </li>
  *             <li>
- *                <p>Contact information that varies between transfers or conferences, such as the name of the
- *      business unit handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment
- *       attributes</a>.</p>
+ *                <p>Contact information that varies between transfers or conferences, such as the name of the business unit
+ *      handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment attributes</a>.</p>
  *             </li>
  *          </ul>
- *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect quotas</a>.</p>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
+ *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect
  *    quotas</a>.</p>
+ *          <p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

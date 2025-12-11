@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { FunctionConfiguration, UpdateFunctionConfigurationRequest } from "../models/models_0";
+import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import type { FunctionConfiguration, UpdateFunctionConfigurationRequest } from "../models/models_0";
 import { UpdateFunctionConfiguration } from "../schemas/schemas_0";
 
 /**
@@ -96,6 +96,17 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  *     LogGroup: "STRING_VALUE",
  *   },
+ *   CapacityProviderConfig: { // CapacityProviderConfig
+ *     LambdaManagedInstancesCapacityProviderConfig: { // LambdaManagedInstancesCapacityProviderConfig
+ *       CapacityProviderArn: "STRING_VALUE", // required
+ *       PerExecutionEnvironmentMaxConcurrency: Number("int"),
+ *       ExecutionEnvironmentMemoryGiBPerVCpu: Number("double"),
+ *     },
+ *   },
+ *   DurableConfig: { // DurableConfig
+ *     RetentionPeriodInDays: Number("int"),
+ *     ExecutionTimeout: Number("int"),
+ *   },
  * };
  * const command = new UpdateFunctionConfigurationCommand(input);
  * const response = await client.send(command);
@@ -148,12 +159,12 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * //       SigningJobArn: "STRING_VALUE",
  * //     },
  * //   ],
- * //   State: "Pending" || "Active" || "Inactive" || "Failed",
+ * //   State: "Pending" || "Active" || "Inactive" || "Failed" || "Deactivating" || "Deactivated" || "ActiveNonInvocable" || "Deleting",
  * //   StateReason: "STRING_VALUE",
- * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError",
+ * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "DrainingDurableExecutions" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl",
  * //   LastUpdateStatus: "Successful" || "Failed" || "InProgress",
  * //   LastUpdateStatusReason: "STRING_VALUE",
- * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError",
+ * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl",
  * //   FileSystemConfigs: [ // FileSystemConfigList
  * //     { // FileSystemConfig
  * //       Arn: "STRING_VALUE", // required
@@ -200,6 +211,18 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * //     ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
  * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  * //     LogGroup: "STRING_VALUE",
+ * //   },
+ * //   CapacityProviderConfig: { // CapacityProviderConfig
+ * //     LambdaManagedInstancesCapacityProviderConfig: { // LambdaManagedInstancesCapacityProviderConfig
+ * //       CapacityProviderArn: "STRING_VALUE", // required
+ * //       PerExecutionEnvironmentMaxConcurrency: Number("int"),
+ * //       ExecutionEnvironmentMemoryGiBPerVCpu: Number("double"),
+ * //     },
+ * //   },
+ * //   ConfigSha256: "STRING_VALUE",
+ * //   DurableConfig: { // DurableConfig
+ * //     RetentionPeriodInDays: Number("int"),
+ * //     ExecutionTimeout: Number("int"),
  * //   },
  * //   TenancyConfig: { // TenancyConfig
  * //     TenantIsolationMode: "PER_TENANT", // required
@@ -249,6 +272,10 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * ```javascript
  * // The following example modifies the memory size to be 256 MB for the unpublished ($LATEST) version of a function named my-function.
  * const input = {
+ *   DurableConfig: {
+ *     ExecutionTimeout: 3600,
+ *     RetentionPeriodInDays: 45
+ *   },
  *   FunctionName: "my-function",
  *   MemorySize: 256
  * };
@@ -259,6 +286,10 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *   CodeSha256: "PFn4S+er27qk+UuZSTKEQfNKG/XNn7QJs90mJgq6oH8=",
  *   CodeSize: 308,
  *   Description: "",
+ *   DurableConfig: {
+ *     ExecutionTimeout: 3600,
+ *     RetentionPeriodInDays: 45
+ *   },
  *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function",
  *   FunctionName: "my-function",
  *   Handler: "index.handler",

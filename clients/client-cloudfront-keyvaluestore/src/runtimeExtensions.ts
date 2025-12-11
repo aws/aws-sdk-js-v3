@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { CloudFrontKeyValueStoreExtensionConfiguration } from "./extensionConfiguration";
+import type { CloudFrontKeyValueStoreExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

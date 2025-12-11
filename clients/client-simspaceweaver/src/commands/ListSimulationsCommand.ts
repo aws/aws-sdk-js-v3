@@ -1,12 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSimulationsInput, ListSimulationsOutput } from "../models/models_0";
+import type { ListSimulationsInput, ListSimulationsOutput } from "../models/models_0";
 import { ListSimulations } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
+import type {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  SimSpaceWeaverClientResolvedConfig,
+} from "../SimSpaceWeaverClient";
 
 /**
  * @public

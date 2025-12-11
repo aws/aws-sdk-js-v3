@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
+import type {
+  BedrockAgentCoreClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RetrieveMemoryRecordsInput, RetrieveMemoryRecordsOutput } from "../models/models_0";
+import type { RetrieveMemoryRecordsInput, RetrieveMemoryRecordsOutput } from "../models/models_0";
 import { RetrieveMemoryRecords } from "../schemas/schemas_0";
 
 /**
@@ -43,6 +47,19 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  *     searchQuery: "STRING_VALUE", // required
  *     memoryStrategyId: "STRING_VALUE",
  *     topK: Number("int"),
+ *     metadataFilters: [ // MemoryMetadataFilterList
+ *       { // MemoryMetadataFilterExpression
+ *         left: { // LeftExpression Union: only one key present
+ *           metadataKey: "STRING_VALUE",
+ *         },
+ *         operator: "EQUALS_TO" || "EXISTS" || "NOT_EXISTS", // required
+ *         right: { // RightExpression Union: only one key present
+ *           metadataValue: { // MetadataValue Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -62,6 +79,11 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  * //       ],
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       score: Number("double"),
+ * //       metadata: { // MetadataMap
+ * //         "<keys>": { // MetadataValue Union: only one key present
+ * //           stringValue: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

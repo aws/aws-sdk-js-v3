@@ -2,11 +2,11 @@
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetBucketEncryptionOutput, GetBucketEncryptionRequest } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { GetBucketEncryptionOutput, GetBucketEncryptionRequest } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketEncryption } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,7 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
 
 /**
  * <p>Returns the default encryption configuration for an Amazon S3 bucket. By default, all buckets have a
- *       default encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). This operation also returns the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_BucketKeyEnabled.html">BucketKeyEnabled</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_BlockedEncryptionTypes.html">BlockedEncryptionTypes</a> statuses. </p>
+ *       default encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). This operation also returns the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ServerSideEncryptionRule.html#AmazonS3-Type-ServerSideEncryptionRule-BucketKeyEnabled">BucketKeyEnabled</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ServerSideEncryptionRule.html#AmazonS3-Type-ServerSideEncryptionRule-BlockedEncryptionTypes">BlockedEncryptionTypes</a> statuses. </p>
  *          <note>
  *             <ul>
  *                <li>

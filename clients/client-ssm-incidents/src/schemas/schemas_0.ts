@@ -298,7 +298,7 @@ const n0 = "com.amazonaws.ssmincidents";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -318,20 +318,8 @@ import {
 import { SSMIncidentsServiceException as __SSMIncidentsServiceException } from "../models/SSMIncidentsServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AddRegionAction: StaticStructureSchema = [3, n0, _ARA, 0, [_rN, _sKKI], [0, 0]];
 export var BatchGetIncidentFindingsError: StaticStructureSchema = [3, n0, _BGIFE, 0, [_fI, _co, _m], [0, 0, 0]];
 export var BatchGetIncidentFindingsInput: StaticStructureSchema = [3, n0, _BGIFI, 0, [_iRA, _fIi], [0, 64 | 0]];
@@ -349,15 +337,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT, _rA],
   [0, 0, 0, 4],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateReplicationSetInput: StaticStructureSchema = [
   3,
   n0,
@@ -388,21 +372,7 @@ export var CreateTimelineEventOutput: StaticStructureSchema = [3, n0, _CTEO, 0, 
 export var DeleteIncidentRecordInput: StaticStructureSchema = [3, n0, _DIRI, 0, [_a], [0]];
 export var DeleteIncidentRecordOutput: StaticStructureSchema = [3, n0, _DIRO, 0, [], []];
 export var DeleteRegionAction: StaticStructureSchema = [3, n0, _DRA, 0, [_rN], [0]];
-export var DeleteReplicationSetInput: StaticStructureSchema = [
-  3,
-  n0,
-  _DRSI,
-  0,
-  [_a],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var DeleteReplicationSetInput: StaticStructureSchema = [3, n0, _DRSI, 0, [_a], [[0, { [_hQ]: _a }]]];
 export var DeleteReplicationSetOutput: StaticStructureSchema = [3, n0, _DRSO, 0, [], []];
 export var DeleteResourcePolicyInput: StaticStructureSchema = [3, n0, _DRPI, 0, [_rAe, _pI], [0, 0]];
 export var DeleteResourcePolicyOutput: StaticStructureSchema = [3, n0, _DRPO, 0, [], []];
@@ -422,37 +392,9 @@ export var EventSummary: StaticStructureSchema = [
 export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_k, _con], [0, () => Condition]];
 export var Finding: StaticStructureSchema = [3, n0, _Fi, 0, [_id, _cTr, _lMT, _d], [0, 4, 4, () => FindingDetails]];
 export var FindingSummary: StaticStructureSchema = [3, n0, _FS, 0, [_id, _lMT], [0, 4]];
-export var GetIncidentRecordInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GIRI,
-  0,
-  [_a],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var GetIncidentRecordInput: StaticStructureSchema = [3, n0, _GIRI, 0, [_a], [[0, { [_hQ]: _a }]]];
 export var GetIncidentRecordOutput: StaticStructureSchema = [3, n0, _GIRO, 0, [_iR], [() => IncidentRecord]];
-export var GetReplicationSetInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GRSI,
-  0,
-  [_a],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var GetReplicationSetInput: StaticStructureSchema = [3, n0, _GRSI, 0, [_a], [[0, { [_hQ]: _a }]]];
 export var GetReplicationSetOutput: StaticStructureSchema = [3, n0, _GRSO, 0, [_rS], [() => ReplicationSet]];
 export var GetResourcePoliciesInput: StaticStructureSchema = [
   3,
@@ -460,16 +402,7 @@ export var GetResourcePoliciesInput: StaticStructureSchema = [
   _GRPI,
   0,
   [_rAe, _mR, _nT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rAe,
-      },
-    ],
-    1,
-    0,
-  ],
+  [[0, { [_hQ]: _rAe }], 1, 0],
 ];
 export var GetResourcePoliciesOutput: StaticStructureSchema = [
   3,
@@ -479,21 +412,7 @@ export var GetResourcePoliciesOutput: StaticStructureSchema = [
   [_rP, _nT],
   [() => ResourcePolicyList, 0],
 ];
-export var GetResponsePlanInput: StaticStructureSchema = [
-  3,
-  n0,
-  _GRPIe,
-  0,
-  [_a],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var GetResponsePlanInput: StaticStructureSchema = [3, n0, _GRPIe, 0, [_a], [[0, { [_hQ]: _a }]]];
 export var GetResponsePlanOutput: StaticStructureSchema = [
   3,
   n0,
@@ -509,18 +428,8 @@ export var GetTimelineEventInput: StaticStructureSchema = [
   0,
   [_iRA, _eI],
   [
-    [
-      0,
-      {
-        [_hQ]: _iRA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _eI,
-      },
-    ],
+    [0, { [_hQ]: _iRA }],
+    [0, { [_hQ]: _eI }],
   ],
 ];
 export var GetTimelineEventOutput: StaticStructureSchema = [3, n0, _GTEO, 0, [_ev], [() => TimelineEvent]];
@@ -564,19 +473,8 @@ export var IncidentTemplate: StaticStructureSchema = [
   [_ti, _im, _s, _dS, _nTo, _iTn],
   [0, 1, 0, 0, () => NotificationTargetSet, 128 | 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ItemIdentifier: StaticStructureSchema = [3, n0, _II, 0, [_v, _ty], [() => ItemValue, 0]];
 export var ListIncidentFindingsInput: StaticStructureSchema = [3, n0, _LIFI, 0, [_iRA, _mR, _nT], [0, 1, 0]];
 export var ListIncidentFindingsOutput: StaticStructureSchema = [
@@ -654,30 +552,22 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePolicy: StaticStructureSchema = [3, n0, _RP, 0, [_pD, _pI, _rRSR], [0, 0, 0]];
 export var ResponsePlanSummary: StaticStructureSchema = [3, n0, _RPS, 0, [_a, _n, _dN], [0, 0, 0]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SsmAutomation: StaticStructureSchema = [
   3,
   n0,
@@ -697,19 +587,8 @@ export var StartIncidentInput: StaticStructureSchema = [
 export var StartIncidentOutput: StaticStructureSchema = [3, n0, _SIO, 0, [_iRA], [0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m, _sC, _qC],
-  [0, 0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m, _sC, _qC], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimelineEvent: StaticStructureSchema = [
   3,
   n0,
@@ -727,12 +606,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -797,22 +671,10 @@ export var UpdateTimelineEventInput: StaticStructureSchema = [
   [[0, 4], 0, 0, 4, 0, 0, () => EventReferenceList],
 ];
 export var UpdateTimelineEventOutput: StaticStructureSchema = [3, n0, _UTEO, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var SSMIncidentsServiceException: StaticErrorSchema = [-3, _sm, "SSMIncidentsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMIncidentsServiceException, __SSMIncidentsServiceException);
-
 export var ActionsList: StaticListSchema = [1, n0, _AL, 0, () => Action];
 export var AutomationExecutionSet: StaticListSchema = [1, n0, _AES, 0, () => AutomationExecution];
 export var BatchGetIncidentFindingsErrorList: StaticListSchema = [
@@ -823,41 +685,31 @@ export var BatchGetIncidentFindingsErrorList: StaticListSchema = [
   () => BatchGetIncidentFindingsError,
 ];
 export var ChatbotSnsConfigurationSet = 64 | 0;
-
 export var EngagementSet = 64 | 0;
-
 export var EventReferenceList: StaticListSchema = [1, n0, _ERL, 0, () => EventReference];
 export var EventSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EventSummary];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FindingIdList = 64 | 0;
-
 export var FindingList: StaticListSchema = [1, n0, _FLi, 0, () => Finding];
 export var FindingSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FindingSummary];
 export var IncidentRecordSummaryList: StaticListSchema = [1, n0, _IRSL, 0, () => IncidentRecordSummary];
 export var IntegerList = 64 | 1;
-
 export var Integrations: StaticListSchema = [1, n0, _I, 0, () => Integration];
 export var NotificationTargetSet: StaticListSchema = [1, n0, _NTS, 0, () => NotificationTargetItem];
 export var RelatedItemList: StaticListSchema = [1, n0, _RIL, 0, () => RelatedItem];
 export var ReplicationSetArnList = 64 | 0;
-
 export var ResourcePolicyList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePolicy];
 export var ResponsePlanSummaryList: StaticListSchema = [1, n0, _RPSL, 0, () => ResponsePlanSummary];
 export var SsmParameterValues = 64 | 0;
-
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var UpdateActionList: StaticListSchema = [1, n0, _UAL, 0, () => UpdateReplicationSetAction];
 export var DynamicSsmParameters: StaticMapSchema = [2, n0, _DSP, 0, 0, () => DynamicSsmParameterValue];
 export var RegionInfoMap: StaticMapSchema = [2, n0, _RIM, 0, 0, () => RegionInfo];
 export var RegionMapInput: StaticMapSchema = [2, n0, _RMI, 0, 0, () => RegionMapInputValue];
 export var SsmParameters: StaticMapSchema = [2, n0, _SP, 0, 0, 64 | 0];
 export var TagMap = 128 | 0;
-
 export var TagMapUpdate = 128 | 0;
-
 export var Action: StaticStructureSchema = [3, n0, _A, 0, [_sAs], [() => SsmAutomation]];
 export var AttributeValueList: StaticStructureSchema = [3, n0, _AVL, 0, [_sV, _iV], [64 | 0, 64 | 1]];
 export var AutomationExecution: StaticStructureSchema = [3, n0, _AE, 0, [_sEA], [0]];
@@ -903,9 +755,7 @@ export var BatchGetIncidentFindings: StaticOperationSchema = [
   9,
   n0,
   _BGIF,
-  {
-    [_h]: ["POST", "/batchGetIncidentFindings", 200],
-  },
+  { [_h]: ["POST", "/batchGetIncidentFindings", 200] },
   () => BatchGetIncidentFindingsInput,
   () => BatchGetIncidentFindingsOutput,
 ];
@@ -913,9 +763,7 @@ export var CreateReplicationSet: StaticOperationSchema = [
   9,
   n0,
   _CRS,
-  {
-    [_h]: ["POST", "/createReplicationSet", 201],
-  },
+  { [_h]: ["POST", "/createReplicationSet", 201] },
   () => CreateReplicationSetInput,
   () => CreateReplicationSetOutput,
 ];
@@ -923,9 +771,7 @@ export var CreateResponsePlan: StaticOperationSchema = [
   9,
   n0,
   _CRP,
-  {
-    [_h]: ["POST", "/createResponsePlan", 201],
-  },
+  { [_h]: ["POST", "/createResponsePlan", 201] },
   () => CreateResponsePlanInput,
   () => CreateResponsePlanOutput,
 ];
@@ -933,9 +779,7 @@ export var CreateTimelineEvent: StaticOperationSchema = [
   9,
   n0,
   _CTE,
-  {
-    [_h]: ["POST", "/createTimelineEvent", 201],
-  },
+  { [_h]: ["POST", "/createTimelineEvent", 201] },
   () => CreateTimelineEventInput,
   () => CreateTimelineEventOutput,
 ];
@@ -943,9 +787,7 @@ export var DeleteIncidentRecord: StaticOperationSchema = [
   9,
   n0,
   _DIR,
-  {
-    [_h]: ["POST", "/deleteIncidentRecord", 204],
-  },
+  { [_h]: ["POST", "/deleteIncidentRecord", 204] },
   () => DeleteIncidentRecordInput,
   () => DeleteIncidentRecordOutput,
 ];
@@ -953,9 +795,7 @@ export var DeleteReplicationSet: StaticOperationSchema = [
   9,
   n0,
   _DRS,
-  {
-    [_h]: ["POST", "/deleteReplicationSet", 204],
-  },
+  { [_h]: ["POST", "/deleteReplicationSet", 204] },
   () => DeleteReplicationSetInput,
   () => DeleteReplicationSetOutput,
 ];
@@ -963,9 +803,7 @@ export var DeleteResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _DRP,
-  {
-    [_h]: ["POST", "/deleteResourcePolicy", 200],
-  },
+  { [_h]: ["POST", "/deleteResourcePolicy", 200] },
   () => DeleteResourcePolicyInput,
   () => DeleteResourcePolicyOutput,
 ];
@@ -973,9 +811,7 @@ export var DeleteResponsePlan: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
-  {
-    [_h]: ["POST", "/deleteResponsePlan", 204],
-  },
+  { [_h]: ["POST", "/deleteResponsePlan", 204] },
   () => DeleteResponsePlanInput,
   () => DeleteResponsePlanOutput,
 ];
@@ -983,9 +819,7 @@ export var DeleteTimelineEvent: StaticOperationSchema = [
   9,
   n0,
   _DTE,
-  {
-    [_h]: ["POST", "/deleteTimelineEvent", 204],
-  },
+  { [_h]: ["POST", "/deleteTimelineEvent", 204] },
   () => DeleteTimelineEventInput,
   () => DeleteTimelineEventOutput,
 ];
@@ -993,9 +827,7 @@ export var GetIncidentRecord: StaticOperationSchema = [
   9,
   n0,
   _GIR,
-  {
-    [_h]: ["GET", "/getIncidentRecord", 200],
-  },
+  { [_h]: ["GET", "/getIncidentRecord", 200] },
   () => GetIncidentRecordInput,
   () => GetIncidentRecordOutput,
 ];
@@ -1003,9 +835,7 @@ export var GetReplicationSet: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  {
-    [_h]: ["GET", "/getReplicationSet", 200],
-  },
+  { [_h]: ["GET", "/getReplicationSet", 200] },
   () => GetReplicationSetInput,
   () => GetReplicationSetOutput,
 ];
@@ -1013,9 +843,7 @@ export var GetResourcePolicies: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["POST", "/getResourcePolicies", 200],
-  },
+  { [_h]: ["POST", "/getResourcePolicies", 200] },
   () => GetResourcePoliciesInput,
   () => GetResourcePoliciesOutput,
 ];
@@ -1023,9 +851,7 @@ export var GetResponsePlan: StaticOperationSchema = [
   9,
   n0,
   _GRPe,
-  {
-    [_h]: ["GET", "/getResponsePlan", 200],
-  },
+  { [_h]: ["GET", "/getResponsePlan", 200] },
   () => GetResponsePlanInput,
   () => GetResponsePlanOutput,
 ];
@@ -1033,9 +859,7 @@ export var GetTimelineEvent: StaticOperationSchema = [
   9,
   n0,
   _GTE,
-  {
-    [_h]: ["GET", "/getTimelineEvent", 200],
-  },
+  { [_h]: ["GET", "/getTimelineEvent", 200] },
   () => GetTimelineEventInput,
   () => GetTimelineEventOutput,
 ];
@@ -1043,9 +867,7 @@ export var ListIncidentFindings: StaticOperationSchema = [
   9,
   n0,
   _LIF,
-  {
-    [_h]: ["POST", "/listIncidentFindings", 200],
-  },
+  { [_h]: ["POST", "/listIncidentFindings", 200] },
   () => ListIncidentFindingsInput,
   () => ListIncidentFindingsOutput,
 ];
@@ -1053,9 +875,7 @@ export var ListIncidentRecords: StaticOperationSchema = [
   9,
   n0,
   _LIR,
-  {
-    [_h]: ["POST", "/listIncidentRecords", 200],
-  },
+  { [_h]: ["POST", "/listIncidentRecords", 200] },
   () => ListIncidentRecordsInput,
   () => ListIncidentRecordsOutput,
 ];
@@ -1063,9 +883,7 @@ export var ListRelatedItems: StaticOperationSchema = [
   9,
   n0,
   _LRI,
-  {
-    [_h]: ["POST", "/listRelatedItems", 200],
-  },
+  { [_h]: ["POST", "/listRelatedItems", 200] },
   () => ListRelatedItemsInput,
   () => ListRelatedItemsOutput,
 ];
@@ -1073,9 +891,7 @@ export var ListReplicationSets: StaticOperationSchema = [
   9,
   n0,
   _LRS,
-  {
-    [_h]: ["POST", "/listReplicationSets", 200],
-  },
+  { [_h]: ["POST", "/listReplicationSets", 200] },
   () => ListReplicationSetsInput,
   () => ListReplicationSetsOutput,
 ];
@@ -1083,9 +899,7 @@ export var ListResponsePlans: StaticOperationSchema = [
   9,
   n0,
   _LRP,
-  {
-    [_h]: ["POST", "/listResponsePlans", 200],
-  },
+  { [_h]: ["POST", "/listResponsePlans", 200] },
   () => ListResponsePlansInput,
   () => ListResponsePlansOutput,
 ];
@@ -1093,9 +907,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1103,9 +915,7 @@ export var ListTimelineEvents: StaticOperationSchema = [
   9,
   n0,
   _LTE,
-  {
-    [_h]: ["POST", "/listTimelineEvents", 200],
-  },
+  { [_h]: ["POST", "/listTimelineEvents", 200] },
   () => ListTimelineEventsInput,
   () => ListTimelineEventsOutput,
 ];
@@ -1113,9 +923,7 @@ export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
   _PRP,
-  {
-    [_h]: ["POST", "/putResourcePolicy", 200],
-  },
+  { [_h]: ["POST", "/putResourcePolicy", 200] },
   () => PutResourcePolicyInput,
   () => PutResourcePolicyOutput,
 ];
@@ -1123,9 +931,7 @@ export var StartIncident: StaticOperationSchema = [
   9,
   n0,
   _SI,
-  {
-    [_h]: ["POST", "/startIncident", 200],
-  },
+  { [_h]: ["POST", "/startIncident", 200] },
   () => StartIncidentInput,
   () => StartIncidentOutput,
 ];
@@ -1133,9 +939,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1143,9 +947,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1153,9 +955,7 @@ export var UpdateDeletionProtection: StaticOperationSchema = [
   9,
   n0,
   _UDP,
-  {
-    [_h]: ["POST", "/updateDeletionProtection", 204],
-  },
+  { [_h]: ["POST", "/updateDeletionProtection", 204] },
   () => UpdateDeletionProtectionInput,
   () => UpdateDeletionProtectionOutput,
 ];
@@ -1163,9 +963,7 @@ export var UpdateIncidentRecord: StaticOperationSchema = [
   9,
   n0,
   _UIR,
-  {
-    [_h]: ["POST", "/updateIncidentRecord", 204],
-  },
+  { [_h]: ["POST", "/updateIncidentRecord", 204] },
   () => UpdateIncidentRecordInput,
   () => UpdateIncidentRecordOutput,
 ];
@@ -1173,9 +971,7 @@ export var UpdateRelatedItems: StaticOperationSchema = [
   9,
   n0,
   _URI,
-  {
-    [_h]: ["POST", "/updateRelatedItems", 204],
-  },
+  { [_h]: ["POST", "/updateRelatedItems", 204] },
   () => UpdateRelatedItemsInput,
   () => UpdateRelatedItemsOutput,
 ];
@@ -1183,9 +979,7 @@ export var UpdateReplicationSet: StaticOperationSchema = [
   9,
   n0,
   _URS,
-  {
-    [_h]: ["POST", "/updateReplicationSet", 204],
-  },
+  { [_h]: ["POST", "/updateReplicationSet", 204] },
   () => UpdateReplicationSetInput,
   () => UpdateReplicationSetOutput,
 ];
@@ -1193,9 +987,7 @@ export var UpdateResponsePlan: StaticOperationSchema = [
   9,
   n0,
   _URP,
-  {
-    [_h]: ["POST", "/updateResponsePlan", 204],
-  },
+  { [_h]: ["POST", "/updateResponsePlan", 204] },
   () => UpdateResponsePlanInput,
   () => UpdateResponsePlanOutput,
 ];
@@ -1203,9 +995,7 @@ export var UpdateTimelineEvent: StaticOperationSchema = [
   9,
   n0,
   _UTE,
-  {
-    [_h]: ["POST", "/updateTimelineEvent", 204],
-  },
+  { [_h]: ["POST", "/updateTimelineEvent", 204] },
   () => UpdateTimelineEventInput,
   () => UpdateTimelineEventOutput,
 ];

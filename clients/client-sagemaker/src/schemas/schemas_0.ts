@@ -2,10 +2,12 @@ const _A = "Alarm";
 const _AA = "ActionArn";
 const _AAR = "AddAssociationRequest";
 const _AARd = "AddAssociationResponse";
+const _AAc = "ActionArns";
 const _AAd = "AddAssociation";
 const _AAl = "AlgorithmArn";
 const _AAp = "AppArn";
 const _AAr = "ArtifactArn";
+const _AArt = "ArtifactArns";
 const _ABRA = "AmazonBedrockRoleArn";
 const _AC = "AgentCount";
 const _ACC = "AnnotationConsolidationConfig";
@@ -24,6 +26,7 @@ const _ACt = "AttemptCount";
 const _AD = "AlarmDetails";
 const _ADC = "ActiveDeviceCount";
 const _ADD = "AthenaDatasetDefinition";
+const _ADS = "AccountDefaultStatus";
 const _ADl = "AlgorithmDescription";
 const _ADp = "AppDetails";
 const _ADpp = "ApprovalDescription";
@@ -34,6 +37,7 @@ const _AEu = "AuthorizationEndpoint";
 const _AFRA = "AmazonForecastRoleArn";
 const _AGEN = "AutoGenerateEndpointName";
 const _AGP = "AssignedGroupPatterns";
+const _AI = "AssociationInfo";
 const _AIC = "AsyncInferenceConfig";
 const _AICA = "AppImageConfigArn";
 const _AICC = "AsyncInferenceClientConfig";
@@ -42,6 +46,7 @@ const _AICL = "AppImageConfigList";
 const _AICN = "AppImageConfigName";
 const _AICp = "AppImageConfigs";
 const _AICv = "AvailableInstanceCount";
+const _AIL = "AssociationInfoList";
 const _AINC = "AsyncInferenceNotificationConfig";
 const _AIOC = "AsyncInferenceOutputConfig";
 const _AIS = "AdditionalInferenceSpecifications";
@@ -188,6 +193,7 @@ const _Ar = "Arn";
 const _Arc = "Arch";
 const _Arg = "Arguments";
 const _Art = "Artifact";
+const _As = "Associations";
 const _Au = "Autotune";
 const _Av = "Avg";
 const _B = "Bias";
@@ -197,6 +203,10 @@ const _BACNEL = "BatchAddClusterNodesErrorList";
 const _BACNR = "BatchAddClusterNodesRequest";
 const _BACNRa = "BatchAddClusterNodesResponse";
 const _BC = "BestCandidate";
+const _BCM = "BedrockCustomModel";
+const _BCMD = "BedrockCustomModelDeployment";
+const _BCMDM = "BedrockCustomModelDeploymentMetadata";
+const _BCMM = "BedrockCustomModelMetadata";
 const _BCa = "BaselineConfig";
 const _BDCC = "BatchDataCaptureConfig";
 const _BDCN = "BatchDeleteClusterNodes";
@@ -218,8 +228,14 @@ const _BICN = "BaseInferenceComponentName";
 const _BILCA = "BuiltInLifecycleConfigArn";
 const _BJN = "BaseliningJobName";
 const _BL = "BorrowLimit";
+const _BM = "BaseModel";
+const _BMA = "BaseModelArn";
+const _BMI = "BedrockModelImport";
+const _BMIM = "BedrockModelImportMetadata";
 const _BMN = "BaseModelName";
 const _BONI = "BestObjectiveNotImproving";
+const _BPMT = "BedrockProvisionedModelThroughput";
+const _BPMTM = "BedrockProvisionedModelThroughputMetadata";
 const _BR = "BacktestResults";
 const _BRCN = "BatchRebootClusterNodes";
 const _BRCNE = "BatchRebootClusterNodesError";
@@ -237,6 +253,7 @@ const _BRCNRatc = "BatchReplaceClusterNodesResponse";
 const _BRCNa = "BatchReplaceClusterNodes";
 const _BRl = "BlockedReason";
 const _BS = "BatchStrategy";
+const _BTC = "BillableTokenCount";
 const _BTI = "BatchTransformInput";
 const _BTIS = "BillableTimeInSeconds";
 const _BTJ = "BestTrainingJob";
@@ -272,6 +289,7 @@ const _CASC = "ClusterAutoScalingConfig";
 const _CASCO = "ClusterAutoScalingConfigOutput";
 const _CAl = "ClusterArn";
 const _CAo = "ContextArn";
+const _CAon = "ContextArns";
 const _CAr = "CreatedAt";
 const _CAre = "CreatedAfter";
 const _CArea = "CreateAction";
@@ -367,6 +385,7 @@ const _CEo = "ConflictException";
 const _CEr = "CreateEndpoint";
 const _CEre = "CreateExperiment";
 const _CEu = "CustomerEni";
+const _CEur = "CurrentEpoch";
 const _CF = "ConfigFile";
 const _CFD = "CreateFlowDefinition";
 const _CFDR = "CreateFlowDefinitionRequest";
@@ -446,6 +465,9 @@ const _CLJ = "CreateLabelingJob";
 const _CLJR = "CreateLabelingJobRequest";
 const _CLJRr = "CreateLabelingJobResponse";
 const _CM = "CandidateMetrics";
+const _CMA = "CreateMlflowApp";
+const _CMAR = "CreateMlflowAppRequest";
+const _CMARr = "CreateMlflowAppResponse";
 const _CMBJD = "CreateModelBiasJobDefinition";
 const _CMBJDR = "CreateModelBiasJobDefinitionRequest";
 const _CMBJDRr = "CreateModelBiasJobDefinitionResponse";
@@ -525,6 +547,9 @@ const _CPIo = "CostPerInference";
 const _CPJ = "CreateProcessingJob";
 const _CPJR = "CreateProcessingJobRequest";
 const _CPJRr = "CreateProcessingJobResponse";
+const _CPMAU = "CreatePresignedMlflowAppUrl";
+const _CPMAUR = "CreatePresignedMlflowAppUrlRequest";
+const _CPMAURr = "CreatePresignedMlflowAppUrlResponse";
 const _CPMTSU = "CreatePresignedMlflowTrackingServerUrl";
 const _CPMTSUR = "CreatePresignedMlflowTrackingServerUrlRequest";
 const _CPMTSURr = "CreatePresignedMlflowTrackingServerUrlResponse";
@@ -625,6 +650,7 @@ const _CSon = "ContextSummary";
 const _CSont = "ContextSummaries";
 const _CSonte = "ContentSha256";
 const _CSr = "CreateSpace";
+const _CSu = "CurrentStep";
 const _CT = "CreationTime";
 const _CTA = "CreationTimeAfter";
 const _CTB = "CreationTimeBefore";
@@ -665,6 +691,7 @@ const _CTont = "ContentTemplate";
 const _CTonte = "ContextType";
 const _CTr = "CreateTrial";
 const _CTu = "CurrentTaints";
+const _CTus = "CustomizationTechnique";
 const _CU = "ConfigUri";
 const _CUP = "CreateUserProfile";
 const _CUPR = "CreateUserProfileRequest";
@@ -729,7 +756,8 @@ const _DARescrib = "DescribeArtifactRequest";
 const _DARescribe = "DescribeArtifactResponse";
 const _DAST = "DataAnalysisStartTime";
 const _DAT = "DisassociateAcceleratorTypes";
-const _DAa = "DataAttributes";
+const _DAa = "DatasetArn";
+const _DAat = "DataAttributes";
 const _DAe = "DeviceArn";
 const _DAel = "DeleteAction";
 const _DAele = "DeleteAlgorithm";
@@ -806,6 +834,7 @@ const _DDFRe = "DescribeDeviceFleetRequest";
 const _DDFRes = "DescribeDeviceFleetResponse";
 const _DDFe = "DescribeDeviceFleet";
 const _DDIC = "DerivedDataInputConfig";
+const _DDIL = "DefaultDomainIdList";
 const _DDQJD = "DeleteDataQualityJobDefinition";
 const _DDQJDR = "DeleteDataQualityJobDefinitionRequest";
 const _DDQJDRe = "DescribeDataQualityJobDefinitionRequest";
@@ -861,6 +890,7 @@ const _DEesc = "DescribeExperiment";
 const _DF = "DatasetFormat";
 const _DFA = "DeviceFleetArn";
 const _DFD = "DeleteFlowDefinition";
+const _DFDI = "DefaultForDomainId";
 const _DFDR = "DeleteFlowDefinitionRequest";
 const _DFDRe = "DeleteFlowDefinitionResponse";
 const _DFDRes = "DescribeFlowDefinitionRequest";
@@ -953,6 +983,12 @@ const _DLJRe = "DescribeLabelingJobResponse";
 const _DLU = "DefaultLandingUri";
 const _DLo = "DomainList";
 const _DM = "DurationMinutes";
+const _DMA = "DeleteMlflowApp";
+const _DMAR = "DeleteMlflowAppRequest";
+const _DMARe = "DeleteMlflowAppResponse";
+const _DMARes = "DescribeMlflowAppRequest";
+const _DMAResc = "DescribeMlflowAppResponse";
+const _DMAe = "DescribeMlflowApp";
 const _DMBJD = "DeleteModelBiasJobDefinition";
 const _DMBJDR = "DeleteModelBiasJobDefinitionRequest";
 const _DMBJDRe = "DescribeModelBiasJobDefinitionRequest";
@@ -1106,6 +1142,7 @@ const _DSV = "DocumentSchemaVersion";
 const _DSW = "DescribeSubscribedWorkteam";
 const _DSWR = "DescribeSubscribedWorkteamRequest";
 const _DSWRe = "DescribeSubscribedWorkteamResponse";
+const _DSa = "DatasetSource";
 const _DSe = "DeploymentStage";
 const _DSel = "DeleteSpace";
 const _DSep = "DeploymentStatus";
@@ -1186,6 +1223,7 @@ const _Dom = "Domains";
 const _E = "Environment";
 const _EA = "EndpointArn";
 const _EAMVU = "EnableAutoMinorVersionUpgrade";
+const _EAv = "EvaluatorArn";
 const _EAx = "ExperimentArn";
 const _EAxp = "ExportArtifacts";
 const _EC = "ErrorCode";
@@ -1317,6 +1355,7 @@ const _ETO = "EndTimeOffset";
 const _ETn = "EndTime";
 const _ETr = "ErrorTopic";
 const _ETv = "EventTime";
+const _ETva = "EvaluationType";
 const _EVC = "EbsVolumeConfig";
 const _EVSIG = "EbsVolumeSizeInGb";
 const _Ed = "Edge";
@@ -1530,6 +1569,7 @@ const _ICDC = "InferenceComponentDeploymentConfig";
 const _ICDCC = "InferenceComponentDataCacheConfig";
 const _ICDCCS = "InferenceComponentDataCacheConfigSummary";
 const _ICJC = "ImageClassificationJobConfig";
+const _ICM = "InferenceComponentMetadata";
 const _ICN = "InferenceComponentName";
 const _ICRC = "InferenceComponentRuntimeConfig";
 const _ICRCS = "InferenceComponentRuntimeConfigSummary";
@@ -1543,10 +1583,12 @@ const _ICSnf = "InferenceComponentSummary";
 const _ICm = "ImageConfig";
 const _ICn = "InferenceConfig";
 const _ICnf = "InferenceComponents";
+const _ICnfe = "InferenceComponent";
 const _ICnfr = "InfrastructureConfig";
 const _ICnp = "InputConfig";
 const _ICns = "InstanceCount";
 const _ICnst = "InstanceConfigs";
+const _ICs = "IsCheckpoint";
 const _ID = "ImageDigest";
 const _IDC = "InputDataConfig";
 const _IE = "InferenceExperiments";
@@ -1844,9 +1886,12 @@ const _LMA = "LastModifiedAt";
 const _LMAH = "ListMonitoringAlertHistory";
 const _LMAHR = "ListMonitoringAlertHistoryRequest";
 const _LMAHRi = "ListMonitoringAlertHistoryResponse";
-const _LMAR = "ListMonitoringAlertsRequest";
-const _LMARi = "ListMonitoringAlertsResponse";
-const _LMAi = "ListMonitoringAlerts";
+const _LMAR = "ListMlflowAppsRequest";
+const _LMARi = "ListMlflowAppsResponse";
+const _LMARis = "ListMonitoringAlertsRequest";
+const _LMARist = "ListMonitoringAlertsResponse";
+const _LMAi = "ListMlflowApps";
+const _LMAis = "ListMonitoringAlerts";
 const _LMB = "LastModifiedBy";
 const _LMBJD = "ListModelBiasJobDefinitions";
 const _LMBJDR = "ListModelBiasJobDefinitionsRequest";
@@ -1890,7 +1935,8 @@ const _LMTB = "LastModifiedTimeBefore";
 const _LMTS = "ListMlflowTrackingServers";
 const _LMTSR = "ListMlflowTrackingServersRequest";
 const _LMTSRi = "ListMlflowTrackingServersResponse";
-const _LMi = "ListModels";
+const _LMi = "LineageMetadata";
+const _LMis = "ListModels";
 const _LNI = "ListNotebookInstances";
 const _LNII = "ListNotebookInstancesInput";
 const _LNILC = "ListNotebookInstanceLifecycleConfigs";
@@ -1989,6 +2035,7 @@ const _La = "Labels";
 const _Lam = "Lambda";
 const _Las = "Last";
 const _Li = "Line";
+const _Lin = "Lineage";
 const _M = "Mode";
 const _MA = "ModelArn";
 const _MAA = "MonitoringAlertActions";
@@ -2000,6 +2047,8 @@ const _MAMLJRIS = "MaxAutoMLJobRuntimeInSeconds";
 const _MAN = "MonitoringAlertName";
 const _MAS = "ModelApprovalStatus";
 const _MASL = "MonitoringAlertSummaryList";
+const _MASl = "MlflowAppSummary";
+const _MASlf = "MlflowAppSummaries";
 const _MASo = "MonitoringAlertSummaries";
 const _MASon = "MonitoringAlertSummary";
 const _MASoni = "MonitoringAppSpecification";
@@ -2049,6 +2098,7 @@ const _MCaxo = "MaxConcurrency";
 const _MCe = "MetricsConfig";
 const _MCi = "MinCount";
 const _MCin = "MinCapacity";
+const _MCl = "MlflowConfig";
 const _MCo = "ModelConfigs";
 const _MCod = "ModelCard";
 const _MCode = "ModelConfiguration";
@@ -2078,18 +2128,22 @@ const _MDem = "MemberDefinition";
 const _MDet = "MetricData";
 const _MDetr = "MetricDatum";
 const _MDetri = "MetricDefinition";
+const _MDl = "MlflowDetails";
 const _MDo = "ModelDigests";
 const _ME = "ManifestEtag";
 const _MEAS = "ModelExplainabilityAppSpecification";
 const _MEBC = "ModelExplainabilityBaselineConfig";
+const _MEI = "MlflowExperimentId";
 const _MEJI = "ModelExplainabilityJobInput";
 const _MEJOC = "ModelExplainabilityJobOutputConfig";
+const _MEN = "MlflowExperimentName";
 const _MES = "MonitoringExecutionSummaries";
 const _MESL = "MonitoringExecutionSummaryList";
 const _MESo = "MonitoringExecutionSummary";
 const _MESon = "MonitoringExecutionStatus";
 const _METIS = "MaximumExecutionTimeoutInSeconds";
 const _MEVSIG = "MaximumEbsVolumeSizeInGb";
+const _MEa = "MaxEpoch";
 const _MGTSI = "MonitoringGroundTruthS3Input";
 const _MH = "ModelHandle";
 const _MHLOC = "MaxHumanLabeledObjectCount";
@@ -2117,6 +2171,8 @@ const _MJDS = "MonitoringJobDefinitionSummary";
 const _MJDSL = "MonitoringJobDefinitionSummaryList";
 const _ML = "ModelLatency";
 const _MLC = "ModelLifeCycle";
+const _MLCf = "MLflowConfig";
+const _MLCfl = "MLflowConfiguration";
 const _MLF = "MLFramework";
 const _MLT = "ModelLatencyThreshold";
 const _MLTo = "ModelLatencyThresholds";
@@ -2145,6 +2201,7 @@ const _MOo = "MonitoringOutputs";
 const _MP = "MetadataProperties";
 const _MPA = "ModelPackageArn";
 const _MPAL = "ModelPackageArnList";
+const _MPC = "ModelPackageConfig";
 const _MPCD = "ModelPackageContainerDefinition";
 const _MPCDL = "ModelPackageContainerDefinitionList";
 const _MPD = "ModelPackageDescription";
@@ -2163,6 +2220,7 @@ const _MPMC = "ModelPackageModelCard";
 const _MPN = "ModelPackageName";
 const _MPOIDL = "MaxPercentageOfInputDatasetLabeled";
 const _MPOT = "MaxParallelOfTests";
+const _MPRT = "ModelPackageRegistrationType";
 const _MPS = "ModelPackageSummaries";
 const _MPSC = "ModelPackageSecurityConfig";
 const _MPSD = "ModelPackageStatusDetails";
@@ -2189,10 +2247,14 @@ const _MQC = "ModelQuantizationConfig";
 const _MQJI = "ModelQualityJobInput";
 const _MQJOC = "ModelQualityJobOutputConfig";
 const _MR = "MaxResults";
-const _MRA = "MlReservationArn";
+const _MRA = "MlflowResourceArn";
 const _MRAa = "MaximumRetryAttempts";
+const _MRAl = "MlReservationArn";
 const _MRC = "MaxRecordCount";
+const _MRI = "MlflowRunId";
 const _MRIS = "MaxRuntimeInSeconds";
+const _MRM = "ModelRegistrationMode";
+const _MRN = "MlflowRunName";
 const _MRPTJIS = "MaxRuntimePerTrainingJobInSeconds";
 const _MRS = "ModelRegisterSettings";
 const _MRa = "MaxResource";
@@ -2219,6 +2281,7 @@ const _MSSon = "MonitoringScheduleSummary";
 const _MST = "ModelSetupTime";
 const _MSU = "ManifestS3Uri";
 const _MSV = "MaxSchemaVersion";
+const _MSa = "MaintenanceStatus";
 const _MSe = "MetricsSource";
 const _MSet = "MetricSpecification";
 const _MSo = "ModelSignature";
@@ -2335,6 +2398,7 @@ const _OJSpt = "OptimizationJobSummary";
 const _OK = "ObjectKey";
 const _OMAC = "OptimizationModelAccessConfig";
 const _OMD = "OidcMemberDefinition";
+const _OMPA = "OutputModelPackageArn";
 const _ON = "OutputName";
 const _OO = "OptimizationOutput";
 const _OP = "OutputParameters";
@@ -2426,6 +2490,7 @@ const _PIri = "PrincipalId";
 const _PIro = "ProjectId";
 const _PIroc = "ProcessingInput";
 const _PIrod = "ProductId";
+const _PIrog = "ProgressInfo";
 const _PJ = "ProcessingJob";
 const _PJA = "ProcessingJobArn";
 const _PJN = "ProcessingJobName";
@@ -2528,6 +2593,7 @@ const _Par = "Parameter";
 const _Pare = "Parent";
 const _Paren = "Parents";
 const _Pe = "Percentage";
+const _Pef = "Peft";
 const _Pen = "Pending";
 const _Per = "Percentile";
 const _Ph = "Phase";
@@ -2625,6 +2691,7 @@ const _RMec = "RecommendationMetrics";
 const _RN = "ReleaseNotes";
 const _RNB = "RegisterNewBaseline";
 const _RNF = "ResourceNotFound";
+const _RNe = "RecipeName";
 const _RNo = "RoleName";
 const _RNu = "RunName";
 const _ROSU = "ResolvedOutputS3Uri";
@@ -2777,6 +2844,7 @@ const _SIp = "SpecifiedImage";
 const _SIt = "StepId";
 const _SIu = "SubnetIds";
 const _SIub = "SubnetId";
+const _SJC = "ServerlessJobConfig";
 const _SJLAS = "SpaceJupyterLabAppSettings";
 const _SKKI = "S3KmsKeyId";
 const _SL = "SpaceList";
@@ -2800,6 +2868,7 @@ const _SMIVAa = "SageMakerImageVersionArn";
 const _SMIVAag = "SageMakerImageVersionAlias";
 const _SMM = "SageMakerModel";
 const _SMN = "StandardMetricName";
+const _SMPA = "SourceModelPackageArn";
 const _SMPHCA = "SageMakerPublicHubContentArn";
 const _SMR = "SpaceManagedResources";
 const _SMS = "StartMonitoringSchedule";
@@ -3068,6 +3137,7 @@ const _TPDL = "TemplateProviderDetailList";
 const _TPDe = "TemplateProviderDetail";
 const _TPF = "TrainingPlanFilter";
 const _TPFr = "TrainingPlanFilters";
+const _TPI = "TrainingProgressInfo";
 const _TPN = "TrainingPlanName";
 const _TPO = "TrainingPlanOfferings";
 const _TPOI = "TrainingPlanOfferingId";
@@ -3090,6 +3160,7 @@ const _TRa = "TargetResources";
 const _TS = "TrainingSpecification";
 const _TSA = "TrackingServerArn";
 const _TSC = "TargetStateCount";
+const _TSCPE = "TotalStepCountPerEpoch";
 const _TSCi = "TieredStorageConfig";
 const _TSCim = "TimeSeriesConfig";
 const _TSDS = "TransformS3DataSource";
@@ -3216,9 +3287,12 @@ const _UIV = "UpdateImageVersion";
 const _UIVR = "UpdateImageVersionRequest";
 const _UIVRp = "UpdateImageVersionResponse";
 const _UL = "UseLogit";
-const _UMA = "UpdateMonitoringAlert";
-const _UMAR = "UpdateMonitoringAlertRequest";
-const _UMARp = "UpdateMonitoringAlertResponse";
+const _UMA = "UpdateMlflowApp";
+const _UMAR = "UpdateMlflowAppRequest";
+const _UMARp = "UpdateMlflowAppResponse";
+const _UMARpd = "UpdateMonitoringAlertRequest";
+const _UMARpda = "UpdateMonitoringAlertResponse";
+const _UMAp = "UpdateMonitoringAlert";
 const _UMC = "UpdateModelCard";
 const _UMCR = "UpdateModelCardRequest";
 const _UMCRp = "UpdateModelCardResponse";
@@ -3366,7 +3440,7 @@ const n0 = "com.amazonaws.sagemaker";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -3384,17 +3458,8 @@ import {
 import { SageMakerServiceException as __SageMakerServiceException } from "../models/SageMakerServiceException";
 
 /* eslint no-var: 0 */
-
 export var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
-export var HumanLoopActivationConditions: StaticSimpleSchema = [
-  0,
-  n0,
-  _HLAC,
-  {
-    [_mT]: _a,
-  },
-  0,
-];
+export var HumanLoopActivationConditions: StaticSimpleSchema = [0, n0, _HLAC, { [_mT]: _a }, 0];
 export var ModelCardContent: StaticSimpleSchema = [0, n0, _MCC, 8, 0];
 export var AcceleratorPartitionConfig: StaticStructureSchema = [3, n0, _APC, 0, [_T, _C], [0, 1]];
 export var ActionSource: StaticStructureSchema = [3, n0, _AS, 0, [_SU, _ST, _SI], [0, 0, 0]];
@@ -3505,6 +3570,7 @@ export var ArtifactSummary: StaticStructureSchema = [
 ];
 export var AssociateTrialComponentRequest: StaticStructureSchema = [3, n0, _ATCR, 0, [_TCN, _TN], [0, 0]];
 export var AssociateTrialComponentResponse: StaticStructureSchema = [3, n0, _ATCRs, 0, [_TCA, _TA], [0, 0]];
+export var AssociationInfo: StaticStructureSchema = [3, n0, _AI, 0, [_SA, _DA], [0, 0]];
 export var AssociationSummary: StaticStructureSchema = [
   3,
   n0,
@@ -3663,6 +3729,7 @@ export var AutoParameter: StaticStructureSchema = [3, n0, _AP, 0, [_N, _VH], [0,
 export var AutoRollbackConfig: StaticStructureSchema = [3, n0, _ARC, 0, [_Al], [() => AlarmList]];
 export var Autotune: StaticStructureSchema = [3, n0, _Au, 0, [_M], [0]];
 export var AvailableUpgrade: StaticStructureSchema = [3, n0, _AUv, 0, [_V, _RN], [0, 64 | 0]];
+export var BaseModel: StaticStructureSchema = [3, n0, _BM, 0, [_HCN, _HCV, _RNe], [0, 0, 0]];
 export var BatchAddClusterNodesError: StaticStructureSchema = [3, n0, _BACNE, 0, [_IGN, _EC, _FC, _Me], [0, 0, 1, 0]];
 export var BatchAddClusterNodesRequest: StaticStructureSchema = [
   3,
@@ -3721,8 +3788,8 @@ export var BatchDescribeModelPackageSummary: StaticStructureSchema = [
   n0,
   _BDMPS,
   0,
-  [_MPGN, _MPV, _MPA, _MPD, _CT, _ISn, _MPSo, _MAS],
-  [0, 1, 0, 0, 4, () => InferenceSpecification, 0, 0],
+  [_MPGN, _MPV, _MPA, _MPD, _CT, _ISn, _MPSo, _MAS, _MPRT],
+  [0, 1, 0, 0, 4, () => InferenceSpecification, 0, 0, 0],
 ];
 export var BatchRebootClusterNodeLogicalIdsError: StaticStructureSchema = [
   3,
@@ -3782,6 +3849,10 @@ export var BatchTransformInput: StaticStructureSchema = [
   [_DCDSU, _DF, _LP, _SIM, _SDDT, _FA, _IA, _PA, _PTA, _STO, _ETO, _EFA],
   [0, () => MonitoringDatasetFormat, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
 ];
+export var BedrockCustomModelDeploymentMetadata: StaticStructureSchema = [3, n0, _BCMDM, 0, [_Ar], [0]];
+export var BedrockCustomModelMetadata: StaticStructureSchema = [3, n0, _BCMM, 0, [_Ar], [0]];
+export var BedrockModelImportMetadata: StaticStructureSchema = [3, n0, _BMIM, 0, [_Ar], [0]];
+export var BedrockProvisionedModelThroughputMetadata: StaticStructureSchema = [3, n0, _BPMTM, 0, [_Ar], [0]];
 export var BestObjectiveNotImproving: StaticStructureSchema = [3, n0, _BONI, 0, [_MNOTJNI], [1]];
 export var Bias: StaticStructureSchema = [
   3,
@@ -4249,18 +4320,8 @@ export var ComputeQuotaSummary: StaticStructureSchema = [
 ];
 export var ComputeQuotaTarget: StaticStructureSchema = [3, n0, _CQT, 0, [_TNea, _FSW], [0, 1]];
 export var ConditionStepMetadata: StaticStructureSchema = [3, n0, _CSMo, 0, [_O], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ContainerConfig: StaticStructureSchema = [3, n0, _CCon, 0, [_CA, _CE, _CEV], [64 | 0, 64 | 0, 128 | 0]];
 export var ContainerDefinition: StaticStructureSchema = [
   3,
@@ -4739,6 +4800,15 @@ export var CreateLabelingJobRequest: StaticStructureSchema = [
   ],
 ];
 export var CreateLabelingJobResponse: StaticStructureSchema = [3, n0, _CLJRr, 0, [_LJA], [0]];
+export var CreateMlflowAppRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CMAR,
+  0,
+  [_N, _ASU, _RAo, _MRM, _WMWS, _ADS, _DDIL, _Ta],
+  [0, 0, 0, 0, 0, 0, 64 | 0, () => TagList],
+];
+export var CreateMlflowAppResponse: StaticStructureSchema = [3, n0, _CMARr, 0, [_Ar], [0]];
 export var CreateMlflowTrackingServerRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4842,6 +4912,7 @@ export var CreateModelPackageInput: StaticStructureSchema = [
     _MPN,
     _MPGN,
     _MPD,
+    _MPRT,
     _ISn,
     _VSa,
     _SAS,
@@ -4864,6 +4935,7 @@ export var CreateModelPackageInput: StaticStructureSchema = [
     _MLC,
   ],
   [
+    0,
     0,
     0,
     0,
@@ -5012,6 +5084,15 @@ export var CreatePresignedDomainUrlRequest: StaticStructureSchema = [
   [0, 0, 1, 1, 0, 0],
 ];
 export var CreatePresignedDomainUrlResponse: StaticStructureSchema = [3, n0, _CPDURr, 0, [_AU], [0]];
+export var CreatePresignedMlflowAppUrlRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPMAUR,
+  0,
+  [_Ar, _EIS, _SEDIS],
+  [0, 1, 1],
+];
+export var CreatePresignedMlflowAppUrlResponse: StaticStructureSchema = [3, n0, _CPMAURr, 0, [_AU], [0]];
 export var CreatePresignedMlflowTrackingServerUrlRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5103,6 +5184,9 @@ export var CreateTrainingJobRequest: StaticStructureSchema = [
     _RDC,
     _ICC,
     _SCC,
+    _SJC,
+    _MCl,
+    _MPC,
   ],
   [
     0,
@@ -5130,6 +5214,9 @@ export var CreateTrainingJobRequest: StaticStructureSchema = [
     () => RemoteDebugConfig,
     () => InfraCheckConfig,
     () => SessionChainingConfig,
+    () => ServerlessJobConfig,
+    () => MlflowConfig,
+    () => ModelPackageConfig,
   ],
 ];
 export var CreateTrainingJobResponse: StaticStructureSchema = [3, n0, _CTJRr, 0, [_TJA], [0]];
@@ -5283,13 +5370,14 @@ export var DatasetDefinition: StaticStructureSchema = [
   [_ADD, _RDD, _LP, _DDT, _IM],
   [() => AthenaDatasetDefinition, () => RedshiftDatasetDefinition, 0, 0, 0],
 ];
+export var DatasetSource: StaticStructureSchema = [3, n0, _DSa, 0, [_DAa], [0]];
 export var DataSource: StaticStructureSchema = [
   3,
   n0,
   _DS,
   0,
-  [_SDS, _FSDS],
-  [() => S3DataSource, () => FileSystemDataSource],
+  [_SDS, _FSDS, _DSa],
+  [() => S3DataSource, () => FileSystemDataSource, () => DatasetSource],
 ];
 export var DebugHookConfig: StaticStructureSchema = [
   3,
@@ -5383,6 +5471,8 @@ export var DeleteImageVersionResponse: StaticStructureSchema = [3, n0, _DIVRe, 0
 export var DeleteInferenceComponentInput: StaticStructureSchema = [3, n0, _DICI, 0, [_ICN], [0]];
 export var DeleteInferenceExperimentRequest: StaticStructureSchema = [3, n0, _DIER, 0, [_N], [0]];
 export var DeleteInferenceExperimentResponse: StaticStructureSchema = [3, n0, _DIERe, 0, [_IEA], [0]];
+export var DeleteMlflowAppRequest: StaticStructureSchema = [3, n0, _DMAR, 0, [_Ar], [0]];
+export var DeleteMlflowAppResponse: StaticStructureSchema = [3, n0, _DMARe, 0, [_Ar], [0]];
 export var DeleteMlflowTrackingServerRequest: StaticStructureSchema = [3, n0, _DMTSR, 0, [_TSN], [0]];
 export var DeleteMlflowTrackingServerResponse: StaticStructureSchema = [3, n0, _DMTSRe, 0, [_TSA], [0]];
 export var DeleteModelBiasJobDefinitionRequest: StaticStructureSchema = [3, n0, _DMBJDR, 0, [_JDN], [0]];
@@ -6192,6 +6282,15 @@ export var DescribeLineageGroupResponse: StaticStructureSchema = [
   [_LGN, _LGA, _DNi, _D, _CT, _CB, _LMT, _LMB],
   [0, 0, 0, 0, 4, () => UserContext, 4, () => UserContext],
 ];
+export var DescribeMlflowAppRequest: StaticStructureSchema = [3, n0, _DMARes, 0, [_Ar], [0]];
+export var DescribeMlflowAppResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DMAResc,
+  0,
+  [_Ar, _N, _ASU, _MVl, _RAo, _St, _MRM, _ADS, _DDIL, _CT, _CB, _LMT, _LMB, _WMWS, _MSa],
+  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 4, () => UserContext, 4, () => UserContext, 0, 0],
+];
 export var DescribeMlflowTrackingServerRequest: StaticStructureSchema = [3, n0, _DMTSRes, 0, [_TSN], [0]];
 export var DescribeMlflowTrackingServerResponse: StaticStructureSchema = [
   3,
@@ -6312,6 +6411,7 @@ export var DescribeModelPackageOutput: StaticStructureSchema = [
     _MPN,
     _MPGN,
     _MPV,
+    _MPRT,
     _MPA,
     _MPD,
     _CT,
@@ -6344,6 +6444,7 @@ export var DescribeModelPackageOutput: StaticStructureSchema = [
     0,
     0,
     1,
+    0,
     0,
     0,
     4,
@@ -6541,7 +6642,7 @@ export var DescribePipelineExecutionResponse: StaticStructureSchema = [
   n0,
   _DPERe,
   0,
-  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SEC, _PVI],
+  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SEC, _PVI, _MLCf],
   [
     0,
     0,
@@ -6557,6 +6658,7 @@ export var DescribePipelineExecutionResponse: StaticStructureSchema = [
     () => ParallelismConfiguration,
     () => SelectiveExecutionConfig,
     1,
+    () => MLflowConfiguration,
   ],
 ];
 export var DescribePipelineRequest: StaticStructureSchema = [3, n0, _DPRes, 0, [_PNi, _PVI], [0, 1]];
@@ -6716,6 +6818,7 @@ export var DescribeTrainingJobResponse: StaticStructureSchema = [
     _CCh,
     _TTIS,
     _BTIS,
+    _BTC,
     _DHC,
     _ECxp,
     _DRC,
@@ -6729,6 +6832,12 @@ export var DescribeTrainingJobResponse: StaticStructureSchema = [
     _RSe,
     _RDC,
     _ICC,
+    _SJC,
+    _MCl,
+    _MPC,
+    _MDl,
+    _PIrog,
+    _OMPA,
   ],
   [
     0,
@@ -6761,6 +6870,7 @@ export var DescribeTrainingJobResponse: StaticStructureSchema = [
     () => CheckpointConfig,
     1,
     1,
+    1,
     () => DebugHookConfig,
     () => ExperimentConfig,
     () => DebugRuleConfigurations,
@@ -6774,6 +6884,12 @@ export var DescribeTrainingJobResponse: StaticStructureSchema = [
     () => RetryStrategy,
     () => RemoteDebugConfig,
     () => InfraCheckConfig,
+    () => ServerlessJobConfig,
+    () => MlflowConfig,
+    () => ModelPackageConfig,
+    () => MlflowDetails,
+    () => TrainingProgressInfo,
+    0,
   ],
 ];
 export var DescribeTrainingPlanRequest: StaticStructureSchema = [3, n0, _DTPR, 0, [_TPN], [0]];
@@ -7600,6 +7716,7 @@ export var InferenceComponentDeploymentConfig: StaticStructureSchema = [
   [_RUP, _ARCu],
   [() => InferenceComponentRollingUpdatePolicy, () => AutoRollbackConfig],
 ];
+export var InferenceComponentMetadata: StaticStructureSchema = [3, n0, _ICM, 0, [_Ar], [0]];
 export var InferenceComponentRollingUpdatePolicy: StaticStructureSchema = [
   3,
   n0,
@@ -7821,7 +7938,7 @@ export var LabelingJobInputConfig: StaticStructureSchema = [
   n0,
   _LJIC,
   0,
-  [_DS, _DAa],
+  [_DS, _DAat],
   [() => LabelingJobDataSource, () => LabelingJobDataAttributes],
 ];
 export var LabelingJobOutput: StaticStructureSchema = [3, n0, _LJO, 0, [_ODSU, _FALMA], [0, 0]];
@@ -7847,6 +7964,14 @@ export var LineageGroupSummary: StaticStructureSchema = [
   0,
   [_LGA, _LGN, _DNi, _CT, _LMT],
   [0, 0, 0, 4, 4],
+];
+export var LineageMetadata: StaticStructureSchema = [
+  3,
+  n0,
+  _LMi,
+  0,
+  [_AAc, _AArt, _CAon, _As],
+  [128 | 0, 128 | 0, 128 | 0, () => AssociationInfoList],
 ];
 export var ListActionsRequest: StaticStructureSchema = [
   3,
@@ -8422,6 +8547,22 @@ export var ListLineageGroupsResponse: StaticStructureSchema = [
   [_LGSi, _NT],
   [() => LineageGroupSummaries, 0],
 ];
+export var ListMlflowAppsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LMAR,
+  0,
+  [_CAre, _CBr, _St, _MVl, _DFDI, _ADS, _SBo, _SO, _NT, _MR],
+  [4, 4, 0, 0, 0, 0, 0, 0, 0, 1],
+];
+export var ListMlflowAppsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LMARi,
+  0,
+  [_Sum, _NT],
+  [() => MlflowAppSummaries, 0],
+];
 export var ListMlflowTrackingServersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -8607,11 +8748,11 @@ export var ListMonitoringAlertHistoryResponse: StaticStructureSchema = [
   [_MAH, _NT],
   [() => MonitoringAlertHistoryList, 0],
 ];
-export var ListMonitoringAlertsRequest: StaticStructureSchema = [3, n0, _LMAR, 0, [_MSN, _NT, _MR], [0, 0, 1]];
+export var ListMonitoringAlertsRequest: StaticStructureSchema = [3, n0, _LMARis, 0, [_MSN, _NT, _MR], [0, 0, 1]];
 export var ListMonitoringAlertsResponse: StaticStructureSchema = [
   3,
   n0,
-  _LMARi,
+  _LMARist,
   0,
   [_MASo, _NT],
   [() => MonitoringAlertSummaryList, 0],
@@ -9031,6 +9172,17 @@ export var MetricDatum: StaticStructureSchema = [3, n0, _MDetr, 0, [_MN, _SMN, _
 export var MetricDefinition: StaticStructureSchema = [3, n0, _MDetri, 0, [_N, _Reg], [0, 0]];
 export var MetricsConfig: StaticStructureSchema = [3, n0, _MCe, 0, [_EEM, _MPFIS], [2, 1]];
 export var MetricsSource: StaticStructureSchema = [3, n0, _MSe, 0, [_CTon, _CDon, _SUr], [0, 0, 0]];
+export var MlflowAppSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _MASl,
+  0,
+  [_Ar, _N, _St, _CT, _LMT, _MVl],
+  [0, 0, 0, 4, 4, 0],
+];
+export var MlflowConfig: StaticStructureSchema = [3, n0, _MCl, 0, [_MRA, _MEN, _MRN], [0, 0, 0]];
+export var MLflowConfiguration: StaticStructureSchema = [3, n0, _MLCfl, 0, [_MRA, _MEN], [0, 0]];
+export var MlflowDetails: StaticStructureSchema = [3, n0, _MDl, 0, [_MEI, _MRI], [0, 0]];
 export var Model: StaticStructureSchema = [
   3,
   n0,
@@ -9256,6 +9408,7 @@ export var ModelPackage: StaticStructureSchema = [
     _MPN,
     _MPGN,
     _MPV,
+    _MPRT,
     _MPA,
     _MPD,
     _CT,
@@ -9291,6 +9444,7 @@ export var ModelPackage: StaticStructureSchema = [
     1,
     0,
     0,
+    0,
     4,
     () => InferenceSpecification,
     () => SourceAlgorithmSpecification,
@@ -9319,13 +9473,30 @@ export var ModelPackage: StaticStructureSchema = [
     0,
   ],
 ];
+export var ModelPackageConfig: StaticStructureSchema = [3, n0, _MPC, 0, [_MPGA, _SMPA], [0, 0]];
 export var ModelPackageContainerDefinition: StaticStructureSchema = [
   3,
   n0,
   _MPCD,
   0,
-  [_CH, _I, _ID, _MDU, _MDS, _PIrod, _E, _MIod, _Fr, _FV, _NMN, _ASDS, _MDET],
-  [0, 0, 0, 0, () => ModelDataSource, 0, 128 | 0, () => ModelInput, 0, 0, 0, () => AdditionalS3DataSource, 0],
+  [_CH, _I, _ID, _MDU, _MDS, _PIrod, _E, _MIod, _Fr, _FV, _NMN, _ASDS, _MDET, _ICs, _BM],
+  [
+    0,
+    0,
+    0,
+    0,
+    () => ModelDataSource,
+    0,
+    128 | 0,
+    () => ModelInput,
+    0,
+    0,
+    0,
+    () => AdditionalS3DataSource,
+    0,
+    2,
+    () => BaseModel,
+  ],
 ];
 export var ModelPackageGroup: StaticStructureSchema = [
   3,
@@ -9366,8 +9537,8 @@ export var ModelPackageSummary: StaticStructureSchema = [
   n0,
   _MPSod,
   0,
-  [_MPN, _MPGN, _MPV, _MPA, _MPD, _CT, _MPSo, _MAS, _MLC],
-  [0, 0, 1, 0, 0, 4, 0, 0, () => ModelLifeCycle],
+  [_MPN, _MPGN, _MPV, _MPA, _MPD, _CT, _MPSo, _MAS, _MLC, _MPRT],
+  [0, 0, 1, 0, 0, 4, 0, 0, () => ModelLifeCycle, 0],
 ];
 export var ModelPackageValidationProfile: StaticStructureSchema = [
   3,
@@ -9820,7 +9991,30 @@ export var PipelineExecutionStepMetadata: StaticStructureSchema = [
   n0,
   _PESM,
   0,
-  [_TJ, _PJ, _TJr, _TJu, _Mod, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fa, _AMLJ, _En, _ECndpo],
+  [
+    _TJ,
+    _PJ,
+    _TJr,
+    _TJu,
+    _Mod,
+    _RMe,
+    _Cond,
+    _Cal,
+    _Lam,
+    _EMR,
+    _QC,
+    _CCla,
+    _Fa,
+    _AMLJ,
+    _En,
+    _ECndpo,
+    _BCM,
+    _BCMD,
+    _BPMT,
+    _BMI,
+    _ICnfe,
+    _Lin,
+  ],
   [
     () => TrainingJobStepMetadata,
     () => ProcessingJobStepMetadata,
@@ -9838,6 +10032,12 @@ export var PipelineExecutionStepMetadata: StaticStructureSchema = [
     () => AutoMLJobStepMetadata,
     () => EndpointStepMetadata,
     () => EndpointConfigStepMetadata,
+    () => BedrockCustomModelMetadata,
+    () => BedrockCustomModelDeploymentMetadata,
+    () => BedrockProvisionedModelThroughputMetadata,
+    () => BedrockModelImportMetadata,
+    () => InferenceComponentMetadata,
+    () => LineageMetadata,
   ],
 ];
 export var PipelineExecutionSummary: StaticStructureSchema = [
@@ -9995,13 +10195,20 @@ export var ProductionVariant: StaticStructureSchema = [
     () => ProductionVariantCapacityReservationConfig,
   ],
 ];
-export var ProductionVariantCapacityReservationConfig: StaticStructureSchema = [3, n0, _PVCRC, 0, [_CRP, _MRA], [0, 0]];
+export var ProductionVariantCapacityReservationConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _PVCRC,
+  0,
+  [_CRP, _MRAl],
+  [0, 0],
+];
 export var ProductionVariantCapacityReservationSummary: StaticStructureSchema = [
   3,
   n0,
   _PVCRS,
   0,
-  [_MRA, _CRP, _TICo, _AICv, _UBCE, _ECRc],
+  [_MRAl, _CRP, _TICo, _AICv, _UBCE, _ECRc],
   [0, 0, 1, 1, 1, () => Ec2CapacityReservationsList],
 ];
 export var ProductionVariantCoreDumpConfig: StaticStructureSchema = [3, n0, _PVCDC, 0, [_DSU, _KKI], [0, 0]];
@@ -10290,43 +10497,13 @@ export var ResourceConfig: StaticStructureSchema = [
   [0, 1, 1, 0, 1, () => InstanceGroups, 0, () => InstancePlacementConfig],
 ];
 export var ResourceConfigForUpdate: StaticStructureSchema = [3, n0, _RCFU, 0, [_KAPIS], [1]];
-export var ResourceInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIU,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var ResourceInUse: StaticErrorSchema = [-3, n0, _RIU, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUse, __ResourceInUse);
-
-export var ResourceLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLE,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var ResourceLimitExceeded: StaticErrorSchema = [-3, n0, _RLE, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ResourceLimitExceeded, __ResourceLimitExceeded);
-
 export var ResourceLimits: StaticStructureSchema = [3, n0, _RL, 0, [_MNOTJ, _MPTJ, _MRIS], [1, 1, 1]];
-export var ResourceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNF,
-  {
-    [_e]: _c,
-  },
-  [_Me],
-  [0],
-];
+export var ResourceNotFound: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c }, [_Me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFound, __ResourceNotFound);
-
 export var ResourceSharingConfig: StaticStructureSchema = [3, n0, _RSC, 0, [_Str, _BL], [0, 1]];
 export var ResourceSpec: StaticStructureSchema = [
   3,
@@ -10515,6 +10692,14 @@ export var SendPipelineExecutionStepSuccessRequest: StaticStructureSchema = [
   [0, () => OutputParameterList, [0, 4]],
 ];
 export var SendPipelineExecutionStepSuccessResponse: StaticStructureSchema = [3, n0, _SPESSRe, 0, [_PEA], [0]];
+export var ServerlessJobConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _SJC,
+  0,
+  [_BMA, _AEc, _JT, _CTus, _Pef, _ETva, _EAv],
+  [0, 2, 0, 0, 0, 0, 0],
+];
 export var ServiceCatalogProvisionedProductDetails: StaticStructureSchema = [3, n0, _SCPPD, 0, [_PPIro, _PPSM], [0, 0]];
 export var ServiceCatalogProvisioningDetails: StaticStructureSchema = [
   3,
@@ -10622,8 +10807,8 @@ export var StartPipelineExecutionRequest: StaticStructureSchema = [
   n0,
   _SPER,
   0,
-  [_PNi, _PEDN, _PP, _PED, _CRT, _PCa, _SEC, _PVI],
-  [0, 0, () => ParameterList, 0, [0, 4], () => ParallelismConfiguration, () => SelectiveExecutionConfig, 1],
+  [_PNi, _PEDN, _PP, _PED, _CRT, _PCa, _SEC, _PVI, _MEN],
+  [0, 0, () => ParameterList, 0, [0, 4], () => ParallelismConfiguration, () => SelectiveExecutionConfig, 1, 0],
 ];
 export var StartPipelineExecutionResponse: StaticStructureSchema = [3, n0, _SPERt, 0, [_PEA], [0]];
 export var StartSessionRequest: StaticStructureSchema = [3, n0, _SSR, 0, [_RIes], [0]];
@@ -10830,6 +11015,8 @@ export var TrainingJob: StaticStructureSchema = [
     _DRC,
     _TBOC,
     _DRESe,
+    _OMPA,
+    _MPC,
     _PCr,
     _E,
     _RSe,
@@ -10870,6 +11057,8 @@ export var TrainingJob: StaticStructureSchema = [
     () => DebugRuleConfigurations,
     () => TensorBoardOutputConfig,
     () => DebugRuleEvaluationStatuses,
+    0,
+    () => ModelPackageConfig,
     () => ProfilerConfig,
     128 | 0,
     () => RetryStrategy,
@@ -10918,6 +11107,7 @@ export var TrainingPlanSummary: StaticStructureSchema = [
   [_TPA, _TPN, _St, _SM, _DH, _DM, _STt, _ETn, _UF, _CCur, _TICo, _AICv, _IUIC, _TUSC, _TRa, _RCS],
   [0, 0, 0, 0, 1, 1, 4, 4, 0, 0, 1, 1, 1, 1, 64 | 0, () => ReservedCapacitySummaries],
 ];
+export var TrainingProgressInfo: StaticStructureSchema = [3, n0, _TPI, 0, [_TSCPE, _CSu, _CEur, _MEa], [1, 1, 1, 1]];
 export var TrainingRepositoryAuthConfig: StaticStructureSchema = [3, n0, _TRAC, 0, [_TRCPA], [0]];
 export var TrainingSpecification: StaticStructureSchema = [
   3,
@@ -11400,6 +11590,15 @@ export var UpdateInferenceExperimentRequest: StaticStructureSchema = [
   ],
 ];
 export var UpdateInferenceExperimentResponse: StaticStructureSchema = [3, n0, _UIERp, 0, [_IEA], [0]];
+export var UpdateMlflowAppRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UMAR,
+  0,
+  [_Ar, _N, _ASU, _MRM, _WMWS, _DDIL, _ADS],
+  [0, 0, 0, 0, 0, 64 | 0, 0],
+];
+export var UpdateMlflowAppResponse: StaticStructureSchema = [3, n0, _UMARp, 0, [_Ar], [0]];
 export var UpdateMlflowTrackingServerRequest: StaticStructureSchema = [
   3,
   n0,
@@ -11423,8 +11622,9 @@ export var UpdateModelPackageInput: StaticStructureSchema = [
   n0,
   _UMPI,
   0,
-  [_MPA, _MAS, _ADpp, _CMP, _CMPTR, _AISTA, _ISn, _SU, _MCod, _MLC, _CTl],
+  [_MPA, _MAS, _MPRT, _ADpp, _CMP, _CMPTR, _AISTA, _ISn, _SU, _MCod, _MLC, _CTl],
   [
+    0,
     0,
     0,
     0,
@@ -11442,12 +11642,12 @@ export var UpdateModelPackageOutput: StaticStructureSchema = [3, n0, _UMPO, 0, [
 export var UpdateMonitoringAlertRequest: StaticStructureSchema = [
   3,
   n0,
-  _UMAR,
+  _UMARpd,
   0,
   [_MSN, _MAN, _DTA, _EPv],
   [0, 0, 1, 1],
 ];
-export var UpdateMonitoringAlertResponse: StaticStructureSchema = [3, n0, _UMARp, 0, [_MSA, _MAN], [0, 0]];
+export var UpdateMonitoringAlertResponse: StaticStructureSchema = [3, n0, _UMARpda, 0, [_MSA, _MAN], [0, 0]];
 export var UpdateMonitoringScheduleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -11710,14 +11910,11 @@ export var Workteam: StaticStructureSchema = [
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var SageMakerServiceException: StaticErrorSchema = [-3, _s, "SageMakerServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(SageMakerServiceException, __SageMakerServiceException);
-
 export var ActionSummaries: StaticListSchema = [1, n0, _AScti, 0, () => ActionSummary];
 export var AddClusterNodeSpecificationList: StaticListSchema = [1, n0, _ACNSL, 0, () => AddClusterNodeSpecification];
 export var AdditionalCodeRepositoryNamesOrUrls = 64 | 0;
-
 export var AdditionalInferenceSpecifications: StaticListSchema = [
   1,
   n0,
@@ -11736,17 +11933,13 @@ export var AppList: StaticListSchema = [1, n0, _ALp, 0, () => AppDetails];
 export var ArtifactSourceTypes: StaticListSchema = [1, n0, _ASTr, 0, () => ArtifactSourceType];
 export var ArtifactSummaries: StaticListSchema = [1, n0, _ASrti, 0, () => ArtifactSummary];
 export var AssignedGroupPatternsList = 64 | 0;
-
+export var AssociationInfoList: StaticListSchema = [1, n0, _AIL, 0, () => AssociationInfo];
 export var AssociationSummaries: StaticListSchema = [1, n0, _ASss, 0, () => AssociationSummary];
 export var AssumableRoleArns = 64 | 0;
-
 export var AsyncNotificationTopicTypeList = 64 | 0;
-
 export var AttributeNames = 64 | 0;
-
 export var AuthorizedUrlConfigs: StaticListSchema = [1, n0, _AUC, 0, () => AuthorizedUrl];
 export var AutoMLAlgorithms = 64 | 0;
-
 export var AutoMLAlgorithmsConfig: StaticListSchema = [1, n0, _AMLACu, 0, () => AutoMLAlgorithmConfig];
 export var AutoMLCandidates: StaticListSchema = [1, n0, _AMLCut, 0, () => AutoMLCandidate];
 export var AutoMLContainerDefinitions: StaticListSchema = [1, n0, _AMLCDu, 0, () => AutoMLContainerDefinition];
@@ -11791,20 +11984,15 @@ export var CandidateSteps: StaticListSchema = [1, n0, _CSa, 0, () => AutoMLCandi
 export var CaptureOptionList: StaticListSchema = [1, n0, _COL, 0, () => CaptureOption];
 export var CategoricalParameterRanges: StaticListSchema = [1, n0, _CPRa, 0, () => CategoricalParameterRange];
 export var CategoricalParameterRangeValues = 64 | 0;
-
 export var CategoricalParameters: StaticListSchema = [1, n0, _CPat, 0, () => CategoricalParameter];
 export var CfnStackCreateParameters: StaticListSchema = [1, n0, _CSCPf, 0, () => CfnStackCreateParameter];
 export var CfnStackParameters: StaticListSchema = [1, n0, _CSPf, 0, () => CfnStackParameter];
 export var CfnStackUpdateParameters: StaticListSchema = [1, n0, _CSUPf, 0, () => CfnStackUpdateParameter];
 export var ChannelSpecifications: StaticListSchema = [1, n0, _CSha, 0, () => ChannelSpecification];
 export var Cidrs = 64 | 0;
-
 export var ClarifyFeatureHeaders = 64 | 0;
-
 export var ClarifyFeatureTypes = 64 | 0;
-
 export var ClarifyLabelHeaders = 64 | 0;
-
 export var ClusterEventSummaries: StaticListSchema = [1, n0, _CESl, 0, () => ClusterEventSummary];
 export var ClusterInstanceGroupDetailsList: StaticListSchema = [1, n0, _CIGDL, 0, () => ClusterInstanceGroupDetails];
 export var ClusterInstanceGroupSpecifications: StaticListSchema = [
@@ -11815,13 +12003,10 @@ export var ClusterInstanceGroupSpecifications: StaticListSchema = [
   () => ClusterInstanceGroupSpecification,
 ];
 export var ClusterInstanceGroupsToDelete = 64 | 0;
-
 export var ClusterInstanceStorageConfigs: StaticListSchema = [1, n0, _CISC, 0, () => ClusterInstanceStorageConfig];
 export var ClusterKubernetesTaints: StaticListSchema = [1, n0, _CKTl, 0, () => ClusterKubernetesTaint];
 export var ClusterNodeIds = 64 | 0;
-
 export var ClusterNodeLogicalIdList = 64 | 0;
-
 export var ClusterNodeSummaries: StaticListSchema = [1, n0, _CNSl, 0, () => ClusterNodeSummary];
 export var ClusterRestrictedInstanceGroupDetailsList: StaticListSchema = [
   1,
@@ -11850,34 +12035,26 @@ export var CodeRepositorySummaryList: StaticListSchema = [1, n0, _CRSL, 0, () =>
 export var CollectionConfigurations: StaticListSchema = [1, n0, _CColl, 0, () => CollectionConfiguration];
 export var CompilationJobSummaries: StaticListSchema = [1, n0, _CJSom, 0, () => CompilationJobSummary];
 export var CompressionTypes = 64 | 0;
-
 export var ComputeQuotaResourceConfigList: StaticListSchema = [1, n0, _CQRCL, 0, () => ComputeQuotaResourceConfig];
 export var ComputeQuotaSummaryList: StaticListSchema = [1, n0, _CQSL, 0, () => ComputeQuotaSummary];
 export var ContainerArguments = 64 | 0;
-
 export var ContainerDefinitionList: StaticListSchema = [1, n0, _CDL, 0, () => ContainerDefinition];
 export var ContainerEntrypoint = 64 | 0;
-
 export var ContentClassifiers = 64 | 0;
-
 export var ContentTypes = 64 | 0;
-
 export var ContextSummaries: StaticListSchema = [1, n0, _CSont, 0, () => ContextSummary];
 export var ContinuousParameterRanges: StaticListSchema = [1, n0, _CPRon, 0, () => ContinuousParameterRange];
 export var CreateTemplateProviderList: StaticListSchema = [1, n0, _CTPL, 0, () => CreateTemplateProvider];
 export var CsvContentTypes = 64 | 0;
-
 export var CustomerMetadataKeyList = 64 | 0;
-
 export var CustomFileSystemConfigs: StaticListSchema = [1, n0, _CFSC, 0, () => CustomFileSystemConfig];
 export var CustomFileSystems: StaticListSchema = [1, n0, _CFS, 0, () => CustomFileSystem];
 export var CustomImageContainerArguments = 64 | 0;
-
 export var CustomImageContainerEntrypoint = 64 | 0;
-
 export var CustomImages: StaticListSchema = [1, n0, _CI, 0, () => CustomImage];
 export var DebugRuleConfigurations: StaticListSchema = [1, n0, _DRC, 0, () => DebugRuleConfiguration];
 export var DebugRuleEvaluationStatuses: StaticListSchema = [1, n0, _DRESe, 0, () => DebugRuleEvaluationStatus];
+export var DefaultDomainIdList = 64 | 0;
 export var DeployedImages: StaticListSchema = [1, n0, _DIep, 0, () => DeployedImage];
 export var DeploymentStages: StaticListSchema = [1, n0, _DSepl, 0, () => DeploymentStage];
 export var DeploymentStageStatusSummaries: StaticListSchema = [1, n0, _DSSSep, 0, () => DeploymentStageStatusSummary];
@@ -11885,12 +12062,10 @@ export var DesiredWeightAndCapacityList: StaticListSchema = [1, n0, _DWACL, 0, (
 export var DeviceDeploymentSummaries: StaticListSchema = [1, n0, _DDSevi, 0, () => DeviceDeploymentSummary];
 export var DeviceFleetSummaries: StaticListSchema = [1, n0, _DFSe, 0, () => DeviceFleetSummary];
 export var DeviceNames = 64 | 0;
-
 export var Devices: StaticListSchema = [1, n0, _Dev, 0, () => Device];
 export var DeviceSummaries: StaticListSchema = [1, n0, _DSevic, 0, () => DeviceSummary];
 export var DomainList: StaticListSchema = [1, n0, _DLo, 0, () => DomainDetails];
 export var DomainSecurityGroupIds = 64 | 0;
-
 export var Ec2CapacityReservationsList: StaticListSchema = [1, n0, _ECRL, 0, () => Ec2CapacityReservation];
 export var EdgeDeploymentModelConfigs: StaticListSchema = [1, n0, _EDMCd, 0, () => EdgeDeploymentModelConfig];
 export var EdgeDeploymentPlanSummaries: StaticListSchema = [1, n0, _EDPSd, 0, () => EdgeDeploymentPlanSummary];
@@ -11900,9 +12075,7 @@ export var EdgeModelSummaries: StaticListSchema = [1, n0, _EMSdge, 0, () => Edge
 export var EdgePackagingJobSummaries: StaticListSchema = [1, n0, _EPJSdg, 0, () => EdgePackagingJobSummary];
 export var Edges: StaticListSchema = [1, n0, _Edg, 0, () => Edge];
 export var EfaEnis = 64 | 0;
-
 export var EksRoleAccessEntries = 64 | 0;
-
 export var EndpointConfigSummaryList: StaticListSchema = [1, n0, _ECSL, 0, () => EndpointConfigSummary];
 export var EndpointInputConfigurations: StaticListSchema = [1, n0, _EICnd, 0, () => EndpointInputConfiguration];
 export var EndpointPerformances: StaticListSchema = [1, n0, _EP, 0, () => EndpointPerformance];
@@ -11910,43 +12083,31 @@ export var Endpoints: StaticListSchema = [1, n0, _End, 0, () => EndpointInfo];
 export var EndpointSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EndpointSummary];
 export var EnvironmentParameters: StaticListSchema = [1, n0, _EPnvi, 0, () => EnvironmentParameter];
 export var ExecutionRoleArns = 64 | 0;
-
 export var ExperimentSummaries: StaticListSchema = [1, n0, _ESxpe, 0, () => ExperimentSummary];
 export var FeatureAdditions: StaticListSchema = [1, n0, _FAe, 0, () => FeatureDefinition];
 export var FeatureDefinitions: StaticListSchema = [1, n0, _FD, 0, () => FeatureDefinition];
 export var FeatureGroupSummaries: StaticListSchema = [1, n0, _FGSea, 0, () => FeatureGroupSummary];
 export var FeatureParameterAdditions: StaticListSchema = [1, n0, _FPA, 0, () => FeatureParameter];
 export var FeatureParameterRemovals = 64 | 0;
-
 export var FeatureParameters: StaticListSchema = [1, n0, _FPe, 0, () => FeatureParameter];
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var FinalMetricDataList: StaticListSchema = [1, n0, _FMDL, 0, () => MetricData];
 export var FlowDefinitionSummaries: StaticListSchema = [1, n0, _FDSlo, 0, () => FlowDefinitionSummary];
 export var FlowDefinitionTaskKeywords = 64 | 0;
-
 export var ForecastQuantiles = 64 | 0;
-
 export var GroupingAttributeNames = 64 | 0;
-
 export var GroupPatternsList = 64 | 0;
-
 export var Groups = 64 | 0;
-
 export var HiddenAppTypesList = 64 | 0;
-
 export var HiddenInstanceTypesList = 64 | 0;
-
 export var HiddenMlToolsList = 64 | 0;
-
 export var HiddenSageMakerImageVersionAliasesList: StaticListSchema = [1, n0, _HSMIVAL, 0, () => HiddenSageMakerImage];
 export var HolidayConfig: StaticListSchema = [1, n0, _HC, 0, () => HolidayConfigAttributes];
 export var HubContentDependencyList: StaticListSchema = [1, n0, _HCDL, 0, () => HubContentDependency];
 export var HubContentInfoList: StaticListSchema = [1, n0, _HCIL, 0, () => HubContentInfo];
 export var HubContentSearchKeywordList = 64 | 0;
-
 export var HubInfoList: StaticListSchema = [1, n0, _HIL, 0, () => HubInfo];
 export var HubSearchKeywordList = 64 | 0;
-
 export var HumanTaskUiSummaries: StaticListSchema = [1, n0, _HTUSum, 0, () => HumanTaskUiSummary];
 export var HyperParameterSpecifications: StaticListSchema = [1, n0, _HPSy, 0, () => HyperParameterSpecification];
 export var HyperParameterTrainingJobDefinitions: StaticListSchema = [
@@ -11986,7 +12147,6 @@ export var HyperParameterTuningJobSummaries: StaticListSchema = [
 ];
 export var IdentityProviderOAuthSettings: StaticListSchema = [1, n0, _IPOAS, 0, () => IdentityProviderOAuthSetting];
 export var ImageDeletePropertyList = 64 | 0;
-
 export var Images: StaticListSchema = [1, n0, _Im, 0, () => Image];
 export var ImageVersions: StaticListSchema = [1, n0, _IVm, 0, () => ImageVersion];
 export var InferenceComponentSummaryList: StaticListSchema = [1, n0, _ICSL, 0, () => InferenceComponentSummary];
@@ -12002,13 +12162,10 @@ export var InferenceRecommendationsJobSteps: StaticListSchema = [
 ];
 export var InputDataConfig: StaticListSchema = [1, n0, _IDC, 0, () => Channel];
 export var InputModes = 64 | 0;
-
 export var InstanceGroupNames = 64 | 0;
-
 export var InstanceGroups: StaticListSchema = [1, n0, _IG, 0, () => InstanceGroup];
 export var IntegerParameterRanges: StaticListSchema = [1, n0, _IPRn, 0, () => IntegerParameterRange];
 export var JsonContentTypes = 64 | 0;
-
 export var KernelSpecs: StaticListSchema = [1, n0, _KSe, 0, () => KernelSpec];
 export var LabelingJobForWorkteamSummaryList: StaticListSchema = [
   1,
@@ -12019,15 +12176,13 @@ export var LabelingJobForWorkteamSummaryList: StaticListSchema = [
 ];
 export var LabelingJobSummaryList: StaticListSchema = [1, n0, _LJSL, 0, () => LabelingJobSummary];
 export var LifecycleConfigArns = 64 | 0;
-
 export var LineageGroupSummaries: StaticListSchema = [1, n0, _LGSi, 0, () => LineageGroupSummary];
 export var ListLineageEntityParameterKey = 64 | 0;
-
 export var ListTrialComponentKey256 = 64 | 0;
-
 export var MemberDefinitions: StaticListSchema = [1, n0, _MDe, 0, () => MemberDefinition];
 export var MetricDataList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDatum];
 export var MetricDefinitionList: StaticListSchema = [1, n0, _MDLe, 0, () => MetricDefinition];
+export var MlflowAppSummaries: StaticListSchema = [1, n0, _MASlf, 0, () => MlflowAppSummary];
 export var ModelCardExportJobSummaryList: StaticListSchema = [1, n0, _MCEJSL, 0, () => ModelCardExportJobSummary];
 export var ModelCardSummaryList: StaticListSchema = [1, n0, _MCSL, 0, () => ModelCardSummary];
 export var ModelCardVersionSummaryList: StaticListSchema = [1, n0, _MCVSL, 0, () => ModelCardVersionSummary];
@@ -12043,7 +12198,6 @@ export var ModelLatencyThresholds: StaticListSchema = [1, n0, _MLTo, 0, () => Mo
 export var ModelMetadataFilters: StaticListSchema = [1, n0, _MMFo, 0, () => ModelMetadataFilter];
 export var ModelMetadataSummaries: StaticListSchema = [1, n0, _MMS, 0, () => ModelMetadataSummary];
 export var ModelPackageArnList = 64 | 0;
-
 export var ModelPackageContainerDefinitionList: StaticListSchema = [
   1,
   n0,
@@ -12061,7 +12215,6 @@ export var ModelVariantConfigSummaryList: StaticListSchema = [1, n0, _MVCSL, 0, 
 export var MonitoringAlertHistoryList: StaticListSchema = [1, n0, _MAHL, 0, () => MonitoringAlertHistorySummary];
 export var MonitoringAlertSummaryList: StaticListSchema = [1, n0, _MASL, 0, () => MonitoringAlertSummary];
 export var MonitoringContainerArguments = 64 | 0;
-
 export var MonitoringExecutionSummaryList: StaticListSchema = [1, n0, _MESL, 0, () => MonitoringExecutionSummary];
 export var MonitoringInputs: StaticListSchema = [1, n0, _MIoni, 0, () => MonitoringInput];
 export var MonitoringJobDefinitionSummaryList: StaticListSchema = [
@@ -12075,13 +12228,10 @@ export var MonitoringOutputs: StaticListSchema = [1, n0, _MOo, 0, () => Monitori
 export var MonitoringScheduleList: StaticListSchema = [1, n0, _MSLo, 0, () => MonitoringSchedule];
 export var MonitoringScheduleSummaryList: StaticListSchema = [1, n0, _MSSL, 0, () => MonitoringScheduleSummary];
 export var NeoVpcSecurityGroupIds = 64 | 0;
-
 export var NeoVpcSubnets = 64 | 0;
-
 export var NestedFiltersList: StaticListSchema = [1, n0, _NFL, 0, () => NestedFilters];
 export var NodeAdditionResultList: StaticListSchema = [1, n0, _NARL, 0, () => NodeAdditionResult];
 export var NotebookInstanceAcceleratorTypes = 64 | 0;
-
 export var NotebookInstanceLifecycleConfigList: StaticListSchema = [
   1,
   n0,
@@ -12098,23 +12248,17 @@ export var NotebookInstanceLifecycleConfigSummaryList: StaticListSchema = [
 ];
 export var NotebookInstanceSummaryList: StaticListSchema = [1, n0, _NISL, 0, () => NotebookInstanceSummary];
 export var OnStartDeepHealthChecks = 64 | 0;
-
 export var OptimizationConfigs: StaticListSchema = [1, n0, _OCp, 0, () => OptimizationConfig];
 export var OptimizationJobSummaries: StaticListSchema = [1, n0, _OJSp, 0, () => OptimizationJobSummary];
 export var OptimizationTypes = 64 | 0;
-
 export var OptimizationVpcSecurityGroupIds = 64 | 0;
-
 export var OptimizationVpcSubnets = 64 | 0;
-
 export var OutputParameterList: StaticListSchema = [1, n0, _OPL, 0, () => OutputParameter];
 export var ParameterList: StaticListSchema = [1, n0, _PLa, 0, () => Parameter];
 export var ParameterValues = 64 | 0;
-
 export var ParentHyperParameterTuningJobs: StaticListSchema = [1, n0, _PHPTJ, 0, () => ParentHyperParameterTuningJob];
 export var Parents: StaticListSchema = [1, n0, _Paren, 0, () => Parent];
 export var PartnerAppAdminUserList = 64 | 0;
-
 export var PartnerAppSummaries: StaticListSchema = [1, n0, _PASa, 0, () => PartnerAppSummary];
 export var PendingProductionVariantSummaryList: StaticListSchema = [
   1,
@@ -12137,20 +12281,15 @@ export var ProductionVariantList: StaticListSchema = [1, n0, _PVL, 0, () => Prod
 export var ProductionVariantStatusList: StaticListSchema = [1, n0, _PVSLr, 0, () => ProductionVariantStatus];
 export var ProductionVariantSummaryList: StaticListSchema = [1, n0, _PVSLro, 0, () => ProductionVariantSummary];
 export var ProductListings = 64 | 0;
-
 export var ProfilerRuleConfigurations: StaticListSchema = [1, n0, _PRC, 0, () => ProfilerRuleConfiguration];
 export var ProfilerRuleEvaluationStatuses: StaticListSchema = [1, n0, _PRES, 0, () => ProfilerRuleEvaluationStatus];
 export var ProjectSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => ProjectSummary];
 export var PropertyNameSuggestionList: StaticListSchema = [1, n0, _PNSL, 0, () => PropertyNameSuggestion];
 export var ProvisioningParameters: StaticListSchema = [1, n0, _PProv, 0, () => ProvisioningParameter];
 export var QueryLineageStartArns = 64 | 0;
-
 export var QueryLineageTypes = 64 | 0;
-
 export var QueryTypes = 64 | 0;
-
 export var RealtimeInferenceInstanceTypes = 64 | 0;
-
 export var RealTimeInferenceRecommendations: StaticListSchema = [
   1,
   n0,
@@ -12159,63 +12298,45 @@ export var RealTimeInferenceRecommendations: StaticListSchema = [
   () => RealTimeInferenceRecommendation,
 ];
 export var RecommendationJobSupportedContentTypes = 64 | 0;
-
 export var RecommendationJobSupportedInstanceTypes = 64 | 0;
-
 export var RecommendationJobSupportedResponseMIMETypes = 64 | 0;
-
 export var RecommendationJobVpcSecurityGroupIds = 64 | 0;
-
 export var RecommendationJobVpcSubnets = 64 | 0;
-
 export var ReleaseNotesList = 64 | 0;
-
 export var RenderingErrorList: StaticListSchema = [1, n0, _REL, 0, () => RenderingError];
 export var ReservedCapacityOfferings: StaticListSchema = [1, n0, _RCOe, 0, () => ReservedCapacityOffering];
 export var ReservedCapacitySummaries: StaticListSchema = [1, n0, _RCS, 0, () => ReservedCapacitySummary];
 export var ResourceCatalogList: StaticListSchema = [1, n0, _RCL, 0, () => ResourceCatalog];
 export var ResponseMIMETypes = 64 | 0;
-
 export var RoleGroupAssignmentsList: StaticListSchema = [1, n0, _RGAL, 0, () => RoleGroupAssignment];
 export var SageMakerImageVersionAliases = 64 | 0;
-
 export var SageMakerResourceNames = 64 | 0;
-
 export var ScalingPolicies: StaticListSchema = [1, n0, _SP, 0, () => ScalingPolicy];
 export var SearchExpressionList: StaticListSchema = [1, n0, _SEL, 0, () => SearchExpression];
 export var SearchResultsList: StaticListSchema = [1, n0, _SRL, 0, [() => SearchRecord, 0]];
 export var SecondaryStatusTransitions: StaticListSchema = [1, n0, _SST, 0, () => SecondaryStatusTransition];
 export var SecurityGroupIds = 64 | 0;
-
 export var SelectedStepList: StaticListSchema = [1, n0, _SSL, 0, () => SelectedStep];
 export var ShadowModelVariantConfigList: StaticListSchema = [1, n0, _SMVCL, 0, () => ShadowModelVariantConfig];
 export var SourceAlgorithmList: StaticListSchema = [1, n0, _SAL, 0, () => SourceAlgorithm];
 export var SpaceList: StaticListSchema = [1, n0, _SL, 0, () => SpaceDetails];
 export var StudioLifecycleConfigsList: StaticListSchema = [1, n0, _SLCL, 0, () => StudioLifecycleConfigDetails];
 export var Subnets = 64 | 0;
-
 export var SubscribedWorkteams: StaticListSchema = [1, n0, _SWu, 0, () => SubscribedWorkteam];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
 export var TaskKeywords = 64 | 0;
-
 export var TemplateProviderDetailList: StaticListSchema = [1, n0, _TPDL, 0, () => TemplateProviderDetail];
 export var TrackingServerSummaryList: StaticListSchema = [1, n0, _TSSL, 0, () => TrackingServerSummary];
 export var TrainingContainerArguments = 64 | 0;
-
 export var TrainingContainerEntrypoint = 64 | 0;
-
 export var TrainingInstanceTypes = 64 | 0;
-
 export var TrainingJobSummaries: StaticListSchema = [1, n0, _TJSra, 0, () => TrainingJobSummary];
 export var TrainingPlanArns = 64 | 0;
-
 export var TrainingPlanFilters: StaticListSchema = [1, n0, _TPFr, 0, () => TrainingPlanFilter];
 export var TrainingPlanOfferings: StaticListSchema = [1, n0, _TPO, 0, () => TrainingPlanOffering];
 export var TrainingPlanSummaries: StaticListSchema = [1, n0, _TPSr, 0, () => TrainingPlanSummary];
 export var TransformInstanceTypes = 64 | 0;
-
 export var TransformJobSummaries: StaticListSchema = [1, n0, _TJSran, 0, () => TransformJobSummary];
 export var TrialComponentMetricSummaries: StaticListSchema = [1, n0, _TCMSr, 0, () => TrialComponentMetricSummary];
 export var TrialComponentSimpleSummaries: StaticListSchema = [1, n0, _TCSSr, 0, () => TrialComponentSimpleSummary];
@@ -12234,27 +12355,18 @@ export var UpdateTemplateProviderList: StaticListSchema = [1, n0, _UTPL, 0, () =
 export var UserProfileList: StaticListSchema = [1, n0, _UPL, 0, () => UserProfileDetails];
 export var VariantPropertyList: StaticListSchema = [1, n0, _VPL, 0, () => VariantProperty];
 export var VersionAliasesList = 64 | 0;
-
 export var Vertices: StaticListSchema = [1, n0, _Ve, 0, () => Vertex];
 export var VisibilityConditionsList: StaticListSchema = [1, n0, _VCL, 0, () => VisibilityConditions];
 export var VpcOnlyTrustedAccounts = 64 | 0;
-
 export var VpcSecurityGroupIds = 64 | 0;
-
 export var Workforces: StaticListSchema = [1, n0, _Wor, 0, () => Workforce];
 export var WorkforceSecurityGroupIds = 64 | 0;
-
 export var WorkforceSubnets = 64 | 0;
-
 export var Workteams: StaticListSchema = [1, n0, _Work, 0, () => Workteam];
 export var ActiveOperations = 128 | 1;
-
 export var AggregationTransformations = 128 | 0;
-
 export var ArtifactProperties = 128 | 0;
-
 export var AuthenticationRequestExtraParams = 128 | 0;
-
 export var AutoMLInferenceContainerDefinitions: StaticMapSchema = [
   2,
   n0,
@@ -12272,49 +12384,29 @@ export var BatchDescribeModelPackageErrorMap: StaticMapSchema = [
   () => BatchDescribeModelPackageError,
 ];
 export var ClusterKubernetesLabels = 128 | 0;
-
 export var CollectionParameters = 128 | 0;
-
 export var CustomerMetadataMap = 128 | 0;
-
 export var CustomImageContainerEnvironmentVariables = 128 | 0;
-
 export var EnvironmentMap = 128 | 0;
-
 export var FillingTransformationMap = 128 | 0;
-
 export var FillingTransformations: StaticMapSchema = [2, n0, _FTi, 0, 0, 128 | 0];
 export var HookParameters = 128 | 0;
-
 export var HyperParameters = 128 | 0;
-
 export var HyperParameterTrainingJobEnvironmentMap = 128 | 0;
-
 export var LineageEntityParameters = 128 | 0;
-
+export var MapString2048 = 128 | 0;
 export var ModelPackageSummaries: StaticMapSchema = [2, n0, _MPS, 0, 0, () => BatchDescribeModelPackageSummary];
 export var ModelVariantActionMap = 128 | 0;
-
 export var MonitoringEnvironmentMap = 128 | 0;
-
 export var OptimizationJobEnvironmentVariables = 128 | 0;
-
 export var PartnerAppArguments = 128 | 0;
-
 export var ProcessingEnvironmentMap = 128 | 0;
-
 export var ProfilingParameters = 128 | 0;
-
 export var QueryProperties = 128 | 0;
-
 export var RuleParameters = 128 | 0;
-
 export var TextGenerationHyperParameters = 128 | 0;
-
 export var TrainingEnvironmentMap = 128 | 0;
-
 export var TransformEnvironmentMap = 128 | 0;
-
 export var TrialComponentArtifacts: StaticMapSchema = [2, n0, _TCAri, 0, 0, () => TrialComponentArtifact];
 export var TrialComponentParameters: StaticMapSchema = [2, n0, _TCP, 0, 0, () => TrialComponentParameterValue];
 export var AutoMLProblemTypeConfig: StaticStructureSchema = [
@@ -12719,6 +12811,14 @@ export var CreateLabelingJob: StaticOperationSchema = [
   () => CreateLabelingJobRequest,
   () => CreateLabelingJobResponse,
 ];
+export var CreateMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _CMA,
+  0,
+  () => CreateMlflowAppRequest,
+  () => CreateMlflowAppResponse,
+];
 export var CreateMlflowTrackingServer: StaticOperationSchema = [
   9,
   n0,
@@ -12847,6 +12947,14 @@ export var CreatePresignedDomainUrl: StaticOperationSchema = [
   0,
   () => CreatePresignedDomainUrlRequest,
   () => CreatePresignedDomainUrlResponse,
+];
+export var CreatePresignedMlflowAppUrl: StaticOperationSchema = [
+  9,
+  n0,
+  _CPMAU,
+  0,
+  () => CreatePresignedMlflowAppUrlRequest,
+  () => CreatePresignedMlflowAppUrlResponse,
 ];
 export var CreatePresignedMlflowTrackingServerUrl: StaticOperationSchema = [
   9,
@@ -13123,6 +13231,14 @@ export var DeleteInferenceExperiment: StaticOperationSchema = [
   0,
   () => DeleteInferenceExperimentRequest,
   () => DeleteInferenceExperimentResponse,
+];
+export var DeleteMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _DMA,
+  0,
+  () => DeleteMlflowAppRequest,
+  () => DeleteMlflowAppResponse,
 ];
 export var DeleteMlflowTrackingServer: StaticOperationSchema = [
   9,
@@ -13566,6 +13682,14 @@ export var DescribeLineageGroup: StaticOperationSchema = [
   0,
   () => DescribeLineageGroupRequest,
   () => DescribeLineageGroupResponse,
+];
+export var DescribeMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _DMAe,
+  0,
+  () => DescribeMlflowAppRequest,
+  () => DescribeMlflowAppResponse,
 ];
 export var DescribeMlflowTrackingServer: StaticOperationSchema = [
   9,
@@ -14183,6 +14307,14 @@ export var ListLineageGroups: StaticOperationSchema = [
   () => ListLineageGroupsRequest,
   () => ListLineageGroupsResponse,
 ];
+export var ListMlflowApps: StaticOperationSchema = [
+  9,
+  n0,
+  _LMAi,
+  0,
+  () => ListMlflowAppsRequest,
+  () => ListMlflowAppsResponse,
+];
 export var ListMlflowTrackingServers: StaticOperationSchema = [
   9,
   n0,
@@ -14263,7 +14395,7 @@ export var ListModelQualityJobDefinitions: StaticOperationSchema = [
   () => ListModelQualityJobDefinitionsRequest,
   () => ListModelQualityJobDefinitionsResponse,
 ];
-export var ListModels: StaticOperationSchema = [9, n0, _LMi, 0, () => ListModelsInput, () => ListModelsOutput];
+export var ListModels: StaticOperationSchema = [9, n0, _LMis, 0, () => ListModelsInput, () => ListModelsOutput];
 export var ListMonitoringAlertHistory: StaticOperationSchema = [
   9,
   n0,
@@ -14275,7 +14407,7 @@ export var ListMonitoringAlertHistory: StaticOperationSchema = [
 export var ListMonitoringAlerts: StaticOperationSchema = [
   9,
   n0,
-  _LMAi,
+  _LMAis,
   0,
   () => ListMonitoringAlertsRequest,
   () => ListMonitoringAlertsResponse,
@@ -14842,6 +14974,14 @@ export var UpdateInferenceExperiment: StaticOperationSchema = [
   () => UpdateInferenceExperimentRequest,
   () => UpdateInferenceExperimentResponse,
 ];
+export var UpdateMlflowApp: StaticOperationSchema = [
+  9,
+  n0,
+  _UMA,
+  0,
+  () => UpdateMlflowAppRequest,
+  () => UpdateMlflowAppResponse,
+];
 export var UpdateMlflowTrackingServer: StaticOperationSchema = [
   9,
   n0,
@@ -14869,7 +15009,7 @@ export var UpdateModelPackage: StaticOperationSchema = [
 export var UpdateMonitoringAlert: StaticOperationSchema = [
   9,
   n0,
-  _UMA,
+  _UMAp,
   0,
   () => UpdateMonitoringAlertRequest,
   () => UpdateMonitoringAlertResponse,

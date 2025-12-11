@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreatePipelineCommand,
@@ -104,7 +104,7 @@ import {
   ValidatePipelineCommandInput,
   ValidatePipelineCommandOutput,
 } from "./commands/ValidatePipelineCommand";
-import { OSISClient, OSISClientConfig } from "./OSISClient";
+import { OSISClient } from "./OSISClient";
 
 const commands = {
   CreatePipelineCommand,

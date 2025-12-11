@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DBClusterAutomatedBackupMessage, DescribeDBClusterAutomatedBackupsMessage } from "../models/models_0";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { DBClusterAutomatedBackupMessage, DescribeDBClusterAutomatedBackupsMessage } from "../models/models_0";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeDBClusterAutomatedBackups } from "../schemas/schemas_0";
 
 /**
@@ -91,6 +91,12 @@ export interface DescribeDBClusterAutomatedBackupsCommandOutput
  * //       Iops: Number("int"),
  * //       StorageThroughput: Number("int"),
  * //       AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //       TagList: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

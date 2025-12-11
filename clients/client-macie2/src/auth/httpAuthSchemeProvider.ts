@@ -5,7 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
@@ -16,7 +16,7 @@ import {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { Macie2ClientConfig, Macie2ClientResolvedConfig } from "../Macie2Client";
+import { type Macie2ClientResolvedConfig, Macie2ClientConfig } from "../Macie2Client";
 
 /**
  * @internal

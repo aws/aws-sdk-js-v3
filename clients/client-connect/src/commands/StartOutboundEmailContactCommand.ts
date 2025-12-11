@@ -1,11 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartOutboundEmailContactRequest, StartOutboundEmailContactResponse } from "../models/models_2";
+import type { StartOutboundEmailContactRequest } from "../models/models_2";
+import type { StartOutboundEmailContactResponse } from "../models/models_3";
 import { StartOutboundEmailContact } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +28,8 @@ export interface StartOutboundEmailContactCommandInput extends StartOutboundEmai
 export interface StartOutboundEmailContactCommandOutput extends StartOutboundEmailContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a flow to send an agent reply or outbound email contact (created from the
- *    CreateContact API) to a customer.</p>
+ * <p>Initiates a flow to send an agent reply or outbound email contact (created from the CreateContact API) to a
+ *    customer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

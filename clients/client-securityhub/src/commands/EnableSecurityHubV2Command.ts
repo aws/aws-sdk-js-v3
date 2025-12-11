@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableSecurityHubV2Request, EnableSecurityHubV2Response } from "../models/models_2";
+import type { EnableSecurityHubV2Request, EnableSecurityHubV2Response } from "../models/models_2";
 import { EnableSecurityHubV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface EnableSecurityHubV2CommandInput extends EnableSecurityHubV2Requ
 export interface EnableSecurityHubV2CommandOutput extends EnableSecurityHubV2Response, __MetadataBearer {}
 
 /**
- * <p>Enables the service in account for the current Amazon Web Services Region or specified Amazon Web Services Region. This API is in public preview and subject to change.</p>
+ * <p>Enables the service in account for the current Amazon Web Services Region or specified Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

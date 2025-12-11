@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopContactStreamingRequest, StopContactStreamingResponse } from "../models/models_2";
+import type { StopContactStreamingRequest, StopContactStreamingResponse } from "../models/models_3";
 import { StopContactStreaming } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface StopContactStreamingCommandInput extends StopContactStreamingRe
 export interface StopContactStreamingCommandOutput extends StopContactStreamingResponse, __MetadataBearer {}
 
 /**
- * <p> Ends message streaming on a specified contact. To restart message streaming on that
- *    contact, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
+ * <p> Ends message streaming on a specified contact. To restart message streaming on that contact, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
  *    API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

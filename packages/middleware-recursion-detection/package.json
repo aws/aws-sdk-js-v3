@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-recursion-detection",
-  "version": "3.936.0",
+  "version": "3.948.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-recursion-detection",
@@ -25,7 +25,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@aws/lambda-invoke-store": "^0.2.0",
+    "@aws/lambda-invoke-store": "^0.2.2",
     "@smithy/protocol-http": "^5.3.5",
     "@smithy/types": "^4.9.0",
     "tslib": "^2.6.2"

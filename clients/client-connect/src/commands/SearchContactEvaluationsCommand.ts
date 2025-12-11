@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchContactEvaluationsResponse } from "../models/models_2";
-import { SearchContactEvaluationsRequest } from "../models/models_3";
+import type { SearchContactEvaluationsResponse } from "../models/models_2";
+import type { SearchContactEvaluationsRequest } from "../models/models_3";
 import { SearchContactEvaluations } from "../schemas/schemas_0";
 
 /**
@@ -46,16 +46,14 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  *          </p>
  *          <ul>
  *             <li>
- *                <p>A Search operation, unlike a List operation, takes time to index changes to resource
- *      (create, update or delete). If you don't see updated information for recently changed
- *      contact evaluations, try calling the API again in a few seconds. Contact Evaluations
- *      may not be fully backfilled with historical data in all regions yet, however all recently
- *      created Contact Evaluations should be available for search.</p>
+ *                <p>A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
+ *      delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
+ *      in a few seconds. Contact Evaluations may not be fully backfilled with historical data in all regions yet, however
+ *      all recently created Contact Evaluations should be available for search.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
- *    quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,6 +168,7 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  * //       EvaluationArn: "STRING_VALUE", // required
  * //       EvaluationFormId: "STRING_VALUE",
  * //       EvaluationFormVersion: Number("int"), // required
+ * //       EvaluationFormTitle: "STRING_VALUE",
  * //       Metadata: { // EvaluationSearchMetadata
  * //         ContactId: "STRING_VALUE", // required
  * //         EvaluatorArn: "STRING_VALUE", // required
@@ -183,6 +182,10 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  * //         AcknowledgedTime: new Date("TIMESTAMP"),
  * //         AcknowledgedBy: "STRING_VALUE",
  * //         AcknowledgerComment: "STRING_VALUE",
+ * //         SamplingJobId: "STRING_VALUE",
+ * //         ReviewId: "STRING_VALUE",
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantId: "STRING_VALUE",
  * //       },
  * //       Status: "DRAFT" || "SUBMITTED", // required
  * //       EvaluationType: "STANDARD" || "CALIBRATION",

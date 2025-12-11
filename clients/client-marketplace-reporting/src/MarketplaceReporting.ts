@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetBuyerDashboardCommand,
   GetBuyerDashboardCommandInput,
   GetBuyerDashboardCommandOutput,
 } from "./commands/GetBuyerDashboardCommand";
-import { MarketplaceReportingClient, MarketplaceReportingClientConfig } from "./MarketplaceReportingClient";
+import { MarketplaceReportingClient } from "./MarketplaceReportingClient";
 
 const commands = {
   GetBuyerDashboardCommand,

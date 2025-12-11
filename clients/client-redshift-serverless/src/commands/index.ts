@@ -21,6 +21,7 @@ export * from "./DeleteWorkgroupCommand";
 export * from "./GetCredentialsCommand";
 export * from "./GetCustomDomainAssociationCommand";
 export * from "./GetEndpointAccessCommand";
+export * from "./GetIdentityCenterAuthTokenCommand";
 export * from "./GetNamespaceCommand";
 export * from "./GetRecoveryPointCommand";
 export * from "./GetReservationCommand";

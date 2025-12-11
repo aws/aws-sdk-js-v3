@@ -118,6 +118,7 @@ export const AutomatedReasoningPolicyBuildResultAssetType = {
   BUILD_LOG: "BUILD_LOG",
   GENERATED_TEST_CASES: "GENERATED_TEST_CASES",
   POLICY_DEFINITION: "POLICY_DEFINITION",
+  POLICY_SCENARIOS: "POLICY_SCENARIOS",
   QUALITY_REPORT: "QUALITY_REPORT",
 } as const;
 /**
@@ -232,6 +233,21 @@ export type CustomModelDeploymentStatus =
  * @public
  * @enum
  */
+export const CustomModelDeploymentUpdateStatus = {
+  UPDATE_COMPLETED: "UpdateCompleted",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+/**
+ * @public
+ */
+export type CustomModelDeploymentUpdateStatus =
+  (typeof CustomModelDeploymentUpdateStatus)[keyof typeof CustomModelDeploymentUpdateStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SortModelsBy = {
   CREATION_TIME: "CreationTime",
 } as const;
@@ -257,11 +273,26 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  * @public
  * @enum
  */
+export const ReasoningEffort = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
+/**
+ * @public
+ */
+export type ReasoningEffort = (typeof ReasoningEffort)[keyof typeof ReasoningEffort];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomizationType = {
   CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
   DISTILLATION: "DISTILLATION",
   FINE_TUNING: "FINE_TUNING",
   IMPORTED: "IMPORTED",
+  REINFORCEMENT_FINE_TUNING: "REINFORCEMENT_FINE_TUNING",
 } as const;
 /**
  * @public

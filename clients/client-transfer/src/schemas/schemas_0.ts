@@ -520,7 +520,7 @@ const n0 = "com.amazonaws.transfer";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -542,7 +542,6 @@ import {
 import { TransferServiceException as __TransferServiceException } from "../models/TransferServiceException";
 
 /* eslint no-var: 0 */
-
 export var CertificateBodyType: StaticSimpleSchema = [0, n0, _CBT, 8, 0];
 export var CertificateChainType: StaticSimpleSchema = [0, n0, _CCT, 8, 0];
 export var HostKey: StaticSimpleSchema = [0, n0, _HK, 8, 0];
@@ -554,16 +553,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDenied`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var As2ConnectorConfig: StaticStructureSchema = [
   3,
   n0,
@@ -572,19 +566,8 @@ export var As2ConnectorConfig: StaticStructureSchema = [
   [_LPI, _PPI, _MS, _C, _EA, _SA, _MSA, _MR, _BASI, _PCT],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectorFileTransferResult: StaticStructureSchema = [3, n0, _CFTR, 0, [_FP, _SC, _FC, _FM], [0, 0, 0, 0]];
 export var ConnectorVpcLatticeEgressConfig: StaticStructureSchema = [3, n0, _CVLEC, 0, [_RCA, _PN], [0, 1]];
 export var CopyStepDetails: StaticStructureSchema = [
@@ -1025,45 +1008,12 @@ export var InputFileLocation: StaticStructureSchema = [
   [_SFLi, _EFL],
   [() => S3InputFileLocation, () => EfsFileLocation],
 ];
-export var InternalServiceError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListAccessesRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_MRa, _NT, _SI], [1, 0, 0]];
 export var ListAccessesResponse: StaticStructureSchema = [
   3,
@@ -1194,28 +1144,20 @@ export var ResourceExistsException: StaticErrorSchema = [
   -3,
   n0,
   _REE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _Res, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceExistsException, __ResourceExistsException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _Res, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3FileLocation: StaticStructureSchema = [3, n0, _SFLi, 0, [_B, _K, _VIe, _Et], [0, 0, 0, 0]];
 export var S3InputFileLocation: StaticStructureSchema = [3, n0, _SIFL, 0, [_B, _K], [0, 0]];
 export var S3StorageOptions: StaticStructureSchema = [3, n0, _SSO, 0, [_DLO], [0]];
@@ -1227,16 +1169,11 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-    [_aQE]: [`ServiceUnavailable`, 503],
-  },
+  { [_e]: _s, [_hE]: 503, [_aQE]: [`ServiceUnavailable`, 503] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SftpConnectorConfig: StaticStructureSchema = [3, n0, _SCC, 0, [_USI, _THK, _MCC], [0, 64 | 0, 1]];
 export var SftpConnectorConnectionDetails: StaticStructureSchema = [3, n0, _SCCD, 0, [_HK], [0]];
 export var SshPublicKey: StaticStructureSchema = [3, n0, _SPKs, 0, [_DI, _SPKB, _SPKI], [4, 0, 0]];
@@ -1289,22 +1226,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_RAS],
-  [
-    [
-      0,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [[0, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_Ar, _TK], [0, 64 | 0]];
 export var UpdateAccessRequest: StaticStructureSchema = [
   3,
@@ -1423,20 +1349,14 @@ export var WorkflowStep: StaticStructureSchema = [
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var TransferServiceException: StaticErrorSchema = [-3, _sm, "TransferServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TransferServiceException, __TransferServiceException);
-
 export var AddressAllocationIds = 64 | 0;
-
 export var As2Transports = 64 | 0;
-
 export var CertificateIds = 64 | 0;
-
 export var ConnectorFileTransferResults: StaticListSchema = [1, n0, _CFTRo, 0, () => ConnectorFileTransferResult];
 export var ExecutionStepResults: StaticListSchema = [1, n0, _ESRx, 0, () => ExecutionStepResult];
 export var FilePaths = 64 | 0;
-
 export var HomeDirectoryMappings: StaticListSchema = [1, n0, _HDM, 0, () => HomeDirectoryMapEntry];
 export var ListedAccesses: StaticListSchema = [1, n0, _LAis, 0, () => ListedAccess];
 export var ListedAgreements: StaticListSchema = [1, n0, _LAist, 0, () => ListedAgreement];
@@ -1452,29 +1372,18 @@ export var ListedWorkflows: StaticListSchema = [1, n0, _LWi, 0, () => ListedWork
 export var OnPartialUploadWorkflowDetails: StaticListSchema = [1, n0, _OPUWD, 0, () => WorkflowDetail];
 export var OnUploadWorkflowDetails: StaticListSchema = [1, n0, _OUWD, 0, () => WorkflowDetail];
 export var Protocols = 64 | 0;
-
 export var S3Tags: StaticListSchema = [1, n0, _STag, 0, () => S3Tag];
 export var SecondaryGids = 64 | 1;
-
 export var SecurityGroupIds = 64 | 0;
-
 export var SecurityPolicyNames = 64 | 0;
-
 export var SecurityPolicyOptions = 64 | 0;
-
 export var SecurityPolicyProtocols = 64 | 0;
-
 export var ServiceManagedEgressIpAddresses = 64 | 0;
-
 export var SftpConnectorTrustedHostKeyList = 64 | 0;
-
 export var SshPublicKeys: StaticListSchema = [1, n0, _SPK, 0, () => SshPublicKey];
 export var StructuredLogDestinations = 64 | 0;
-
 export var SubnetIds = 64 | 0;
-
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var WorkflowSteps: StaticListSchema = [1, n0, _WSo, 0, () => WorkflowStep];
 export var ConnectorEgressConfig: StaticStructureSchema = [
@@ -1574,9 +1483,7 @@ export var CreateWebApp: StaticOperationSchema = [
   9,
   n0,
   _CWA,
-  {
-    [_h]: ["POST", "/createWebApp", 200],
-  },
+  { [_h]: ["POST", "/createWebApp", 200] },
   () => CreateWebAppRequest,
   () => CreateWebAppResponse,
 ];
@@ -1601,9 +1508,7 @@ export var DeleteWebApp: StaticOperationSchema = [
   9,
   n0,
   _DWAe,
-  {
-    [_h]: ["POST", "/deleteWebApp", 200],
-  },
+  { [_h]: ["POST", "/deleteWebApp", 200] },
   () => DeleteWebAppRequest,
   () => __Unit,
 ];
@@ -1611,9 +1516,7 @@ export var DeleteWebAppCustomization: StaticOperationSchema = [
   9,
   n0,
   _DWACe,
-  {
-    [_h]: ["POST", "/deleteWebAppCustomization", 200],
-  },
+  { [_h]: ["POST", "/deleteWebAppCustomization", 200] },
   () => DeleteWebAppCustomizationRequest,
   () => __Unit,
 ];
@@ -1702,9 +1605,7 @@ export var DescribeWebApp: StaticOperationSchema = [
   9,
   n0,
   _DWAes,
-  {
-    [_h]: ["POST", "/describeWebApp", 200],
-  },
+  { [_h]: ["POST", "/describeWebApp", 200] },
   () => DescribeWebAppRequest,
   () => DescribeWebAppResponse,
 ];
@@ -1712,9 +1613,7 @@ export var DescribeWebAppCustomization: StaticOperationSchema = [
   9,
   n0,
   _DWACes,
-  {
-    [_h]: ["POST", "/describeWebAppCustomization", 200],
-  },
+  { [_h]: ["POST", "/describeWebAppCustomization", 200] },
   () => DescribeWebAppCustomizationRequest,
   () => DescribeWebAppCustomizationResponse,
 ];
@@ -1794,9 +1693,7 @@ export var ListFileTransferResults: StaticOperationSchema = [
   9,
   n0,
   _LFTR,
-  {
-    [_h]: ["POST", "/listFileTransferResults", 200],
-  },
+  { [_h]: ["POST", "/listFileTransferResults", 200] },
   () => ListFileTransferResultsRequest,
   () => ListFileTransferResultsResponse,
 ];
@@ -1838,9 +1735,7 @@ export var ListWebApps: StaticOperationSchema = [
   9,
   n0,
   _LWAis,
-  {
-    [_h]: ["POST", "/listWebApps", 200],
-  },
+  { [_h]: ["POST", "/listWebApps", 200] },
   () => ListWebAppsRequest,
   () => ListWebAppsResponse,
 ];
@@ -1880,9 +1775,7 @@ export var StartRemoteDelete: StaticOperationSchema = [
   9,
   n0,
   _SRD,
-  {
-    [_h]: ["POST", "/startRemoteDelete", 200],
-  },
+  { [_h]: ["POST", "/startRemoteDelete", 200] },
   () => StartRemoteDeleteRequest,
   () => StartRemoteDeleteResponse,
 ];
@@ -1890,9 +1783,7 @@ export var StartRemoteMove: StaticOperationSchema = [
   9,
   n0,
   _SRM,
-  {
-    [_h]: ["POST", "/startRemoteMove", 200],
-  },
+  { [_h]: ["POST", "/startRemoteMove", 200] },
   () => StartRemoteMoveRequest,
   () => StartRemoteMoveResponse,
 ];
@@ -1963,9 +1854,7 @@ export var UpdateWebApp: StaticOperationSchema = [
   9,
   n0,
   _UWA,
-  {
-    [_h]: ["POST", "/updateWebApp", 200],
-  },
+  { [_h]: ["POST", "/updateWebApp", 200] },
   () => UpdateWebAppRequest,
   () => UpdateWebAppResponse,
 ];
@@ -1973,9 +1862,7 @@ export var UpdateWebAppCustomization: StaticOperationSchema = [
   9,
   n0,
   _UWAC,
-  {
-    [_h]: ["POST", "/updateWebAppCustomization", 200],
-  },
+  { [_h]: ["POST", "/updateWebAppCustomization", 200] },
   () => UpdateWebAppCustomizationRequest,
   () => UpdateWebAppCustomizationResponse,
 ];

@@ -218,7 +218,7 @@ const n0 = "com.amazonaws.machinelearning";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -240,7 +240,6 @@ import {
 import { MachineLearningServiceException as __MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
 /* eslint no-var: 0 */
-
 export var RDSDatabasePassword: StaticSimpleSchema = [0, n0, _RDSDP, 8, 0];
 export var RedshiftDatabasePassword: StaticSimpleSchema = [0, n0, _RDP, 8, 0];
 export var AddTagsInput: StaticStructureSchema = [3, n0, _ATI, 0, [_T, _RI, _RT], [() => TagList, 0, 0]];
@@ -429,66 +428,19 @@ export var IdempotentParameterMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _co],
   [0, 1],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m, _co],
-  [0, 1],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m, _co], [0, 1]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidInputException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _co],
-  [0, 1],
-];
+export var InvalidInputException: StaticErrorSchema = [-3, n0, _IIE, { [_e]: _c, [_hE]: 400 }, [_m, _co], [0, 1]];
 TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
-
-export var InvalidTagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagException, __InvalidTagException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 417,
-  },
-  [_m, _co],
-  [0, 1],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 417 }, [_m, _co], [0, 1]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var MLModel: StaticStructureSchema = [
   3,
   n0,
@@ -500,19 +452,8 @@ export var MLModel: StaticStructureSchema = [
 export var PerformanceMetrics: StaticStructureSchema = [3, n0, _PM, 0, [_Pro], [128 | 0]];
 export var PredictInput: StaticStructureSchema = [3, n0, _PI, 0, [_MLMI, _Rec, _PE], [0, 128 | 0, 0]];
 export var Prediction: StaticStructureSchema = [3, n0, _Pre, 0, [_pL, _pV, _pS, _d], [0, 1, 128 | 1, 128 | 0]];
-export var PredictorNotMountedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var PredictorNotMountedException: StaticErrorSchema = [-3, n0, _PNME, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PredictorNotMountedException, __PredictorNotMountedException);
-
 export var PredictOutput: StaticStructureSchema = [3, n0, _PO, 0, [_Pre], [() => Prediction]];
 export var RDSDatabase: StaticStructureSchema = [3, n0, _RDSDa, 0, [_II, _DN], [0, 0]];
 export var RDSDatabaseCredentials: StaticStructureSchema = [
@@ -558,33 +499,12 @@ export var RedshiftDataSpec: StaticStructureSchema = [
   [() => RedshiftDatabase, 0, [() => RedshiftDatabaseCredentials, 0], 0, 0, 0, 0],
 ];
 export var RedshiftMetadata: StaticStructureSchema = [3, n0, _RM, 0, [_RD, _DUN, _SSQ], [() => RedshiftDatabase, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m, _co],
-  [0, 1],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m, _co], [0, 1]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3DataSpec: StaticStructureSchema = [3, n0, _SDS, 0, [_DLS, _DR, _DSat, _DSLS], [0, 0, 0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
-export var TagLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TLEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TagLimitExceededException: StaticErrorSchema = [-3, n0, _TLEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TagLimitExceededException, __TagLimitExceededException);
-
 export var UpdateBatchPredictionInput: StaticStructureSchema = [3, n0, _UBPI, 0, [_BPI, _BPN], [0, 0]];
 export var UpdateBatchPredictionOutput: StaticStructureSchema = [3, n0, _UBPO, 0, [_BPI], [0]];
 export var UpdateDataSourceInput: StaticStructureSchema = [3, n0, _UDSI, 0, [_DSI, _DSN], [0, 0]];
@@ -593,30 +513,20 @@ export var UpdateEvaluationInput: StaticStructureSchema = [3, n0, _UEI, 0, [_EI,
 export var UpdateEvaluationOutput: StaticStructureSchema = [3, n0, _UEO, 0, [_EI], [0]];
 export var UpdateMLModelInput: StaticStructureSchema = [3, n0, _UMLMI, 0, [_MLMI, _MLMN, _ST], [0, 0, 1]];
 export var UpdateMLModelOutput: StaticStructureSchema = [3, n0, _UMLMO, 0, [_MLMI], [0]];
-export var __Unit = "unit" as const;
-
 export var MachineLearningServiceException: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MachineLearningServiceException, __MachineLearningServiceException);
-
 export var BatchPredictions: StaticListSchema = [1, n0, _BPa, 0, () => BatchPrediction];
 export var DataSources: StaticListSchema = [1, n0, _DSata, 0, () => DataSource];
 export var EDPSecurityGroupIds = 64 | 0;
-
 export var Evaluations: StaticListSchema = [1, n0, _Ev, 0, () => Evaluation];
 export var MLModels: StaticListSchema = [1, n0, _MLMo, 0, () => MLModel];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var DetailsMap = 128 | 0;
-
 export var PerformanceMetricsProperties = 128 | 0;
-
 export var _Record = 128 | 0;
-
 export var ScoreValuePerLabelMap = 128 | 1;
-
 export var TrainingParameters = 128 | 0;
-
 export var AddTags: StaticOperationSchema = [9, n0, _AT, 0, () => AddTagsInput, () => AddTagsOutput];
 export var CreateBatchPrediction: StaticOperationSchema = [
   9,

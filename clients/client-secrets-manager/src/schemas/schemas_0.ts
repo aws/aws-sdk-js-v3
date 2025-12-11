@@ -189,7 +189,7 @@ const n0 = "com.amazonaws.secretsmanager";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -215,7 +215,6 @@ import {
 import { SecretsManagerServiceException as __SecretsManagerServiceException } from "../models/SecretsManagerServiceException";
 
 /* eslint no-var: 0 */
-
 export var RandomPasswordType: StaticSimpleSchema = [0, n0, _RPT, 8, 0];
 export var RotationTokenType: StaticSimpleSchema = [0, n0, _RTT, 8, 0];
 export var SecretBinaryType: StaticSimpleSchema = [0, n0, _SBT, 8, 21];
@@ -266,18 +265,8 @@ export var CreateSecretResponse: StaticStructureSchema = [
   [_ARN, _N, _VI, _RS],
   [0, 0, 0, () => ReplicationStatusListType],
 ];
-export var DecryptionFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _DF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DecryptionFailure: StaticErrorSchema = [-3, n0, _DF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DecryptionFailure, __DecryptionFailure);
-
 export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_SI], [0]];
 export var DeleteResourcePolicyResponse: StaticStructureSchema = [3, n0, _DRPRe, 0, [_ARN, _N], [0, 0]];
 export var DeleteSecretRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_SI, _RWID, _FDWR], [0, 1, 2]];
@@ -335,18 +324,8 @@ export var DescribeSecretResponse: StaticStructureSchema = [
     () => ReplicationStatusListType,
   ],
 ];
-export var EncryptionFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _EF,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var EncryptionFailure: StaticErrorSchema = [-3, n0, _EF, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(EncryptionFailure, __EncryptionFailure);
-
 export var ExternalSecretRotationMetadataItem: StaticStructureSchema = [3, n0, _ESRMI, 0, [_K, _V], [0, 0]];
 export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_K, _Va], [0, 64 | 0]];
 export var GetRandomPasswordRequest: StaticStructureSchema = [
@@ -376,66 +355,16 @@ export var GetSecretValueResponse: StaticStructureSchema = [
   [_ARN, _N, _VI, _SB, _SS, _VSe, _CD],
   [0, 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], 64 | 0, 4],
 ];
-export var InternalServiceError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListSecretsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -454,42 +383,12 @@ export var ListSecretVersionIdsResponse: StaticStructureSchema = [
   [_Ve, _NT, _ARN, _N],
   [() => SecretVersionsListType, 0, 0, 0],
 ];
-export var MalformedPolicyDocumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var MalformedPolicyDocumentException: StaticErrorSchema = [-3, n0, _MPDE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
-
-export var PreconditionNotMetException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PNME,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PreconditionNotMetException: StaticErrorSchema = [-3, n0, _PNME, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PreconditionNotMetException, __PreconditionNotMetException);
-
-export var PublicPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PPE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var PublicPolicyException: StaticErrorSchema = [-3, n0, _PPE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(PublicPolicyException, __PublicPolicyException);
-
 export var PutResourcePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_SI, _RPe, _BPP], [0, 0, 2]];
 export var PutResourcePolicyResponse: StaticStructureSchema = [3, n0, _PRPRu, 0, [_ARN, _N], [0, 0]];
 export var PutSecretValueRequest: StaticStructureSchema = [
@@ -528,30 +427,10 @@ export var ReplicateSecretToRegionsResponse: StaticStructureSchema = [
   [0, () => ReplicationStatusListType],
 ];
 export var ReplicationStatusType: StaticStructureSchema = [3, n0, _RST, 0, [_R, _KKI, _S, _SM, _LAD], [0, 0, 0, 0, 4]];
-export var ResourceExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _REE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceExistsException: StaticErrorSchema = [-3, n0, _REE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceExistsException, __ResourceExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestoreSecretRequest: StaticStructureSchema = [3, n0, _RSR, 0, [_SI], [0]];
 export var RestoreSecretResponse: StaticStructureSchema = [3, n0, _RSRe, 0, [_ARN, _N], [0, 0]];
 export var RotateSecretRequest: StaticStructureSchema = [
@@ -643,10 +522,8 @@ export var ValidateResourcePolicyResponse: StaticStructureSchema = [
 ];
 export var ValidationErrorsEntry: StaticStructureSchema = [3, n0, _VEE, 0, [_CN, _EM], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var SecretsManagerServiceException: StaticErrorSchema = [-3, _sm, "SecretsManagerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SecretsManagerServiceException, __SecretsManagerServiceException);
-
 export var AddReplicaRegionListType: StaticListSchema = [1, n0, _ARRLT, 0, () => ReplicaRegionType];
 export var APIErrorListType: StaticListSchema = [1, n0, _APIELT, 0, () => APIErrorType];
 export var ExternalSecretRotationMetadataType: StaticListSchema = [
@@ -658,21 +535,15 @@ export var ExternalSecretRotationMetadataType: StaticListSchema = [
 ];
 export var FiltersListType: StaticListSchema = [1, n0, _FLT, 0, () => Filter];
 export var FilterValuesStringList = 64 | 0;
-
 export var KmsKeyIdListType = 64 | 0;
-
 export var RemoveReplicaRegionListType = 64 | 0;
-
 export var ReplicationStatusListType: StaticListSchema = [1, n0, _RSLT, 0, () => ReplicationStatusType];
 export var SecretIdListType = 64 | 0;
-
 export var SecretListType: StaticListSchema = [1, n0, _SLT, 0, () => SecretListEntry];
 export var SecretValuesType: StaticListSchema = [1, n0, _SVT, 0, [() => SecretValueEntry, 0]];
 export var SecretVersionsListType: StaticListSchema = [1, n0, _SVLT, 0, () => SecretVersionsListEntry];
 export var SecretVersionStagesType = 64 | 0;
-
 export var TagKeyListType = 64 | 0;
-
 export var TagListType: StaticListSchema = [1, n0, _TLT, 0, () => Tag];
 export var ValidationErrorsType: StaticListSchema = [1, n0, _VET, 0, () => ValidationErrorsEntry];
 export var SecretVersionsToStagesMapType: StaticMapSchema = [2, n0, _SVTSMT, 0, 0, 64 | 0];

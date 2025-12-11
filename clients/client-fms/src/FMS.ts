@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateAdminAccountCommand,
@@ -192,7 +192,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { FMSClient, FMSClientConfig } from "./FMSClient";
+import { FMSClient } from "./FMSClient";
 
 const commands = {
   AssociateAdminAccountCommand,

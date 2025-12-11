@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRuleRequest, CreateRuleResponse } from "../models/models_0";
+import type { CreateRuleRequest, CreateRuleResponse } from "../models/models_0";
 import { CreateRule } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
 
 /**
  * <p>Creates a rule for the specified Amazon Connect instance.</p>
- *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
- *    code conditions for the rule. </p>
+ *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function
+ *     language</a> to code conditions for the rule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,7 +56,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *         References: { // ContactReferences
  *           "<keys>": { // Reference
  *             Value: "STRING_VALUE",
- *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  *             Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  *             Arn: "STRING_VALUE",
  *             StatusReason: "STRING_VALUE",

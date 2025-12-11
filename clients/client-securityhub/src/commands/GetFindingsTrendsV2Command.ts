@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFindingsTrendsV2Response } from "../models/models_2";
-import { GetFindingsTrendsV2Request } from "../models/models_3";
+import type { GetFindingsTrendsV2Response } from "../models/models_2";
+import type { GetFindingsTrendsV2Request } from "../models/models_3";
 import { GetFindingsTrendsV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -28,7 +28,7 @@ export interface GetFindingsTrendsV2CommandInput extends GetFindingsTrendsV2Requ
 export interface GetFindingsTrendsV2CommandOutput extends GetFindingsTrendsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns findings trend data based on the specified criteria. This operation helps you analyze patterns and changes in findings over time. This API is in public preview and subject to change.</p>
+ * <p>Returns findings trend data based on the specified criteria. This operation helps you analyze patterns and changes in findings over time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

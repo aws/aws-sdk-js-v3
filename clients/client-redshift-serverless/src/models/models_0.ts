@@ -1995,6 +1995,34 @@ export interface GetCustomDomainAssociationResponse {
 /**
  * @public
  */
+export interface GetIdentityCenterAuthTokenRequest {
+  /**
+   * <p>A list of workgroup names for which to generate the Identity Center authentication token.</p> <p>Constraints:</p> <ul> <li> <p>Must contain between 1 and 20 workgroup names.</p> </li> <li> <p>Each workgroup name must be a valid Amazon Redshift Serverless workgroup identifier.</p> </li> <li> <p>All specified workgroups must have Identity Center integration enabled.</p> </li> </ul>
+   * @public
+   */
+  workgroupNames: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdentityCenterAuthTokenResponse {
+  /**
+   * <p>The Identity Center authentication token that can be used to access data in the specified workgroups.</p> <p>This token contains the Identity Center identity information and is encrypted for secure transmission.</p>
+   * @public
+   */
+  token?: string | undefined;
+
+  /**
+   * <p>The date and time when the Identity Center authentication token expires.</p> <p>After this time, a new token must be requested for continued access.</p>
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetNamespaceRequest {
   /**
    * <p>The name of the namespace to retrieve information for.</p>

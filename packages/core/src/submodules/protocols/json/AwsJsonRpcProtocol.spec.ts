@@ -83,28 +83,18 @@ describe(AwsJsonRpcProtocol.name, () => {
     // set by deserializer middleware, not protocol
     expect(error.$response).toEqual(undefined);
 
-    expect(error.Code).toEqual(MyQueryError.name);
-    expect(error.Error.Code).toEqual(MyQueryError.name);
-
-    expect(error.Message).toEqual("oh no");
-    expect(error.Prop2).toEqual(9999);
-
-    expect(error.Error.Message).toEqual("oh no");
-    expect(error.Error.Prop2).toEqual(9999);
-
     expect(error).toMatchObject({
       $fault: "client",
-      Message: "oh no",
       message: "oh no",
       Prop2: 9999,
       Error: {
-        Code: "MyQueryError",
+        Code: MyQueryError.name,
         Message: "oh no",
         Type: "Client",
         Prop2: 9999,
       },
       Type: "Client",
-      Code: "MyQueryError",
+      Code: MyQueryError.name,
     });
   });
 });

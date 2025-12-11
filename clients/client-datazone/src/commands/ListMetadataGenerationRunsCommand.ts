@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMetadataGenerationRunsInput, ListMetadataGenerationRunsOutput } from "../models/models_1";
+import type { ListMetadataGenerationRunsInput, ListMetadataGenerationRunsOutput } from "../models/models_1";
 import { ListMetadataGenerationRuns } from "../schemas/schemas_0";
 
 /**
@@ -38,10 +38,11 @@ export interface ListMetadataGenerationRunsCommandOutput extends ListMetadataGen
  * const client = new DataZoneClient(config);
  * const input = { // ListMetadataGenerationRunsInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
- *   type: "BUSINESS_DESCRIPTIONS",
+ *   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ *   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   targetIdentifier: "STRING_VALUE",
  * };
  * const command = new ListMetadataGenerationRunsCommand(input);
  * const response = await client.send(command);
@@ -55,8 +56,11 @@ export interface ListMetadataGenerationRunsCommandOutput extends ListMetadataGen
  * //         identifier: "STRING_VALUE", // required
  * //         revision: "STRING_VALUE",
  * //       },
- * //       status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
- * //       type: "BUSINESS_DESCRIPTIONS",
+ * //       status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //       type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //       types: [ // MetadataGenerationRunTypes
+ * //         "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //       ],
  * //       createdAt: new Date("TIMESTAMP"),
  * //       createdBy: "STRING_VALUE",
  * //       owningProjectId: "STRING_VALUE", // required

@@ -7,7 +7,7 @@ import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig }
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
-import { BCMPricingCalculatorExtensionConfiguration } from "./extensionConfiguration";
+import type { BCMPricingCalculatorExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public

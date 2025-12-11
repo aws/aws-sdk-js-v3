@@ -101,7 +101,7 @@ const n0 = "com.amazonaws.autoscalingplans";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { AutoScalingPlansServiceException as __AutoScalingPlansServiceException } from "../models/AutoScalingPlansServiceException";
 import {
@@ -114,22 +114,16 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ApplicationSource: StaticStructureSchema = [3, n0, _AS, 0, [_CFSARN, _TF], [0, () => TagFilters]];
 export var ConcurrentUpdateException: StaticErrorSchema = [
   -3,
   n0,
   _CUE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`ConcurrentUpdateException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`ConcurrentUpdateException`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConcurrentUpdateException, __ConcurrentUpdateException);
-
 export var CreateScalingPlanRequest: StaticStructureSchema = [
   3,
   n0,
@@ -210,59 +204,39 @@ export var InternalServiceException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`InternalServiceException`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServiceException`, 500] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-
 export var InvalidNextTokenException: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidNextTokenException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextTokenException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceededException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var MetricDimension: StaticStructureSchema = [3, n0, _MD, 0, [_Na, _V], [0, 0]];
 export var ObjectNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _ONFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ObjectNotFoundException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ObjectNotFoundException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ObjectNotFoundException, __ObjectNotFoundException);
-
 export var PredefinedLoadMetricSpecification: StaticStructureSchema = [3, n0, _PLMS, 0, [_PLMT, _RL], [0, 0]];
 export var PredefinedScalingMetricSpecification: StaticStructureSchema = [3, n0, _PSMS, 0, [_PSMT, _RL], [0, 0]];
 export var ScalingInstruction: StaticStructureSchema = [
@@ -334,18 +308,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var AutoScalingPlansServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -355,19 +322,16 @@ export var AutoScalingPlansServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(AutoScalingPlansServiceException, __AutoScalingPlansServiceException);
-
 export var ApplicationSources: StaticListSchema = [1, n0, _ASp, 0, () => ApplicationSource];
 export var Datapoints: StaticListSchema = [1, n0, _Dat, 0, () => Datapoint];
 export var MetricDimensions: StaticListSchema = [1, n0, _MDe, 0, () => MetricDimension];
 export var ScalingInstructions: StaticListSchema = [1, n0, _SI, 0, () => ScalingInstruction];
 export var ScalingPlanNames = 64 | 0;
-
 export var ScalingPlanResources: StaticListSchema = [1, n0, _SPR, 0, () => ScalingPlanResource];
 export var ScalingPlans: StaticListSchema = [1, n0, _SP, 0, () => ScalingPlan];
 export var ScalingPolicies: StaticListSchema = [1, n0, _SPca, 0, () => ScalingPolicy];
 export var TagFilters: StaticListSchema = [1, n0, _TF, 0, () => TagFilter];
 export var TagValues = 64 | 0;
-
 export var TargetTrackingConfigurations: StaticListSchema = [1, n0, _TTC, 0, () => TargetTrackingConfiguration];
 export var CreateScalingPlan: StaticOperationSchema = [
   9,

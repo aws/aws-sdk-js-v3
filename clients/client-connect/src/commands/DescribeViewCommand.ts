@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeViewRequest, DescribeViewResponse } from "../models/models_1";
+import type { DescribeViewRequest, DescribeViewResponse } from "../models/models_1";
 import { DescribeView } from "../schemas/schemas_0";
 
 /**
@@ -31,10 +31,10 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  *          <p>The view identifier can be supplied as a ViewId or ARN.</p>
  *          <p>
  *             <code>$SAVED</code> needs to be supplied if a view is unpublished.</p>
- *          <p>The view identifier can contain an optional qualifier, for example,
- *     <code><view-id>:$SAVED</code>, which is either an actual version number or an Amazon Connect managed qualifier <code>$SAVED | $LATEST</code>. If it is not supplied, then
- *     <code>$LATEST</code> is assumed for customer managed views and an error is returned if there is
- *    no published content available. Version 1 is assumed for Amazon Web Services managed views.</p>
+ *          <p>The view identifier can contain an optional qualifier, for example, <code><view-id>:$SAVED</code>, which
+ *    is either an actual version number or an Amazon Connect managed qualifier <code>$SAVED | $LATEST</code>. If it is
+ *    not supplied, then <code>$LATEST</code> is assumed for customer managed views and an error is returned if there is no
+ *    published content available. Version 1 is assumed for Amazon Web Services managed views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

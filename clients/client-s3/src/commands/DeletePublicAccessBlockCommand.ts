@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeletePublicAccessBlockRequest } from "../models/models_0";
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import type { DeletePublicAccessBlockRequest } from "../models/models_0";
+import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeletePublicAccessBlock } from "../schemas/schemas_0";
 
 /**
@@ -30,10 +30,12 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this operation,
- *       you must have the <code>s3:PutBucketPublicAccessBlock</code> permission. For more information about
- *       permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *         Resources</a>.</p>
+ *          <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. This
+ *       operation removes the bucket-level configuration only. The effective public access behavior
+ *       will still be governed by account-level settings (which may inherit from organization-level
+ *       policies). To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
+ *       permission. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *         Permissions to Your Amazon S3 Resources</a>.</p>
  *          <p>The following operations are related to <code>DeletePublicAccessBlock</code>:</p>
  *          <ul>
  *             <li>

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateConnectorCommand,
@@ -88,7 +88,7 @@ import {
   UpdateConnectorCommandInput,
   UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
-import { KafkaConnectClient, KafkaConnectClientConfig } from "./KafkaConnectClient";
+import { KafkaConnectClient } from "./KafkaConnectClient";
 
 const commands = {
   CreateConnectorCommand,

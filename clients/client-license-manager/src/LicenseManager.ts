@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AcceptGrantCommand, AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
 import {
@@ -272,7 +272,7 @@ import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
-import { LicenseManagerClient, LicenseManagerClientConfig } from "./LicenseManagerClient";
+import { LicenseManagerClient } from "./LicenseManagerClient";
 
 const commands = {
   AcceptGrantCommand,

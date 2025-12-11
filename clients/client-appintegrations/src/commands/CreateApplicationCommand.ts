@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import type {
+  AppIntegrationsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import type { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
 import { CreateApplication } from "../schemas/schemas_0";
 
 /**
@@ -83,6 +87,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

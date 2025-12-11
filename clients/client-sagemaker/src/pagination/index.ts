@@ -40,6 +40,7 @@ export * from "./ListInferenceRecommendationsJobsPaginator";
 export * from "./ListLabelingJobsForWorkteamPaginator";
 export * from "./ListLabelingJobsPaginator";
 export * from "./ListLineageGroupsPaginator";
+export * from "./ListMlflowAppsPaginator";
 export * from "./ListMlflowTrackingServersPaginator";
 export * from "./ListModelBiasJobDefinitionsPaginator";
 export * from "./ListModelCardExportJobsPaginator";

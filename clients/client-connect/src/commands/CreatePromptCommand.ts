@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePromptRequest, CreatePromptResponse } from "../models/models_0";
+import type { CreatePromptRequest, CreatePromptResponse } from "../models/models_0";
 import { CreatePrompt } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,9 @@ export interface CreatePromptCommandInput extends CreatePromptRequest {}
 export interface CreatePromptCommandOutput extends CreatePromptResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a prompt. For more information about prompts, such as supported file types and
- *    maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the <i>Amazon Connect Administrator
- *    Guide</i>.</p>
+ * <p>Creates a prompt. For more information about prompts, such as supported file types and maximum length, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

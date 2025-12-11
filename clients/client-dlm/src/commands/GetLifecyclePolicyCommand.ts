@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
+import type { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
+import type { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
 import { GetLifecyclePolicy } from "../schemas/schemas_0";
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListViewVersionsRequest, ListViewVersionsResponse } from "../models/models_2";
+import type { ListViewVersionsRequest, ListViewVersionsResponse } from "../models/models_2";
 import { ListViewVersions } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface ListViewVersionsCommandInput extends ListViewVersionsRequest {}
 export interface ListViewVersionsCommandOutput extends ListViewVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all the available versions for the specified Amazon Connect instance and view
- *    identifier.</p>
+ * <p>Returns all the available versions for the specified Amazon Connect instance and view identifier.</p>
  *          <p>Results will be sorted from highest to lowest.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

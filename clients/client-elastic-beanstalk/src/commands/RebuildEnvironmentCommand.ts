@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import type {
+  ElasticBeanstalkClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebuildEnvironmentMessage } from "../models/models_0";
+import type { RebuildEnvironmentMessage } from "../models/models_0";
 import { RebuildEnvironment } from "../schemas/schemas_0";
 
 /**

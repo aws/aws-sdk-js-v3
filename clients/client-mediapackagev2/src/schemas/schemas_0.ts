@@ -296,7 +296,7 @@ const n0 = "com.amazonaws.mediapackagev2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -316,20 +316,8 @@ import {
 import { MediaPackageV2ServiceException as __MediaPackageV2ServiceException } from "../models/MediaPackageV2ServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CancelHarvestJobRequest: StaticStructureSchema = [
   3,
   n0,
@@ -341,12 +329,7 @@ export var CancelHarvestJobRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xauim,
-      },
-    ],
+    [0, { [_hH]: _xauim }],
   ],
 ];
 export var CancelHarvestJobResponse: StaticStructureSchema = [3, n0, _CHJRa, 0, [], []];
@@ -367,42 +350,15 @@ export var ChannelListConfiguration: StaticStructureSchema = [
   [_A, _CN, _CGN, _CA, _MA, _D, _IT],
   [0, 0, 0, 4, 4, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _CET],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _CET], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateChannelGroupRequest: StaticStructureSchema = [
   3,
   n0,
   _CCGR,
   0,
   [_CGN, _CT, _D, _T],
-  [
-    0,
-    [
-      0,
-      {
-        [_hH]: _xact,
-        [_iT]: 1,
-      },
-    ],
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var CreateChannelGroupResponse: StaticStructureSchema = [
   3,
@@ -421,23 +377,12 @@ export var CreateChannelRequest: StaticStructureSchema = [
   [
     [0, 1],
     0,
-    [
-      0,
-      {
-        [_hH]: _xact,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _xact, [_iT]: 1 }],
     0,
     0,
     () => InputSwitchConfiguration,
     () => OutputHeaderConfiguration,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateChannelResponse: StaticStructureSchema = [
@@ -501,13 +446,7 @@ export var CreateHarvestJobRequest: StaticStructureSchema = [
     () => HarvestedManifests,
     () => HarvesterScheduleConfiguration,
     () => Destination,
-    [
-      0,
-      {
-        [_hH]: _xact,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _xact, [_iT]: 1 }],
     0,
     128 | 0,
   ],
@@ -572,13 +511,7 @@ export var CreateOriginEndpointRequest: StaticStructureSchema = [
     0,
     0,
     () => Segment,
-    [
-      0,
-      {
-        [_hH]: _xact,
-        [_iT]: 1,
-      },
-    ],
+    [0, { [_hH]: _xact, [_iT]: 1 }],
     0,
     1,
     () => CreateHlsManifests,
@@ -716,21 +649,7 @@ export var GetChannelGroupResponse: StaticStructureSchema = [
   _GCGRe,
   0,
   [_CGN, _A, _ED, _CA, _MA, _D, _ET, _T],
-  [
-    0,
-    0,
-    0,
-    4,
-    4,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 4, 4, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var GetChannelPolicyRequest: StaticStructureSchema = [
   3,
@@ -946,19 +865,8 @@ export var HarvestJob: StaticStructureSchema = [
 ];
 export var IngestEndpoint: StaticStructureSchema = [3, n0, _IEn, 0, [_I, _U], [0, 0]];
 export var InputSwitchConfiguration: StaticStructureSchema = [3, n0, _ISC, 0, [_MQCSIS, _PIr], [2, 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListChannelGroupsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -966,18 +874,8 @@ export var ListChannelGroupsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListChannelGroupsResponse: StaticStructureSchema = [
@@ -996,18 +894,8 @@ export var ListChannelsRequest: StaticStructureSchema = [
   [_CGN, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_It, _NT], [() => ChannelList, 0]];
@@ -1020,36 +908,11 @@ export var ListHarvestJobsRequest: StaticStructureSchema = [
   [_CGN, _CN, _OEN, _S, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oEN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _iS,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _cN }],
+    [0, { [_hQ]: _oEN }],
+    [0, { [_hQ]: _iS }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListHarvestJobsResponse: StaticStructureSchema = [3, n0, _LHJRi, 0, [_It, _NT], [() => HarvestJobsList, 0]];
@@ -1072,18 +935,8 @@ export var ListOriginEndpointsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListOriginEndpointsResponse: StaticStructureSchema = [
@@ -1095,21 +948,7 @@ export var ListOriginEndpointsResponse: StaticStructureSchema = [
   [() => OriginEndpointsList, 0],
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRRi,
-  0,
-  [_T],
-  [
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
 export var OriginEndpointListConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1180,15 +1019,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RTNF],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3DestinationConfig: StaticStructureSchema = [3, n0, _SDC, 0, [_BN, _DPe], [0, 0]];
 export var Scte: StaticStructureSchema = [3, n0, _Sc, 0, [_SF, _SIS], [64 | 0, 0]];
 export var ScteDash: StaticStructureSchema = [3, n0, _SD, 0, [_AMD], [0]];
@@ -1201,19 +1036,8 @@ export var Segment: StaticStructureSchema = [
   [_SDS, _SN, _TUARG, _IIOS, _TIDS, _Sc, _E],
   [1, 0, 2, 2, 2, () => Scte, () => Encryption],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SpekeKeyProvider: StaticStructureSchema = [
   3,
   n0,
@@ -1231,27 +1055,11 @@ export var TagResourceRequest: StaticStructureSchema = [
   [_RAe, _T],
   [
     [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1260,12 +1068,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAe, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateChannelGroupRequest: StaticStructureSchema = [
@@ -1274,16 +1077,7 @@ export var UpdateChannelGroupRequest: StaticStructureSchema = [
   _UCGR,
   0,
   [_CGN, _ET, _D],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xauim,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [0, { [_hH]: _xauim }], 0],
 ];
 export var UpdateChannelGroupResponse: StaticStructureSchema = [
   3,
@@ -1291,21 +1085,7 @@ export var UpdateChannelGroupResponse: StaticStructureSchema = [
   _UCGRp,
   0,
   [_CGN, _A, _ED, _CA, _MA, _D, _ET, _T],
-  [
-    0,
-    0,
-    0,
-    4,
-    4,
-    0,
-    0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
+  [0, 0, 0, 4, 4, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
 export var UpdateChannelRequest: StaticStructureSchema = [
   3,
@@ -1313,19 +1093,7 @@ export var UpdateChannelRequest: StaticStructureSchema = [
   _UCR,
   0,
   [_CGN, _CN, _ET, _D, _ISC, _OHC],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xauim,
-      },
-    ],
-    0,
-    () => InputSwitchConfiguration,
-    () => OutputHeaderConfiguration,
-  ],
+  [[0, 1], [0, 1], [0, { [_hH]: _xauim }], 0, () => InputSwitchConfiguration, () => OutputHeaderConfiguration],
 ];
 export var UpdateChannelResponse: StaticStructureSchema = [
   3,
@@ -1343,12 +1111,7 @@ export var UpdateChannelResponse: StaticStructureSchema = [
     () => IngestEndpointList,
     0,
     0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     () => InputSwitchConfiguration,
     () => OutputHeaderConfiguration,
   ],
@@ -1372,12 +1135,7 @@ export var UpdateOriginEndpointRequest: StaticStructureSchema = [
     () => CreateDashManifests,
     () => CreateMssManifests,
     () => ForceEndpointErrorConfiguration,
-    [
-      0,
-      {
-        [_hH]: _xauim,
-      },
-    ],
+    [0, { [_hH]: _xauim }],
   ],
 ];
 export var UpdateOriginEndpointResponse: StaticStructureSchema = [
@@ -1402,34 +1160,16 @@ export var UpdateOriginEndpointResponse: StaticStructureSchema = [
     () => GetMssManifests,
     () => ForceEndpointErrorConfiguration,
     0,
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
     () => GetDashManifests,
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_M, _VET],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M, _VET], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var MediaPackageV2ServiceException: StaticErrorSchema = [-3, _sm, "MediaPackageV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MediaPackageV2ServiceException, __MediaPackageV2ServiceException);
-
 export var CdnIdentifierSecretArns = 64 | 0;
-
 export var ChannelGroupsList: StaticListSchema = [1, n0, _CGL, 0, () => ChannelGroupListConfiguration];
 export var ChannelList: StaticListSchema = [1, n0, _CL, 0, () => ChannelListConfiguration];
 export var CreateDashManifests: StaticListSchema = [1, n0, _CDM, 0, () => CreateDashManifestConfiguration];
@@ -1445,13 +1185,9 @@ export var CreateMssManifests: StaticListSchema = [1, n0, _CMM, 0, () => CreateM
 export var DashBaseUrls: StaticListSchema = [1, n0, _DBUa, 0, () => DashBaseUrl];
 export var DashDvbErrorMetrics: StaticListSchema = [1, n0, _DDEM, 0, () => DashDvbMetricsReporting];
 export var DashPeriodTriggers = 64 | 0;
-
 export var DashProfiles = 64 | 0;
-
 export var DrmSystems = 64 | 0;
-
 export var EndpointErrorConditions = 64 | 0;
-
 export var GetDashManifests: StaticListSchema = [1, n0, _GDM, 0, () => GetDashManifestConfiguration];
 export var GetHlsManifests: StaticListSchema = [1, n0, _GHM, 0, () => GetHlsManifestConfiguration];
 export var GetLowLatencyHlsManifests: StaticListSchema = [
@@ -1485,11 +1221,8 @@ export var ListLowLatencyHlsManifests: StaticListSchema = [
 export var ListMssManifests: StaticListSchema = [1, n0, _LMM, 0, () => ListMssManifestConfiguration];
 export var OriginEndpointsList: StaticListSchema = [1, n0, _OEL, 0, () => OriginEndpointListConfiguration];
 export var ScteFilterList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CancelHarvestJob: StaticOperationSchema = [
   9,
   n0,
@@ -1508,9 +1241,7 @@ export var CreateChannel: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/channelGroup/{ChannelGroupName}/channel", 200],
-  },
+  { [_h]: ["POST", "/channelGroup/{ChannelGroupName}/channel", 200] },
   () => CreateChannelRequest,
   () => CreateChannelResponse,
 ];
@@ -1518,9 +1249,7 @@ export var CreateChannelGroup: StaticOperationSchema = [
   9,
   n0,
   _CCG,
-  {
-    [_h]: ["POST", "/channelGroup", 200],
-  },
+  { [_h]: ["POST", "/channelGroup", 200] },
   () => CreateChannelGroupRequest,
   () => CreateChannelGroupResponse,
 ];
@@ -1542,9 +1271,7 @@ export var CreateOriginEndpoint: StaticOperationSchema = [
   9,
   n0,
   _COE,
-  {
-    [_h]: ["POST", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint", 200],
-  },
+  { [_h]: ["POST", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint", 200] },
   () => CreateOriginEndpointRequest,
   () => CreateOriginEndpointResponse,
 ];
@@ -1552,9 +1279,7 @@ export var DeleteChannel: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/", 200],
-  },
+  { [_h]: ["DELETE", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/", 200] },
   () => DeleteChannelRequest,
   () => DeleteChannelResponse,
 ];
@@ -1562,9 +1287,7 @@ export var DeleteChannelGroup: StaticOperationSchema = [
   9,
   n0,
   _DCG,
-  {
-    [_h]: ["DELETE", "/channelGroup/{ChannelGroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/channelGroup/{ChannelGroupName}", 200] },
   () => DeleteChannelGroupRequest,
   () => DeleteChannelGroupResponse,
 ];
@@ -1572,9 +1295,7 @@ export var DeleteChannelPolicy: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy", 200],
-  },
+  { [_h]: ["DELETE", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy", 200] },
   () => DeleteChannelPolicyRequest,
   () => DeleteChannelPolicyResponse,
 ];
@@ -1606,9 +1327,7 @@ export var GetChannel: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/", 200] },
   () => GetChannelRequest,
   () => GetChannelResponse,
 ];
@@ -1616,9 +1335,7 @@ export var GetChannelGroup: StaticOperationSchema = [
   9,
   n0,
   _GCG,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}", 200] },
   () => GetChannelGroupRequest,
   () => GetChannelGroupResponse,
 ];
@@ -1626,9 +1343,7 @@ export var GetChannelPolicy: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy", 200] },
   () => GetChannelPolicyRequest,
   () => GetChannelPolicyResponse,
 ];
@@ -1650,9 +1365,7 @@ export var GetOriginEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GOE,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}", 200] },
   () => GetOriginEndpointRequest,
   () => GetOriginEndpointResponse,
 ];
@@ -1674,9 +1387,7 @@ export var ListChannelGroups: StaticOperationSchema = [
   9,
   n0,
   _LCG,
-  {
-    [_h]: ["GET", "/channelGroup", 200],
-  },
+  { [_h]: ["GET", "/channelGroup", 200] },
   () => ListChannelGroupsRequest,
   () => ListChannelGroupsResponse,
 ];
@@ -1684,9 +1395,7 @@ export var ListChannels: StaticOperationSchema = [
   9,
   n0,
   _LCi,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel", 200] },
   () => ListChannelsRequest,
   () => ListChannelsResponse,
 ];
@@ -1694,9 +1403,7 @@ export var ListHarvestJobs: StaticOperationSchema = [
   9,
   n0,
   _LHJ,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}/harvestJob", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}/harvestJob", 200] },
   () => ListHarvestJobsRequest,
   () => ListHarvestJobsResponse,
 ];
@@ -1704,9 +1411,7 @@ export var ListOriginEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LOE,
-  {
-    [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint", 200],
-  },
+  { [_h]: ["GET", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint", 200] },
   () => ListOriginEndpointsRequest,
   () => ListOriginEndpointsResponse,
 ];
@@ -1714,9 +1419,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{ResourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1724,9 +1427,7 @@ export var PutChannelPolicy: StaticOperationSchema = [
   9,
   n0,
   _PCP,
-  {
-    [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy", 200],
-  },
+  { [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy", 200] },
   () => PutChannelPolicyRequest,
   () => PutChannelPolicyResponse,
 ];
@@ -1748,9 +1449,7 @@ export var ResetChannelState: StaticOperationSchema = [
   9,
   n0,
   _RCS,
-  {
-    [_h]: ["POST", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/reset", 200],
-  },
+  { [_h]: ["POST", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/reset", 200] },
   () => ResetChannelStateRequest,
   () => ResetChannelStateResponse,
 ];
@@ -1772,9 +1471,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -1782,9 +1479,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{ResourceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -1792,9 +1487,7 @@ export var UpdateChannel: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/", 200],
-  },
+  { [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/", 200] },
   () => UpdateChannelRequest,
   () => UpdateChannelResponse,
 ];
@@ -1802,9 +1495,7 @@ export var UpdateChannelGroup: StaticOperationSchema = [
   9,
   n0,
   _UCG,
-  {
-    [_h]: ["PUT", "/channelGroup/{ChannelGroupName}", 200],
-  },
+  { [_h]: ["PUT", "/channelGroup/{ChannelGroupName}", 200] },
   () => UpdateChannelGroupRequest,
   () => UpdateChannelGroupResponse,
 ];
@@ -1812,9 +1503,7 @@ export var UpdateOriginEndpoint: StaticOperationSchema = [
   9,
   n0,
   _UOE,
-  {
-    [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}", 200],
-  },
+  { [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}", 200] },
   () => UpdateOriginEndpointRequest,
   () => UpdateOriginEndpointResponse,
 ];

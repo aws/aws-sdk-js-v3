@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import type {
+  AppIntegrationsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
+import type { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
 import { UpdateApplication } from "../schemas/schemas_0";
 
 /**
@@ -79,6 +83,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

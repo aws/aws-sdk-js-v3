@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { CreateReplicationConfigurationTemplateRequest, ReplicationConfigurationTemplate } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type {
+  CreateReplicationConfigurationTemplateRequest,
+  ReplicationConfigurationTemplate,
+} from "../models/models_0";
 import { CreateReplicationConfigurationTemplate } from "../schemas/schemas_0";
 
 /**
@@ -60,6 +63,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   internetProtocol: "STRING_VALUE",
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -86,6 +90,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * //   tags: {
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
+import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSecurityConfigurationsRequest, ListSecurityConfigurationsResponse } from "../models/models_0";
+import type { ListSecurityConfigurationsRequest, ListSecurityConfigurationsResponse } from "../models/models_0";
 import { ListSecurityConfigurations } from "../schemas/schemas_0";
 
 /**

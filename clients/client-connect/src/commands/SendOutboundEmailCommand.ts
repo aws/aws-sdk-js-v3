@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendOutboundEmailRequest, SendOutboundEmailResponse } from "../models/models_2";
+import type { SendOutboundEmailRequest, SendOutboundEmailResponse } from "../models/models_2";
 import { SendOutboundEmail } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,11 @@ export interface SendOutboundEmailCommandInput extends SendOutboundEmailRequest 
 export interface SendOutboundEmailCommandOutput extends SendOutboundEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Send outbound email for outbound campaigns. For more information about outbound campaigns,
- *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html">Set up Amazon Connect outbound campaigns</a>.</p>
+ * <p>Send outbound email for outbound campaigns. For more information about outbound campaigns, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html">Set up Amazon Connect
+ *     outbound campaigns</a>.</p>
  *          <note>
- *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a
- *     role in your account and call this API.</p>
+ *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account
+ *     and call this API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

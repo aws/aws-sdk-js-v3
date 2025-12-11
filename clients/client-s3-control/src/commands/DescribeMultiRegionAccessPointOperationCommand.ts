@@ -3,14 +3,14 @@ import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   DescribeMultiRegionAccessPointOperationRequest,
   DescribeMultiRegionAccessPointOperationResult,
 } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DescribeMultiRegionAccessPointOperation } from "../schemas/schemas_0";
 
 /**
@@ -39,8 +39,7 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
  *          <p>Retrieves the status of an asynchronous request to manage a Multi-Region Access Point. For more information
- *          about managing Multi-Region Access Points and how asynchronous requests work, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MrapOperations.html">Using Multi-Region Access Points</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          about managing Multi-Region Access Points and how asynchronous requests work, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MrapOperations.html">Using Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following actions are related to <code>GetMultiRegionAccessPoint</code>:</p>
  *          <ul>
  *             <li>
@@ -64,9 +63,6 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  *                </p>
  *             </li>
  *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

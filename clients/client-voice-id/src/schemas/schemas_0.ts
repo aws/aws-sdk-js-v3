@@ -203,7 +203,7 @@ const n0 = "com.amazonaws.voiceid";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -223,7 +223,6 @@ import {
 import { VoiceIDServiceException as __VoiceIDServiceException } from "../models/VoiceIDServiceException";
 
 /* eslint no-var: 0 */
-
 export var CustomerSpeakerId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
 export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var DomainName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
@@ -234,19 +233,8 @@ export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var WatchlistDescription: StaticSimpleSchema = [0, n0, _WD, 8, 0];
 export var WatchlistName: StaticSimpleSchema = [0, n0, _WN, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateFraudsterRequest: StaticStructureSchema = [
   3,
   n0,
@@ -265,19 +253,8 @@ export var AuthenticationResult: StaticStructureSchema = [
   [_ARI, _AASA, _AAEA, _CSI, _GSI, _De, _S, _C],
   [0, 4, 4, [() => CustomerSpeakerId, 0], 0, 0, 1, () => AuthenticationConfiguration],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _CT],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _CT], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateDomainRequest: StaticStructureSchema = [
   3,
   n0,
@@ -448,19 +425,8 @@ export var FraudsterRegistrationJobSummary: StaticStructureSchema = [
 ];
 export var FraudsterSummary: StaticStructureSchema = [3, n0, _FS, 0, [_DI, _GFI, _CA, _WIa], [0, 0, 4, 64 | 0]];
 export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_SU], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JobProgress: StaticStructureSchema = [3, n0, _JP, 0, [_PC], [1]];
 export var KnownFraudsterRisk: StaticStructureSchema = [3, n0, _KFR, 0, [_RS, _GFI], [1, 0]];
 export var ListDomainsRequest: StaticStructureSchema = [3, n0, _LDR, 0, [_MR, _NT], [1, 0]];
@@ -537,34 +503,12 @@ export var OptOutSpeakerRequest: StaticStructureSchema = [3, n0, _OOSR, 0, [_DI,
 export var OptOutSpeakerResponse: StaticStructureSchema = [3, n0, _OOSRp, 0, [_Sp], [[() => Speaker, 0]]];
 export var OutputDataConfig: StaticStructureSchema = [3, n0, _ODC, 0, [_SU, _KKI], [0, 0]];
 export var RegistrationConfig: StaticStructureSchema = [3, n0, _RC, 0, [_DRA, _FST, _WIa], [0, 1, 64 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _RTe],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RTe], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServerSideEncryptionConfiguration: StaticStructureSchema = [3, n0, _SSEC, 0, [_KKI], [0]];
 export var ServerSideEncryptionUpdateDetails: StaticStructureSchema = [3, n0, _SSEUD, 0, [_OKKI, _US, _M], [0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Speaker: StaticStructureSchema = [
   3,
   n0,
@@ -655,19 +599,8 @@ export var Tag: StaticStructureSchema = [
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, [() => TagList, 0]]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TKa], [0, [() => TagKeyList, 0]]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateDomainRequest: StaticStructureSchema = [
@@ -688,19 +621,8 @@ export var UpdateWatchlistRequest: StaticStructureSchema = [
   [0, 0, [() => WatchlistName, 0], [() => WatchlistDescription, 0]],
 ];
 export var UpdateWatchlistResponse: StaticStructureSchema = [3, n0, _UWRp, 0, [_W], [[() => Watchlist, 0]]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VoiceSpoofingRisk: StaticStructureSchema = [3, n0, _VSR, 0, [_RS], [1]];
 export var Watchlist: StaticStructureSchema = [
   3,
@@ -720,15 +642,11 @@ export var WatchlistSummary: StaticStructureSchema = [
   [0, 0, [() => WatchlistName, 0], [() => WatchlistDescription, 0], 2, 4, 4],
 ];
 export var __Unit = "unit" as const;
-
 export var VoiceIDServiceException: StaticErrorSchema = [-3, _sm, "VoiceIDServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(VoiceIDServiceException, __VoiceIDServiceException);
-
 export var DomainSummaries: StaticListSchema = [1, n0, _DSom, 0, [() => DomainSummary, 0]];
 export var EnrollmentJobFraudDetectionConfigWatchlistIds = 64 | 0;
-
 export var FraudDetectionReasons = 64 | 0;
-
 export var FraudsterRegistrationJobSummaries: StaticListSchema = [
   1,
   n0,
@@ -738,9 +656,7 @@ export var FraudsterRegistrationJobSummaries: StaticListSchema = [
 ];
 export var FraudsterSummaries: StaticListSchema = [1, n0, _FSr, 0, () => FraudsterSummary];
 export var RegistrationConfigWatchlistIds = 64 | 0;
-
 export var ResponseWatchlistIds = 64 | 0;
-
 export var SpeakerEnrollmentJobSummaries: StaticListSchema = [1, n0, _SEJSp, 0, [() => SpeakerEnrollmentJobSummary, 0]];
 export var SpeakerSummaries: StaticListSchema = [1, n0, _SSp, 0, [() => SpeakerSummary, 0]];
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];

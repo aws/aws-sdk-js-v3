@@ -563,7 +563,7 @@ const n0 = "com.amazonaws.route53";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   CidrBlockInUseException as __CidrBlockInUseException,
@@ -639,7 +639,6 @@ import {
 import { Route53ServiceException as __Route53ServiceException } from "../models/Route53ServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccountLimit: StaticStructureSchema = [3, n0, _AL, 0, [_T, _V], [0, 1]];
 export var ActivateKeySigningKeyRequest: StaticStructureSchema = [
   3,
@@ -709,60 +708,24 @@ export var ChangeTagsForResourceRequest: StaticStructureSchema = [
   ],
 ];
 export var ChangeTagsForResourceResponse: StaticStructureSchema = [3, n0, _CTFRRh, 0, [], []];
-export var CidrBlockInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CBIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var CidrBlockInUseException: StaticErrorSchema = [-3, n0, _CBIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CidrBlockInUseException, __CidrBlockInUseException);
-
 export var CidrBlockSummary: StaticStructureSchema = [3, n0, _CBS, 0, [_CBi, _LN], [0, 0]];
 export var CidrCollection: StaticStructureSchema = [3, n0, _CC, 0, [_Ar, _I, _N, _Ve], [0, 0, 0, 1]];
-export var CidrCollectionAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCAEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var CidrCollectionAlreadyExistsException: StaticErrorSchema = [-3, n0, _CCAEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CidrCollectionAlreadyExistsException, __CidrCollectionAlreadyExistsException);
-
 export var CidrCollectionChange: StaticStructureSchema = [3, n0, _CCC, 0, [_LN, _A, _CL], [0, 0, [() => CidrList, 0]]];
-export var CidrCollectionInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCIUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var CidrCollectionInUseException: StaticErrorSchema = [-3, n0, _CCIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CidrCollectionInUseException, __CidrCollectionInUseException);
-
 export var CidrCollectionVersionMismatchException: StaticErrorSchema = [
   -3,
   n0,
   _CCVME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CidrCollectionVersionMismatchException, __CidrCollectionVersionMismatchException);
-
 export var CidrRoutingConfig: StaticStructureSchema = [3, n0, _CRC, 0, [_CIo, _LN], [0, 0]];
 export var CloudWatchAlarmConfiguration: StaticStructureSchema = [
   3,
@@ -773,44 +736,12 @@ export var CloudWatchAlarmConfiguration: StaticStructureSchema = [
   [1, 1, 0, 1, 0, 0, 0, [() => DimensionList, 0]],
 ];
 export var CollectionSummary: StaticStructureSchema = [3, n0, _CS, 0, [_Ar, _I, _N, _Ve], [0, 0, 0, 1]];
-export var ConcurrentModification: StaticErrorSchema = [
-  -3,
-  n0,
-  _CM,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModification: StaticErrorSchema = [-3, n0, _CM, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModification, __ConcurrentModification);
-
-export var ConflictingDomainExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _CDE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConflictingDomainExists: StaticErrorSchema = [-3, n0, _CDE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictingDomainExists, __ConflictingDomainExists);
-
-export var ConflictingTypes: StaticErrorSchema = [
-  -3,
-  n0,
-  _CT,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ConflictingTypes: StaticErrorSchema = [-3, n0, _CT, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictingTypes, __ConflictingTypes);
-
 export var Coordinates: StaticStructureSchema = [3, n0, _Co, 0, [_L, _Lo], [0, 0]];
 export var CreateCidrCollectionRequest: StaticStructureSchema = [3, n0, _CCCRr, 0, [_N, _CR], [0, 0]];
 export var CreateCidrCollectionResponse: StaticStructureSchema = [
@@ -819,15 +750,7 @@ export var CreateCidrCollectionResponse: StaticStructureSchema = [
   _CCCRre,
   0,
   [_Col, _Loc],
-  [
-    () => CidrCollection,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => CidrCollection, [0, { [_hH]: _Loc }]],
 ];
 export var CreateHealthCheckRequest: StaticStructureSchema = [
   3,
@@ -845,12 +768,7 @@ export var CreateHealthCheckResponse: StaticStructureSchema = [
   [_HC, _Loc],
   [
     [() => HealthCheck, 0],
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
+    [0, { [_hH]: _Loc }],
   ],
 ];
 export var CreateHostedZoneRequest: StaticStructureSchema = [
@@ -867,18 +785,7 @@ export var CreateHostedZoneResponse: StaticStructureSchema = [
   _CHZRr,
   0,
   [_HZ, _CI, _DS, _VPC, _Loc],
-  [
-    () => HostedZone,
-    () => ChangeInfo,
-    [() => DelegationSet, 0],
-    () => VPC,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => HostedZone, () => ChangeInfo, [() => DelegationSet, 0], () => VPC, [0, { [_hH]: _Loc }]],
 ];
 export var CreateKeySigningKeyRequest: StaticStructureSchema = [
   3,
@@ -894,16 +801,7 @@ export var CreateKeySigningKeyResponse: StaticStructureSchema = [
   _CKSKRr,
   0,
   [_CI, _KSK, _Loc],
-  [
-    () => ChangeInfo,
-    () => KeySigningKey,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => ChangeInfo, () => KeySigningKey, [0, { [_hH]: _Loc }]],
 ];
 export var CreateQueryLoggingConfigRequest: StaticStructureSchema = [3, n0, _CQLCR, 0, [_HZI, _CWLLGA], [0, 0]];
 export var CreateQueryLoggingConfigResponse: StaticStructureSchema = [
@@ -912,15 +810,7 @@ export var CreateQueryLoggingConfigResponse: StaticStructureSchema = [
   _CQLCRr,
   0,
   [_QLC, _Loc],
-  [
-    () => QueryLoggingConfig,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => QueryLoggingConfig, [0, { [_hH]: _Loc }]],
 ];
 export var CreateReusableDelegationSetRequest: StaticStructureSchema = [3, n0, _CRDSR, 0, [_CR, _HZI], [0, 0]];
 export var CreateReusableDelegationSetResponse: StaticStructureSchema = [
@@ -931,12 +821,7 @@ export var CreateReusableDelegationSetResponse: StaticStructureSchema = [
   [_DS, _Loc],
   [
     [() => DelegationSet, 0],
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
+    [0, { [_hH]: _Loc }],
   ],
 ];
 export var CreateTrafficPolicyInstanceRequest: StaticStructureSchema = [
@@ -953,15 +838,7 @@ export var CreateTrafficPolicyInstanceResponse: StaticStructureSchema = [
   _CTPIRr,
   0,
   [_TPIr, _Loc],
-  [
-    () => TrafficPolicyInstance,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => TrafficPolicyInstance, [0, { [_hH]: _Loc }]],
 ];
 export var CreateTrafficPolicyRequest: StaticStructureSchema = [3, n0, _CTPR, 0, [_N, _Do, _C], [0, 0, 0]];
 export var CreateTrafficPolicyResponse: StaticStructureSchema = [
@@ -970,15 +847,7 @@ export var CreateTrafficPolicyResponse: StaticStructureSchema = [
   _CTPRr,
   0,
   [_TP, _Loc],
-  [
-    () => TrafficPolicy,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => TrafficPolicy, [0, { [_hH]: _Loc }]],
 ];
 export var CreateTrafficPolicyVersionRequest: StaticStructureSchema = [3, n0, _CTPVR, 0, [_I, _Do, _C], [[0, 1], 0, 0]];
 export var CreateTrafficPolicyVersionResponse: StaticStructureSchema = [
@@ -987,15 +856,7 @@ export var CreateTrafficPolicyVersionResponse: StaticStructureSchema = [
   _CTPVRr,
   0,
   [_TP, _Loc],
-  [
-    () => TrafficPolicy,
-    [
-      0,
-      {
-        [_hH]: _Loc,
-      },
-    ],
-  ],
+  [() => TrafficPolicy, [0, { [_hH]: _Loc }]],
 ];
 export var CreateVPCAssociationAuthorizationRequest: StaticStructureSchema = [
   3,
@@ -1033,66 +894,16 @@ export var DelegationSet: StaticStructureSchema = [
   [_I, _CR, _NS],
   [0, 0, [() => DelegationSetNameServers, 0]],
 ];
-export var DelegationSetAlreadyCreated: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSAC,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DelegationSetAlreadyCreated: StaticErrorSchema = [-3, n0, _DSAC, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DelegationSetAlreadyCreated, __DelegationSetAlreadyCreated);
-
-export var DelegationSetAlreadyReusable: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSAR,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DelegationSetAlreadyReusable: StaticErrorSchema = [-3, n0, _DSAR, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DelegationSetAlreadyReusable, __DelegationSetAlreadyReusable);
-
-export var DelegationSetInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSIU,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DelegationSetInUse: StaticErrorSchema = [-3, n0, _DSIU, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DelegationSetInUse, __DelegationSetInUse);
-
-export var DelegationSetNotAvailable: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSNA,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DelegationSetNotAvailable: StaticErrorSchema = [-3, n0, _DSNA, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DelegationSetNotAvailable, __DelegationSetNotAvailable);
-
-export var DelegationSetNotReusable: StaticErrorSchema = [
-  -3,
-  n0,
-  _DSNR,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var DelegationSetNotReusable: StaticErrorSchema = [-3, n0, _DSNR, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DelegationSetNotReusable, __DelegationSetNotReusable);
-
 export var DeleteCidrCollectionRequest: StaticStructureSchema = [3, n0, _DCCR, 0, [_I], [[0, 1]]];
 export var DeleteCidrCollectionResponse: StaticStructureSchema = [3, n0, _DCCRe, 0, [], []];
 export var DeleteHealthCheckRequest: StaticStructureSchema = [3, n0, _DHCR, 0, [_HCI], [[0, 1]]];
@@ -1157,19 +968,8 @@ export var DisassociateVPCFromHostedZoneResponse: StaticStructureSchema = [
   [_CI],
   [() => ChangeInfo],
 ];
-export var DNSSECNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _DNSSECNF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DNSSECNotFound: StaticErrorSchema = [-3, n0, _DNSSECNF, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DNSSECNotFound, __DNSSECNotFound);
-
 export var DNSSECStatus: StaticStructureSchema = [3, n0, _DNSSECS, 0, [_SS, _SM], [0, 0]];
 export var EnableHostedZoneDNSSECRequest: StaticStructureSchema = [3, n0, _EHZDNSSECR, 0, [_HZI], [[0, 1]]];
 export var EnableHostedZoneDNSSECResponse: StaticStructureSchema = [3, n0, _EHZDNSSECRn, 0, [_CI], [() => ChangeInfo]];
@@ -1212,24 +1012,9 @@ export var GetGeoLocationRequest: StaticStructureSchema = [
   0,
   [_CCo, _CCou, _SC],
   [
-    [
-      0,
-      {
-        [_hQ]: _co,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cou,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
+    [0, { [_hQ]: _co }],
+    [0, { [_hQ]: _cou }],
+    [0, { [_hQ]: _s }],
   ],
 ];
 export var GetGeoLocationResponse: StaticStructureSchema = [3, n0, _GGLRe, 0, [_GLD], [() => GeoLocationDetails]];
@@ -1353,19 +1138,8 @@ export var HealthCheck: StaticStructureSchema = [
   [_I, _CR, _LS, _HCC, _HCV, _CWAC],
   [0, 0, () => LinkedService, [() => HealthCheckConfig, 0], 1, [() => CloudWatchAlarmConfiguration, 0]],
 ];
-export var HealthCheckAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _HCAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var HealthCheckAlreadyExists: StaticErrorSchema = [-3, n0, _HCAE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HealthCheckAlreadyExists, __HealthCheckAlreadyExists);
-
 export var HealthCheckConfig: StaticStructureSchema = [
   3,
   n0,
@@ -1393,19 +1167,8 @@ export var HealthCheckConfig: StaticStructureSchema = [
     0,
   ],
 ];
-export var HealthCheckInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _HCIU,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var HealthCheckInUse: StaticErrorSchema = [-3, n0, _HCIU, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HealthCheckInUse, __HealthCheckInUse);
-
 export var HealthCheckObservation: StaticStructureSchema = [
   3,
   n0,
@@ -1414,19 +1177,8 @@ export var HealthCheckObservation: StaticStructureSchema = [
   [_R, _IPA, _SR],
   [0, 0, () => StatusReport],
 ];
-export var HealthCheckVersionMismatch: StaticErrorSchema = [
-  -3,
-  n0,
-  _HCVM,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var HealthCheckVersionMismatch: StaticErrorSchema = [-3, n0, _HCVM, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HealthCheckVersionMismatch, __HealthCheckVersionMismatch);
-
 export var HostedZone: StaticStructureSchema = [
   3,
   n0,
@@ -1435,19 +1187,8 @@ export var HostedZone: StaticStructureSchema = [
   [_I, _N, _CR, _Con, _RRSC, _LS, _F],
   [0, 0, 0, () => HostedZoneConfig, 1, () => LinkedService, () => HostedZoneFeatures],
 ];
-export var HostedZoneAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _HZAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var HostedZoneAlreadyExists: StaticErrorSchema = [-3, n0, _HZAE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HostedZoneAlreadyExists, __HostedZoneAlreadyExists);
-
 export var HostedZoneConfig: StaticStructureSchema = [3, n0, _HZC, 0, [_C, _PZ], [0, 2]];
 export var HostedZoneFailureReasons: StaticStructureSchema = [3, n0, _HZFR, 0, [_AR], [0]];
 export var HostedZoneFeatures: StaticStructureSchema = [
@@ -1459,78 +1200,23 @@ export var HostedZoneFeatures: StaticStructureSchema = [
   [0, () => HostedZoneFailureReasons],
 ];
 export var HostedZoneLimit: StaticStructureSchema = [3, n0, _HZL, 0, [_T, _V], [0, 1]];
-export var HostedZoneNotEmpty: StaticErrorSchema = [
-  -3,
-  n0,
-  _HZNE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var HostedZoneNotEmpty: StaticErrorSchema = [-3, n0, _HZNE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HostedZoneNotEmpty, __HostedZoneNotEmpty);
-
-export var HostedZoneNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _HZNF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var HostedZoneNotFound: StaticErrorSchema = [-3, n0, _HZNF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HostedZoneNotFound, __HostedZoneNotFound);
-
-export var HostedZoneNotPrivate: StaticErrorSchema = [
-  -3,
-  n0,
-  _HZNP,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var HostedZoneNotPrivate: StaticErrorSchema = [-3, n0, _HZNP, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HostedZoneNotPrivate, __HostedZoneNotPrivate);
-
 export var HostedZoneOwner: StaticStructureSchema = [3, n0, _HZO, 0, [_OA, _OS], [0, 0]];
-export var HostedZonePartiallyDelegated: StaticErrorSchema = [
-  -3,
-  n0,
-  _HZPD,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var HostedZonePartiallyDelegated: StaticErrorSchema = [-3, n0, _HZPD, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HostedZonePartiallyDelegated, __HostedZonePartiallyDelegated);
-
 export var HostedZoneSummary: StaticStructureSchema = [3, n0, _HZS, 0, [_HZI, _N, _O], [0, 0, () => HostedZoneOwner]];
-export var IncompatibleVersion: StaticErrorSchema = [
-  -3,
-  n0,
-  _IV,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var IncompatibleVersion: StaticErrorSchema = [-3, n0, _IV, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IncompatibleVersion, __IncompatibleVersion);
-
 export var InsufficientCloudWatchLogsResourcePolicy: StaticErrorSchema = [
   -3,
   n0,
   _ICWLRP,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1538,146 +1224,35 @@ TypeRegistry.for(n0).registerError(
   InsufficientCloudWatchLogsResourcePolicy,
   __InsufficientCloudWatchLogsResourcePolicy
 );
-
-export var InvalidArgument: StaticErrorSchema = [
-  -3,
-  n0,
-  _IA,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidArgument: StaticErrorSchema = [-3, n0, _IA, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidArgument, __InvalidArgument);
-
 export var InvalidChangeBatch: StaticErrorSchema = [
   -3,
   n0,
   _ICB,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_me, _m],
   [[() => ErrorMessages, 0], 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidChangeBatch, __InvalidChangeBatch);
-
-export var InvalidDomainName: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDN,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidDomainName: StaticErrorSchema = [-3, n0, _IDN, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidDomainName, __InvalidDomainName);
-
-export var InvalidInput: StaticErrorSchema = [
-  -3,
-  n0,
-  _II,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidInput: StaticErrorSchema = [-3, n0, _II, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidInput, __InvalidInput);
-
-export var InvalidKeySigningKeyName: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKSKN,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidKeySigningKeyName: StaticErrorSchema = [-3, n0, _IKSKN, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidKeySigningKeyName, __InvalidKeySigningKeyName);
-
-export var InvalidKeySigningKeyStatus: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKSKS,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidKeySigningKeyStatus: StaticErrorSchema = [-3, n0, _IKSKS, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidKeySigningKeyStatus, __InvalidKeySigningKeyStatus);
-
-export var InvalidKMSArn: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKMSA,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidKMSArn: StaticErrorSchema = [-3, n0, _IKMSA, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidKMSArn, __InvalidKMSArn);
-
-export var InvalidPaginationToken: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPT,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPaginationToken: StaticErrorSchema = [-3, n0, _IPT, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationToken, __InvalidPaginationToken);
-
-export var InvalidSigningStatus: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISS,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidSigningStatus: StaticErrorSchema = [-3, n0, _ISS, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidSigningStatus, __InvalidSigningStatus);
-
-export var InvalidTrafficPolicyDocument: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITPD,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTrafficPolicyDocument: StaticErrorSchema = [-3, n0, _ITPD, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTrafficPolicyDocument, __InvalidTrafficPolicyDocument);
-
-export var InvalidVPCId: StaticErrorSchema = [
-  -3,
-  n0,
-  _IVPCI,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidVPCId: StaticErrorSchema = [-3, n0, _IVPCI, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidVPCId, __InvalidVPCId);
-
 export var KeySigningKey: StaticStructureSchema = [
   3,
   n0,
@@ -1686,81 +1261,18 @@ export var KeySigningKey: StaticStructureSchema = [
   [_N, _KA, _Fl, _SAM, _SAT, _DAM, _DAT, _KT, _DV, _PK, _DSR, _DNSKEYR, _S, _SM, _CD, _LMD],
   [0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4],
 ];
-export var KeySigningKeyAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _KSKAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var KeySigningKeyAlreadyExists: StaticErrorSchema = [-3, n0, _KSKAE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KeySigningKeyAlreadyExists, __KeySigningKeyAlreadyExists);
-
-export var KeySigningKeyInParentDSRecord: StaticErrorSchema = [
-  -3,
-  n0,
-  _KSKIPDSR,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var KeySigningKeyInParentDSRecord: StaticErrorSchema = [-3, n0, _KSKIPDSR, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KeySigningKeyInParentDSRecord, __KeySigningKeyInParentDSRecord);
-
-export var KeySigningKeyInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _KSKIU,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KeySigningKeyInUse: StaticErrorSchema = [-3, n0, _KSKIU, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KeySigningKeyInUse, __KeySigningKeyInUse);
-
-export var KeySigningKeyWithActiveStatusNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _KSKWASNF,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var KeySigningKeyWithActiveStatusNotFound: StaticErrorSchema = [-3, n0, _KSKWASNF, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(KeySigningKeyWithActiveStatusNotFound, __KeySigningKeyWithActiveStatusNotFound);
-
-export var LastVPCAssociation: StaticErrorSchema = [
-  -3,
-  n0,
-  _LVPCA,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LastVPCAssociation: StaticErrorSchema = [-3, n0, _LVPCA, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LastVPCAssociation, __LastVPCAssociation);
-
-export var LimitsExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _LE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitsExceeded: StaticErrorSchema = [-3, n0, _LE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitsExceeded, __LimitsExceeded);
-
 export var LinkedService: StaticStructureSchema = [3, n0, _LS, 0, [_SP, _De], [0, 0]];
 export var ListCidrBlocksRequest: StaticStructureSchema = [
   3,
@@ -1770,24 +1282,9 @@ export var ListCidrBlocksRequest: StaticStructureSchema = [
   [_CIo, _LN, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _l,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [0, { [_hQ]: _l }],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _ma }],
   ],
 ];
 export var ListCidrBlocksResponse: StaticStructureSchema = [
@@ -1805,18 +1302,8 @@ export var ListCidrCollectionsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _ma }],
   ],
 ];
 export var ListCidrCollectionsResponse: StaticStructureSchema = [
@@ -1835,18 +1322,8 @@ export var ListCidrLocationsRequest: StaticStructureSchema = [
   [_CIo, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _ma }],
   ],
 ];
 export var ListCidrLocationsResponse: StaticStructureSchema = [
@@ -1864,30 +1341,10 @@ export var ListGeoLocationsRequest: StaticStructureSchema = [
   0,
   [_SCC, _SCCt, _SSC, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sta,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _star,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _sta }],
+    [0, { [_hQ]: _star }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListGeoLocationsResponse: StaticStructureSchema = [
@@ -1905,18 +1362,8 @@ export var ListHealthChecksRequest: StaticStructureSchema = [
   0,
   [_Ma, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _mar,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _mar }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListHealthChecksResponse: StaticStructureSchema = [
@@ -1934,24 +1381,9 @@ export var ListHostedZonesByNameRequest: StaticStructureSchema = [
   0,
   [_DNSN, _HZI, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _h,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _d }],
+    [0, { [_hQ]: _h }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListHostedZonesByNameResponse: StaticStructureSchema = [
@@ -1969,30 +1401,10 @@ export var ListHostedZonesByVPCRequest: StaticStructureSchema = [
   0,
   [_VPCI, _VPCR, _MI, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _v,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vp,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _v }],
+    [0, { [_hQ]: _vp }],
+    [1, { [_hQ]: _max }],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var ListHostedZonesByVPCResponse: StaticStructureSchema = [
@@ -2010,30 +1422,10 @@ export var ListHostedZonesRequest: StaticStructureSchema = [
   0,
   [_Ma, _MI, _DSI, _HZT],
   [
-    [
-      0,
-      {
-        [_hQ]: _mar,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _de,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ho,
-      },
-    ],
+    [0, { [_hQ]: _mar }],
+    [1, { [_hQ]: _max }],
+    [0, { [_hQ]: _de }],
+    [0, { [_hQ]: _ho }],
   ],
 ];
 export var ListHostedZonesResponse: StaticStructureSchema = [
@@ -2051,24 +1443,9 @@ export var ListQueryLoggingConfigsRequest: StaticStructureSchema = [
   0,
   [_HZI, _NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _h,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [0, { [_hQ]: _h }],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _ma }],
   ],
 ];
 export var ListQueryLoggingConfigsResponse: StaticStructureSchema = [
@@ -2087,30 +1464,10 @@ export var ListResourceRecordSetsRequest: StaticStructureSchema = [
   [_HZI, _SRN, _SRT, _SRI, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _t }],
+    [0, { [_hQ]: _i }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListResourceRecordSetsResponse: StaticStructureSchema = [
@@ -2128,18 +1485,8 @@ export var ListReusableDelegationSetsRequest: StaticStructureSchema = [
   0,
   [_Ma, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _mar,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _mar }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListReusableDelegationSetsResponse: StaticStructureSchema = [
@@ -2195,18 +1542,8 @@ export var ListTrafficPoliciesRequest: StaticStructureSchema = [
   0,
   [_TPIM, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _tr,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _tr }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListTrafficPoliciesResponse: StaticStructureSchema = [
@@ -2224,30 +1561,10 @@ export var ListTrafficPolicyInstancesByHostedZoneRequest: StaticStructureSchema 
   0,
   [_HZI, _TPINM, _TPITM, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _id,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _traf,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _id }],
+    [0, { [_hQ]: _tra }],
+    [0, { [_hQ]: _traf }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListTrafficPolicyInstancesByHostedZoneResponse: StaticStructureSchema = [
@@ -2265,42 +1582,12 @@ export var ListTrafficPolicyInstancesByPolicyRequest: StaticStructureSchema = [
   0,
   [_TPI, _TPV, _HZIM, _TPINM, _TPITM, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _id,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _ve,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _h,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _traf,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _id }],
+    [1, { [_hQ]: _ve }],
+    [0, { [_hQ]: _h }],
+    [0, { [_hQ]: _tra }],
+    [0, { [_hQ]: _traf }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListTrafficPolicyInstancesByPolicyResponse: StaticStructureSchema = [
@@ -2318,30 +1605,10 @@ export var ListTrafficPolicyInstancesRequest: StaticStructureSchema = [
   0,
   [_HZIM, _TPINM, _TPITM, _MI],
   [
-    [
-      0,
-      {
-        [_hQ]: _h,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tra,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _traf,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _h }],
+    [0, { [_hQ]: _tra }],
+    [0, { [_hQ]: _traf }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListTrafficPolicyInstancesResponse: StaticStructureSchema = [
@@ -2360,18 +1627,8 @@ export var ListTrafficPolicyVersionsRequest: StaticStructureSchema = [
   [_I, _TPVM, _MI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _traff,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _max,
-      },
-    ],
+    [0, { [_hQ]: _traff }],
+    [1, { [_hQ]: _max }],
   ],
 ];
 export var ListTrafficPolicyVersionsResponse: StaticStructureSchema = [
@@ -2390,18 +1647,8 @@ export var ListVPCAssociationAuthorizationsRequest: StaticStructureSchema = [
   [_HZI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _ma,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _ma }],
   ],
 ];
 export var ListVPCAssociationAuthorizationsResponse: StaticStructureSchema = [
@@ -2413,214 +1660,39 @@ export var ListVPCAssociationAuthorizationsResponse: StaticStructureSchema = [
   [0, 0, [() => VPCs, 0]],
 ];
 export var LocationSummary: StaticStructureSchema = [3, n0, _LSo, 0, [_LN], [0]];
-export var NoSuchChange: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSCo,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchChange: StaticErrorSchema = [-3, n0, _NSCo, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchChange, __NoSuchChange);
-
-export var NoSuchCidrCollectionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSCCE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NoSuchCidrCollectionException: StaticErrorSchema = [-3, n0, _NSCCE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NoSuchCidrCollectionException, __NoSuchCidrCollectionException);
-
-export var NoSuchCidrLocationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSCLE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NoSuchCidrLocationException: StaticErrorSchema = [-3, n0, _NSCLE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NoSuchCidrLocationException, __NoSuchCidrLocationException);
-
-export var NoSuchCloudWatchLogsLogGroup: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSCWLLG,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchCloudWatchLogsLogGroup: StaticErrorSchema = [-3, n0, _NSCWLLG, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchCloudWatchLogsLogGroup, __NoSuchCloudWatchLogsLogGroup);
-
-export var NoSuchDelegationSet: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSDS,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchDelegationSet: StaticErrorSchema = [-3, n0, _NSDS, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchDelegationSet, __NoSuchDelegationSet);
-
-export var NoSuchGeoLocation: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSGL,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchGeoLocation: StaticErrorSchema = [-3, n0, _NSGL, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchGeoLocation, __NoSuchGeoLocation);
-
-export var NoSuchHealthCheck: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSHC,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchHealthCheck: StaticErrorSchema = [-3, n0, _NSHC, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchHealthCheck, __NoSuchHealthCheck);
-
-export var NoSuchHostedZone: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSHZ,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchHostedZone: StaticErrorSchema = [-3, n0, _NSHZ, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchHostedZone, __NoSuchHostedZone);
-
-export var NoSuchKeySigningKey: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSKSK,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchKeySigningKey: StaticErrorSchema = [-3, n0, _NSKSK, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchKeySigningKey, __NoSuchKeySigningKey);
-
-export var NoSuchQueryLoggingConfig: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSQLC,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchQueryLoggingConfig: StaticErrorSchema = [-3, n0, _NSQLC, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchQueryLoggingConfig, __NoSuchQueryLoggingConfig);
-
-export var NoSuchTrafficPolicy: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSTP,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchTrafficPolicy: StaticErrorSchema = [-3, n0, _NSTP, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchTrafficPolicy, __NoSuchTrafficPolicy);
-
-export var NoSuchTrafficPolicyInstance: StaticErrorSchema = [
-  -3,
-  n0,
-  _NSTPI,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NoSuchTrafficPolicyInstance: StaticErrorSchema = [-3, n0, _NSTPI, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NoSuchTrafficPolicyInstance, __NoSuchTrafficPolicyInstance);
-
-export var NotAuthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NAE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var NotAuthorizedException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-
-export var PriorRequestNotComplete: StaticErrorSchema = [
-  -3,
-  n0,
-  _PRNC,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var PriorRequestNotComplete: StaticErrorSchema = [-3, n0, _PRNC, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PriorRequestNotComplete, __PriorRequestNotComplete);
-
-export var PublicZoneVPCAssociation: StaticErrorSchema = [
-  -3,
-  n0,
-  _PZVPCA,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var PublicZoneVPCAssociation: StaticErrorSchema = [-3, n0, _PZVPCA, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PublicZoneVPCAssociation, __PublicZoneVPCAssociation);
-
 export var QueryLoggingConfig: StaticStructureSchema = [3, n0, _QLC, 0, [_I, _HZI, _CWLLGA], [0, 0, 0]];
-export var QueryLoggingConfigAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _QLCAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var QueryLoggingConfigAlreadyExists: StaticErrorSchema = [-3, n0, _QLCAE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(QueryLoggingConfigAlreadyExists, __QueryLoggingConfigAlreadyExists);
-
 export var ResourceRecord: StaticStructureSchema = [3, n0, _RR, 0, [_V], [0]];
 export var ResourceRecordSet: StaticStructureSchema = [
   3,
@@ -2657,42 +1729,12 @@ export var TestDNSAnswerRequest: StaticStructureSchema = [
   0,
   [_HZI, _RN, _RTe, _RIP, _EDNSCSIP, _EDNSCSM],
   [
-    [
-      0,
-      {
-        [_hQ]: _h,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _r,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _re,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _res,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ed,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _edn,
-      },
-    ],
+    [0, { [_hQ]: _h }],
+    [0, { [_hQ]: _r }],
+    [0, { [_hQ]: _re }],
+    [0, { [_hQ]: _res }],
+    [0, { [_hQ]: _ed }],
+    [0, { [_hQ]: _edn }],
   ],
 ];
 export var TestDNSAnswerResponse: StaticStructureSchema = [
@@ -2703,90 +1745,23 @@ export var TestDNSAnswerResponse: StaticStructureSchema = [
   [_Nam, _RN, _RTe, _RD, _RC, _Pr],
   [0, 0, 0, [() => RecordData, 0], 0, 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyHealthChecks: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMHC,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyHealthChecks: StaticErrorSchema = [-3, n0, _TMHC, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyHealthChecks, __TooManyHealthChecks);
-
-export var TooManyHostedZones: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMHZ,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TooManyHostedZones: StaticErrorSchema = [-3, n0, _TMHZ, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyHostedZones, __TooManyHostedZones);
-
-export var TooManyKeySigningKeys: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMKSK,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyKeySigningKeys: StaticErrorSchema = [-3, n0, _TMKSK, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyKeySigningKeys, __TooManyKeySigningKeys);
-
-export var TooManyTrafficPolicies: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTP,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTrafficPolicies: StaticErrorSchema = [-3, n0, _TMTP, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTrafficPolicies, __TooManyTrafficPolicies);
-
-export var TooManyTrafficPolicyInstances: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTPI,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTrafficPolicyInstances: StaticErrorSchema = [-3, n0, _TMTPI, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTrafficPolicyInstances, __TooManyTrafficPolicyInstances);
-
 export var TooManyTrafficPolicyVersionsForCurrentPolicy: StaticErrorSchema = [
   -3,
   n0,
   _TMTPVFCP,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2794,34 +1769,18 @@ TypeRegistry.for(n0).registerError(
   TooManyTrafficPolicyVersionsForCurrentPolicy,
   __TooManyTrafficPolicyVersionsForCurrentPolicy
 );
-
 export var TooManyVPCAssociationAuthorizations: StaticErrorSchema = [
   -3,
   n0,
   _TMVPCAA,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyVPCAssociationAuthorizations, __TooManyVPCAssociationAuthorizations);
-
 export var TrafficPolicy: StaticStructureSchema = [3, n0, _TP, 0, [_I, _Ve, _N, _T, _Do, _C], [0, 1, 0, 0, 0, 0]];
-export var TrafficPolicyAlreadyExists: StaticErrorSchema = [
-  -3,
-  n0,
-  _TPAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var TrafficPolicyAlreadyExists: StaticErrorSchema = [-3, n0, _TPAE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TrafficPolicyAlreadyExists, __TrafficPolicyAlreadyExists);
-
 export var TrafficPolicyInstance: StaticStructureSchema = [
   3,
   n0,
@@ -2834,28 +1793,13 @@ export var TrafficPolicyInstanceAlreadyExists: StaticErrorSchema = [
   -3,
   n0,
   _TPIAE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TrafficPolicyInstanceAlreadyExists, __TrafficPolicyInstanceAlreadyExists);
-
-export var TrafficPolicyInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _TPIU,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var TrafficPolicyInUse: StaticErrorSchema = [-3, n0, _TPIU, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TrafficPolicyInUse, __TrafficPolicyInUse);
-
 export var TrafficPolicySummary: StaticStructureSchema = [3, n0, _TPSr, 0, [_I, _N, _T, _LV, _TPC], [0, 0, 0, 1, 1]];
 export var UpdateHealthCheckRequest: StaticStructureSchema = [
   3,
@@ -2925,359 +1869,64 @@ export var VPCAssociationAuthorizationNotFound: StaticErrorSchema = [
   -3,
   n0,
   _VPCAANF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(VPCAssociationAuthorizationNotFound, __VPCAssociationAuthorizationNotFound);
-
-export var VPCAssociationNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _VPCANF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var VPCAssociationNotFound: StaticErrorSchema = [-3, n0, _VPCANF, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(VPCAssociationNotFound, __VPCAssociationNotFound);
-
-export var __Unit = "unit" as const;
-
 export var Route53ServiceException: StaticErrorSchema = [-3, _sm, "Route53ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Route53ServiceException, __Route53ServiceException);
-
-export var Changes: StaticListSchema = [
-  1,
-  n0,
-  _Cha,
-  0,
-  [
-    () => Change,
-    {
-      [_xN]: _Ch,
-    },
-  ],
-];
+export var Changes: StaticListSchema = [1, n0, _Cha, 0, [() => Change, { [_xN]: _Ch }]];
 export var CheckerIpRanges = 64 | 0;
-
-export var ChildHealthCheckList: StaticListSchema = [
-  1,
-  n0,
-  _CHCL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _CHCh,
-    },
-  ],
-];
+export var ChildHealthCheckList: StaticListSchema = [1, n0, _CHCL, 0, [0, { [_xN]: _CHCh }]];
 export var CidrBlockSummaries: StaticListSchema = [1, n0, _CBSi, 0, () => CidrBlockSummary];
 export var CidrCollectionChanges: StaticListSchema = [1, n0, _CCCi, 0, [() => CidrCollectionChange, 0]];
-export var CidrList: StaticListSchema = [
-  1,
-  n0,
-  _CL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _Ci,
-    },
-  ],
-];
+export var CidrList: StaticListSchema = [1, n0, _CL, 0, [0, { [_xN]: _Ci }]];
 export var CollectionSummaries: StaticListSchema = [1, n0, _CSo, 0, () => CollectionSummary];
-export var DelegationSetNameServers: StaticListSchema = [
-  1,
-  n0,
-  _DSNS,
-  0,
-  [
-    0,
-    {
-      [_xN]: _NSa,
-    },
-  ],
-];
-export var DelegationSets: StaticListSchema = [
-  1,
-  n0,
-  _DSe,
-  0,
-  [
-    () => DelegationSet,
-    {
-      [_xN]: _DS,
-    },
-  ],
-];
-export var DimensionList: StaticListSchema = [
-  1,
-  n0,
-  _DL,
-  0,
-  [
-    () => Dimension,
-    {
-      [_xN]: _Di,
-    },
-  ],
-];
-export var ErrorMessages: StaticListSchema = [
-  1,
-  n0,
-  _EM,
-  0,
-  [
-    0,
-    {
-      [_xN]: _M,
-    },
-  ],
-];
-export var GeoLocationDetailsList: StaticListSchema = [
-  1,
-  n0,
-  _GLDL,
-  0,
-  [
-    () => GeoLocationDetails,
-    {
-      [_xN]: _GLD,
-    },
-  ],
-];
+export var DelegationSetNameServers: StaticListSchema = [1, n0, _DSNS, 0, [0, { [_xN]: _NSa }]];
+export var DelegationSets: StaticListSchema = [1, n0, _DSe, 0, [() => DelegationSet, { [_xN]: _DS }]];
+export var DimensionList: StaticListSchema = [1, n0, _DL, 0, [() => Dimension, { [_xN]: _Di }]];
+export var ErrorMessages: StaticListSchema = [1, n0, _EM, 0, [0, { [_xN]: _M }]];
+export var GeoLocationDetailsList: StaticListSchema = [1, n0, _GLDL, 0, [() => GeoLocationDetails, { [_xN]: _GLD }]];
 export var HealthCheckObservations: StaticListSchema = [
   1,
   n0,
   _HCO,
   0,
-  [
-    () => HealthCheckObservation,
-    {
-      [_xN]: _HCOe,
-    },
-  ],
+  [() => HealthCheckObservation, { [_xN]: _HCOe }],
 ];
-export var HealthCheckRegionList: StaticListSchema = [
-  1,
-  n0,
-  _HCRL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _R,
-    },
-  ],
-];
-export var HealthChecks: StaticListSchema = [
-  1,
-  n0,
-  _HCe,
-  0,
-  [
-    () => HealthCheck,
-    {
-      [_xN]: _HC,
-    },
-  ],
-];
-export var HostedZones: StaticListSchema = [
-  1,
-  n0,
-  _HZo,
-  0,
-  [
-    () => HostedZone,
-    {
-      [_xN]: _HZ,
-    },
-  ],
-];
-export var HostedZoneSummaries: StaticListSchema = [
-  1,
-  n0,
-  _HZSo,
-  0,
-  [
-    () => HostedZoneSummary,
-    {
-      [_xN]: _HZS,
-    },
-  ],
-];
+export var HealthCheckRegionList: StaticListSchema = [1, n0, _HCRL, 0, [0, { [_xN]: _R }]];
+export var HealthChecks: StaticListSchema = [1, n0, _HCe, 0, [() => HealthCheck, { [_xN]: _HC }]];
+export var HostedZones: StaticListSchema = [1, n0, _HZo, 0, [() => HostedZone, { [_xN]: _HZ }]];
+export var HostedZoneSummaries: StaticListSchema = [1, n0, _HZSo, 0, [() => HostedZoneSummary, { [_xN]: _HZS }]];
 export var KeySigningKeys: StaticListSchema = [1, n0, _KSKe, 0, () => KeySigningKey];
 export var LocationSummaries: StaticListSchema = [1, n0, _LSoc, 0, () => LocationSummary];
-export var QueryLoggingConfigs: StaticListSchema = [
-  1,
-  n0,
-  _QLCu,
-  0,
-  [
-    () => QueryLoggingConfig,
-    {
-      [_xN]: _QLC,
-    },
-  ],
-];
-export var RecordData: StaticListSchema = [
-  1,
-  n0,
-  _RD,
-  0,
-  [
-    0,
-    {
-      [_xN]: _RDE,
-    },
-  ],
-];
-export var ResettableElementNameList: StaticListSchema = [
-  1,
-  n0,
-  _RENL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _REN,
-    },
-  ],
-];
-export var ResourceRecords: StaticListSchema = [
-  1,
-  n0,
-  _RRe,
-  0,
-  [
-    () => ResourceRecord,
-    {
-      [_xN]: _RR,
-    },
-  ],
-];
-export var ResourceRecordSets: StaticListSchema = [
-  1,
-  n0,
-  _RRSe,
-  0,
-  [
-    () => ResourceRecordSet,
-    {
-      [_xN]: _RRS,
-    },
-  ],
-];
-export var ResourceTagSetList: StaticListSchema = [
-  1,
-  n0,
-  _RTSL,
-  0,
-  [
-    () => ResourceTagSet,
-    {
-      [_xN]: _RTS,
-    },
-  ],
-];
-export var TagKeyList: StaticListSchema = [
-  1,
-  n0,
-  _TKL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _K,
-    },
-  ],
-];
-export var TagList: StaticListSchema = [
-  1,
-  n0,
-  _TL,
-  0,
-  [
-    () => Tag,
-    {
-      [_xN]: _Tag,
-    },
-  ],
-];
-export var TagResourceIdList: StaticListSchema = [
-  1,
-  n0,
-  _TRIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _RI,
-    },
-  ],
-];
-export var TrafficPolicies: StaticListSchema = [
-  1,
-  n0,
-  _TPr,
-  0,
-  [
-    () => TrafficPolicy,
-    {
-      [_xN]: _TP,
-    },
-  ],
-];
+export var QueryLoggingConfigs: StaticListSchema = [1, n0, _QLCu, 0, [() => QueryLoggingConfig, { [_xN]: _QLC }]];
+export var RecordData: StaticListSchema = [1, n0, _RD, 0, [0, { [_xN]: _RDE }]];
+export var ResettableElementNameList: StaticListSchema = [1, n0, _RENL, 0, [0, { [_xN]: _REN }]];
+export var ResourceRecords: StaticListSchema = [1, n0, _RRe, 0, [() => ResourceRecord, { [_xN]: _RR }]];
+export var ResourceRecordSets: StaticListSchema = [1, n0, _RRSe, 0, [() => ResourceRecordSet, { [_xN]: _RRS }]];
+export var ResourceTagSetList: StaticListSchema = [1, n0, _RTSL, 0, [() => ResourceTagSet, { [_xN]: _RTS }]];
+export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [0, { [_xN]: _K }]];
+export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, { [_xN]: _Tag }]];
+export var TagResourceIdList: StaticListSchema = [1, n0, _TRIL, 0, [0, { [_xN]: _RI }]];
+export var TrafficPolicies: StaticListSchema = [1, n0, _TPr, 0, [() => TrafficPolicy, { [_xN]: _TP }]];
 export var TrafficPolicyInstances: StaticListSchema = [
   1,
   n0,
   _TPIra,
   0,
-  [
-    () => TrafficPolicyInstance,
-    {
-      [_xN]: _TPIr,
-    },
-  ],
+  [() => TrafficPolicyInstance, { [_xN]: _TPIr }],
 ];
-export var TrafficPolicySummaries: StaticListSchema = [
-  1,
-  n0,
-  _TPS,
-  0,
-  [
-    () => TrafficPolicySummary,
-    {
-      [_xN]: _TPSr,
-    },
-  ],
-];
-export var VPCs: StaticListSchema = [
-  1,
-  n0,
-  _VPCs,
-  0,
-  [
-    () => VPC,
-    {
-      [_xN]: _VPC,
-    },
-  ],
-];
+export var TrafficPolicySummaries: StaticListSchema = [1, n0, _TPS, 0, [() => TrafficPolicySummary, { [_xN]: _TPSr }]];
+export var VPCs: StaticListSchema = [1, n0, _VPCs, 0, [() => VPC, { [_xN]: _VPC }]];
 export var ActivateKeySigningKey: StaticOperationSchema = [
   9,
   n0,
   _AKSK,
-  {
-    [_ht]: ["POST", "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate", 200] },
   () => ActivateKeySigningKeyRequest,
   () => ActivateKeySigningKeyResponse,
 ];
@@ -3285,9 +1934,7 @@ export var AssociateVPCWithHostedZone: StaticOperationSchema = [
   9,
   n0,
   _AVPCWHZ,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc", 200] },
   () => AssociateVPCWithHostedZoneRequest,
   () => AssociateVPCWithHostedZoneResponse,
 ];
@@ -3295,9 +1942,7 @@ export var ChangeCidrCollection: StaticOperationSchema = [
   9,
   n0,
   _CCCh,
-  {
-    [_ht]: ["POST", "/2013-04-01/cidrcollection/{Id}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/cidrcollection/{Id}", 200] },
   () => ChangeCidrCollectionRequest,
   () => ChangeCidrCollectionResponse,
 ];
@@ -3305,9 +1950,7 @@ export var ChangeResourceRecordSets: StaticOperationSchema = [
   9,
   n0,
   _CRRS,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/rrset", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/rrset", 200] },
   () => ChangeResourceRecordSetsRequest,
   () => ChangeResourceRecordSetsResponse,
 ];
@@ -3315,9 +1958,7 @@ export var ChangeTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _CTFR,
-  {
-    [_ht]: ["POST", "/2013-04-01/tags/{ResourceType}/{ResourceId}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/tags/{ResourceType}/{ResourceId}", 200] },
   () => ChangeTagsForResourceRequest,
   () => ChangeTagsForResourceResponse,
 ];
@@ -3325,9 +1966,7 @@ export var CreateCidrCollection: StaticOperationSchema = [
   9,
   n0,
   _CCCr,
-  {
-    [_ht]: ["POST", "/2013-04-01/cidrcollection", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/cidrcollection", 201] },
   () => CreateCidrCollectionRequest,
   () => CreateCidrCollectionResponse,
 ];
@@ -3335,9 +1974,7 @@ export var CreateHealthCheck: StaticOperationSchema = [
   9,
   n0,
   _CHCr,
-  {
-    [_ht]: ["POST", "/2013-04-01/healthcheck", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/healthcheck", 201] },
   () => CreateHealthCheckRequest,
   () => CreateHealthCheckResponse,
 ];
@@ -3345,9 +1982,7 @@ export var CreateHostedZone: StaticOperationSchema = [
   9,
   n0,
   _CHZ,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone", 201] },
   () => CreateHostedZoneRequest,
   () => CreateHostedZoneResponse,
 ];
@@ -3355,9 +1990,7 @@ export var CreateKeySigningKey: StaticOperationSchema = [
   9,
   n0,
   _CKSK,
-  {
-    [_ht]: ["POST", "/2013-04-01/keysigningkey", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/keysigningkey", 201] },
   () => CreateKeySigningKeyRequest,
   () => CreateKeySigningKeyResponse,
 ];
@@ -3365,9 +1998,7 @@ export var CreateQueryLoggingConfig: StaticOperationSchema = [
   9,
   n0,
   _CQLC,
-  {
-    [_ht]: ["POST", "/2013-04-01/queryloggingconfig", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/queryloggingconfig", 201] },
   () => CreateQueryLoggingConfigRequest,
   () => CreateQueryLoggingConfigResponse,
 ];
@@ -3375,9 +2006,7 @@ export var CreateReusableDelegationSet: StaticOperationSchema = [
   9,
   n0,
   _CRDS,
-  {
-    [_ht]: ["POST", "/2013-04-01/delegationset", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/delegationset", 201] },
   () => CreateReusableDelegationSetRequest,
   () => CreateReusableDelegationSetResponse,
 ];
@@ -3385,9 +2014,7 @@ export var CreateTrafficPolicy: StaticOperationSchema = [
   9,
   n0,
   _CTP,
-  {
-    [_ht]: ["POST", "/2013-04-01/trafficpolicy", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/trafficpolicy", 201] },
   () => CreateTrafficPolicyRequest,
   () => CreateTrafficPolicyResponse,
 ];
@@ -3395,9 +2022,7 @@ export var CreateTrafficPolicyInstance: StaticOperationSchema = [
   9,
   n0,
   _CTPI,
-  {
-    [_ht]: ["POST", "/2013-04-01/trafficpolicyinstance", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/trafficpolicyinstance", 201] },
   () => CreateTrafficPolicyInstanceRequest,
   () => CreateTrafficPolicyInstanceResponse,
 ];
@@ -3405,9 +2030,7 @@ export var CreateTrafficPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _CTPV,
-  {
-    [_ht]: ["POST", "/2013-04-01/trafficpolicy/{Id}", 201],
-  },
+  { [_ht]: ["POST", "/2013-04-01/trafficpolicy/{Id}", 201] },
   () => CreateTrafficPolicyVersionRequest,
   () => CreateTrafficPolicyVersionResponse,
 ];
@@ -3415,9 +2038,7 @@ export var CreateVPCAssociationAuthorization: StaticOperationSchema = [
   9,
   n0,
   _CVPCAA,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", 200] },
   () => CreateVPCAssociationAuthorizationRequest,
   () => CreateVPCAssociationAuthorizationResponse,
 ];
@@ -3425,9 +2046,7 @@ export var DeactivateKeySigningKey: StaticOperationSchema = [
   9,
   n0,
   _DKSK,
-  {
-    [_ht]: ["POST", "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate", 200] },
   () => DeactivateKeySigningKeyRequest,
   () => DeactivateKeySigningKeyResponse,
 ];
@@ -3435,9 +2054,7 @@ export var DeleteCidrCollection: StaticOperationSchema = [
   9,
   n0,
   _DCC,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/cidrcollection/{Id}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/cidrcollection/{Id}", 200] },
   () => DeleteCidrCollectionRequest,
   () => DeleteCidrCollectionResponse,
 ];
@@ -3445,9 +2062,7 @@ export var DeleteHealthCheck: StaticOperationSchema = [
   9,
   n0,
   _DHC,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/healthcheck/{HealthCheckId}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/healthcheck/{HealthCheckId}", 200] },
   () => DeleteHealthCheckRequest,
   () => DeleteHealthCheckResponse,
 ];
@@ -3455,9 +2070,7 @@ export var DeleteHostedZone: StaticOperationSchema = [
   9,
   n0,
   _DHZ,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/hostedzone/{Id}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/hostedzone/{Id}", 200] },
   () => DeleteHostedZoneRequest,
   () => DeleteHostedZoneResponse,
 ];
@@ -3465,9 +2078,7 @@ export var DeleteKeySigningKey: StaticOperationSchema = [
   9,
   n0,
   _DKSKe,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}", 200] },
   () => DeleteKeySigningKeyRequest,
   () => DeleteKeySigningKeyResponse,
 ];
@@ -3475,9 +2086,7 @@ export var DeleteQueryLoggingConfig: StaticOperationSchema = [
   9,
   n0,
   _DQLC,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/queryloggingconfig/{Id}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/queryloggingconfig/{Id}", 200] },
   () => DeleteQueryLoggingConfigRequest,
   () => DeleteQueryLoggingConfigResponse,
 ];
@@ -3485,9 +2094,7 @@ export var DeleteReusableDelegationSet: StaticOperationSchema = [
   9,
   n0,
   _DRDS,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/delegationset/{Id}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/delegationset/{Id}", 200] },
   () => DeleteReusableDelegationSetRequest,
   () => DeleteReusableDelegationSetResponse,
 ];
@@ -3495,9 +2102,7 @@ export var DeleteTrafficPolicy: StaticOperationSchema = [
   9,
   n0,
   _DTP,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200] },
   () => DeleteTrafficPolicyRequest,
   () => DeleteTrafficPolicyResponse,
 ];
@@ -3505,9 +2110,7 @@ export var DeleteTrafficPolicyInstance: StaticOperationSchema = [
   9,
   n0,
   _DTPI,
-  {
-    [_ht]: ["DELETE", "/2013-04-01/trafficpolicyinstance/{Id}", 200],
-  },
+  { [_ht]: ["DELETE", "/2013-04-01/trafficpolicyinstance/{Id}", 200] },
   () => DeleteTrafficPolicyInstanceRequest,
   () => DeleteTrafficPolicyInstanceResponse,
 ];
@@ -3515,9 +2118,7 @@ export var DeleteVPCAssociationAuthorization: StaticOperationSchema = [
   9,
   n0,
   _DVPCAA,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation", 200] },
   () => DeleteVPCAssociationAuthorizationRequest,
   () => DeleteVPCAssociationAuthorizationResponse,
 ];
@@ -3525,9 +2126,7 @@ export var DisableHostedZoneDNSSEC: StaticOperationSchema = [
   9,
   n0,
   _DHZDNSSEC,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec", 200] },
   () => DisableHostedZoneDNSSECRequest,
   () => DisableHostedZoneDNSSECResponse,
 ];
@@ -3535,9 +2134,7 @@ export var DisassociateVPCFromHostedZone: StaticOperationSchema = [
   9,
   n0,
   _DVPCFHZ,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc", 200] },
   () => DisassociateVPCFromHostedZoneRequest,
   () => DisassociateVPCFromHostedZoneResponse,
 ];
@@ -3545,9 +2142,7 @@ export var EnableHostedZoneDNSSEC: StaticOperationSchema = [
   9,
   n0,
   _EHZDNSSEC,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec", 200] },
   () => EnableHostedZoneDNSSECRequest,
   () => EnableHostedZoneDNSSECResponse,
 ];
@@ -3555,9 +2150,7 @@ export var GetAccountLimit: StaticOperationSchema = [
   9,
   n0,
   _GAL,
-  {
-    [_ht]: ["GET", "/2013-04-01/accountlimit/{Type}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/accountlimit/{Type}", 200] },
   () => GetAccountLimitRequest,
   () => GetAccountLimitResponse,
 ];
@@ -3565,9 +2158,7 @@ export var GetChange: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_ht]: ["GET", "/2013-04-01/change/{Id}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/change/{Id}", 200] },
   () => GetChangeRequest,
   () => GetChangeResponse,
 ];
@@ -3575,9 +2166,7 @@ export var GetCheckerIpRanges: StaticOperationSchema = [
   9,
   n0,
   _GCIR,
-  {
-    [_ht]: ["GET", "/2013-04-01/checkeripranges", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/checkeripranges", 200] },
   () => GetCheckerIpRangesRequest,
   () => GetCheckerIpRangesResponse,
 ];
@@ -3585,9 +2174,7 @@ export var GetDNSSEC: StaticOperationSchema = [
   9,
   n0,
   _GDNSSEC,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/dnssec", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/dnssec", 200] },
   () => GetDNSSECRequest,
   () => GetDNSSECResponse,
 ];
@@ -3595,9 +2182,7 @@ export var GetGeoLocation: StaticOperationSchema = [
   9,
   n0,
   _GGL,
-  {
-    [_ht]: ["GET", "/2013-04-01/geolocation", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/geolocation", 200] },
   () => GetGeoLocationRequest,
   () => GetGeoLocationResponse,
 ];
@@ -3605,9 +2190,7 @@ export var GetHealthCheck: StaticOperationSchema = [
   9,
   n0,
   _GHC,
-  {
-    [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}", 200] },
   () => GetHealthCheckRequest,
   () => GetHealthCheckResponse,
 ];
@@ -3615,9 +2198,7 @@ export var GetHealthCheckCount: StaticOperationSchema = [
   9,
   n0,
   _GHCC,
-  {
-    [_ht]: ["GET", "/2013-04-01/healthcheckcount", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/healthcheckcount", 200] },
   () => GetHealthCheckCountRequest,
   () => GetHealthCheckCountResponse,
 ];
@@ -3625,9 +2206,7 @@ export var GetHealthCheckLastFailureReason: StaticOperationSchema = [
   9,
   n0,
   _GHCLFR,
-  {
-    [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason", 200] },
   () => GetHealthCheckLastFailureReasonRequest,
   () => GetHealthCheckLastFailureReasonResponse,
 ];
@@ -3635,9 +2214,7 @@ export var GetHealthCheckStatus: StaticOperationSchema = [
   9,
   n0,
   _GHCS,
-  {
-    [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}/status", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/healthcheck/{HealthCheckId}/status", 200] },
   () => GetHealthCheckStatusRequest,
   () => GetHealthCheckStatusResponse,
 ];
@@ -3645,9 +2222,7 @@ export var GetHostedZone: StaticOperationSchema = [
   9,
   n0,
   _GHZ,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzone/{Id}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{Id}", 200] },
   () => GetHostedZoneRequest,
   () => GetHostedZoneResponse,
 ];
@@ -3655,9 +2230,7 @@ export var GetHostedZoneCount: StaticOperationSchema = [
   9,
   n0,
   _GHZC,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzonecount", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzonecount", 200] },
   () => GetHostedZoneCountRequest,
   () => GetHostedZoneCountResponse,
 ];
@@ -3665,9 +2238,7 @@ export var GetHostedZoneLimit: StaticOperationSchema = [
   9,
   n0,
   _GHZL,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}", 200] },
   () => GetHostedZoneLimitRequest,
   () => GetHostedZoneLimitResponse,
 ];
@@ -3675,9 +2246,7 @@ export var GetQueryLoggingConfig: StaticOperationSchema = [
   9,
   n0,
   _GQLC,
-  {
-    [_ht]: ["GET", "/2013-04-01/queryloggingconfig/{Id}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/queryloggingconfig/{Id}", 200] },
   () => GetQueryLoggingConfigRequest,
   () => GetQueryLoggingConfigResponse,
 ];
@@ -3685,9 +2254,7 @@ export var GetReusableDelegationSet: StaticOperationSchema = [
   9,
   n0,
   _GRDS,
-  {
-    [_ht]: ["GET", "/2013-04-01/delegationset/{Id}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/delegationset/{Id}", 200] },
   () => GetReusableDelegationSetRequest,
   () => GetReusableDelegationSetResponse,
 ];
@@ -3695,9 +2262,7 @@ export var GetReusableDelegationSetLimit: StaticOperationSchema = [
   9,
   n0,
   _GRDSL,
-  {
-    [_ht]: ["GET", "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}", 200] },
   () => GetReusableDelegationSetLimitRequest,
   () => GetReusableDelegationSetLimitResponse,
 ];
@@ -3705,9 +2270,7 @@ export var GetTrafficPolicy: StaticOperationSchema = [
   9,
   n0,
   _GTP,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200] },
   () => GetTrafficPolicyRequest,
   () => GetTrafficPolicyResponse,
 ];
@@ -3715,9 +2278,7 @@ export var GetTrafficPolicyInstance: StaticOperationSchema = [
   9,
   n0,
   _GTPI,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicyinstance/{Id}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicyinstance/{Id}", 200] },
   () => GetTrafficPolicyInstanceRequest,
   () => GetTrafficPolicyInstanceResponse,
 ];
@@ -3725,9 +2286,7 @@ export var GetTrafficPolicyInstanceCount: StaticOperationSchema = [
   9,
   n0,
   _GTPIC,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicyinstancecount", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicyinstancecount", 200] },
   () => GetTrafficPolicyInstanceCountRequest,
   () => GetTrafficPolicyInstanceCountResponse,
 ];
@@ -3735,9 +2294,7 @@ export var ListCidrBlocks: StaticOperationSchema = [
   9,
   n0,
   _LCB,
-  {
-    [_ht]: ["GET", "/2013-04-01/cidrcollection/{CollectionId}/cidrblocks", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/cidrcollection/{CollectionId}/cidrblocks", 200] },
   () => ListCidrBlocksRequest,
   () => ListCidrBlocksResponse,
 ];
@@ -3745,9 +2302,7 @@ export var ListCidrCollections: StaticOperationSchema = [
   9,
   n0,
   _LCC,
-  {
-    [_ht]: ["GET", "/2013-04-01/cidrcollection", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/cidrcollection", 200] },
   () => ListCidrCollectionsRequest,
   () => ListCidrCollectionsResponse,
 ];
@@ -3755,9 +2310,7 @@ export var ListCidrLocations: StaticOperationSchema = [
   9,
   n0,
   _LCL,
-  {
-    [_ht]: ["GET", "/2013-04-01/cidrcollection/{CollectionId}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/cidrcollection/{CollectionId}", 200] },
   () => ListCidrLocationsRequest,
   () => ListCidrLocationsResponse,
 ];
@@ -3765,9 +2318,7 @@ export var ListGeoLocations: StaticOperationSchema = [
   9,
   n0,
   _LGL,
-  {
-    [_ht]: ["GET", "/2013-04-01/geolocations", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/geolocations", 200] },
   () => ListGeoLocationsRequest,
   () => ListGeoLocationsResponse,
 ];
@@ -3775,9 +2326,7 @@ export var ListHealthChecks: StaticOperationSchema = [
   9,
   n0,
   _LHC,
-  {
-    [_ht]: ["GET", "/2013-04-01/healthcheck", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/healthcheck", 200] },
   () => ListHealthChecksRequest,
   () => ListHealthChecksResponse,
 ];
@@ -3785,9 +2334,7 @@ export var ListHostedZones: StaticOperationSchema = [
   9,
   n0,
   _LHZ,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzone", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzone", 200] },
   () => ListHostedZonesRequest,
   () => ListHostedZonesResponse,
 ];
@@ -3795,9 +2342,7 @@ export var ListHostedZonesByName: StaticOperationSchema = [
   9,
   n0,
   _LHZBN,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzonesbyname", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzonesbyname", 200] },
   () => ListHostedZonesByNameRequest,
   () => ListHostedZonesByNameResponse,
 ];
@@ -3805,9 +2350,7 @@ export var ListHostedZonesByVPC: StaticOperationSchema = [
   9,
   n0,
   _LHZBVPC,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzonesbyvpc", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzonesbyvpc", 200] },
   () => ListHostedZonesByVPCRequest,
   () => ListHostedZonesByVPCResponse,
 ];
@@ -3815,9 +2358,7 @@ export var ListQueryLoggingConfigs: StaticOperationSchema = [
   9,
   n0,
   _LQLC,
-  {
-    [_ht]: ["GET", "/2013-04-01/queryloggingconfig", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/queryloggingconfig", 200] },
   () => ListQueryLoggingConfigsRequest,
   () => ListQueryLoggingConfigsResponse,
 ];
@@ -3825,9 +2366,7 @@ export var ListResourceRecordSets: StaticOperationSchema = [
   9,
   n0,
   _LRRS,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/rrset", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/rrset", 200] },
   () => ListResourceRecordSetsRequest,
   () => ListResourceRecordSetsResponse,
 ];
@@ -3835,9 +2374,7 @@ export var ListReusableDelegationSets: StaticOperationSchema = [
   9,
   n0,
   _LRDS,
-  {
-    [_ht]: ["GET", "/2013-04-01/delegationset", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/delegationset", 200] },
   () => ListReusableDelegationSetsRequest,
   () => ListReusableDelegationSetsResponse,
 ];
@@ -3845,9 +2382,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/2013-04-01/tags/{ResourceType}/{ResourceId}", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/tags/{ResourceType}/{ResourceId}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -3855,9 +2390,7 @@ export var ListTagsForResources: StaticOperationSchema = [
   9,
   n0,
   _LTFRi,
-  {
-    [_ht]: ["POST", "/2013-04-01/tags/{ResourceType}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/tags/{ResourceType}", 200] },
   () => ListTagsForResourcesRequest,
   () => ListTagsForResourcesResponse,
 ];
@@ -3865,9 +2398,7 @@ export var ListTrafficPolicies: StaticOperationSchema = [
   9,
   n0,
   _LTP,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicies", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicies", 200] },
   () => ListTrafficPoliciesRequest,
   () => ListTrafficPoliciesResponse,
 ];
@@ -3875,9 +2406,7 @@ export var ListTrafficPolicyInstances: StaticOperationSchema = [
   9,
   n0,
   _LTPI,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicyinstances", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicyinstances", 200] },
   () => ListTrafficPolicyInstancesRequest,
   () => ListTrafficPolicyInstancesResponse,
 ];
@@ -3885,9 +2414,7 @@ export var ListTrafficPolicyInstancesByHostedZone: StaticOperationSchema = [
   9,
   n0,
   _LTPIBHZ,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicyinstances/hostedzone", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicyinstances/hostedzone", 200] },
   () => ListTrafficPolicyInstancesByHostedZoneRequest,
   () => ListTrafficPolicyInstancesByHostedZoneResponse,
 ];
@@ -3895,9 +2422,7 @@ export var ListTrafficPolicyInstancesByPolicy: StaticOperationSchema = [
   9,
   n0,
   _LTPIBP,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicyinstances/trafficpolicy", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicyinstances/trafficpolicy", 200] },
   () => ListTrafficPolicyInstancesByPolicyRequest,
   () => ListTrafficPolicyInstancesByPolicyResponse,
 ];
@@ -3905,9 +2430,7 @@ export var ListTrafficPolicyVersions: StaticOperationSchema = [
   9,
   n0,
   _LTPV,
-  {
-    [_ht]: ["GET", "/2013-04-01/trafficpolicies/{Id}/versions", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/trafficpolicies/{Id}/versions", 200] },
   () => ListTrafficPolicyVersionsRequest,
   () => ListTrafficPolicyVersionsResponse,
 ];
@@ -3915,9 +2438,7 @@ export var ListVPCAssociationAuthorizations: StaticOperationSchema = [
   9,
   n0,
   _LVPCAA,
-  {
-    [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", 200] },
   () => ListVPCAssociationAuthorizationsRequest,
   () => ListVPCAssociationAuthorizationsResponse,
 ];
@@ -3925,9 +2446,7 @@ export var TestDNSAnswer: StaticOperationSchema = [
   9,
   n0,
   _TDNSA,
-  {
-    [_ht]: ["GET", "/2013-04-01/testdnsanswer", 200],
-  },
+  { [_ht]: ["GET", "/2013-04-01/testdnsanswer", 200] },
   () => TestDNSAnswerRequest,
   () => TestDNSAnswerResponse,
 ];
@@ -3935,9 +2454,7 @@ export var UpdateHealthCheck: StaticOperationSchema = [
   9,
   n0,
   _UHC,
-  {
-    [_ht]: ["POST", "/2013-04-01/healthcheck/{HealthCheckId}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/healthcheck/{HealthCheckId}", 200] },
   () => UpdateHealthCheckRequest,
   () => UpdateHealthCheckResponse,
 ];
@@ -3945,9 +2462,7 @@ export var UpdateHostedZoneComment: StaticOperationSchema = [
   9,
   n0,
   _UHZC,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{Id}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{Id}", 200] },
   () => UpdateHostedZoneCommentRequest,
   () => UpdateHostedZoneCommentResponse,
 ];
@@ -3955,9 +2470,7 @@ export var UpdateHostedZoneFeatures: StaticOperationSchema = [
   9,
   n0,
   _UHZF,
-  {
-    [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/features", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/features", 200] },
   () => UpdateHostedZoneFeaturesRequest,
   () => UpdateHostedZoneFeaturesResponse,
 ];
@@ -3965,9 +2478,7 @@ export var UpdateTrafficPolicyComment: StaticOperationSchema = [
   9,
   n0,
   _UTPC,
-  {
-    [_ht]: ["POST", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200] },
   () => UpdateTrafficPolicyCommentRequest,
   () => UpdateTrafficPolicyCommentResponse,
 ];
@@ -3975,9 +2486,7 @@ export var UpdateTrafficPolicyInstance: StaticOperationSchema = [
   9,
   n0,
   _UTPI,
-  {
-    [_ht]: ["POST", "/2013-04-01/trafficpolicyinstance/{Id}", 200],
-  },
+  { [_ht]: ["POST", "/2013-04-01/trafficpolicyinstance/{Id}", 200] },
   () => UpdateTrafficPolicyInstanceRequest,
   () => UpdateTrafficPolicyInstanceResponse,
 ];

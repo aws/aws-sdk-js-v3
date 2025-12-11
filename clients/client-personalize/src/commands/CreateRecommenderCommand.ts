@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRecommenderRequest, CreateRecommenderResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { CreateRecommenderRequest, CreateRecommenderResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { CreateRecommender } from "../schemas/schemas_0";
 
 /**
@@ -125,6 +125,11 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *     trainingDataConfig: { // TrainingDataConfig
  *       excludedDatasetColumns: { // ExcludedDatasetColumns
  *         "<keys>": [ // ColumnNamesList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       includedDatasetColumns: { // IncludedDatasetColumns
+ *         "<keys>": [
  *           "STRING_VALUE",
  *         ],
  *       },

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchMeterUsageCommand,
@@ -18,7 +18,7 @@ import {
   ResolveCustomerCommandInput,
   ResolveCustomerCommandOutput,
 } from "./commands/ResolveCustomerCommand";
-import { MarketplaceMeteringClient, MarketplaceMeteringClientConfig } from "./MarketplaceMeteringClient";
+import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
 
 const commands = {
   BatchMeterUsageCommand,

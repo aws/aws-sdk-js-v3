@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import type {
+  CustomerProfilesClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import type { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
 import { CreateDomain } from "../schemas/schemas_0";
 
 /**
@@ -119,6 +123,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       },
  *     },
  *   },
+ *   DataStore: { // DataStoreRequest
+ *     Enabled: true || false,
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -191,6 +198,13 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //         S3BucketName: "STRING_VALUE", // required
  * //         S3KeyName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //   },
+ * //   DataStore: { // DataStoreResponse
+ * //     Enabled: true || false,
+ * //     Readiness: { // Readiness
+ * //       ProgressPercentage: Number("int"),
+ * //       Message: "STRING_VALUE",
  * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required

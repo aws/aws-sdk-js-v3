@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { CreateCampaign } from "../schemas/schemas_0";
 
 /**
@@ -120,6 +120,9 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *     },
  *     enableMetadataWithRecommendations: true || false,
  *     syncWithLatestSolutionVersion: true || false,
+ *     rankingInfluence: { // RankingInfluence
+ *       "<keys>": Number("double"),
+ *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag

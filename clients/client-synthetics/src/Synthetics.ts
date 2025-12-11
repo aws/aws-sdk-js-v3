@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateResourceCommand,
@@ -80,7 +80,7 @@ import {
   UpdateCanaryCommandInput,
   UpdateCanaryCommandOutput,
 } from "./commands/UpdateCanaryCommand";
-import { SyntheticsClient, SyntheticsClientConfig } from "./SyntheticsClient";
+import { SyntheticsClient } from "./SyntheticsClient";
 
 const commands = {
   AssociateResourceCommand,

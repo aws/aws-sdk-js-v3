@@ -153,7 +153,7 @@ const n0 = "com.amazonaws.health";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -169,7 +169,6 @@ import {
 import { HealthServiceException as __HealthServiceException } from "../models/HealthServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccountEntityAggregate: StaticStructureSchema = [3, n0, _AEA, 0, [_aI, _c, _s], [0, 1, 128 | 1]];
 export var AffectedEntity: StaticStructureSchema = [
   3,
@@ -179,18 +178,8 @@ export var AffectedEntity: StaticStructureSchema = [
   [_eA, _eAv, _eV, _eU, _aAI, _lUT, _sC, _t, _eM],
   [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _cl,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _cl }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var DateTimeRange: StaticStructureSchema = [3, n0, _DTR, 0, [_f, _to], [4, 4]];
 export var DescribeAffectedAccountsForOrganizationRequest: StaticStructureSchema = [
   3,
@@ -411,18 +400,8 @@ export var EventTypeFilter: StaticStructureSchema = [
   [_eTCve, _ser, _eTCven, _act, _p],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var InvalidPaginationToken: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPT,
-  {
-    [_e]: _cl,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPaginationToken: StaticErrorSchema = [-3, n0, _IPT, { [_e]: _cl }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationToken, __InvalidPaginationToken);
-
 export var OrganizationAffectedEntitiesErrorItem: StaticStructureSchema = [
   3,
   n0,
@@ -485,30 +464,15 @@ export var OrganizationEventFilter: StaticStructureSchema = [
     64 | 0,
   ],
 ];
-export var UnsupportedLocale: StaticErrorSchema = [
-  -3,
-  n0,
-  _UL,
-  {
-    [_e]: _cl,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedLocale: StaticErrorSchema = [-3, n0, _UL, { [_e]: _cl }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedLocale, __UnsupportedLocale);
-
 export var __Unit = "unit" as const;
-
 export var HealthServiceException: StaticErrorSchema = [-3, _sm, "HealthServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(HealthServiceException, __HealthServiceException);
-
 export var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL, 0, () => AccountEntityAggregate];
 export var affectedAccountsList = 64 | 0;
-
 export var availabilityZones = 64 | 0;
-
 export var awsAccountIdsList = 64 | 0;
-
 export var dateTimeRangeList: StaticListSchema = [1, n0, _dTRL, 0, () => DateTimeRange];
 export var DescribeAffectedEntitiesForOrganizationFailedSet: StaticListSchema = [
   1,
@@ -535,59 +499,37 @@ export var DescribeEventDetailsForOrganizationSuccessfulSet: StaticListSchema = 
 export var DescribeEventDetailsSuccessfulSet: StaticListSchema = [1, n0, _DEDSS, 0, () => EventDetails];
 export var EntityAggregateList: StaticListSchema = [1, n0, _EAL, 0, () => EntityAggregate];
 export var entityArnList = 64 | 0;
-
 export var EntityList: StaticListSchema = [1, n0, _EL, 0, () => AffectedEntity];
 export var entityStatusCodeList = 64 | 0;
-
 export var entityValueList = 64 | 0;
-
 export var EventActionabilityList = 64 | 0;
-
 export var EventAggregateList: StaticListSchema = [1, n0, _EALv, 0, () => EventAggregate];
 export var eventArnList = 64 | 0;
-
 export var EventArnsList = 64 | 0;
-
 export var EventList: StaticListSchema = [1, n0, _ELv, 0, () => Event];
 export var EventPersonaList = 64 | 0;
-
 export var eventStatusCodeList = 64 | 0;
-
 export var EventTypeActionabilityList = 64 | 0;
-
 export var EventTypeCategoryList = 64 | 0;
-
 export var eventTypeCategoryList2 = 64 | 0;
-
 export var EventTypeCodeList = 64 | 0;
-
 export var EventTypeList: StaticListSchema = [1, n0, _ETL, 0, () => EventType];
 export var eventTypeList2 = 64 | 0;
-
 export var EventTypePersonaList = 64 | 0;
-
 export var OrganizationAccountIdsList = 64 | 0;
-
 export var OrganizationEntityAccountFiltersList: StaticListSchema = [1, n0, _OEAFL, 0, () => EntityAccountFilter];
 export var OrganizationEntityAggregatesList: StaticListSchema = [1, n0, _OEAL, 0, () => OrganizationEntityAggregate];
 export var OrganizationEntityFiltersList: StaticListSchema = [1, n0, _OEFL, 0, () => EventAccountFilter];
 export var OrganizationEventArnsList = 64 | 0;
-
 export var OrganizationEventDetailFiltersList: StaticListSchema = [1, n0, _OEDFL, 0, () => EventAccountFilter];
 export var OrganizationEventList: StaticListSchema = [1, n0, _OEL, 0, () => OrganizationEvent];
 export var regionList = 64 | 0;
-
 export var serviceList = 64 | 0;
-
 export var tagFilter: StaticListSchema = [1, n0, _tF, 0, 128 | 0];
 export var entityMetadata = 128 | 0;
-
 export var entityStatuses = 128 | 1;
-
 export var eventMetadata = 128 | 0;
-
 export var tagSet = 128 | 0;
-
 export var DescribeAffectedAccountsForOrganization: StaticOperationSchema = [
   9,
   n0,

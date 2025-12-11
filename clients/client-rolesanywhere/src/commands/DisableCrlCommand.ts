@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { DisableCrl } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface DisableCrlCommandInput extends ScalarCrlRequest {}
 export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a certificate revocation list (CRL).</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DisableCrl</code>.
- *          </p>
+ * <p>Disables a certificate revocation list (CRL).</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DisableCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

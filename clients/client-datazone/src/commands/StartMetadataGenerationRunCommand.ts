@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartMetadataGenerationRunInput, StartMetadataGenerationRunOutput } from "../models/models_1";
+import type { StartMetadataGenerationRunInput, StartMetadataGenerationRunOutput } from "../models/models_1";
 import { StartMetadataGenerationRun } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface StartMetadataGenerationRunCommandInput extends StartMetadataGen
 export interface StartMetadataGenerationRunCommandOutput extends StartMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the metadata generation run.</p> <p>Prerequisites:</p> <ul> <li> <p>Asset must be created and belong to the specified domain and project. </p> </li> <li> <p>Asset type must be supported for metadata generation (e.g., Amazon Web Services Glue table).</p> </li> <li> <p>Asset must have a structured schema with valid rows and columns.</p> </li> <li> <p>Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES.</p> </li> <li> <p>The user must have permission to run metadata generation in the domain/project.</p> </li> </ul>
+ * <p>Starts the metadata generation run.</p> <p>Prerequisites:</p> <ul> <li> <p>Asset must be created and belong to the specified domain and project. </p> </li> <li> <p>Asset type must be supported for metadata generation (e.g., Amazon Web Services Glue table).</p> </li> <li> <p>Asset must have a structured schema with valid rows and columns.</p> </li> <li> <p>Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES, BUSINESS_GLOSSARY_ASSOCIATIONS.</p> </li> <li> <p>The user must have permission to run metadata generation in the domain/project.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +38,10 @@ export interface StartMetadataGenerationRunCommandOutput extends StartMetadataGe
  * const client = new DataZoneClient(config);
  * const input = { // StartMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   type: "BUSINESS_DESCRIPTIONS", // required
+ *   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ *   types: [ // MetadataGenerationRunTypes
+ *     "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ *   ],
  *   target: { // MetadataGenerationRunTarget
  *     type: "ASSET", // required
  *     identifier: "STRING_VALUE", // required
@@ -52,8 +55,11 @@ export interface StartMetadataGenerationRunCommandOutput extends StartMetadataGe
  * // { // StartMetadataGenerationRunOutput
  * //   domainId: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
- * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
- * //   type: "BUSINESS_DESCRIPTIONS",
+ * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //   type: "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //   types: [ // MetadataGenerationRunTypes
+ * //     "BUSINESS_DESCRIPTIONS" || "BUSINESS_NAMES" || "BUSINESS_GLOSSARY_ASSOCIATIONS",
+ * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",
  * //   owningProjectId: "STRING_VALUE",

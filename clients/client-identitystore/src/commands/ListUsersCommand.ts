@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
+import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
+import type { ListUsersRequest, ListUsersResponse } from "../models/models_0";
 import { ListUsers } from "../schemas/schemas_0";
 
 /**
@@ -38,6 +38,9 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * const client = new IdentitystoreClient(config);
  * const input = { // ListUsersRequest
  *   IdentityStoreId: "STRING_VALUE", // required
+ *   Extensions: [ // ExtensionNames
+ *     "STRING_VALUE",
+ *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // Filters
@@ -118,6 +121,9 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       CreatedBy: "STRING_VALUE",
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       UpdatedBy: "STRING_VALUE",
+ * //       Extensions: { // Extensions
+ * //         "<keys>": "DOCUMENT_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeInstanceStorageConfigRequest, DescribeInstanceStorageConfigResponse } from "../models/models_1";
+import type { DescribeInstanceStorageConfigRequest, DescribeInstanceStorageConfigResponse } from "../models/models_1";
 import { DescribeInstanceStorageConfig } from "../schemas/schemas_0";
 
 /**
@@ -30,8 +30,8 @@ export interface DescribeInstanceStorageConfigCommandOutput
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Retrieves the current storage configurations for the specified resource type, association
- *    ID, and instance ID.</p>
+ *          <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance
+ *    ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

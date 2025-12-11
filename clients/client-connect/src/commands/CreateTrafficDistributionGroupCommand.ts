@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateTrafficDistributionGroupRequest, CreateTrafficDistributionGroupResponse } from "../models/models_0";
+import type { CreateTrafficDistributionGroupRequest, CreateTrafficDistributionGroupResponse } from "../models/models_0";
 import { CreateTrafficDistributionGroup } from "../schemas/schemas_0";
 
 /**
@@ -38,8 +38,8 @@ export interface CreateTrafficDistributionGroupCommandOutput
  *     <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
  *     an <code>InvalidRequestException</code> is returned.</p>
  *          </note>
- *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in
- *    the <i>Amazon Connect Administrator Guide</i>. </p>
+ *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

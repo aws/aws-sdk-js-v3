@@ -43,6 +43,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Container for parameters required to enable S3 vectors engine features on the\n            specified domain.</p>"
           }
+        },
+        "ServerlessVectorAcceleration": {
+          "target": "com.amazonaws.opensearch#ServerlessVectorAcceleration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to enable serverless vector acceleration for the domain. When enabled,\n         provides <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gpu-acceleration-vector-index.html\">GPU-accelerated</a> vector search capabilities for improved performance on vector\n         workloads.</p>"
+          }
         }
       },
       "traits": {
@@ -62,6 +68,12 @@
           "target": "com.amazonaws.opensearch#S3VectorsEngine",
           "traits": {
             "smithy.api#documentation": "<p>Container for parameters representing the state of S3 vectors engine features on the\n            specified domain.</p>"
+          }
+        },
+        "ServerlessVectorAcceleration": {
+          "target": "com.amazonaws.opensearch#ServerlessVectorAcceleration",
+          "traits": {
+            "smithy.api#documentation": "<p>The current serverless vector acceleration configuration for the domain.</p>"
           }
         }
       },
@@ -3689,6 +3701,12 @@
         },
         "tagList": {
           "target": "com.amazonaws.opensearch#TagList"
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.opensearch#KmsKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest.\n              If provided, the application uses your customer-managed key for encryption. If omitted, the application\n              uses an AWS-managed key. The KMS key must be in the same region as the application.</p>"
+          }
         }
       },
       "traits": {
@@ -3738,6 +3756,12 @@
           "target": "com.amazonaws.opensearch#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp indicating when the OpenSearch application was created.</p>"
+          }
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.opensearch#KmsKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest.</p>"
           }
         }
       },
@@ -7997,6 +8021,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The timestamp of the last update to the OpenSearch application.</p>"
           }
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.opensearch#KmsKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest.</p>"
+          }
         }
       },
       "traits": {
@@ -9502,6 +9532,16 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The configuration parameters to enable access to the key store required by the\n            package.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#KmsKeyArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
       }
     },
     "com.amazonaws.opensearch#KmsKeyId": {
@@ -13880,6 +13920,20 @@
       },
       "traits": {
         "smithy.api#documentation": "<p> Configuration details for a Security Lake data source that can be used for direct\n            queries. </p>"
+      }
+    },
+    "com.amazonaws.opensearch#ServerlessVectorAcceleration": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.opensearch#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether serverless vector acceleration is enabled for the domain.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for serverless vector acceleration, which provides <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gpu-acceleration-vector-index.html\">GPU-accelerated</a> vector\n         search capabilities for improved performance on vector workloads.</p>"
       }
     },
     "com.amazonaws.opensearch#ServiceSoftwareOptions": {

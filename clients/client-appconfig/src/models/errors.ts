@@ -1,9 +1,9 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 import { BadRequestReason, BytesMeasure } from "./enums";
-import { BadRequestDetails } from "./models_0";
+import type { BadRequestDetails } from "./models_0";
 
 /**
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>

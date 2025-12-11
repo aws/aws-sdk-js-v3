@@ -488,7 +488,7 @@ const n0 = "com.amazonaws.elasticsearchservice";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -513,7 +513,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AcceptInboundCrossClusterSearchConnectionRequest: StaticStructureSchema = [
@@ -532,19 +531,8 @@ export var AcceptInboundCrossClusterSearchConnectionResponse: StaticStructureSch
   [_CCSC],
   [() => InboundCrossClusterSearchConnection],
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessPoliciesStatus: StaticStructureSchema = [3, n0, _APS, 0, [_O, _S], [0, () => OptionStatus]];
 export var AdditionalLimit: StaticStructureSchema = [3, n0, _AL, 0, [_LN, _LV], [0, 64 | 0]];
 export var AddTagsRequest: StaticStructureSchema = [3, n0, _ATR, 0, [_ARN, _TL], [0, () => TagList]];
@@ -631,18 +619,8 @@ export var AutoTuneOptionsStatus: StaticStructureSchema = [
   [() => AutoTuneOptions, () => AutoTuneStatus],
 ];
 export var AutoTuneStatus: StaticStructureSchema = [3, n0, _ATS, 0, [_CD, _UD, _UV, _St, _EM, _PD], [4, 4, 1, 0, 0, 2]];
-export var BaseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var BaseException: StaticErrorSchema = [-3, n0, _BE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BaseException, __BaseException);
-
 export var CancelDomainConfigChangeRequest: StaticStructureSchema = [3, n0, _CDCCR, 0, [_DN, _DR], [[0, 1], 2]];
 export var CancelDomainConfigChangeResponse: StaticStructureSchema = [
   3,
@@ -690,19 +668,8 @@ export var CognitoOptionsStatus: StaticStructureSchema = [
 ];
 export var ColdStorageOptions: StaticStructureSchema = [3, n0, _CSO, 0, [_E], [2]];
 export var CompatibleVersionsMap: StaticStructureSchema = [3, n0, _CVM, 0, [_SV, _TV], [0, 64 | 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateElasticsearchDomainRequest: StaticStructureSchema = [
   3,
   n0,
@@ -832,12 +799,7 @@ export var DescribeDomainChangeProgressRequest: StaticStructureSchema = [
   [_DN, _CI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ch,
-      },
-    ],
+    [0, { [_hQ]: _ch }],
   ],
 ];
 export var DescribeDomainChangeProgressResponse: StaticStructureSchema = [
@@ -882,12 +844,7 @@ export var DescribeElasticsearchInstanceTypeLimitsRequest: StaticStructureSchema
   0,
   [_DN, _IT, _EV],
   [
-    [
-      0,
-      {
-        [_hQ]: _dN,
-      },
-    ],
+    [0, { [_hQ]: _dN }],
     [0, 1],
     [0, 1],
   ],
@@ -956,24 +913,9 @@ export var DescribeReservedElasticsearchInstanceOfferingsRequest: StaticStructur
   0,
   [_REIOI, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _oI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _oI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var DescribeReservedElasticsearchInstanceOfferingsResponse: StaticStructureSchema = [
@@ -991,24 +933,9 @@ export var DescribeReservedElasticsearchInstancesRequest: StaticStructureSchema 
   0,
   [_REII, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var DescribeReservedElasticsearchInstancesResponse: StaticStructureSchema = [
@@ -1028,19 +955,8 @@ export var DescribeVpcEndpointsResponse: StaticStructureSchema = [
   [_VEp, _VEE],
   [() => VpcEndpoints, () => VpcEndpointErrorList],
 ];
-export var DisabledOperationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DOE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var DisabledOperationException: StaticErrorSchema = [-3, n0, _DOE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DisabledOperationException, __DisabledOperationException);
-
 export var DissociatePackageRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1213,14 +1129,7 @@ export var GetCompatibleElasticsearchVersionsRequest: StaticStructureSchema = [
   _GCEVR,
   0,
   [_DN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _dN,
-      },
-    ],
-  ],
+  [[0, { [_hQ]: _dN }]],
 ];
 export var GetCompatibleElasticsearchVersionsResponse: StaticStructureSchema = [
   3,
@@ -1238,18 +1147,8 @@ export var GetPackageVersionHistoryRequest: StaticStructureSchema = [
   [_PID, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetPackageVersionHistoryResponse: StaticStructureSchema = [
@@ -1268,18 +1167,8 @@ export var GetUpgradeHistoryRequest: StaticStructureSchema = [
   [_DN, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetUpgradeHistoryResponse: StaticStructureSchema = [
@@ -1303,58 +1192,14 @@ export var InboundCrossClusterSearchConnection: StaticStructureSchema = [
 export var InboundCrossClusterSearchConnectionStatus: StaticStructureSchema = [3, n0, _ICCSCS, 0, [_SC, _M], [0, 0]];
 export var InstanceCountLimits: StaticStructureSchema = [3, n0, _ICL, 0, [_MIC, _MICa], [1, 1]];
 export var InstanceLimits: StaticStructureSchema = [3, n0, _IL, 0, [_ICL], [() => InstanceCountLimits]];
-export var InternalException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalException: StaticErrorSchema = [-3, n0, _IE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
-export var InvalidPaginationTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidPaginationTokenException: StaticErrorSchema = [-3, n0, _IPTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidPaginationTokenException, __InvalidPaginationTokenException);
-
-export var InvalidTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTypeException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTypeException, __InvalidTypeException);
-
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var Limits: StaticStructureSchema = [
   3,
   n0,
@@ -1363,21 +1208,7 @@ export var Limits: StaticStructureSchema = [
   [_STt, _IL, _ALd],
   [() => StorageTypeList, () => InstanceLimits, () => AdditionalLimitList],
 ];
-export var ListDomainNamesRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LDNR,
-  0,
-  [_ET],
-  [
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-  ],
-];
+export var ListDomainNamesRequest: StaticStructureSchema = [3, n0, _LDNR, 0, [_ET], [[0, { [_hQ]: _eT }]]];
 export var ListDomainNamesResponse: StaticStructureSchema = [3, n0, _LDNRi, 0, [_DNo], [() => DomainInfoList]];
 export var ListDomainsForPackageRequest: StaticStructureSchema = [
   3,
@@ -1387,18 +1218,8 @@ export var ListDomainsForPackageRequest: StaticStructureSchema = [
   [_PID, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDomainsForPackageResponse: StaticStructureSchema = [
@@ -1417,24 +1238,9 @@ export var ListElasticsearchInstanceTypesRequest: StaticStructureSchema = [
   [_EV, _DN, _MR, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dN,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _dN }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListElasticsearchInstanceTypesResponse: StaticStructureSchema = [
@@ -1452,18 +1258,8 @@ export var ListElasticsearchVersionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListElasticsearchVersionsResponse: StaticStructureSchema = [3, n0, _LEVRi, 0, [_EVl, _NT], [64 | 0, 0]];
@@ -1475,18 +1271,8 @@ export var ListPackagesForDomainRequest: StaticStructureSchema = [
   [_DN, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPackagesForDomainResponse: StaticStructureSchema = [
@@ -1497,21 +1283,7 @@ export var ListPackagesForDomainResponse: StaticStructureSchema = [
   [_DPDL, _NT],
   [() => DomainPackageDetailsList, 0],
 ];
-export var ListTagsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTR,
-  0,
-  [_ARN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var ListTagsRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_ARN], [[0, { [_hQ]: _a }]]];
 export var ListTagsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_TL], [() => TagList]];
 export var ListVpcEndpointAccessRequest: StaticStructureSchema = [
   3,
@@ -1521,12 +1293,7 @@ export var ListVpcEndpointAccessRequest: StaticStructureSchema = [
   [_DN, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListVpcEndpointAccessResponse: StaticStructureSchema = [
@@ -1545,12 +1312,7 @@ export var ListVpcEndpointsForDomainRequest: StaticStructureSchema = [
   [_DN, _NT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListVpcEndpointsForDomainResponse: StaticStructureSchema = [
@@ -1561,21 +1323,7 @@ export var ListVpcEndpointsForDomainResponse: StaticStructureSchema = [
   [_VESL, _NT],
   [() => VpcEndpointSummaryList, 0],
 ];
-export var ListVpcEndpointsRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LVER,
-  0,
-  [_NT],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-  ],
-];
+export var ListVpcEndpointsRequest: StaticStructureSchema = [3, n0, _LVER, 0, [_NT], [[0, { [_hQ]: _nT }]]];
 export var ListVpcEndpointsResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1681,32 +1429,10 @@ export var ReservedElasticsearchInstanceOffering: StaticStructureSchema = [
   [_REIOI, _EITl, _D, _FP, _UPs, _CC, _PO, _RCe],
   [0, 0, 1, 1, 1, 0, 0, [() => RecurringChargeList, 0]],
 ];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RevokeVpcEndpointAccessRequest: StaticStructureSchema = [3, n0, _RVEAR, 0, [_DN, _A], [[0, 1], 0]];
 export var RevokeVpcEndpointAccessResponse: StaticStructureSchema = [3, n0, _RVEARe, 0, [], []];
 export var SAMLIdp: StaticStructureSchema = [3, n0, _SAMLI, 0, [_MC, _EI], [0, 0]];
@@ -1824,19 +1550,8 @@ export var UpgradeHistory: StaticStructureSchema = [
   [0, 4, 0, () => UpgradeStepsList],
 ];
 export var UpgradeStepItem: StaticStructureSchema = [3, n0, _USI, 0, [_US, _USS, _Is, _PPr], [0, 0, 64 | 0, 1]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VEa,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VEa, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VPCDerivedInfo: StaticStructureSchema = [
   3,
   n0,
@@ -1866,7 +1581,6 @@ export var VpcEndpointSummary: StaticStructureSchema = [3, n0, _VES, 0, [_VEI, _
 export var VPCOptions: StaticStructureSchema = [3, n0, _VPCO, 0, [_SI, _SGI], [64 | 0, 64 | 0]];
 export var ZoneAwarenessConfig: StaticStructureSchema = [3, n0, _ZAC, 0, [_AZC], [1]];
 export var __Unit = "unit" as const;
-
 export var ElasticsearchServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1876,7 +1590,6 @@ export var ElasticsearchServiceServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ElasticsearchServiceServiceException, __ElasticsearchServiceServiceException);
-
 export var AdditionalLimitList: StaticListSchema = [1, n0, _ALL, 0, () => AdditionalLimit];
 export var AuthorizedPrincipalList: StaticListSchema = [1, n0, _APL, 0, () => AuthorizedPrincipal];
 export var AutoTuneList: StaticListSchema = [1, n0, _ATL, 0, () => AutoTune];
@@ -1886,19 +1599,14 @@ export var ChangeProgressStageList: StaticListSchema = [1, n0, _CPSL, 0, () => C
 export var CompatibleElasticsearchVersionsList: StaticListSchema = [1, n0, _CEVL, 0, () => CompatibleVersionsMap];
 export var DescribePackagesFilterList: StaticListSchema = [1, n0, _DPFL, 0, () => DescribePackagesFilter];
 export var DescribePackagesFilterValues = 64 | 0;
-
 export var DomainInfoList: StaticListSchema = [1, n0, _DIL, 0, () => DomainInfo];
 export var DomainNameList = 64 | 0;
-
 export var DomainPackageDetailsList: StaticListSchema = [1, n0, _DPDL, 0, () => DomainPackageDetails];
 export var ElasticsearchDomainStatusList: StaticListSchema = [1, n0, _EDSL, 0, () => ElasticsearchDomainStatus];
 export var ElasticsearchInstanceTypeList = 64 | 0;
-
 export var ElasticsearchVersionList = 64 | 0;
-
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
 export var GUIDList = 64 | 0;
-
 export var InboundCrossClusterSearchConnections: StaticListSchema = [
   1,
   n0,
@@ -1907,9 +1615,7 @@ export var InboundCrossClusterSearchConnections: StaticListSchema = [
   () => InboundCrossClusterSearchConnection,
 ];
 export var Issues = 64 | 0;
-
 export var LimitValueList = 64 | 0;
-
 export var ModifyingPropertiesList: StaticListSchema = [1, n0, _MPL, 0, () => ModifyingProperties];
 export var OutboundCrossClusterSearchConnections: StaticListSchema = [
   1,
@@ -1920,18 +1626,7 @@ export var OutboundCrossClusterSearchConnections: StaticListSchema = [
 ];
 export var PackageDetailsList: StaticListSchema = [1, n0, _PDL, 0, () => PackageDetails];
 export var PackageVersionHistoryList: StaticListSchema = [1, n0, _PVHL, 0, () => PackageVersionHistory];
-export var RecurringChargeList: StaticListSchema = [
-  1,
-  n0,
-  _RCL,
-  0,
-  [
-    () => RecurringCharge,
-    {
-      [_xN]: _RC,
-    },
-  ],
-];
+export var RecurringChargeList: StaticListSchema = [1, n0, _RCL, 0, [() => RecurringCharge, { [_xN]: _RC }]];
 export var ReservedElasticsearchInstanceList: StaticListSchema = [
   1,
   n0,
@@ -1944,40 +1639,28 @@ export var ReservedElasticsearchInstanceOfferingList: StaticListSchema = [
   n0,
   _REIOL,
   0,
-  [
-    () => ReservedElasticsearchInstanceOffering,
-    {
-      [_xN]: _REIOe,
-    },
-  ],
+  [() => ReservedElasticsearchInstanceOffering, { [_xN]: _REIOe }],
 ];
 export var StorageTypeLimitList: StaticListSchema = [1, n0, _STLL, 0, () => StorageTypeLimit];
 export var StorageTypeList: StaticListSchema = [1, n0, _STLto, 0, () => StorageType];
 export var StringList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var UpgradeHistoryList: StaticListSchema = [1, n0, _UHL, 0, () => UpgradeHistory];
 export var UpgradeStepsList: StaticListSchema = [1, n0, _USL, 0, () => UpgradeStepItem];
 export var ValueStringList = 64 | 0;
-
 export var VpcEndpointErrorList: StaticListSchema = [1, n0, _VEEL, 0, () => VpcEndpointError];
 export var VpcEndpointIdList = 64 | 0;
-
 export var VpcEndpoints: StaticListSchema = [1, n0, _VEp, 0, () => VpcEndpoint];
 export var VpcEndpointSummaryList: StaticListSchema = [1, n0, _VESL, 0, () => VpcEndpointSummary];
 export var AdvancedOptions = 128 | 0;
-
 export var EndpointsMap = 128 | 0;
-
 export var LimitsByRole: StaticMapSchema = [2, n0, _LBR, 0, 0, () => Limits];
 export var LogPublishingOptions: StaticMapSchema = [2, n0, _LPO, 0, 0, () => LogPublishingOption];
 export var AcceptInboundCrossClusterSearchConnection: StaticOperationSchema = [
   9,
   n0,
   _AICCSC,
-  {
-    [_h]: ["PUT", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept", 200],
-  },
+  { [_h]: ["PUT", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept", 200] },
   () => AcceptInboundCrossClusterSearchConnectionRequest,
   () => AcceptInboundCrossClusterSearchConnectionResponse,
 ];
@@ -1985,9 +1668,7 @@ export var AddTags: StaticOperationSchema = [
   9,
   n0,
   _ATd,
-  {
-    [_h]: ["POST", "/2015-01-01/tags", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/tags", 200] },
   () => AddTagsRequest,
   () => __Unit,
 ];
@@ -1995,9 +1676,7 @@ export var AssociatePackage: StaticOperationSchema = [
   9,
   n0,
   _APs,
-  {
-    [_h]: ["POST", "/2015-01-01/packages/associate/{PackageID}/{DomainName}", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/packages/associate/{PackageID}/{DomainName}", 200] },
   () => AssociatePackageRequest,
   () => AssociatePackageResponse,
 ];
@@ -2005,9 +1684,7 @@ export var AuthorizeVpcEndpointAccess: StaticOperationSchema = [
   9,
   n0,
   _AVEA,
-  {
-    [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess", 200] },
   () => AuthorizeVpcEndpointAccessRequest,
   () => AuthorizeVpcEndpointAccessResponse,
 ];
@@ -2015,9 +1692,7 @@ export var CancelDomainConfigChange: StaticOperationSchema = [
   9,
   n0,
   _CDCC,
-  {
-    [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/config/cancel", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/config/cancel", 200] },
   () => CancelDomainConfigChangeRequest,
   () => CancelDomainConfigChangeResponse,
 ];
@@ -2025,9 +1700,7 @@ export var CancelElasticsearchServiceSoftwareUpdate: StaticOperationSchema = [
   9,
   n0,
   _CESSU,
-  {
-    [_h]: ["POST", "/2015-01-01/es/serviceSoftwareUpdate/cancel", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/serviceSoftwareUpdate/cancel", 200] },
   () => CancelElasticsearchServiceSoftwareUpdateRequest,
   () => CancelElasticsearchServiceSoftwareUpdateResponse,
 ];
@@ -2035,9 +1708,7 @@ export var CreateElasticsearchDomain: StaticOperationSchema = [
   9,
   n0,
   _CED,
-  {
-    [_h]: ["POST", "/2015-01-01/es/domain", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/domain", 200] },
   () => CreateElasticsearchDomainRequest,
   () => CreateElasticsearchDomainResponse,
 ];
@@ -2045,9 +1716,7 @@ export var CreateOutboundCrossClusterSearchConnection: StaticOperationSchema = [
   9,
   n0,
   _COCCSC,
-  {
-    [_h]: ["POST", "/2015-01-01/es/ccs/outboundConnection", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/ccs/outboundConnection", 200] },
   () => CreateOutboundCrossClusterSearchConnectionRequest,
   () => CreateOutboundCrossClusterSearchConnectionResponse,
 ];
@@ -2055,9 +1724,7 @@ export var CreatePackage: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["POST", "/2015-01-01/packages", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/packages", 200] },
   () => CreatePackageRequest,
   () => CreatePackageResponse,
 ];
@@ -2065,9 +1732,7 @@ export var CreateVpcEndpoint: StaticOperationSchema = [
   9,
   n0,
   _CVE,
-  {
-    [_h]: ["POST", "/2015-01-01/es/vpcEndpoints", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/vpcEndpoints", 200] },
   () => CreateVpcEndpointRequest,
   () => CreateVpcEndpointResponse,
 ];
@@ -2075,9 +1740,7 @@ export var DeleteElasticsearchDomain: StaticOperationSchema = [
   9,
   n0,
   _DED,
-  {
-    [_h]: ["DELETE", "/2015-01-01/es/domain/{DomainName}", 200],
-  },
+  { [_h]: ["DELETE", "/2015-01-01/es/domain/{DomainName}", 200] },
   () => DeleteElasticsearchDomainRequest,
   () => DeleteElasticsearchDomainResponse,
 ];
@@ -2085,9 +1748,7 @@ export var DeleteElasticsearchServiceRole: StaticOperationSchema = [
   9,
   n0,
   _DESR,
-  {
-    [_h]: ["DELETE", "/2015-01-01/es/role", 200],
-  },
+  { [_h]: ["DELETE", "/2015-01-01/es/role", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -2095,9 +1756,7 @@ export var DeleteInboundCrossClusterSearchConnection: StaticOperationSchema = [
   9,
   n0,
   _DICCSC,
-  {
-    [_h]: ["DELETE", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}", 200],
-  },
+  { [_h]: ["DELETE", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}", 200] },
   () => DeleteInboundCrossClusterSearchConnectionRequest,
   () => DeleteInboundCrossClusterSearchConnectionResponse,
 ];
@@ -2105,9 +1764,7 @@ export var DeleteOutboundCrossClusterSearchConnection: StaticOperationSchema = [
   9,
   n0,
   _DOCCSC,
-  {
-    [_h]: ["DELETE", "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}", 200],
-  },
+  { [_h]: ["DELETE", "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}", 200] },
   () => DeleteOutboundCrossClusterSearchConnectionRequest,
   () => DeleteOutboundCrossClusterSearchConnectionResponse,
 ];
@@ -2115,9 +1772,7 @@ export var DeletePackage: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/2015-01-01/packages/{PackageID}", 200],
-  },
+  { [_h]: ["DELETE", "/2015-01-01/packages/{PackageID}", 200] },
   () => DeletePackageRequest,
   () => DeletePackageResponse,
 ];
@@ -2125,9 +1780,7 @@ export var DeleteVpcEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DVE,
-  {
-    [_h]: ["DELETE", "/2015-01-01/es/vpcEndpoints/{VpcEndpointId}", 200],
-  },
+  { [_h]: ["DELETE", "/2015-01-01/es/vpcEndpoints/{VpcEndpointId}", 200] },
   () => DeleteVpcEndpointRequest,
   () => DeleteVpcEndpointResponse,
 ];
@@ -2135,9 +1788,7 @@ export var DescribeDomainAutoTunes: StaticOperationSchema = [
   9,
   n0,
   _DDAT,
-  {
-    [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/autoTunes", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/autoTunes", 200] },
   () => DescribeDomainAutoTunesRequest,
   () => DescribeDomainAutoTunesResponse,
 ];
@@ -2145,9 +1796,7 @@ export var DescribeDomainChangeProgress: StaticOperationSchema = [
   9,
   n0,
   _DDCP,
-  {
-    [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/progress", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/progress", 200] },
   () => DescribeDomainChangeProgressRequest,
   () => DescribeDomainChangeProgressResponse,
 ];
@@ -2155,9 +1804,7 @@ export var DescribeElasticsearchDomain: StaticOperationSchema = [
   9,
   n0,
   _DEDe,
-  {
-    [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}", 200] },
   () => DescribeElasticsearchDomainRequest,
   () => DescribeElasticsearchDomainResponse,
 ];
@@ -2165,9 +1812,7 @@ export var DescribeElasticsearchDomainConfig: StaticOperationSchema = [
   9,
   n0,
   _DEDC,
-  {
-    [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/config", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/config", 200] },
   () => DescribeElasticsearchDomainConfigRequest,
   () => DescribeElasticsearchDomainConfigResponse,
 ];
@@ -2175,9 +1820,7 @@ export var DescribeElasticsearchDomains: StaticOperationSchema = [
   9,
   n0,
   _DEDes,
-  {
-    [_h]: ["POST", "/2015-01-01/es/domain-info", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/domain-info", 200] },
   () => DescribeElasticsearchDomainsRequest,
   () => DescribeElasticsearchDomainsResponse,
 ];
@@ -2185,9 +1828,7 @@ export var DescribeElasticsearchInstanceTypeLimits: StaticOperationSchema = [
   9,
   n0,
   _DEITL,
-  {
-    [_h]: ["GET", "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}", 200] },
   () => DescribeElasticsearchInstanceTypeLimitsRequest,
   () => DescribeElasticsearchInstanceTypeLimitsResponse,
 ];
@@ -2195,9 +1836,7 @@ export var DescribeInboundCrossClusterSearchConnections: StaticOperationSchema =
   9,
   n0,
   _DICCSCe,
-  {
-    [_h]: ["POST", "/2015-01-01/es/ccs/inboundConnection/search", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/ccs/inboundConnection/search", 200] },
   () => DescribeInboundCrossClusterSearchConnectionsRequest,
   () => DescribeInboundCrossClusterSearchConnectionsResponse,
 ];
@@ -2205,9 +1844,7 @@ export var DescribeOutboundCrossClusterSearchConnections: StaticOperationSchema 
   9,
   n0,
   _DOCCSCe,
-  {
-    [_h]: ["POST", "/2015-01-01/es/ccs/outboundConnection/search", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/ccs/outboundConnection/search", 200] },
   () => DescribeOutboundCrossClusterSearchConnectionsRequest,
   () => DescribeOutboundCrossClusterSearchConnectionsResponse,
 ];
@@ -2215,9 +1852,7 @@ export var DescribePackages: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["POST", "/2015-01-01/packages/describe", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/packages/describe", 200] },
   () => DescribePackagesRequest,
   () => DescribePackagesResponse,
 ];
@@ -2225,9 +1860,7 @@ export var DescribeReservedElasticsearchInstanceOfferings: StaticOperationSchema
   9,
   n0,
   _DREIO,
-  {
-    [_h]: ["GET", "/2015-01-01/es/reservedInstanceOfferings", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/reservedInstanceOfferings", 200] },
   () => DescribeReservedElasticsearchInstanceOfferingsRequest,
   () => DescribeReservedElasticsearchInstanceOfferingsResponse,
 ];
@@ -2235,9 +1868,7 @@ export var DescribeReservedElasticsearchInstances: StaticOperationSchema = [
   9,
   n0,
   _DREI,
-  {
-    [_h]: ["GET", "/2015-01-01/es/reservedInstances", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/reservedInstances", 200] },
   () => DescribeReservedElasticsearchInstancesRequest,
   () => DescribeReservedElasticsearchInstancesResponse,
 ];
@@ -2245,9 +1876,7 @@ export var DescribeVpcEndpoints: StaticOperationSchema = [
   9,
   n0,
   _DVEe,
-  {
-    [_h]: ["POST", "/2015-01-01/es/vpcEndpoints/describe", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/vpcEndpoints/describe", 200] },
   () => DescribeVpcEndpointsRequest,
   () => DescribeVpcEndpointsResponse,
 ];
@@ -2255,9 +1884,7 @@ export var DissociatePackage: StaticOperationSchema = [
   9,
   n0,
   _DPi,
-  {
-    [_h]: ["POST", "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}", 200] },
   () => DissociatePackageRequest,
   () => DissociatePackageResponse,
 ];
@@ -2265,9 +1892,7 @@ export var GetCompatibleElasticsearchVersions: StaticOperationSchema = [
   9,
   n0,
   _GCEV,
-  {
-    [_h]: ["GET", "/2015-01-01/es/compatibleVersions", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/compatibleVersions", 200] },
   () => GetCompatibleElasticsearchVersionsRequest,
   () => GetCompatibleElasticsearchVersionsResponse,
 ];
@@ -2275,9 +1900,7 @@ export var GetPackageVersionHistory: StaticOperationSchema = [
   9,
   n0,
   _GPVH,
-  {
-    [_h]: ["GET", "/2015-01-01/packages/{PackageID}/history", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/packages/{PackageID}/history", 200] },
   () => GetPackageVersionHistoryRequest,
   () => GetPackageVersionHistoryResponse,
 ];
@@ -2285,9 +1908,7 @@ export var GetUpgradeHistory: StaticOperationSchema = [
   9,
   n0,
   _GUH,
-  {
-    [_h]: ["GET", "/2015-01-01/es/upgradeDomain/{DomainName}/history", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/upgradeDomain/{DomainName}/history", 200] },
   () => GetUpgradeHistoryRequest,
   () => GetUpgradeHistoryResponse,
 ];
@@ -2295,9 +1916,7 @@ export var GetUpgradeStatus: StaticOperationSchema = [
   9,
   n0,
   _GUS,
-  {
-    [_h]: ["GET", "/2015-01-01/es/upgradeDomain/{DomainName}/status", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/upgradeDomain/{DomainName}/status", 200] },
   () => GetUpgradeStatusRequest,
   () => GetUpgradeStatusResponse,
 ];
@@ -2305,9 +1924,7 @@ export var ListDomainNames: StaticOperationSchema = [
   9,
   n0,
   _LDN,
-  {
-    [_h]: ["GET", "/2015-01-01/domain", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/domain", 200] },
   () => ListDomainNamesRequest,
   () => ListDomainNamesResponse,
 ];
@@ -2315,9 +1932,7 @@ export var ListDomainsForPackage: StaticOperationSchema = [
   9,
   n0,
   _LDFP,
-  {
-    [_h]: ["GET", "/2015-01-01/packages/{PackageID}/domains", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/packages/{PackageID}/domains", 200] },
   () => ListDomainsForPackageRequest,
   () => ListDomainsForPackageResponse,
 ];
@@ -2325,9 +1940,7 @@ export var ListElasticsearchInstanceTypes: StaticOperationSchema = [
   9,
   n0,
   _LEIT,
-  {
-    [_h]: ["GET", "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}", 200] },
   () => ListElasticsearchInstanceTypesRequest,
   () => ListElasticsearchInstanceTypesResponse,
 ];
@@ -2335,9 +1948,7 @@ export var ListElasticsearchVersions: StaticOperationSchema = [
   9,
   n0,
   _LEV,
-  {
-    [_h]: ["GET", "/2015-01-01/es/versions", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/versions", 200] },
   () => ListElasticsearchVersionsRequest,
   () => ListElasticsearchVersionsResponse,
 ];
@@ -2345,9 +1956,7 @@ export var ListPackagesForDomain: StaticOperationSchema = [
   9,
   n0,
   _LPFD,
-  {
-    [_h]: ["GET", "/2015-01-01/domain/{DomainName}/packages", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/domain/{DomainName}/packages", 200] },
   () => ListPackagesForDomainRequest,
   () => ListPackagesForDomainResponse,
 ];
@@ -2355,9 +1964,7 @@ export var ListTags: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["GET", "/2015-01-01/tags", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/tags", 200] },
   () => ListTagsRequest,
   () => ListTagsResponse,
 ];
@@ -2365,9 +1972,7 @@ export var ListVpcEndpointAccess: StaticOperationSchema = [
   9,
   n0,
   _LVEA,
-  {
-    [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess", 200] },
   () => ListVpcEndpointAccessRequest,
   () => ListVpcEndpointAccessResponse,
 ];
@@ -2375,9 +1980,7 @@ export var ListVpcEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LVE,
-  {
-    [_h]: ["GET", "/2015-01-01/es/vpcEndpoints", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/vpcEndpoints", 200] },
   () => ListVpcEndpointsRequest,
   () => ListVpcEndpointsResponse,
 ];
@@ -2385,9 +1988,7 @@ export var ListVpcEndpointsForDomain: StaticOperationSchema = [
   9,
   n0,
   _LVEFD,
-  {
-    [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/vpcEndpoints", 200],
-  },
+  { [_h]: ["GET", "/2015-01-01/es/domain/{DomainName}/vpcEndpoints", 200] },
   () => ListVpcEndpointsForDomainRequest,
   () => ListVpcEndpointsForDomainResponse,
 ];
@@ -2395,9 +1996,7 @@ export var PurchaseReservedElasticsearchInstanceOffering: StaticOperationSchema 
   9,
   n0,
   _PREIO,
-  {
-    [_h]: ["POST", "/2015-01-01/es/purchaseReservedInstanceOffering", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/purchaseReservedInstanceOffering", 200] },
   () => PurchaseReservedElasticsearchInstanceOfferingRequest,
   () => PurchaseReservedElasticsearchInstanceOfferingResponse,
 ];
@@ -2405,9 +2004,7 @@ export var RejectInboundCrossClusterSearchConnection: StaticOperationSchema = [
   9,
   n0,
   _RICCSC,
-  {
-    [_h]: ["PUT", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject", 200],
-  },
+  { [_h]: ["PUT", "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject", 200] },
   () => RejectInboundCrossClusterSearchConnectionRequest,
   () => RejectInboundCrossClusterSearchConnectionResponse,
 ];
@@ -2415,9 +2012,7 @@ export var RemoveTags: StaticOperationSchema = [
   9,
   n0,
   _RT,
-  {
-    [_h]: ["POST", "/2015-01-01/tags-removal", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/tags-removal", 200] },
   () => RemoveTagsRequest,
   () => __Unit,
 ];
@@ -2425,9 +2020,7 @@ export var RevokeVpcEndpointAccess: StaticOperationSchema = [
   9,
   n0,
   _RVEA,
-  {
-    [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess", 200] },
   () => RevokeVpcEndpointAccessRequest,
   () => RevokeVpcEndpointAccessResponse,
 ];
@@ -2435,9 +2028,7 @@ export var StartElasticsearchServiceSoftwareUpdate: StaticOperationSchema = [
   9,
   n0,
   _SESSU,
-  {
-    [_h]: ["POST", "/2015-01-01/es/serviceSoftwareUpdate/start", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/serviceSoftwareUpdate/start", 200] },
   () => StartElasticsearchServiceSoftwareUpdateRequest,
   () => StartElasticsearchServiceSoftwareUpdateResponse,
 ];
@@ -2445,9 +2036,7 @@ export var UpdateElasticsearchDomainConfig: StaticOperationSchema = [
   9,
   n0,
   _UEDC,
-  {
-    [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/config", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/domain/{DomainName}/config", 200] },
   () => UpdateElasticsearchDomainConfigRequest,
   () => UpdateElasticsearchDomainConfigResponse,
 ];
@@ -2455,9 +2044,7 @@ export var UpdatePackage: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  {
-    [_h]: ["POST", "/2015-01-01/packages/update", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/packages/update", 200] },
   () => UpdatePackageRequest,
   () => UpdatePackageResponse,
 ];
@@ -2465,9 +2052,7 @@ export var UpdateVpcEndpoint: StaticOperationSchema = [
   9,
   n0,
   _UVE,
-  {
-    [_h]: ["POST", "/2015-01-01/es/vpcEndpoints/update", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/vpcEndpoints/update", 200] },
   () => UpdateVpcEndpointRequest,
   () => UpdateVpcEndpointResponse,
 ];
@@ -2475,9 +2060,7 @@ export var UpgradeElasticsearchDomain: StaticOperationSchema = [
   9,
   n0,
   _UED,
-  {
-    [_h]: ["POST", "/2015-01-01/es/upgradeDomain", 200],
-  },
+  { [_h]: ["POST", "/2015-01-01/es/upgradeDomain", 200] },
   () => UpgradeElasticsearchDomainRequest,
   () => UpgradeElasticsearchDomainResponse,
 ];

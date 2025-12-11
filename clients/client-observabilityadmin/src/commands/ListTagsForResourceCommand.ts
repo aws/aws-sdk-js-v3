@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
-import {
+import type { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import type {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -31,7 +31,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p> Lists all tags attached to the specified telemetry rule resource. </p>
+ * <p> Lists all tags attached to the specified resource. Supports telemetry rule resources and telemetry pipeline resources. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

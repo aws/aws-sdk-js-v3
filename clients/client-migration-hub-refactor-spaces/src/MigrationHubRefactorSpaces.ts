@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateApplicationCommand,
@@ -94,10 +94,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
-import {
-  MigrationHubRefactorSpacesClient,
-  MigrationHubRefactorSpacesClientConfig,
-} from "./MigrationHubRefactorSpacesClient";
+import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesClient";
 
 const commands = {
   CreateApplicationCommand,

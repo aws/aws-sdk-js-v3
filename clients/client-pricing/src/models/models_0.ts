@@ -282,7 +282,7 @@ export interface GetProductsResponse {
    *          the price information.</p>
    * @public
    */
-  PriceList?: (__AutomaticJsonStringConversion | string)[] | undefined;
+  PriceList?: __AutomaticJsonStringConversion | string[] | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>

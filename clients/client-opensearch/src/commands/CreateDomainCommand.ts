@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
-import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
+import type { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { CreateDomain } from "../schemas/schemas_0";
 
 /**
@@ -195,6 +195,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     S3VectorsEngine: { // S3VectorsEngine
  *       Enabled: true || false,
  *     },
+ *     ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
+ *       Enabled: true || false,
+ *     },
  *   },
  * };
  * const command = new CreateDomainCommand(input);
@@ -381,6 +384,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //         CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
  * //       },
  * //       S3VectorsEngine: { // S3VectorsEngine
+ * //         Enabled: true || false,
+ * //       },
+ * //       ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
  * //         Enabled: true || false,
  * //       },
  * //     },

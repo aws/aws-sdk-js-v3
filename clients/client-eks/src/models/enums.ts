@@ -100,6 +100,33 @@ export type AMITypes = (typeof AMITypes)[keyof typeof AMITypes];
  * @public
  * @enum
  */
+export const SsoIdentityType = {
+  SSO_GROUP: "SSO_GROUP",
+  SSO_USER: "SSO_USER",
+} as const;
+/**
+ * @public
+ */
+export type SsoIdentityType = (typeof SsoIdentityType)[keyof typeof SsoIdentityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArgoCdRole = {
+  ADMIN: "ADMIN",
+  EDITOR: "EDITOR",
+  VIEWER: "VIEWER",
+} as const;
+/**
+ * @public
+ */
+export type ArgoCdRole = (typeof ArgoCdRole)[keyof typeof ArgoCdRole];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   ACCESS_DENIED: "AccessDenied",
   ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
@@ -230,6 +257,64 @@ export const ResolveConflicts = {
  * @public
  */
 export type ResolveConflicts = (typeof ResolveConflicts)[keyof typeof ResolveConflicts];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityDeletePropagationPolicy = {
+  RETAIN: "RETAIN",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityDeletePropagationPolicy =
+  (typeof CapabilityDeletePropagationPolicy)[keyof typeof CapabilityDeletePropagationPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityType = {
+  ACK: "ACK",
+  ARGOCD: "ARGOCD",
+  KRO: "KRO",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityType = (typeof CapabilityType)[keyof typeof CapabilityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityIssueCode = (typeof CapabilityIssueCode)[keyof typeof CapabilityIssueCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type CapabilityStatus = (typeof CapabilityStatus)[keyof typeof CapabilityStatus];
 
 /**
  * @public

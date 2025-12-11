@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchPutContactRequest, BatchPutContactResponse } from "../models/models_0";
+import type { BatchPutContactRequest, BatchPutContactResponse } from "../models/models_0";
 import { BatchPutContact } from "../schemas/schemas_0";
 
 /**
@@ -28,14 +28,13 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
 
 /**
  * <note>
- *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a
- *     role in your account and call this API.</p>
+ *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account
+ *     and call this API.</p>
  *          </note>
- *          <p>Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns
- *    capability ingests dial requests via the <a href="https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html">PutDialRequestBatch</a> API. It then uses BatchPutContact to create contacts corresponding
- *    to those dial requests. If agents are available, the dial requests are dialed out, which results
- *    in a voice call. The resulting voice call uses the same contactId that was created by
- *    BatchPutContact. </p>
+ *          <p>Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns capability ingests dial
+ *    requests via the <a href="https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html">PutDialRequestBatch</a> API. It then uses BatchPutContact to create contacts corresponding to those dial
+ *    requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting
+ *    voice call uses the same contactId that was created by BatchPutContact. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

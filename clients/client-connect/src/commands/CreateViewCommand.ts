@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateViewRequest, CreateViewResponse } from "../models/models_0";
+import type { CreateViewRequest, CreateViewResponse } from "../models/models_0";
 import { CreateView } from "../schemas/schemas_0";
 
 /**
@@ -27,14 +27,12 @@ export interface CreateViewCommandInput extends CreateViewRequest {}
 export interface CreateViewCommandOutput extends CreateViewResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new view with the possible status of <code>SAVED</code> or
- *    <code>PUBLISHED</code>.</p>
+ * <p>Creates a new view with the possible status of <code>SAVED</code> or <code>PUBLISHED</code>.</p>
  *          <p>The views will have a unique name for each connect instance.</p>
- *          <p>It performs basic content validation if the status is <code>SAVED</code> or full content
- *    validation if the status is set to <code>PUBLISHED</code>. An error is returned if validation
- *    fails. It associates either the <code>$SAVED</code> qualifier or both of the <code>$SAVED</code>
- *    and <code>$LATEST</code> qualifiers with the provided view content based on the status. The view
- *    is idempotent if ClientToken is provided.</p>
+ *          <p>It performs basic content validation if the status is <code>SAVED</code> or full content validation if the
+ *    status is set to <code>PUBLISHED</code>. An error is returned if validation fails. It associates either the
+ *     <code>$SAVED</code> qualifier or both of the <code>$SAVED</code> and <code>$LATEST</code> qualifiers with the
+ *    provided view content based on the status. The view is idempotent if ClientToken is provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,10 +109,9 @@ export interface CreateViewCommandOutput extends CreateViewResponse, __MetadataB
  *  <p>The request is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
+ *  <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
+ *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
+ *    remove its reference from related resources and then try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

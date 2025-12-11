@@ -1,12 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRecommendationResourcesRequest, ListRecommendationResourcesResponse } from "../models/models_0";
+import type { ListRecommendationResourcesRequest, ListRecommendationResourcesResponse } from "../models/models_0";
 import { ListRecommendationResources } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, TrustedAdvisorClientResolvedConfig } from "../TrustedAdvisorClient";
+import type {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  TrustedAdvisorClientResolvedConfig,
+} from "../TrustedAdvisorClient";
 
 /**
  * @public

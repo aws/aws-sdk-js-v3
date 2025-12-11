@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAlgorithmInput, DescribeAlgorithmOutput } from "../models/models_2";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { DescribeAlgorithmInput, DescribeAlgorithmOutput } from "../models/models_2";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeAlgorithm } from "../schemas/schemas_0";
 
 /**
@@ -153,6 +153,12 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //           ETag: "STRING_VALUE",
  * //         },
  * //         ModelDataETag: "STRING_VALUE",
+ * //         IsCheckpoint: true || false,
+ * //         BaseModel: { // BaseModel
+ * //           HubContentName: "STRING_VALUE",
+ * //           HubContentVersion: "STRING_VALUE",
+ * //           RecipeName: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -204,6 +210,9 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //                   FileSystemAccessMode: "rw" || "ro", // required
  * //                   FileSystemType: "EFS" || "FSxLustre", // required
  * //                   DirectoryPath: "STRING_VALUE", // required
+ * //                 },
+ * //                 DatasetSource: { // DatasetSource
+ * //                   DatasetArn: "STRING_VALUE", // required
  * //                 },
  * //               },
  * //               ContentType: "STRING_VALUE",

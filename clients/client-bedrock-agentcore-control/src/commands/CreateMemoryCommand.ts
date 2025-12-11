@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   BedrockAgentCoreControlClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateMemoryInput, CreateMemoryOutput } from "../models/models_0";
+import type { CreateMemoryInput, CreateMemoryOutput } from "../models/models_0";
 import { CreateMemory } from "../schemas/schemas_0";
 
 /**
@@ -103,6 +103,23 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *               modelId: "STRING_VALUE", // required
  *             },
  *           },
+ *           episodicOverride: { // EpisodicOverrideConfigurationInput
+ *             extraction: { // EpisodicOverrideExtractionConfigurationInput
+ *               appendToPrompt: "STRING_VALUE", // required
+ *               modelId: "STRING_VALUE", // required
+ *             },
+ *             consolidation: { // EpisodicOverrideConsolidationConfigurationInput
+ *               appendToPrompt: "STRING_VALUE", // required
+ *               modelId: "STRING_VALUE", // required
+ *             },
+ *             reflection: { // EpisodicOverrideReflectionConfigurationInput
+ *               appendToPrompt: "STRING_VALUE", // required
+ *               modelId: "STRING_VALUE", // required
+ *               namespaces: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           },
  *           selfManagedConfiguration: { // SelfManagedConfigurationInput
  *             triggerConditions: [ // TriggerConditionInputList
  *               { // TriggerConditionInput Union: only one key present
@@ -123,6 +140,14 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *             },
  *             historicalContextWindowSize: Number("int"),
  *           },
+ *         },
+ *       },
+ *       episodicMemoryStrategy: { // EpisodicMemoryStrategyInput
+ *         name: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         namespaces: "<NamespacesList>",
+ *         reflectionConfiguration: { // EpisodicReflectionConfigurationInput
+ *           namespaces: "<NamespacesList>", // required
  *         },
  *       },
  *     },
@@ -152,7 +177,7 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //         name: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         configuration: { // StrategyConfiguration
- * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE" || "SELF_MANAGED",
+ * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE" || "SELF_MANAGED" || "EPISODIC_OVERRIDE",
  * //           extraction: { // ExtractionConfiguration Union: only one key present
  * //             customExtractionConfiguration: { // CustomExtractionConfiguration Union: only one key present
  * //               semanticExtractionOverride: { // SemanticExtractionOverride
@@ -160,6 +185,10 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //                 modelId: "STRING_VALUE", // required
  * //               },
  * //               userPreferenceExtractionOverride: { // UserPreferenceExtractionOverride
+ * //                 appendToPrompt: "STRING_VALUE", // required
+ * //                 modelId: "STRING_VALUE", // required
+ * //               },
+ * //               episodicExtractionOverride: { // EpisodicExtractionOverride
  * //                 appendToPrompt: "STRING_VALUE", // required
  * //                 modelId: "STRING_VALUE", // required
  * //               },
@@ -179,6 +208,26 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //                 appendToPrompt: "STRING_VALUE", // required
  * //                 modelId: "STRING_VALUE", // required
  * //               },
+ * //               episodicConsolidationOverride: { // EpisodicConsolidationOverride
+ * //                 appendToPrompt: "STRING_VALUE", // required
+ * //                 modelId: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
+ * //           reflection: { // ReflectionConfiguration Union: only one key present
+ * //             customReflectionConfiguration: { // CustomReflectionConfiguration Union: only one key present
+ * //               episodicReflectionOverride: { // EpisodicReflectionOverride
+ * //                 appendToPrompt: "STRING_VALUE", // required
+ * //                 modelId: "STRING_VALUE", // required
+ * //                 namespaces: [ // NamespacesList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //             episodicReflectionConfiguration: { // EpisodicReflectionConfiguration
+ * //               namespaces: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
  * //             },
  * //           },
  * //           selfManagedConfiguration: { // SelfManagedConfiguration
@@ -202,10 +251,8 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //             historicalContextWindowSize: Number("int"), // required
  * //           },
  * //         },
- * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM", // required
- * //         namespaces: [ // NamespacesList // required
- * //           "STRING_VALUE",
- * //         ],
+ * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM" || "EPISODIC", // required
+ * //         namespaces: "<NamespacesList>", // required
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",

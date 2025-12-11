@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   DeleteConnectionRecordingPreferencesRequest,
   DeleteConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
 import { DeleteConnectionRecordingPreferences } from "../schemas/schemas_0";
-import { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
+import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
  * @public

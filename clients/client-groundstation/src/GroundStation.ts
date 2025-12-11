@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelContactCommand,
@@ -165,7 +165,7 @@ import {
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput,
 } from "./commands/UpdateMissionProfileCommand";
-import { GroundStationClient, GroundStationClientConfig } from "./GroundStationClient";
+import { GroundStationClient } from "./GroundStationClient";
 
 const commands = {
   CancelContactCommand,

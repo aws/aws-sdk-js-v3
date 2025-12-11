@@ -588,7 +588,7 @@ const n0 = "com.amazonaws.autoscaling";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { AutoScalingServiceException as __AutoScalingServiceException } from "../models/AutoScalingServiceException";
 import {
@@ -606,23 +606,17 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AcceleratorCountRequest: StaticStructureSchema = [3, n0, _ACR, 0, [_M, _Ma], [1, 1]];
 export var AcceleratorTotalMemoryMiBRequest: StaticStructureSchema = [3, n0, _ATMMBR, 0, [_M, _Ma], [1, 1]];
 export var ActiveInstanceRefreshNotFoundFault: StaticErrorSchema = [
   -3,
   n0,
   _AIRNFF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ActiveInstanceRefreshNotFound`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ActiveInstanceRefreshNotFound`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ActiveInstanceRefreshNotFoundFault, __ActiveInstanceRefreshNotFoundFault);
-
 export var ActivitiesType: StaticStructureSchema = [3, n0, _AT, 0, [_A, _NT], [() => Activities, 0]];
 export var Activity: StaticStructureSchema = [
   3,
@@ -640,16 +634,11 @@ export var AlreadyExistsFault: StaticErrorSchema = [
   -3,
   n0,
   _AEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`AlreadyExists`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExists`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsFault, __AlreadyExistsFault);
-
 export var AttachInstancesQuery: StaticStructureSchema = [3, n0, _AIQ, 0, [_II, _ASGN], [64 | 0, 0]];
 export var AttachLoadBalancersResultType: StaticStructureSchema = [3, n0, _ALBRT, 0, [], []];
 export var AttachLoadBalancersType: StaticStructureSchema = [3, n0, _ALBT, 0, [_ASGN, _LBN], [0, 64 | 0]];
@@ -855,14 +844,7 @@ export var CpuPerformanceFactorRequest: StaticStructureSchema = [
   _CPFR,
   0,
   [_R],
-  [
-    [
-      () => PerformanceFactorReferenceSetRequest,
-      {
-        [_xN]: _Re,
-      },
-    ],
-  ],
+  [[() => PerformanceFactorReferenceSetRequest, { [_xN]: _Re }]],
 ];
 export var CreateAutoScalingGroupType: StaticStructureSchema = [
   3,
@@ -1184,16 +1166,11 @@ export var IdempotentParameterMismatchError: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`IdempotentParameterMismatch`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`IdempotentParameterMismatch`, 400] },
   [_Mes],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchError, __IdempotentParameterMismatchError);
-
 export var Instance: StaticStructureSchema = [
   3,
   n0,
@@ -1240,16 +1217,11 @@ export var InstanceRefreshInProgressFault: StaticErrorSchema = [
   -3,
   n0,
   _IRIPF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InstanceRefreshInProgress`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InstanceRefreshInProgress`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InstanceRefreshInProgressFault, __InstanceRefreshInProgressFault);
-
 export var InstanceRefreshLivePoolProgress: StaticStructureSchema = [3, n0, _IRLPP, 0, [_PCe, _ITU], [1, 1]];
 export var InstanceRefreshProgressDetails: StaticStructureSchema = [
   3,
@@ -1333,30 +1305,20 @@ export var InvalidNextToken: StaticErrorSchema = [
   -3,
   n0,
   _INT,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidNextToken`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidNextToken, __InvalidNextToken);
-
 export var IrreversibleInstanceRefreshFault: StaticErrorSchema = [
   -3,
   n0,
   _IIRF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`IrreversibleInstanceRefresh`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`IrreversibleInstanceRefresh`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(IrreversibleInstanceRefreshFault, __IrreversibleInstanceRefreshFault);
-
 export var LaunchConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1478,16 +1440,11 @@ export var LimitExceededFault: StaticErrorSchema = [
   -3,
   n0,
   _LEF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`LimitExceeded`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededFault, __LimitExceededFault);
-
 export var LoadBalancerState: StaticStructureSchema = [3, n0, _LBS, 0, [_LBNo, _Sta], [0, 0]];
 export var LoadBalancerTargetGroupState: StaticStructureSchema = [3, n0, _LBTGS, 0, [_LBTGARN, _Sta], [0, 0]];
 export var LoadForecast: StaticStructureSchema = [
@@ -1659,30 +1616,20 @@ export var ResourceContentionFault: StaticErrorSchema = [
   -3,
   n0,
   _RCF,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`ResourceContention`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`ResourceContention`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceContentionFault, __ResourceContentionFault);
-
 export var ResourceInUseFault: StaticErrorSchema = [
   -3,
   n0,
   _RIUF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceInUse`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceInUse`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseFault, __ResourceInUseFault);
-
 export var RetentionTriggers: StaticStructureSchema = [3, n0, _RT, 0, [_THA], [0]];
 export var RollbackDetails: StaticStructureSchema = [
   3,
@@ -1698,16 +1645,11 @@ export var ScalingActivityInProgressFault: StaticErrorSchema = [
   -3,
   n0,
   _SAIPF,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ScalingActivityInProgress`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ScalingActivityInProgress`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ScalingActivityInProgressFault, __ScalingActivityInProgressFault);
-
 export var ScalingPolicy: StaticStructureSchema = [
   3,
   n0,
@@ -1762,16 +1704,11 @@ export var ServiceLinkedRoleFailure: StaticErrorSchema = [
   -3,
   n0,
   _SLRF,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-    [_aQE]: [`ServiceLinkedRoleFailure`, 500],
-  },
+  { [_e]: _s, [_hE]: 500, [_aQE]: [`ServiceLinkedRoleFailure`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLinkedRoleFailure, __ServiceLinkedRoleFailure);
-
 export var SetDesiredCapacityType: StaticStructureSchema = [3, n0, _SDCT, 0, [_ASGN, _DC, _HC], [0, 1, 2]];
 export var SetInstanceHealthQuery: StaticStructureSchema = [3, n0, _SIHQ, 0, [_IIns, _HS, _SRGP], [0, 0, 2]];
 export var SetInstanceProtectionAnswer: StaticStructureSchema = [3, n0, _SIPA, 0, [], []];
@@ -1899,51 +1836,32 @@ export var WarmPoolConfiguration: StaticStructureSchema = [
   [1, 1, 0, 0, () => InstanceReusePolicy],
 ];
 export var __Unit = "unit" as const;
-
 export var AutoScalingServiceException: StaticErrorSchema = [-3, _sm, "AutoScalingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AutoScalingServiceException, __AutoScalingServiceException);
-
 export var AcceleratorManufacturers = 64 | 0;
-
 export var AcceleratorNames = 64 | 0;
-
 export var AcceleratorTypes = 64 | 0;
-
 export var Activities: StaticListSchema = [1, n0, _A, 0, () => Activity];
 export var ActivityIds = 64 | 0;
-
 export var AdjustmentTypes: StaticListSchema = [1, n0, _ATdj, 0, () => AdjustmentType];
 export var AlarmList = 64 | 0;
-
 export var Alarms: StaticListSchema = [1, n0, _Ala, 0, () => Alarm];
 export var AllowedInstanceTypes = 64 | 0;
-
 export var AutoScalingGroupNames = 64 | 0;
-
 export var AutoScalingGroups: StaticListSchema = [1, n0, _ASGu, 0, [() => AutoScalingGroup, 0]];
 export var AutoScalingInstances: StaticListSchema = [1, n0, _ASI, 0, () => AutoScalingInstanceDetails];
 export var AutoScalingNotificationTypes = 64 | 0;
-
 export var AvailabilityZoneIdsLimit1 = 64 | 0;
-
 export var AvailabilityZones = 64 | 0;
-
 export var AvailabilityZonesLimit1 = 64 | 0;
-
 export var BlockDeviceMappings: StaticListSchema = [1, n0, _BDMl, 0, () => BlockDeviceMapping];
 export var CapacityReservationIds = 64 | 0;
-
 export var CapacityReservationResourceGroupArns = 64 | 0;
-
 export var CheckpointPercentages = 64 | 1;
-
 export var ClassicLinkVPCSecurityGroups = 64 | 0;
-
 export var CpuManufacturers = 64 | 0;
-
 export var EnabledMetrics: StaticListSchema = [1, n0, _EM, 0, () => EnabledMetric];
 export var ExcludedInstanceTypes = 64 | 0;
-
 export var FailedScheduledUpdateGroupActionRequests: StaticListSchema = [
   1,
   n0,
@@ -1954,34 +1872,26 @@ export var FailedScheduledUpdateGroupActionRequests: StaticListSchema = [
 export var Filters: StaticListSchema = [1, n0, _F, 0, () => Filter];
 export var InstanceCollections: StaticListSchema = [1, n0, _ICn, 0, () => InstanceCollection];
 export var InstanceGenerations = 64 | 0;
-
 export var InstanceIds = 64 | 0;
-
 export var InstanceRefreshes: StaticListSchema = [1, n0, _IR, 0, [() => InstanceRefresh, 0]];
 export var InstanceRefreshIds = 64 | 0;
-
 export var Instances: StaticListSchema = [1, n0, _I, 0, () => Instance];
 export var LaunchConfigurationNames = 64 | 0;
-
 export var LaunchConfigurations: StaticListSchema = [1, n0, _LCa, 0, () => LaunchConfiguration];
 export var LaunchInstancesErrors: StaticListSchema = [1, n0, _LIEa, 0, () => LaunchInstancesError];
 export var LifecycleHookNames = 64 | 0;
-
 export var LifecycleHooks: StaticListSchema = [1, n0, _LH, 0, () => LifecycleHook];
 export var LifecycleHookSpecifications: StaticListSchema = [1, n0, _LHSi, 0, () => LifecycleHookSpecification];
 export var LoadBalancerNames = 64 | 0;
-
 export var LoadBalancerStates: StaticListSchema = [1, n0, _LBSo, 0, () => LoadBalancerState];
 export var LoadBalancerTargetGroupStates: StaticListSchema = [1, n0, _LBTGSo, 0, () => LoadBalancerTargetGroupState];
 export var LoadForecasts: StaticListSchema = [1, n0, _LFo, 0, () => LoadForecast];
 export var LocalStorageTypes = 64 | 0;
-
 export var MetricCollectionTypes: StaticListSchema = [1, n0, _MCTe, 0, () => MetricCollectionType];
 export var MetricDataQueries: StaticListSchema = [1, n0, _MDQe, 0, () => MetricDataQuery];
 export var MetricDimensions: StaticListSchema = [1, n0, _MDe, 0, () => MetricDimension];
 export var MetricGranularityTypes: StaticListSchema = [1, n0, _MGTe, 0, () => MetricGranularityType];
 export var Metrics = 64 | 0;
-
 export var NotificationConfigurations: StaticListSchema = [1, n0, _NC, 0, () => NotificationConfiguration];
 export var Overrides: StaticListSchema = [1, n0, _O, 0, [() => LaunchTemplateOverrides, 0]];
 export var PerformanceFactorReferenceSetRequest: StaticListSchema = [
@@ -1989,21 +1899,12 @@ export var PerformanceFactorReferenceSetRequest: StaticListSchema = [
   n0,
   _PFRSR,
   0,
-  [
-    () => PerformanceFactorReferenceRequest,
-    {
-      [_xN]: _i,
-    },
-  ],
+  [() => PerformanceFactorReferenceRequest, { [_xN]: _i }],
 ];
 export var PolicyNames = 64 | 0;
-
 export var PolicyTypes = 64 | 0;
-
 export var PredictiveScalingForecastTimestamps = 64 | 4;
-
 export var PredictiveScalingForecastValues = 64 | 1;
-
 export var PredictiveScalingMetricSpecifications: StaticListSchema = [
   1,
   n0,
@@ -2013,10 +1914,8 @@ export var PredictiveScalingMetricSpecifications: StaticListSchema = [
 ];
 export var Processes: StaticListSchema = [1, n0, _Pro, 0, () => ProcessType];
 export var ProcessNames = 64 | 0;
-
 export var ScalingPolicies: StaticListSchema = [1, n0, _SPc, 0, () => ScalingPolicy];
 export var ScheduledActionNames = 64 | 0;
-
 export var ScheduledUpdateGroupActionRequests: StaticListSchema = [
   1,
   n0,
@@ -2026,22 +1925,17 @@ export var ScheduledUpdateGroupActionRequests: StaticListSchema = [
 ];
 export var ScheduledUpdateGroupActions: StaticListSchema = [1, n0, _SUGA, 0, () => ScheduledUpdateGroupAction];
 export var SecurityGroups = 64 | 0;
-
 export var StepAdjustments: StaticListSchema = [1, n0, _SAt, 0, () => StepAdjustment];
 export var SubnetIdsLimit1 = 64 | 0;
-
 export var SuspendedProcesses: StaticListSchema = [1, n0, _SP, 0, () => SuspendedProcess];
 export var TagDescriptionList: StaticListSchema = [1, n0, _TDL, 0, () => TagDescription];
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var TargetGroupARNs = 64 | 0;
-
 export var TargetTrackingMetricDataQueries: StaticListSchema = [1, n0, _TTMDQa, 0, () => TargetTrackingMetricDataQuery];
 export var TerminationPolicies = 64 | 0;
-
 export var TrafficSources: StaticListSchema = [1, n0, _TS, 0, () => TrafficSourceIdentifier];
 export var TrafficSourceStates: StaticListSchema = [1, n0, _TSSr, 0, () => TrafficSourceState];
 export var Values = 64 | 0;
-
 export var AttachInstances: StaticOperationSchema = [9, n0, _AIt, 0, () => AttachInstancesQuery, () => __Unit];
 export var AttachLoadBalancers: StaticOperationSchema = [
   9,

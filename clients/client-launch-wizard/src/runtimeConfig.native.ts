@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { LaunchWizardClientConfig } from "./LaunchWizardClient";
+import type { LaunchWizardClientConfig } from "./LaunchWizardClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

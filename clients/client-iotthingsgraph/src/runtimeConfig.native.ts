@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { IoTThingsGraphClientConfig } from "./IoTThingsGraphClient";
+import type { IoTThingsGraphClientConfig } from "./IoTThingsGraphClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

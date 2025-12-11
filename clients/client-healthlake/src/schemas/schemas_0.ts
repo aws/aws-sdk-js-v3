@@ -117,7 +117,7 @@ const n0 = "com.amazonaws.healthlake";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -130,33 +130,10 @@ import {
 import { HealthLakeServiceException as __HealthLakeServiceException } from "../models/HealthLakeServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateFHIRDatastoreRequest: StaticStructureSchema = [
   3,
   n0,
@@ -255,19 +232,8 @@ export var ImportJobProperties: StaticStructureSchema = [
   [_JI, _JN, _JS, _ST, _ET, _DI, _IDC, _JODC, _JPR, _DARA, _M, _VL],
   [0, 0, 0, 4, 4, 0, () => InputDataConfig, () => OutputDataConfig, () => JobProgressReport, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JobProgressReport: StaticStructureSchema = [
   3,
   n0,
@@ -328,19 +294,8 @@ export var ListFHIRImportJobsResponse: StaticStructureSchema = [
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
 export var PreloadDataConfig: StaticStructureSchema = [3, n0, _PDC, 0, [_PDT], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Configuration: StaticStructureSchema = [3, n0, _SCo, 0, [_SU, _KKI], [0, 0]];
 export var SseConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_KEC], [() => KmsEncryptionConfig]];
 export var StartFHIRExportJobRequest: StaticStructureSchema = [
@@ -364,44 +319,18 @@ export var StartFHIRImportJobResponse: StaticStructureSchema = [3, n0, _SFHIRIJR
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var HealthLakeServiceException: StaticErrorSchema = [-3, _sm, "HealthLakeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(HealthLakeServiceException, __HealthLakeServiceException);
-
 export var DatastorePropertiesList: StaticListSchema = [1, n0, _DPL, 0, () => DatastoreProperties];
 export var ExportJobPropertiesList: StaticListSchema = [1, n0, _EJPL, 0, () => ExportJobProperties];
 export var ImportJobPropertiesList: StaticListSchema = [1, n0, _IJPL, 0, () => ImportJobProperties];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_SU], [0]];
 export var OutputDataConfig: StaticStructureSchema = [3, n0, _ODC, 0, [_SCo], [() => S3Configuration]];

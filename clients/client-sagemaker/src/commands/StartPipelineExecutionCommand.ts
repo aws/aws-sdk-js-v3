@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_4";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_4";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { StartPipelineExecution } from "../schemas/schemas_0";
 
 /**
@@ -59,6 +59,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *     ],
  *   },
  *   PipelineVersionId: Number("long"),
+ *   MlflowExperimentName: "STRING_VALUE",
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);

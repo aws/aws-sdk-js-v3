@@ -15,9 +15,11 @@ import {
   FieldName,
   FilterOperator,
   FunctionType,
+  IcebergUpdateAction,
   InclusionAnnotationValue,
   IntegrationStatus,
   Language,
+  LastRefreshType,
   PartitionIndexStatus,
   Permission,
   PermissionType,
@@ -46,68 +48,68 @@ import {
 } from "./enums";
 
 import {
+  type AuditContext,
+  type AuthenticationConfigurationInput,
+  type CatalogInput,
+  type ConnectionInput,
+  type CrawlerTargets,
+  type DatabaseInput,
+  type DataQualityTargetTable,
+  type ErrorDetail,
+  type EventBatchingCondition,
+  type LakeFormationConfiguration,
+  type LineageConfiguration,
+  type NotificationProperty,
+  type PartitionInput,
+  type Predicate,
+  type RecrawlPolicy,
+  type SchemaChangePolicy,
+  type SchemaId,
+  type TableOptimizer,
+  type TableOptimizerConfiguration,
+  type TimestampedInclusionAnnotation,
+  type Workflow,
   Action,
-  AuditContext,
-  AuthenticationConfigurationInput,
-  CatalogInput,
-  ConnectionInput,
-  CrawlerTargets,
   CustomEntityType,
-  DatabaseInput,
-  DataQualityTargetTable,
   DataSource,
-  ErrorDetail,
-  EventBatchingCondition,
   GlueTable,
-  LakeFormationConfiguration,
-  LineageConfiguration,
-  NotificationProperty,
   Partition,
-  PartitionInput,
   PartitionValueList,
-  Predicate,
-  RecrawlPolicy,
-  SchemaChangePolicy,
-  SchemaId,
   StatisticAnnotation,
-  TableOptimizer,
-  TableOptimizerConfiguration,
   TableOptimizerRun,
-  TimestampedInclusionAnnotation,
   Trigger,
-  Workflow,
   WorkflowRun,
 } from "./models_0";
 
 import {
-  Capabilities,
+  type Capabilities,
+  type DataCatalogEncryptionSettings,
+  type DataQualityEvaluationRunAdditionalRunOptions,
+  type EncryptionConfiguration,
+  type EvaluationMetrics,
+  type IcebergPartitionSpec,
+  type IcebergSchema,
+  type IcebergSortOrder,
+  type IntegrationConfig,
+  type JobBookmarkEntry,
+  type Location,
+  type ProfileConfiguration,
+  type RegistryId,
+  type SourceProcessingProperties,
+  type SourceTableConfig,
+  type TableInput,
+  type TargetProcessingProperties,
+  type TargetTableConfig,
+  type TransformEncryption,
+  type TransformParameters,
   CatalogEntry,
   ColumnStatistics,
-  DataCatalogEncryptionSettings,
-  DataQualityEvaluationRunAdditionalRunOptions,
-  EncryptionConfiguration,
-  EvaluationMetrics,
-  IcebergPartitionSpec,
-  IcebergSchema,
-  IcebergSortOrder,
-  IntegrationConfig,
   IntegrationError,
-  JobBookmarkEntry,
-  Location,
   MappingEntry,
-  ProfileConfiguration,
-  RegistryId,
   ResourceUri,
   SchemaColumn,
   Session,
-  SourceProcessingProperties,
-  SourceTableConfig,
-  TableInput,
   Tag,
-  TargetProcessingProperties,
-  TargetTableConfig,
-  TransformEncryption,
-  TransformParameters,
 } from "./models_1";
 
 /**
@@ -1787,10 +1789,41 @@ export interface ViewDefinition {
   Definer?: string | undefined;
 
   /**
+   * <p>The ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID. </p>
+   * @public
+   */
+  ViewVersionId?: number | undefined;
+
+  /**
+   * <p>The version ID of the Apache Iceberg table.</p>
+   * @public
+   */
+  ViewVersionToken?: string | undefined;
+
+  /**
+   * <p>Auto refresh interval in seconds for the materialized view. If not specified, the view will
+   *       not automatically refresh.</p>
+   * @public
+   */
+  RefreshSeconds?: number | undefined;
+
+  /**
+   * <p>Sets the method used for the most recent refresh.</p>
+   * @public
+   */
+  LastRefreshType?: LastRefreshType | undefined;
+
+  /**
    * <p>A list of table Amazon Resource Names (ARNs).</p>
    * @public
    */
   SubObjects?: string[] | undefined;
+
+  /**
+   * <p>List of the Apache Iceberg table versions referenced by the materialized view.</p>
+   * @public
+   */
+  SubObjectVersionIds?: number[] | undefined;
 
   /**
    * <p>A list of representations.</p>
@@ -7826,6 +7859,36 @@ export interface UpdateSourceControlFromJobResponse {
 }
 
 /**
+ * <p>Encryption key structure used for Iceberg table encryption. Contains the key ID, encrypted key metadata, optional reference to the encrypting key, and additional properties for the table's encryption scheme.</p>
+ * @public
+ */
+export interface IcebergEncryptedKey {
+  /**
+   * <p>Unique identifier of the encryption key used for Iceberg table encryption. This ID is used to reference the key in table metadata and track which key was used to encrypt specific data.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>Encrypted key and metadata, base64 encoded. The format of encrypted key metadata is determined by the table's encryption scheme and can be a wrapped format specific to the table's KMS provider.</p>
+   * @public
+   */
+  EncryptedKeyMetadata: string | undefined;
+
+  /**
+   * <p>Optional ID of the key used to encrypt or wrap the key metadata in Iceberg table encryption. This field references another encryption key that was used to encrypt the current key's metadata.</p>
+   * @public
+   */
+  EncryptedById?: string | undefined;
+
+  /**
+   * <p>A string to string map of additional metadata used by the table's encryption scheme. These properties provide additional context and configuration for the encryption key implementation.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Defines a complete set of updates to be applied to an Iceberg table, including schema changes, partitioning modifications, sort order
  *       adjustments, location updates, and property changes.</p>
  * @public
@@ -7860,6 +7923,24 @@ export interface IcebergTableUpdate {
    * @public
    */
   Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of update action to be performed on the Iceberg table. Defines the specific operation such as adding schema, setting current schema, adding partition spec, or managing encryption keys.</p>
+   * @public
+   */
+  Action?: IcebergUpdateAction | undefined;
+
+  /**
+   * <p>Encryption key information associated with an Iceberg table update operation. Used when adding or removing encryption keys from the table metadata during table evolution.</p>
+   * @public
+   */
+  EncryptionKey?: IcebergEncryptedKey | undefined;
+
+  /**
+   * <p>Identifier of the encryption key involved in an Iceberg table update operation. References the specific key being added to or removed from the table's encryption configuration.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
 }
 
 /**
@@ -8085,15 +8166,4 @@ export interface UpdateTriggerRequest {
    * @public
    */
   TriggerUpdate: TriggerUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTriggerResponse {
-  /**
-   * <p>The resulting trigger definition.</p>
-   * @public
-   */
-  Trigger?: Trigger | undefined;
 }

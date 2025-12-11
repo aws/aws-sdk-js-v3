@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContactFlowModuleAliasRequest, DescribeContactFlowModuleAliasResponse } from "../models/models_1";
+import type { DescribeContactFlowModuleAliasRequest, DescribeContactFlowModuleAliasResponse } from "../models/models_1";
 import { DescribeContactFlowModuleAlias } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,8 @@ export interface DescribeContactFlowModuleAliasCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific alias, including which version it currently points to and its metadata.</p>
+ * <p>Retrieves detailed information about a specific alias, including which version it currently points to and its
+ *    metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

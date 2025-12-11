@@ -335,7 +335,7 @@ const n0 = "com.amazonaws.pipes";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -355,7 +355,6 @@ import {
 import { PipesServiceException as __PipesServiceException } from "../models/PipesServiceException";
 
 /* eslint no-var: 0 */
-
 export var CapacityProvider: StaticSimpleSchema = [0, n0, _CP, 8, 0];
 export var Database: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
@@ -419,19 +418,8 @@ export var CapacityProviderStrategyItem: StaticStructureSchema = [
 ];
 export var CloudwatchLogsLogDestination: StaticStructureSchema = [3, n0, _CLLD, 0, [_LGA], [0]];
 export var CloudwatchLogsLogDestinationParameters: StaticStructureSchema = [3, n0, _CLLDP, 0, [_LGA], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreatePipeRequest: StaticStructureSchema = [
   3,
   n0,
@@ -539,23 +527,11 @@ export var InternalException: StaticErrorSchema = [
   -3,
   n0,
   _IE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
 export var ListPipesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -563,48 +539,13 @@ export var ListPipesRequest: StaticStructureSchema = [
   0,
   [_NP, _DS, _CS, _SPo, _TPa, _NT, _L],
   [
-    [
-      0,
-      {
-        [_hQ]: _NP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _DS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _CS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _SPo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _TPa,
-      },
-    ],
-    [
-      () => NextToken,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _L,
-      },
-    ],
+    [0, { [_hQ]: _NP }],
+    [0, { [_hQ]: _DS }],
+    [0, { [_hQ]: _CS }],
+    [0, { [_hQ]: _SPo }],
+    [0, { [_hQ]: _TPa }],
+    [() => NextToken, { [_hQ]: _NT }],
+    [1, { [_hQ]: _L }],
   ],
 ];
 export var ListPipesResponse: StaticStructureSchema = [
@@ -627,19 +568,8 @@ export var MultiMeasureMapping: StaticStructureSchema = [
   [0, () => MultiMeasureAttributeMappings],
 ];
 export var NetworkConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_aC], [[() => AwsVpcConfiguration, 0]]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var Pipe: StaticStructureSchema = [
   3,
   n0,
@@ -934,15 +864,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SingleMeasureMapping: StaticStructureSchema = [3, n0, _SMMi, 0, [_MV, _MVT, _MN], [0, 0, 0]];
 export var StartPipeRequest: StaticStructureSchema = [3, n0, _SPR, 0, [_N], [[0, 1]]];
 export var StartPipeResponse: StaticStructureSchema = [
@@ -979,25 +905,11 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA_,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1006,12 +918,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1113,19 +1020,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var PipesServiceException: StaticErrorSchema = [-3, _sm, "PipesServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PipesServiceException, __PipesServiceException);
-
 export var BatchDependsOn: StaticListSchema = [1, n0, _BDO, 0, () => BatchJobDependency];
 export var BatchEnvironmentVariableList: StaticListSchema = [1, n0, _BEVL, 0, () => BatchEnvironmentVariable];
 export var BatchResourceRequirementsList: StaticListSchema = [1, n0, _BRRL, 0, () => BatchResourceRequirement];
@@ -1143,10 +1045,8 @@ export var EcsInferenceAcceleratorOverrideList: StaticListSchema = [
 ];
 export var EcsResourceRequirementsList: StaticListSchema = [1, n0, _ERRL, 0, () => EcsResourceRequirement];
 export var EventBridgeEventResourceList = 64 | 0;
-
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter, 0]];
 export var IncludeExecutionData = 64 | 0;
-
 export var KafkaBootstrapServers: StaticListSchema = [1, n0, _KBS, 0, [() => EndpointString, 0]];
 export var MultiMeasureAttributeMappings: StaticListSchema = [1, n0, _MMAMu, 0, () => MultiMeasureAttributeMapping];
 export var MultiMeasureMappings: StaticListSchema = [1, n0, _MMMu, 0, () => MultiMeasureMapping];
@@ -1160,15 +1060,12 @@ export var SecurityGroups: StaticListSchema = [1, n0, _SGe, 0, [() => SecurityGr
 export var SingleMeasureMappings: StaticListSchema = [1, n0, _SMM, 0, () => SingleMeasureMapping];
 export var Sqls: StaticListSchema = [1, n0, _Sq, 0, [() => Sql, 0]];
 export var StringList = 64 | 0;
-
 export var SubnetIds: StaticListSchema = [1, n0, _SIu, 0, [() => SubnetId, 0]];
 export var Subnets: StaticListSchema = [1, n0, _Sub, 0, [() => Subnet, 0]];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var BatchParametersMap = 128 | 0;
-
 export var HeaderParametersMap: StaticMapSchema = [2, n0, _HPM, 0, [0, 0], [() => HeaderValue, 0]];
 export var QueryStringParametersMap: StaticMapSchema = [2, n0, _QSPM, 0, [0, 0], [() => QueryStringValue, 0]];
 export var TagMap: StaticMapSchema = [2, n0, _TM, 0, [0, 0], [() => TagValue, 0]];
@@ -1186,9 +1083,7 @@ export var CreatePipe: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["POST", "/v1/pipes/{Name}", 200],
-  },
+  { [_h]: ["POST", "/v1/pipes/{Name}", 200] },
   () => CreatePipeRequest,
   () => CreatePipeResponse,
 ];
@@ -1196,9 +1091,7 @@ export var DeletePipe: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/v1/pipes/{Name}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/pipes/{Name}", 200] },
   () => DeletePipeRequest,
   () => DeletePipeResponse,
 ];
@@ -1206,9 +1099,7 @@ export var DescribePipe: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["GET", "/v1/pipes/{Name}", 200],
-  },
+  { [_h]: ["GET", "/v1/pipes/{Name}", 200] },
   () => DescribePipeRequest,
   () => DescribePipeResponse,
 ];
@@ -1216,9 +1107,7 @@ export var ListPipes: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/v1/pipes", 200],
-  },
+  { [_h]: ["GET", "/v1/pipes", 200] },
   () => ListPipesRequest,
   () => ListPipesResponse,
 ];
@@ -1226,9 +1115,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1236,9 +1123,7 @@ export var StartPipe: StaticOperationSchema = [
   9,
   n0,
   _SPta,
-  {
-    [_h]: ["POST", "/v1/pipes/{Name}/start", 200],
-  },
+  { [_h]: ["POST", "/v1/pipes/{Name}/start", 200] },
   () => StartPipeRequest,
   () => StartPipeResponse,
 ];
@@ -1246,9 +1131,7 @@ export var StopPipe: StaticOperationSchema = [
   9,
   n0,
   _SPto,
-  {
-    [_h]: ["POST", "/v1/pipes/{Name}/stop", 200],
-  },
+  { [_h]: ["POST", "/v1/pipes/{Name}/stop", 200] },
   () => StopPipeRequest,
   () => StopPipeResponse,
 ];
@@ -1256,9 +1139,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1266,9 +1147,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1276,9 +1155,7 @@ export var UpdatePipe: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PUT", "/v1/pipes/{Name}", 200],
-  },
+  { [_h]: ["PUT", "/v1/pipes/{Name}", 200] },
   () => UpdatePipeRequest,
   () => UpdatePipeResponse,
 ];

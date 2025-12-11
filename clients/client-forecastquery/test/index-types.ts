@@ -1,0 +1,23 @@
+// smithy-typescript generated code
+export type {
+  ForecastqueryClient,
+  Forecastquery,
+  QueryForecastCommand,
+  QueryForecastCommandInput,
+  QueryForecastCommandOutput,
+  QueryWhatIfForecastCommand,
+  QueryWhatIfForecastCommandInput,
+  QueryWhatIfForecastCommandOutput,
+  DataPoint,
+  Forecast,
+  QueryForecastRequest,
+  QueryForecastResponse,
+  QueryWhatIfForecastRequest,
+  QueryWhatIfForecastResponse,
+  InvalidInputException,
+  InvalidNextTokenException,
+  LimitExceededException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ForecastqueryServiceException,
+} from "../dist-types/index.d";

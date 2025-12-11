@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddAttributesToFindingsCommand,
@@ -187,7 +187,7 @@ import {
   UpdateAssessmentTargetCommandInput,
   UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
-import { InspectorClient, InspectorClientConfig } from "./InspectorClient";
+import { InspectorClient } from "./InspectorClient";
 
 const commands = {
   AddAttributesToFindingsCommand,

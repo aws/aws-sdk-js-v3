@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { BedrockClient, BedrockClientConfig } from "./BedrockClient";
+import { BedrockClient } from "./BedrockClient";
 import {
   BatchDeleteEvaluationJobCommand,
   BatchDeleteEvaluationJobCommandInput,
@@ -470,6 +470,11 @@ import {
   UpdateAutomatedReasoningPolicyTestCaseCommandOutput,
 } from "./commands/UpdateAutomatedReasoningPolicyTestCaseCommand";
 import {
+  UpdateCustomModelDeploymentCommand,
+  UpdateCustomModelDeploymentCommandInput,
+  UpdateCustomModelDeploymentCommandOutput,
+} from "./commands/UpdateCustomModelDeploymentCommand";
+import {
   UpdateGuardrailCommand,
   UpdateGuardrailCommandInput,
   UpdateGuardrailCommandOutput,
@@ -580,6 +585,7 @@ const commands = {
   UpdateAutomatedReasoningPolicyCommand,
   UpdateAutomatedReasoningPolicyAnnotationsCommand,
   UpdateAutomatedReasoningPolicyTestCaseCommand,
+  UpdateCustomModelDeploymentCommand,
   UpdateGuardrailCommand,
   UpdateMarketplaceModelEndpointCommand,
   UpdateProvisionedModelThroughputCommand,
@@ -2165,6 +2171,23 @@ export interface Bedrock {
     args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAutomatedReasoningPolicyTestCaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCustomModelDeploymentCommand}
+   */
+  updateCustomModelDeployment(
+    args: UpdateCustomModelDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomModelDeploymentCommandOutput>;
+  updateCustomModelDeployment(
+    args: UpdateCustomModelDeploymentCommandInput,
+    cb: (err: any, data?: UpdateCustomModelDeploymentCommandOutput) => void
+  ): void;
+  updateCustomModelDeployment(
+    args: UpdateCustomModelDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomModelDeploymentCommandOutput) => void
   ): void;
 
   /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTableRequest, GetTableResponse } from "../models/models_0";
-import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
+import type { GetTableRequest, GetTableResponse } from "../models/models_0";
+import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { GetTable } from "../schemas/schemas_0";
 
 /**
@@ -63,6 +63,11 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //   ownerAccountId: "STRING_VALUE", // required
  * //   format: "ICEBERG", // required
  * //   tableBucketId: "STRING_VALUE",
+ * //   managedTableInformation: { // ManagedTableInformation
+ * //     replicationInformation: { // ReplicationInformation
+ * //       sourceTableARN: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

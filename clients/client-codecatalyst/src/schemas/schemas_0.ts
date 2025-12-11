@@ -269,7 +269,7 @@ const n0 = "com.amazonaws.codecatalyst";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -288,36 +288,13 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AccessTokenSecret: StaticSimpleSchema = [0, n0, _ATS, 8, 0];
 export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccessTokenSummary: StaticStructureSchema = [3, n0, _ATSc, 0, [_i, _n, _eT], [0, 0, 5]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAccessTokenRequest: StaticStructureSchema = [3, n0, _CATR, 0, [_n, _eT], [0, 5]];
 export var CreateAccessTokenResponse: StaticStructureSchema = [
   3,
@@ -563,18 +540,8 @@ export var GetUserDetailsRequest: StaticStructureSchema = [
   0,
   [_i, _uN],
   [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _uN,
-      },
-    ],
+    [0, { [_hQ]: _i }],
+    [0, { [_hQ]: _uN }],
   ],
 ];
 export var GetUserDetailsResponse: StaticStructureSchema = [
@@ -742,29 +709,7 @@ export var ListWorkflowRunsRequest: StaticStructureSchema = [
   _LWRR,
   0,
   [_sN, _wI, _pN, _nT, _mR, _sB],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wI,
-      },
-    ],
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    () => WorkflowRunSortCriteriaList,
-  ],
+  [[0, 1], [0, { [_hQ]: _wI }], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => WorkflowRunSortCriteriaList],
 ];
 export var ListWorkflowRunsResponse: StaticStructureSchema = [
   3,
@@ -780,23 +725,7 @@ export var ListWorkflowsRequest: StaticStructureSchema = [
   _LWR,
   0,
   [_sN, _pN, _nT, _mR, _sB],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    () => WorkflowSortCriteriaList,
-  ],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => WorkflowSortCriteriaList],
 ];
 export var ListWorkflowsResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_nT, _it], [0, () => WorkflowSummaries]];
 export var PersistentStorage: StaticStructureSchema = [3, n0, _PS, 0, [_sIGB], [1]];
@@ -805,32 +734,10 @@ export var ProjectInformation: StaticStructureSchema = [3, n0, _PI, 0, [_n, _pIr
 export var ProjectListFilter: StaticStructureSchema = [3, n0, _PLF, 0, [_k, _va, _cO], [0, 64 | 0, 0]];
 export var ProjectSummary: StaticStructureSchema = [3, n0, _PSr, 0, [_n, _dN, _d], [0, 0, 0]];
 export var RepositoryInput: StaticStructureSchema = [3, n0, _RI, 0, [_rN, _bN], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SpaceSummary: StaticStructureSchema = [3, n0, _SSp, 0, [_n, _rNe, _dN, _d], [0, 0, 0, 0]];
 export var StartDevEnvironmentRequest: StaticStructureSchema = [
   3,
@@ -866,12 +773,7 @@ export var StartWorkflowRunRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _wI,
-      },
-    ],
+    [0, { [_hQ]: _wI }],
     [0, 4],
   ],
 ];
@@ -910,19 +812,8 @@ export var StopDevEnvironmentSessionResponse: StaticStructureSchema = [
   [_sN, _pN, _i, _sI],
   [0, 0, 0, 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UpdateDevEnvironmentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -944,19 +835,8 @@ export var UpdateProjectResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_sN
 export var UpdateSpaceRequest: StaticStructureSchema = [3, n0, _USR, 0, [_n, _d], [[0, 1], 0]];
 export var UpdateSpaceResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_n, _dN, _d], [0, 0, 0]];
 export var UserIdentity: StaticStructureSchema = [3, n0, _UI, 0, [_uT, _pIri, _uN, _aAI], [0, 0, 0, 0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VerifySessionResponse: StaticStructureSchema = [3, n0, _VSR, 0, [_ide], [0]];
 export var WorkflowDefinition: StaticStructureSchema = [3, n0, _WD, 0, [_p], [0]];
 export var WorkflowDefinitionSummary: StaticStructureSchema = [3, n0, _WDS, 0, [_p], [0]];
@@ -980,10 +860,8 @@ export var WorkflowSummary: StaticStructureSchema = [
   [0, 0, 0, 0, () => WorkflowDefinitionSummary, 5, 5, 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var CodeCatalystServiceException: StaticErrorSchema = [-3, _sm, "CodeCatalystServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeCatalystServiceException, __CodeCatalystServiceException);
-
 export var AccessTokenSummaries: StaticListSchema = [1, n0, _ATScc, 0, () => AccessTokenSummary];
 export var DevEnvironmentRepositorySummaries: StaticListSchema = [
   1,
@@ -996,7 +874,6 @@ export var DevEnvironmentSessionsSummaryList: StaticListSchema = [1, n0, _DESSL,
 export var DevEnvironmentSummaryList: StaticListSchema = [1, n0, _DESL, 0, () => DevEnvironmentSummary];
 export var EventLogEntries: StaticListSchema = [1, n0, _ELEv, 0, () => EventLogEntry];
 export var ExecuteCommandSessionConfigurationArguments = 64 | 0;
-
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter];
 export var IdeConfigurationList: StaticListSchema = [1, n0, _ICL, 0, () => IdeConfiguration];
 export var Ides: StaticListSchema = [1, n0, _Id, 0, () => Ide];
@@ -1013,7 +890,6 @@ export var ProjectSummaries: StaticListSchema = [1, n0, _PSro, 0, () => ProjectS
 export var RepositoriesInput: StaticListSchema = [1, n0, _RIe, 0, () => RepositoryInput];
 export var SpaceSummaries: StaticListSchema = [1, n0, _SSpa, 0, () => SpaceSummary];
 export var StringList = 64 | 0;
-
 export var WorkflowRunSortCriteriaList: StaticListSchema = [1, n0, _WRSCL, 0, () => WorkflowRunSortCriteria];
 export var WorkflowRunStatusReasons: StaticListSchema = [1, n0, _WRSRo, 0, () => WorkflowRunStatusReason];
 export var WorkflowRunSummaries: StaticListSchema = [1, n0, _WRSo, 0, () => WorkflowRunSummary];
@@ -1023,9 +899,7 @@ export var CreateAccessToken: StaticOperationSchema = [
   9,
   n0,
   _CAT,
-  {
-    [_ht]: ["PUT", "/v1/accessTokens", 201],
-  },
+  { [_ht]: ["PUT", "/v1/accessTokens", 201] },
   () => CreateAccessTokenRequest,
   () => CreateAccessTokenResponse,
 ];
@@ -1033,9 +907,7 @@ export var CreateDevEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CDE,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments", 201],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments", 201] },
   () => CreateDevEnvironmentRequest,
   () => CreateDevEnvironmentResponse,
 ];
@@ -1043,9 +915,7 @@ export var CreateProject: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects", 201],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects", 201] },
   () => CreateProjectRequest,
   () => CreateProjectResponse,
 ];
@@ -1053,9 +923,7 @@ export var CreateSourceRepository: StaticOperationSchema = [
   9,
   n0,
   _CSR,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}", 201],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}", 201] },
   () => CreateSourceRepositoryRequest,
   () => CreateSourceRepositoryResponse,
 ];
@@ -1077,9 +945,7 @@ export var DeleteAccessToken: StaticOperationSchema = [
   9,
   n0,
   _DAT,
-  {
-    [_ht]: ["DELETE", "/v1/accessTokens/{id}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/accessTokens/{id}", 200] },
   () => DeleteAccessTokenRequest,
   () => DeleteAccessTokenResponse,
 ];
@@ -1087,9 +953,7 @@ export var DeleteDevEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DDE,
-  {
-    [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}", 200] },
   () => DeleteDevEnvironmentRequest,
   () => DeleteDevEnvironmentResponse,
 ];
@@ -1097,9 +961,7 @@ export var DeleteProject: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{name}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{name}", 200] },
   () => DeleteProjectRequest,
   () => DeleteProjectResponse,
 ];
@@ -1107,9 +969,7 @@ export var DeleteSourceRepository: StaticOperationSchema = [
   9,
   n0,
   _DSRel,
-  {
-    [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}", 200] },
   () => DeleteSourceRepositoryRequest,
   () => DeleteSourceRepositoryResponse,
 ];
@@ -1117,9 +977,7 @@ export var DeleteSpace: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_ht]: ["DELETE", "/v1/spaces/{name}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/spaces/{name}", 200] },
   () => DeleteSpaceRequest,
   () => DeleteSpaceResponse,
 ];
@@ -1127,9 +985,7 @@ export var GetDevEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GDE,
-  {
-    [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}", 200] },
   () => GetDevEnvironmentRequest,
   () => GetDevEnvironmentResponse,
 ];
@@ -1137,9 +993,7 @@ export var GetProject: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{name}", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{name}", 200] },
   () => GetProjectRequest,
   () => GetProjectResponse,
 ];
@@ -1147,9 +1001,7 @@ export var GetSourceRepository: StaticOperationSchema = [
   9,
   n0,
   _GSReto,
-  {
-    [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}", 200] },
   () => GetSourceRepositoryRequest,
   () => GetSourceRepositoryResponse,
 ];
@@ -1171,9 +1023,7 @@ export var GetSpace: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_ht]: ["GET", "/v1/spaces/{name}", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{name}", 200] },
   () => GetSpaceRequest,
   () => GetSpaceResponse,
 ];
@@ -1181,9 +1031,7 @@ export var GetSubscription: StaticOperationSchema = [
   9,
   n0,
   _GSe,
-  {
-    [_ht]: ["GET", "/v1/spaces/{spaceName}/subscription", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{spaceName}/subscription", 200] },
   () => GetSubscriptionRequest,
   () => GetSubscriptionResponse,
 ];
@@ -1191,9 +1039,7 @@ export var GetUserDetails: StaticOperationSchema = [
   9,
   n0,
   _GUD,
-  {
-    [_ht]: ["GET", "/userDetails", 200],
-  },
+  { [_ht]: ["GET", "/userDetails", 200] },
   () => GetUserDetailsRequest,
   () => GetUserDetailsResponse,
 ];
@@ -1201,9 +1047,7 @@ export var GetWorkflow: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  {
-    [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}", 200] },
   () => GetWorkflowRequest,
   () => GetWorkflowResponse,
 ];
@@ -1211,9 +1055,7 @@ export var GetWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _GWRet,
-  {
-    [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}", 200],
-  },
+  { [_ht]: ["GET", "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}", 200] },
   () => GetWorkflowRunRequest,
   () => GetWorkflowRunResponse,
 ];
@@ -1221,9 +1063,7 @@ export var ListAccessTokens: StaticOperationSchema = [
   9,
   n0,
   _LAT,
-  {
-    [_ht]: ["POST", "/v1/accessTokens", 200],
-  },
+  { [_ht]: ["POST", "/v1/accessTokens", 200] },
   () => ListAccessTokensRequest,
   () => ListAccessTokensResponse,
 ];
@@ -1231,9 +1071,7 @@ export var ListDevEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LDE,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/devEnvironments", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/devEnvironments", 200] },
   () => ListDevEnvironmentsRequest,
   () => ListDevEnvironmentsResponse,
 ];
@@ -1241,9 +1079,7 @@ export var ListDevEnvironmentSessions: StaticOperationSchema = [
   9,
   n0,
   _LDES,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{devEnvironmentId}/sessions", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{devEnvironmentId}/sessions", 200] },
   () => ListDevEnvironmentSessionsRequest,
   () => ListDevEnvironmentSessionsResponse,
 ];
@@ -1251,9 +1087,7 @@ export var ListEventLogs: StaticOperationSchema = [
   9,
   n0,
   _LEL,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/eventLogs", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/eventLogs", 200] },
   () => ListEventLogsRequest,
   () => ListEventLogsResponse,
 ];
@@ -1261,9 +1095,7 @@ export var ListProjects: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/projects", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/projects", 200] },
   () => ListProjectsRequest,
   () => ListProjectsResponse,
 ];
@@ -1271,9 +1103,7 @@ export var ListSourceRepositories: StaticOperationSchema = [
   9,
   n0,
   _LSRis,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories", 200] },
   () => ListSourceRepositoriesRequest,
   () => ListSourceRepositoriesResponse,
 ];
@@ -1295,9 +1125,7 @@ export var ListSpaces: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_ht]: ["POST", "/v1/spaces", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces", 200] },
   () => ListSpacesRequest,
   () => ListSpacesResponse,
 ];
@@ -1305,9 +1133,7 @@ export var ListWorkflowRuns: StaticOperationSchema = [
   9,
   n0,
   _LWRis,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns", 200] },
   () => ListWorkflowRunsRequest,
   () => ListWorkflowRunsResponse,
 ];
@@ -1315,9 +1141,7 @@ export var ListWorkflows: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  {
-    [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/workflows", 200],
-  },
+  { [_ht]: ["POST", "/v1/spaces/{spaceName}/projects/{projectName}/workflows", 200] },
   () => ListWorkflowsRequest,
   () => ListWorkflowsResponse,
 ];
@@ -1325,9 +1149,7 @@ export var StartDevEnvironment: StaticOperationSchema = [
   9,
   n0,
   _SDE,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start", 200],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start", 200] },
   () => StartDevEnvironmentRequest,
   () => StartDevEnvironmentResponse,
 ];
@@ -1335,9 +1157,7 @@ export var StartDevEnvironmentSession: StaticOperationSchema = [
   9,
   n0,
   _SDES,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session", 200],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session", 200] },
   () => StartDevEnvironmentSessionRequest,
   () => StartDevEnvironmentSessionResponse,
 ];
@@ -1345,9 +1165,7 @@ export var StartWorkflowRun: StaticOperationSchema = [
   9,
   n0,
   _SWR,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns", 200],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns", 200] },
   () => StartWorkflowRunRequest,
   () => StartWorkflowRunResponse,
 ];
@@ -1355,9 +1173,7 @@ export var StopDevEnvironment: StaticOperationSchema = [
   9,
   n0,
   _SDEt,
-  {
-    [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/stop", 200],
-  },
+  { [_ht]: ["PUT", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/stop", 200] },
   () => StopDevEnvironmentRequest,
   () => StopDevEnvironmentResponse,
 ];
@@ -1365,9 +1181,7 @@ export var StopDevEnvironmentSession: StaticOperationSchema = [
   9,
   n0,
   _SDESt,
-  {
-    [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}", 200] },
   () => StopDevEnvironmentSessionRequest,
   () => StopDevEnvironmentSessionResponse,
 ];
@@ -1375,9 +1189,7 @@ export var UpdateDevEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UDE,
-  {
-    [_ht]: ["PATCH", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}", 200],
-  },
+  { [_ht]: ["PATCH", "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}", 200] },
   () => UpdateDevEnvironmentRequest,
   () => UpdateDevEnvironmentResponse,
 ];
@@ -1385,9 +1197,7 @@ export var UpdateProject: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_ht]: ["PATCH", "/v1/spaces/{spaceName}/projects/{name}", 200],
-  },
+  { [_ht]: ["PATCH", "/v1/spaces/{spaceName}/projects/{name}", 200] },
   () => UpdateProjectRequest,
   () => UpdateProjectResponse,
 ];
@@ -1395,9 +1205,7 @@ export var UpdateSpace: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_ht]: ["PATCH", "/v1/spaces/{name}", 200],
-  },
+  { [_ht]: ["PATCH", "/v1/spaces/{name}", 200] },
   () => UpdateSpaceRequest,
   () => UpdateSpaceResponse,
 ];
@@ -1405,9 +1213,7 @@ export var VerifySession: StaticOperationSchema = [
   9,
   n0,
   _VS,
-  {
-    [_ht]: ["GET", "/session", 200],
-  },
+  { [_ht]: ["GET", "/session", 200] },
   () => __Unit,
   () => VerifySessionResponse,
 ];

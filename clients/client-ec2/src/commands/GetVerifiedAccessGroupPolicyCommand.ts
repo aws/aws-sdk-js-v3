@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetVerifiedAccessGroupPolicyRequest, GetVerifiedAccessGroupPolicyResult } from "../models/models_6";
+import type { GetVerifiedAccessGroupPolicyRequest, GetVerifiedAccessGroupPolicyResult } from "../models/models_6";
 import { GetVerifiedAccessGroupPolicy } from "../schemas/schemas_0";
 
 /**

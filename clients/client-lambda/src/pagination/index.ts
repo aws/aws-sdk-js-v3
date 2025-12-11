@@ -1,10 +1,16 @@
+export * from "./GetDurableExecutionHistoryPaginator";
+
+export * from "./GetDurableExecutionStatePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAliasesPaginator";
+export * from "./ListCapacityProvidersPaginator";
 export * from "./ListCodeSigningConfigsPaginator";
+export * from "./ListDurableExecutionsByFunctionPaginator";
 export * from "./ListEventSourceMappingsPaginator";
 export * from "./ListFunctionEventInvokeConfigsPaginator";
 export * from "./ListFunctionUrlConfigsPaginator";
+export * from "./ListFunctionVersionsByCapacityProviderPaginator";
 export * from "./ListFunctionsByCodeSigningConfigPaginator";
 export * from "./ListFunctionsPaginator";
 export * from "./ListLayerVersionsPaginator";

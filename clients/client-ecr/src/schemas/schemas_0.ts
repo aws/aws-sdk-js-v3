@@ -508,7 +508,7 @@ const n0 = "com.amazonaws.ecr";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -567,7 +567,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Attribute: StaticStructureSchema = [3, n0, _A, 0, [_k, _v], [0, 0]];
 export var AuthorizationData: StaticStructureSchema = [3, n0, _AD, 0, [_aT, _eA, _pE], [0, 4, 0]];
 export var AwsEcrContainerImageDetails: StaticStructureSchema = [
@@ -642,18 +641,8 @@ export var BatchGetRepositoryScanningConfigurationResponse: StaticStructureSchem
   [_sC, _f],
   [() => RepositoryScanningConfigurationList, () => RepositoryScanningConfigurationFailureList],
 ];
-export var BlockedByOrganizationPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BBOPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var BlockedByOrganizationPolicyException: StaticErrorSchema = [-3, n0, _BBOPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BlockedByOrganizationPolicyException, __BlockedByOrganizationPolicyException);
-
 export var CompleteLayerUploadRequest: StaticStructureSchema = [
   3,
   n0,
@@ -892,18 +881,8 @@ export var DescribeRepositoryCreationTemplatesResponse: StaticStructureSchema = 
   [_rI, _rCTe, _nT],
   [0, () => RepositoryCreationTemplateList, 0],
 ];
-export var EmptyUploadException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EUE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var EmptyUploadException: StaticErrorSchema = [-3, n0, _EUE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(EmptyUploadException, __EmptyUploadException);
-
 export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_eT, _kK], [0, 0]];
 export var EncryptionConfigurationForRepositoryCreationTemplate: StaticStructureSchema = [
   3,
@@ -939,30 +918,10 @@ export var EnhancedImageScanFinding: StaticStructureSchema = [
     0,
   ],
 ];
-export var ExclusionAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExclusionAlreadyExistsException: StaticErrorSchema = [-3, n0, _EAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExclusionAlreadyExistsException, __ExclusionAlreadyExistsException);
-
-export var ExclusionNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ENFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ExclusionNotFoundException: StaticErrorSchema = [-3, n0, _ENFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ExclusionNotFoundException, __ExclusionNotFoundException);
-
 export var GetAccountSettingRequest: StaticStructureSchema = [3, n0, _GASR, 0, [_n], [0]];
 export var GetAccountSettingResponse: StaticStructureSchema = [3, n0, _GASRe, 0, [_n, _v], [0, 0]];
 export var GetAuthorizationTokenRequest: StaticStructureSchema = [3, n0, _GATR, 0, [_rIe], [64 | 0]];
@@ -1024,30 +983,10 @@ export var Image: StaticStructureSchema = [
   [_rI, _rN, _iIm, _iM, _iMMT],
   [0, 0, () => ImageIdentifier, 0, 0],
 ];
-export var ImageAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageAlreadyExistsException: StaticErrorSchema = [-3, n0, _IAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageAlreadyExistsException, __ImageAlreadyExistsException);
-
-export var ImageArchivedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageArchivedException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageArchivedException, __ImageArchivedException);
-
 export var ImageDetail: StaticStructureSchema = [
   3,
   n0,
@@ -1056,32 +995,12 @@ export var ImageDetail: StaticStructureSchema = [
   [_rI, _rN, _iDm, _iT, _iSIB, _iPA, _iSS, _iSFS, _iMMT, _aMTr, _lRPT, _sMD, _iS, _lAA, _lAAa],
   [0, 0, 0, 64 | 0, 1, 4, () => ImageScanStatus, () => ImageScanFindingsSummary, 0, 0, 4, 0, 0, 4, 4],
 ];
-export var ImageDigestDoesNotMatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDDNME,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageDigestDoesNotMatchException: StaticErrorSchema = [-3, n0, _IDDNME, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageDigestDoesNotMatchException, __ImageDigestDoesNotMatchException);
-
 export var ImageFailure: StaticStructureSchema = [3, n0, _IF, 0, [_iIm, _fC, _fR], [() => ImageIdentifier, 0, 0]];
 export var ImageIdentifier: StaticStructureSchema = [3, n0, _II, 0, [_iDm, _iTm], [0, 0]];
-export var ImageNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageNotFoundException: StaticErrorSchema = [-3, n0, _INFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageNotFoundException, __ImageNotFoundException);
-
 export var ImageReferrer: StaticStructureSchema = [
   3,
   n0,
@@ -1115,9 +1034,7 @@ export var ImageStorageClassUpdateNotSupportedException: StaticErrorSchema = [
   -3,
   n0,
   _ISCUNSE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_m],
   [0],
 ];
@@ -1125,172 +1042,48 @@ TypeRegistry.for(n0).registerError(
   ImageStorageClassUpdateNotSupportedException,
   __ImageStorageClassUpdateNotSupportedException
 );
-
-export var ImageTagAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ImageTagAlreadyExistsException: StaticErrorSchema = [-3, n0, _ITAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ImageTagAlreadyExistsException, __ImageTagAlreadyExistsException);
-
 export var ImageTagMutabilityExclusionFilter: StaticStructureSchema = [3, n0, _ITMEF, 0, [_fT, _fi], [0, 0]];
 export var InitiateLayerUploadRequest: StaticStructureSchema = [3, n0, _ILUR, 0, [_rI, _rN], [0, 0]];
 export var InitiateLayerUploadResponse: StaticStructureSchema = [3, n0, _ILURn, 0, [_uI, _pS], [0, 1]];
-export var InvalidLayerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidLayerException: StaticErrorSchema = [-3, n0, _ILE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidLayerException, __InvalidLayerException);
-
 export var InvalidLayerPartException: StaticErrorSchema = [
   -3,
   n0,
   _ILPE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_rI, _rN, _uI, _lVBR, _m],
   [0, 0, 0, 1, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidLayerPartException, __InvalidLayerPartException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidTagParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidTagParameterException: StaticErrorSchema = [-3, n0, _ITPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagParameterException, __InvalidTagParameterException);
-
-export var KmsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _KE,
-  {
-    [_e]: _c,
-  },
-  [_m, _kE],
-  [0, 0],
-];
+export var KmsException: StaticErrorSchema = [-3, n0, _KE, { [_e]: _c }, [_m, _kE], [0, 0]];
 TypeRegistry.for(n0).registerError(KmsException, __KmsException);
-
 export var Layer: StaticStructureSchema = [3, n0, _L, 0, [_lDa, _lA, _lS, _mT], [0, 0, 1, 0]];
-export var LayerAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayerAlreadyExistsException: StaticErrorSchema = [-3, n0, _LAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayerAlreadyExistsException, __LayerAlreadyExistsException);
-
 export var LayerFailure: StaticStructureSchema = [3, n0, _LF, 0, [_lDa, _fC, _fR], [0, 0, 0]];
-export var LayerInaccessibleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LIE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayerInaccessibleException: StaticErrorSchema = [-3, n0, _LIE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayerInaccessibleException, __LayerInaccessibleException);
-
-export var LayerPartTooSmallException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPTSE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayerPartTooSmallException: StaticErrorSchema = [-3, n0, _LPTSE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayerPartTooSmallException, __LayerPartTooSmallException);
-
-export var LayersNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LayersNotFoundException: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LayersNotFoundException, __LayersNotFoundException);
-
-export var LifecyclePolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LifecyclePolicyNotFoundException: StaticErrorSchema = [-3, n0, _LPNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LifecyclePolicyNotFoundException, __LifecyclePolicyNotFoundException);
-
 export var LifecyclePolicyPreviewFilter: StaticStructureSchema = [3, n0, _LPPF, 0, [_tS], [0]];
-export var LifecyclePolicyPreviewInProgressException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPPIPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LifecyclePolicyPreviewInProgressException: StaticErrorSchema = [-3, n0, _LPPIPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   LifecyclePolicyPreviewInProgressException,
   __LifecyclePolicyPreviewInProgressException
 );
-
-export var LifecyclePolicyPreviewNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LPPNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LifecyclePolicyPreviewNotFoundException: StaticErrorSchema = [-3, n0, _LPPNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LifecyclePolicyPreviewNotFoundException, __LifecyclePolicyPreviewNotFoundException);
-
 export var LifecyclePolicyPreviewResult: StaticStructureSchema = [
   3,
   n0,
@@ -1308,18 +1101,8 @@ export var LifecyclePolicyPreviewSummary: StaticStructureSchema = [
   [1, () => TransitioningImageTotalCounts],
 ];
 export var LifecyclePolicyRuleAction: StaticStructureSchema = [3, n0, _LPRA, 0, [_ty, _tSC], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListImageReferrersFilter: StaticStructureSchema = [3, n0, _LIRF, 0, [_aTrt, _aS], [64 | 0, 0]];
 export var ListImageReferrersRequest: StaticStructureSchema = [
   3,
@@ -1374,33 +1157,13 @@ export var PullThroughCacheRule: StaticStructureSchema = [
   [_eRP, _uRU, _cAr, _rI, _cA, _cRA, _uRP, _uR, _uA],
   [0, 0, 4, 0, 0, 0, 0, 0, 4],
 ];
-export var PullThroughCacheRuleAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTCRAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var PullThroughCacheRuleAlreadyExistsException: StaticErrorSchema = [-3, n0, _PTCRAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(
   PullThroughCacheRuleAlreadyExistsException,
   __PullThroughCacheRuleAlreadyExistsException
 );
-
-export var PullThroughCacheRuleNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTCRNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var PullThroughCacheRuleNotFoundException: StaticErrorSchema = [-3, n0, _PTCRNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PullThroughCacheRuleNotFoundException, __PullThroughCacheRuleNotFoundException);
-
 export var PutAccountSettingRequest: StaticStructureSchema = [3, n0, _PASR, 0, [_n, _v], [0, 0]];
 export var PutAccountSettingResponse: StaticStructureSchema = [3, n0, _PASRu, 0, [_n, _v], [0, 0]];
 export var PutImageRequest: StaticStructureSchema = [
@@ -1497,32 +1260,12 @@ export var PutSigningConfigurationResponse: StaticStructureSchema = [
   [() => SigningConfiguration],
 ];
 export var Recommendation: StaticStructureSchema = [3, n0, _R, 0, [_ur, _te], [0, 0]];
-export var ReferencedImagesNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RINFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ReferencedImagesNotFoundException: StaticErrorSchema = [-3, n0, _RINFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException, __ReferencedImagesNotFoundException);
-
 export var RegisterPullTimeUpdateExclusionRequest: StaticStructureSchema = [3, n0, _RPTUER, 0, [_pAr], [0]];
 export var RegisterPullTimeUpdateExclusionResponse: StaticStructureSchema = [3, n0, _RPTUERe, 0, [_pAr, _cAr], [0, 4]];
-export var RegistryPolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RPNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RegistryPolicyNotFoundException: StaticErrorSchema = [-3, n0, _RPNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RegistryPolicyNotFoundException, __RegistryPolicyNotFoundException);
-
 export var RegistryScanningConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1568,18 +1311,8 @@ export var Repository: StaticStructureSchema = [
     () => EncryptionConfiguration,
   ],
 ];
-export var RepositoryAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryAlreadyExistsException, __RepositoryAlreadyExistsException);
-
 export var RepositoryCreationTemplate: StaticStructureSchema = [
   3,
   n0,
@@ -1602,42 +1335,12 @@ export var RepositoryCreationTemplate: StaticStructureSchema = [
   ],
 ];
 export var RepositoryFilter: StaticStructureSchema = [3, n0, _RF, 0, [_fi, _fT], [0, 0]];
-export var RepositoryNotEmptyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryNotEmptyException: StaticErrorSchema = [-3, n0, _RNEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryNotEmptyException, __RepositoryNotEmptyException);
-
-export var RepositoryNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryNotFoundException, __RepositoryNotFoundException);
-
-export var RepositoryPolicyNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RPNFEe,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var RepositoryPolicyNotFoundException: StaticErrorSchema = [-3, n0, _RPNFEe, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(RepositoryPolicyNotFoundException, __RepositoryPolicyNotFoundException);
-
 export var RepositoryScanningConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1664,58 +1367,18 @@ export var Resource: StaticStructureSchema = [
 ];
 export var ResourceDetails: StaticStructureSchema = [3, n0, _RDe, 0, [_aECI], [() => AwsEcrContainerImageDetails]];
 export var ScanningRepositoryFilter: StaticStructureSchema = [3, n0, _SRF, 0, [_fi, _fT], [0, 0]];
-export var ScanNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ScanNotFoundException: StaticErrorSchema = [-3, n0, _SNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ScanNotFoundException, __ScanNotFoundException);
-
 export var ScoreDetails: StaticStructureSchema = [3, n0, _SD, 0, [_cv], [() => CvssScoreDetails]];
-export var SecretNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFEe,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SecretNotFoundException: StaticErrorSchema = [-3, n0, _SNFEe, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SecretNotFoundException, __SecretNotFoundException);
-
-export var ServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _ser,
-  },
-  [_m],
-  [0],
-];
+export var ServerException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _ser }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServerException, __ServerException);
-
 export var SetRepositoryPolicyRequest: StaticStructureSchema = [3, n0, _SRPR, 0, [_rI, _rN, _pT, _fo], [0, 0, 0, 2]];
 export var SetRepositoryPolicyResponse: StaticStructureSchema = [3, n0, _SRPRe, 0, [_rI, _rN, _pT], [0, 0, 0]];
 export var SigningConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_ru], [() => SigningRuleList]];
-export var SigningConfigurationNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var SigningConfigurationNotFoundException: StaticErrorSchema = [-3, n0, _SCNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SigningConfigurationNotFoundException, __SigningConfigurationNotFoundException);
-
 export var SigningRepositoryFilter: StaticStructureSchema = [3, n0, _SRFi, 0, [_fi, _fT], [0, 0]];
 export var SigningRule: StaticStructureSchema = [3, n0, _SR, 0, [_sPA, _rF], [0, () => SigningRepositoryFilterList]];
 export var StartImageScanRequest: StaticStructureSchema = [
@@ -1747,115 +1410,25 @@ export var SubjectIdentifier: StaticStructureSchema = [3, n0, _SI, 0, [_iDm], [0
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TemplateAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TemplateAlreadyExistsException: StaticErrorSchema = [-3, n0, _TAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TemplateAlreadyExistsException, __TemplateAlreadyExistsException);
-
-export var TemplateNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TemplateNotFoundException: StaticErrorSchema = [-3, n0, _TNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TemplateNotFoundException, __TemplateNotFoundException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TransitioningImageTotalCount: StaticStructureSchema = [3, n0, _TITC, 0, [_tSC, _iTC], [0, 1]];
-export var UnableToAccessSecretException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UTASE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnableToAccessSecretException: StaticErrorSchema = [-3, n0, _UTASE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnableToAccessSecretException, __UnableToAccessSecretException);
-
-export var UnableToDecryptSecretValueException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UTDSVE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnableToDecryptSecretValueException: StaticErrorSchema = [-3, n0, _UTDSVE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnableToDecryptSecretValueException, __UnableToDecryptSecretValueException);
-
-export var UnableToGetUpstreamImageException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UTGUIE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnableToGetUpstreamImageException: StaticErrorSchema = [-3, n0, _UTGUIE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnableToGetUpstreamImageException, __UnableToGetUpstreamImageException);
-
-export var UnableToGetUpstreamLayerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UTGULE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnableToGetUpstreamLayerException: StaticErrorSchema = [-3, n0, _UTGULE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnableToGetUpstreamLayerException, __UnableToGetUpstreamLayerException);
-
-export var UnsupportedImageTypeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UITE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedImageTypeException: StaticErrorSchema = [-3, n0, _UITE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedImageTypeException, __UnsupportedImageTypeException);
-
-export var UnsupportedUpstreamRegistryException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UURE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedUpstreamRegistryException: StaticErrorSchema = [-3, n0, _UURE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedUpstreamRegistryException, __UnsupportedUpstreamRegistryException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateImageStorageClassRequest: StaticStructureSchema = [
@@ -1926,18 +1499,8 @@ export var UploadLayerPartRequest: StaticStructureSchema = [
   [0, 0, 0, 1, 1, 21],
 ];
 export var UploadLayerPartResponse: StaticStructureSchema = [3, n0, _ULPRp, 0, [_rI, _rN, _uI, _lBR], [0, 0, 0, 1]];
-export var UploadNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var UploadNotFoundException: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UploadNotFoundException, __UploadNotFoundException);
-
 export var ValidatePullThroughCacheRuleRequest: StaticStructureSchema = [3, n0, _VPTCRR, 0, [_eRP, _rI], [0, 0]];
 export var ValidatePullThroughCacheRuleResponse: StaticStructureSchema = [
   3,
@@ -1947,19 +1510,8 @@ export var ValidatePullThroughCacheRuleResponse: StaticStructureSchema = [
   [_eRP, _rI, _uRU, _cA, _cRA, _uRP, _iV, _fa],
   [0, 0, 0, 0, 0, 0, 2, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VulnerablePackage: StaticStructureSchema = [
   3,
   n0,
@@ -1968,22 +1520,16 @@ export var VulnerablePackage: StaticStructureSchema = [
   [_ar, _ep, _fP, _n, _pM, _rel, _sLH, _ve, _fIV],
   [0, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
-
 export var ECRServiceException: StaticErrorSchema = [-3, _sm, "ECRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECRServiceException, __ECRServiceException);
-
 export var ArtifactTypeList = 64 | 0;
-
 export var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => Attribute];
 export var AuthorizationDataList: StaticListSchema = [1, n0, _ADL, 0, () => AuthorizationData];
 export var BatchedOperationLayerDigestList = 64 | 0;
-
 export var CvssScoreAdjustmentList: StaticListSchema = [1, n0, _CSAL, 0, () => CvssScoreAdjustment];
 export var CvssScoreList: StaticListSchema = [1, n0, _CSL, 0, () => CvssScore];
 export var EnhancedImageScanFindingList: StaticListSchema = [1, n0, _EISFL, 0, () => EnhancedImageScanFinding];
 export var GetAuthorizationTokenRegistryIdList = 64 | 0;
-
 export var ImageDetailList: StaticListSchema = [1, n0, _IDL, 0, () => ImageDetail];
 export var ImageFailureList: StaticListSchema = [1, n0, _IFL, 0, () => ImageFailure];
 export var ImageIdentifierList: StaticListSchema = [1, n0, _IIL, 0, () => ImageIdentifier];
@@ -1993,7 +1539,6 @@ export var ImageReplicationStatusList: StaticListSchema = [1, n0, _IRSL, 0, () =
 export var ImageScanFindingList: StaticListSchema = [1, n0, _ISFL, 0, () => ImageScanFinding];
 export var ImageSigningStatusList: StaticListSchema = [1, n0, _ISSL, 0, () => ImageSigningStatus];
 export var ImageTagList = 64 | 0;
-
 export var ImageTagMutabilityExclusionFilters: StaticListSchema = [
   1,
   n0,
@@ -2002,35 +1547,25 @@ export var ImageTagMutabilityExclusionFilters: StaticListSchema = [
   () => ImageTagMutabilityExclusionFilter,
 ];
 export var ImageTagsList = 64 | 0;
-
 export var LayerDigestList = 64 | 0;
-
 export var LayerFailureList: StaticListSchema = [1, n0, _LFL, 0, () => LayerFailure];
 export var LayerList: StaticListSchema = [1, n0, _LL, 0, () => Layer];
 export var LifecyclePolicyPreviewResultList: StaticListSchema = [1, n0, _LPPRL, 0, () => LifecyclePolicyPreviewResult];
 export var MediaTypeList = 64 | 0;
-
 export var PrefixList = 64 | 0;
-
 export var PullThroughCacheRuleList: StaticListSchema = [1, n0, _PTCRL, 0, () => PullThroughCacheRule];
 export var PullThroughCacheRuleRepositoryPrefixList = 64 | 0;
-
 export var PullTimeUpdateExclusionList = 64 | 0;
-
 export var RCTAppliedForList = 64 | 0;
-
 export var ReferenceUrlsList = 64 | 0;
-
 export var RegistryScanningRuleList: StaticListSchema = [1, n0, _RSRL, 0, () => RegistryScanningRule];
 export var RelatedVulnerabilitiesList = 64 | 0;
-
 export var ReplicationDestinationList: StaticListSchema = [1, n0, _RDL, 0, () => ReplicationDestination];
 export var ReplicationRuleList: StaticListSchema = [1, n0, _RRL, 0, () => ReplicationRule];
 export var RepositoryCreationTemplateList: StaticListSchema = [1, n0, _RCTL, 0, () => RepositoryCreationTemplate];
 export var RepositoryFilterList: StaticListSchema = [1, n0, _RFL, 0, () => RepositoryFilter];
 export var RepositoryList: StaticListSchema = [1, n0, _RL, 0, () => Repository];
 export var RepositoryNameList = 64 | 0;
-
 export var RepositoryScanningConfigurationFailureList: StaticListSchema = [
   1,
   n0,
@@ -2047,21 +1582,16 @@ export var RepositoryScanningConfigurationList: StaticListSchema = [
 ];
 export var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource];
 export var ScanningConfigurationRepositoryNameList = 64 | 0;
-
 export var ScanningRepositoryFilterList: StaticListSchema = [1, n0, _SRFL, 0, () => ScanningRepositoryFilter];
 export var SigningRepositoryFilterList: StaticListSchema = [1, n0, _SRFLi, 0, () => SigningRepositoryFilter];
 export var SigningRuleList: StaticListSchema = [1, n0, _SRL, 0, () => SigningRule];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TransitioningImageTotalCounts: StaticListSchema = [1, n0, _TITCr, 0, () => TransitioningImageTotalCount];
 export var VulnerablePackagesList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage];
 export var Annotations = 128 | 0;
-
 export var FindingSeverityCounts = 128 | 1;
-
 export var Tags = 128 | 0;
-
 export var BatchCheckLayerAvailability: StaticOperationSchema = [
   9,
   n0,

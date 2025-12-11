@@ -131,7 +131,7 @@ const n0 = "com.amazonaws.rdsdata";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -155,33 +155,10 @@ import {
 import { RDSDataServiceException as __RDSDataServiceException } from "../models/RDSDataServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BatchExecuteStatementRequest: StaticStructureSchema = [
   3,
   n0,
@@ -203,58 +180,14 @@ export var ColumnMetadata: StaticStructureSchema = [
 ];
 export var CommitTransactionRequest: StaticStructureSchema = [3, n0, _CTR, 0, [_rA, _sA, _tI], [0, 0, 0]];
 export var CommitTransactionResponse: StaticStructureSchema = [3, n0, _CTRo, 0, [_tS], [0]];
-export var DatabaseErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DatabaseErrorException: StaticErrorSchema = [-3, n0, _DEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DatabaseErrorException, __DatabaseErrorException);
-
-export var DatabaseNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var DatabaseNotFoundException: StaticErrorSchema = [-3, n0, _DNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DatabaseNotFoundException, __DatabaseNotFoundException);
-
-export var DatabaseResumingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var DatabaseResumingException: StaticErrorSchema = [-3, n0, _DRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DatabaseResumingException, __DatabaseResumingException);
-
-export var DatabaseUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DUE,
-  {
-    [_e]: _se,
-    [_hE]: 504,
-  },
-  [],
-  [],
-];
+export var DatabaseUnavailableException: StaticErrorSchema = [-3, n0, _DUE, { [_e]: _se, [_hE]: 504 }, [], []];
 TypeRegistry.for(n0).registerError(DatabaseUnavailableException, __DatabaseUnavailableException);
-
 export var ExecuteSqlRequest: StaticStructureSchema = [3, n0, _ESR, 0, [_dCOIA, _aSSA, _sS, _d, _sc], [0, 0, 0, 0, 0]];
 export var ExecuteSqlResponse: StaticStructureSchema = [3, n0, _ESRx, 0, [_sSR], [() => SqlStatementResults]];
 export var ExecuteStatementRequest: StaticStructureSchema = [
@@ -273,171 +206,46 @@ export var ExecuteStatementResponse: StaticStructureSchema = [
   [_r, _cM, _nORU, _gF, _fR],
   [() => SqlRecords, () => Metadata, 1, () => FieldList, 0],
 ];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
-export var HttpEndpointNotEnabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _HENEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var HttpEndpointNotEnabledException: StaticErrorSchema = [-3, n0, _HENEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(HttpEndpointNotEnabledException, __HttpEndpointNotEnabledException);
-
-export var InternalServerErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [],
-  [],
-];
+export var InternalServerErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _se, [_hE]: 500 }, [], []];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
-export var InvalidResourceStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidResourceStateException: StaticErrorSchema = [-3, n0, _IRSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidResourceStateException, __InvalidResourceStateException);
-
-export var InvalidSecretException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidSecretException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidSecretException, __InvalidSecretException);
-
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var _Record: StaticStructureSchema = [3, n0, _R, 0, [_v], [() => Row]];
 export var ResultFrame: StaticStructureSchema = [3, n0, _RF, 0, [_rSM, _r], [() => ResultSetMetadata, () => Records]];
 export var ResultSetMetadata: StaticStructureSchema = [3, n0, _RSM, 0, [_cC, _cM], [1, () => Metadata]];
 export var ResultSetOptions: StaticStructureSchema = [3, n0, _RSO, 0, [_dRT, _lRT], [0, 0]];
 export var RollbackTransactionRequest: StaticStructureSchema = [3, n0, _RTR, 0, [_rA, _sA, _tI], [0, 0, 0]];
 export var RollbackTransactionResponse: StaticStructureSchema = [3, n0, _RTRo, 0, [_tS], [0]];
-export var SecretsErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var SecretsErrorException: StaticErrorSchema = [-3, n0, _SEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(SecretsErrorException, __SecretsErrorException);
-
-export var ServiceUnavailableError: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [],
-  [],
-];
+export var ServiceUnavailableError: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [], []];
 TypeRegistry.for(n0).registerError(ServiceUnavailableError, __ServiceUnavailableError);
-
 export var SqlParameter: StaticStructureSchema = [3, n0, _SP, 0, [_n, _va, _tH], [0, () => Field, 0]];
 export var SqlStatementResult: StaticStructureSchema = [3, n0, _SSR, 0, [_rF, _nORU], [() => ResultFrame, 1]];
-export var StatementTimeoutException: StaticErrorSchema = [
-  -3,
-  n0,
-  _STE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _dCI],
-  [0, 1],
-];
+export var StatementTimeoutException: StaticErrorSchema = [-3, n0, _STE, { [_e]: _c, [_hE]: 400 }, [_m, _dCI], [0, 1]];
 TypeRegistry.for(n0).registerError(StatementTimeoutException, __StatementTimeoutException);
-
 export var StructValue: StaticStructureSchema = [3, n0, _SV, 0, [_a], [() => ArrayValueList]];
-export var TransactionNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var TransactionNotFoundException: StaticErrorSchema = [-3, n0, _TNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TransactionNotFoundException, __TransactionNotFoundException);
-
-export var UnsupportedResultException: StaticErrorSchema = [
-  -3,
-  n0,
-  _URE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var UnsupportedResultException: StaticErrorSchema = [-3, n0, _URE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnsupportedResultException, __UnsupportedResultException);
-
 export var UpdateResult: StaticStructureSchema = [3, n0, _UR, 0, [_gF], [() => FieldList]];
 export var RDSDataServiceException: StaticErrorSchema = [-3, _sm, "RDSDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RDSDataServiceException, __RDSDataServiceException);
-
 export var ArrayOfArray: StaticListSchema = [1, n0, _AOA, 0, () => ArrayValue];
 export var ArrayValueList: StaticListSchema = [1, n0, _AVL, 0, () => Value];
 export var BooleanArray = 64 | 2;
-
 export var DoubleArray = 64 | 1;
-
 export var FieldList: StaticListSchema = [1, n0, _FL, 0, () => Field];
 export var LongArray = 64 | 1;
-
 export var Metadata: StaticListSchema = [1, n0, _M, 0, () => ColumnMetadata];
 export var Records: StaticListSchema = [1, n0, _Re, 0, () => _Record];
 export var Row: StaticListSchema = [1, n0, _Ro, 0, () => Value];
@@ -446,7 +254,6 @@ export var SqlParametersList: StaticListSchema = [1, n0, _SPL, 0, () => SqlParam
 export var SqlRecords: StaticListSchema = [1, n0, _SR, 0, () => FieldList];
 export var SqlStatementResults: StaticListSchema = [1, n0, _SSRq, 0, () => SqlStatementResult];
 export var StringArray = 64 | 0;
-
 export var UpdateResults: StaticListSchema = [1, n0, _URp, 0, () => UpdateResult];
 export var ArrayValue: StaticStructureSchema = [
   3,
@@ -476,9 +283,7 @@ export var BatchExecuteStatement: StaticOperationSchema = [
   9,
   n0,
   _BES,
-  {
-    [_h]: ["POST", "/BatchExecute", 200],
-  },
+  { [_h]: ["POST", "/BatchExecute", 200] },
   () => BatchExecuteStatementRequest,
   () => BatchExecuteStatementResponse,
 ];
@@ -486,9 +291,7 @@ export var BeginTransaction: StaticOperationSchema = [
   9,
   n0,
   _BT,
-  {
-    [_h]: ["POST", "/BeginTransaction", 200],
-  },
+  { [_h]: ["POST", "/BeginTransaction", 200] },
   () => BeginTransactionRequest,
   () => BeginTransactionResponse,
 ];
@@ -496,9 +299,7 @@ export var CommitTransaction: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_h]: ["POST", "/CommitTransaction", 200],
-  },
+  { [_h]: ["POST", "/CommitTransaction", 200] },
   () => CommitTransactionRequest,
   () => CommitTransactionResponse,
 ];
@@ -506,9 +307,7 @@ export var ExecuteSql: StaticOperationSchema = [
   9,
   n0,
   _ES,
-  {
-    [_h]: ["POST", "/ExecuteSql", 200],
-  },
+  { [_h]: ["POST", "/ExecuteSql", 200] },
   () => ExecuteSqlRequest,
   () => ExecuteSqlResponse,
 ];
@@ -516,9 +315,7 @@ export var ExecuteStatement: StaticOperationSchema = [
   9,
   n0,
   _ESx,
-  {
-    [_h]: ["POST", "/Execute", 200],
-  },
+  { [_h]: ["POST", "/Execute", 200] },
   () => ExecuteStatementRequest,
   () => ExecuteStatementResponse,
 ];
@@ -526,9 +323,7 @@ export var RollbackTransaction: StaticOperationSchema = [
   9,
   n0,
   _RT,
-  {
-    [_h]: ["POST", "/RollbackTransaction", 200],
-  },
+  { [_h]: ["POST", "/RollbackTransaction", 200] },
   () => RollbackTransactionRequest,
   () => RollbackTransactionResponse,
 ];

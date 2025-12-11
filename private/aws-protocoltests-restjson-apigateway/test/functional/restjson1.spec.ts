@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "stream";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { APIGatewayClient } from "../../src/APIGatewayClient";

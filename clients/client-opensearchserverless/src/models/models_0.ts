@@ -11,6 +11,7 @@ import {
   ResourceType,
   SecurityConfigType,
   SecurityPolicyType,
+  ServerlessVectorAccelerationStatus,
   StandbyReplicas,
   VpcEndpointStatus,
 } from "./enums";
@@ -383,6 +384,18 @@ export interface FipsEndpoints {
 }
 
 /**
+ * <p>Configuration options for vector search capabilities in an OpenSearch Serverless collection.</p>
+ * @public
+ */
+export interface VectorOptions {
+  /**
+   * <p>Specifies whether serverless vector acceleration is enabled for the collection.</p>
+   * @public
+   */
+  ServerlessVectorAcceleration: ServerlessVectorAccelerationStatus | undefined;
+}
+
+/**
  * <p>Details about each OpenSearch Serverless collection, including the collection endpoint, the OpenSearch Dashboards endpoint, and FIPS-compliant endpoints for federal government workloads.</p>
  * @public
  */
@@ -434,6 +447,12 @@ export interface CollectionDetail {
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
+
+  /**
+   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * @public
+   */
+  vectorOptions?: VectorOptions | undefined;
 
   /**
    * <p>The Epoch time when the collection was created.</p>
@@ -932,6 +951,12 @@ export interface CreateCollectionRequest {
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
+   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * @public
+   */
+  vectorOptions?: VectorOptions | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -990,6 +1015,12 @@ export interface CreateCollectionDetail {
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
+
+  /**
+   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * @public
+   */
+  vectorOptions?: VectorOptions | undefined;
 
   /**
    * <p>The Epoch time when the collection was created.</p>

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAssistantAIAgentRequest, UpdateAssistantAIAgentResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { UpdateAssistantAIAgentRequest, UpdateAssistantAIAgentResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { UpdateAssistantAIAgent } from "../schemas/schemas_0";
 
 /**
@@ -42,6 +42,12 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  *   configuration: { // AIAgentConfigurationData
  *     aiAgentId: "STRING_VALUE", // required
  *   },
+ *   orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ *     { // OrchestratorConfigurationEntry
+ *       aiAgentId: "STRING_VALUE",
+ *       orchestratorUseCase: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateAssistantAIAgentCommand(input);
  * const response = await client.send(command);
@@ -70,6 +76,12 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  * //         aiAgentId: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList
+ * //       { // OrchestratorConfigurationEntry
+ * //         aiAgentId: "STRING_VALUE",
+ * //         orchestratorUseCase: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

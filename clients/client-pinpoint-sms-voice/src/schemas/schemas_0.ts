@@ -73,7 +73,7 @@ const n0 = "com.amazonaws.pinpointsmsvoice";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AlreadyExistsException as __AlreadyExistsException,
@@ -86,33 +86,10 @@ import {
 import { PinpointSMSVoiceServiceException as __PinpointSMSVoiceServiceException } from "../models/PinpointSMSVoiceServiceException";
 
 /* eslint no-var: 0 */
-
-export var AlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var AlreadyExistsException: StaticErrorSchema = [-3, n0, _AEE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CallInstructionsMessageType: StaticStructureSchema = [3, n0, _CIMT, 0, [_T], [0]];
 export var CloudWatchLogsDestination: StaticStructureSchema = [3, n0, _CWLD, 0, [_IRA, _LGA], [0, 0]];
 export var CreateConfigurationSetEventDestinationRequest: StaticStructureSchema = [
@@ -165,33 +142,11 @@ export var GetConfigurationSetEventDestinationsResponse: StaticStructureSchema =
   [_EDv],
   [() => EventDestinations],
 ];
-export var InternalServiceErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
 export var KinesisFirehoseDestination: StaticStructureSchema = [3, n0, _KFD, 0, [_DSA, _IRA], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 412,
-  },
-  [_M],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 412 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListConfigurationSetsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -199,34 +154,13 @@ export var ListConfigurationSetsRequest: StaticStructureSchema = [
   0,
   [_NT, _PS],
   [
-    [
-      0,
-      {
-        [_hQ]: _NT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _PS,
-      },
-    ],
+    [0, { [_hQ]: _NT }],
+    [0, { [_hQ]: _PS }],
   ],
 ];
 export var ListConfigurationSetsResponse: StaticStructureSchema = [3, n0, _LCSRi, 0, [_CS, _NT], [64 | 0, 0]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PlainTextMessageType: StaticStructureSchema = [3, n0, _PTMT, 0, [_LC, _T, _VI], [0, 0, 0]];
 export var SendVoiceMessageRequest: StaticStructureSchema = [
   3,
@@ -239,19 +173,8 @@ export var SendVoiceMessageRequest: StaticStructureSchema = [
 export var SendVoiceMessageResponse: StaticStructureSchema = [3, n0, _SVMRe, 0, [_MI], [0]];
 export var SnsDestination: StaticStructureSchema = [3, n0, _SD, 0, [_TA], [0]];
 export var SSMLMessageType: StaticStructureSchema = [3, n0, _SSMLMT, 0, [_LC, _T, _VI], [0, 0, 0]];
-export var TooManyRequestsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMRE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-
 export var UpdateConfigurationSetEventDestinationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -269,8 +192,6 @@ export var VoiceMessageContent: StaticStructureSchema = [
   [_CIM, _PTM, _SSMLM],
   [() => CallInstructionsMessageType, () => PlainTextMessageType, () => SSMLMessageType],
 ];
-export var __Unit = "unit" as const;
-
 export var PinpointSMSVoiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -280,19 +201,14 @@ export var PinpointSMSVoiceServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(PinpointSMSVoiceServiceException, __PinpointSMSVoiceServiceException);
-
 export var ConfigurationSets = 64 | 0;
-
 export var EventDestinations: StaticListSchema = [1, n0, _EDv, 0, () => EventDestination];
 export var EventTypes = 64 | 0;
-
 export var CreateConfigurationSet: StaticOperationSchema = [
   9,
   n0,
   _CCS,
-  {
-    [_h]: ["POST", "/v1/sms-voice/configuration-sets", 200],
-  },
+  { [_h]: ["POST", "/v1/sms-voice/configuration-sets", 200] },
   () => CreateConfigurationSetRequest,
   () => CreateConfigurationSetResponse,
 ];
@@ -300,9 +216,7 @@ export var CreateConfigurationSetEventDestination: StaticOperationSchema = [
   9,
   n0,
   _CCSED,
-  {
-    [_h]: ["POST", "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations", 200],
-  },
+  { [_h]: ["POST", "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations", 200] },
   () => CreateConfigurationSetEventDestinationRequest,
   () => CreateConfigurationSetEventDestinationResponse,
 ];
@@ -310,9 +224,7 @@ export var DeleteConfigurationSet: StaticOperationSchema = [
   9,
   n0,
   _DCS,
-  {
-    [_h]: ["DELETE", "/v1/sms-voice/configuration-sets/{ConfigurationSetName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/sms-voice/configuration-sets/{ConfigurationSetName}", 200] },
   () => DeleteConfigurationSetRequest,
   () => DeleteConfigurationSetResponse,
 ];
@@ -334,9 +246,7 @@ export var GetConfigurationSetEventDestinations: StaticOperationSchema = [
   9,
   n0,
   _GCSED,
-  {
-    [_h]: ["GET", "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations", 200],
-  },
+  { [_h]: ["GET", "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations", 200] },
   () => GetConfigurationSetEventDestinationsRequest,
   () => GetConfigurationSetEventDestinationsResponse,
 ];
@@ -344,9 +254,7 @@ export var ListConfigurationSets: StaticOperationSchema = [
   9,
   n0,
   _LCS,
-  {
-    [_h]: ["GET", "/v1/sms-voice/configuration-sets", 200],
-  },
+  { [_h]: ["GET", "/v1/sms-voice/configuration-sets", 200] },
   () => ListConfigurationSetsRequest,
   () => ListConfigurationSetsResponse,
 ];
@@ -354,9 +262,7 @@ export var SendVoiceMessage: StaticOperationSchema = [
   9,
   n0,
   _SVM,
-  {
-    [_h]: ["POST", "/v1/sms-voice/voice/message", 200],
-  },
+  { [_h]: ["POST", "/v1/sms-voice/voice/message", 200] },
   () => SendVoiceMessageRequest,
   () => SendVoiceMessageResponse,
 ];

@@ -1926,7 +1926,7 @@ const n0 = "com.amazonaws.iot";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -1973,7 +1973,6 @@ import {
 import { IoTServiceException as __IoTServiceException } from "../models/IoTServiceException";
 
 /* eslint no-var: 0 */
-
 export var ConnectivityApiThingName: StaticSimpleSchema = [0, n0, _CATN, 8, 0];
 export var PackageVersionRecipe: StaticSimpleSchema = [0, n0, _PVR, 8, 0];
 export var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
@@ -1988,12 +1987,7 @@ export var AcceptCertificateTransferRequest: StaticStructureSchema = [
   [_cI, _sAA],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _sAA,
-      },
-    ],
+    [2, { [_hQ]: _sAA }],
   ],
 ];
 export var Action: StaticStructureSchema = [
@@ -2073,18 +2067,7 @@ export var AssociateSbomWithPackageVersionRequest: StaticStructureSchema = [
   _ASWPVR,
   0,
   [_pN, _vN, _sb, _cT],
-  [
-    [0, 1],
-    [0, 1],
-    () => Sbom,
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-  ],
+  [[0, 1], [0, 1], () => Sbom, [0, { [_iT]: 1, [_hQ]: _cT }]],
 ];
 export var AssociateSbomWithPackageVersionResponse: StaticStructureSchema = [
   3,
@@ -2100,17 +2083,7 @@ export var AssociateTargetsWithJobRequest: StaticStructureSchema = [
   _ATWJR,
   0,
   [_ta, _jI, _c, _nI],
-  [
-    64 | 0,
-    [0, 1],
-    0,
-    [
-      0,
-      {
-        [_hQ]: _nI,
-      },
-    ],
-  ],
+  [64 | 0, [0, 1], 0, [0, { [_hQ]: _nI }]],
 ];
 export var AssociateTargetsWithJobResponse: StaticStructureSchema = [3, n0, _ATWJRs, 0, [_jA, _jI, _d], [0, 0, 0]];
 export var AttachPolicyRequest: StaticStructureSchema = [3, n0, _APR, 0, [_pNo, _tar], [[0, 1], 0]];
@@ -2122,12 +2095,7 @@ export var AttachPrincipalPolicyRequest: StaticStructureSchema = [
   [_pNo, _pr],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xaip,
-      },
-    ],
+    [0, { [_hH]: _xaip }],
   ],
 ];
 export var AttachSecurityProfileRequest: StaticStructureSchema = [
@@ -2138,12 +2106,7 @@ export var AttachSecurityProfileRequest: StaticStructureSchema = [
   [_sPN, _sPTA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sPTA,
-      },
-    ],
+    [0, { [_hQ]: _sPTA }],
   ],
 ];
 export var AttachSecurityProfileResponse: StaticStructureSchema = [3, n0, _ASPRt, 0, [], []];
@@ -2155,18 +2118,8 @@ export var AttachThingPrincipalRequest: StaticStructureSchema = [
   [_tN, _pr, _tPT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xap,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tPT,
-      },
-    ],
+    [0, { [_hH]: _xap }],
+    [0, { [_hQ]: _tPT }],
   ],
 ];
 export var AttachThingPrincipalResponse: StaticStructureSchema = [3, n0, _ATPRt, 0, [], []];
@@ -2305,18 +2258,7 @@ export var CancelJobExecutionRequest: StaticStructureSchema = [
   _CJER,
   0,
   [_jI, _tN, _fo, _eV, _sDt],
-  [
-    [0, 1],
-    [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _fo,
-      },
-    ],
-    1,
-    128 | 0,
-  ],
+  [[0, 1], [0, 1], [2, { [_hQ]: _fo }], 1, 128 | 0],
 ];
 export var CancelJobRequest: StaticStructureSchema = [
   3,
@@ -2324,33 +2266,12 @@ export var CancelJobRequest: StaticStructureSchema = [
   _CJR,
   0,
   [_jI, _rC, _c, _fo],
-  [
-    [0, 1],
-    0,
-    0,
-    [
-      2,
-      {
-        [_hQ]: _fo,
-      },
-    ],
-  ],
+  [[0, 1], 0, 0, [2, { [_hQ]: _fo }]],
 ];
 export var CancelJobResponse: StaticStructureSchema = [3, n0, _CJRa, 0, [_jA, _jI, _d], [0, 0, 0]];
 export var Certificate: StaticStructureSchema = [3, n0, _C, 0, [_cAe, _cI, _st, _cMe, _cD], [0, 0, 0, 0, 4]];
-export var CertificateConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var CertificateConflictException: StaticErrorSchema = [-3, n0, _CCE, { [_er]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(CertificateConflictException, __CertificateConflictException);
-
 export var CertificateDescription: StaticStructureSchema = [
   3,
   n0,
@@ -2360,32 +2281,10 @@ export var CertificateDescription: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 4, 4, 1, () => TransferData, 0, () => CertificateValidity, 0],
 ];
 export var CertificateProviderSummary: StaticStructureSchema = [3, n0, _CPS, 0, [_cPN, _cPA], [0, 0]];
-export var CertificateStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSE,
-  {
-    [_er]: _cl,
-    [_hE]: 406,
-  },
-  [_me],
-  [0],
-];
+export var CertificateStateException: StaticErrorSchema = [-3, n0, _CSE, { [_er]: _cl, [_hE]: 406 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(CertificateStateException, __CertificateStateException);
-
-export var CertificateValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CVE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var CertificateValidationException: StaticErrorSchema = [-3, n0, _CVE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(CertificateValidationException, __CertificateValidationException);
-
 export var CertificateValidity: StaticStructureSchema = [3, n0, _CV, 0, [_nB, _nA], [4, 4]];
 export var ClearDefaultAuthorizerRequest: StaticStructureSchema = [3, n0, _CDAR, 0, [], []];
 export var ClearDefaultAuthorizerResponse: StaticStructureSchema = [3, n0, _CDARl, 0, [], []];
@@ -2448,32 +2347,17 @@ export var Configuration: StaticStructureSchema = [3, n0, _Co, 0, [_E], [2]];
 export var ConfigurationDetails: StaticStructureSchema = [3, n0, _CDo, 0, [_cS, _eC, _eMr], [0, 0, 0]];
 export var ConfirmTopicRuleDestinationRequest: StaticStructureSchema = [3, n0, _CTRDR, 0, [_cTon], [[0, 1]]];
 export var ConfirmTopicRuleDestinationResponse: StaticStructureSchema = [3, n0, _CTRDRo, 0, [], []];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me, _rIe],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_er]: _cl, [_hE]: 409 }, [_me, _rIe], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConflictingResourceUpdateException: StaticErrorSchema = [
   -3,
   n0,
   _CRUE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
+  { [_er]: _cl, [_hE]: 409 },
   [_me],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConflictingResourceUpdateException, __ConflictingResourceUpdateException);
-
 export var CreateAuditSuppressionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2507,15 +2391,7 @@ export var CreateCertificateFromCsrRequest: StaticStructureSchema = [
   _CCFCR,
   0,
   [_cSR, _sAA],
-  [
-    0,
-    [
-      2,
-      {
-        [_hQ]: _sAA,
-      },
-    ],
-  ],
+  [0, [2, { [_hQ]: _sAA }]],
 ];
 export var CreateCertificateFromCsrResponse: StaticStructureSchema = [3, n0, _CCFCRr, 0, [_cAe, _cI, _cP], [0, 0, 0]];
 export var CreateCertificateProviderRequest: StaticStructureSchema = [
@@ -2651,21 +2527,7 @@ export var CreateJobTemplateRequest: StaticStructureSchema = [
   ],
 ];
 export var CreateJobTemplateResponse: StaticStructureSchema = [3, n0, _CJTRr, 0, [_jTA, _jTI], [0, 0]];
-export var CreateKeysAndCertificateRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _CKACR,
-  0,
-  [_sAA],
-  [
-    [
-      2,
-      {
-        [_hQ]: _sAA,
-      },
-    ],
-  ],
-];
+export var CreateKeysAndCertificateRequest: StaticStructureSchema = [3, n0, _CKACR, 0, [_sAA], [[2, { [_hQ]: _sAA }]]];
 export var CreateKeysAndCertificateResponse: StaticStructureSchema = [
   3,
   n0,
@@ -2719,18 +2581,7 @@ export var CreatePackageRequest: StaticStructureSchema = [
   _CPR,
   0,
   [_pN, _d, _tag, _cT],
-  [
-    [0, 1],
-    [() => ResourceDescription, 0],
-    128 | 0,
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-  ],
+  [[0, 1], [() => ResourceDescription, 0], 128 | 0, [0, { [_iT]: 1, [_hQ]: _cT }]],
 ];
 export var CreatePackageResponse: StaticStructureSchema = [
   3,
@@ -2754,13 +2605,7 @@ export var CreatePackageVersionRequest: StaticStructureSchema = [
     () => PackageVersionArtifact,
     [() => PackageVersionRecipe, 0],
     128 | 0,
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var CreatePackageVersionResponse: StaticStructureSchema = [
@@ -2786,16 +2631,7 @@ export var CreatePolicyVersionRequest: StaticStructureSchema = [
   _CPVRre,
   0,
   [_pNo, _pDo, _sAD],
-  [
-    [0, 1],
-    0,
-    [
-      2,
-      {
-        [_hQ]: _sAD,
-      },
-    ],
-  ],
+  [[0, 1], 0, [2, { [_hQ]: _sAD }]],
 ];
 export var CreatePolicyVersionResponse: StaticStructureSchema = [
   3,
@@ -2836,16 +2672,7 @@ export var CreateProvisioningTemplateVersionRequest: StaticStructureSchema = [
   _CPTVR,
   0,
   [_tNe, _tB, _sAD],
-  [
-    [0, 1],
-    0,
-    [
-      2,
-      {
-        [_hQ]: _sAD,
-      },
-    ],
-  ],
+  [[0, 1], 0, [2, { [_hQ]: _sAD }]],
 ];
 export var CreateProvisioningTemplateVersionResponse: StaticStructureSchema = [
   3,
@@ -2952,12 +2779,7 @@ export var CreateTopicRuleRequest: StaticStructureSchema = [
   [
     [0, 1],
     [() => TopicRulePayload, 16],
-    [
-      0,
-      {
-        [_hH]: _xat,
-      },
-    ],
+    [0, { [_hH]: _xat }],
   ],
 ];
 export var CustomCodeSigning: StaticStructureSchema = [
@@ -2974,14 +2796,7 @@ export var DeleteAccountAuditConfigurationRequest: StaticStructureSchema = [
   _DAACR,
   0,
   [_dSA],
-  [
-    [
-      2,
-      {
-        [_hQ]: _dSA,
-      },
-    ],
-  ],
+  [[2, { [_hQ]: _dSA }]],
 ];
 export var DeleteAccountAuditConfigurationResponse: StaticStructureSchema = [3, n0, _DAACRe, 0, [], []];
 export var DeleteAuditSuppressionRequest: StaticStructureSchema = [
@@ -3003,12 +2818,7 @@ export var DeleteBillingGroupRequest: StaticStructureSchema = [
   [_bGN, _eV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
   ],
 ];
 export var DeleteBillingGroupResponse: StaticStructureSchema = [3, n0, _DBGRe, 0, [], []];
@@ -3024,12 +2834,7 @@ export var DeleteCertificateRequest: StaticStructureSchema = [
   [_cI, _fD],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _fD,
-      },
-    ],
+    [2, { [_hQ]: _fD }],
   ],
 ];
 export var DeleteCommandExecutionRequest: StaticStructureSchema = [
@@ -3040,30 +2845,14 @@ export var DeleteCommandExecutionRequest: StaticStructureSchema = [
   [_eI, _tAa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tAa,
-      },
-    ],
+    [0, { [_hQ]: _tAa }],
   ],
 ];
 export var DeleteCommandExecutionResponse: StaticStructureSchema = [3, n0, _DCERe, 0, [], []];
 export var DeleteCommandRequest: StaticStructureSchema = [3, n0, _DCRe, 0, [_cIo], [[0, 1]]];
 export var DeleteCommandResponse: StaticStructureSchema = [3, n0, _DCRel, 0, [_sCt], [[1, 32]]];
-export var DeleteConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DCE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var DeleteConflictException: StaticErrorSchema = [-3, n0, _DCE, { [_er]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(DeleteConflictException, __DeleteConflictException);
-
 export var DeleteCustomMetricRequest: StaticStructureSchema = [3, n0, _DCMR, 0, [_mNe], [[0, 1]]];
 export var DeleteCustomMetricResponse: StaticStructureSchema = [3, n0, _DCMRe, 0, [], []];
 export var DeleteDimensionRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_n], [[0, 1]]];
@@ -3078,12 +2867,7 @@ export var DeleteDynamicThingGroupRequest: StaticStructureSchema = [
   [_tGNh, _eV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
   ],
 ];
 export var DeleteDynamicThingGroupResponse: StaticStructureSchema = [3, n0, _DDTGRe, 0, [], []];
@@ -3095,12 +2879,7 @@ export var DeleteFleetMetricRequest: StaticStructureSchema = [
   [_mNe, _eV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
   ],
 ];
 export var DeleteJobExecutionRequest: StaticStructureSchema = [
@@ -3113,18 +2892,8 @@ export var DeleteJobExecutionRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [1, 1],
-    [
-      2,
-      {
-        [_hQ]: _fo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nI,
-      },
-    ],
+    [2, { [_hQ]: _fo }],
+    [0, { [_hQ]: _nI }],
   ],
 ];
 export var DeleteJobRequest: StaticStructureSchema = [
@@ -3135,18 +2904,8 @@ export var DeleteJobRequest: StaticStructureSchema = [
   [_jI, _fo, _nI],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _fo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nI,
-      },
-    ],
+    [2, { [_hQ]: _fo }],
+    [0, { [_hQ]: _nI }],
   ],
 ];
 export var DeleteJobTemplateRequest: StaticStructureSchema = [3, n0, _DJTR, 0, [_jTI], [[0, 1]]];
@@ -3160,18 +2919,8 @@ export var DeleteOTAUpdateRequest: StaticStructureSchema = [
   [_oUI, _dSe, _fDAWSJ],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _dSe,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _fDAWSJ,
-      },
-    ],
+    [2, { [_hQ]: _dSe }],
+    [2, { [_hQ]: _fDAWSJ }],
   ],
 ];
 export var DeleteOTAUpdateResponse: StaticStructureSchema = [3, n0, _DOTAURe, 0, [], []];
@@ -3183,13 +2932,7 @@ export var DeletePackageRequest: StaticStructureSchema = [
   [_pN, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeletePackageResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
@@ -3202,13 +2945,7 @@ export var DeletePackageVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DeletePackageVersionResponse: StaticStructureSchema = [3, n0, _DPVRe, 0, [], []];
@@ -3252,12 +2989,7 @@ export var DeleteSecurityProfileRequest: StaticStructureSchema = [
   [_sPN, _eV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
   ],
 ];
 export var DeleteSecurityProfileResponse: StaticStructureSchema = [3, n0, _DSPRe, 0, [], []];
@@ -3271,12 +3003,7 @@ export var DeleteThingGroupRequest: StaticStructureSchema = [
   [_tGNh, _eV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
   ],
 ];
 export var DeleteThingGroupResponse: StaticStructureSchema = [3, n0, _DTGRe, 0, [], []];
@@ -3288,12 +3015,7 @@ export var DeleteThingRequest: StaticStructureSchema = [
   [_tN, _eV],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
   ],
 ];
 export var DeleteThingResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
@@ -3309,18 +3031,8 @@ export var DeleteV2LoggingLevelRequest: StaticStructureSchema = [
   0,
   [_tTa, _tNa],
   [
-    [
-      0,
-      {
-        [_hQ]: _tTa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tNa,
-      },
-    ],
+    [0, { [_hQ]: _tTa }],
+    [0, { [_hQ]: _tNa }],
   ],
 ];
 export var Denied: StaticStructureSchema = [3, n0, _De, 0, [_iDm, _eDx], [() => ImplicitDeny, () => ExplicitDeny]];
@@ -3493,21 +3205,7 @@ export var DescribeEncryptionConfigurationResponse: StaticStructureSchema = [
   [_eTn, _kKA, _kARA, _cDo, _lMD],
   [0, 0, 0, () => ConfigurationDetails, 4],
 ];
-export var DescribeEndpointRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DER,
-  0,
-  [_eTnd],
-  [
-    [
-      0,
-      {
-        [_hQ]: _eTnd,
-      },
-    ],
-  ],
-];
+export var DescribeEndpointRequest: StaticStructureSchema = [3, n0, _DER, 0, [_eTnd], [[0, { [_hQ]: _eTnd }]]];
 export var DescribeEndpointResponse: StaticStructureSchema = [3, n0, _DERe, 0, [_eA], [0]];
 export var DescribeEventConfigurationsRequest: StaticStructureSchema = [3, n0, _DECRes, 0, [], []];
 export var DescribeEventConfigurationsResponse: StaticStructureSchema = [
@@ -3538,12 +3236,7 @@ export var DescribeJobExecutionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _eN,
-      },
-    ],
+    [1, { [_hQ]: _eN }],
   ],
 ];
 export var DescribeJobExecutionResponse: StaticStructureSchema = [3, n0, _DJERes, 0, [_exe], [() => JobExecution]];
@@ -3555,12 +3248,7 @@ export var DescribeJobRequest: StaticStructureSchema = [
   [_jI, _bS],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _bS,
-      },
-    ],
+    [2, { [_hQ]: _bS }],
   ],
 ];
 export var DescribeJobResponse: StaticStructureSchema = [3, n0, _DJRes, 0, [_dSo, _j], [0, () => Job]];
@@ -3595,12 +3283,7 @@ export var DescribeManagedJobTemplateRequest: StaticStructureSchema = [
   [_tNe, _tV],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tV,
-      },
-    ],
+    [0, { [_hQ]: _tV }],
   ],
 ];
 export var DescribeManagedJobTemplateResponse: StaticStructureSchema = [
@@ -3735,12 +3418,7 @@ export var DetachPrincipalPolicyRequest: StaticStructureSchema = [
   [_pNo, _pr],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xaip,
-      },
-    ],
+    [0, { [_hH]: _xaip }],
   ],
 ];
 export var DetachSecurityProfileRequest: StaticStructureSchema = [
@@ -3751,12 +3429,7 @@ export var DetachSecurityProfileRequest: StaticStructureSchema = [
   [_sPN, _sPTA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sPTA,
-      },
-    ],
+    [0, { [_hQ]: _sPTA }],
   ],
 ];
 export var DetachSecurityProfileResponse: StaticStructureSchema = [3, n0, _DSPReta, 0, [], []];
@@ -3768,12 +3441,7 @@ export var DetachThingPrincipalRequest: StaticStructureSchema = [
   [_tN, _pr],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hH]: _xap,
-      },
-    ],
+    [0, { [_hH]: _xap }],
   ],
 ];
 export var DetachThingPrincipalResponse: StaticStructureSchema = [3, n0, _DTPRe, 0, [], []];
@@ -3830,13 +3498,7 @@ export var DisassociateSbomFromPackageVersionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var DisassociateSbomFromPackageVersionResponse: StaticStructureSchema = [3, n0, _DSFPVRi, 0, [], []];
@@ -3877,24 +3539,9 @@ export var GetBehaviorModelTrainingSummariesRequest: StaticStructureSchema = [
   0,
   [_sPN, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _sPN,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _sPN }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var GetBehaviorModelTrainingSummariesResponse: StaticStructureSchema = [
@@ -3924,18 +3571,8 @@ export var GetCommandExecutionRequest: StaticStructureSchema = [
   [_eI, _tAa, _iR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tAa,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iR,
-      },
-    ],
+    [0, { [_hQ]: _tAa }],
+    [2, { [_hQ]: _iR }],
   ],
 ];
 export var GetCommandExecutionResponse: StaticStructureSchema = [
@@ -3975,16 +3612,7 @@ export var GetEffectivePoliciesRequest: StaticStructureSchema = [
   _GEPR,
   0,
   [_pr, _cIPI, _tN],
-  [
-    0,
-    0,
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
-  ],
+  [0, 0, [0, { [_hQ]: _tN }]],
 ];
 export var GetEffectivePoliciesResponse: StaticStructureSchema = [3, n0, _GEPRe, 0, [_eP], [() => EffectivePolicies]];
 export var GetIndexingConfigurationRequest: StaticStructureSchema = [3, n0, _GICR, 0, [], []];
@@ -4004,12 +3632,7 @@ export var GetJobDocumentRequest: StaticStructureSchema = [
   [_jI, _bS],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _bS,
-      },
-    ],
+    [2, { [_hQ]: _bS }],
   ],
 ];
 export var GetJobDocumentResponse: StaticStructureSchema = [3, n0, _GJDRe, 0, [_do], [0]];
@@ -4155,123 +3778,24 @@ export var HttpUrlDestinationProperties: StaticStructureSchema = [3, n0, _HUDP, 
 export var HttpUrlDestinationSummary: StaticStructureSchema = [3, n0, _HUDS, 0, [_cU], [0]];
 export var ImplicitDeny: StaticStructureSchema = [3, n0, _ID, 0, [_p], [() => Policies]];
 export var IndexingFilter: StaticStructureSchema = [3, n0, _IF, 0, [_nSN, _gL], [64 | 0, () => GeoLocationsFilter]];
-export var IndexNotReadyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INRE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var IndexNotReadyException: StaticErrorSchema = [-3, n0, _INRE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(IndexNotReadyException, __IndexNotReadyException);
-
-export var InternalException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IE,
-  {
-    [_er]: _ser,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalException: StaticErrorSchema = [-3, n0, _IE, { [_er]: _ser, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_er]: _ser,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_er]: _ser, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_er]: _ser,
-    [_hE]: 500,
-  },
-  [_me],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _ser, [_hE]: 500 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidAggregationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidAggregationException: StaticErrorSchema = [-3, n0, _IAE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidAggregationException, __InvalidAggregationException);
-
-export var InvalidQueryException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IQE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidQueryException: StaticErrorSchema = [-3, n0, _IQE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidQueryException, __InvalidQueryException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidResponseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IREn,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var InvalidResponseException: StaticErrorSchema = [-3, n0, _IREn, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidResponseException, __InvalidResponseException);
-
-export var InvalidStateTransitionException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISTE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var InvalidStateTransitionException: StaticErrorSchema = [-3, n0, _ISTE, { [_er]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateTransitionException, __InvalidStateTransitionException);
-
 export var IotAnalyticsAction: StaticStructureSchema = [3, n0, _IAA, 0, [_cAh, _cNh, _bM, _rA], [0, 0, 2, 0]];
 export var IotEventsAction: StaticStructureSchema = [3, n0, _IEA, 0, [_iNn, _mI, _bM, _rA], [0, 0, 2, 0]];
 export var IotSiteWiseAction: StaticStructureSchema = [
@@ -4414,19 +3938,8 @@ export var KafkaActionHeader: StaticStructureSchema = [3, n0, _KAH, 0, [_ke, _va
 export var KeyPair: StaticStructureSchema = [3, n0, _KP, 0, [_PKu, _PK], [0, [() => PrivateKey, 0]]];
 export var KinesisAction: StaticStructureSchema = [3, n0, _KAi, 0, [_rA, _sN, _pK], [0, 0, 0]];
 export var LambdaAction: StaticStructureSchema = [3, n0, _LA, 0, [_fA], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_er]: _cl,
-    [_hE]: 410,
-  },
-  [_me],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_er]: _cl, [_hE]: 410 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListActiveViolationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4434,48 +3947,13 @@ export var ListActiveViolationsRequest: StaticStructureSchema = [
   0,
   [_tN, _sPN, _bCT, _lSA, _vS, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sPN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bCT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _lSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _tN }],
+    [0, { [_hQ]: _sPN }],
+    [0, { [_hQ]: _bCT }],
+    [2, { [_hQ]: _lSA }],
+    [0, { [_hQ]: _vS }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListActiveViolationsResponse: StaticStructureSchema = [
@@ -4494,24 +3972,9 @@ export var ListAttachedPoliciesRequest: StaticStructureSchema = [
   [_tar, _recu, _ma, _pS],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _recu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
+    [2, { [_hQ]: _recu }],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _pS }],
   ],
 ];
 export var ListAttachedPoliciesResponse: StaticStructureSchema = [3, n0, _LAPRi, 0, [_p, _nM], [() => Policies, 0]];
@@ -4538,36 +4001,11 @@ export var ListAuditMitigationActionsExecutionsRequest: StaticStructureSchema = 
   0,
   [_tI, _aSc, _fI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aSc,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _aSc }],
+    [0, { [_hQ]: _fI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListAuditMitigationActionsExecutionsResponse: StaticStructureSchema = [
@@ -4585,48 +4023,13 @@ export var ListAuditMitigationActionsTasksRequest: StaticStructureSchema = [
   0,
   [_aTI, _fI, _tS, _mR, _nT, _sT, _eT],
   [
-    [
-      0,
-      {
-        [_hQ]: _aTI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tS,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
+    [0, { [_hQ]: _aTI }],
+    [0, { [_hQ]: _fI }],
+    [0, { [_hQ]: _tS }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
   ],
 ];
 export var ListAuditMitigationActionsTasksResponse: StaticStructureSchema = [
@@ -4660,42 +4063,12 @@ export var ListAuditTasksRequest: StaticStructureSchema = [
   0,
   [_sT, _eT, _tT, _tS, _nT, _mR],
   [
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
+    [0, { [_hQ]: _tT }],
+    [0, { [_hQ]: _tS }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAuditTasksResponse: StaticStructureSchema = [
@@ -4713,30 +4086,10 @@ export var ListAuthorizersRequest: StaticStructureSchema = [
   0,
   [_pS, _ma, _aO, _st],
   [
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _ma }],
+    [2, { [_hQ]: _iAO }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListAuthorizersResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_aut, _nM], [() => Authorizers, 0]];
@@ -4747,24 +4100,9 @@ export var ListBillingGroupsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _nPF],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nPF,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nPF }],
   ],
 ];
 export var ListBillingGroupsResponse: StaticStructureSchema = [
@@ -4782,30 +4120,10 @@ export var ListCACertificatesRequest: StaticStructureSchema = [
   0,
   [_pS, _ma, _aO, _tNe],
   [
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tNe,
-      },
-    ],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _ma }],
+    [2, { [_hQ]: _iAO }],
+    [0, { [_hQ]: _tNe }],
   ],
 ];
 export var ListCACertificatesResponse: StaticStructureSchema = [
@@ -4823,18 +4141,8 @@ export var ListCertificateProvidersRequest: StaticStructureSchema = [
   0,
   [_nT, _aO],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListCertificateProvidersResponse: StaticStructureSchema = [
@@ -4853,24 +4161,9 @@ export var ListCertificatesByCARequest: StaticStructureSchema = [
   [_cCI, _pS, _ma, _aO],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _ma }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListCertificatesByCAResponse: StaticStructureSchema = [
@@ -4888,24 +4181,9 @@ export var ListCertificatesRequest: StaticStructureSchema = [
   0,
   [_pS, _ma, _aO],
   [
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _ma }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListCertificatesResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_ce, _nM], [() => Certificates, 0]];
@@ -4915,27 +4193,7 @@ export var ListCommandExecutionsRequest: StaticStructureSchema = [
   _LCER,
   0,
   [_mR, _nT, _na, _st, _sO, _sTF, _cTF, _tAa, _cAo],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    0,
-    0,
-    0,
-    () => TimeFilter,
-    () => TimeFilter,
-    0,
-    0,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0, 0, 0, () => TimeFilter, () => TimeFilter, 0, 0],
 ];
 export var ListCommandExecutionsResponse: StaticStructureSchema = [
   3,
@@ -4952,36 +4210,11 @@ export var ListCommandsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _na, _cPNo, _sO],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _na,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cPNo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sO,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _na }],
+    [0, { [_hQ]: _cPNo }],
+    [0, { [_hQ]: _sO }],
   ],
 ];
 export var ListCommandsResponse: StaticStructureSchema = [
@@ -4999,18 +4232,8 @@ export var ListCustomMetricsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCustomMetricsResponse: StaticStructureSchema = [3, n0, _LCMRi, 0, [_mNet, _nT], [64 | 0, 0]];
@@ -5021,48 +4244,13 @@ export var ListDetectMitigationActionsExecutionsRequest: StaticStructureSchema =
   0,
   [_tI, _vI, _tN, _sT, _eT, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _vI }],
+    [0, { [_hQ]: _tN }],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDetectMitigationActionsExecutionsResponse: StaticStructureSchema = [
@@ -5080,30 +4268,10 @@ export var ListDetectMitigationActionsTasksRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _sT, _eT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
   ],
 ];
 export var ListDetectMitigationActionsTasksResponse: StaticStructureSchema = [
@@ -5121,18 +4289,8 @@ export var ListDimensionsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDimensionsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dNi, _nT], [64 | 0, 0]];
@@ -5143,24 +4301,9 @@ export var ListDomainConfigurationsRequest: StaticStructureSchema = [
   0,
   [_ma, _pS, _sTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sTe,
-      },
-    ],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _sTe }],
   ],
 ];
 export var ListDomainConfigurationsResponse: StaticStructureSchema = [
@@ -5178,18 +4321,8 @@ export var ListFleetMetricsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFleetMetricsResponse: StaticStructureSchema = [
@@ -5207,18 +4340,8 @@ export var ListIndicesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListIndicesResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_iNnd, _nT], [64 | 0, 0]];
@@ -5230,24 +4353,9 @@ export var ListJobExecutionsForJobRequest: StaticStructureSchema = [
   [_jI, _st, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListJobExecutionsForJobResponse: StaticStructureSchema = [
@@ -5266,36 +4374,11 @@ export var ListJobExecutionsForThingRequest: StaticStructureSchema = [
   [_tN, _st, _nI, _mR, _nT, _jI],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _jI,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _nI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _jI }],
   ],
 ];
 export var ListJobExecutionsForThingResponse: StaticStructureSchema = [
@@ -5313,48 +4396,13 @@ export var ListJobsRequest: StaticStructureSchema = [
   0,
   [_st, _tSa, _mR, _nT, _tGNh, _tGI, _nI],
   [
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tSa,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tGNh,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tGI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nI,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [0, { [_hQ]: _tSa }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _tGNh }],
+    [0, { [_hQ]: _tGI }],
+    [0, { [_hQ]: _nI }],
   ],
 ];
 export var ListJobsResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_jo, _nT], [() => JobSummaryList, 0]];
@@ -5365,18 +4413,8 @@ export var ListJobTemplatesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListJobTemplatesResponse: StaticStructureSchema = [
@@ -5394,24 +4432,9 @@ export var ListManagedJobTemplatesRequest: StaticStructureSchema = [
   0,
   [_tNe, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tNe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tNe }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListManagedJobTemplatesResponse: StaticStructureSchema = [
@@ -5429,54 +4452,14 @@ export var ListMetricValuesRequest: StaticStructureSchema = [
   0,
   [_tN, _mNe, _dNim, _dVO, _sT, _eT, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mNe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dNim,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dVO,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tN }],
+    [0, { [_hQ]: _mNe }],
+    [0, { [_hQ]: _dNim }],
+    [0, { [_hQ]: _dVO }],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListMetricValuesResponse: StaticStructureSchema = [
@@ -5494,24 +4477,9 @@ export var ListMitigationActionsRequest: StaticStructureSchema = [
   0,
   [_aT, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _aT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _aT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListMitigationActionsResponse: StaticStructureSchema = [
@@ -5529,24 +4497,9 @@ export var ListOTAUpdatesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _oUS],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _oUS,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _oUS }],
   ],
 ];
 export var ListOTAUpdatesResponse: StaticStructureSchema = [
@@ -5564,24 +4517,9 @@ export var ListOutgoingCertificatesRequest: StaticStructureSchema = [
   0,
   [_pS, _ma, _aO],
   [
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _ma }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListOutgoingCertificatesResponse: StaticStructureSchema = [
@@ -5599,18 +4537,8 @@ export var ListPackagesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPackagesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pSa, _nT], [() => PackageSummaryList, 0]];
@@ -5622,24 +4550,9 @@ export var ListPackageVersionsRequest: StaticStructureSchema = [
   [_pN, _st, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPackageVersionsResponse: StaticStructureSchema = [
@@ -5657,24 +4570,9 @@ export var ListPoliciesRequest: StaticStructureSchema = [
   0,
   [_ma, _pS, _aO],
   [
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _pS }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListPoliciesResponse: StaticStructureSchema = [3, n0, _LPRist, 0, [_p, _nM], [() => Policies, 0]];
@@ -5685,30 +4583,10 @@ export var ListPolicyPrincipalsRequest: StaticStructureSchema = [
   0,
   [_pNo, _ma, _pS, _aO],
   [
-    [
-      0,
-      {
-        [_hH]: _xaip_,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [0, { [_hH]: _xaip_ }],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _pS }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListPolicyPrincipalsResponse: StaticStructureSchema = [3, n0, _LPPRi, 0, [_pri, _nM], [64 | 0, 0]];
@@ -5721,30 +4599,10 @@ export var ListPrincipalPoliciesRequest: StaticStructureSchema = [
   0,
   [_pr, _ma, _pS, _aO],
   [
-    [
-      0,
-      {
-        [_hH]: _xaip,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [0, { [_hH]: _xaip }],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _pS }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListPrincipalPoliciesResponse: StaticStructureSchema = [3, n0, _LPPRist, 0, [_p, _nM], [() => Policies, 0]];
@@ -5755,24 +4613,9 @@ export var ListPrincipalThingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _pr],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xap,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hH]: _xap }],
   ],
 ];
 export var ListPrincipalThingsResponse: StaticStructureSchema = [3, n0, _LPTRi, 0, [_th, _nT], [64 | 0, 0]];
@@ -5783,30 +4626,10 @@ export var ListPrincipalThingsV2Request: StaticStructureSchema = [
   0,
   [_nT, _mR, _pr, _tPT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _xap,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tPT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hH]: _xap }],
+    [0, { [_hQ]: _tPT }],
   ],
 ];
 export var ListPrincipalThingsV2Response: StaticStructureSchema = [
@@ -5824,18 +4647,8 @@ export var ListProvisioningTemplatesRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProvisioningTemplatesResponse: StaticStructureSchema = [
@@ -5854,18 +4667,8 @@ export var ListProvisioningTemplateVersionsRequest: StaticStructureSchema = [
   [_tNe, _mR, _nT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListProvisioningTemplateVersionsResponse: StaticStructureSchema = [
@@ -5883,24 +4686,9 @@ export var ListRelatedResourcesForAuditFindingRequest: StaticStructureSchema = [
   0,
   [_fI, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _fI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _fI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListRelatedResourcesForAuditFindingResponse: StaticStructureSchema = [
@@ -5918,24 +4706,9 @@ export var ListRoleAliasesRequest: StaticStructureSchema = [
   0,
   [_pS, _ma, _aO],
   [
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [1, { [_hQ]: _pS }],
+    [0, { [_hQ]: _ma }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListRoleAliasesResponse: StaticStructureSchema = [3, n0, _LRARi, 0, [_rAol, _nM], [64 | 0, 0]];
@@ -5948,24 +4721,9 @@ export var ListSbomValidationResultsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vR,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _vR }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSbomValidationResultsResponse: StaticStructureSchema = [
@@ -5983,18 +4741,8 @@ export var ListScheduledAuditsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListScheduledAuditsResponse: StaticStructureSchema = [
@@ -6012,30 +4760,10 @@ export var ListSecurityProfilesForTargetRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _recu, _sPTA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _recu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sPTA,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [2, { [_hQ]: _recu }],
+    [0, { [_hQ]: _sPTA }],
   ],
 ];
 export var ListSecurityProfilesForTargetResponse: StaticStructureSchema = [
@@ -6053,30 +4781,10 @@ export var ListSecurityProfilesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _dNim, _mNe],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dNim,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mNe,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _dNim }],
+    [0, { [_hQ]: _mNe }],
   ],
 ];
 export var ListSecurityProfilesResponse: StaticStructureSchema = [
@@ -6094,24 +4802,9 @@ export var ListStreamsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT, _aO],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iAO,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _iAO }],
   ],
 ];
 export var ListStreamsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_stre, _nT], [() => StreamsSummary, 0]];
@@ -6122,18 +4815,8 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [
   0,
   [_rAes, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rAes,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rAes }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_tag, _nT], [() => TagList, 0]];
@@ -6145,18 +4828,8 @@ export var ListTargetsForPolicyRequest: StaticStructureSchema = [
   [_pNo, _ma, _pS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ma,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _pS,
-      },
-    ],
+    [0, { [_hQ]: _ma }],
+    [1, { [_hQ]: _pS }],
   ],
 ];
 export var ListTargetsForPolicyResponse: StaticStructureSchema = [3, n0, _LTFPRi, 0, [_ta, _nM], [64 | 0, 0]];
@@ -6168,18 +4841,8 @@ export var ListTargetsForSecurityProfileRequest: StaticStructureSchema = [
   [_sPN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTargetsForSecurityProfileResponse: StaticStructureSchema = [
@@ -6198,18 +4861,8 @@ export var ListThingGroupsForThingRequest: StaticStructureSchema = [
   [_tN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListThingGroupsForThingResponse: StaticStructureSchema = [
@@ -6227,36 +4880,11 @@ export var ListThingGroupsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _pG, _nPF, _recu],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pG,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nPF,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _recu,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _pG }],
+    [0, { [_hQ]: _nPF }],
+    [2, { [_hQ]: _recu }],
   ],
 ];
 export var ListThingGroupsResponse: StaticStructureSchema = [
@@ -6274,18 +4902,8 @@ export var ListThingPrincipalsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _tN],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -6297,25 +4915,10 @@ export var ListThingPrincipalsV2Request: StaticStructureSchema = [
   0,
   [_nT, _mR, _tN, _tPT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tPT,
-      },
-    ],
+    [0, { [_hQ]: _tPT }],
   ],
 ];
 export var ListThingPrincipalsV2Response: StaticStructureSchema = [
@@ -6334,24 +4937,9 @@ export var ListThingRegistrationTaskReportsRequest: StaticStructureSchema = [
   [_tI, _rT, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListThingRegistrationTaskReportsResponse: StaticStructureSchema = [
@@ -6369,24 +4957,9 @@ export var ListThingRegistrationTasksRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _st],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListThingRegistrationTasksResponse: StaticStructureSchema = [3, n0, _LTRTRi, 0, [_tIa, _nT], [64 | 0, 0]];
@@ -6398,18 +4971,8 @@ export var ListThingsInBillingGroupRequest: StaticStructureSchema = [
   [_bGN, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListThingsInBillingGroupResponse: StaticStructureSchema = [3, n0, _LTIBGRi, 0, [_th, _nT], [64 | 0, 0]];
@@ -6421,24 +4984,9 @@ export var ListThingsInThingGroupRequest: StaticStructureSchema = [
   [_tGNh, _recu, _nT, _mR],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _recu,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [2, { [_hQ]: _recu }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListThingsInThingGroupResponse: StaticStructureSchema = [3, n0, _LTITGRi, 0, [_th, _nT], [64 | 0, 0]];
@@ -6449,42 +4997,12 @@ export var ListThingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _aNt, _aVt, _tTN, _uPAV],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aNt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aVt,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tTN,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _uPAV,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _aNt }],
+    [0, { [_hQ]: _aVt }],
+    [0, { [_hQ]: _tTN }],
+    [2, { [_hQ]: _uPAV }],
   ],
 ];
 export var ListThingsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_th, _nT], [() => ThingAttributeList, 0]];
@@ -6495,24 +5013,9 @@ export var ListThingTypesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _tTN],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tTN,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _tTN }],
   ],
 ];
 export var ListThingTypesResponse: StaticStructureSchema = [3, n0, _LTTRi, 0, [_tTh, _nT], [() => ThingTypeList, 0]];
@@ -6523,18 +5026,8 @@ export var ListTopicRuleDestinationsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTopicRuleDestinationsResponse: StaticStructureSchema = [
@@ -6552,30 +5045,10 @@ export var ListTopicRulesRequest: StaticStructureSchema = [
   0,
   [_to, _mR, _nT, _rD],
   [
-    [
-      0,
-      {
-        [_hQ]: _to,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _rD,
-      },
-    ],
+    [0, { [_hQ]: _to }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [2, { [_hQ]: _rD }],
   ],
 ];
 export var ListTopicRulesResponse: StaticStructureSchema = [3, n0, _LTRRi, 0, [_rul, _nT], [() => TopicRuleList, 0]];
@@ -6586,24 +5059,9 @@ export var ListV2LoggingLevelsRequest: StaticStructureSchema = [
   0,
   [_tTa, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _tTa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _tTa }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListV2LoggingLevelsResponse: StaticStructureSchema = [
@@ -6621,60 +5079,15 @@ export var ListViolationEventsRequest: StaticStructureSchema = [
   0,
   [_sT, _eT, _tN, _sPN, _bCT, _lSA, _vS, _nT, _mR],
   [
-    [
-      4,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-    [
-      4,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sPN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _bCT,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _lSA,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [4, { [_hQ]: _sT }],
+    [4, { [_hQ]: _eT }],
+    [0, { [_hQ]: _tN }],
+    [0, { [_hQ]: _sPN }],
+    [0, { [_hQ]: _bCT }],
+    [2, { [_hQ]: _lSA }],
+    [0, { [_hQ]: _vS }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListViolationEventsResponse: StaticStructureSchema = [
@@ -6699,19 +5112,8 @@ export var LogTarget: StaticStructureSchema = [3, n0, _LTo, 0, [_tTa, _tNa], [0,
 export var LogTargetConfiguration: StaticStructureSchema = [3, n0, _LTC, 0, [_lT, _lL], [() => LogTarget, 0]];
 export var MachineLearningDetectionConfig: StaticStructureSchema = [3, n0, _MLDC, 0, [_cLo], [0]];
 export var MaintenanceWindow: StaticStructureSchema = [3, n0, _MW, 0, [_sT, _dIM], [0, 1]];
-export var MalformedPolicyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var MalformedPolicyException: StaticErrorSchema = [-3, n0, _MPE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(MalformedPolicyException, __MalformedPolicyException);
-
 export var ManagedJobTemplateSummary: StaticStructureSchema = [
   3,
   n0,
@@ -6774,19 +5176,8 @@ export var NonCompliantResource: StaticStructureSchema = [
   [_rTes, _rI, _aId],
   [0, () => ResourceIdentifier, 128 | 0],
 ];
-export var NotConfiguredException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NCE,
-  {
-    [_er]: _cl,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var NotConfiguredException: StaticErrorSchema = [-3, n0, _NCE, { [_er]: _cl, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(NotConfiguredException, __NotConfiguredException);
-
 export var OpenSearchAction: StaticStructureSchema = [3, n0, _OSA, 0, [_rA, _end, _i, _ty, _id], [0, 0, 0, 0, 0]];
 export var OTAUpdateFile: StaticStructureSchema = [
   3,
@@ -6876,25 +5267,7 @@ export var RegisterCACertificateRequest: StaticStructureSchema = [
   _RCACR,
   0,
   [_cCa, _vC, _sAA, _aAR, _rCe, _tag, _cMe],
-  [
-    0,
-    0,
-    [
-      2,
-      {
-        [_hQ]: _sAA,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _aAR,
-      },
-    ],
-    () => RegistrationConfig,
-    () => TagList,
-    0,
-  ],
+  [0, 0, [2, { [_hQ]: _sAA }], [2, { [_hQ]: _aAR }], () => RegistrationConfig, () => TagList, 0],
 ];
 export var RegisterCACertificateResponse: StaticStructureSchema = [3, n0, _RCACRe, 0, [_cAe, _cI], [0, 0]];
 export var RegisterCertificateRequest: StaticStructureSchema = [
@@ -6903,17 +5276,7 @@ export var RegisterCertificateRequest: StaticStructureSchema = [
   _RCR,
   0,
   [_cP, _cCP, _sAA, _st],
-  [
-    0,
-    0,
-    [
-      2,
-      {
-        [_hQ]: _sAA,
-      },
-    ],
-    0,
-  ],
+  [0, 0, [2, { [_hQ]: _sAA }], 0],
 ];
 export var RegisterCertificateResponse: StaticStructureSchema = [3, n0, _RCRe, 0, [_cAe, _cI], [0, 0]];
 export var RegisterCertificateWithoutCARequest: StaticStructureSchema = [3, n0, _RCWCAR, 0, [_cP, _st], [0, 0]];
@@ -6924,15 +5287,11 @@ export var RegistrationCodeValidationException: StaticErrorSchema = [
   -3,
   n0,
   _RCVE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
+  { [_er]: _cl, [_hE]: 400 },
   [_me],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RegistrationCodeValidationException, __RegistrationCodeValidationException);
-
 export var RegistrationConfig: StaticStructureSchema = [3, n0, _RC, 0, [_tB, _rA, _tNe], [0, 0, 0]];
 export var RejectCertificateTransferRequest: StaticStructureSchema = [3, n0, _RCTR, 0, [_cI, _rRe], [[0, 1], 0]];
 export var RelatedResource: StaticStructureSchema = [
@@ -6978,15 +5337,11 @@ export var ResourceAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
   _RAEE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
+  { [_er]: _cl, [_hE]: 409 },
   [_me, _rIe, _rAes],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
 export var ResourceIdentifier: StaticStructureSchema = [
   3,
   n0,
@@ -6995,32 +5350,17 @@ export var ResourceIdentifier: StaticStructureSchema = [
   [_dCIe, _cCI, _cIPI, _cIl, _pVIo, _ac, _iRA, _rAA, _iCI, _dCAe],
   [0, 0, 0, 0, () => PolicyVersionIdentifier, 0, 0, 0, () => IssuerCertificateIdentifier, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_er]: _cl,
-    [_hE]: 404,
-  },
-  [_me],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _cl, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceRegistrationFailureException: StaticErrorSchema = [
   -3,
   n0,
   _RRFE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
+  { [_er]: _cl, [_hE]: 400 },
   [_me],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceRegistrationFailureException, __ResourceRegistrationFailureException);
-
 export var RetryCriteria: StaticStructureSchema = [3, n0, _RCe, 0, [_fT, _nOR], [0, 1]];
 export var RoleAliasDescription: StaticStructureSchema = [
   3,
@@ -7074,32 +5414,10 @@ export var SecurityProfileTargetMapping: StaticStructureSchema = [
 ];
 export var ServerCertificateConfig: StaticStructureSchema = [3, n0, _SCC, 0, [_eOCSPC, _oLA, _oARA], [2, 0, 0]];
 export var ServerCertificateSummary: StaticStructureSchema = [3, n0, _SCS, 0, [_sCAe, _sCS, _sCSD], [0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_er]: _cl,
-    [_hE]: 402,
-  },
-  [_me],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_er]: _cl, [_hE]: 402 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
-export var ServiceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_er]: _ser,
-    [_hE]: 503,
-  },
-  [_me],
-  [0],
-];
+export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_er]: _ser, [_hE]: 503 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var SetDefaultAuthorizerRequest: StaticStructureSchema = [3, n0, _SDAR, 0, [_aNu], [0]];
 export var SetDefaultAuthorizerResponse: StaticStructureSchema = [3, n0, _SDARe, 0, [_aNu, _aA], [0, 0]];
 export var SetDefaultPolicyVersionRequest: StaticStructureSchema = [
@@ -7126,19 +5444,8 @@ export var SetV2LoggingOptionsRequest: StaticStructureSchema = [3, n0, _SVLOR, 0
 export var SigningProfileParameter: StaticStructureSchema = [3, n0, _SPP, 0, [_cAe, _pl, _cPOD], [0, 0, 0]];
 export var SigV4Authorization: StaticStructureSchema = [3, n0, _SVA, 0, [_sRi, _sNe, _rA], [0, 0, 0]];
 export var SnsAction: StaticStructureSchema = [3, n0, _SAn, 0, [_tAa, _rA, _mF], [0, 0, 0]];
-export var SqlParseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SPE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var SqlParseException: StaticErrorSchema = [-3, n0, _SPE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(SqlParseException, __SqlParseException);
-
 export var SqsAction: StaticStructureSchema = [3, n0, _SAq, 0, [_rA, _qU, _uB], [0, 0, 2]];
 export var StartAuditMitigationActionsTaskRequest: StaticStructureSchema = [
   3,
@@ -7204,19 +5511,8 @@ export var StreamSummary: StaticStructureSchema = [3, n0, _SS, 0, [_sIt, _sAtr, 
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAes, _tag], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TaskAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TAEE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var TaskAlreadyExistsException: StaticErrorSchema = [-3, n0, _TAEE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(TaskAlreadyExistsException, __TaskAlreadyExistsException);
-
 export var TaskStatistics: StaticStructureSchema = [
   3,
   n0,
@@ -7240,19 +5536,7 @@ export var TestAuthorizationRequest: StaticStructureSchema = [
   _TAR,
   0,
   [_pr, _cIPI, _aIut, _cIl, _pNTA, _pNTS],
-  [
-    0,
-    0,
-    () => AuthInfos,
-    [
-      0,
-      {
-        [_hQ]: _cIl,
-      },
-    ],
-    64 | 0,
-    64 | 0,
-  ],
+  [0, 0, () => AuthInfos, [0, { [_hQ]: _cIl }], 64 | 0, 64 | 0],
 ];
 export var TestAuthorizationResponse: StaticStructureSchema = [3, n0, _TARe, 0, [_aR], [() => AuthResults]];
 export var TestInvokeAuthorizerRequest: StaticStructureSchema = [
@@ -7332,19 +5616,8 @@ export var ThingTypeProperties: StaticStructureSchema = [
   [_tTD, _sAe, _mCq],
   [0, 64 | 0, () => Mqtt5Configuration],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TimeFilter: StaticStructureSchema = [3, n0, _TF, 0, [_af, _bef], [0, 0]];
 export var TimeoutConfig: StaticStructureSchema = [3, n0, _TCi, 0, [_iPTIM], [1]];
 export var TimestreamAction: StaticStructureSchema = [
@@ -7404,60 +5677,25 @@ export var TransferAlreadyCompletedException: StaticErrorSchema = [
   -3,
   n0,
   _TACE,
-  {
-    [_er]: _cl,
-    [_hE]: 410,
-  },
+  { [_er]: _cl, [_hE]: 410 },
   [_me],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TransferAlreadyCompletedException, __TransferAlreadyCompletedException);
-
 export var TransferCertificateRequest: StaticStructureSchema = [
   3,
   n0,
   _TCR,
   0,
   [_cI, _tAA, _tM],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tAA,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _tAA }], 0],
 ];
 export var TransferCertificateResponse: StaticStructureSchema = [3, n0, _TCRr, 0, [_tCA], [0]];
-export var TransferConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var TransferConflictException: StaticErrorSchema = [-3, n0, _TCE, { [_er]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(TransferConflictException, __TransferConflictException);
-
 export var TransferData: StaticStructureSchema = [3, n0, _TDr, 0, [_tM, _rRe, _tDr, _aDcc, _rDej], [0, 0, 4, 4, 4]];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_er]: _cl,
-    [_hE]: 401,
-  },
-  [_me],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_er]: _cl, [_hE]: 401 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rAes, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAccountAuditConfigurationRequest: StaticStructureSchema = [
@@ -7503,23 +5741,7 @@ export var UpdateCACertificateRequest: StaticStructureSchema = [
   _UCACR,
   0,
   [_cI, _nS, _nARS, _rCe, _rAR],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nS,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nARS,
-      },
-    ],
-    () => RegistrationConfig,
-    2,
-  ],
+  [[0, 1], [0, { [_hQ]: _nS }], [0, { [_hQ]: _nARS }], () => RegistrationConfig, 2],
 ];
 export var UpdateCertificateProviderRequest: StaticStructureSchema = [
   3,
@@ -7538,12 +5760,7 @@ export var UpdateCertificateRequest: StaticStructureSchema = [
   [_cI, _nS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nS,
-      },
-    ],
+    [0, { [_hQ]: _nS }],
   ],
 ];
 export var UpdateCommandRequest: StaticStructureSchema = [3, n0, _UCRp, 0, [_cIo, _dN, _d, _dep], [[0, 1], 0, 0, 2]];
@@ -7650,12 +5867,7 @@ export var UpdateJobRequest: StaticStructureSchema = [
     () => JobExecutionsRolloutConfig,
     () => AbortConfig,
     () => TimeoutConfig,
-    [
-      0,
-      {
-        [_hQ]: _nI,
-      },
-    ],
+    [0, { [_hQ]: _nI }],
     () => JobExecutionsRetryConfig,
   ],
 ];
@@ -7674,16 +5886,7 @@ export var UpdatePackageConfigurationRequest: StaticStructureSchema = [
   _UPCR,
   0,
   [_vUBJC, _cT],
-  [
-    () => VersionUpdateByJobsConfig,
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-  ],
+  [() => VersionUpdateByJobsConfig, [0, { [_iT]: 1, [_hQ]: _cT }]],
 ];
 export var UpdatePackageConfigurationResponse: StaticStructureSchema = [3, n0, _UPCRp, 0, [], []];
 export var UpdatePackageRequest: StaticStructureSchema = [
@@ -7692,19 +5895,7 @@ export var UpdatePackageRequest: StaticStructureSchema = [
   _UPR,
   0,
   [_pN, _d, _dVN, _uDV, _cT],
-  [
-    [0, 1],
-    [() => ResourceDescription, 0],
-    0,
-    2,
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
-  ],
+  [[0, 1], [() => ResourceDescription, 0], 0, 2, [0, { [_iT]: 1, [_hQ]: _cT }]],
 ];
 export var UpdatePackageResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [], []];
 export var UpdatePackageVersionRequest: StaticStructureSchema = [
@@ -7721,13 +5912,7 @@ export var UpdatePackageVersionRequest: StaticStructureSchema = [
     () => PackageVersionArtifact,
     0,
     [() => PackageVersionRecipe, 0],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cT,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cT }],
   ],
 ];
 export var UpdatePackageVersionResponse: StaticStructureSchema = [3, n0, _UPVRp, 0, [], []];
@@ -7767,12 +5952,7 @@ export var UpdateSecurityProfileRequest: StaticStructureSchema = [
     2,
     2,
     2,
-    [
-      1,
-      {
-        [_hQ]: _eV,
-      },
-    ],
+    [1, { [_hQ]: _eV }],
     () => MetricsExportConfig,
     2,
   ],
@@ -7862,45 +6042,12 @@ export var ValidateSecurityProfileBehaviorsResponse: StaticStructureSchema = [
   [2, () => ValidationErrors],
 ];
 export var ValidationError: StaticStructureSchema = [3, n0, _VE, 0, [_eMr], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VEa,
-  {
-    [_er]: _cl,
-    [_hE]: 400,
-  },
-  [_me],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VEa, { [_er]: _cl, [_hE]: 400 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var VersionConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VCE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var VersionConflictException: StaticErrorSchema = [-3, n0, _VCE, { [_er]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(VersionConflictException, __VersionConflictException);
-
-export var VersionsLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VLEE,
-  {
-    [_er]: _cl,
-    [_hE]: 409,
-  },
-  [_me],
-  [0],
-];
+export var VersionsLimitExceededException: StaticErrorSchema = [-3, n0, _VLEE, { [_er]: _cl, [_hE]: 409 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(VersionsLimitExceededException, __VersionsLimitExceededException);
-
 export var VersionUpdateByJobsConfig: StaticStructureSchema = [3, n0, _VUBJC, 0, [_en, _rA], [2, 0]];
 export var ViolationEvent: StaticStructureSchema = [
   3,
@@ -7937,18 +6084,14 @@ export var VpcDestinationSummary: StaticStructureSchema = [
   [64 | 0, 64 | 0, 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var IoTServiceException: StaticErrorSchema = [-3, _sm, "IoTServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTServiceException, __IoTServiceException);
-
 export var AbortCriteriaList: StaticListSchema = [1, n0, _ACL, 0, () => AbortCriteria];
 export var ActionList: StaticListSchema = [1, n0, _AL, 0, () => Action];
 export var ActiveViolations: StaticListSchema = [1, n0, _AVc, 0, () => ActiveViolation];
 export var AdditionalMetricsToRetainList = 64 | 0;
-
 export var AdditionalMetricsToRetainV2List: StaticListSchema = [1, n0, _AMTRVL, 0, () => MetricToRetain];
 export var AggregationTypeValues = 64 | 0;
-
 export var AssetPropertyValueList: StaticListSchema = [1, n0, _APVL, 0, () => AssetPropertyValue];
 export var AuditFindings: StaticListSchema = [1, n0, _AFu, 0, () => AuditFinding];
 export var AuditMitigationActionExecutionMetadataList: StaticListSchema = [
@@ -7977,16 +6120,13 @@ export var BillingGroupNameAndArnList: StaticListSchema = [1, n0, _BGNAAL, 0, ()
 export var Buckets: StaticListSchema = [1, n0, _Buc, 0, () => Bucket];
 export var CACertificates: StaticListSchema = [1, n0, _CACe, 0, () => CACertificate];
 export var CertificateProviderAccountDefaultForOperations = 64 | 0;
-
 export var CertificateProviders: StaticListSchema = [1, n0, _CPe, 0, () => CertificateProviderSummary];
 export var Certificates: StaticListSchema = [1, n0, _Ce, 0, () => Certificate];
 export var Cidrs = 64 | 0;
-
 export var CommandExecutionSummaryList: StaticListSchema = [1, n0, _CESL, 0, () => CommandExecutionSummary];
 export var CommandParameterList: StaticListSchema = [1, n0, _CPL, 0, () => CommandParameter];
 export var CommandSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CommandSummary];
 export var DestinationPackageVersions = 64 | 0;
-
 export var DetectMitigationActionExecutionList: StaticListSchema = [
   1,
   n0,
@@ -8002,29 +6142,22 @@ export var DetectMitigationActionsTaskSummaryList: StaticListSchema = [
   () => DetectMitigationActionsTaskSummary,
 ];
 export var DetectMitigationActionsToExecuteList = 64 | 0;
-
 export var DimensionNames = 64 | 0;
-
 export var DimensionStringValues = 64 | 0;
-
 export var DocumentParameters: StaticListSchema = [1, n0, _DPo, 0, () => DocumentParameter];
 export var DomainConfigurations: StaticListSchema = [1, n0, _DC, 0, () => DomainConfigurationSummary];
 export var EffectivePolicies: StaticListSchema = [1, n0, _EPf, 0, () => EffectivePolicy];
 export var Environments = 64 | 0;
-
 export var Fields: StaticListSchema = [1, n0, _Fi, 0, () => Field];
 export var FindingIds = 64 | 0;
-
 export var FleetMetricNameAndArnList: StaticListSchema = [1, n0, _FMNAAL, 0, () => FleetMetricNameAndArn];
 export var GeoLocationsFilter: StaticListSchema = [1, n0, _GLF, 0, () => GeoLocationTarget];
 export var HeaderList: StaticListSchema = [1, n0, _HL, 0, () => HttpActionHeader];
 export var IndexNamesList = 64 | 0;
-
 export var JobExecutionSummaryForJobList: StaticListSchema = [1, n0, _JESFJL, 0, () => JobExecutionSummaryForJob];
 export var JobExecutionSummaryForThingList: StaticListSchema = [1, n0, _JESFTL, 0, () => JobExecutionSummaryForThing];
 export var JobSummaryList: StaticListSchema = [1, n0, _JSL, 0, () => JobSummary];
 export var JobTargets = 64 | 0;
-
 export var JobTemplateSummaryList: StaticListSchema = [1, n0, _JTSL, 0, () => JobTemplateSummary];
 export var KafkaHeaders: StaticListSchema = [1, n0, _KH, 0, () => KafkaActionHeader];
 export var LogTargetConfigurations: StaticListSchema = [1, n0, _LTCo, 0, () => LogTargetConfiguration];
@@ -8032,17 +6165,12 @@ export var MaintenanceWindows: StaticListSchema = [1, n0, _MWa, 0, () => Mainten
 export var ManagedJobTemplatesSummaryList: StaticListSchema = [1, n0, _MJTSL, 0, () => ManagedJobTemplateSummary];
 export var MetricDatumList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDatum];
 export var MetricNames = 64 | 0;
-
 export var MissingContextValues = 64 | 0;
-
 export var MitigationActionIdentifierList: StaticListSchema = [1, n0, _MAIL, 0, () => MitigationActionIdentifier];
 export var MitigationActionList: StaticListSchema = [1, n0, _MAL, 0, () => MitigationAction];
 export var MitigationActionNameList = 64 | 0;
-
 export var NamedShadowNamesFilter = 64 | 0;
-
 export var NumberList = 64 | 1;
-
 export var OTAUpdateFiles: StaticListSchema = [1, n0, _OTAUFp, 0, () => OTAUpdateFile];
 export var OTAUpdatesSummary: StaticListSchema = [1, n0, _OTAUSp, 0, () => OTAUpdateSummary];
 export var OutgoingCertificates: StaticListSchema = [1, n0, _OCu, 0, () => OutgoingCertificate];
@@ -8050,25 +6178,17 @@ export var PackageSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => Package
 export var PackageVersionSummaryList: StaticListSchema = [1, n0, _PVSL, 0, () => PackageVersionSummary];
 export var Percentiles: StaticListSchema = [1, n0, _Pe, 0, () => PercentPair];
 export var PercentList = 64 | 1;
-
 export var Policies: StaticListSchema = [1, n0, _Po, 0, () => Policy];
 export var PolicyDocuments = 64 | 0;
-
 export var PolicyNames = 64 | 0;
-
 export var PolicyTargets = 64 | 0;
-
 export var PolicyVersions: StaticListSchema = [1, n0, _PVo, 0, () => PolicyVersion];
 export var Ports = 64 | 1;
-
 export var Principals = 64 | 0;
-
 export var PrincipalThingObjects: StaticListSchema = [1, n0, _PTOr, 0, () => PrincipalThingObject];
 export var ProcessingTargetNameList = 64 | 0;
-
 export var PropagatingAttributeList: StaticListSchema = [1, n0, _PAL, 0, () => PropagatingAttribute];
 export var Protocols = 64 | 0;
-
 export var ProvisioningTemplateListing: StaticListSchema = [1, n0, _PTL, 0, () => ProvisioningTemplateSummary];
 export var ProvisioningTemplateVersionListing: StaticListSchema = [
   1,
@@ -8079,57 +6199,39 @@ export var ProvisioningTemplateVersionListing: StaticListSchema = [
 ];
 export var PutAssetPropertyValueEntryList: StaticListSchema = [1, n0, _PAPVEL, 0, () => PutAssetPropertyValueEntry];
 export var ReasonForNonComplianceCodes = 64 | 0;
-
 export var RelatedResources: StaticListSchema = [1, n0, _RRe, 0, () => RelatedResource];
 export var Resources = 64 | 0;
-
 export var RetryCriteriaList: StaticListSchema = [1, n0, _RCL, 0, () => RetryCriteria];
 export var RoleAliases = 64 | 0;
-
 export var S3FileUrlList = 64 | 0;
-
 export var SbomValidationResultSummaryList: StaticListSchema = [1, n0, _SVRSL, 0, () => SbomValidationResultSummary];
 export var ScheduledAuditMetadataList: StaticListSchema = [1, n0, _SAML, 0, () => ScheduledAuditMetadata];
 export var ScheduledJobRolloutList: StaticListSchema = [1, n0, _SJRL, 0, () => ScheduledJobRollout];
 export var SearchableAttributes = 64 | 0;
-
 export var SecurityGroupList = 64 | 0;
-
 export var SecurityProfileIdentifiers: StaticListSchema = [1, n0, _SPIe, 0, () => SecurityProfileIdentifier];
 export var SecurityProfileTargetMappings: StaticListSchema = [1, n0, _SPTMe, 0, () => SecurityProfileTargetMapping];
 export var SecurityProfileTargets: StaticListSchema = [1, n0, _SPTe, 0, () => SecurityProfileTarget];
 export var ServerCertificateArns = 64 | 0;
-
 export var ServerCertificates: StaticListSchema = [1, n0, _SCe, 0, () => ServerCertificateSummary];
 export var StreamFiles: StaticListSchema = [1, n0, _SFt, 0, () => StreamFile];
 export var StreamsSummary: StaticListSchema = [1, n0, _SSt, 0, () => StreamSummary];
 export var StringList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetAuditCheckNames = 64 | 0;
-
 export var Targets = 64 | 0;
-
 export var TargetViolationIdsForDetectMitigationActions = 64 | 0;
-
 export var TaskIdList = 64 | 0;
-
 export var ThingAttributeList: StaticListSchema = [1, n0, _TAL, 0, () => ThingAttribute];
 export var ThingDocumentList: StaticListSchema = [1, n0, _TDL, 0, () => ThingDocument];
 export var ThingGroupDocumentList: StaticListSchema = [1, n0, _TGDL, 0, () => ThingGroupDocument];
 export var ThingGroupList = 64 | 0;
-
 export var ThingGroupNameAndArnList: StaticListSchema = [1, n0, _TGNAAL, 0, () => GroupNameAndArn];
 export var ThingGroupNameList = 64 | 0;
-
 export var ThingGroupNames = 64 | 0;
-
 export var ThingNameList = 64 | 0;
-
 export var ThingPrincipalObjects: StaticListSchema = [1, n0, _TPOh, 0, () => ThingPrincipalObject];
 export var ThingTypeList: StaticListSchema = [1, n0, _TTL, 0, () => ThingTypeDefinition];
 export var TimestreamDimensionList: StaticListSchema = [1, n0, _TDLi, 0, () => TimestreamDimension];
@@ -8139,12 +6241,9 @@ export var UserProperties: StaticListSchema = [1, n0, _UPs, 0, () => UserPropert
 export var ValidationErrors: StaticListSchema = [1, n0, _VEal, 0, () => ValidationError];
 export var ViolationEvents: StaticListSchema = [1, n0, _VEio, 0, () => ViolationEvent];
 export var AdditionalParameterMap = 128 | 0;
-
 export var AlertTargets: StaticMapSchema = [2, n0, _ATle, 0, 0, () => AlertTarget];
 export var Attributes = 128 | 0;
-
 export var AttributesMap = 128 | 0;
-
 export var AuditCheckConfigurations: StaticMapSchema = [2, n0, _ACCu, 0, 0, () => AuditCheckConfiguration];
 export var AuditCheckToActionsMapping: StaticMapSchema = [2, n0, _ACTAM, 0, 0, 64 | 0];
 export var AuditCheckToReasonCodeFilter: StaticMapSchema = [2, n0, _ACTRCF, 0, 0, 64 | 0];
@@ -8159,37 +6258,25 @@ export var AuditMitigationActionsTaskStatistics: StaticMapSchema = [
 ];
 export var AuditNotificationTargetConfigurations: StaticMapSchema = [2, n0, _ANTC, 0, 0, () => AuditNotificationTarget];
 export var CheckCustomConfiguration = 128 | 0;
-
 export var ClientProperties = 128 | 0;
-
 export var CommandExecutionParameterMap: StaticMapSchema = [2, n0, _CEPM, 0, 0, () => CommandParameterValue];
 export var CommandExecutionResultMap: StaticMapSchema = [2, n0, _CERM, 0, 0, () => CommandExecutionResult];
 export var DetailsMap = 128 | 0;
-
 export var EventConfigurations: StaticMapSchema = [2, n0, _EC, 0, 0, () => Configuration];
 export var HttpHeaders = 128 | 0;
-
 export var ParameterMap = 128 | 0;
-
 export var _Parameters = 128 | 0;
-
 export var PublicKeyMap = 128 | 0;
-
 export var ResourceArns = 128 | 0;
-
 export var ResourceAttributes: StaticMapSchema = [2, n0, _RAe, 8, 0, 0];
 export var StringMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssetPropertyVariant: StaticStructureSchema = [3, n0, _APVs, 0, [_sVtri, _iV, _dVo, _bV], [0, 0, 0, 0]];
 export var AcceptCertificateTransfer: StaticOperationSchema = [
   9,
   n0,
   _ACT,
-  {
-    [_h]: ["PATCH", "/accept-certificate-transfer/{certificateId}", 200],
-  },
+  { [_h]: ["PATCH", "/accept-certificate-transfer/{certificateId}", 200] },
   () => AcceptCertificateTransferRequest,
   () => __Unit,
 ];
@@ -8197,9 +6284,7 @@ export var AddThingToBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _ATTBG,
-  {
-    [_h]: ["PUT", "/billing-groups/addThingToBillingGroup", 200],
-  },
+  { [_h]: ["PUT", "/billing-groups/addThingToBillingGroup", 200] },
   () => AddThingToBillingGroupRequest,
   () => AddThingToBillingGroupResponse,
 ];
@@ -8207,9 +6292,7 @@ export var AddThingToThingGroup: StaticOperationSchema = [
   9,
   n0,
   _ATTTG,
-  {
-    [_h]: ["PUT", "/thing-groups/addThingToThingGroup", 200],
-  },
+  { [_h]: ["PUT", "/thing-groups/addThingToThingGroup", 200] },
   () => AddThingToThingGroupRequest,
   () => AddThingToThingGroupResponse,
 ];
@@ -8217,9 +6300,7 @@ export var AssociateSbomWithPackageVersion: StaticOperationSchema = [
   9,
   n0,
   _ASWPV,
-  {
-    [_h]: ["PUT", "/packages/{packageName}/versions/{versionName}/sbom", 200],
-  },
+  { [_h]: ["PUT", "/packages/{packageName}/versions/{versionName}/sbom", 200] },
   () => AssociateSbomWithPackageVersionRequest,
   () => AssociateSbomWithPackageVersionResponse,
 ];
@@ -8227,9 +6308,7 @@ export var AssociateTargetsWithJob: StaticOperationSchema = [
   9,
   n0,
   _ATWJ,
-  {
-    [_h]: ["POST", "/jobs/{jobId}/targets", 200],
-  },
+  { [_h]: ["POST", "/jobs/{jobId}/targets", 200] },
   () => AssociateTargetsWithJobRequest,
   () => AssociateTargetsWithJobResponse,
 ];
@@ -8237,9 +6316,7 @@ export var AttachPolicy: StaticOperationSchema = [
   9,
   n0,
   _APt,
-  {
-    [_h]: ["PUT", "/target-policies/{policyName}", 200],
-  },
+  { [_h]: ["PUT", "/target-policies/{policyName}", 200] },
   () => AttachPolicyRequest,
   () => __Unit,
 ];
@@ -8247,9 +6324,7 @@ export var AttachPrincipalPolicy: StaticOperationSchema = [
   9,
   n0,
   _APP,
-  {
-    [_h]: ["PUT", "/principal-policies/{policyName}", 200],
-  },
+  { [_h]: ["PUT", "/principal-policies/{policyName}", 200] },
   () => AttachPrincipalPolicyRequest,
   () => __Unit,
 ];
@@ -8257,9 +6332,7 @@ export var AttachSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _ASP,
-  {
-    [_h]: ["PUT", "/security-profiles/{securityProfileName}/targets", 200],
-  },
+  { [_h]: ["PUT", "/security-profiles/{securityProfileName}/targets", 200] },
   () => AttachSecurityProfileRequest,
   () => AttachSecurityProfileResponse,
 ];
@@ -8267,9 +6340,7 @@ export var AttachThingPrincipal: StaticOperationSchema = [
   9,
   n0,
   _ATP,
-  {
-    [_h]: ["PUT", "/things/{thingName}/principals", 200],
-  },
+  { [_h]: ["PUT", "/things/{thingName}/principals", 200] },
   () => AttachThingPrincipalRequest,
   () => AttachThingPrincipalResponse,
 ];
@@ -8277,9 +6348,7 @@ export var CancelAuditMitigationActionsTask: StaticOperationSchema = [
   9,
   n0,
   _CAMAT,
-  {
-    [_h]: ["PUT", "/audit/mitigationactions/tasks/{taskId}/cancel", 200],
-  },
+  { [_h]: ["PUT", "/audit/mitigationactions/tasks/{taskId}/cancel", 200] },
   () => CancelAuditMitigationActionsTaskRequest,
   () => CancelAuditMitigationActionsTaskResponse,
 ];
@@ -8287,9 +6356,7 @@ export var CancelAuditTask: StaticOperationSchema = [
   9,
   n0,
   _CAT,
-  {
-    [_h]: ["PUT", "/audit/tasks/{taskId}/cancel", 200],
-  },
+  { [_h]: ["PUT", "/audit/tasks/{taskId}/cancel", 200] },
   () => CancelAuditTaskRequest,
   () => CancelAuditTaskResponse,
 ];
@@ -8297,9 +6364,7 @@ export var CancelCertificateTransfer: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  {
-    [_h]: ["PATCH", "/cancel-certificate-transfer/{certificateId}", 200],
-  },
+  { [_h]: ["PATCH", "/cancel-certificate-transfer/{certificateId}", 200] },
   () => CancelCertificateTransferRequest,
   () => __Unit,
 ];
@@ -8307,9 +6372,7 @@ export var CancelDetectMitigationActionsTask: StaticOperationSchema = [
   9,
   n0,
   _CDMAT,
-  {
-    [_h]: ["PUT", "/detect/mitigationactions/tasks/{taskId}/cancel", 200],
-  },
+  { [_h]: ["PUT", "/detect/mitigationactions/tasks/{taskId}/cancel", 200] },
   () => CancelDetectMitigationActionsTaskRequest,
   () => CancelDetectMitigationActionsTaskResponse,
 ];
@@ -8317,9 +6380,7 @@ export var CancelJob: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  {
-    [_h]: ["PUT", "/jobs/{jobId}/cancel", 200],
-  },
+  { [_h]: ["PUT", "/jobs/{jobId}/cancel", 200] },
   () => CancelJobRequest,
   () => CancelJobResponse,
 ];
@@ -8327,9 +6388,7 @@ export var CancelJobExecution: StaticOperationSchema = [
   9,
   n0,
   _CJE,
-  {
-    [_h]: ["PUT", "/things/{thingName}/jobs/{jobId}/cancel", 200],
-  },
+  { [_h]: ["PUT", "/things/{thingName}/jobs/{jobId}/cancel", 200] },
   () => CancelJobExecutionRequest,
   () => __Unit,
 ];
@@ -8337,9 +6396,7 @@ export var ClearDefaultAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _CDA,
-  {
-    [_h]: ["DELETE", "/default-authorizer", 200],
-  },
+  { [_h]: ["DELETE", "/default-authorizer", 200] },
   () => ClearDefaultAuthorizerRequest,
   () => ClearDefaultAuthorizerResponse,
 ];
@@ -8347,9 +6404,7 @@ export var ConfirmTopicRuleDestination: StaticOperationSchema = [
   9,
   n0,
   _CTRD,
-  {
-    [_h]: ["GET", "/confirmdestination/{confirmationToken+}", 200],
-  },
+  { [_h]: ["GET", "/confirmdestination/{confirmationToken+}", 200] },
   () => ConfirmTopicRuleDestinationRequest,
   () => ConfirmTopicRuleDestinationResponse,
 ];
@@ -8357,9 +6412,7 @@ export var CreateAuditSuppression: StaticOperationSchema = [
   9,
   n0,
   _CAS,
-  {
-    [_h]: ["POST", "/audit/suppressions/create", 200],
-  },
+  { [_h]: ["POST", "/audit/suppressions/create", 200] },
   () => CreateAuditSuppressionRequest,
   () => CreateAuditSuppressionResponse,
 ];
@@ -8367,9 +6420,7 @@ export var CreateAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/authorizer/{authorizerName}", 200],
-  },
+  { [_h]: ["POST", "/authorizer/{authorizerName}", 200] },
   () => CreateAuthorizerRequest,
   () => CreateAuthorizerResponse,
 ];
@@ -8377,9 +6428,7 @@ export var CreateBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _CBG,
-  {
-    [_h]: ["POST", "/billing-groups/{billingGroupName}", 200],
-  },
+  { [_h]: ["POST", "/billing-groups/{billingGroupName}", 200] },
   () => CreateBillingGroupRequest,
   () => CreateBillingGroupResponse,
 ];
@@ -8387,9 +6436,7 @@ export var CreateCertificateFromCsr: StaticOperationSchema = [
   9,
   n0,
   _CCFC,
-  {
-    [_h]: ["POST", "/certificates", 200],
-  },
+  { [_h]: ["POST", "/certificates", 200] },
   () => CreateCertificateFromCsrRequest,
   () => CreateCertificateFromCsrResponse,
 ];
@@ -8397,9 +6444,7 @@ export var CreateCertificateProvider: StaticOperationSchema = [
   9,
   n0,
   _CCP,
-  {
-    [_h]: ["POST", "/certificate-providers/{certificateProviderName}", 200],
-  },
+  { [_h]: ["POST", "/certificate-providers/{certificateProviderName}", 200] },
   () => CreateCertificateProviderRequest,
   () => CreateCertificateProviderResponse,
 ];
@@ -8407,9 +6452,7 @@ export var CreateCommand: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["PUT", "/commands/{commandId}", 200],
-  },
+  { [_h]: ["PUT", "/commands/{commandId}", 200] },
   () => CreateCommandRequest,
   () => CreateCommandResponse,
 ];
@@ -8417,9 +6460,7 @@ export var CreateCustomMetric: StaticOperationSchema = [
   9,
   n0,
   _CCM,
-  {
-    [_h]: ["POST", "/custom-metric/{metricName}", 200],
-  },
+  { [_h]: ["POST", "/custom-metric/{metricName}", 200] },
   () => CreateCustomMetricRequest,
   () => CreateCustomMetricResponse,
 ];
@@ -8427,9 +6468,7 @@ export var CreateDimension: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  {
-    [_h]: ["POST", "/dimensions/{name}", 200],
-  },
+  { [_h]: ["POST", "/dimensions/{name}", 200] },
   () => CreateDimensionRequest,
   () => CreateDimensionResponse,
 ];
@@ -8437,9 +6476,7 @@ export var CreateDomainConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CDC,
-  {
-    [_h]: ["POST", "/domainConfigurations/{domainConfigurationName}", 200],
-  },
+  { [_h]: ["POST", "/domainConfigurations/{domainConfigurationName}", 200] },
   () => CreateDomainConfigurationRequest,
   () => CreateDomainConfigurationResponse,
 ];
@@ -8447,9 +6484,7 @@ export var CreateDynamicThingGroup: StaticOperationSchema = [
   9,
   n0,
   _CDTG,
-  {
-    [_h]: ["POST", "/dynamic-thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["POST", "/dynamic-thing-groups/{thingGroupName}", 200] },
   () => CreateDynamicThingGroupRequest,
   () => CreateDynamicThingGroupResponse,
 ];
@@ -8457,9 +6492,7 @@ export var CreateFleetMetric: StaticOperationSchema = [
   9,
   n0,
   _CFM,
-  {
-    [_h]: ["PUT", "/fleet-metric/{metricName}", 200],
-  },
+  { [_h]: ["PUT", "/fleet-metric/{metricName}", 200] },
   () => CreateFleetMetricRequest,
   () => CreateFleetMetricResponse,
 ];
@@ -8467,9 +6500,7 @@ export var CreateJob: StaticOperationSchema = [
   9,
   n0,
   _CJr,
-  {
-    [_h]: ["PUT", "/jobs/{jobId}", 200],
-  },
+  { [_h]: ["PUT", "/jobs/{jobId}", 200] },
   () => CreateJobRequest,
   () => CreateJobResponse,
 ];
@@ -8477,9 +6508,7 @@ export var CreateJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _CJT,
-  {
-    [_h]: ["PUT", "/job-templates/{jobTemplateId}", 200],
-  },
+  { [_h]: ["PUT", "/job-templates/{jobTemplateId}", 200] },
   () => CreateJobTemplateRequest,
   () => CreateJobTemplateResponse,
 ];
@@ -8487,9 +6516,7 @@ export var CreateKeysAndCertificate: StaticOperationSchema = [
   9,
   n0,
   _CKAC,
-  {
-    [_h]: ["POST", "/keys-and-certificate", 200],
-  },
+  { [_h]: ["POST", "/keys-and-certificate", 200] },
   () => CreateKeysAndCertificateRequest,
   () => CreateKeysAndCertificateResponse,
 ];
@@ -8497,9 +6524,7 @@ export var CreateMitigationAction: StaticOperationSchema = [
   9,
   n0,
   _CMAr,
-  {
-    [_h]: ["POST", "/mitigationactions/actions/{actionName}", 200],
-  },
+  { [_h]: ["POST", "/mitigationactions/actions/{actionName}", 200] },
   () => CreateMitigationActionRequest,
   () => CreateMitigationActionResponse,
 ];
@@ -8507,9 +6532,7 @@ export var CreateOTAUpdate: StaticOperationSchema = [
   9,
   n0,
   _COTAU,
-  {
-    [_h]: ["POST", "/otaUpdates/{otaUpdateId}", 200],
-  },
+  { [_h]: ["POST", "/otaUpdates/{otaUpdateId}", 200] },
   () => CreateOTAUpdateRequest,
   () => CreateOTAUpdateResponse,
 ];
@@ -8517,9 +6540,7 @@ export var CreatePackage: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["PUT", "/packages/{packageName}", 200],
-  },
+  { [_h]: ["PUT", "/packages/{packageName}", 200] },
   () => CreatePackageRequest,
   () => CreatePackageResponse,
 ];
@@ -8527,9 +6548,7 @@ export var CreatePackageVersion: StaticOperationSchema = [
   9,
   n0,
   _CPVr,
-  {
-    [_h]: ["PUT", "/packages/{packageName}/versions/{versionName}", 200],
-  },
+  { [_h]: ["PUT", "/packages/{packageName}/versions/{versionName}", 200] },
   () => CreatePackageVersionRequest,
   () => CreatePackageVersionResponse,
 ];
@@ -8537,9 +6556,7 @@ export var CreatePolicy: StaticOperationSchema = [
   9,
   n0,
   _CPre,
-  {
-    [_h]: ["POST", "/policies/{policyName}", 200],
-  },
+  { [_h]: ["POST", "/policies/{policyName}", 200] },
   () => CreatePolicyRequest,
   () => CreatePolicyResponse,
 ];
@@ -8547,9 +6564,7 @@ export var CreatePolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _CPVre,
-  {
-    [_h]: ["POST", "/policies/{policyName}/version", 200],
-  },
+  { [_h]: ["POST", "/policies/{policyName}/version", 200] },
   () => CreatePolicyVersionRequest,
   () => CreatePolicyVersionResponse,
 ];
@@ -8557,9 +6572,7 @@ export var CreateProvisioningClaim: StaticOperationSchema = [
   9,
   n0,
   _CPC,
-  {
-    [_h]: ["POST", "/provisioning-templates/{templateName}/provisioning-claim", 200],
-  },
+  { [_h]: ["POST", "/provisioning-templates/{templateName}/provisioning-claim", 200] },
   () => CreateProvisioningClaimRequest,
   () => CreateProvisioningClaimResponse,
 ];
@@ -8567,9 +6580,7 @@ export var CreateProvisioningTemplate: StaticOperationSchema = [
   9,
   n0,
   _CPT,
-  {
-    [_h]: ["POST", "/provisioning-templates", 200],
-  },
+  { [_h]: ["POST", "/provisioning-templates", 200] },
   () => CreateProvisioningTemplateRequest,
   () => CreateProvisioningTemplateResponse,
 ];
@@ -8577,9 +6588,7 @@ export var CreateProvisioningTemplateVersion: StaticOperationSchema = [
   9,
   n0,
   _CPTV,
-  {
-    [_h]: ["POST", "/provisioning-templates/{templateName}/versions", 200],
-  },
+  { [_h]: ["POST", "/provisioning-templates/{templateName}/versions", 200] },
   () => CreateProvisioningTemplateVersionRequest,
   () => CreateProvisioningTemplateVersionResponse,
 ];
@@ -8587,9 +6596,7 @@ export var CreateRoleAlias: StaticOperationSchema = [
   9,
   n0,
   _CRA,
-  {
-    [_h]: ["POST", "/role-aliases/{roleAlias}", 200],
-  },
+  { [_h]: ["POST", "/role-aliases/{roleAlias}", 200] },
   () => CreateRoleAliasRequest,
   () => CreateRoleAliasResponse,
 ];
@@ -8597,9 +6604,7 @@ export var CreateScheduledAudit: StaticOperationSchema = [
   9,
   n0,
   _CSA,
-  {
-    [_h]: ["POST", "/audit/scheduledaudits/{scheduledAuditName}", 200],
-  },
+  { [_h]: ["POST", "/audit/scheduledaudits/{scheduledAuditName}", 200] },
   () => CreateScheduledAuditRequest,
   () => CreateScheduledAuditResponse,
 ];
@@ -8607,9 +6612,7 @@ export var CreateSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_h]: ["POST", "/security-profiles/{securityProfileName}", 200],
-  },
+  { [_h]: ["POST", "/security-profiles/{securityProfileName}", 200] },
   () => CreateSecurityProfileRequest,
   () => CreateSecurityProfileResponse,
 ];
@@ -8617,9 +6620,7 @@ export var CreateStream: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  {
-    [_h]: ["POST", "/streams/{streamId}", 200],
-  },
+  { [_h]: ["POST", "/streams/{streamId}", 200] },
   () => CreateStreamRequest,
   () => CreateStreamResponse,
 ];
@@ -8627,9 +6628,7 @@ export var CreateThing: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_h]: ["POST", "/things/{thingName}", 200],
-  },
+  { [_h]: ["POST", "/things/{thingName}", 200] },
   () => CreateThingRequest,
   () => CreateThingResponse,
 ];
@@ -8637,9 +6636,7 @@ export var CreateThingGroup: StaticOperationSchema = [
   9,
   n0,
   _CTG,
-  {
-    [_h]: ["POST", "/thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["POST", "/thing-groups/{thingGroupName}", 200] },
   () => CreateThingGroupRequest,
   () => CreateThingGroupResponse,
 ];
@@ -8647,9 +6644,7 @@ export var CreateThingType: StaticOperationSchema = [
   9,
   n0,
   _CTT,
-  {
-    [_h]: ["POST", "/thing-types/{thingTypeName}", 200],
-  },
+  { [_h]: ["POST", "/thing-types/{thingTypeName}", 200] },
   () => CreateThingTypeRequest,
   () => CreateThingTypeResponse,
 ];
@@ -8657,9 +6652,7 @@ export var CreateTopicRule: StaticOperationSchema = [
   9,
   n0,
   _CTRre,
-  {
-    [_h]: ["POST", "/rules/{ruleName}", 200],
-  },
+  { [_h]: ["POST", "/rules/{ruleName}", 200] },
   () => CreateTopicRuleRequest,
   () => __Unit,
 ];
@@ -8667,9 +6660,7 @@ export var CreateTopicRuleDestination: StaticOperationSchema = [
   9,
   n0,
   _CTRDr,
-  {
-    [_h]: ["POST", "/destinations", 200],
-  },
+  { [_h]: ["POST", "/destinations", 200] },
   () => CreateTopicRuleDestinationRequest,
   () => CreateTopicRuleDestinationResponse,
 ];
@@ -8677,9 +6668,7 @@ export var DeleteAccountAuditConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DAAC,
-  {
-    [_h]: ["DELETE", "/audit/configuration", 200],
-  },
+  { [_h]: ["DELETE", "/audit/configuration", 200] },
   () => DeleteAccountAuditConfigurationRequest,
   () => DeleteAccountAuditConfigurationResponse,
 ];
@@ -8687,9 +6676,7 @@ export var DeleteAuditSuppression: StaticOperationSchema = [
   9,
   n0,
   _DAS,
-  {
-    [_h]: ["POST", "/audit/suppressions/delete", 200],
-  },
+  { [_h]: ["POST", "/audit/suppressions/delete", 200] },
   () => DeleteAuditSuppressionRequest,
   () => DeleteAuditSuppressionResponse,
 ];
@@ -8697,9 +6684,7 @@ export var DeleteAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/authorizer/{authorizerName}", 200],
-  },
+  { [_h]: ["DELETE", "/authorizer/{authorizerName}", 200] },
   () => DeleteAuthorizerRequest,
   () => DeleteAuthorizerResponse,
 ];
@@ -8707,9 +6692,7 @@ export var DeleteBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _DBG,
-  {
-    [_h]: ["DELETE", "/billing-groups/{billingGroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/billing-groups/{billingGroupName}", 200] },
   () => DeleteBillingGroupRequest,
   () => DeleteBillingGroupResponse,
 ];
@@ -8717,9 +6700,7 @@ export var DeleteCACertificate: StaticOperationSchema = [
   9,
   n0,
   _DCAC,
-  {
-    [_h]: ["DELETE", "/cacertificate/{certificateId}", 200],
-  },
+  { [_h]: ["DELETE", "/cacertificate/{certificateId}", 200] },
   () => DeleteCACertificateRequest,
   () => DeleteCACertificateResponse,
 ];
@@ -8727,9 +6708,7 @@ export var DeleteCertificate: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["DELETE", "/certificates/{certificateId}", 200],
-  },
+  { [_h]: ["DELETE", "/certificates/{certificateId}", 200] },
   () => DeleteCertificateRequest,
   () => __Unit,
 ];
@@ -8737,9 +6716,7 @@ export var DeleteCertificateProvider: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/certificate-providers/{certificateProviderName}", 200],
-  },
+  { [_h]: ["DELETE", "/certificate-providers/{certificateProviderName}", 200] },
   () => DeleteCertificateProviderRequest,
   () => DeleteCertificateProviderResponse,
 ];
@@ -8747,9 +6724,7 @@ export var DeleteCommand: StaticOperationSchema = [
   9,
   n0,
   _DCel,
-  {
-    [_h]: ["DELETE", "/commands/{commandId}", 200],
-  },
+  { [_h]: ["DELETE", "/commands/{commandId}", 200] },
   () => DeleteCommandRequest,
   () => DeleteCommandResponse,
 ];
@@ -8757,9 +6732,7 @@ export var DeleteCommandExecution: StaticOperationSchema = [
   9,
   n0,
   _DCEe,
-  {
-    [_h]: ["DELETE", "/command-executions/{executionId}", 200],
-  },
+  { [_h]: ["DELETE", "/command-executions/{executionId}", 200] },
   () => DeleteCommandExecutionRequest,
   () => DeleteCommandExecutionResponse,
 ];
@@ -8767,9 +6740,7 @@ export var DeleteCustomMetric: StaticOperationSchema = [
   9,
   n0,
   _DCM,
-  {
-    [_h]: ["DELETE", "/custom-metric/{metricName}", 200],
-  },
+  { [_h]: ["DELETE", "/custom-metric/{metricName}", 200] },
   () => DeleteCustomMetricRequest,
   () => DeleteCustomMetricResponse,
 ];
@@ -8777,9 +6748,7 @@ export var DeleteDimension: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["DELETE", "/dimensions/{name}", 200],
-  },
+  { [_h]: ["DELETE", "/dimensions/{name}", 200] },
   () => DeleteDimensionRequest,
   () => DeleteDimensionResponse,
 ];
@@ -8787,9 +6756,7 @@ export var DeleteDomainConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DDC,
-  {
-    [_h]: ["DELETE", "/domainConfigurations/{domainConfigurationName}", 200],
-  },
+  { [_h]: ["DELETE", "/domainConfigurations/{domainConfigurationName}", 200] },
   () => DeleteDomainConfigurationRequest,
   () => DeleteDomainConfigurationResponse,
 ];
@@ -8797,9 +6764,7 @@ export var DeleteDynamicThingGroup: StaticOperationSchema = [
   9,
   n0,
   _DDTG,
-  {
-    [_h]: ["DELETE", "/dynamic-thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/dynamic-thing-groups/{thingGroupName}", 200] },
   () => DeleteDynamicThingGroupRequest,
   () => DeleteDynamicThingGroupResponse,
 ];
@@ -8807,9 +6772,7 @@ export var DeleteFleetMetric: StaticOperationSchema = [
   9,
   n0,
   _DFM,
-  {
-    [_h]: ["DELETE", "/fleet-metric/{metricName}", 200],
-  },
+  { [_h]: ["DELETE", "/fleet-metric/{metricName}", 200] },
   () => DeleteFleetMetricRequest,
   () => __Unit,
 ];
@@ -8817,9 +6780,7 @@ export var DeleteJob: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_h]: ["DELETE", "/jobs/{jobId}", 200],
-  },
+  { [_h]: ["DELETE", "/jobs/{jobId}", 200] },
   () => DeleteJobRequest,
   () => __Unit,
 ];
@@ -8827,9 +6788,7 @@ export var DeleteJobExecution: StaticOperationSchema = [
   9,
   n0,
   _DJE,
-  {
-    [_h]: ["DELETE", "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}", 200],
-  },
+  { [_h]: ["DELETE", "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}", 200] },
   () => DeleteJobExecutionRequest,
   () => __Unit,
 ];
@@ -8837,9 +6796,7 @@ export var DeleteJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _DJT,
-  {
-    [_h]: ["DELETE", "/job-templates/{jobTemplateId}", 200],
-  },
+  { [_h]: ["DELETE", "/job-templates/{jobTemplateId}", 200] },
   () => DeleteJobTemplateRequest,
   () => __Unit,
 ];
@@ -8847,9 +6804,7 @@ export var DeleteMitigationAction: StaticOperationSchema = [
   9,
   n0,
   _DMA,
-  {
-    [_h]: ["DELETE", "/mitigationactions/actions/{actionName}", 200],
-  },
+  { [_h]: ["DELETE", "/mitigationactions/actions/{actionName}", 200] },
   () => DeleteMitigationActionRequest,
   () => DeleteMitigationActionResponse,
 ];
@@ -8857,9 +6812,7 @@ export var DeleteOTAUpdate: StaticOperationSchema = [
   9,
   n0,
   _DOTAU,
-  {
-    [_h]: ["DELETE", "/otaUpdates/{otaUpdateId}", 200],
-  },
+  { [_h]: ["DELETE", "/otaUpdates/{otaUpdateId}", 200] },
   () => DeleteOTAUpdateRequest,
   () => DeleteOTAUpdateResponse,
 ];
@@ -8867,9 +6820,7 @@ export var DeletePackage: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  {
-    [_h]: ["DELETE", "/packages/{packageName}", 200],
-  },
+  { [_h]: ["DELETE", "/packages/{packageName}", 200] },
   () => DeletePackageRequest,
   () => DeletePackageResponse,
 ];
@@ -8877,9 +6828,7 @@ export var DeletePackageVersion: StaticOperationSchema = [
   9,
   n0,
   _DPV,
-  {
-    [_h]: ["DELETE", "/packages/{packageName}/versions/{versionName}", 200],
-  },
+  { [_h]: ["DELETE", "/packages/{packageName}/versions/{versionName}", 200] },
   () => DeletePackageVersionRequest,
   () => DeletePackageVersionResponse,
 ];
@@ -8887,9 +6836,7 @@ export var DeletePolicy: StaticOperationSchema = [
   9,
   n0,
   _DPel,
-  {
-    [_h]: ["DELETE", "/policies/{policyName}", 200],
-  },
+  { [_h]: ["DELETE", "/policies/{policyName}", 200] },
   () => DeletePolicyRequest,
   () => __Unit,
 ];
@@ -8897,9 +6844,7 @@ export var DeletePolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _DPVe,
-  {
-    [_h]: ["DELETE", "/policies/{policyName}/version/{policyVersionId}", 200],
-  },
+  { [_h]: ["DELETE", "/policies/{policyName}/version/{policyVersionId}", 200] },
   () => DeletePolicyVersionRequest,
   () => __Unit,
 ];
@@ -8907,9 +6852,7 @@ export var DeleteProvisioningTemplate: StaticOperationSchema = [
   9,
   n0,
   _DPT,
-  {
-    [_h]: ["DELETE", "/provisioning-templates/{templateName}", 200],
-  },
+  { [_h]: ["DELETE", "/provisioning-templates/{templateName}", 200] },
   () => DeleteProvisioningTemplateRequest,
   () => DeleteProvisioningTemplateResponse,
 ];
@@ -8917,9 +6860,7 @@ export var DeleteProvisioningTemplateVersion: StaticOperationSchema = [
   9,
   n0,
   _DPTV,
-  {
-    [_h]: ["DELETE", "/provisioning-templates/{templateName}/versions/{versionId}", 200],
-  },
+  { [_h]: ["DELETE", "/provisioning-templates/{templateName}/versions/{versionId}", 200] },
   () => DeleteProvisioningTemplateVersionRequest,
   () => DeleteProvisioningTemplateVersionResponse,
 ];
@@ -8927,9 +6868,7 @@ export var DeleteRegistrationCode: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_h]: ["DELETE", "/registrationcode", 200],
-  },
+  { [_h]: ["DELETE", "/registrationcode", 200] },
   () => DeleteRegistrationCodeRequest,
   () => DeleteRegistrationCodeResponse,
 ];
@@ -8937,9 +6876,7 @@ export var DeleteRoleAlias: StaticOperationSchema = [
   9,
   n0,
   _DRA,
-  {
-    [_h]: ["DELETE", "/role-aliases/{roleAlias}", 200],
-  },
+  { [_h]: ["DELETE", "/role-aliases/{roleAlias}", 200] },
   () => DeleteRoleAliasRequest,
   () => DeleteRoleAliasResponse,
 ];
@@ -8947,9 +6884,7 @@ export var DeleteScheduledAudit: StaticOperationSchema = [
   9,
   n0,
   _DSA,
-  {
-    [_h]: ["DELETE", "/audit/scheduledaudits/{scheduledAuditName}", 200],
-  },
+  { [_h]: ["DELETE", "/audit/scheduledaudits/{scheduledAuditName}", 200] },
   () => DeleteScheduledAuditRequest,
   () => DeleteScheduledAuditResponse,
 ];
@@ -8957,9 +6892,7 @@ export var DeleteSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  {
-    [_h]: ["DELETE", "/security-profiles/{securityProfileName}", 200],
-  },
+  { [_h]: ["DELETE", "/security-profiles/{securityProfileName}", 200] },
   () => DeleteSecurityProfileRequest,
   () => DeleteSecurityProfileResponse,
 ];
@@ -8967,9 +6900,7 @@ export var DeleteStream: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  {
-    [_h]: ["DELETE", "/streams/{streamId}", 200],
-  },
+  { [_h]: ["DELETE", "/streams/{streamId}", 200] },
   () => DeleteStreamRequest,
   () => DeleteStreamResponse,
 ];
@@ -8977,9 +6908,7 @@ export var DeleteThing: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["DELETE", "/things/{thingName}", 200],
-  },
+  { [_h]: ["DELETE", "/things/{thingName}", 200] },
   () => DeleteThingRequest,
   () => DeleteThingResponse,
 ];
@@ -8987,9 +6916,7 @@ export var DeleteThingGroup: StaticOperationSchema = [
   9,
   n0,
   _DTG,
-  {
-    [_h]: ["DELETE", "/thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/thing-groups/{thingGroupName}", 200] },
   () => DeleteThingGroupRequest,
   () => DeleteThingGroupResponse,
 ];
@@ -8997,9 +6924,7 @@ export var DeleteThingType: StaticOperationSchema = [
   9,
   n0,
   _DTT,
-  {
-    [_h]: ["DELETE", "/thing-types/{thingTypeName}", 200],
-  },
+  { [_h]: ["DELETE", "/thing-types/{thingTypeName}", 200] },
   () => DeleteThingTypeRequest,
   () => DeleteThingTypeResponse,
 ];
@@ -9007,9 +6932,7 @@ export var DeleteTopicRule: StaticOperationSchema = [
   9,
   n0,
   _DTRel,
-  {
-    [_h]: ["DELETE", "/rules/{ruleName}", 200],
-  },
+  { [_h]: ["DELETE", "/rules/{ruleName}", 200] },
   () => DeleteTopicRuleRequest,
   () => __Unit,
 ];
@@ -9017,9 +6940,7 @@ export var DeleteTopicRuleDestination: StaticOperationSchema = [
   9,
   n0,
   _DTRD,
-  {
-    [_h]: ["DELETE", "/destinations/{arn+}", 200],
-  },
+  { [_h]: ["DELETE", "/destinations/{arn+}", 200] },
   () => DeleteTopicRuleDestinationRequest,
   () => DeleteTopicRuleDestinationResponse,
 ];
@@ -9027,9 +6948,7 @@ export var DeleteV2LoggingLevel: StaticOperationSchema = [
   9,
   n0,
   _DVLL,
-  {
-    [_h]: ["DELETE", "/v2LoggingLevel", 200],
-  },
+  { [_h]: ["DELETE", "/v2LoggingLevel", 200] },
   () => DeleteV2LoggingLevelRequest,
   () => __Unit,
 ];
@@ -9037,9 +6956,7 @@ export var DeprecateThingType: StaticOperationSchema = [
   9,
   n0,
   _DTTe,
-  {
-    [_h]: ["POST", "/thing-types/{thingTypeName}/deprecate", 200],
-  },
+  { [_h]: ["POST", "/thing-types/{thingTypeName}/deprecate", 200] },
   () => DeprecateThingTypeRequest,
   () => DeprecateThingTypeResponse,
 ];
@@ -9047,9 +6964,7 @@ export var DescribeAccountAuditConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DAACe,
-  {
-    [_h]: ["GET", "/audit/configuration", 200],
-  },
+  { [_h]: ["GET", "/audit/configuration", 200] },
   () => DescribeAccountAuditConfigurationRequest,
   () => DescribeAccountAuditConfigurationResponse,
 ];
@@ -9057,9 +6972,7 @@ export var DescribeAuditFinding: StaticOperationSchema = [
   9,
   n0,
   _DAF,
-  {
-    [_h]: ["GET", "/audit/findings/{findingId}", 200],
-  },
+  { [_h]: ["GET", "/audit/findings/{findingId}", 200] },
   () => DescribeAuditFindingRequest,
   () => DescribeAuditFindingResponse,
 ];
@@ -9067,9 +6980,7 @@ export var DescribeAuditMitigationActionsTask: StaticOperationSchema = [
   9,
   n0,
   _DAMAT,
-  {
-    [_h]: ["GET", "/audit/mitigationactions/tasks/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/audit/mitigationactions/tasks/{taskId}", 200] },
   () => DescribeAuditMitigationActionsTaskRequest,
   () => DescribeAuditMitigationActionsTaskResponse,
 ];
@@ -9077,9 +6988,7 @@ export var DescribeAuditSuppression: StaticOperationSchema = [
   9,
   n0,
   _DASe,
-  {
-    [_h]: ["POST", "/audit/suppressions/describe", 200],
-  },
+  { [_h]: ["POST", "/audit/suppressions/describe", 200] },
   () => DescribeAuditSuppressionRequest,
   () => DescribeAuditSuppressionResponse,
 ];
@@ -9087,9 +6996,7 @@ export var DescribeAuditTask: StaticOperationSchema = [
   9,
   n0,
   _DAT,
-  {
-    [_h]: ["GET", "/audit/tasks/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/audit/tasks/{taskId}", 200] },
   () => DescribeAuditTaskRequest,
   () => DescribeAuditTaskResponse,
 ];
@@ -9097,9 +7004,7 @@ export var DescribeAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["GET", "/authorizer/{authorizerName}", 200],
-  },
+  { [_h]: ["GET", "/authorizer/{authorizerName}", 200] },
   () => DescribeAuthorizerRequest,
   () => DescribeAuthorizerResponse,
 ];
@@ -9107,9 +7012,7 @@ export var DescribeBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _DBGe,
-  {
-    [_h]: ["GET", "/billing-groups/{billingGroupName}", 200],
-  },
+  { [_h]: ["GET", "/billing-groups/{billingGroupName}", 200] },
   () => DescribeBillingGroupRequest,
   () => DescribeBillingGroupResponse,
 ];
@@ -9117,9 +7020,7 @@ export var DescribeCACertificate: StaticOperationSchema = [
   9,
   n0,
   _DCACe,
-  {
-    [_h]: ["GET", "/cacertificate/{certificateId}", 200],
-  },
+  { [_h]: ["GET", "/cacertificate/{certificateId}", 200] },
   () => DescribeCACertificateRequest,
   () => DescribeCACertificateResponse,
 ];
@@ -9127,9 +7028,7 @@ export var DescribeCertificate: StaticOperationSchema = [
   9,
   n0,
   _DCes,
-  {
-    [_h]: ["GET", "/certificates/{certificateId}", 200],
-  },
+  { [_h]: ["GET", "/certificates/{certificateId}", 200] },
   () => DescribeCertificateRequest,
   () => DescribeCertificateResponse,
 ];
@@ -9137,9 +7036,7 @@ export var DescribeCertificateProvider: StaticOperationSchema = [
   9,
   n0,
   _DCPe,
-  {
-    [_h]: ["GET", "/certificate-providers/{certificateProviderName}", 200],
-  },
+  { [_h]: ["GET", "/certificate-providers/{certificateProviderName}", 200] },
   () => DescribeCertificateProviderRequest,
   () => DescribeCertificateProviderResponse,
 ];
@@ -9147,9 +7044,7 @@ export var DescribeCustomMetric: StaticOperationSchema = [
   9,
   n0,
   _DCMe,
-  {
-    [_h]: ["GET", "/custom-metric/{metricName}", 200],
-  },
+  { [_h]: ["GET", "/custom-metric/{metricName}", 200] },
   () => DescribeCustomMetricRequest,
   () => DescribeCustomMetricResponse,
 ];
@@ -9157,9 +7052,7 @@ export var DescribeDefaultAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _DDA,
-  {
-    [_h]: ["GET", "/default-authorizer", 200],
-  },
+  { [_h]: ["GET", "/default-authorizer", 200] },
   () => DescribeDefaultAuthorizerRequest,
   () => DescribeDefaultAuthorizerResponse,
 ];
@@ -9167,9 +7060,7 @@ export var DescribeDetectMitigationActionsTask: StaticOperationSchema = [
   9,
   n0,
   _DDMAT,
-  {
-    [_h]: ["GET", "/detect/mitigationactions/tasks/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/detect/mitigationactions/tasks/{taskId}", 200] },
   () => DescribeDetectMitigationActionsTaskRequest,
   () => DescribeDetectMitigationActionsTaskResponse,
 ];
@@ -9177,9 +7068,7 @@ export var DescribeDimension: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["GET", "/dimensions/{name}", 200],
-  },
+  { [_h]: ["GET", "/dimensions/{name}", 200] },
   () => DescribeDimensionRequest,
   () => DescribeDimensionResponse,
 ];
@@ -9187,9 +7076,7 @@ export var DescribeDomainConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DDCe,
-  {
-    [_h]: ["GET", "/domainConfigurations/{domainConfigurationName}", 200],
-  },
+  { [_h]: ["GET", "/domainConfigurations/{domainConfigurationName}", 200] },
   () => DescribeDomainConfigurationRequest,
   () => DescribeDomainConfigurationResponse,
 ];
@@ -9197,9 +7084,7 @@ export var DescribeEncryptionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DEC,
-  {
-    [_h]: ["GET", "/encryption-configuration", 200],
-  },
+  { [_h]: ["GET", "/encryption-configuration", 200] },
   () => DescribeEncryptionConfigurationRequest,
   () => DescribeEncryptionConfigurationResponse,
 ];
@@ -9207,9 +7092,7 @@ export var DescribeEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["GET", "/endpoint", 200],
-  },
+  { [_h]: ["GET", "/endpoint", 200] },
   () => DescribeEndpointRequest,
   () => DescribeEndpointResponse,
 ];
@@ -9217,9 +7100,7 @@ export var DescribeEventConfigurations: StaticOperationSchema = [
   9,
   n0,
   _DECe,
-  {
-    [_h]: ["GET", "/event-configurations", 200],
-  },
+  { [_h]: ["GET", "/event-configurations", 200] },
   () => DescribeEventConfigurationsRequest,
   () => DescribeEventConfigurationsResponse,
 ];
@@ -9227,9 +7108,7 @@ export var DescribeFleetMetric: StaticOperationSchema = [
   9,
   n0,
   _DFMe,
-  {
-    [_h]: ["GET", "/fleet-metric/{metricName}", 200],
-  },
+  { [_h]: ["GET", "/fleet-metric/{metricName}", 200] },
   () => DescribeFleetMetricRequest,
   () => DescribeFleetMetricResponse,
 ];
@@ -9237,9 +7116,7 @@ export var DescribeIndex: StaticOperationSchema = [
   9,
   n0,
   _DI,
-  {
-    [_h]: ["GET", "/indices/{indexName}", 200],
-  },
+  { [_h]: ["GET", "/indices/{indexName}", 200] },
   () => DescribeIndexRequest,
   () => DescribeIndexResponse,
 ];
@@ -9247,9 +7124,7 @@ export var DescribeJob: StaticOperationSchema = [
   9,
   n0,
   _DJe,
-  {
-    [_h]: ["GET", "/jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/jobs/{jobId}", 200] },
   () => DescribeJobRequest,
   () => DescribeJobResponse,
 ];
@@ -9257,9 +7132,7 @@ export var DescribeJobExecution: StaticOperationSchema = [
   9,
   n0,
   _DJEe,
-  {
-    [_h]: ["GET", "/things/{thingName}/jobs/{jobId}", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/jobs/{jobId}", 200] },
   () => DescribeJobExecutionRequest,
   () => DescribeJobExecutionResponse,
 ];
@@ -9267,9 +7140,7 @@ export var DescribeJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _DJTe,
-  {
-    [_h]: ["GET", "/job-templates/{jobTemplateId}", 200],
-  },
+  { [_h]: ["GET", "/job-templates/{jobTemplateId}", 200] },
   () => DescribeJobTemplateRequest,
   () => DescribeJobTemplateResponse,
 ];
@@ -9277,9 +7148,7 @@ export var DescribeManagedJobTemplate: StaticOperationSchema = [
   9,
   n0,
   _DMJT,
-  {
-    [_h]: ["GET", "/managed-job-templates/{templateName}", 200],
-  },
+  { [_h]: ["GET", "/managed-job-templates/{templateName}", 200] },
   () => DescribeManagedJobTemplateRequest,
   () => DescribeManagedJobTemplateResponse,
 ];
@@ -9287,9 +7156,7 @@ export var DescribeMitigationAction: StaticOperationSchema = [
   9,
   n0,
   _DMAe,
-  {
-    [_h]: ["GET", "/mitigationactions/actions/{actionName}", 200],
-  },
+  { [_h]: ["GET", "/mitigationactions/actions/{actionName}", 200] },
   () => DescribeMitigationActionRequest,
   () => DescribeMitigationActionResponse,
 ];
@@ -9297,9 +7164,7 @@ export var DescribeProvisioningTemplate: StaticOperationSchema = [
   9,
   n0,
   _DPTe,
-  {
-    [_h]: ["GET", "/provisioning-templates/{templateName}", 200],
-  },
+  { [_h]: ["GET", "/provisioning-templates/{templateName}", 200] },
   () => DescribeProvisioningTemplateRequest,
   () => DescribeProvisioningTemplateResponse,
 ];
@@ -9307,9 +7172,7 @@ export var DescribeProvisioningTemplateVersion: StaticOperationSchema = [
   9,
   n0,
   _DPTVe,
-  {
-    [_h]: ["GET", "/provisioning-templates/{templateName}/versions/{versionId}", 200],
-  },
+  { [_h]: ["GET", "/provisioning-templates/{templateName}/versions/{versionId}", 200] },
   () => DescribeProvisioningTemplateVersionRequest,
   () => DescribeProvisioningTemplateVersionResponse,
 ];
@@ -9317,9 +7180,7 @@ export var DescribeRoleAlias: StaticOperationSchema = [
   9,
   n0,
   _DRAe,
-  {
-    [_h]: ["GET", "/role-aliases/{roleAlias}", 200],
-  },
+  { [_h]: ["GET", "/role-aliases/{roleAlias}", 200] },
   () => DescribeRoleAliasRequest,
   () => DescribeRoleAliasResponse,
 ];
@@ -9327,9 +7188,7 @@ export var DescribeScheduledAudit: StaticOperationSchema = [
   9,
   n0,
   _DSAe,
-  {
-    [_h]: ["GET", "/audit/scheduledaudits/{scheduledAuditName}", 200],
-  },
+  { [_h]: ["GET", "/audit/scheduledaudits/{scheduledAuditName}", 200] },
   () => DescribeScheduledAuditRequest,
   () => DescribeScheduledAuditResponse,
 ];
@@ -9337,9 +7196,7 @@ export var DescribeSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _DSPe,
-  {
-    [_h]: ["GET", "/security-profiles/{securityProfileName}", 200],
-  },
+  { [_h]: ["GET", "/security-profiles/{securityProfileName}", 200] },
   () => DescribeSecurityProfileRequest,
   () => DescribeSecurityProfileResponse,
 ];
@@ -9347,9 +7204,7 @@ export var DescribeStream: StaticOperationSchema = [
   9,
   n0,
   _DSe,
-  {
-    [_h]: ["GET", "/streams/{streamId}", 200],
-  },
+  { [_h]: ["GET", "/streams/{streamId}", 200] },
   () => DescribeStreamRequest,
   () => DescribeStreamResponse,
 ];
@@ -9357,9 +7212,7 @@ export var DescribeThing: StaticOperationSchema = [
   9,
   n0,
   _DTe,
-  {
-    [_h]: ["GET", "/things/{thingName}", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}", 200] },
   () => DescribeThingRequest,
   () => DescribeThingResponse,
 ];
@@ -9367,9 +7220,7 @@ export var DescribeThingGroup: StaticOperationSchema = [
   9,
   n0,
   _DTGe,
-  {
-    [_h]: ["GET", "/thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["GET", "/thing-groups/{thingGroupName}", 200] },
   () => DescribeThingGroupRequest,
   () => DescribeThingGroupResponse,
 ];
@@ -9377,9 +7228,7 @@ export var DescribeThingRegistrationTask: StaticOperationSchema = [
   9,
   n0,
   _DTRT,
-  {
-    [_h]: ["GET", "/thing-registration-tasks/{taskId}", 200],
-  },
+  { [_h]: ["GET", "/thing-registration-tasks/{taskId}", 200] },
   () => DescribeThingRegistrationTaskRequest,
   () => DescribeThingRegistrationTaskResponse,
 ];
@@ -9387,9 +7236,7 @@ export var DescribeThingType: StaticOperationSchema = [
   9,
   n0,
   _DTTes,
-  {
-    [_h]: ["GET", "/thing-types/{thingTypeName}", 200],
-  },
+  { [_h]: ["GET", "/thing-types/{thingTypeName}", 200] },
   () => DescribeThingTypeRequest,
   () => DescribeThingTypeResponse,
 ];
@@ -9397,9 +7244,7 @@ export var DetachPolicy: StaticOperationSchema = [
   9,
   n0,
   _DPet,
-  {
-    [_h]: ["POST", "/target-policies/{policyName}", 200],
-  },
+  { [_h]: ["POST", "/target-policies/{policyName}", 200] },
   () => DetachPolicyRequest,
   () => __Unit,
 ];
@@ -9407,9 +7252,7 @@ export var DetachPrincipalPolicy: StaticOperationSchema = [
   9,
   n0,
   _DPP,
-  {
-    [_h]: ["DELETE", "/principal-policies/{policyName}", 200],
-  },
+  { [_h]: ["DELETE", "/principal-policies/{policyName}", 200] },
   () => DetachPrincipalPolicyRequest,
   () => __Unit,
 ];
@@ -9417,9 +7260,7 @@ export var DetachSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _DSPet,
-  {
-    [_h]: ["DELETE", "/security-profiles/{securityProfileName}/targets", 200],
-  },
+  { [_h]: ["DELETE", "/security-profiles/{securityProfileName}/targets", 200] },
   () => DetachSecurityProfileRequest,
   () => DetachSecurityProfileResponse,
 ];
@@ -9427,9 +7268,7 @@ export var DetachThingPrincipal: StaticOperationSchema = [
   9,
   n0,
   _DTP,
-  {
-    [_h]: ["DELETE", "/things/{thingName}/principals", 200],
-  },
+  { [_h]: ["DELETE", "/things/{thingName}/principals", 200] },
   () => DetachThingPrincipalRequest,
   () => DetachThingPrincipalResponse,
 ];
@@ -9437,9 +7276,7 @@ export var DisableTopicRule: StaticOperationSchema = [
   9,
   n0,
   _DTRi,
-  {
-    [_h]: ["POST", "/rules/{ruleName}/disable", 200],
-  },
+  { [_h]: ["POST", "/rules/{ruleName}/disable", 200] },
   () => DisableTopicRuleRequest,
   () => __Unit,
 ];
@@ -9447,9 +7284,7 @@ export var DisassociateSbomFromPackageVersion: StaticOperationSchema = [
   9,
   n0,
   _DSFPV,
-  {
-    [_h]: ["DELETE", "/packages/{packageName}/versions/{versionName}/sbom", 200],
-  },
+  { [_h]: ["DELETE", "/packages/{packageName}/versions/{versionName}/sbom", 200] },
   () => DisassociateSbomFromPackageVersionRequest,
   () => DisassociateSbomFromPackageVersionResponse,
 ];
@@ -9457,9 +7292,7 @@ export var EnableTopicRule: StaticOperationSchema = [
   9,
   n0,
   _ETR,
-  {
-    [_h]: ["POST", "/rules/{ruleName}/enable", 200],
-  },
+  { [_h]: ["POST", "/rules/{ruleName}/enable", 200] },
   () => EnableTopicRuleRequest,
   () => __Unit,
 ];
@@ -9467,9 +7300,7 @@ export var GetBehaviorModelTrainingSummaries: StaticOperationSchema = [
   9,
   n0,
   _GBMTS,
-  {
-    [_h]: ["GET", "/behavior-model-training/summaries", 200],
-  },
+  { [_h]: ["GET", "/behavior-model-training/summaries", 200] },
   () => GetBehaviorModelTrainingSummariesRequest,
   () => GetBehaviorModelTrainingSummariesResponse,
 ];
@@ -9477,9 +7308,7 @@ export var GetBucketsAggregation: StaticOperationSchema = [
   9,
   n0,
   _GBA,
-  {
-    [_h]: ["POST", "/indices/buckets", 200],
-  },
+  { [_h]: ["POST", "/indices/buckets", 200] },
   () => GetBucketsAggregationRequest,
   () => GetBucketsAggregationResponse,
 ];
@@ -9487,9 +7316,7 @@ export var GetCardinality: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["POST", "/indices/cardinality", 200],
-  },
+  { [_h]: ["POST", "/indices/cardinality", 200] },
   () => GetCardinalityRequest,
   () => GetCardinalityResponse,
 ];
@@ -9497,9 +7324,7 @@ export var GetCommand: StaticOperationSchema = [
   9,
   n0,
   _GCe,
-  {
-    [_h]: ["GET", "/commands/{commandId}", 200],
-  },
+  { [_h]: ["GET", "/commands/{commandId}", 200] },
   () => GetCommandRequest,
   () => GetCommandResponse,
 ];
@@ -9507,9 +7332,7 @@ export var GetCommandExecution: StaticOperationSchema = [
   9,
   n0,
   _GCE,
-  {
-    [_h]: ["GET", "/command-executions/{executionId}", 200],
-  },
+  { [_h]: ["GET", "/command-executions/{executionId}", 200] },
   () => GetCommandExecutionRequest,
   () => GetCommandExecutionResponse,
 ];
@@ -9517,9 +7340,7 @@ export var GetEffectivePolicies: StaticOperationSchema = [
   9,
   n0,
   _GEP,
-  {
-    [_h]: ["POST", "/effective-policies", 200],
-  },
+  { [_h]: ["POST", "/effective-policies", 200] },
   () => GetEffectivePoliciesRequest,
   () => GetEffectivePoliciesResponse,
 ];
@@ -9527,9 +7348,7 @@ export var GetIndexingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GIC,
-  {
-    [_h]: ["GET", "/indexing/config", 200],
-  },
+  { [_h]: ["GET", "/indexing/config", 200] },
   () => GetIndexingConfigurationRequest,
   () => GetIndexingConfigurationResponse,
 ];
@@ -9537,9 +7356,7 @@ export var GetJobDocument: StaticOperationSchema = [
   9,
   n0,
   _GJD,
-  {
-    [_h]: ["GET", "/jobs/{jobId}/job-document", 200],
-  },
+  { [_h]: ["GET", "/jobs/{jobId}/job-document", 200] },
   () => GetJobDocumentRequest,
   () => GetJobDocumentResponse,
 ];
@@ -9547,9 +7364,7 @@ export var GetLoggingOptions: StaticOperationSchema = [
   9,
   n0,
   _GLO,
-  {
-    [_h]: ["GET", "/loggingOptions", 200],
-  },
+  { [_h]: ["GET", "/loggingOptions", 200] },
   () => GetLoggingOptionsRequest,
   () => GetLoggingOptionsResponse,
 ];
@@ -9557,9 +7372,7 @@ export var GetOTAUpdate: StaticOperationSchema = [
   9,
   n0,
   _GOTAU,
-  {
-    [_h]: ["GET", "/otaUpdates/{otaUpdateId}", 200],
-  },
+  { [_h]: ["GET", "/otaUpdates/{otaUpdateId}", 200] },
   () => GetOTAUpdateRequest,
   () => GetOTAUpdateResponse,
 ];
@@ -9567,9 +7380,7 @@ export var GetPackage: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/packages/{packageName}", 200],
-  },
+  { [_h]: ["GET", "/packages/{packageName}", 200] },
   () => GetPackageRequest,
   () => GetPackageResponse,
 ];
@@ -9577,9 +7388,7 @@ export var GetPackageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GPC,
-  {
-    [_h]: ["GET", "/package-configuration", 200],
-  },
+  { [_h]: ["GET", "/package-configuration", 200] },
   () => GetPackageConfigurationRequest,
   () => GetPackageConfigurationResponse,
 ];
@@ -9587,9 +7396,7 @@ export var GetPackageVersion: StaticOperationSchema = [
   9,
   n0,
   _GPV,
-  {
-    [_h]: ["GET", "/packages/{packageName}/versions/{versionName}", 200],
-  },
+  { [_h]: ["GET", "/packages/{packageName}/versions/{versionName}", 200] },
   () => GetPackageVersionRequest,
   () => GetPackageVersionResponse,
 ];
@@ -9597,9 +7404,7 @@ export var GetPercentiles: StaticOperationSchema = [
   9,
   n0,
   _GPe,
-  {
-    [_h]: ["POST", "/indices/percentiles", 200],
-  },
+  { [_h]: ["POST", "/indices/percentiles", 200] },
   () => GetPercentilesRequest,
   () => GetPercentilesResponse,
 ];
@@ -9607,9 +7412,7 @@ export var GetPolicy: StaticOperationSchema = [
   9,
   n0,
   _GPet,
-  {
-    [_h]: ["GET", "/policies/{policyName}", 200],
-  },
+  { [_h]: ["GET", "/policies/{policyName}", 200] },
   () => GetPolicyRequest,
   () => GetPolicyResponse,
 ];
@@ -9617,9 +7420,7 @@ export var GetPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _GPVe,
-  {
-    [_h]: ["GET", "/policies/{policyName}/version/{policyVersionId}", 200],
-  },
+  { [_h]: ["GET", "/policies/{policyName}/version/{policyVersionId}", 200] },
   () => GetPolicyVersionRequest,
   () => GetPolicyVersionResponse,
 ];
@@ -9627,9 +7428,7 @@ export var GetRegistrationCode: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_h]: ["GET", "/registrationcode", 200],
-  },
+  { [_h]: ["GET", "/registrationcode", 200] },
   () => GetRegistrationCodeRequest,
   () => GetRegistrationCodeResponse,
 ];
@@ -9637,9 +7436,7 @@ export var GetStatistics: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["POST", "/indices/statistics", 200],
-  },
+  { [_h]: ["POST", "/indices/statistics", 200] },
   () => GetStatisticsRequest,
   () => GetStatisticsResponse,
 ];
@@ -9647,9 +7444,7 @@ export var GetThingConnectivityData: StaticOperationSchema = [
   9,
   n0,
   _GTCD,
-  {
-    [_h]: ["POST", "/things/{thingName}/connectivity-data", 200],
-  },
+  { [_h]: ["POST", "/things/{thingName}/connectivity-data", 200] },
   () => GetThingConnectivityDataRequest,
   () => GetThingConnectivityDataResponse,
 ];
@@ -9657,9 +7452,7 @@ export var GetTopicRule: StaticOperationSchema = [
   9,
   n0,
   _GTR,
-  {
-    [_h]: ["GET", "/rules/{ruleName}", 200],
-  },
+  { [_h]: ["GET", "/rules/{ruleName}", 200] },
   () => GetTopicRuleRequest,
   () => GetTopicRuleResponse,
 ];
@@ -9667,9 +7460,7 @@ export var GetTopicRuleDestination: StaticOperationSchema = [
   9,
   n0,
   _GTRD,
-  {
-    [_h]: ["GET", "/destinations/{arn+}", 200],
-  },
+  { [_h]: ["GET", "/destinations/{arn+}", 200] },
   () => GetTopicRuleDestinationRequest,
   () => GetTopicRuleDestinationResponse,
 ];
@@ -9677,9 +7468,7 @@ export var GetV2LoggingOptions: StaticOperationSchema = [
   9,
   n0,
   _GVLO,
-  {
-    [_h]: ["GET", "/v2LoggingOptions", 200],
-  },
+  { [_h]: ["GET", "/v2LoggingOptions", 200] },
   () => GetV2LoggingOptionsRequest,
   () => GetV2LoggingOptionsResponse,
 ];
@@ -9687,9 +7476,7 @@ export var ListActiveViolations: StaticOperationSchema = [
   9,
   n0,
   _LAV,
-  {
-    [_h]: ["GET", "/active-violations", 200],
-  },
+  { [_h]: ["GET", "/active-violations", 200] },
   () => ListActiveViolationsRequest,
   () => ListActiveViolationsResponse,
 ];
@@ -9697,9 +7484,7 @@ export var ListAttachedPolicies: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  {
-    [_h]: ["POST", "/attached-policies/{target}", 200],
-  },
+  { [_h]: ["POST", "/attached-policies/{target}", 200] },
   () => ListAttachedPoliciesRequest,
   () => ListAttachedPoliciesResponse,
 ];
@@ -9707,9 +7492,7 @@ export var ListAuditFindings: StaticOperationSchema = [
   9,
   n0,
   _LAF,
-  {
-    [_h]: ["POST", "/audit/findings", 200],
-  },
+  { [_h]: ["POST", "/audit/findings", 200] },
   () => ListAuditFindingsRequest,
   () => ListAuditFindingsResponse,
 ];
@@ -9717,9 +7500,7 @@ export var ListAuditMitigationActionsExecutions: StaticOperationSchema = [
   9,
   n0,
   _LAMAE,
-  {
-    [_h]: ["GET", "/audit/mitigationactions/executions", 200],
-  },
+  { [_h]: ["GET", "/audit/mitigationactions/executions", 200] },
   () => ListAuditMitigationActionsExecutionsRequest,
   () => ListAuditMitigationActionsExecutionsResponse,
 ];
@@ -9727,9 +7508,7 @@ export var ListAuditMitigationActionsTasks: StaticOperationSchema = [
   9,
   n0,
   _LAMAT,
-  {
-    [_h]: ["GET", "/audit/mitigationactions/tasks", 200],
-  },
+  { [_h]: ["GET", "/audit/mitigationactions/tasks", 200] },
   () => ListAuditMitigationActionsTasksRequest,
   () => ListAuditMitigationActionsTasksResponse,
 ];
@@ -9737,9 +7516,7 @@ export var ListAuditSuppressions: StaticOperationSchema = [
   9,
   n0,
   _LAS,
-  {
-    [_h]: ["POST", "/audit/suppressions/list", 200],
-  },
+  { [_h]: ["POST", "/audit/suppressions/list", 200] },
   () => ListAuditSuppressionsRequest,
   () => ListAuditSuppressionsResponse,
 ];
@@ -9747,9 +7524,7 @@ export var ListAuditTasks: StaticOperationSchema = [
   9,
   n0,
   _LAT,
-  {
-    [_h]: ["GET", "/audit/tasks", 200],
-  },
+  { [_h]: ["GET", "/audit/tasks", 200] },
   () => ListAuditTasksRequest,
   () => ListAuditTasksResponse,
 ];
@@ -9757,9 +7532,7 @@ export var ListAuthorizers: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  {
-    [_h]: ["GET", "/authorizers", 200],
-  },
+  { [_h]: ["GET", "/authorizers", 200] },
   () => ListAuthorizersRequest,
   () => ListAuthorizersResponse,
 ];
@@ -9767,9 +7540,7 @@ export var ListBillingGroups: StaticOperationSchema = [
   9,
   n0,
   _LBG,
-  {
-    [_h]: ["GET", "/billing-groups", 200],
-  },
+  { [_h]: ["GET", "/billing-groups", 200] },
   () => ListBillingGroupsRequest,
   () => ListBillingGroupsResponse,
 ];
@@ -9777,9 +7548,7 @@ export var ListCACertificates: StaticOperationSchema = [
   9,
   n0,
   _LCAC,
-  {
-    [_h]: ["GET", "/cacertificates", 200],
-  },
+  { [_h]: ["GET", "/cacertificates", 200] },
   () => ListCACertificatesRequest,
   () => ListCACertificatesResponse,
 ];
@@ -9787,9 +7556,7 @@ export var ListCertificateProviders: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/certificate-providers", 200],
-  },
+  { [_h]: ["GET", "/certificate-providers", 200] },
   () => ListCertificateProvidersRequest,
   () => ListCertificateProvidersResponse,
 ];
@@ -9797,9 +7564,7 @@ export var ListCertificates: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/certificates", 200],
-  },
+  { [_h]: ["GET", "/certificates", 200] },
   () => ListCertificatesRequest,
   () => ListCertificatesResponse,
 ];
@@ -9807,9 +7572,7 @@ export var ListCertificatesByCA: StaticOperationSchema = [
   9,
   n0,
   _LCBCA,
-  {
-    [_h]: ["GET", "/certificates-by-ca/{caCertificateId}", 200],
-  },
+  { [_h]: ["GET", "/certificates-by-ca/{caCertificateId}", 200] },
   () => ListCertificatesByCARequest,
   () => ListCertificatesByCAResponse,
 ];
@@ -9817,9 +7580,7 @@ export var ListCommandExecutions: StaticOperationSchema = [
   9,
   n0,
   _LCE,
-  {
-    [_h]: ["POST", "/command-executions", 200],
-  },
+  { [_h]: ["POST", "/command-executions", 200] },
   () => ListCommandExecutionsRequest,
   () => ListCommandExecutionsResponse,
 ];
@@ -9827,9 +7588,7 @@ export var ListCommands: StaticOperationSchema = [
   9,
   n0,
   _LCi,
-  {
-    [_h]: ["GET", "/commands", 200],
-  },
+  { [_h]: ["GET", "/commands", 200] },
   () => ListCommandsRequest,
   () => ListCommandsResponse,
 ];
@@ -9837,9 +7596,7 @@ export var ListCustomMetrics: StaticOperationSchema = [
   9,
   n0,
   _LCM,
-  {
-    [_h]: ["GET", "/custom-metrics", 200],
-  },
+  { [_h]: ["GET", "/custom-metrics", 200] },
   () => ListCustomMetricsRequest,
   () => ListCustomMetricsResponse,
 ];
@@ -9847,9 +7604,7 @@ export var ListDetectMitigationActionsExecutions: StaticOperationSchema = [
   9,
   n0,
   _LDMAE,
-  {
-    [_h]: ["GET", "/detect/mitigationactions/executions", 200],
-  },
+  { [_h]: ["GET", "/detect/mitigationactions/executions", 200] },
   () => ListDetectMitigationActionsExecutionsRequest,
   () => ListDetectMitigationActionsExecutionsResponse,
 ];
@@ -9857,9 +7612,7 @@ export var ListDetectMitigationActionsTasks: StaticOperationSchema = [
   9,
   n0,
   _LDMAT,
-  {
-    [_h]: ["GET", "/detect/mitigationactions/tasks", 200],
-  },
+  { [_h]: ["GET", "/detect/mitigationactions/tasks", 200] },
   () => ListDetectMitigationActionsTasksRequest,
   () => ListDetectMitigationActionsTasksResponse,
 ];
@@ -9867,9 +7620,7 @@ export var ListDimensions: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/dimensions", 200],
-  },
+  { [_h]: ["GET", "/dimensions", 200] },
   () => ListDimensionsRequest,
   () => ListDimensionsResponse,
 ];
@@ -9877,9 +7628,7 @@ export var ListDomainConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LDC,
-  {
-    [_h]: ["GET", "/domainConfigurations", 200],
-  },
+  { [_h]: ["GET", "/domainConfigurations", 200] },
   () => ListDomainConfigurationsRequest,
   () => ListDomainConfigurationsResponse,
 ];
@@ -9887,9 +7636,7 @@ export var ListFleetMetrics: StaticOperationSchema = [
   9,
   n0,
   _LFM,
-  {
-    [_h]: ["GET", "/fleet-metrics", 200],
-  },
+  { [_h]: ["GET", "/fleet-metrics", 200] },
   () => ListFleetMetricsRequest,
   () => ListFleetMetricsResponse,
 ];
@@ -9897,9 +7644,7 @@ export var ListIndices: StaticOperationSchema = [
   9,
   n0,
   _LI,
-  {
-    [_h]: ["GET", "/indices", 200],
-  },
+  { [_h]: ["GET", "/indices", 200] },
   () => ListIndicesRequest,
   () => ListIndicesResponse,
 ];
@@ -9907,9 +7652,7 @@ export var ListJobExecutionsForJob: StaticOperationSchema = [
   9,
   n0,
   _LJEFJ,
-  {
-    [_h]: ["GET", "/jobs/{jobId}/things", 200],
-  },
+  { [_h]: ["GET", "/jobs/{jobId}/things", 200] },
   () => ListJobExecutionsForJobRequest,
   () => ListJobExecutionsForJobResponse,
 ];
@@ -9917,9 +7660,7 @@ export var ListJobExecutionsForThing: StaticOperationSchema = [
   9,
   n0,
   _LJEFT,
-  {
-    [_h]: ["GET", "/things/{thingName}/jobs", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/jobs", 200] },
   () => ListJobExecutionsForThingRequest,
   () => ListJobExecutionsForThingResponse,
 ];
@@ -9927,9 +7668,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_h]: ["GET", "/jobs", 200],
-  },
+  { [_h]: ["GET", "/jobs", 200] },
   () => ListJobsRequest,
   () => ListJobsResponse,
 ];
@@ -9937,9 +7676,7 @@ export var ListJobTemplates: StaticOperationSchema = [
   9,
   n0,
   _LJT,
-  {
-    [_h]: ["GET", "/job-templates", 200],
-  },
+  { [_h]: ["GET", "/job-templates", 200] },
   () => ListJobTemplatesRequest,
   () => ListJobTemplatesResponse,
 ];
@@ -9947,9 +7684,7 @@ export var ListManagedJobTemplates: StaticOperationSchema = [
   9,
   n0,
   _LMJT,
-  {
-    [_h]: ["GET", "/managed-job-templates", 200],
-  },
+  { [_h]: ["GET", "/managed-job-templates", 200] },
   () => ListManagedJobTemplatesRequest,
   () => ListManagedJobTemplatesResponse,
 ];
@@ -9957,9 +7692,7 @@ export var ListMetricValues: StaticOperationSchema = [
   9,
   n0,
   _LMV,
-  {
-    [_h]: ["GET", "/metric-values", 200],
-  },
+  { [_h]: ["GET", "/metric-values", 200] },
   () => ListMetricValuesRequest,
   () => ListMetricValuesResponse,
 ];
@@ -9967,9 +7700,7 @@ export var ListMitigationActions: StaticOperationSchema = [
   9,
   n0,
   _LMA,
-  {
-    [_h]: ["GET", "/mitigationactions/actions", 200],
-  },
+  { [_h]: ["GET", "/mitigationactions/actions", 200] },
   () => ListMitigationActionsRequest,
   () => ListMitigationActionsResponse,
 ];
@@ -9977,9 +7708,7 @@ export var ListOTAUpdates: StaticOperationSchema = [
   9,
   n0,
   _LOTAU,
-  {
-    [_h]: ["GET", "/otaUpdates", 200],
-  },
+  { [_h]: ["GET", "/otaUpdates", 200] },
   () => ListOTAUpdatesRequest,
   () => ListOTAUpdatesResponse,
 ];
@@ -9987,9 +7716,7 @@ export var ListOutgoingCertificates: StaticOperationSchema = [
   9,
   n0,
   _LOC,
-  {
-    [_h]: ["GET", "/certificates-out-going", 200],
-  },
+  { [_h]: ["GET", "/certificates-out-going", 200] },
   () => ListOutgoingCertificatesRequest,
   () => ListOutgoingCertificatesResponse,
 ];
@@ -9997,9 +7724,7 @@ export var ListPackages: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/packages", 200],
-  },
+  { [_h]: ["GET", "/packages", 200] },
   () => ListPackagesRequest,
   () => ListPackagesResponse,
 ];
@@ -10007,9 +7732,7 @@ export var ListPackageVersions: StaticOperationSchema = [
   9,
   n0,
   _LPV,
-  {
-    [_h]: ["GET", "/packages/{packageName}/versions", 200],
-  },
+  { [_h]: ["GET", "/packages/{packageName}/versions", 200] },
   () => ListPackageVersionsRequest,
   () => ListPackageVersionsResponse,
 ];
@@ -10017,9 +7740,7 @@ export var ListPolicies: StaticOperationSchema = [
   9,
   n0,
   _LPi,
-  {
-    [_h]: ["GET", "/policies", 200],
-  },
+  { [_h]: ["GET", "/policies", 200] },
   () => ListPoliciesRequest,
   () => ListPoliciesResponse,
 ];
@@ -10027,9 +7748,7 @@ export var ListPolicyPrincipals: StaticOperationSchema = [
   9,
   n0,
   _LPP,
-  {
-    [_h]: ["GET", "/policy-principals", 200],
-  },
+  { [_h]: ["GET", "/policy-principals", 200] },
   () => ListPolicyPrincipalsRequest,
   () => ListPolicyPrincipalsResponse,
 ];
@@ -10037,9 +7756,7 @@ export var ListPolicyVersions: StaticOperationSchema = [
   9,
   n0,
   _LPVi,
-  {
-    [_h]: ["GET", "/policies/{policyName}/version", 200],
-  },
+  { [_h]: ["GET", "/policies/{policyName}/version", 200] },
   () => ListPolicyVersionsRequest,
   () => ListPolicyVersionsResponse,
 ];
@@ -10047,9 +7764,7 @@ export var ListPrincipalPolicies: StaticOperationSchema = [
   9,
   n0,
   _LPPi,
-  {
-    [_h]: ["GET", "/principal-policies", 200],
-  },
+  { [_h]: ["GET", "/principal-policies", 200] },
   () => ListPrincipalPoliciesRequest,
   () => ListPrincipalPoliciesResponse,
 ];
@@ -10057,9 +7772,7 @@ export var ListPrincipalThings: StaticOperationSchema = [
   9,
   n0,
   _LPT,
-  {
-    [_h]: ["GET", "/principals/things", 200],
-  },
+  { [_h]: ["GET", "/principals/things", 200] },
   () => ListPrincipalThingsRequest,
   () => ListPrincipalThingsResponse,
 ];
@@ -10067,9 +7780,7 @@ export var ListPrincipalThingsV2: StaticOperationSchema = [
   9,
   n0,
   _LPTV,
-  {
-    [_h]: ["GET", "/principals/things-v2", 200],
-  },
+  { [_h]: ["GET", "/principals/things-v2", 200] },
   () => ListPrincipalThingsV2Request,
   () => ListPrincipalThingsV2Response,
 ];
@@ -10077,9 +7788,7 @@ export var ListProvisioningTemplates: StaticOperationSchema = [
   9,
   n0,
   _LPTi,
-  {
-    [_h]: ["GET", "/provisioning-templates", 200],
-  },
+  { [_h]: ["GET", "/provisioning-templates", 200] },
   () => ListProvisioningTemplatesRequest,
   () => ListProvisioningTemplatesResponse,
 ];
@@ -10087,9 +7796,7 @@ export var ListProvisioningTemplateVersions: StaticOperationSchema = [
   9,
   n0,
   _LPTVi,
-  {
-    [_h]: ["GET", "/provisioning-templates/{templateName}/versions", 200],
-  },
+  { [_h]: ["GET", "/provisioning-templates/{templateName}/versions", 200] },
   () => ListProvisioningTemplateVersionsRequest,
   () => ListProvisioningTemplateVersionsResponse,
 ];
@@ -10097,9 +7804,7 @@ export var ListRelatedResourcesForAuditFinding: StaticOperationSchema = [
   9,
   n0,
   _LRRFAF,
-  {
-    [_h]: ["GET", "/audit/relatedResources", 200],
-  },
+  { [_h]: ["GET", "/audit/relatedResources", 200] },
   () => ListRelatedResourcesForAuditFindingRequest,
   () => ListRelatedResourcesForAuditFindingResponse,
 ];
@@ -10107,9 +7812,7 @@ export var ListRoleAliases: StaticOperationSchema = [
   9,
   n0,
   _LRA,
-  {
-    [_h]: ["GET", "/role-aliases", 200],
-  },
+  { [_h]: ["GET", "/role-aliases", 200] },
   () => ListRoleAliasesRequest,
   () => ListRoleAliasesResponse,
 ];
@@ -10117,9 +7820,7 @@ export var ListSbomValidationResults: StaticOperationSchema = [
   9,
   n0,
   _LSVR,
-  {
-    [_h]: ["GET", "/packages/{packageName}/versions/{versionName}/sbom-validation-results", 200],
-  },
+  { [_h]: ["GET", "/packages/{packageName}/versions/{versionName}/sbom-validation-results", 200] },
   () => ListSbomValidationResultsRequest,
   () => ListSbomValidationResultsResponse,
 ];
@@ -10127,9 +7828,7 @@ export var ListScheduledAudits: StaticOperationSchema = [
   9,
   n0,
   _LSA,
-  {
-    [_h]: ["GET", "/audit/scheduledaudits", 200],
-  },
+  { [_h]: ["GET", "/audit/scheduledaudits", 200] },
   () => ListScheduledAuditsRequest,
   () => ListScheduledAuditsResponse,
 ];
@@ -10137,9 +7836,7 @@ export var ListSecurityProfiles: StaticOperationSchema = [
   9,
   n0,
   _LSP,
-  {
-    [_h]: ["GET", "/security-profiles", 200],
-  },
+  { [_h]: ["GET", "/security-profiles", 200] },
   () => ListSecurityProfilesRequest,
   () => ListSecurityProfilesResponse,
 ];
@@ -10147,9 +7844,7 @@ export var ListSecurityProfilesForTarget: StaticOperationSchema = [
   9,
   n0,
   _LSPFT,
-  {
-    [_h]: ["GET", "/security-profiles-for-target", 200],
-  },
+  { [_h]: ["GET", "/security-profiles-for-target", 200] },
   () => ListSecurityProfilesForTargetRequest,
   () => ListSecurityProfilesForTargetResponse,
 ];
@@ -10157,9 +7852,7 @@ export var ListStreams: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/streams", 200],
-  },
+  { [_h]: ["GET", "/streams", 200] },
   () => ListStreamsRequest,
   () => ListStreamsResponse,
 ];
@@ -10167,9 +7860,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -10177,9 +7868,7 @@ export var ListTargetsForPolicy: StaticOperationSchema = [
   9,
   n0,
   _LTFP,
-  {
-    [_h]: ["POST", "/policy-targets/{policyName}", 200],
-  },
+  { [_h]: ["POST", "/policy-targets/{policyName}", 200] },
   () => ListTargetsForPolicyRequest,
   () => ListTargetsForPolicyResponse,
 ];
@@ -10187,9 +7876,7 @@ export var ListTargetsForSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _LTFSP,
-  {
-    [_h]: ["GET", "/security-profiles/{securityProfileName}/targets", 200],
-  },
+  { [_h]: ["GET", "/security-profiles/{securityProfileName}/targets", 200] },
   () => ListTargetsForSecurityProfileRequest,
   () => ListTargetsForSecurityProfileResponse,
 ];
@@ -10197,9 +7884,7 @@ export var ListThingGroups: StaticOperationSchema = [
   9,
   n0,
   _LTG,
-  {
-    [_h]: ["GET", "/thing-groups", 200],
-  },
+  { [_h]: ["GET", "/thing-groups", 200] },
   () => ListThingGroupsRequest,
   () => ListThingGroupsResponse,
 ];
@@ -10207,9 +7892,7 @@ export var ListThingGroupsForThing: StaticOperationSchema = [
   9,
   n0,
   _LTGFT,
-  {
-    [_h]: ["GET", "/things/{thingName}/thing-groups", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/thing-groups", 200] },
   () => ListThingGroupsForThingRequest,
   () => ListThingGroupsForThingResponse,
 ];
@@ -10217,9 +7900,7 @@ export var ListThingPrincipals: StaticOperationSchema = [
   9,
   n0,
   _LTP,
-  {
-    [_h]: ["GET", "/things/{thingName}/principals", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/principals", 200] },
   () => ListThingPrincipalsRequest,
   () => ListThingPrincipalsResponse,
 ];
@@ -10227,9 +7908,7 @@ export var ListThingPrincipalsV2: StaticOperationSchema = [
   9,
   n0,
   _LTPV,
-  {
-    [_h]: ["GET", "/things/{thingName}/principals-v2", 200],
-  },
+  { [_h]: ["GET", "/things/{thingName}/principals-v2", 200] },
   () => ListThingPrincipalsV2Request,
   () => ListThingPrincipalsV2Response,
 ];
@@ -10237,9 +7916,7 @@ export var ListThingRegistrationTaskReports: StaticOperationSchema = [
   9,
   n0,
   _LTRTRis,
-  {
-    [_h]: ["GET", "/thing-registration-tasks/{taskId}/reports", 200],
-  },
+  { [_h]: ["GET", "/thing-registration-tasks/{taskId}/reports", 200] },
   () => ListThingRegistrationTaskReportsRequest,
   () => ListThingRegistrationTaskReportsResponse,
 ];
@@ -10247,9 +7924,7 @@ export var ListThingRegistrationTasks: StaticOperationSchema = [
   9,
   n0,
   _LTRT,
-  {
-    [_h]: ["GET", "/thing-registration-tasks", 200],
-  },
+  { [_h]: ["GET", "/thing-registration-tasks", 200] },
   () => ListThingRegistrationTasksRequest,
   () => ListThingRegistrationTasksResponse,
 ];
@@ -10257,9 +7932,7 @@ export var ListThings: StaticOperationSchema = [
   9,
   n0,
   _LTi,
-  {
-    [_h]: ["GET", "/things", 200],
-  },
+  { [_h]: ["GET", "/things", 200] },
   () => ListThingsRequest,
   () => ListThingsResponse,
 ];
@@ -10267,9 +7940,7 @@ export var ListThingsInBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _LTIBG,
-  {
-    [_h]: ["GET", "/billing-groups/{billingGroupName}/things", 200],
-  },
+  { [_h]: ["GET", "/billing-groups/{billingGroupName}/things", 200] },
   () => ListThingsInBillingGroupRequest,
   () => ListThingsInBillingGroupResponse,
 ];
@@ -10277,9 +7948,7 @@ export var ListThingsInThingGroup: StaticOperationSchema = [
   9,
   n0,
   _LTITG,
-  {
-    [_h]: ["GET", "/thing-groups/{thingGroupName}/things", 200],
-  },
+  { [_h]: ["GET", "/thing-groups/{thingGroupName}/things", 200] },
   () => ListThingsInThingGroupRequest,
   () => ListThingsInThingGroupResponse,
 ];
@@ -10287,9 +7956,7 @@ export var ListThingTypes: StaticOperationSchema = [
   9,
   n0,
   _LTT,
-  {
-    [_h]: ["GET", "/thing-types", 200],
-  },
+  { [_h]: ["GET", "/thing-types", 200] },
   () => ListThingTypesRequest,
   () => ListThingTypesResponse,
 ];
@@ -10297,9 +7964,7 @@ export var ListTopicRuleDestinations: StaticOperationSchema = [
   9,
   n0,
   _LTRD,
-  {
-    [_h]: ["GET", "/destinations", 200],
-  },
+  { [_h]: ["GET", "/destinations", 200] },
   () => ListTopicRuleDestinationsRequest,
   () => ListTopicRuleDestinationsResponse,
 ];
@@ -10307,9 +7972,7 @@ export var ListTopicRules: StaticOperationSchema = [
   9,
   n0,
   _LTRis,
-  {
-    [_h]: ["GET", "/rules", 200],
-  },
+  { [_h]: ["GET", "/rules", 200] },
   () => ListTopicRulesRequest,
   () => ListTopicRulesResponse,
 ];
@@ -10317,9 +7980,7 @@ export var ListV2LoggingLevels: StaticOperationSchema = [
   9,
   n0,
   _LVLL,
-  {
-    [_h]: ["GET", "/v2LoggingLevel", 200],
-  },
+  { [_h]: ["GET", "/v2LoggingLevel", 200] },
   () => ListV2LoggingLevelsRequest,
   () => ListV2LoggingLevelsResponse,
 ];
@@ -10327,9 +7988,7 @@ export var ListViolationEvents: StaticOperationSchema = [
   9,
   n0,
   _LVE,
-  {
-    [_h]: ["GET", "/violation-events", 200],
-  },
+  { [_h]: ["GET", "/violation-events", 200] },
   () => ListViolationEventsRequest,
   () => ListViolationEventsResponse,
 ];
@@ -10337,9 +7996,7 @@ export var PutVerificationStateOnViolation: StaticOperationSchema = [
   9,
   n0,
   _PVSOV,
-  {
-    [_h]: ["POST", "/violations/verification-state/{violationId}", 200],
-  },
+  { [_h]: ["POST", "/violations/verification-state/{violationId}", 200] },
   () => PutVerificationStateOnViolationRequest,
   () => PutVerificationStateOnViolationResponse,
 ];
@@ -10347,9 +8004,7 @@ export var RegisterCACertificate: StaticOperationSchema = [
   9,
   n0,
   _RCAC,
-  {
-    [_h]: ["POST", "/cacertificate", 200],
-  },
+  { [_h]: ["POST", "/cacertificate", 200] },
   () => RegisterCACertificateRequest,
   () => RegisterCACertificateResponse,
 ];
@@ -10357,9 +8012,7 @@ export var RegisterCertificate: StaticOperationSchema = [
   9,
   n0,
   _RCeg,
-  {
-    [_h]: ["POST", "/certificate/register", 200],
-  },
+  { [_h]: ["POST", "/certificate/register", 200] },
   () => RegisterCertificateRequest,
   () => RegisterCertificateResponse,
 ];
@@ -10367,9 +8020,7 @@ export var RegisterCertificateWithoutCA: StaticOperationSchema = [
   9,
   n0,
   _RCWCA,
-  {
-    [_h]: ["POST", "/certificate/register-no-ca", 200],
-  },
+  { [_h]: ["POST", "/certificate/register-no-ca", 200] },
   () => RegisterCertificateWithoutCARequest,
   () => RegisterCertificateWithoutCAResponse,
 ];
@@ -10377,9 +8028,7 @@ export var RegisterThing: StaticOperationSchema = [
   9,
   n0,
   _RT,
-  {
-    [_h]: ["POST", "/things", 200],
-  },
+  { [_h]: ["POST", "/things", 200] },
   () => RegisterThingRequest,
   () => RegisterThingResponse,
 ];
@@ -10387,9 +8036,7 @@ export var RejectCertificateTransfer: StaticOperationSchema = [
   9,
   n0,
   _RCT,
-  {
-    [_h]: ["PATCH", "/reject-certificate-transfer/{certificateId}", 200],
-  },
+  { [_h]: ["PATCH", "/reject-certificate-transfer/{certificateId}", 200] },
   () => RejectCertificateTransferRequest,
   () => __Unit,
 ];
@@ -10397,9 +8044,7 @@ export var RemoveThingFromBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _RTFBG,
-  {
-    [_h]: ["PUT", "/billing-groups/removeThingFromBillingGroup", 200],
-  },
+  { [_h]: ["PUT", "/billing-groups/removeThingFromBillingGroup", 200] },
   () => RemoveThingFromBillingGroupRequest,
   () => RemoveThingFromBillingGroupResponse,
 ];
@@ -10407,9 +8052,7 @@ export var RemoveThingFromThingGroup: StaticOperationSchema = [
   9,
   n0,
   _RTFTG,
-  {
-    [_h]: ["PUT", "/thing-groups/removeThingFromThingGroup", 200],
-  },
+  { [_h]: ["PUT", "/thing-groups/removeThingFromThingGroup", 200] },
   () => RemoveThingFromThingGroupRequest,
   () => RemoveThingFromThingGroupResponse,
 ];
@@ -10417,9 +8060,7 @@ export var ReplaceTopicRule: StaticOperationSchema = [
   9,
   n0,
   _RTRep,
-  {
-    [_h]: ["PATCH", "/rules/{ruleName}", 200],
-  },
+  { [_h]: ["PATCH", "/rules/{ruleName}", 200] },
   () => ReplaceTopicRuleRequest,
   () => __Unit,
 ];
@@ -10427,9 +8068,7 @@ export var SearchIndex: StaticOperationSchema = [
   9,
   n0,
   _SIe,
-  {
-    [_h]: ["POST", "/indices/search", 200],
-  },
+  { [_h]: ["POST", "/indices/search", 200] },
   () => SearchIndexRequest,
   () => SearchIndexResponse,
 ];
@@ -10437,9 +8076,7 @@ export var SetDefaultAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _SDA,
-  {
-    [_h]: ["POST", "/default-authorizer", 200],
-  },
+  { [_h]: ["POST", "/default-authorizer", 200] },
   () => SetDefaultAuthorizerRequest,
   () => SetDefaultAuthorizerResponse,
 ];
@@ -10447,9 +8084,7 @@ export var SetDefaultPolicyVersion: StaticOperationSchema = [
   9,
   n0,
   _SDPV,
-  {
-    [_h]: ["PATCH", "/policies/{policyName}/version/{policyVersionId}", 200],
-  },
+  { [_h]: ["PATCH", "/policies/{policyName}/version/{policyVersionId}", 200] },
   () => SetDefaultPolicyVersionRequest,
   () => __Unit,
 ];
@@ -10457,9 +8092,7 @@ export var SetLoggingOptions: StaticOperationSchema = [
   9,
   n0,
   _SLO,
-  {
-    [_h]: ["POST", "/loggingOptions", 200],
-  },
+  { [_h]: ["POST", "/loggingOptions", 200] },
   () => SetLoggingOptionsRequest,
   () => __Unit,
 ];
@@ -10467,9 +8100,7 @@ export var SetV2LoggingLevel: StaticOperationSchema = [
   9,
   n0,
   _SVLL,
-  {
-    [_h]: ["POST", "/v2LoggingLevel", 200],
-  },
+  { [_h]: ["POST", "/v2LoggingLevel", 200] },
   () => SetV2LoggingLevelRequest,
   () => __Unit,
 ];
@@ -10477,9 +8108,7 @@ export var SetV2LoggingOptions: StaticOperationSchema = [
   9,
   n0,
   _SVLO,
-  {
-    [_h]: ["POST", "/v2LoggingOptions", 200],
-  },
+  { [_h]: ["POST", "/v2LoggingOptions", 200] },
   () => SetV2LoggingOptionsRequest,
   () => __Unit,
 ];
@@ -10487,9 +8116,7 @@ export var StartAuditMitigationActionsTask: StaticOperationSchema = [
   9,
   n0,
   _SAMAT,
-  {
-    [_h]: ["POST", "/audit/mitigationactions/tasks/{taskId}", 200],
-  },
+  { [_h]: ["POST", "/audit/mitigationactions/tasks/{taskId}", 200] },
   () => StartAuditMitigationActionsTaskRequest,
   () => StartAuditMitigationActionsTaskResponse,
 ];
@@ -10497,9 +8124,7 @@ export var StartDetectMitigationActionsTask: StaticOperationSchema = [
   9,
   n0,
   _SDMAT,
-  {
-    [_h]: ["PUT", "/detect/mitigationactions/tasks/{taskId}", 200],
-  },
+  { [_h]: ["PUT", "/detect/mitigationactions/tasks/{taskId}", 200] },
   () => StartDetectMitigationActionsTaskRequest,
   () => StartDetectMitigationActionsTaskResponse,
 ];
@@ -10507,9 +8132,7 @@ export var StartOnDemandAuditTask: StaticOperationSchema = [
   9,
   n0,
   _SODAT,
-  {
-    [_h]: ["POST", "/audit/tasks", 200],
-  },
+  { [_h]: ["POST", "/audit/tasks", 200] },
   () => StartOnDemandAuditTaskRequest,
   () => StartOnDemandAuditTaskResponse,
 ];
@@ -10517,9 +8140,7 @@ export var StartThingRegistrationTask: StaticOperationSchema = [
   9,
   n0,
   _STRT,
-  {
-    [_h]: ["POST", "/thing-registration-tasks", 200],
-  },
+  { [_h]: ["POST", "/thing-registration-tasks", 200] },
   () => StartThingRegistrationTaskRequest,
   () => StartThingRegistrationTaskResponse,
 ];
@@ -10527,9 +8148,7 @@ export var StopThingRegistrationTask: StaticOperationSchema = [
   9,
   n0,
   _STRTt,
-  {
-    [_h]: ["PUT", "/thing-registration-tasks/{taskId}/cancel", 200],
-  },
+  { [_h]: ["PUT", "/thing-registration-tasks/{taskId}/cancel", 200] },
   () => StopThingRegistrationTaskRequest,
   () => StopThingRegistrationTaskResponse,
 ];
@@ -10537,9 +8156,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/tags", 200],
-  },
+  { [_h]: ["POST", "/tags", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -10547,9 +8164,7 @@ export var TestAuthorization: StaticOperationSchema = [
   9,
   n0,
   _TAe,
-  {
-    [_h]: ["POST", "/test-authorization", 200],
-  },
+  { [_h]: ["POST", "/test-authorization", 200] },
   () => TestAuthorizationRequest,
   () => TestAuthorizationResponse,
 ];
@@ -10557,9 +8172,7 @@ export var TestInvokeAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _TIA,
-  {
-    [_h]: ["POST", "/authorizer/{authorizerName}/test", 200],
-  },
+  { [_h]: ["POST", "/authorizer/{authorizerName}/test", 200] },
   () => TestInvokeAuthorizerRequest,
   () => TestInvokeAuthorizerResponse,
 ];
@@ -10567,9 +8180,7 @@ export var TransferCertificate: StaticOperationSchema = [
   9,
   n0,
   _TCr,
-  {
-    [_h]: ["PATCH", "/transfer-certificate/{certificateId}", 200],
-  },
+  { [_h]: ["PATCH", "/transfer-certificate/{certificateId}", 200] },
   () => TransferCertificateRequest,
   () => TransferCertificateResponse,
 ];
@@ -10577,9 +8188,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/untag", 200],
-  },
+  { [_h]: ["POST", "/untag", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -10587,9 +8196,7 @@ export var UpdateAccountAuditConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UAAC,
-  {
-    [_h]: ["PATCH", "/audit/configuration", 200],
-  },
+  { [_h]: ["PATCH", "/audit/configuration", 200] },
   () => UpdateAccountAuditConfigurationRequest,
   () => UpdateAccountAuditConfigurationResponse,
 ];
@@ -10597,9 +8204,7 @@ export var UpdateAuditSuppression: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PATCH", "/audit/suppressions/update", 200],
-  },
+  { [_h]: ["PATCH", "/audit/suppressions/update", 200] },
   () => UpdateAuditSuppressionRequest,
   () => UpdateAuditSuppressionResponse,
 ];
@@ -10607,9 +8212,7 @@ export var UpdateAuthorizer: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PUT", "/authorizer/{authorizerName}", 200],
-  },
+  { [_h]: ["PUT", "/authorizer/{authorizerName}", 200] },
   () => UpdateAuthorizerRequest,
   () => UpdateAuthorizerResponse,
 ];
@@ -10617,9 +8220,7 @@ export var UpdateBillingGroup: StaticOperationSchema = [
   9,
   n0,
   _UBG,
-  {
-    [_h]: ["PATCH", "/billing-groups/{billingGroupName}", 200],
-  },
+  { [_h]: ["PATCH", "/billing-groups/{billingGroupName}", 200] },
   () => UpdateBillingGroupRequest,
   () => UpdateBillingGroupResponse,
 ];
@@ -10627,9 +8228,7 @@ export var UpdateCACertificate: StaticOperationSchema = [
   9,
   n0,
   _UCAC,
-  {
-    [_h]: ["PUT", "/cacertificate/{certificateId}", 200],
-  },
+  { [_h]: ["PUT", "/cacertificate/{certificateId}", 200] },
   () => UpdateCACertificateRequest,
   () => __Unit,
 ];
@@ -10637,9 +8236,7 @@ export var UpdateCertificate: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/certificates/{certificateId}", 200],
-  },
+  { [_h]: ["PUT", "/certificates/{certificateId}", 200] },
   () => UpdateCertificateRequest,
   () => __Unit,
 ];
@@ -10647,9 +8244,7 @@ export var UpdateCertificateProvider: StaticOperationSchema = [
   9,
   n0,
   _UCP,
-  {
-    [_h]: ["PUT", "/certificate-providers/{certificateProviderName}", 200],
-  },
+  { [_h]: ["PUT", "/certificate-providers/{certificateProviderName}", 200] },
   () => UpdateCertificateProviderRequest,
   () => UpdateCertificateProviderResponse,
 ];
@@ -10657,9 +8252,7 @@ export var UpdateCommand: StaticOperationSchema = [
   9,
   n0,
   _UCp,
-  {
-    [_h]: ["PATCH", "/commands/{commandId}", 200],
-  },
+  { [_h]: ["PATCH", "/commands/{commandId}", 200] },
   () => UpdateCommandRequest,
   () => UpdateCommandResponse,
 ];
@@ -10667,9 +8260,7 @@ export var UpdateCustomMetric: StaticOperationSchema = [
   9,
   n0,
   _UCM,
-  {
-    [_h]: ["PATCH", "/custom-metric/{metricName}", 200],
-  },
+  { [_h]: ["PATCH", "/custom-metric/{metricName}", 200] },
   () => UpdateCustomMetricRequest,
   () => UpdateCustomMetricResponse,
 ];
@@ -10677,9 +8268,7 @@ export var UpdateDimension: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PATCH", "/dimensions/{name}", 200],
-  },
+  { [_h]: ["PATCH", "/dimensions/{name}", 200] },
   () => UpdateDimensionRequest,
   () => UpdateDimensionResponse,
 ];
@@ -10687,9 +8276,7 @@ export var UpdateDomainConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UDC,
-  {
-    [_h]: ["PUT", "/domainConfigurations/{domainConfigurationName}", 200],
-  },
+  { [_h]: ["PUT", "/domainConfigurations/{domainConfigurationName}", 200] },
   () => UpdateDomainConfigurationRequest,
   () => UpdateDomainConfigurationResponse,
 ];
@@ -10697,9 +8284,7 @@ export var UpdateDynamicThingGroup: StaticOperationSchema = [
   9,
   n0,
   _UDTG,
-  {
-    [_h]: ["PATCH", "/dynamic-thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["PATCH", "/dynamic-thing-groups/{thingGroupName}", 200] },
   () => UpdateDynamicThingGroupRequest,
   () => UpdateDynamicThingGroupResponse,
 ];
@@ -10707,9 +8292,7 @@ export var UpdateEncryptionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UEC,
-  {
-    [_h]: ["PATCH", "/encryption-configuration", 200],
-  },
+  { [_h]: ["PATCH", "/encryption-configuration", 200] },
   () => UpdateEncryptionConfigurationRequest,
   () => UpdateEncryptionConfigurationResponse,
 ];
@@ -10717,9 +8300,7 @@ export var UpdateEventConfigurations: StaticOperationSchema = [
   9,
   n0,
   _UECp,
-  {
-    [_h]: ["PATCH", "/event-configurations", 200],
-  },
+  { [_h]: ["PATCH", "/event-configurations", 200] },
   () => UpdateEventConfigurationsRequest,
   () => UpdateEventConfigurationsResponse,
 ];
@@ -10727,9 +8308,7 @@ export var UpdateFleetMetric: StaticOperationSchema = [
   9,
   n0,
   _UFM,
-  {
-    [_h]: ["PATCH", "/fleet-metric/{metricName}", 200],
-  },
+  { [_h]: ["PATCH", "/fleet-metric/{metricName}", 200] },
   () => UpdateFleetMetricRequest,
   () => __Unit,
 ];
@@ -10737,9 +8316,7 @@ export var UpdateIndexingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UIC,
-  {
-    [_h]: ["POST", "/indexing/config", 200],
-  },
+  { [_h]: ["POST", "/indexing/config", 200] },
   () => UpdateIndexingConfigurationRequest,
   () => UpdateIndexingConfigurationResponse,
 ];
@@ -10747,9 +8324,7 @@ export var UpdateJob: StaticOperationSchema = [
   9,
   n0,
   _UJ,
-  {
-    [_h]: ["PATCH", "/jobs/{jobId}", 200],
-  },
+  { [_h]: ["PATCH", "/jobs/{jobId}", 200] },
   () => UpdateJobRequest,
   () => __Unit,
 ];
@@ -10757,9 +8332,7 @@ export var UpdateMitigationAction: StaticOperationSchema = [
   9,
   n0,
   _UMA,
-  {
-    [_h]: ["PATCH", "/mitigationactions/actions/{actionName}", 200],
-  },
+  { [_h]: ["PATCH", "/mitigationactions/actions/{actionName}", 200] },
   () => UpdateMitigationActionRequest,
   () => UpdateMitigationActionResponse,
 ];
@@ -10767,9 +8340,7 @@ export var UpdatePackage: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  {
-    [_h]: ["PATCH", "/packages/{packageName}", 200],
-  },
+  { [_h]: ["PATCH", "/packages/{packageName}", 200] },
   () => UpdatePackageRequest,
   () => UpdatePackageResponse,
 ];
@@ -10777,9 +8348,7 @@ export var UpdatePackageConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UPC,
-  {
-    [_h]: ["PATCH", "/package-configuration", 200],
-  },
+  { [_h]: ["PATCH", "/package-configuration", 200] },
   () => UpdatePackageConfigurationRequest,
   () => UpdatePackageConfigurationResponse,
 ];
@@ -10787,9 +8356,7 @@ export var UpdatePackageVersion: StaticOperationSchema = [
   9,
   n0,
   _UPV,
-  {
-    [_h]: ["PATCH", "/packages/{packageName}/versions/{versionName}", 200],
-  },
+  { [_h]: ["PATCH", "/packages/{packageName}/versions/{versionName}", 200] },
   () => UpdatePackageVersionRequest,
   () => UpdatePackageVersionResponse,
 ];
@@ -10797,9 +8364,7 @@ export var UpdateProvisioningTemplate: StaticOperationSchema = [
   9,
   n0,
   _UPT,
-  {
-    [_h]: ["PATCH", "/provisioning-templates/{templateName}", 200],
-  },
+  { [_h]: ["PATCH", "/provisioning-templates/{templateName}", 200] },
   () => UpdateProvisioningTemplateRequest,
   () => UpdateProvisioningTemplateResponse,
 ];
@@ -10807,9 +8372,7 @@ export var UpdateRoleAlias: StaticOperationSchema = [
   9,
   n0,
   _URA,
-  {
-    [_h]: ["PUT", "/role-aliases/{roleAlias}", 200],
-  },
+  { [_h]: ["PUT", "/role-aliases/{roleAlias}", 200] },
   () => UpdateRoleAliasRequest,
   () => UpdateRoleAliasResponse,
 ];
@@ -10817,9 +8380,7 @@ export var UpdateScheduledAudit: StaticOperationSchema = [
   9,
   n0,
   _USA,
-  {
-    [_h]: ["PATCH", "/audit/scheduledaudits/{scheduledAuditName}", 200],
-  },
+  { [_h]: ["PATCH", "/audit/scheduledaudits/{scheduledAuditName}", 200] },
   () => UpdateScheduledAuditRequest,
   () => UpdateScheduledAuditResponse,
 ];
@@ -10827,9 +8388,7 @@ export var UpdateSecurityProfile: StaticOperationSchema = [
   9,
   n0,
   _USP,
-  {
-    [_h]: ["PATCH", "/security-profiles/{securityProfileName}", 200],
-  },
+  { [_h]: ["PATCH", "/security-profiles/{securityProfileName}", 200] },
   () => UpdateSecurityProfileRequest,
   () => UpdateSecurityProfileResponse,
 ];
@@ -10837,9 +8396,7 @@ export var UpdateStream: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/streams/{streamId}", 200],
-  },
+  { [_h]: ["PUT", "/streams/{streamId}", 200] },
   () => UpdateStreamRequest,
   () => UpdateStreamResponse,
 ];
@@ -10847,9 +8404,7 @@ export var UpdateThing: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_h]: ["PATCH", "/things/{thingName}", 200],
-  },
+  { [_h]: ["PATCH", "/things/{thingName}", 200] },
   () => UpdateThingRequest,
   () => UpdateThingResponse,
 ];
@@ -10857,9 +8412,7 @@ export var UpdateThingGroup: StaticOperationSchema = [
   9,
   n0,
   _UTG,
-  {
-    [_h]: ["PATCH", "/thing-groups/{thingGroupName}", 200],
-  },
+  { [_h]: ["PATCH", "/thing-groups/{thingGroupName}", 200] },
   () => UpdateThingGroupRequest,
   () => UpdateThingGroupResponse,
 ];
@@ -10867,9 +8420,7 @@ export var UpdateThingGroupsForThing: StaticOperationSchema = [
   9,
   n0,
   _UTGFT,
-  {
-    [_h]: ["PUT", "/thing-groups/updateThingGroupsForThing", 200],
-  },
+  { [_h]: ["PUT", "/thing-groups/updateThingGroupsForThing", 200] },
   () => UpdateThingGroupsForThingRequest,
   () => UpdateThingGroupsForThingResponse,
 ];
@@ -10877,9 +8428,7 @@ export var UpdateThingType: StaticOperationSchema = [
   9,
   n0,
   _UTT,
-  {
-    [_h]: ["PATCH", "/thing-types/{thingTypeName}", 200],
-  },
+  { [_h]: ["PATCH", "/thing-types/{thingTypeName}", 200] },
   () => UpdateThingTypeRequest,
   () => UpdateThingTypeResponse,
 ];
@@ -10887,9 +8436,7 @@ export var UpdateTopicRuleDestination: StaticOperationSchema = [
   9,
   n0,
   _UTRD,
-  {
-    [_h]: ["PATCH", "/destinations", 200],
-  },
+  { [_h]: ["PATCH", "/destinations", 200] },
   () => UpdateTopicRuleDestinationRequest,
   () => UpdateTopicRuleDestinationResponse,
 ];
@@ -10897,9 +8444,7 @@ export var ValidateSecurityProfileBehaviors: StaticOperationSchema = [
   9,
   n0,
   _VSPB,
-  {
-    [_h]: ["POST", "/security-profile-behaviors/validate", 200],
-  },
+  { [_h]: ["POST", "/security-profile-behaviors/validate", 200] },
   () => ValidateSecurityProfileBehaviorsRequest,
   () => ValidateSecurityProfileBehaviorsResponse,
 ];

@@ -367,7 +367,7 @@ const n0 = "com.amazonaws.route53resolver";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -391,19 +391,8 @@ import {
 import { Route53ResolverServiceException as __Route53ResolverServiceException } from "../models/Route53ResolverServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateFirewallRuleGroupRequest: StaticStructureSchema = [
   3,
   n0,
@@ -454,18 +443,8 @@ export var AssociateResolverRuleResponse: StaticStructureSchema = [
   [_RRA],
   [() => ResolverRuleAssociation],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateFirewallDomainListRequest: StaticStructureSchema = [
   3,
   n0,
@@ -766,78 +745,18 @@ export var GetResolverRuleRequest: StaticStructureSchema = [3, n0, _GRRR, 0, [_R
 export var GetResolverRuleResponse: StaticStructureSchema = [3, n0, _GRRRe, 0, [_RR], [() => ResolverRule]];
 export var ImportFirewallDomainsRequest: StaticStructureSchema = [3, n0, _IFDR, 0, [_FDLI, _O, _DFU], [0, 0, 0]];
 export var ImportFirewallDomainsResponse: StaticStructureSchema = [3, n0, _IFDRm, 0, [_I, _N, _S, _SM], [0, 0, 0, 0]];
-export var InternalServiceErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InternalServiceErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServiceErrorException, __InternalServiceErrorException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M, _FN],
-  [0, 0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M, _FN], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidPolicyDocument: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPD,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidPolicyDocument: StaticErrorSchema = [-3, n0, _IPD, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidPolicyDocument, __InvalidPolicyDocument);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
-export var InvalidTagException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ITE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidTagException: StaticErrorSchema = [-3, n0, _ITE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTagException, __InvalidTagException);
-
 export var IpAddressRequest: StaticStructureSchema = [3, n0, _IAR, 0, [_SI, _Ip, _Ipv], [0, 0, 0]];
 export var IpAddressResponse: StaticStructureSchema = [
   3,
@@ -848,18 +767,8 @@ export var IpAddressResponse: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var IpAddressUpdate: StaticStructureSchema = [3, n0, _IAU, 0, [_II, _SI, _Ip, _Ipv], [0, 0, 0, 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RTe],
-  [0, 0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M, _RTe], [0, 0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListFirewallConfigsRequest: StaticStructureSchema = [3, n0, _LFCR, 0, [_MR, _NT], [1, 0]];
 export var ListFirewallConfigsResponse: StaticStructureSchema = [
   3,
@@ -1096,94 +1005,24 @@ export var ResolverRuleAssociation: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0],
 ];
 export var ResolverRuleConfig: StaticStructureSchema = [3, n0, _RRC, 0, [_N, _TI, _REI], [0, () => TargetList, 0]];
-export var ResourceExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _REE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RTe],
-  [0, 0],
-];
+export var ResourceExistsException: StaticErrorSchema = [-3, n0, _REE, { [_e]: _c }, [_M, _RTe], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceExistsException, __ResourceExistsException);
-
-export var ResourceInUseException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIUE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RTe],
-  [0, 0],
-];
+export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_M, _RTe], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RTe],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _RTe], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ResourceUnavailableException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RUE,
-  {
-    [_e]: _c,
-  },
-  [_M, _RTe],
-  [0, 0],
-];
+export var ResourceUnavailableException: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c }, [_M, _RTe], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TargetAddress: StaticStructureSchema = [3, n0, _TA, 0, [_Ip, _Po, _Ipv, _Pro, _SNI], [0, 1, 0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var UnknownResourceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _URE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var UnknownResourceException: StaticErrorSchema = [-3, n0, _URE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(UnknownResourceException, __UnknownResourceException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateFirewallConfigRequest: StaticStructureSchema = [3, n0, _UFCR, 0, [_RI, _FFO], [0, 0]];
@@ -1247,30 +1086,15 @@ export var UpdateResolverRuleRequest: StaticStructureSchema = [
   [0, () => ResolverRuleConfig],
 ];
 export var UpdateResolverRuleResponse: StaticStructureSchema = [3, n0, _URRRp, 0, [_RR], [() => ResolverRule]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var Route53ResolverServiceException: StaticErrorSchema = [-3, _s, "Route53ResolverServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(Route53ResolverServiceException, __Route53ResolverServiceException);
-
 export var Filters: StaticListSchema = [1, n0, _Fi, 0, () => Filter];
 export var FilterValues = 64 | 0;
-
 export var FirewallConfigList: StaticListSchema = [1, n0, _FCL, 0, () => FirewallConfig];
 export var FirewallDomainListMetadataList: StaticListSchema = [1, n0, _FDLML, 0, () => FirewallDomainListMetadata];
 export var FirewallDomains = 64 | 0;
-
 export var FirewallRuleGroupAssociations: StaticListSchema = [1, n0, _FRGAi, 0, () => FirewallRuleGroupAssociation];
 export var FirewallRuleGroupMetadataList: StaticListSchema = [1, n0, _FRGML, 0, () => FirewallRuleGroupMetadata];
 export var FirewallRules: StaticListSchema = [1, n0, _FRi, 0, () => FirewallRule];
@@ -1278,7 +1102,6 @@ export var IpAddressesRequest: StaticListSchema = [1, n0, _IARpd, 0, () => IpAdd
 export var IpAddressesResponse: StaticListSchema = [1, n0, _IARpdd, 0, () => IpAddressResponse];
 export var OutpostResolverList: StaticListSchema = [1, n0, _ORL, 0, () => OutpostResolver];
 export var ProtocolList = 64 | 0;
-
 export var ResolverConfigList: StaticListSchema = [1, n0, _RCL, 0, () => ResolverConfig];
 export var ResolverDnssecConfigList: StaticListSchema = [1, n0, _RDCL, 0, () => ResolverDnssecConfig];
 export var ResolverEndpoints: StaticListSchema = [1, n0, _REe, 0, () => ResolverEndpoint];
@@ -1293,9 +1116,7 @@ export var ResolverQueryLogConfigList: StaticListSchema = [1, n0, _RQLCL, 0, () 
 export var ResolverRuleAssociations: StaticListSchema = [1, n0, _RRAe, 0, () => ResolverRuleAssociation];
 export var ResolverRules: StaticListSchema = [1, n0, _RRe, 0, () => ResolverRule];
 export var SecurityGroupIds = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => TargetAddress];
 export var UpdateIpAddresses: StaticListSchema = [1, n0, _UIAp, 0, () => UpdateIpAddress];

@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
+import type { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
 import { ListVpcEndpoints } from "../schemas/schemas_0";
 
 /**

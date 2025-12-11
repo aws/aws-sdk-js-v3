@@ -1,0 +1,73 @@
+import {
+  ActionAfterCompletion,
+  AssignPublicIp,
+  ConflictException,
+  CreateScheduleCommand,
+  CreateScheduleGroupCommand,
+  DeleteScheduleCommand,
+  DeleteScheduleGroupCommand,
+  FlexibleTimeWindowMode,
+  GetScheduleCommand,
+  GetScheduleGroupCommand,
+  InternalServerException,
+  LaunchType,
+  ListScheduleGroupsCommand,
+  ListSchedulesCommand,
+  ListTagsForResourceCommand,
+  PlacementConstraintType,
+  PlacementStrategyType,
+  PropagateTags,
+  ResourceNotFoundException,
+  ScheduleGroupState,
+  ScheduleState,
+  Scheduler,
+  SchedulerClient,
+  SchedulerServiceException,
+  ServiceQuotaExceededException,
+  TagResourceCommand,
+  ThrottlingException,
+  UntagResourceCommand,
+  UpdateScheduleCommand,
+  ValidationException,
+  paginateListScheduleGroups,
+  paginateListSchedules,
+} from "../dist-cjs/index.js";
+import assert from "node:assert";
+// clients
+assert(typeof SchedulerClient === "function");
+assert(typeof Scheduler === "function");
+// commands
+assert(typeof CreateScheduleCommand === "function");
+assert(typeof CreateScheduleGroupCommand === "function");
+assert(typeof DeleteScheduleCommand === "function");
+assert(typeof DeleteScheduleGroupCommand === "function");
+assert(typeof GetScheduleCommand === "function");
+assert(typeof GetScheduleGroupCommand === "function");
+assert(typeof ListScheduleGroupsCommand === "function");
+assert(typeof ListSchedulesCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+assert(typeof UpdateScheduleCommand === "function");
+// enums
+assert(typeof ActionAfterCompletion === "object");
+assert(typeof AssignPublicIp === "object");
+assert(typeof FlexibleTimeWindowMode === "object");
+assert(typeof LaunchType === "object");
+assert(typeof PlacementConstraintType === "object");
+assert(typeof PlacementStrategyType === "object");
+assert(typeof PropagateTags === "object");
+assert(typeof ScheduleGroupState === "object");
+assert(typeof ScheduleState === "object");
+// errors
+assert(ConflictException.prototype instanceof SchedulerServiceException);
+assert(InternalServerException.prototype instanceof SchedulerServiceException);
+assert(ResourceNotFoundException.prototype instanceof SchedulerServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof SchedulerServiceException);
+assert(ThrottlingException.prototype instanceof SchedulerServiceException);
+assert(ValidationException.prototype instanceof SchedulerServiceException);
+assert(SchedulerServiceException.prototype instanceof Error);
+// paginators
+assert(typeof paginateListScheduleGroups === "function");
+assert(typeof paginateListSchedules === "function");
+console.log(`Scheduler index test passed.`);

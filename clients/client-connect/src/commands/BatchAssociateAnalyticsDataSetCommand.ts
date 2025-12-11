@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchAssociateAnalyticsDataSetRequest, BatchAssociateAnalyticsDataSetResponse } from "../models/models_0";
+import type { BatchAssociateAnalyticsDataSetRequest, BatchAssociateAnalyticsDataSetResponse } from "../models/models_0";
 import { BatchAssociateAnalyticsDataSet } from "../schemas/schemas_0";
 
 /**
@@ -29,8 +29,8 @@ export interface BatchAssociateAnalyticsDataSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a list of analytics datasets for a given Amazon Connect instance to a target
- *    account. You can associate multiple datasets in a single call.</p>
+ * <p>Associates a list of analytics datasets for a given Amazon Connect instance to a target account. You can
+ *    associate multiple datasets in a single call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -186,7 +186,7 @@ const n0 = "com.amazonaws.chimesdkidentity";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -208,7 +208,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Metadata: StaticSimpleSchema = [0, n0, _M, 8, 0];
 export var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 export var NonEmptyResourceName: StaticSimpleSchema = [0, n0, _NERN, 8, 0];
@@ -294,34 +293,12 @@ export var AppInstanceUserSummary: StaticStructureSchema = [
   [_AIUA, _N, _M],
   [0, [() => UserName, 0], [() => Metadata, 0]],
 ];
-export var BadRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_Co, _Me],
-  [0, 0],
-];
+export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_Co, _Me], [0, 0]];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var ChannelRetentionSettings: StaticStructureSchema = [3, n0, _CRS, 0, [_RD], [1]];
 export var Configuration: StaticStructureSchema = [3, n0, _C, 0, [_L], [() => LexConfiguration]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_Co, _Me],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_Co, _Me], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAppInstanceAdminRequest: StaticStructureSchema = [3, n0, _CAIAR, 0, [_AIAA, _AIA], [0, [0, 1]]];
 export var CreateAppInstanceAdminResponse: StaticStructureSchema = [
   3,
@@ -467,19 +444,8 @@ export var EndpointAttributes: StaticStructureSchema = [
 ];
 export var EndpointState: StaticStructureSchema = [3, n0, _ESn, 0, [_S, _SR], [0, 0]];
 export var ExpirationSettings: StaticStructureSchema = [3, n0, _ES, 0, [_ED, _EC], [1, 0]];
-export var ForbiddenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_Co, _Me],
-  [0, 0],
-];
+export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_Co, _Me], [0, 0]];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var GetAppInstanceRetentionSettingsRequest: StaticStructureSchema = [3, n0, _GAIRSR, 0, [_AIA], [[0, 1]]];
 export var GetAppInstanceRetentionSettingsResponse: StaticStructureSchema = [
   3,
@@ -507,18 +473,8 @@ export var ListAppInstanceAdminsRequest: StaticStructureSchema = [
   [_AIA, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      () => NextToken,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [() => NextToken, { [_hQ]: _nt }],
   ],
 ];
 export var ListAppInstanceAdminsResponse: StaticStructureSchema = [
@@ -536,24 +492,9 @@ export var ListAppInstanceBotsRequest: StaticStructureSchema = [
   0,
   [_AIA, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _aia,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      () => NextToken,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _aia }],
+    [1, { [_hQ]: _mr }],
+    [() => NextToken, { [_hQ]: _nt }],
   ],
 ];
 export var ListAppInstanceBotsResponse: StaticStructureSchema = [
@@ -571,18 +512,8 @@ export var ListAppInstancesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      () => NextToken,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [() => NextToken, { [_hQ]: _nt }],
   ],
 ];
 export var ListAppInstancesResponse: StaticStructureSchema = [
@@ -604,18 +535,8 @@ export var ListAppInstanceUserEndpointsRequest: StaticStructureSchema = [
   [_AIUA, _MR, _NT],
   [
     [() => SensitiveChimeArn, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      () => NextToken,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [() => NextToken, { [_hQ]: _nt }],
   ],
 ];
 export var ListAppInstanceUserEndpointsResponse: StaticStructureSchema = [
@@ -636,24 +557,9 @@ export var ListAppInstanceUsersRequest: StaticStructureSchema = [
   0,
   [_AIA, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _aia,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      () => NextToken,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _aia }],
+    [1, { [_hQ]: _mr }],
+    [() => NextToken, { [_hQ]: _nt }],
   ],
 ];
 export var ListAppInstanceUsersResponse: StaticStructureSchema = [
@@ -664,35 +570,10 @@ export var ListAppInstanceUsersResponse: StaticStructureSchema = [
   [_AIA, _AIUp, _NT],
   [0, [() => AppInstanceUserList, 0], [() => NextToken, 0]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_RARN],
-  [
-    [
-      0,
-      {
-        [_hQ]: _a,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [[0, { [_hQ]: _a }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [[() => TagList, 0]]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_Co, _Me],
-  [0, 0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_Co, _Me], [0, 0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PutAppInstanceRetentionSettingsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -738,41 +619,22 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_Co, _Me],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-
-export var ServiceFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_Co, _Me],
-  [0, 0],
-];
+export var ServiceFailureException: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _s, [_hE]: 500 }, [_Co, _Me], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
+  { [_e]: _s, [_hE]: 503 },
   [_Co, _Me],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-
 export var Tag: StaticStructureSchema = [
   3,
   n0,
@@ -785,32 +647,17 @@ export var Tag: StaticStructureSchema = [
   ],
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, [() => TagList, 0]]];
-export var ThrottledClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_Co, _Me],
-  [0, 0],
-];
+export var ThrottledClientException: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_Co, _Me], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottledClientException, __ThrottledClientException);
-
 export var UnauthorizedClientException: StaticErrorSchema = [
   -3,
   n0,
   _UCE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
+  { [_e]: _c, [_hE]: 401 },
   [_Co, _Me],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedClientException, __UnauthorizedClientException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TKa], [0, [() => TagKeyList, 0]]];
 export var UpdateAppInstanceBotRequest: StaticStructureSchema = [
   3,
@@ -857,7 +704,6 @@ export var UpdateAppInstanceUserRequest: StaticStructureSchema = [
 ];
 export var UpdateAppInstanceUserResponse: StaticStructureSchema = [3, n0, _UAIURp, 0, [_AIUA], [0]];
 export var __Unit = "unit" as const;
-
 export var ChimeSDKIdentityServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -867,7 +713,6 @@ export var ChimeSDKIdentityServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(ChimeSDKIdentityServiceException, __ChimeSDKIdentityServiceException);
-
 export var AppInstanceAdminList: StaticListSchema = [1, n0, _AIAL, 0, [() => AppInstanceAdminSummary, 0]];
 export var AppInstanceBotList: StaticListSchema = [1, n0, _AIBL, 0, [() => AppInstanceBotSummary, 0]];
 export var AppInstanceList: StaticListSchema = [1, n0, _AIL, 0, [() => AppInstanceSummary, 0]];
@@ -885,9 +730,7 @@ export var CreateAppInstance: StaticOperationSchema = [
   9,
   n0,
   _CAI,
-  {
-    [_h]: ["POST", "/app-instances", 201],
-  },
+  { [_h]: ["POST", "/app-instances", 201] },
   () => CreateAppInstanceRequest,
   () => CreateAppInstanceResponse,
 ];
@@ -895,9 +738,7 @@ export var CreateAppInstanceAdmin: StaticOperationSchema = [
   9,
   n0,
   _CAIA,
-  {
-    [_h]: ["POST", "/app-instances/{AppInstanceArn}/admins", 201],
-  },
+  { [_h]: ["POST", "/app-instances/{AppInstanceArn}/admins", 201] },
   () => CreateAppInstanceAdminRequest,
   () => CreateAppInstanceAdminResponse,
 ];
@@ -905,9 +746,7 @@ export var CreateAppInstanceBot: StaticOperationSchema = [
   9,
   n0,
   _CAIB,
-  {
-    [_h]: ["POST", "/app-instance-bots", 201],
-  },
+  { [_h]: ["POST", "/app-instance-bots", 201] },
   () => CreateAppInstanceBotRequest,
   () => CreateAppInstanceBotResponse,
 ];
@@ -915,9 +754,7 @@ export var CreateAppInstanceUser: StaticOperationSchema = [
   9,
   n0,
   _CAIU,
-  {
-    [_h]: ["POST", "/app-instance-users", 201],
-  },
+  { [_h]: ["POST", "/app-instance-users", 201] },
   () => CreateAppInstanceUserRequest,
   () => CreateAppInstanceUserResponse,
 ];
@@ -925,9 +762,7 @@ export var DeleteAppInstance: StaticOperationSchema = [
   9,
   n0,
   _DAI,
-  {
-    [_h]: ["DELETE", "/app-instances/{AppInstanceArn}", 204],
-  },
+  { [_h]: ["DELETE", "/app-instances/{AppInstanceArn}", 204] },
   () => DeleteAppInstanceRequest,
   () => __Unit,
 ];
@@ -935,9 +770,7 @@ export var DeleteAppInstanceAdmin: StaticOperationSchema = [
   9,
   n0,
   _DAIA,
-  {
-    [_h]: ["DELETE", "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}", 204],
-  },
+  { [_h]: ["DELETE", "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}", 204] },
   () => DeleteAppInstanceAdminRequest,
   () => __Unit,
 ];
@@ -945,9 +778,7 @@ export var DeleteAppInstanceBot: StaticOperationSchema = [
   9,
   n0,
   _DAIB,
-  {
-    [_h]: ["DELETE", "/app-instance-bots/{AppInstanceBotArn}", 204],
-  },
+  { [_h]: ["DELETE", "/app-instance-bots/{AppInstanceBotArn}", 204] },
   () => DeleteAppInstanceBotRequest,
   () => __Unit,
 ];
@@ -955,9 +786,7 @@ export var DeleteAppInstanceUser: StaticOperationSchema = [
   9,
   n0,
   _DAIU,
-  {
-    [_h]: ["DELETE", "/app-instance-users/{AppInstanceUserArn}", 204],
-  },
+  { [_h]: ["DELETE", "/app-instance-users/{AppInstanceUserArn}", 204] },
   () => DeleteAppInstanceUserRequest,
   () => __Unit,
 ];
@@ -965,9 +794,7 @@ export var DeregisterAppInstanceUserEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DAIUE,
-  {
-    [_h]: ["DELETE", "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}", 204],
-  },
+  { [_h]: ["DELETE", "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}", 204] },
   () => DeregisterAppInstanceUserEndpointRequest,
   () => __Unit,
 ];
@@ -975,9 +802,7 @@ export var DescribeAppInstance: StaticOperationSchema = [
   9,
   n0,
   _DAIe,
-  {
-    [_h]: ["GET", "/app-instances/{AppInstanceArn}", 200],
-  },
+  { [_h]: ["GET", "/app-instances/{AppInstanceArn}", 200] },
   () => DescribeAppInstanceRequest,
   () => DescribeAppInstanceResponse,
 ];
@@ -985,9 +810,7 @@ export var DescribeAppInstanceAdmin: StaticOperationSchema = [
   9,
   n0,
   _DAIAe,
-  {
-    [_h]: ["GET", "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}", 200],
-  },
+  { [_h]: ["GET", "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}", 200] },
   () => DescribeAppInstanceAdminRequest,
   () => DescribeAppInstanceAdminResponse,
 ];
@@ -995,9 +818,7 @@ export var DescribeAppInstanceBot: StaticOperationSchema = [
   9,
   n0,
   _DAIBe,
-  {
-    [_h]: ["GET", "/app-instance-bots/{AppInstanceBotArn}", 200],
-  },
+  { [_h]: ["GET", "/app-instance-bots/{AppInstanceBotArn}", 200] },
   () => DescribeAppInstanceBotRequest,
   () => DescribeAppInstanceBotResponse,
 ];
@@ -1005,9 +826,7 @@ export var DescribeAppInstanceUser: StaticOperationSchema = [
   9,
   n0,
   _DAIUe,
-  {
-    [_h]: ["GET", "/app-instance-users/{AppInstanceUserArn}", 200],
-  },
+  { [_h]: ["GET", "/app-instance-users/{AppInstanceUserArn}", 200] },
   () => DescribeAppInstanceUserRequest,
   () => DescribeAppInstanceUserResponse,
 ];
@@ -1015,9 +834,7 @@ export var DescribeAppInstanceUserEndpoint: StaticOperationSchema = [
   9,
   n0,
   _DAIUEe,
-  {
-    [_h]: ["GET", "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}", 200],
-  },
+  { [_h]: ["GET", "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}", 200] },
   () => DescribeAppInstanceUserEndpointRequest,
   () => DescribeAppInstanceUserEndpointResponse,
 ];
@@ -1025,9 +842,7 @@ export var GetAppInstanceRetentionSettings: StaticOperationSchema = [
   9,
   n0,
   _GAIRS,
-  {
-    [_h]: ["GET", "/app-instances/{AppInstanceArn}/retention-settings", 200],
-  },
+  { [_h]: ["GET", "/app-instances/{AppInstanceArn}/retention-settings", 200] },
   () => GetAppInstanceRetentionSettingsRequest,
   () => GetAppInstanceRetentionSettingsResponse,
 ];
@@ -1035,9 +850,7 @@ export var ListAppInstanceAdmins: StaticOperationSchema = [
   9,
   n0,
   _LAIA,
-  {
-    [_h]: ["GET", "/app-instances/{AppInstanceArn}/admins", 200],
-  },
+  { [_h]: ["GET", "/app-instances/{AppInstanceArn}/admins", 200] },
   () => ListAppInstanceAdminsRequest,
   () => ListAppInstanceAdminsResponse,
 ];
@@ -1045,9 +858,7 @@ export var ListAppInstanceBots: StaticOperationSchema = [
   9,
   n0,
   _LAIB,
-  {
-    [_h]: ["GET", "/app-instance-bots", 200],
-  },
+  { [_h]: ["GET", "/app-instance-bots", 200] },
   () => ListAppInstanceBotsRequest,
   () => ListAppInstanceBotsResponse,
 ];
@@ -1055,9 +866,7 @@ export var ListAppInstances: StaticOperationSchema = [
   9,
   n0,
   _LAI,
-  {
-    [_h]: ["GET", "/app-instances", 200],
-  },
+  { [_h]: ["GET", "/app-instances", 200] },
   () => ListAppInstancesRequest,
   () => ListAppInstancesResponse,
 ];
@@ -1065,9 +874,7 @@ export var ListAppInstanceUserEndpoints: StaticOperationSchema = [
   9,
   n0,
   _LAIUE,
-  {
-    [_h]: ["GET", "/app-instance-users/{AppInstanceUserArn}/endpoints", 200],
-  },
+  { [_h]: ["GET", "/app-instance-users/{AppInstanceUserArn}/endpoints", 200] },
   () => ListAppInstanceUserEndpointsRequest,
   () => ListAppInstanceUserEndpointsResponse,
 ];
@@ -1075,9 +882,7 @@ export var ListAppInstanceUsers: StaticOperationSchema = [
   9,
   n0,
   _LAIU,
-  {
-    [_h]: ["GET", "/app-instance-users", 200],
-  },
+  { [_h]: ["GET", "/app-instance-users", 200] },
   () => ListAppInstanceUsersRequest,
   () => ListAppInstanceUsersResponse,
 ];
@@ -1085,9 +890,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1095,9 +898,7 @@ export var PutAppInstanceRetentionSettings: StaticOperationSchema = [
   9,
   n0,
   _PAIRS,
-  {
-    [_h]: ["PUT", "/app-instances/{AppInstanceArn}/retention-settings", 200],
-  },
+  { [_h]: ["PUT", "/app-instances/{AppInstanceArn}/retention-settings", 200] },
   () => PutAppInstanceRetentionSettingsRequest,
   () => PutAppInstanceRetentionSettingsResponse,
 ];
@@ -1105,9 +906,7 @@ export var PutAppInstanceUserExpirationSettings: StaticOperationSchema = [
   9,
   n0,
   _PAIUES,
-  {
-    [_h]: ["PUT", "/app-instance-users/{AppInstanceUserArn}/expiration-settings", 200],
-  },
+  { [_h]: ["PUT", "/app-instance-users/{AppInstanceUserArn}/expiration-settings", 200] },
   () => PutAppInstanceUserExpirationSettingsRequest,
   () => PutAppInstanceUserExpirationSettingsResponse,
 ];
@@ -1115,9 +914,7 @@ export var RegisterAppInstanceUserEndpoint: StaticOperationSchema = [
   9,
   n0,
   _RAIUE,
-  {
-    [_h]: ["POST", "/app-instance-users/{AppInstanceUserArn}/endpoints", 201],
-  },
+  { [_h]: ["POST", "/app-instance-users/{AppInstanceUserArn}/endpoints", 201] },
   () => RegisterAppInstanceUserEndpointRequest,
   () => RegisterAppInstanceUserEndpointResponse,
 ];
@@ -1125,9 +922,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags?operation=tag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=tag-resource", 204] },
   () => TagResourceRequest,
   () => __Unit,
 ];
@@ -1135,9 +930,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["POST", "/tags?operation=untag-resource", 204],
-  },
+  { [_h]: ["POST", "/tags?operation=untag-resource", 204] },
   () => UntagResourceRequest,
   () => __Unit,
 ];
@@ -1145,9 +938,7 @@ export var UpdateAppInstance: StaticOperationSchema = [
   9,
   n0,
   _UAI,
-  {
-    [_h]: ["PUT", "/app-instances/{AppInstanceArn}", 200],
-  },
+  { [_h]: ["PUT", "/app-instances/{AppInstanceArn}", 200] },
   () => UpdateAppInstanceRequest,
   () => UpdateAppInstanceResponse,
 ];
@@ -1155,9 +946,7 @@ export var UpdateAppInstanceBot: StaticOperationSchema = [
   9,
   n0,
   _UAIB,
-  {
-    [_h]: ["PUT", "/app-instance-bots/{AppInstanceBotArn}", 200],
-  },
+  { [_h]: ["PUT", "/app-instance-bots/{AppInstanceBotArn}", 200] },
   () => UpdateAppInstanceBotRequest,
   () => UpdateAppInstanceBotResponse,
 ];
@@ -1165,9 +954,7 @@ export var UpdateAppInstanceUser: StaticOperationSchema = [
   9,
   n0,
   _UAIU,
-  {
-    [_h]: ["PUT", "/app-instance-users/{AppInstanceUserArn}", 200],
-  },
+  { [_h]: ["PUT", "/app-instance-users/{AppInstanceUserArn}", 200] },
   () => UpdateAppInstanceUserRequest,
   () => UpdateAppInstanceUserResponse,
 ];
@@ -1175,9 +962,7 @@ export var UpdateAppInstanceUserEndpoint: StaticOperationSchema = [
   9,
   n0,
   _UAIUE,
-  {
-    [_h]: ["PUT", "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}", 200],
-  },
+  { [_h]: ["PUT", "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}", 200] },
   () => UpdateAppInstanceUserEndpointRequest,
   () => UpdateAppInstanceUserEndpointResponse,
 ];

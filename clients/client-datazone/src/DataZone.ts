@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptPredictionsCommand,
@@ -338,6 +338,11 @@ import {
   GetConnectionCommandOutput,
 } from "./commands/GetConnectionCommand";
 import {
+  GetDataExportConfigurationCommand,
+  GetDataExportConfigurationCommandInput,
+  GetDataExportConfigurationCommandOutput,
+} from "./commands/GetDataExportConfigurationCommand";
+import {
   GetDataProductCommand,
   GetDataProductCommandInput,
   GetDataProductCommandOutput,
@@ -623,6 +628,11 @@ import {
   PostTimeSeriesDataPointsCommandOutput,
 } from "./commands/PostTimeSeriesDataPointsCommand";
 import {
+  PutDataExportConfigurationCommand,
+  PutDataExportConfigurationCommandInput,
+  PutDataExportConfigurationCommandOutput,
+} from "./commands/PutDataExportConfigurationCommand";
+import {
   PutEnvironmentBlueprintConfigurationCommand,
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
@@ -786,7 +796,7 @@ import {
   UpdateUserProfileCommandInput,
   UpdateUserProfileCommandOutput,
 } from "./commands/UpdateUserProfileCommand";
-import { DataZoneClient, DataZoneClientConfig } from "./DataZoneClient";
+import { DataZoneClient } from "./DataZoneClient";
 
 const commands = {
   AcceptPredictionsCommand,
@@ -860,6 +870,7 @@ const commands = {
   GetAssetFilterCommand,
   GetAssetTypeCommand,
   GetConnectionCommand,
+  GetDataExportConfigurationCommand,
   GetDataProductCommand,
   GetDataSourceCommand,
   GetDataSourceRunCommand,
@@ -925,6 +936,7 @@ const commands = {
   ListTimeSeriesDataPointsCommand,
   PostLineageEventCommand,
   PostTimeSeriesDataPointsCommand,
+  PutDataExportConfigurationCommand,
   PutEnvironmentBlueprintConfigurationCommand,
   RejectPredictionsCommand,
   RejectSubscriptionRequestCommand,
@@ -2070,6 +2082,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link GetDataExportConfigurationCommand}
+   */
+  getDataExportConfiguration(
+    args: GetDataExportConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataExportConfigurationCommandOutput>;
+  getDataExportConfiguration(
+    args: GetDataExportConfigurationCommandInput,
+    cb: (err: any, data?: GetDataExportConfigurationCommandOutput) => void
+  ): void;
+  getDataExportConfiguration(
+    args: GetDataExportConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataExportConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataProductCommand}
    */
   getDataProduct(
@@ -3065,6 +3094,23 @@ export interface DataZone {
     args: PostTimeSeriesDataPointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PostTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDataExportConfigurationCommand}
+   */
+  putDataExportConfiguration(
+    args: PutDataExportConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDataExportConfigurationCommandOutput>;
+  putDataExportConfiguration(
+    args: PutDataExportConfigurationCommandInput,
+    cb: (err: any, data?: PutDataExportConfigurationCommandOutput) => void
+  ): void;
+  putDataExportConfiguration(
+    args: PutDataExportConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDataExportConfigurationCommandOutput) => void
   ): void;
 
   /**

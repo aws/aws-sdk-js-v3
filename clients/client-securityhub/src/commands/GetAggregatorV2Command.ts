@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAggregatorV2Request, GetAggregatorV2Response } from "../models/models_2";
+import type { GetAggregatorV2Request, GetAggregatorV2Response } from "../models/models_2";
 import { GetAggregatorV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface GetAggregatorV2CommandInput extends GetAggregatorV2Request {}
 export interface GetAggregatorV2CommandOutput extends GetAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns the configuration of the specified Aggregator V2. This API is in public preview and subject to change.</p>
+ * <p>Returns the configuration of the specified Aggregator V2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

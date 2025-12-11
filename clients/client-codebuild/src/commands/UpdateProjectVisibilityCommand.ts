@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
+import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateProjectVisibilityInput, UpdateProjectVisibilityOutput } from "../models/models_0";
+import type { UpdateProjectVisibilityInput, UpdateProjectVisibilityOutput } from "../models/models_0";
 import { UpdateProjectVisibility } from "../schemas/schemas_0";
 
 /**

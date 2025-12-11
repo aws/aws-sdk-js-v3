@@ -2,15 +2,19 @@
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EndpointWithHostLabelOperationRequest } from "../models/models_0";
+import type { EndpointWithHostLabelOperationRequest } from "../models/models_0";
 import {
   de_EndpointWithHostLabelOperationCommand,
   se_EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_restXml";
-import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import type {
+  RestXmlProtocolClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../RestXmlProtocolClient";
 
 /**
  * @public

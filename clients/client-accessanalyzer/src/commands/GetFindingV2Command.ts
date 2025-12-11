@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
+import type {
+  AccessAnalyzerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFindingV2Request, GetFindingV2Response } from "../models/models_0";
+import type { GetFindingV2Request, GetFindingV2Response } from "../models/models_0";
 import { GetFindingV2 } from "../schemas/schemas_0";
 
 /**

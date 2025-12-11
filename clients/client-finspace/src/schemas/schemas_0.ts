@@ -384,7 +384,7 @@ const n0 = "com.amazonaws.finspace";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -408,22 +408,10 @@ import {
 import { FinspaceServiceException as __FinspaceServiceException } from "../models/FinspaceServiceException";
 
 /* eslint no-var: 0 */
-
 export var EmailId: StaticSimpleSchema = [0, n0, _EI, 8, 0];
 export var SignedKxConnectionString: StaticSimpleSchema = [0, n0, _SKCS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AutoScalingConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -435,19 +423,8 @@ export var AutoScalingConfiguration: StaticStructureSchema = [
 export var CapacityConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_nT, _nC], [0, 1]];
 export var ChangeRequest: StaticStructureSchema = [3, n0, _CR, 0, [_cT, _sP, _dP], [0, 0, 0]];
 export var CodeConfiguration: StaticStructureSchema = [3, n0, _CCo, 0, [_sB, _sK, _sOV], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _r],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateEnvironmentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -675,13 +652,7 @@ export var DeleteKxClusterRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxClusterResponse: StaticStructureSchema = [3, n0, _DKCRe, 0, [], []];
@@ -694,13 +665,7 @@ export var DeleteKxDatabaseRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxDatabaseResponse: StaticStructureSchema = [3, n0, _DKDRe, 0, [], []];
@@ -714,13 +679,7 @@ export var DeleteKxDataviewRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxDataviewResponse: StaticStructureSchema = [3, n0, _DKDRele, 0, [], []];
@@ -732,13 +691,7 @@ export var DeleteKxEnvironmentRequest: StaticStructureSchema = [
   [_eI, _cTl],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxEnvironmentResponse: StaticStructureSchema = [3, n0, _DKERe, 0, [], []];
@@ -751,13 +704,7 @@ export var DeleteKxScalingGroupRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxScalingGroupResponse: StaticStructureSchema = [3, n0, _DKSGRe, 0, [], []];
@@ -770,13 +717,7 @@ export var DeleteKxUserRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxUserResponse: StaticStructureSchema = [3, n0, _DKURe, 0, [], []];
@@ -789,13 +730,7 @@ export var DeleteKxVolumeRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _cTl,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
 export var DeleteKxVolumeResponse: StaticStructureSchema = [3, n0, _DKVRe, 0, [], []];
@@ -912,19 +847,9 @@ export var GetKxConnectionStringRequest: StaticStructureSchema = [
   0,
   [_uA, _eI, _cN],
   [
-    [
-      0,
-      {
-        [_hQ]: _uA,
-      },
-    ],
+    [0, { [_hQ]: _uA }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cN,
-      },
-    ],
+    [0, { [_hQ]: _cN }],
   ],
 ];
 export var GetKxConnectionStringResponse: StaticStructureSchema = [
@@ -1034,32 +959,10 @@ export var GetKxVolumeResponse: StaticStructureSchema = [
   [0, 0, 0, 0, () => KxNAS1Configuration, 0, 0, 4, 0, 0, 64 | 0, 4, () => KxAttachedClusters],
 ];
 export var IcmpTypeCode: StaticStructureSchema = [3, n0, _ITC, 0, [_ty, _co], [1, 1]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var KxAttachedCluster: StaticStructureSchema = [3, n0, _KAC, 0, [_cN, _cTlu, _cS], [0, 0, 0]];
 export var KxCacheStorageConfiguration: StaticStructureSchema = [3, n0, _KCSC, 0, [_ty, _si], [0, 1]];
 export var KxChangesetListEntry: StaticStructureSchema = [
@@ -1152,19 +1055,8 @@ export var KxVolume: StaticStructureSchema = [
   [_vN, _vT, _s, _d, _sR, _aM, _aZIv, _cTr, _lMT],
   [0, 0, 0, 0, 0, 0, 64 | 0, 4, 4],
 ];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListEnvironmentsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1172,18 +1064,8 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListEnvironmentsResponse: StaticStructureSchema = [
@@ -1203,18 +1085,8 @@ export var ListKxChangesetsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListKxChangesetsResponse: StaticStructureSchema = [3, n0, _LKCRi, 0, [_kC, _nTe], [() => KxChangesets, 0]];
@@ -1227,18 +1099,8 @@ export var ListKxClusterNodesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListKxClusterNodesResponse: StaticStructureSchema = [
@@ -1257,24 +1119,9 @@ export var ListKxClustersRequest: StaticStructureSchema = [
   [_eI, _cTlu, _mRa, _nTe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cTlu,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
+    [0, { [_hQ]: _cTlu }],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListKxClustersResponse: StaticStructureSchema = [3, n0, _LKCRist, 0, [_kCS, _nTe], [() => KxClusters, 0]];
@@ -1286,18 +1133,8 @@ export var ListKxDatabasesRequest: StaticStructureSchema = [
   [_eI, _nTe, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListKxDatabasesResponse: StaticStructureSchema = [3, n0, _LKDRi, 0, [_kD, _nTe], [() => KxDatabases, 0]];
@@ -1310,18 +1147,8 @@ export var ListKxDataviewsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListKxDataviewsResponse: StaticStructureSchema = [3, n0, _LKDRist, 0, [_kDx, _nTe], [() => KxDataviews, 0]];
@@ -1332,18 +1159,8 @@ export var ListKxEnvironmentsRequest: StaticStructureSchema = [
   0,
   [_nTe, _mRa],
   [
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListKxEnvironmentsResponse: StaticStructureSchema = [
@@ -1362,18 +1179,8 @@ export var ListKxScalingGroupsRequest: StaticStructureSchema = [
   [_eI, _mRa, _nTe],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListKxScalingGroupsResponse: StaticStructureSchema = [
@@ -1392,18 +1199,8 @@ export var ListKxUsersRequest: StaticStructureSchema = [
   [_eI, _nTe, _mRa],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
+    [0, { [_hQ]: _nTe }],
+    [1, { [_hQ]: _mRa }],
   ],
 ];
 export var ListKxUsersResponse: StaticStructureSchema = [3, n0, _LKURi, 0, [_u, _nTe], [() => KxUserList, 0]];
@@ -1415,24 +1212,9 @@ export var ListKxVolumesRequest: StaticStructureSchema = [
   [_eI, _mRa, _nTe, _vT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mRa,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nTe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _vT,
-      },
-    ],
+    [1, { [_hQ]: _mRa }],
+    [0, { [_hQ]: _nTe }],
+    [0, { [_hQ]: _vT }],
   ],
 ];
 export var ListKxVolumesResponse: StaticStructureSchema = [3, n0, _LKVRi, 0, [_kVS, _nTe], [() => KxVolumes, 0]];
@@ -1447,61 +1229,17 @@ export var NetworkACLEntry: StaticStructureSchema = [
   [1, 0, 0, () => PortRange, () => IcmpTypeCode, 0],
 ];
 export var PortRange: StaticStructureSchema = [3, n0, _PR, 0, [_f, _to], [1, 1]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SuperuserParameters: StaticStructureSchema = [3, n0, _SP, 0, [_eAm, _fN, _lN], [[() => EmailId, 0], 0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TickerplantLogConfiguration: StaticStructureSchema = [3, n0, _TLC, 0, [_tLV], [64 | 0]];
 export var TransitGatewayConfiguration: StaticStructureSchema = [
   3,
@@ -1519,12 +1257,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1645,42 +1378,23 @@ export var UpdateKxVolumeResponse: StaticStructureSchema = [
   [_eI, _vN, _vT, _vA, _nCa, _s, _d, _sR, _cTr, _aM, _aZIv, _lMT, _aC],
   [0, 0, 0, 0, () => KxNAS1Configuration, 0, 0, 0, 4, 0, 64 | 0, 4, () => KxAttachedClusters],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Volume: StaticStructureSchema = [3, n0, _V, 0, [_vN, _vT], [0, 0]];
 export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_vIp, _sGI, _sI, _iAT], [0, 64 | 0, 64 | 0, 0]];
-export var __Unit = "unit" as const;
-
 export var FinspaceServiceException: StaticErrorSchema = [-3, _sm, "FinspaceServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FinspaceServiceException, __FinspaceServiceException);
-
 export var AttachedClusterList = 64 | 0;
-
 export var AvailabilityZoneIds = 64 | 0;
-
 export var ChangeRequests: StaticListSchema = [1, n0, _CRh, 0, () => ChangeRequest];
 export var CustomDNSConfiguration: StaticListSchema = [1, n0, _CDNSC, 0, () => CustomDNSServer];
 export var DataBundleArns = 64 | 0;
-
 export var DbPaths = 64 | 0;
-
 export var EnvironmentList: StaticListSchema = [1, n0, _EL, 0, () => Environment];
 export var KxAttachedClusters: StaticListSchema = [1, n0, _KACx, 0, () => KxAttachedCluster];
 export var KxCacheStorageConfigurations: StaticListSchema = [1, n0, _KCSCx, 0, () => KxCacheStorageConfiguration];
 export var KxChangesets: StaticListSchema = [1, n0, _KCx, 0, () => KxChangesetListEntry];
 export var KxClusterNameList = 64 | 0;
-
 export var KxClusters: StaticListSchema = [1, n0, _KCxl, 0, () => KxCluster];
 export var KxCommandLineArguments: StaticListSchema = [1, n0, _KCLAx, 0, () => KxCommandLineArgument];
 export var KxDatabaseCacheConfigurations: StaticListSchema = [1, n0, _KDCCx, 0, () => KxDatabaseCacheConfiguration];
@@ -1702,27 +1416,18 @@ export var KxUserList: StaticListSchema = [1, n0, _KUL, 0, () => KxUser];
 export var KxVolumes: StaticListSchema = [1, n0, _KVx, 0, () => KxVolume];
 export var NetworkACLConfiguration: StaticListSchema = [1, n0, _NACLC, 0, () => NetworkACLEntry];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SegmentConfigurationDbPathList = 64 | 0;
-
 export var SubnetIdList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TickerplantLogVolumes = 64 | 0;
-
 export var Volumes: StaticListSchema = [1, n0, _Vo, 0, () => Volume];
 export var AttributeMap = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var CreateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  {
-    [_h]: ["POST", "/environment", 200],
-  },
+  { [_h]: ["POST", "/environment", 200] },
   () => CreateEnvironmentRequest,
   () => CreateEnvironmentResponse,
 ];
@@ -1730,9 +1435,7 @@ export var CreateKxChangeset: StaticOperationSchema = [
   9,
   n0,
   _CKC,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/databases/{databaseName}/changesets", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/databases/{databaseName}/changesets", 200] },
   () => CreateKxChangesetRequest,
   () => CreateKxChangesetResponse,
 ];
@@ -1740,9 +1443,7 @@ export var CreateKxCluster: StaticOperationSchema = [
   9,
   n0,
   _CKCr,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/clusters", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/clusters", 200] },
   () => CreateKxClusterRequest,
   () => CreateKxClusterResponse,
 ];
@@ -1750,9 +1451,7 @@ export var CreateKxDatabase: StaticOperationSchema = [
   9,
   n0,
   _CKD,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/databases", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/databases", 200] },
   () => CreateKxDatabaseRequest,
   () => CreateKxDatabaseResponse,
 ];
@@ -1760,9 +1459,7 @@ export var CreateKxDataview: StaticOperationSchema = [
   9,
   n0,
   _CKDr,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews", 200] },
   () => CreateKxDataviewRequest,
   () => CreateKxDataviewResponse,
 ];
@@ -1770,9 +1467,7 @@ export var CreateKxEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CKE,
-  {
-    [_h]: ["POST", "/kx/environments", 200],
-  },
+  { [_h]: ["POST", "/kx/environments", 200] },
   () => CreateKxEnvironmentRequest,
   () => CreateKxEnvironmentResponse,
 ];
@@ -1780,9 +1475,7 @@ export var CreateKxScalingGroup: StaticOperationSchema = [
   9,
   n0,
   _CKSG,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/scalingGroups", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/scalingGroups", 200] },
   () => CreateKxScalingGroupRequest,
   () => CreateKxScalingGroupResponse,
 ];
@@ -1790,9 +1483,7 @@ export var CreateKxUser: StaticOperationSchema = [
   9,
   n0,
   _CKU,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/users", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/users", 200] },
   () => CreateKxUserRequest,
   () => CreateKxUserResponse,
 ];
@@ -1800,9 +1491,7 @@ export var CreateKxVolume: StaticOperationSchema = [
   9,
   n0,
   _CKV,
-  {
-    [_h]: ["POST", "/kx/environments/{environmentId}/kxvolumes", 200],
-  },
+  { [_h]: ["POST", "/kx/environments/{environmentId}/kxvolumes", 200] },
   () => CreateKxVolumeRequest,
   () => CreateKxVolumeResponse,
 ];
@@ -1810,9 +1499,7 @@ export var DeleteEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["DELETE", "/environment/{environmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/environment/{environmentId}", 200] },
   () => DeleteEnvironmentRequest,
   () => DeleteEnvironmentResponse,
 ];
@@ -1820,9 +1507,7 @@ export var DeleteKxCluster: StaticOperationSchema = [
   9,
   n0,
   _DKC,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/clusters/{clusterName}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/clusters/{clusterName}", 200] },
   () => DeleteKxClusterRequest,
   () => DeleteKxClusterResponse,
 ];
@@ -1830,9 +1515,7 @@ export var DeleteKxClusterNode: StaticOperationSchema = [
   9,
   n0,
   _DKCN,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/clusters/{clusterName}/nodes/{nodeId}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/clusters/{clusterName}/nodes/{nodeId}", 200] },
   () => DeleteKxClusterNodeRequest,
   () => DeleteKxClusterNodeResponse,
 ];
@@ -1840,9 +1523,7 @@ export var DeleteKxDatabase: StaticOperationSchema = [
   9,
   n0,
   _DKD,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/databases/{databaseName}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/databases/{databaseName}", 200] },
   () => DeleteKxDatabaseRequest,
   () => DeleteKxDatabaseResponse,
 ];
@@ -1850,9 +1531,7 @@ export var DeleteKxDataview: StaticOperationSchema = [
   9,
   n0,
   _DKDe,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200] },
   () => DeleteKxDataviewRequest,
   () => DeleteKxDataviewResponse,
 ];
@@ -1860,9 +1539,7 @@ export var DeleteKxEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DKE,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}", 200] },
   () => DeleteKxEnvironmentRequest,
   () => DeleteKxEnvironmentResponse,
 ];
@@ -1870,9 +1547,7 @@ export var DeleteKxScalingGroup: StaticOperationSchema = [
   9,
   n0,
   _DKSG,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}", 200] },
   () => DeleteKxScalingGroupRequest,
   () => DeleteKxScalingGroupResponse,
 ];
@@ -1880,9 +1555,7 @@ export var DeleteKxUser: StaticOperationSchema = [
   9,
   n0,
   _DKU,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/users/{userName}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/users/{userName}", 200] },
   () => DeleteKxUserRequest,
   () => DeleteKxUserResponse,
 ];
@@ -1890,9 +1563,7 @@ export var DeleteKxVolume: StaticOperationSchema = [
   9,
   n0,
   _DKV,
-  {
-    [_h]: ["DELETE", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200],
-  },
+  { [_h]: ["DELETE", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200] },
   () => DeleteKxVolumeRequest,
   () => DeleteKxVolumeResponse,
 ];
@@ -1900,9 +1571,7 @@ export var GetEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  {
-    [_h]: ["GET", "/environment/{environmentId}", 200],
-  },
+  { [_h]: ["GET", "/environment/{environmentId}", 200] },
   () => GetEnvironmentRequest,
   () => GetEnvironmentResponse,
 ];
@@ -1910,9 +1579,7 @@ export var GetKxChangeset: StaticOperationSchema = [
   9,
   n0,
   _GKC,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}", 200] },
   () => GetKxChangesetRequest,
   () => GetKxChangesetResponse,
 ];
@@ -1920,9 +1587,7 @@ export var GetKxCluster: StaticOperationSchema = [
   9,
   n0,
   _GKCe,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/clusters/{clusterName}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/clusters/{clusterName}", 200] },
   () => GetKxClusterRequest,
   () => GetKxClusterResponse,
 ];
@@ -1930,9 +1595,7 @@ export var GetKxConnectionString: StaticOperationSchema = [
   9,
   n0,
   _GKCS,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/connectionString", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/connectionString", 200] },
   () => GetKxConnectionStringRequest,
   () => GetKxConnectionStringResponse,
 ];
@@ -1940,9 +1603,7 @@ export var GetKxDatabase: StaticOperationSchema = [
   9,
   n0,
   _GKD,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}", 200] },
   () => GetKxDatabaseRequest,
   () => GetKxDatabaseResponse,
 ];
@@ -1950,9 +1611,7 @@ export var GetKxDataview: StaticOperationSchema = [
   9,
   n0,
   _GKDe,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200] },
   () => GetKxDataviewRequest,
   () => GetKxDataviewResponse,
 ];
@@ -1960,9 +1619,7 @@ export var GetKxEnvironment: StaticOperationSchema = [
   9,
   n0,
   _GKE,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}", 200] },
   () => GetKxEnvironmentRequest,
   () => GetKxEnvironmentResponse,
 ];
@@ -1970,9 +1627,7 @@ export var GetKxScalingGroup: StaticOperationSchema = [
   9,
   n0,
   _GKSG,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}", 200] },
   () => GetKxScalingGroupRequest,
   () => GetKxScalingGroupResponse,
 ];
@@ -1980,9 +1635,7 @@ export var GetKxUser: StaticOperationSchema = [
   9,
   n0,
   _GKU,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/users/{userName}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/users/{userName}", 200] },
   () => GetKxUserRequest,
   () => GetKxUserResponse,
 ];
@@ -1990,9 +1643,7 @@ export var GetKxVolume: StaticOperationSchema = [
   9,
   n0,
   _GKV,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200] },
   () => GetKxVolumeRequest,
   () => GetKxVolumeResponse,
 ];
@@ -2000,9 +1651,7 @@ export var ListEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/environment", 200],
-  },
+  { [_h]: ["GET", "/environment", 200] },
   () => ListEnvironmentsRequest,
   () => ListEnvironmentsResponse,
 ];
@@ -2010,9 +1659,7 @@ export var ListKxChangesets: StaticOperationSchema = [
   9,
   n0,
   _LKC,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/changesets", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/changesets", 200] },
   () => ListKxChangesetsRequest,
   () => ListKxChangesetsResponse,
 ];
@@ -2020,9 +1667,7 @@ export var ListKxClusterNodes: StaticOperationSchema = [
   9,
   n0,
   _LKCN,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/clusters/{clusterName}/nodes", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/clusters/{clusterName}/nodes", 200] },
   () => ListKxClusterNodesRequest,
   () => ListKxClusterNodesResponse,
 ];
@@ -2030,9 +1675,7 @@ export var ListKxClusters: StaticOperationSchema = [
   9,
   n0,
   _LKCi,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/clusters", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/clusters", 200] },
   () => ListKxClustersRequest,
   () => ListKxClustersResponse,
 ];
@@ -2040,9 +1683,7 @@ export var ListKxDatabases: StaticOperationSchema = [
   9,
   n0,
   _LKD,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/databases", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/databases", 200] },
   () => ListKxDatabasesRequest,
   () => ListKxDatabasesResponse,
 ];
@@ -2050,9 +1691,7 @@ export var ListKxDataviews: StaticOperationSchema = [
   9,
   n0,
   _LKDi,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews", 200] },
   () => ListKxDataviewsRequest,
   () => ListKxDataviewsResponse,
 ];
@@ -2060,9 +1699,7 @@ export var ListKxEnvironments: StaticOperationSchema = [
   9,
   n0,
   _LKE,
-  {
-    [_h]: ["GET", "/kx/environments", 200],
-  },
+  { [_h]: ["GET", "/kx/environments", 200] },
   () => ListKxEnvironmentsRequest,
   () => ListKxEnvironmentsResponse,
 ];
@@ -2070,9 +1707,7 @@ export var ListKxScalingGroups: StaticOperationSchema = [
   9,
   n0,
   _LKSG,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/scalingGroups", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/scalingGroups", 200] },
   () => ListKxScalingGroupsRequest,
   () => ListKxScalingGroupsResponse,
 ];
@@ -2080,9 +1715,7 @@ export var ListKxUsers: StaticOperationSchema = [
   9,
   n0,
   _LKU,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/users", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/users", 200] },
   () => ListKxUsersRequest,
   () => ListKxUsersResponse,
 ];
@@ -2090,9 +1723,7 @@ export var ListKxVolumes: StaticOperationSchema = [
   9,
   n0,
   _LKV,
-  {
-    [_h]: ["GET", "/kx/environments/{environmentId}/kxvolumes", 200],
-  },
+  { [_h]: ["GET", "/kx/environments/{environmentId}/kxvolumes", 200] },
   () => ListKxVolumesRequest,
   () => ListKxVolumesResponse,
 ];
@@ -2100,9 +1731,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2110,9 +1739,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2120,9 +1747,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2130,9 +1755,7 @@ export var UpdateEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  {
-    [_h]: ["PUT", "/environment/{environmentId}", 200],
-  },
+  { [_h]: ["PUT", "/environment/{environmentId}", 200] },
   () => UpdateEnvironmentRequest,
   () => UpdateEnvironmentResponse,
 ];
@@ -2140,9 +1763,7 @@ export var UpdateKxClusterCodeConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UKCCC,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code", 200] },
   () => UpdateKxClusterCodeConfigurationRequest,
   () => UpdateKxClusterCodeConfigurationResponse,
 ];
@@ -2150,9 +1771,7 @@ export var UpdateKxClusterDatabases: StaticOperationSchema = [
   9,
   n0,
   _UKCD,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases", 200] },
   () => UpdateKxClusterDatabasesRequest,
   () => UpdateKxClusterDatabasesResponse,
 ];
@@ -2160,9 +1779,7 @@ export var UpdateKxDatabase: StaticOperationSchema = [
   9,
   n0,
   _UKD,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}/databases/{databaseName}", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}/databases/{databaseName}", 200] },
   () => UpdateKxDatabaseRequest,
   () => UpdateKxDatabaseResponse,
 ];
@@ -2170,9 +1787,7 @@ export var UpdateKxDataview: StaticOperationSchema = [
   9,
   n0,
   _UKDp,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200] },
   () => UpdateKxDataviewRequest,
   () => UpdateKxDataviewResponse,
 ];
@@ -2180,9 +1795,7 @@ export var UpdateKxEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UKE,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}", 200] },
   () => UpdateKxEnvironmentRequest,
   () => UpdateKxEnvironmentResponse,
 ];
@@ -2190,9 +1803,7 @@ export var UpdateKxEnvironmentNetwork: StaticOperationSchema = [
   9,
   n0,
   _UKEN,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}/network", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}/network", 200] },
   () => UpdateKxEnvironmentNetworkRequest,
   () => UpdateKxEnvironmentNetworkResponse,
 ];
@@ -2200,9 +1811,7 @@ export var UpdateKxUser: StaticOperationSchema = [
   9,
   n0,
   _UKU,
-  {
-    [_h]: ["PUT", "/kx/environments/{environmentId}/users/{userName}", 200],
-  },
+  { [_h]: ["PUT", "/kx/environments/{environmentId}/users/{userName}", 200] },
   () => UpdateKxUserRequest,
   () => UpdateKxUserResponse,
 ];
@@ -2210,9 +1819,7 @@ export var UpdateKxVolume: StaticOperationSchema = [
   9,
   n0,
   _UKV,
-  {
-    [_h]: ["PATCH", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200],
-  },
+  { [_h]: ["PATCH", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200] },
   () => UpdateKxVolumeRequest,
   () => UpdateKxVolumeResponse,
 ];

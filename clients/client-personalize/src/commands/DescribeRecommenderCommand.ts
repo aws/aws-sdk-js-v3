@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRecommenderRequest, DescribeRecommenderResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { DescribeRecommenderRequest, DescribeRecommenderResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeRecommender } from "../schemas/schemas_0";
 
 /**
@@ -75,6 +75,11 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         includedDatasetColumns: { // IncludedDatasetColumns
+ * //           "<keys>": [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       enableMetadataWithRecommendations: true || false,
  * //     },
@@ -90,6 +95,11 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * //         minRecommendationRequestsPerSecond: Number("int"),
  * //         trainingDataConfig: {
  * //           excludedDatasetColumns: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           includedDatasetColumns: {
  * //             "<keys>": [
  * //               "STRING_VALUE",
  * //             ],

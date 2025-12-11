@@ -189,7 +189,7 @@ const n0 = "com.amazonaws.keyspaces";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -202,21 +202,15 @@ import {
 import { KeyspacesServiceException as __KeyspacesServiceException } from "../models/KeyspacesServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`AccessDeniedException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AutoScalingPolicy: StaticStructureSchema = [
   3,
   n0,
@@ -260,16 +254,11 @@ export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-    [_aQE]: [`ConflictException`, 409],
-  },
+  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateKeyspaceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -370,16 +359,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-    [_aQE]: [`InternalServerException`, 500],
-  },
+  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var KeyspaceSummary: StaticStructureSchema = [3, n0, _KS, 0, [_kN, _rA, _rSep, _rR], [0, 0, 0, 64 | 0]];
 export var ListKeyspacesRequest: StaticStructureSchema = [3, n0, _LKR, 0, [_nT, _mR], [0, 1]];
 export var ListKeyspacesResponse: StaticStructureSchema = [3, n0, _LKRi, 0, [_nT, _k], [0, () => KeyspaceSummaryList]];
@@ -422,16 +406,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-    [_aQE]: [`ResourceNotFoundException`, 404],
-  },
+  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
   [_m, _rA],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RestoreTableRequest: StaticStructureSchema = [
   3,
   n0,
@@ -465,16 +444,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-    [_aQE]: [`ServiceQuotaExceededException`, 402],
-  },
+  { [_e]: _c, [_hE]: 402, [_aQE]: [`ServiceQuotaExceededException`, 402] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var StaticColumn: StaticStructureSchema = [3, n0, _SC, 0, [_n], [0]];
 export var TableSummary: StaticStructureSchema = [3, n0, _TS, 0, [_kN, _tN, _rA], [0, 0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_ke, _v], [0, 0]];
@@ -526,25 +500,19 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_aQE]: [`ValidationException`, 400],
-  },
+  { [_e]: _c, [_aQE]: [`ValidationException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var KeyspacesServiceException: StaticErrorSchema = [-3, _sm, "KeyspacesServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KeyspacesServiceException, __KeyspacesServiceException);
-
 export var ClusteringKeyList: StaticListSchema = [1, n0, _CKL, 0, () => ClusteringKey];
 export var ColumnDefinitionList: StaticListSchema = [1, n0, _CDL, 0, () => ColumnDefinition];
 export var FieldList: StaticListSchema = [1, n0, _FL, 0, () => FieldDefinition];
 export var KeyspaceSummaryList: StaticListSchema = [1, n0, _KSL, 0, () => KeyspaceSummary];
 export var PartitionKeyList: StaticListSchema = [1, n0, _PKL, 0, () => PartitionKey];
 export var RegionList = 64 | 0;
-
 export var ReplicaAutoScalingSpecificationList: StaticListSchema = [
   1,
   n0,
@@ -557,11 +525,9 @@ export var ReplicaSpecificationSummaryList: StaticListSchema = [1, n0, _RSSL, 0,
 export var ReplicationGroupStatusList: StaticListSchema = [1, n0, _RGSL, 0, () => ReplicationGroupStatus];
 export var StaticColumnList: StaticListSchema = [1, n0, _SCL, 0, () => StaticColumn];
 export var TableNameList = 64 | 0;
-
 export var TableSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TableSummary];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TypeNameList = 64 | 0;
-
 export var CreateKeyspace: StaticOperationSchema = [
   9,
   n0,

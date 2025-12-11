@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchUserHierarchyGroupsResponse } from "../models/models_2";
-import { SearchUserHierarchyGroupsRequest } from "../models/models_3";
+import type { SearchUserHierarchyGroupsResponse } from "../models/models_2";
+import type { SearchUserHierarchyGroupsRequest } from "../models/models_3";
 import { SearchUserHierarchyGroups } from "../schemas/schemas_0";
 
 /**
@@ -28,11 +28,10 @@ export interface SearchUserHierarchyGroupsCommandInput extends SearchUserHierarc
 export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches UserHierarchyGroups in an Amazon Connect instance, with optional
- *    filtering.</p>
+ * <p>Searches UserHierarchyGroups in an Amazon Connect instance, with optional filtering.</p>
  *          <important>
- *             <p>The UserHierarchyGroup with <code>"LevelId": "0"</code> is the foundation for building
- *     levels on top of an instance. It is not user-definable, nor is it visible in the UI.</p>
+ *             <p>The UserHierarchyGroup with <code>"LevelId": "0"</code> is the foundation for building levels on top of an
+ *     instance. It is not user-definable, nor is it visible in the UI.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

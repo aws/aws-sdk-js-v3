@@ -70,10 +70,17 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
       }
     }
 
-    if (request.headers["content-type"] === this.getDefaultContentType()) {
-      if (typeof request.body === "string") {
-        request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
-      }
+    if (
+      typeof request.body === "string" &&
+      request.headers["content-type"] === this.getDefaultContentType() &&
+      !request.body.startsWith("<?xml ") &&
+      !this.hasUnstructuredPayloadBinding(inputSchema)
+    ) {
+      // string type excludes event streams.
+      // if the body is a string, it is either XML serialized from a structure
+      // or a text payload. We exclude text payloads by checking
+      // whether the schema has a payload binding.
+      request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
     }
 
     // content-length header is set by the contentLengthMiddleware.
@@ -142,5 +149,16 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
    */
   protected getDefaultContentType(): string {
     return "application/xml";
+  }
+
+  private hasUnstructuredPayloadBinding(ns: NormalizedSchema): boolean {
+    for (const [, member] of ns.structIterator()) {
+      if (member.getMergedTraits().httpPayload) {
+        // all struct members can be http payloads, but the serialization of
+        // simple types are probably not in XML format.
+        return !(member.isStructSchema() || member.isMapSchema() || member.isListSchema());
+      }
+    }
+    return false;
   }
 }

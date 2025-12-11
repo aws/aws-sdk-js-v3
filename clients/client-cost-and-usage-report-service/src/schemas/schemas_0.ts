@@ -60,7 +60,7 @@ const n0 = "com.amazonaws.costandusagereportservice";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { CostAndUsageReportServiceServiceException as __CostAndUsageReportServiceServiceException } from "../models/CostAndUsageReportServiceServiceException";
 import {
@@ -72,7 +72,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var DeleteReportDefinitionRequest: StaticStructureSchema = [3, n0, _DRDR, 0, [_RN], [0]];
 export var DeleteReportDefinitionResponse: StaticStructureSchema = [3, n0, _DRDRe, 0, [_RM], [0]];
 export var DescribeReportDefinitionsRequest: StaticStructureSchema = [3, n0, _DRDRes, 0, [_MR, _NT], [1, 0]];
@@ -84,30 +83,10 @@ export var DescribeReportDefinitionsResponse: StaticStructureSchema = [
   [_RD, _NT],
   [() => ReportDefinitionList, 0],
 ];
-export var DuplicateReportNameException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRNE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var DuplicateReportNameException: StaticErrorSchema = [-3, n0, _DRNE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(DuplicateReportNameException, __DuplicateReportNameException);
-
-export var InternalErrorException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEE,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalErrorException: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalErrorException, __InternalErrorException);
-
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RN], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
 export var ModifyReportDefinitionRequest: StaticStructureSchema = [
@@ -136,50 +115,18 @@ export var ReportDefinition: StaticStructureSchema = [
   [_RN, _TU, _F, _C, _ASE, _SB, _SP, _SR, _AA, _RCR, _RV, _BVA, _RS],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 2, 0, 0, () => ReportStatus],
 ];
-export var ReportLimitReachedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLRE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ReportLimitReachedException: StaticErrorSchema = [-3, n0, _RLRE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ReportLimitReachedException, __ReportLimitReachedException);
-
 export var ReportStatus: StaticStructureSchema = [3, n0, _RS, 0, [_lD, _lS], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var CostAndUsageReportServiceServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -192,14 +139,10 @@ TypeRegistry.for(_sm).registerError(
   CostAndUsageReportServiceServiceException,
   __CostAndUsageReportServiceServiceException
 );
-
 export var AdditionalArtifactList = 64 | 0;
-
 export var ReportDefinitionList: StaticListSchema = [1, n0, _RDL, 0, () => ReportDefinition];
 export var SchemaElementList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var DeleteReportDefinition: StaticOperationSchema = [
   9,

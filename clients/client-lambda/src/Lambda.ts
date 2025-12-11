@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddLayerVersionPermissionCommand,
@@ -12,7 +12,17 @@ import {
   AddPermissionCommandInput,
   AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
+import {
+  CheckpointDurableExecutionCommand,
+  CheckpointDurableExecutionCommandInput,
+  CheckpointDurableExecutionCommandOutput,
+} from "./commands/CheckpointDurableExecutionCommand";
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import {
+  CreateCapacityProviderCommand,
+  CreateCapacityProviderCommandInput,
+  CreateCapacityProviderCommandOutput,
+} from "./commands/CreateCapacityProviderCommand";
 import {
   CreateCodeSigningConfigCommand,
   CreateCodeSigningConfigCommandInput,
@@ -34,6 +44,11 @@ import {
   CreateFunctionUrlConfigCommandOutput,
 } from "./commands/CreateFunctionUrlConfigCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import {
+  DeleteCapacityProviderCommand,
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "./commands/DeleteCapacityProviderCommand";
 import {
   DeleteCodeSigningConfigCommand,
   DeleteCodeSigningConfigCommandInput,
@@ -86,10 +101,30 @@ import {
 } from "./commands/GetAccountSettingsCommand";
 import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCapacityProviderCommand,
+  GetCapacityProviderCommandInput,
+  GetCapacityProviderCommandOutput,
+} from "./commands/GetCapacityProviderCommand";
+import {
   GetCodeSigningConfigCommand,
   GetCodeSigningConfigCommandInput,
   GetCodeSigningConfigCommandOutput,
 } from "./commands/GetCodeSigningConfigCommand";
+import {
+  GetDurableExecutionCommand,
+  GetDurableExecutionCommandInput,
+  GetDurableExecutionCommandOutput,
+} from "./commands/GetDurableExecutionCommand";
+import {
+  GetDurableExecutionHistoryCommand,
+  GetDurableExecutionHistoryCommandInput,
+  GetDurableExecutionHistoryCommandOutput,
+} from "./commands/GetDurableExecutionHistoryCommand";
+import {
+  GetDurableExecutionStateCommand,
+  GetDurableExecutionStateCommandInput,
+  GetDurableExecutionStateCommandOutput,
+} from "./commands/GetDurableExecutionStateCommand";
 import {
   GetEventSourceMappingCommand,
   GetEventSourceMappingCommandInput,
@@ -121,6 +156,11 @@ import {
   GetFunctionRecursionConfigCommandInput,
   GetFunctionRecursionConfigCommandOutput,
 } from "./commands/GetFunctionRecursionConfigCommand";
+import {
+  GetFunctionScalingConfigCommand,
+  GetFunctionScalingConfigCommandInput,
+  GetFunctionScalingConfigCommandOutput,
+} from "./commands/GetFunctionScalingConfigCommand";
 import {
   GetFunctionUrlConfigCommand,
   GetFunctionUrlConfigCommandInput,
@@ -161,10 +201,20 @@ import {
 } from "./commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  ListCapacityProvidersCommand,
+  ListCapacityProvidersCommandInput,
+  ListCapacityProvidersCommandOutput,
+} from "./commands/ListCapacityProvidersCommand";
+import {
   ListCodeSigningConfigsCommand,
   ListCodeSigningConfigsCommandInput,
   ListCodeSigningConfigsCommandOutput,
 } from "./commands/ListCodeSigningConfigsCommand";
+import {
+  ListDurableExecutionsByFunctionCommand,
+  ListDurableExecutionsByFunctionCommandInput,
+  ListDurableExecutionsByFunctionCommandOutput,
+} from "./commands/ListDurableExecutionsByFunctionCommand";
 import {
   ListEventSourceMappingsCommand,
   ListEventSourceMappingsCommandInput,
@@ -190,6 +240,11 @@ import {
   ListFunctionUrlConfigsCommandInput,
   ListFunctionUrlConfigsCommandOutput,
 } from "./commands/ListFunctionUrlConfigsCommand";
+import {
+  ListFunctionVersionsByCapacityProviderCommand,
+  ListFunctionVersionsByCapacityProviderCommandInput,
+  ListFunctionVersionsByCapacityProviderCommandOutput,
+} from "./commands/ListFunctionVersionsByCapacityProviderCommand";
 import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import {
   ListLayerVersionsCommand,
@@ -238,6 +293,11 @@ import {
   PutFunctionRecursionConfigCommandOutput,
 } from "./commands/PutFunctionRecursionConfigCommand";
 import {
+  PutFunctionScalingConfigCommand,
+  PutFunctionScalingConfigCommandInput,
+  PutFunctionScalingConfigCommandOutput,
+} from "./commands/PutFunctionScalingConfigCommand";
+import {
   PutProvisionedConcurrencyConfigCommand,
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
@@ -257,6 +317,26 @@ import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand";
+import {
+  SendDurableExecutionCallbackFailureCommand,
+  SendDurableExecutionCallbackFailureCommandInput,
+  SendDurableExecutionCallbackFailureCommandOutput,
+} from "./commands/SendDurableExecutionCallbackFailureCommand";
+import {
+  SendDurableExecutionCallbackHeartbeatCommand,
+  SendDurableExecutionCallbackHeartbeatCommandInput,
+  SendDurableExecutionCallbackHeartbeatCommandOutput,
+} from "./commands/SendDurableExecutionCallbackHeartbeatCommand";
+import {
+  SendDurableExecutionCallbackSuccessCommand,
+  SendDurableExecutionCallbackSuccessCommandInput,
+  SendDurableExecutionCallbackSuccessCommandOutput,
+} from "./commands/SendDurableExecutionCallbackSuccessCommand";
+import {
+  StopDurableExecutionCommand,
+  StopDurableExecutionCommandInput,
+  StopDurableExecutionCommandOutput,
+} from "./commands/StopDurableExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -264,6 +344,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import {
+  UpdateCapacityProviderCommand,
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "./commands/UpdateCapacityProviderCommand";
 import {
   UpdateCodeSigningConfigCommand,
   UpdateCodeSigningConfigCommandInput,
@@ -294,17 +379,20 @@ import {
   UpdateFunctionUrlConfigCommandInput,
   UpdateFunctionUrlConfigCommandOutput,
 } from "./commands/UpdateFunctionUrlConfigCommand";
-import { LambdaClient, LambdaClientConfig } from "./LambdaClient";
+import { LambdaClient } from "./LambdaClient";
 
 const commands = {
   AddLayerVersionPermissionCommand,
   AddPermissionCommand,
+  CheckpointDurableExecutionCommand,
   CreateAliasCommand,
+  CreateCapacityProviderCommand,
   CreateCodeSigningConfigCommand,
   CreateEventSourceMappingCommand,
   CreateFunctionCommand,
   CreateFunctionUrlConfigCommand,
   DeleteAliasCommand,
+  DeleteCapacityProviderCommand,
   DeleteCodeSigningConfigCommand,
   DeleteEventSourceMappingCommand,
   DeleteFunctionCommand,
@@ -316,7 +404,11 @@ const commands = {
   DeleteProvisionedConcurrencyConfigCommand,
   GetAccountSettingsCommand,
   GetAliasCommand,
+  GetCapacityProviderCommand,
   GetCodeSigningConfigCommand,
+  GetDurableExecutionCommand,
+  GetDurableExecutionHistoryCommand,
+  GetDurableExecutionStateCommand,
   GetEventSourceMappingCommand,
   GetFunctionCommand,
   GetFunctionCodeSigningConfigCommand,
@@ -324,6 +416,7 @@ const commands = {
   GetFunctionConfigurationCommand,
   GetFunctionEventInvokeConfigCommand,
   GetFunctionRecursionConfigCommand,
+  GetFunctionScalingConfigCommand,
   GetFunctionUrlConfigCommand,
   GetLayerVersionCommand,
   GetLayerVersionByArnCommand,
@@ -335,12 +428,15 @@ const commands = {
   InvokeAsyncCommand,
   InvokeWithResponseStreamCommand,
   ListAliasesCommand,
+  ListCapacityProvidersCommand,
   ListCodeSigningConfigsCommand,
+  ListDurableExecutionsByFunctionCommand,
   ListEventSourceMappingsCommand,
   ListFunctionEventInvokeConfigsCommand,
   ListFunctionsCommand,
   ListFunctionsByCodeSigningConfigCommand,
   ListFunctionUrlConfigsCommand,
+  ListFunctionVersionsByCapacityProviderCommand,
   ListLayersCommand,
   ListLayerVersionsCommand,
   ListProvisionedConcurrencyConfigsCommand,
@@ -352,13 +448,19 @@ const commands = {
   PutFunctionConcurrencyCommand,
   PutFunctionEventInvokeConfigCommand,
   PutFunctionRecursionConfigCommand,
+  PutFunctionScalingConfigCommand,
   PutProvisionedConcurrencyConfigCommand,
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
   RemovePermissionCommand,
+  SendDurableExecutionCallbackFailureCommand,
+  SendDurableExecutionCallbackHeartbeatCommand,
+  SendDurableExecutionCallbackSuccessCommand,
+  StopDurableExecutionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAliasCommand,
+  UpdateCapacityProviderCommand,
   UpdateCodeSigningConfigCommand,
   UpdateEventSourceMappingCommand,
   UpdateFunctionCodeCommand,
@@ -397,6 +499,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link CheckpointDurableExecutionCommand}
+   */
+  checkpointDurableExecution(
+    args: CheckpointDurableExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckpointDurableExecutionCommandOutput>;
+  checkpointDurableExecution(
+    args: CheckpointDurableExecutionCommandInput,
+    cb: (err: any, data?: CheckpointDurableExecutionCommandOutput) => void
+  ): void;
+  checkpointDurableExecution(
+    args: CheckpointDurableExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckpointDurableExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAliasCommand}
    */
   createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
@@ -405,6 +524,23 @@ export interface Lambda {
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityProviderCommand}
+   */
+  createCapacityProvider(
+    args: CreateCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityProviderCommandOutput>;
+  createCapacityProvider(
+    args: CreateCapacityProviderCommandInput,
+    cb: (err: any, data?: CreateCapacityProviderCommandOutput) => void
+  ): void;
+  createCapacityProvider(
+    args: CreateCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityProviderCommandOutput) => void
   ): void;
 
   /**
@@ -481,6 +617,23 @@ export interface Lambda {
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCapacityProviderCommand}
+   */
+  deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityProviderCommandOutput>;
+  deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
+  ): void;
+  deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
   ): void;
 
   /**
@@ -663,6 +816,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link GetCapacityProviderCommand}
+   */
+  getCapacityProvider(
+    args: GetCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityProviderCommandOutput>;
+  getCapacityProvider(
+    args: GetCapacityProviderCommandInput,
+    cb: (err: any, data?: GetCapacityProviderCommandOutput) => void
+  ): void;
+  getCapacityProvider(
+    args: GetCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCodeSigningConfigCommand}
    */
   getCodeSigningConfig(
@@ -677,6 +847,57 @@ export interface Lambda {
     args: GetCodeSigningConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCodeSigningConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDurableExecutionCommand}
+   */
+  getDurableExecution(
+    args: GetDurableExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDurableExecutionCommandOutput>;
+  getDurableExecution(
+    args: GetDurableExecutionCommandInput,
+    cb: (err: any, data?: GetDurableExecutionCommandOutput) => void
+  ): void;
+  getDurableExecution(
+    args: GetDurableExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDurableExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDurableExecutionHistoryCommand}
+   */
+  getDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDurableExecutionHistoryCommandOutput>;
+  getDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    cb: (err: any, data?: GetDurableExecutionHistoryCommandOutput) => void
+  ): void;
+  getDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDurableExecutionHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDurableExecutionStateCommand}
+   */
+  getDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDurableExecutionStateCommandOutput>;
+  getDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    cb: (err: any, data?: GetDurableExecutionStateCommandOutput) => void
+  ): void;
+  getDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDurableExecutionStateCommandOutput) => void
   ): void;
 
   /**
@@ -790,6 +1011,23 @@ export interface Lambda {
     args: GetFunctionRecursionConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFunctionRecursionConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFunctionScalingConfigCommand}
+   */
+  getFunctionScalingConfig(
+    args: GetFunctionScalingConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionScalingConfigCommandOutput>;
+  getFunctionScalingConfig(
+    args: GetFunctionScalingConfigCommandInput,
+    cb: (err: any, data?: GetFunctionScalingConfigCommandOutput) => void
+  ): void;
+  getFunctionScalingConfig(
+    args: GetFunctionScalingConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionScalingConfigCommandOutput) => void
   ): void;
 
   /**
@@ -953,6 +1191,24 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link ListCapacityProvidersCommand}
+   */
+  listCapacityProviders(): Promise<ListCapacityProvidersCommandOutput>;
+  listCapacityProviders(
+    args: ListCapacityProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCapacityProvidersCommandOutput>;
+  listCapacityProviders(
+    args: ListCapacityProvidersCommandInput,
+    cb: (err: any, data?: ListCapacityProvidersCommandOutput) => void
+  ): void;
+  listCapacityProviders(
+    args: ListCapacityProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCapacityProvidersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCodeSigningConfigsCommand}
    */
   listCodeSigningConfigs(): Promise<ListCodeSigningConfigsCommandOutput>;
@@ -968,6 +1224,23 @@ export interface Lambda {
     args: ListCodeSigningConfigsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCodeSigningConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDurableExecutionsByFunctionCommand}
+   */
+  listDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDurableExecutionsByFunctionCommandOutput>;
+  listDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    cb: (err: any, data?: ListDurableExecutionsByFunctionCommandOutput) => void
+  ): void;
+  listDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDurableExecutionsByFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -1049,6 +1322,23 @@ export interface Lambda {
     args: ListFunctionUrlConfigsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFunctionUrlConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFunctionVersionsByCapacityProviderCommand}
+   */
+  listFunctionVersionsByCapacityProvider(
+    args: ListFunctionVersionsByCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionVersionsByCapacityProviderCommandOutput>;
+  listFunctionVersionsByCapacityProvider(
+    args: ListFunctionVersionsByCapacityProviderCommandInput,
+    cb: (err: any, data?: ListFunctionVersionsByCapacityProviderCommandOutput) => void
+  ): void;
+  listFunctionVersionsByCapacityProvider(
+    args: ListFunctionVersionsByCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFunctionVersionsByCapacityProviderCommandOutput) => void
   ): void;
 
   /**
@@ -1225,6 +1515,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link PutFunctionScalingConfigCommand}
+   */
+  putFunctionScalingConfig(
+    args: PutFunctionScalingConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFunctionScalingConfigCommandOutput>;
+  putFunctionScalingConfig(
+    args: PutFunctionScalingConfigCommandInput,
+    cb: (err: any, data?: PutFunctionScalingConfigCommandOutput) => void
+  ): void;
+  putFunctionScalingConfig(
+    args: PutFunctionScalingConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFunctionScalingConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutProvisionedConcurrencyConfigCommand}
    */
   putProvisionedConcurrencyConfig(
@@ -1293,6 +1600,74 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link SendDurableExecutionCallbackFailureCommand}
+   */
+  sendDurableExecutionCallbackFailure(
+    args: SendDurableExecutionCallbackFailureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDurableExecutionCallbackFailureCommandOutput>;
+  sendDurableExecutionCallbackFailure(
+    args: SendDurableExecutionCallbackFailureCommandInput,
+    cb: (err: any, data?: SendDurableExecutionCallbackFailureCommandOutput) => void
+  ): void;
+  sendDurableExecutionCallbackFailure(
+    args: SendDurableExecutionCallbackFailureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDurableExecutionCallbackFailureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDurableExecutionCallbackHeartbeatCommand}
+   */
+  sendDurableExecutionCallbackHeartbeat(
+    args: SendDurableExecutionCallbackHeartbeatCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDurableExecutionCallbackHeartbeatCommandOutput>;
+  sendDurableExecutionCallbackHeartbeat(
+    args: SendDurableExecutionCallbackHeartbeatCommandInput,
+    cb: (err: any, data?: SendDurableExecutionCallbackHeartbeatCommandOutput) => void
+  ): void;
+  sendDurableExecutionCallbackHeartbeat(
+    args: SendDurableExecutionCallbackHeartbeatCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDurableExecutionCallbackHeartbeatCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDurableExecutionCallbackSuccessCommand}
+   */
+  sendDurableExecutionCallbackSuccess(
+    args: SendDurableExecutionCallbackSuccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDurableExecutionCallbackSuccessCommandOutput>;
+  sendDurableExecutionCallbackSuccess(
+    args: SendDurableExecutionCallbackSuccessCommandInput,
+    cb: (err: any, data?: SendDurableExecutionCallbackSuccessCommandOutput) => void
+  ): void;
+  sendDurableExecutionCallbackSuccess(
+    args: SendDurableExecutionCallbackSuccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDurableExecutionCallbackSuccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopDurableExecutionCommand}
+   */
+  stopDurableExecution(
+    args: StopDurableExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDurableExecutionCommandOutput>;
+  stopDurableExecution(
+    args: StopDurableExecutionCommandInput,
+    cb: (err: any, data?: StopDurableExecutionCommandOutput) => void
+  ): void;
+  stopDurableExecution(
+    args: StopDurableExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDurableExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1323,6 +1698,23 @@ export interface Lambda {
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCapacityProviderCommand}
+   */
+  updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityProviderCommandOutput>;
+  updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
+  ): void;
+  updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
   ): void;
 
   /**

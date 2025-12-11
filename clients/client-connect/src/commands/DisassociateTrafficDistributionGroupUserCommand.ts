@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   DisassociateTrafficDistributionGroupUserRequest,
   DisassociateTrafficDistributionGroupUserResponse,
 } from "../models/models_1";
@@ -33,8 +33,8 @@ export interface DisassociateTrafficDistributionGroupUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates an agent from a traffic distribution group. This API can be called only in the
- *    Region where the traffic distribution group is created.</p>
+ * <p>Disassociates an agent from a traffic distribution group. This API can be called only in the Region where the
+ *    traffic distribution group is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

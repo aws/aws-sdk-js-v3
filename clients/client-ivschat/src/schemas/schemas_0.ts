@@ -124,7 +124,7 @@ const n0 = "com.amazonaws.ivschat";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -146,36 +146,13 @@ import {
 import { IvschatServiceException as __IvschatServiceException } from "../models/IvschatServiceException";
 
 /* eslint no-var: 0 */
-
 export var ChatToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 export var UserID: StaticSimpleSchema = [0, n0, _UID, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CloudWatchLogsDestinationConfiguration: StaticStructureSchema = [3, n0, _CWLDC, 0, [_lGN], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateChatTokenRequest: StaticStructureSchema = [
   3,
   n0,
@@ -249,19 +226,8 @@ export var GetRoomResponse: StaticStructureSchema = [
   [_ar, _i, _n, _cT, _uT, _mMRPS, _mML, _mRH, _ta, _lCI],
   [0, 0, 0, 5, 5, 1, 1, () => MessageReviewHandler, 128 | 0, 64 | 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListLoggingConfigurationsRequest: StaticStructureSchema = [3, n0, _LLCR, 0, [_nT, _mR], [0, 1]];
 export var ListLoggingConfigurationsResponse: StaticStructureSchema = [
   3,
@@ -284,32 +250,17 @@ export var LoggingConfigurationSummary: StaticStructureSchema = [
   [0, 0, 5, 5, 0, () => DestinationConfiguration, 0, 128 | 0],
 ];
 export var MessageReviewHandler: StaticStructureSchema = [3, n0, _MRH, 0, [_u, _fR], [0, 0]];
-export var PendingVerification: StaticErrorSchema = [
-  -3,
-  n0,
-  _PV,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var PendingVerification: StaticErrorSchema = [-3, n0, _PV, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PendingVerification, __PendingVerification);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RoomSummary: StaticStructureSchema = [
   3,
   n0,
@@ -325,30 +276,22 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _l],
   [0, 0, 0, 1],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rI, _rT, _l],
   [0, 0, 0, 1],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -357,12 +300,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -402,35 +340,24 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var IvschatServiceException: StaticErrorSchema = [-3, _sm, "IvschatServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IvschatServiceException, __IvschatServiceException);
-
 export var ChatTokenCapabilities = 64 | 0;
-
 export var LoggingConfigurationIdentifierList = 64 | 0;
-
 export var LoggingConfigurationList: StaticListSchema = [1, n0, _LCL, 0, () => LoggingConfigurationSummary];
 export var RoomList: StaticListSchema = [1, n0, _RL, 0, () => RoomSummary];
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var ChatTokenAttributes: StaticMapSchema = [2, n0, _CTA, 8, 0, 0];
 export var EventAttributes = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var DestinationConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -447,9 +374,7 @@ export var CreateChatToken: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  {
-    [_h]: ["POST", "/CreateChatToken", 200],
-  },
+  { [_h]: ["POST", "/CreateChatToken", 200] },
   () => CreateChatTokenRequest,
   () => CreateChatTokenResponse,
 ];
@@ -457,9 +382,7 @@ export var CreateLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CLC,
-  {
-    [_h]: ["POST", "/CreateLoggingConfiguration", 200],
-  },
+  { [_h]: ["POST", "/CreateLoggingConfiguration", 200] },
   () => CreateLoggingConfigurationRequest,
   () => CreateLoggingConfigurationResponse,
 ];
@@ -467,9 +390,7 @@ export var CreateRoom: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/CreateRoom", 200],
-  },
+  { [_h]: ["POST", "/CreateRoom", 200] },
   () => CreateRoomRequest,
   () => CreateRoomResponse,
 ];
@@ -477,9 +398,7 @@ export var DeleteLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DLC,
-  {
-    [_h]: ["POST", "/DeleteLoggingConfiguration", 204],
-  },
+  { [_h]: ["POST", "/DeleteLoggingConfiguration", 204] },
   () => DeleteLoggingConfigurationRequest,
   () => __Unit,
 ];
@@ -487,9 +406,7 @@ export var DeleteMessage: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  {
-    [_h]: ["POST", "/DeleteMessage", 200],
-  },
+  { [_h]: ["POST", "/DeleteMessage", 200] },
   () => DeleteMessageRequest,
   () => DeleteMessageResponse,
 ];
@@ -497,9 +414,7 @@ export var DeleteRoom: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["POST", "/DeleteRoom", 204],
-  },
+  { [_h]: ["POST", "/DeleteRoom", 204] },
   () => DeleteRoomRequest,
   () => __Unit,
 ];
@@ -507,9 +422,7 @@ export var DisconnectUser: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_h]: ["POST", "/DisconnectUser", 200],
-  },
+  { [_h]: ["POST", "/DisconnectUser", 200] },
   () => DisconnectUserRequest,
   () => DisconnectUserResponse,
 ];
@@ -517,9 +430,7 @@ export var GetLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GLC,
-  {
-    [_h]: ["POST", "/GetLoggingConfiguration", 200],
-  },
+  { [_h]: ["POST", "/GetLoggingConfiguration", 200] },
   () => GetLoggingConfigurationRequest,
   () => GetLoggingConfigurationResponse,
 ];
@@ -527,9 +438,7 @@ export var GetRoom: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["POST", "/GetRoom", 200],
-  },
+  { [_h]: ["POST", "/GetRoom", 200] },
   () => GetRoomRequest,
   () => GetRoomResponse,
 ];
@@ -537,9 +446,7 @@ export var ListLoggingConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LLC,
-  {
-    [_h]: ["POST", "/ListLoggingConfigurations", 200],
-  },
+  { [_h]: ["POST", "/ListLoggingConfigurations", 200] },
   () => ListLoggingConfigurationsRequest,
   () => ListLoggingConfigurationsResponse,
 ];
@@ -547,9 +454,7 @@ export var ListRooms: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["POST", "/ListRooms", 200],
-  },
+  { [_h]: ["POST", "/ListRooms", 200] },
   () => ListRoomsRequest,
   () => ListRoomsResponse,
 ];
@@ -557,9 +462,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -567,9 +470,7 @@ export var SendEvent: StaticOperationSchema = [
   9,
   n0,
   _SE,
-  {
-    [_h]: ["POST", "/SendEvent", 200],
-  },
+  { [_h]: ["POST", "/SendEvent", 200] },
   () => SendEventRequest,
   () => SendEventResponse,
 ];
@@ -577,9 +478,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -587,9 +486,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -597,9 +494,7 @@ export var UpdateLoggingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _ULC,
-  {
-    [_h]: ["POST", "/UpdateLoggingConfiguration", 200],
-  },
+  { [_h]: ["POST", "/UpdateLoggingConfiguration", 200] },
   () => UpdateLoggingConfigurationRequest,
   () => UpdateLoggingConfigurationResponse,
 ];
@@ -607,9 +502,7 @@ export var UpdateRoom: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["POST", "/UpdateRoom", 200],
-  },
+  { [_h]: ["POST", "/UpdateRoom", 200] },
   () => UpdateRoomRequest,
   () => UpdateRoomResponse,
 ];

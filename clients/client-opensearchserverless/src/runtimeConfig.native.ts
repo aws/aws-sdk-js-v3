@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { OpenSearchServerlessClientConfig } from "./OpenSearchServerlessClient";
+import type { OpenSearchServerlessClientConfig } from "./OpenSearchServerlessClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

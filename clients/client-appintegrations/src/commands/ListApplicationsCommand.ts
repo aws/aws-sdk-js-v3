@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import type {
+  AppIntegrationsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
+import type { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
 import { ListApplications } from "../schemas/schemas_0";
 
 /**
@@ -39,6 +43,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * const input = { // ListApplicationsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
@@ -52,6 +57,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       IsService: true || false,
+ * //       ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

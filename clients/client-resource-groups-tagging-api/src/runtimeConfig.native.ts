@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { ResourceGroupsTaggingAPIClientConfig } from "./ResourceGroupsTaggingAPIClient";
+import type { ResourceGroupsTaggingAPIClientConfig } from "./ResourceGroupsTaggingAPIClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

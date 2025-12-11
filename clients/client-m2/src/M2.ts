@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CancelBatchJobExecutionCommand,
@@ -183,7 +183,7 @@ import {
   UpdateEnvironmentCommandInput,
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
-import { M2Client, M2ClientConfig } from "./M2Client";
+import { M2Client } from "./M2Client";
 
 const commands = {
   CancelBatchJobExecutionCommand,

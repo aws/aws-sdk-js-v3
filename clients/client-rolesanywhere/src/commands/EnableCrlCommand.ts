@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { EnableCrl } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface EnableCrlCommandInput extends ScalarCrlRequest {}
 export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:EnableCrl</code>.
- *          </p>
+ * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:EnableCrl</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

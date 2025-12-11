@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
+import type {
+  BedrockAgentCoreClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetMemoryRecordInput, GetMemoryRecordOutput } from "../models/models_0";
+import type { GetMemoryRecordInput, GetMemoryRecordOutput } from "../models/models_0";
 import { GetMemoryRecord } from "../schemas/schemas_0";
 
 /**
@@ -53,6 +57,11 @@ export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     metadata: { // MetadataMap
+ * //       "<keys>": { // MetadataValue Union: only one key present
+ * //         stringValue: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

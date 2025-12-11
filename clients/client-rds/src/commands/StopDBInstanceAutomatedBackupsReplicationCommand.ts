@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   StopDBInstanceAutomatedBackupsReplicationMessage,
   StopDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StopDBInstanceAutomatedBackupsReplication } from "../schemas/schemas_0";
 
 /**
@@ -90,7 +90,23 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * //     BackupTarget: "STRING_VALUE",
  * //     MultiTenant: true || false,
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DedicatedLogVolume: true || false,
+ * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ * //       { // AdditionalStorageVolume
+ * //         VolumeName: "STRING_VALUE", // required
+ * //         AllocatedStorage: Number("int"),
+ * //         IOPS: Number("int"),
+ * //         MaxAllocatedStorage: Number("int"),
+ * //         StorageThroughput: Number("int"),
+ * //         StorageType: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

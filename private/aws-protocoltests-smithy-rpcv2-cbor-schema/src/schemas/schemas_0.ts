@@ -132,7 +132,7 @@ const n2 = "smithy.protocoltests.shared";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -148,35 +148,20 @@ import {
 import { RpcV2ProtocolServiceException as __RpcV2ProtocolServiceException } from "../models/RpcV2ProtocolServiceException";
 
 /* eslint no-var: 0 */
-
 export var __Unit = "unit" as const;
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_m, _fL],
   [0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_p, _m], [0, 0]];
 export var ClientOptionalDefaults: StaticStructureSchema = [3, n1, _COD, 0, [_me], [1]];
-export var ComplexError: StaticErrorSchema = [
-  -3,
-  n1,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_TL, _N],
-  [0, () => ComplexNestedErrorData],
-];
+export var ComplexError: StaticErrorSchema = [-3, n1, _CE, { [_e]: _c }, [_TL, _N], [0, () => ComplexNestedErrorData]];
 TypeRegistry.for(n1).registerError(ComplexError, __ComplexError);
-
 export var ComplexNestedErrorData: StaticStructureSchema = [3, n1, _CNED, 0, [_F], [0]];
 export var Defaults: StaticStructureSchema = [
   3,
@@ -214,18 +199,8 @@ export var EmptyStructure: StaticStructureSchema = [3, n1, _ES, 0, [], []];
 export var Float16Output: StaticStructureSchema = [3, n1, _FO, 0, [_v], [1]];
 export var FractionalSecondsOutput: StaticStructureSchema = [3, n1, _FSO, 0, [_d], [5]];
 export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n1, _GWEO, 0, [_g], [0]];
-export var InvalidGreeting: StaticErrorSchema = [
-  -3,
-  n1,
-  _IG,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidGreeting: StaticErrorSchema = [-3, n1, _IG, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n1).registerError(InvalidGreeting, __InvalidGreeting);
-
 export var OperationWithDefaultsInput: StaticStructureSchema = [
   3,
   n1,
@@ -344,97 +319,30 @@ export var StructureListMember: StaticStructureSchema = [3, n1, _SLM, 0, [_a, _b
 export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_h], [0]];
 export var RpcV2ProtocolServiceException: StaticErrorSchema = [-3, _sC, "RpcV2ProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sC).registerError(RpcV2ProtocolServiceException, __RpcV2ProtocolServiceException);
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var StructureList: StaticListSchema = [1, n1, _SL, 0, () => StructureListMember];
 export var TestStringList = 64 | 0;
-
 export var BlobList = 64 | 21;
-
 export var BooleanList = 64 | 2;
-
 export var FooEnumList = 64 | 0;
-
 export var IntegerEnumList = 64 | 1;
-
 export var IntegerList = 64 | 1;
-
 export var NestedStringList: StaticListSchema = [1, n2, _NSL, 0, 64 | 0];
-export var SparseStringList: StaticListSchema = [
-  1,
-  n2,
-  _SSL,
-  {
-    [_s]: 1,
-  },
-  0,
-];
+export var SparseStringList: StaticListSchema = [1, n2, _SSL, { [_s]: 1 }, 0];
 export var StringList = 64 | 0;
-
 export var StringSet = 64 | 0;
-
 export var TimestampList = 64 | 4;
-
 export var DenseBooleanMap = 128 | 2;
-
 export var DenseNumberMap = 128 | 1;
-
 export var DenseSetMap: StaticMapSchema = [2, n1, _DSM, 0, 0, 64 | 0];
 export var DenseStringMap = 128 | 0;
-
 export var DenseStructMap: StaticMapSchema = [2, n1, _DSMe, 0, 0, () => GreetingStruct];
-export var SparseBooleanMap: StaticMapSchema = [
-  2,
-  n1,
-  _SBM,
-  {
-    [_s]: 1,
-  },
-  0,
-  2,
-];
-export var SparseNumberMap: StaticMapSchema = [
-  2,
-  n1,
-  _SNM,
-  {
-    [_s]: 1,
-  },
-  0,
-  1,
-];
-export var SparseSetMap: StaticMapSchema = [
-  2,
-  n1,
-  _SSM,
-  {
-    [_s]: 1,
-  },
-  0,
-  64 | 0,
-];
-export var SparseStructMap: StaticMapSchema = [
-  2,
-  n1,
-  _SSMp,
-  {
-    [_s]: 1,
-  },
-  0,
-  () => GreetingStruct,
-];
+export var SparseBooleanMap: StaticMapSchema = [2, n1, _SBM, { [_s]: 1 }, 0, 2];
+export var SparseNumberMap: StaticMapSchema = [2, n1, _SNM, { [_s]: 1 }, 0, 1];
+export var SparseSetMap: StaticMapSchema = [2, n1, _SSM, { [_s]: 1 }, 0, 64 | 0];
+export var SparseStructMap: StaticMapSchema = [2, n1, _SSMp, { [_s]: 1 }, 0, () => GreetingStruct];
 export var TestStringMap = 128 | 0;
-
-export var SparseStringMap: StaticMapSchema = [
-  2,
-  n2,
-  _SSMpa,
-  {
-    [_s]: 1,
-  },
-  0,
-  0,
-];
+export var SparseStringMap: StaticMapSchema = [2, n2, _SSMpa, { [_s]: 1 }, 0, 0];
 export var EmptyInputOutput: StaticOperationSchema = [9, n1, _EIO, 0, () => EmptyStructure, () => EmptyStructure];
 export var Float16: StaticOperationSchema = [9, n1, _Fl, 0, () => __Unit, () => Float16Output];
 export var FractionalSeconds: StaticOperationSchema = [9, n1, _FS, 0, () => __Unit, () => FractionalSecondsOutput];

@@ -13,6 +13,8 @@ import {
   Intent,
   MachineLearningProductSortBy,
   MachineLearningProductVisibilityString,
+  OfferSetSortBy,
+  OfferSetStateString,
   OfferSortBy,
   OfferStateString,
   OfferTargetingString,
@@ -1203,6 +1205,18 @@ export interface OfferNameFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>OfferSetId</code> of an offer.</p>
+ * @public
+ */
+export interface OfferSetIdFilter {
+  /**
+   * <p>Allows filtering on the <code>OfferSetId</code> of an offer.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the <code>ProductId</code> of an offer.</p>
  * @public
  */
@@ -1352,6 +1366,180 @@ export interface OfferFilters {
    * @public
    */
   LastModifiedDate?: OfferLastModifiedDateFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>OfferSetId</code> of an offer.</p>
+   * @public
+   */
+  OfferSetId?: OfferSetIdFilter | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>AssociatedOfferIds</code> of an offer set.</p>
+ * @public
+ */
+export interface OfferSetAssociatedOfferIdsFilter {
+  /**
+   * <p>Allows filtering on the <code>AssociatedOfferIds</code> of an offer set with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>Allows filtering on the entity id of an offer set.</p>
+ * @public
+ */
+export interface OfferSetEntityIdFilter {
+  /**
+   * <p>Allows filtering on entity id of an offer set with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set with date range as input.</p>
+ * @public
+ */
+export interface OfferSetLastModifiedDateFilterDateRange {
+  /**
+   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set after a date.</p>
+   * @public
+   */
+  AfterValue?: string | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set before a date.</p>
+   * @public
+   */
+  BeforeValue?: string | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set.</p>
+ * @public
+ */
+export interface OfferSetLastModifiedDateFilter {
+  /**
+   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set with date range as input.</p>
+   * @public
+   */
+  DateRange?: OfferSetLastModifiedDateFilterDateRange | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>Name</code> of an offer set.</p>
+ * @public
+ */
+export interface OfferSetNameFilter {
+  /**
+   * <p>Allows filtering on the <code>Name</code> of an offer set with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set with date range as input.</p>
+ * @public
+ */
+export interface OfferSetReleaseDateFilterDateRange {
+  /**
+   * <p>Allows filtering on the <code>ReleaseDate</code> of offer set after a date.</p>
+   * @public
+   */
+  AfterValue?: string | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>ReleaseDate</code> of offer set before a date.</p>
+   * @public
+   */
+  BeforeValue?: string | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set.</p>
+ * @public
+ */
+export interface OfferSetReleaseDateFilter {
+  /**
+   * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set with date range as input.</p>
+   * @public
+   */
+  DateRange?: OfferSetReleaseDateFilterDateRange | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>SolutionId</code> of an offer set.</p>
+ * @public
+ */
+export interface OfferSetSolutionIdFilter {
+  /**
+   * <p>Allows filtering on the <code>SolutionId</code> of an offer set with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>State</code> of an offer set.</p>
+ * @public
+ */
+export interface OfferSetStateFilter {
+  /**
+   * <p>Allows filtering on the <code>State</code> of an offer set with list input.</p>
+   * @public
+   */
+  ValueList?: OfferSetStateString[] | undefined;
+}
+
+/**
+ * <p>Object containing all the filter fields for offer sets entity. Client can add a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * @public
+ */
+export interface OfferSetFilters {
+  /**
+   * <p>Allows filtering on <code>EntityId</code> of an offer set.</p>
+   * @public
+   */
+  EntityId?: OfferSetEntityIdFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>Name</code> of an offer set.</p>
+   * @public
+   */
+  Name?: OfferSetNameFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>State</code> of an offer set.</p>
+   * @public
+   */
+  State?: OfferSetStateFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>ReleaseDate</code> of an offer set.</p>
+   * @public
+   */
+  ReleaseDate?: OfferSetReleaseDateFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>AssociatedOfferIds</code> of an offer set.</p>
+   * @public
+   */
+  AssociatedOfferIds?: OfferSetAssociatedOfferIdsFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>SolutionId</code> of an offer set.</p>
+   * @public
+   */
+  SolutionId?: OfferSetSolutionIdFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer set.</p>
+   * @public
+   */
+  LastModifiedDate?: OfferSetLastModifiedDateFilter | undefined;
 }
 
 /**
@@ -1814,6 +2002,7 @@ export type EntityTypeFilters =
   | EntityTypeFilters.DataProductFiltersMember
   | EntityTypeFilters.MachineLearningProductFiltersMember
   | EntityTypeFilters.OfferFiltersMember
+  | EntityTypeFilters.OfferSetFiltersMember
   | EntityTypeFilters.ResaleAuthorizationFiltersMember
   | EntityTypeFilters.SaaSProductFiltersMember
   | EntityTypeFilters.$UnknownMember;
@@ -1834,6 +2023,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown?: never;
   }
 
@@ -1849,6 +2039,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown?: never;
   }
 
@@ -1864,6 +2055,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown?: never;
   }
 
@@ -1879,6 +2071,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown?: never;
   }
 
@@ -1894,6 +2087,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters: ContainerProductFilters;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown?: never;
   }
 
@@ -1909,6 +2103,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters: ResaleAuthorizationFilters;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown?: never;
   }
 
@@ -1925,6 +2120,23 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters: MachineLearningProductFilters;
+    OfferSetFilters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A filter for offer sets.</p>
+   * @public
+   */
+  export interface OfferSetFiltersMember {
+    DataProductFilters?: never;
+    SaaSProductFilters?: never;
+    AmiProductFilters?: never;
+    OfferFilters?: never;
+    ContainerProductFilters?: never;
+    ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
+    OfferSetFilters: OfferSetFilters;
     $unknown?: never;
   }
 
@@ -1939,6 +2151,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
     MachineLearningProductFilters?: never;
+    OfferSetFilters?: never;
     $unknown: [string, any];
   }
 
@@ -1954,6 +2167,7 @@ export namespace EntityTypeFilters {
     ContainerProductFilters: (value: ContainerProductFilters) => T;
     ResaleAuthorizationFilters: (value: ResaleAuthorizationFilters) => T;
     MachineLearningProductFilters: (value: MachineLearningProductFilters) => T;
+    OfferSetFilters: (value: OfferSetFilters) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2007,6 +2221,24 @@ export interface MachineLearningProductSort {
 
   /**
    * <p>The sort order. Valid values are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>Allows to sort offer sets.</p>
+ * @public
+ */
+export interface OfferSetSort {
+  /**
+   * <p>Allows to sort offer sets.</p>
+   * @public
+   */
+  SortBy?: OfferSetSortBy | undefined;
+
+  /**
+   * <p>Allows to sort offer sets.</p>
    * @public
    */
   SortOrder?: SortOrder | undefined;
@@ -2075,6 +2307,7 @@ export type EntityTypeSort =
   | EntityTypeSort.ContainerProductSortMember
   | EntityTypeSort.DataProductSortMember
   | EntityTypeSort.MachineLearningProductSortMember
+  | EntityTypeSort.OfferSetSortMember
   | EntityTypeSort.OfferSortMember
   | EntityTypeSort.ResaleAuthorizationSortMember
   | EntityTypeSort.SaaSProductSortMember
@@ -2096,6 +2329,7 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown?: never;
   }
 
@@ -2111,6 +2345,7 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown?: never;
   }
 
@@ -2126,6 +2361,7 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown?: never;
   }
 
@@ -2141,6 +2377,7 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown?: never;
   }
 
@@ -2156,6 +2393,7 @@ export namespace EntityTypeSort {
     ContainerProductSort: ContainerProductSort;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown?: never;
   }
 
@@ -2171,6 +2409,7 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort: ResaleAuthorizationSort;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown?: never;
   }
 
@@ -2186,6 +2425,23 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort: MachineLearningProductSort;
+    OfferSetSort?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A sort for offer sets.</p>
+   * @public
+   */
+  export interface OfferSetSortMember {
+    DataProductSort?: never;
+    SaaSProductSort?: never;
+    AmiProductSort?: never;
+    OfferSort?: never;
+    ContainerProductSort?: never;
+    ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
+    OfferSetSort: OfferSetSort;
     $unknown?: never;
   }
 
@@ -2200,6 +2456,7 @@ export namespace EntityTypeSort {
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
     MachineLearningProductSort?: never;
+    OfferSetSort?: never;
     $unknown: [string, any];
   }
 
@@ -2215,6 +2472,7 @@ export namespace EntityTypeSort {
     ContainerProductSort: (value: ContainerProductSort) => T;
     ResaleAuthorizationSort: (value: ResaleAuthorizationSort) => T;
     MachineLearningProductSort: (value: MachineLearningProductSort) => T;
+    OfferSetSort: (value: OfferSetSort) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2236,8 +2494,8 @@ export interface ListEntitiesRequest {
    *             values are: <code>AmiProduct</code>, <code>ContainerProduct</code>,
    *                 <code>DataProduct</code>, <code>SaaSProduct</code>, <code>ProcurementPolicy</code>,
    *                 <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>,
-   *                 <code>Offer</code>, <code>Seller</code>,
-   *             <code>ResaleAuthorization</code>.</p>
+   *                 <code>Offer</code>, <code>OfferSet</code>, <code>Seller</code>,
+   *             <code>ResaleAuthorization</code>, <code>Solution</code>.</p>
    * @public
    */
   EntityType: string | undefined;
@@ -2352,6 +2610,42 @@ export interface MachineLearningProductSummary {
 }
 
 /**
+ * <p>Summarized information about an offer set.</p>
+ * @public
+ */
+export interface OfferSetSummary {
+  /**
+   * <p>The name of the offer set.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The state of the offer set.</p>
+   * @public
+   */
+  State?: OfferSetStateString | undefined;
+
+  /**
+   * <p>The release date of the offer set.</p>
+   * @public
+   */
+  ReleaseDate?: string | undefined;
+
+  /**
+   * <p>The list of offer IDs associated with the offer set.</p>
+   * @public
+   */
+  AssociatedOfferIds?: string[] | undefined;
+
+  /**
+   * <p>The solution ID associated with the offer set.</p>
+   * @public
+   */
+  SolutionId?: string | undefined;
+}
+
+/**
  * <p>Summarized information about an offer.</p>
  * @public
  */
@@ -2403,6 +2697,12 @@ export interface OfferSummary {
    * @public
    */
   Targeting?: OfferTargetingString[] | undefined;
+
+  /**
+   * <p>The offer set ID of the offer.</p>
+   * @public
+   */
+  OfferSetId?: string | undefined;
 }
 
 /**
@@ -2583,6 +2883,12 @@ export interface EntitySummary {
    * @public
    */
   MachineLearningProductSummary?: MachineLearningProductSummary | undefined;
+
+  /**
+   * <p>An object that contains summary information about the offer set.</p>
+   * @public
+   */
+  OfferSetSummary?: OfferSetSummary | undefined;
 }
 
 /**

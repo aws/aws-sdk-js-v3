@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ConnectCampaignsV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutOutboundRequestBatchRequest, PutOutboundRequestBatchResponse } from "../models/models_0";
+import type { PutOutboundRequestBatchRequest, PutOutboundRequestBatchResponse } from "../models/models_0";
 import { PutOutboundRequestBatch } from "../schemas/schemas_0";
 
 /**
@@ -70,6 +70,14 @@ export interface PutOutboundRequestBatchCommandOutput extends PutOutboundRequest
  *         email: { // EmailChannelSubtypeParameters
  *           destinationEmailAddress: "STRING_VALUE", // required
  *           connectSourceEmailAddress: "STRING_VALUE",
+ *           templateArn: "STRING_VALUE",
+ *           templateParameters: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         whatsApp: { // WhatsAppChannelSubtypeParameters
+ *           destinationPhoneNumber: "STRING_VALUE", // required
+ *           connectSourcePhoneNumberArn: "STRING_VALUE",
  *           templateArn: "STRING_VALUE",
  *           templateParameters: { // required
  *             "<keys>": "STRING_VALUE",

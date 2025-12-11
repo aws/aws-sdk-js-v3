@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteScheduledQueryRequest, DeleteScheduledQueryResponse } from "../models/models_0";
+import type { DeleteScheduledQueryRequest, DeleteScheduledQueryResponse } from "../models/models_0";
 import { DeleteScheduledQuery } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +31,7 @@ export interface DeleteScheduledQueryCommandInput extends DeleteScheduledQueryRe
 export interface DeleteScheduledQueryCommandOutput extends DeleteScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing scheduled query and all its associated configurations. This operation permanently removes the scheduled query and cannot be undone.</p>
+ * <p>Deletes a scheduled query and stops all future executions. This operation also removes any configured actions and associated resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +59,9 @@ export interface DeleteScheduledQueryCommandOutput extends DeleteScheduledQueryR
  *  <p>You don't have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ *  <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

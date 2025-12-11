@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCloudVmClusterInput, GetCloudVmClusterOutput } from "../models/models_0";
-import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
+import type { GetCloudVmClusterInput, GetCloudVmClusterOutput } from "../models/models_0";
+import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetCloudVmCluster } from "../schemas/schemas_0";
 
 /**
@@ -49,6 +49,7 @@ export interface GetCloudVmClusterCommandOutput extends GetCloudVmClusterOutput,
  * //     statusReason: "STRING_VALUE",
  * //     cloudVmClusterArn: "STRING_VALUE",
  * //     cloudExadataInfrastructureId: "STRING_VALUE",
+ * //     cloudExadataInfrastructureArn: "STRING_VALUE",
  * //     clusterName: "STRING_VALUE",
  * //     cpuCoreCount: Number("int"),
  * //     dataCollectionOptions: { // DataCollectionOptions
@@ -104,6 +105,7 @@ export interface GetCloudVmClusterCommandOutput extends GetCloudVmClusterOutput,
  * //       "STRING_VALUE",
  * //     ],
  * //     odbNetworkId: "STRING_VALUE",
+ * //     odbNetworkArn: "STRING_VALUE",
  * //     percentProgress: Number("float"),
  * //     computeModel: "ECPU" || "OCPU",
  * //     iamRoles: [ // IamRoleList

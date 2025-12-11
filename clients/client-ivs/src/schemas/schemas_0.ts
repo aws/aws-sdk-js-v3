@@ -263,7 +263,7 @@ const n0 = "com.amazonaws.ivs";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -287,23 +287,11 @@ import {
 import { IvsServiceException as __IvsServiceException } from "../models/IvsServiceException";
 
 /* eslint no-var: 0 */
-
 export var SrtPassphrase: StaticSimpleSchema = [0, n0, _SP, 8, 0];
 export var StreamKeyValue: StaticSimpleSchema = [0, n0, _SKV, 8, 0];
 export var StreamMetadata: StaticSimpleSchema = [0, n0, _SM, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_eM],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AudioConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_co, _tB, _sR, _ch, _t], [0, 1, 1, 1, 0]];
 export var BatchError: StaticStructureSchema = [3, n0, _BE, 0, [_a, _cod, _m], [0, 0, 0]];
 export var BatchGetChannelRequest: StaticStructureSchema = [3, n0, _BGCR, 0, [_ar], [64 | 0]];
@@ -364,19 +352,8 @@ export var Channel: StaticStructureSchema = [
   [_a, _n, _lM, _ty, _rCA, _iE, _pU, _au, _ta, _iI, _p, _s, _pRPA, _mIC, _cF],
   [0, 0, 0, 0, 0, 0, 0, 2, 128 | 0, 2, 0, [() => Srt, 0], 0, () => MultitrackInputConfiguration, 0],
 ];
-export var ChannelNotBroadcasting: StaticErrorSchema = [
-  -3,
-  n0,
-  _CNB,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_eM],
-  [0],
-];
+export var ChannelNotBroadcasting: StaticErrorSchema = [-3, n0, _CNB, { [_e]: _c, [_hE]: 404 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(ChannelNotBroadcasting, __ChannelNotBroadcasting);
-
 export var ChannelSummary: StaticStructureSchema = [
   3,
   n0,
@@ -385,19 +362,8 @@ export var ChannelSummary: StaticStructureSchema = [
   [_a, _n, _lM, _au, _rCA, _ta, _iI, _ty, _p, _pRPA],
   [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_eM],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateChannelRequest: StaticStructureSchema = [
   3,
   n0,
@@ -504,19 +470,8 @@ export var IngestConfigurations: StaticStructureSchema = [
   [_vC, _aCu],
   [() => VideoConfigurationList, () => AudioConfigurationList],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_eM],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListChannelsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -569,19 +524,8 @@ export var ListStreamsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_str,
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
 export var MultitrackInputConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_en, _po, _mRa], [2, 0, 0]];
-export var PendingVerification: StaticErrorSchema = [
-  -3,
-  n0,
-  _PV,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_eM],
-  [0],
-];
+export var PendingVerification: StaticErrorSchema = [-3, n0, _PV, { [_e]: _c, [_hE]: 403 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(PendingVerification, __PendingVerification);
-
 export var PlaybackKeyPair: StaticStructureSchema = [3, n0, _PKP, 0, [_a, _n, _f, _ta], [0, 0, 0, 128 | 0]];
 export var PlaybackKeyPairSummary: StaticStructureSchema = [3, n0, _PKPS, 0, [_a, _n, _ta], [0, 0, 128 | 0]];
 export var PlaybackRestrictionPolicy: StaticStructureSchema = [
@@ -618,33 +562,11 @@ export var RecordingConfigurationSummary: StaticStructureSchema = [
   [0, 0, () => DestinationConfiguration, 0, 128 | 0],
 ];
 export var RenditionConfiguration: StaticStructureSchema = [3, n0, _RCe, 0, [_rS, _r], [0, 64 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_eM],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3DestinationConfiguration: StaticStructureSchema = [3, n0, _SDC, 0, [_bN], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_eM],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Srt: StaticStructureSchema = [3, n0, _S, 0, [_end, _pa], [0, [() => SrtPassphrase, 0]]];
 export var StartViewerSessionRevocationRequest: StaticStructureSchema = [
   3,
@@ -695,34 +617,12 @@ export var StreamSession: StaticStructureSchema = [
 ];
 export var StreamSessionSummary: StaticStructureSchema = [3, n0, _SSS, 0, [_sI, _sT, _eTn, _hEE], [0, 5, 5, 2]];
 export var StreamSummary: StaticStructureSchema = [3, n0, _SSt, 0, [_cA, _sI, _sta, _h, _vCi, _sT], [0, 0, 0, 0, 1, 5]];
-export var StreamUnavailable: StaticErrorSchema = [
-  -3,
-  n0,
-  _SU,
-  {
-    [_e]: _se,
-    [_hE]: 503,
-  },
-  [_eM],
-  [0],
-];
+export var StreamUnavailable: StaticErrorSchema = [-3, n0, _SU, { [_e]: _se, [_hE]: 503 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(StreamUnavailable, __StreamUnavailable);
-
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_eM],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ThumbnailConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_rM, _tIS, _re, _sto], [0, 1, 0, 64 | 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -732,12 +632,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -766,19 +661,8 @@ export var UpdatePlaybackRestrictionPolicyResponse: StaticStructureSchema = [
   [_pRP],
   [() => PlaybackRestrictionPolicy],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_eM],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_eM], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VideoConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -788,10 +672,8 @@ export var VideoConfiguration: StaticStructureSchema = [
   [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
 ];
 export var __Unit = "unit" as const;
-
 export var IvsServiceException: StaticErrorSchema = [-3, _sm, "IvsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IvsServiceException, __IvsServiceException);
-
 export var AudioConfigurationList: StaticListSchema = [1, n0, _ACL, 0, () => AudioConfiguration];
 export var BatchErrors: StaticListSchema = [1, n0, _BEa, 0, () => BatchError];
 export var BatchStartViewerSessionRevocationErrors: StaticListSchema = [
@@ -809,39 +691,29 @@ export var BatchStartViewerSessionRevocationViewerSessionList: StaticListSchema 
   () => BatchStartViewerSessionRevocationViewerSession,
 ];
 export var ChannelArnList = 64 | 0;
-
 export var ChannelList: StaticListSchema = [1, n0, _CL, 0, () => ChannelSummary];
 export var Channels: StaticListSchema = [1, n0, _Ch, 0, [() => Channel, 0]];
 export var PlaybackKeyPairList: StaticListSchema = [1, n0, _PKPL, 0, () => PlaybackKeyPairSummary];
 export var PlaybackRestrictionPolicyAllowedCountryList = 64 | 0;
-
 export var PlaybackRestrictionPolicyAllowedOriginList = 64 | 0;
-
 export var PlaybackRestrictionPolicyList: StaticListSchema = [1, n0, _PRPL, 0, () => PlaybackRestrictionPolicySummary];
 export var RecordingConfigurationList: StaticListSchema = [1, n0, _RCL, 0, () => RecordingConfigurationSummary];
 export var RenditionConfigurationRenditionList = 64 | 0;
-
 export var StreamEvents: StaticListSchema = [1, n0, _SEt, 0, () => StreamEvent];
 export var StreamKeyArnList = 64 | 0;
-
 export var StreamKeyList: StaticListSchema = [1, n0, _SKL, 0, () => StreamKeySummary];
 export var StreamKeys: StaticListSchema = [1, n0, _SKt, 0, [() => StreamKey, 0]];
 export var StreamList: StaticListSchema = [1, n0, _SL, 0, () => StreamSummary];
 export var StreamSessionList: StaticListSchema = [1, n0, _SSL, 0, () => StreamSessionSummary];
 export var TagKeyList = 64 | 0;
-
 export var ThumbnailConfigurationStorageList = 64 | 0;
-
 export var VideoConfigurationList: StaticListSchema = [1, n0, _VCL, 0, () => VideoConfiguration];
 export var Tags = 128 | 0;
-
 export var BatchGetChannel: StaticOperationSchema = [
   9,
   n0,
   _BGC,
-  {
-    [_ht]: ["POST", "/BatchGetChannel", 200],
-  },
+  { [_ht]: ["POST", "/BatchGetChannel", 200] },
   () => BatchGetChannelRequest,
   () => BatchGetChannelResponse,
 ];
@@ -849,9 +721,7 @@ export var BatchGetStreamKey: StaticOperationSchema = [
   9,
   n0,
   _BGSK,
-  {
-    [_ht]: ["POST", "/BatchGetStreamKey", 200],
-  },
+  { [_ht]: ["POST", "/BatchGetStreamKey", 200] },
   () => BatchGetStreamKeyRequest,
   () => BatchGetStreamKeyResponse,
 ];
@@ -859,9 +729,7 @@ export var BatchStartViewerSessionRevocation: StaticOperationSchema = [
   9,
   n0,
   _BSVSR,
-  {
-    [_ht]: ["POST", "/BatchStartViewerSessionRevocation", 200],
-  },
+  { [_ht]: ["POST", "/BatchStartViewerSessionRevocation", 200] },
   () => BatchStartViewerSessionRevocationRequest,
   () => BatchStartViewerSessionRevocationResponse,
 ];
@@ -869,9 +737,7 @@ export var CreateChannel: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_ht]: ["POST", "/CreateChannel", 200],
-  },
+  { [_ht]: ["POST", "/CreateChannel", 200] },
   () => CreateChannelRequest,
   () => CreateChannelResponse,
 ];
@@ -879,9 +745,7 @@ export var CreatePlaybackRestrictionPolicy: StaticOperationSchema = [
   9,
   n0,
   _CPRP,
-  {
-    [_ht]: ["POST", "/CreatePlaybackRestrictionPolicy", 200],
-  },
+  { [_ht]: ["POST", "/CreatePlaybackRestrictionPolicy", 200] },
   () => CreatePlaybackRestrictionPolicyRequest,
   () => CreatePlaybackRestrictionPolicyResponse,
 ];
@@ -889,9 +753,7 @@ export var CreateRecordingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  {
-    [_ht]: ["POST", "/CreateRecordingConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/CreateRecordingConfiguration", 200] },
   () => CreateRecordingConfigurationRequest,
   () => CreateRecordingConfigurationResponse,
 ];
@@ -899,9 +761,7 @@ export var CreateStreamKey: StaticOperationSchema = [
   9,
   n0,
   _CSK,
-  {
-    [_ht]: ["POST", "/CreateStreamKey", 200],
-  },
+  { [_ht]: ["POST", "/CreateStreamKey", 200] },
   () => CreateStreamKeyRequest,
   () => CreateStreamKeyResponse,
 ];
@@ -909,9 +769,7 @@ export var DeleteChannel: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_ht]: ["POST", "/DeleteChannel", 204],
-  },
+  { [_ht]: ["POST", "/DeleteChannel", 204] },
   () => DeleteChannelRequest,
   () => __Unit,
 ];
@@ -919,9 +777,7 @@ export var DeletePlaybackKeyPair: StaticOperationSchema = [
   9,
   n0,
   _DPKP,
-  {
-    [_ht]: ["POST", "/DeletePlaybackKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/DeletePlaybackKeyPair", 200] },
   () => DeletePlaybackKeyPairRequest,
   () => DeletePlaybackKeyPairResponse,
 ];
@@ -929,9 +785,7 @@ export var DeletePlaybackRestrictionPolicy: StaticOperationSchema = [
   9,
   n0,
   _DPRP,
-  {
-    [_ht]: ["POST", "/DeletePlaybackRestrictionPolicy", 204],
-  },
+  { [_ht]: ["POST", "/DeletePlaybackRestrictionPolicy", 204] },
   () => DeletePlaybackRestrictionPolicyRequest,
   () => __Unit,
 ];
@@ -939,9 +793,7 @@ export var DeleteRecordingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  {
-    [_ht]: ["POST", "/DeleteRecordingConfiguration", 204],
-  },
+  { [_ht]: ["POST", "/DeleteRecordingConfiguration", 204] },
   () => DeleteRecordingConfigurationRequest,
   () => __Unit,
 ];
@@ -949,9 +801,7 @@ export var DeleteStreamKey: StaticOperationSchema = [
   9,
   n0,
   _DSK,
-  {
-    [_ht]: ["POST", "/DeleteStreamKey", 204],
-  },
+  { [_ht]: ["POST", "/DeleteStreamKey", 204] },
   () => DeleteStreamKeyRequest,
   () => __Unit,
 ];
@@ -959,9 +809,7 @@ export var GetChannel: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_ht]: ["POST", "/GetChannel", 200],
-  },
+  { [_ht]: ["POST", "/GetChannel", 200] },
   () => GetChannelRequest,
   () => GetChannelResponse,
 ];
@@ -969,9 +817,7 @@ export var GetPlaybackKeyPair: StaticOperationSchema = [
   9,
   n0,
   _GPKP,
-  {
-    [_ht]: ["POST", "/GetPlaybackKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/GetPlaybackKeyPair", 200] },
   () => GetPlaybackKeyPairRequest,
   () => GetPlaybackKeyPairResponse,
 ];
@@ -979,9 +825,7 @@ export var GetPlaybackRestrictionPolicy: StaticOperationSchema = [
   9,
   n0,
   _GPRP,
-  {
-    [_ht]: ["POST", "/GetPlaybackRestrictionPolicy", 200],
-  },
+  { [_ht]: ["POST", "/GetPlaybackRestrictionPolicy", 200] },
   () => GetPlaybackRestrictionPolicyRequest,
   () => GetPlaybackRestrictionPolicyResponse,
 ];
@@ -989,9 +833,7 @@ export var GetRecordingConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  {
-    [_ht]: ["POST", "/GetRecordingConfiguration", 200],
-  },
+  { [_ht]: ["POST", "/GetRecordingConfiguration", 200] },
   () => GetRecordingConfigurationRequest,
   () => GetRecordingConfigurationResponse,
 ];
@@ -999,9 +841,7 @@ export var GetStream: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_ht]: ["POST", "/GetStream", 200],
-  },
+  { [_ht]: ["POST", "/GetStream", 200] },
   () => GetStreamRequest,
   () => GetStreamResponse,
 ];
@@ -1009,9 +849,7 @@ export var GetStreamKey: StaticOperationSchema = [
   9,
   n0,
   _GSK,
-  {
-    [_ht]: ["POST", "/GetStreamKey", 200],
-  },
+  { [_ht]: ["POST", "/GetStreamKey", 200] },
   () => GetStreamKeyRequest,
   () => GetStreamKeyResponse,
 ];
@@ -1019,9 +857,7 @@ export var GetStreamSession: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  {
-    [_ht]: ["POST", "/GetStreamSession", 200],
-  },
+  { [_ht]: ["POST", "/GetStreamSession", 200] },
   () => GetStreamSessionRequest,
   () => GetStreamSessionResponse,
 ];
@@ -1029,9 +865,7 @@ export var ImportPlaybackKeyPair: StaticOperationSchema = [
   9,
   n0,
   _IPKP,
-  {
-    [_ht]: ["POST", "/ImportPlaybackKeyPair", 200],
-  },
+  { [_ht]: ["POST", "/ImportPlaybackKeyPair", 200] },
   () => ImportPlaybackKeyPairRequest,
   () => ImportPlaybackKeyPairResponse,
 ];
@@ -1039,9 +873,7 @@ export var ListChannels: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["POST", "/ListChannels", 200],
-  },
+  { [_ht]: ["POST", "/ListChannels", 200] },
   () => ListChannelsRequest,
   () => ListChannelsResponse,
 ];
@@ -1049,9 +881,7 @@ export var ListPlaybackKeyPairs: StaticOperationSchema = [
   9,
   n0,
   _LPKP,
-  {
-    [_ht]: ["POST", "/ListPlaybackKeyPairs", 200],
-  },
+  { [_ht]: ["POST", "/ListPlaybackKeyPairs", 200] },
   () => ListPlaybackKeyPairsRequest,
   () => ListPlaybackKeyPairsResponse,
 ];
@@ -1059,9 +889,7 @@ export var ListPlaybackRestrictionPolicies: StaticOperationSchema = [
   9,
   n0,
   _LPRP,
-  {
-    [_ht]: ["POST", "/ListPlaybackRestrictionPolicies", 200],
-  },
+  { [_ht]: ["POST", "/ListPlaybackRestrictionPolicies", 200] },
   () => ListPlaybackRestrictionPoliciesRequest,
   () => ListPlaybackRestrictionPoliciesResponse,
 ];
@@ -1069,9 +897,7 @@ export var ListRecordingConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  {
-    [_ht]: ["POST", "/ListRecordingConfigurations", 200],
-  },
+  { [_ht]: ["POST", "/ListRecordingConfigurations", 200] },
   () => ListRecordingConfigurationsRequest,
   () => ListRecordingConfigurationsResponse,
 ];
@@ -1079,9 +905,7 @@ export var ListStreamKeys: StaticOperationSchema = [
   9,
   n0,
   _LSK,
-  {
-    [_ht]: ["POST", "/ListStreamKeys", 200],
-  },
+  { [_ht]: ["POST", "/ListStreamKeys", 200] },
   () => ListStreamKeysRequest,
   () => ListStreamKeysResponse,
 ];
@@ -1089,9 +913,7 @@ export var ListStreams: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_ht]: ["POST", "/ListStreams", 200],
-  },
+  { [_ht]: ["POST", "/ListStreams", 200] },
   () => ListStreamsRequest,
   () => ListStreamsResponse,
 ];
@@ -1099,9 +921,7 @@ export var ListStreamSessions: StaticOperationSchema = [
   9,
   n0,
   _LSS,
-  {
-    [_ht]: ["POST", "/ListStreamSessions", 200],
-  },
+  { [_ht]: ["POST", "/ListStreamSessions", 200] },
   () => ListStreamSessionsRequest,
   () => ListStreamSessionsResponse,
 ];
@@ -1109,9 +929,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -1119,9 +937,7 @@ export var PutMetadata: StaticOperationSchema = [
   9,
   n0,
   _PM,
-  {
-    [_ht]: ["POST", "/PutMetadata", 204],
-  },
+  { [_ht]: ["POST", "/PutMetadata", 204] },
   () => PutMetadataRequest,
   () => __Unit,
 ];
@@ -1129,9 +945,7 @@ export var StartViewerSessionRevocation: StaticOperationSchema = [
   9,
   n0,
   _SVSR,
-  {
-    [_ht]: ["POST", "/StartViewerSessionRevocation", 200],
-  },
+  { [_ht]: ["POST", "/StartViewerSessionRevocation", 200] },
   () => StartViewerSessionRevocationRequest,
   () => StartViewerSessionRevocationResponse,
 ];
@@ -1139,9 +953,7 @@ export var StopStream: StaticOperationSchema = [
   9,
   n0,
   _SSto,
-  {
-    [_ht]: ["POST", "/StopStream", 200],
-  },
+  { [_ht]: ["POST", "/StopStream", 200] },
   () => StopStreamRequest,
   () => StopStreamResponse,
 ];
@@ -1149,9 +961,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -1159,9 +969,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -1169,9 +977,7 @@ export var UpdateChannel: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["POST", "/UpdateChannel", 200],
-  },
+  { [_ht]: ["POST", "/UpdateChannel", 200] },
   () => UpdateChannelRequest,
   () => UpdateChannelResponse,
 ];
@@ -1179,9 +985,7 @@ export var UpdatePlaybackRestrictionPolicy: StaticOperationSchema = [
   9,
   n0,
   _UPRP,
-  {
-    [_ht]: ["POST", "/UpdatePlaybackRestrictionPolicy", 200],
-  },
+  { [_ht]: ["POST", "/UpdatePlaybackRestrictionPolicy", 200] },
   () => UpdatePlaybackRestrictionPolicyRequest,
   () => UpdatePlaybackRestrictionPolicyResponse,
 ];

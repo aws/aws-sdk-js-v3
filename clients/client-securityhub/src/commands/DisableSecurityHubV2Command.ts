@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableSecurityHubV2Request, DisableSecurityHubV2Response } from "../models/models_2";
+import type { DisableSecurityHubV2Request, DisableSecurityHubV2Response } from "../models/models_2";
 import { DisableSecurityHubV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface DisableSecurityHubV2CommandInput extends DisableSecurityHubV2Re
 export interface DisableSecurityHubV2CommandOutput extends DisableSecurityHubV2Response, __MetadataBearer {}
 
 /**
- * <p>Disable the service for the current Amazon Web Services Region or specified Amazon Web Services Region. This API is in public preview and subject to change.</p>
+ * <p>Disable the service for the current Amazon Web Services Region or specified Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

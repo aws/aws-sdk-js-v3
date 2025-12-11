@@ -1,0 +1,67 @@
+import {
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
+  ConnectorStatus,
+  ConnectorStatusReason,
+  ConnectorType,
+  CreateChallengeCommand,
+  CreateConnectorCommand,
+  DeleteChallengeCommand,
+  DeleteConnectorCommand,
+  GetChallengeMetadataCommand,
+  GetChallengePasswordCommand,
+  GetConnectorCommand,
+  InternalServerException,
+  ListChallengeMetadataCommand,
+  ListConnectorsCommand,
+  ListTagsForResourceCommand,
+  PcaConnectorScep,
+  PcaConnectorScepClient,
+  PcaConnectorScepServiceException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  TagResourceCommand,
+  ThrottlingException,
+  UntagResourceCommand,
+  ValidationException,
+  ValidationExceptionReason,
+  paginateListChallengeMetadata,
+  paginateListConnectors,
+} from "../dist-cjs/index.js";
+import assert from "node:assert";
+// clients
+assert(typeof PcaConnectorScepClient === "function");
+assert(typeof PcaConnectorScep === "function");
+// commands
+assert(typeof CreateChallengeCommand === "function");
+assert(typeof CreateConnectorCommand === "function");
+assert(typeof DeleteChallengeCommand === "function");
+assert(typeof DeleteConnectorCommand === "function");
+assert(typeof GetChallengeMetadataCommand === "function");
+assert(typeof GetChallengePasswordCommand === "function");
+assert(typeof GetConnectorCommand === "function");
+assert(typeof ListChallengeMetadataCommand === "function");
+assert(typeof ListConnectorsCommand === "function");
+assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof TagResourceCommand === "function");
+assert(typeof UntagResourceCommand === "function");
+// enums
+assert(typeof ConnectorStatus === "object");
+assert(typeof ConnectorStatusReason === "object");
+assert(typeof ConnectorType === "object");
+assert(typeof ValidationExceptionReason === "object");
+// errors
+assert(AccessDeniedException.prototype instanceof PcaConnectorScepServiceException);
+assert(BadRequestException.prototype instanceof PcaConnectorScepServiceException);
+assert(ConflictException.prototype instanceof PcaConnectorScepServiceException);
+assert(InternalServerException.prototype instanceof PcaConnectorScepServiceException);
+assert(ResourceNotFoundException.prototype instanceof PcaConnectorScepServiceException);
+assert(ServiceQuotaExceededException.prototype instanceof PcaConnectorScepServiceException);
+assert(ThrottlingException.prototype instanceof PcaConnectorScepServiceException);
+assert(ValidationException.prototype instanceof PcaConnectorScepServiceException);
+assert(PcaConnectorScepServiceException.prototype instanceof Error);
+// paginators
+assert(typeof paginateListChallengeMetadata === "function");
+assert(typeof paginateListConnectors === "function");
+console.log(`PcaConnectorScep index test passed.`);

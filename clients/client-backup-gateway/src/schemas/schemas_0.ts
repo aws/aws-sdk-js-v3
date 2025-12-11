@@ -154,7 +154,7 @@ const n0 = "com.amazonaws.backupgateway";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -173,22 +173,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateGatewayToServerInput: StaticStructureSchema = [3, n0, _AGTSI, 0, [_GA, _SA], [0, 0]];
 export var AssociateGatewayToServerOutput: StaticStructureSchema = [3, n0, _AGTSO, 0, [_GA], [0]];
 export var BandwidthRateLimitInterval: StaticStructureSchema = [
@@ -199,19 +187,8 @@ export var BandwidthRateLimitInterval: StaticStructureSchema = [
   [_AURLIBPS, _SHOD, _EHOD, _SMOH, _EMOH, _DOW],
   [1, 1, 1, 1, 1, 64 | 1],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateGatewayInput: StaticStructureSchema = [3, n0, _CGI, 0, [_AK, _GDN, _GT, _T], [0, 0, 0, () => Tags]];
 export var CreateGatewayOutput: StaticStructureSchema = [3, n0, _CGO, 0, [_GA], [0]];
 export var DeleteGatewayInput: StaticStructureSchema = [3, n0, _DGI, 0, [_GA], [0]];
@@ -271,19 +248,8 @@ export var ImportHypervisorConfigurationInput: StaticStructureSchema = [
   [0, 0, [() => Username, 0], [() => Password, 0], 0, () => Tags],
 ];
 export var ImportHypervisorConfigurationOutput: StaticStructureSchema = [3, n0, _IHCO, 0, [_HA], [0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListGatewaysInput: StaticStructureSchema = [3, n0, _LGI, 0, [_MR, _NT], [1, 0]];
 export var ListGatewaysOutput: StaticStructureSchema = [3, n0, _LGO, 0, [_Ga, _NT], [() => Gateways, 0]];
 export var ListHypervisorsInput: StaticStructureSchema = [3, n0, _LHI, 0, [_MR, _NT], [1, 0]];
@@ -327,19 +293,8 @@ export var PutMaintenanceStartTimeInput: StaticStructureSchema = [
   [0, 1, 1, 1, 1],
 ];
 export var PutMaintenanceStartTimeOutput: StaticStructureSchema = [3, n0, _PMSTO, 0, [_GA], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var StartVirtualMachinesMetadataSyncInput: StaticStructureSchema = [3, n0, _SVMMSI, 0, [_HA], [0]];
 export var StartVirtualMachinesMetadataSyncOutput: StaticStructureSchema = [3, n0, _SVMMSO, 0, [_HA], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
@@ -354,19 +309,8 @@ export var TestHypervisorConfigurationInput: StaticStructureSchema = [
   [0, 0, [() => Username, 0], [() => Password, 0]],
 ];
 export var TestHypervisorConfigurationOutput: StaticStructureSchema = [3, n0, _THCO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [_RARN], [0]];
 export var UpdateGatewayInformationInput: StaticStructureSchema = [3, n0, _UGII, 0, [_GA, _GDN], [0, 0]];
@@ -382,19 +326,8 @@ export var UpdateHypervisorInput: StaticStructureSchema = [
   [0, 0, [() => Username, 0], [() => Password, 0], 0, 0],
 ];
 export var UpdateHypervisorOutput: StaticStructureSchema = [3, n0, _UHO, 0, [_HA], [0]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VEa,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_EC, _M],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VEa, { [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VirtualMachine: StaticStructureSchema = [3, n0, _VM, 0, [_HN, _HI, _N, _Pa, _RA, _LBD], [0, 0, 0, 0, 0, 4]];
 export var VirtualMachineDetails: StaticStructureSchema = [
   3,
@@ -408,14 +341,11 @@ export var VmwareTag: StaticStructureSchema = [3, n0, _VTm, 0, [_VC, _VTN, _VTD]
 export var VmwareToAwsTagMapping: StaticStructureSchema = [3, n0, _VTATMm, 0, [_VC, _VTN, _ATK, _ATV], [0, 0, 0, 0]];
 export var BackupGatewayServiceException: StaticErrorSchema = [-3, _sm, "BackupGatewayServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BackupGatewayServiceException, __BackupGatewayServiceException);
-
 export var BandwidthRateLimitIntervals: StaticListSchema = [1, n0, _BRLIa, 0, () => BandwidthRateLimitInterval];
 export var DaysOfWeek = 64 | 1;
-
 export var Gateways: StaticListSchema = [1, n0, _Ga, 0, () => Gateway];
 export var Hypervisors: StaticListSchema = [1, n0, _Hy, 0, () => Hypervisor];
 export var TagKeys = 64 | 0;
-
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var VirtualMachines: StaticListSchema = [1, n0, _VMi, 0, () => VirtualMachine];
 export var VmwareTags: StaticListSchema = [1, n0, _VT, 0, () => VmwareTag];

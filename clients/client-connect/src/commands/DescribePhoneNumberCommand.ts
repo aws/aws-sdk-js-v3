@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribePhoneNumberRequest, DescribePhoneNumberResponse } from "../models/models_1";
+import type { DescribePhoneNumberRequest, DescribePhoneNumberResponse } from "../models/models_1";
 import { DescribePhoneNumber } from "../schemas/schemas_0";
 
 /**
@@ -27,14 +27,11 @@ export interface DescribePhoneNumberCommandInput extends DescribePhoneNumberRequ
 export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance
- *    or traffic distribution group.</p>
+ * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance or traffic distribution group.</p>
  *          <important>
- *             <p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region
- *     where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the
- *      <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group
- *     and you are calling this API in the alternate Amazon Web Services Region associated with the
- *     traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
+ *             <p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was
+ *     created, you can use either a phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request
+ *     parameter. However, if the number is claimed to a traffic distribution group and you are calling this API in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
  *     in
  *     this scenario, you receive a <code>ResourceNotFoundException</code>.</p>
  *          </important>

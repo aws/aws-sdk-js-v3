@@ -2,7 +2,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@smithy/invalid-dependency";
 
-import { RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
+import type { RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**
@@ -16,7 +16,9 @@ export const getRuntimeConfig = (config: RekognitionStreamingClientConfig) => {
     runtime: "react-native",
     eventStreamPayloadHandlerProvider:
       config?.eventStreamPayloadHandlerProvider ??
-      (() => ({ handle: invalidFunction("event stream request is not supported in ReactNative.") })),
+      (() => ({
+        handle: invalidFunction("event stream request is not supported in ReactNative."),
+      })),
     sha256: config?.sha256 ?? Sha256,
   };
 };

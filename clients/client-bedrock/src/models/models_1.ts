@@ -9,6 +9,8 @@ import {
   EvaluationJobType,
   FineTuningJobStatus,
   FoundationModelLifecycleStatus,
+  InferenceProfileStatus,
+  InferenceProfileType,
   InferenceType,
   JobStatusDetails,
   ModelCopyJobStatus,
@@ -32,27 +34,225 @@ import {
 } from "./enums";
 
 import {
-  AgreementAvailability,
-  CustomizationConfig,
-  EvaluationConfig,
+  type AgreementAvailability,
+  type CustomizationConfig,
+  type EvaluationConfig,
+  type EvaluationOutputDataConfig,
+  type ExternalSourcesRetrieveAndGenerateConfiguration,
+  type GenerationConfiguration,
+  type ImplicitFilterConfiguration,
+  type ModelDataSource,
+  type OrchestrationConfiguration,
+  type OutputDataConfig,
+  type TrainingDataConfig,
+  type TrainingMetrics,
+  type ValidationDataConfig,
+  type VectorSearchRerankingConfiguration,
+  type VpcConfig,
   EvaluationModelConfig,
-  EvaluationOutputDataConfig,
   EvaluationPrecomputedRagSourceConfig,
-  ExternalSourcesRetrieveAndGenerateConfiguration,
   FilterAttribute,
-  GenerationConfiguration,
-  ImplicitFilterConfiguration,
-  ModelDataSource,
-  OrchestrationConfiguration,
-  OutputDataConfig,
   Tag,
-  TrainingDataConfig,
-  TrainingMetrics,
-  ValidationDataConfig,
   ValidatorMetric,
-  VectorSearchRerankingConfiguration,
-  VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteInferenceProfileRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID of the application inference profile to delete.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInferenceProfileResponse {}
+
+/**
+ * @public
+ */
+export interface GetInferenceProfileRequest {
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains information about a model.</p>
+ * @public
+ */
+export interface InferenceProfileModel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   * @public
+   */
+  modelArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInferenceProfileResponse {
+  /**
+   * <p>The name of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>The description of the inference profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the inference profile was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the inference profile was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileId: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status: InferenceProfileStatus | undefined;
+
+  /**
+   * <p>The type of the inference profile. The following types are possible:</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
+   * @public
+   */
+  type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filters for inference profiles that match the type you specify.</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
+   * @public
+   */
+  typeEquals?: InferenceProfileType | undefined;
+}
+
+/**
+ * <p>Contains information about an inference profile.</p>
+ * @public
+ */
+export interface InferenceProfileSummary {
+  /**
+   * <p>The name of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>The description of the inference profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the inference profile was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the inference profile was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileId: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status: InferenceProfileStatus | undefined;
+
+  /**
+   * <p>The type of the inference profile. The following types are possible:</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
+   * @public
+   */
+  type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesResponse {
+  /**
+   * <p>A list of information about each inference profile that you can use.</p>
+   * @public
+   */
+  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -151,6 +351,12 @@ export interface LoggingConfig {
    * @public
    */
   videoDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include audio data in the log delivery.</p>
+   * @public
+   */
+  audioDataDeliveryEnabled?: boolean | undefined;
 }
 
 /**

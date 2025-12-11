@@ -26,7 +26,7 @@ const n0 = "com.amazonaws.inspectorscan";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -37,92 +37,46 @@ import {
 import { InspectorScanServiceException as __InspectorScanServiceException } from "../models/InspectorScanServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_m, _r, _rAS],
-  [
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ScanSbomRequest: StaticStructureSchema = [3, n0, _SSR, 0, [_sb, _oF], [15, 0]];
 export var ScanSbomResponse: StaticStructureSchema = [3, n0, _SSRc, 0, [_sb], [15]];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _f],
   [0, 0, () => ValidationExceptionFields],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var InspectorScanServiceException: StaticErrorSchema = [-3, _sm, "InspectorScanServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(InspectorScanServiceException, __InspectorScanServiceException);
-
 export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
 export var ScanSbom: StaticOperationSchema = [
   9,
   n0,
   _SS,
-  {
-    [_h]: ["POST", "/scan/sbom", 200],
-  },
+  { [_h]: ["POST", "/scan/sbom", 200] },
   () => ScanSbomRequest,
   () => ScanSbomResponse,
 ];

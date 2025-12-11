@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListCloudAutonomousVmClustersInput, ListCloudAutonomousVmClustersOutput } from "../models/models_0";
-import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
+import type { ListCloudAutonomousVmClustersInput, ListCloudAutonomousVmClustersOutput } from "../models/models_0";
+import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { ListCloudAutonomousVmClusters } from "../schemas/schemas_0";
 
 /**
@@ -52,12 +52,14 @@ export interface ListCloudAutonomousVmClustersCommandOutput
  * //       cloudAutonomousVmClusterId: "STRING_VALUE", // required
  * //       cloudAutonomousVmClusterArn: "STRING_VALUE",
  * //       odbNetworkId: "STRING_VALUE",
+ * //       odbNetworkArn: "STRING_VALUE",
  * //       ociResourceAnchorName: "STRING_VALUE",
  * //       percentProgress: Number("float"),
  * //       displayName: "STRING_VALUE",
  * //       status: "AVAILABLE" || "FAILED" || "PROVISIONING" || "TERMINATED" || "TERMINATING" || "UPDATING" || "MAINTENANCE_IN_PROGRESS",
  * //       statusReason: "STRING_VALUE",
  * //       cloudExadataInfrastructureId: "STRING_VALUE",
+ * //       cloudExadataInfrastructureArn: "STRING_VALUE",
  * //       autonomousDataStoragePercentage: Number("float"),
  * //       autonomousDataStorageSizeInTBs: Number("double"),
  * //       availableAutonomousDataStorageSizeInTBs: Number("double"),

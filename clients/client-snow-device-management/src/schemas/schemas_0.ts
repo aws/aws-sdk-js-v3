@@ -156,7 +156,7 @@ const n0 = "com.amazonaws.snowdevicemanagement";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -175,20 +175,8 @@ import {
 import { SnowDeviceManagementServiceException as __SnowDeviceManagementServiceException } from "../models/SnowDeviceManagementServiceException";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var CancelTaskInput: StaticStructureSchema = [3, n0, _CTI, 0, [_tI], [[0, 1]]];
 export var CancelTaskOutput: StaticStructureSchema = [3, n0, _CTO, 0, [_tI], [0]];
 export var Capacity: StaticStructureSchema = [3, n0, _C, 0, [_n, _u, _t, _us, _a], [0, 0, 1, 1, 1]];
@@ -276,19 +264,8 @@ export var InstanceBlockDeviceMapping: StaticStructureSchema = [
 ];
 export var InstanceState: StaticStructureSchema = [3, n0, _IS, 0, [_cod, _n], [1, 0]];
 export var InstanceSummary: StaticStructureSchema = [3, n0, _ISn, 0, [_in, _lUA], [() => Instance, 4]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListDeviceResourcesInput: StaticStructureSchema = [
   3,
   n0,
@@ -297,24 +274,9 @@ export var ListDeviceResourcesInput: StaticStructureSchema = [
   [_mDI, _ty, _mR, _nT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ty,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _ty }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDeviceResourcesOutput: StaticStructureSchema = [
@@ -332,24 +294,9 @@ export var ListDevicesInput: StaticStructureSchema = [
   0,
   [_jI, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _jI,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _jI }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDevicesOutput: StaticStructureSchema = [3, n0, _LDO, 0, [_de, _nT], [() => DeviceSummaryList, 0]];
@@ -360,30 +307,10 @@ export var ListExecutionsInput: StaticStructureSchema = [
   0,
   [_tI, _st, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _tI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _tI }],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListExecutionsOutput: StaticStructureSchema = [3, n0, _LEO, 0, [_ex, _nT], [() => ExecutionSummaryList, 0]];
@@ -396,24 +323,9 @@ export var ListTasksInput: StaticStructureSchema = [
   0,
   [_st, _mR, _nT],
   [
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListTasksOutput: StaticStructureSchema = [3, n0, _LTO, 0, [_tas, _nT], [() => TaskSummaryList, 0]];
@@ -426,50 +338,17 @@ export var PhysicalNetworkInterface: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 0],
 ];
 export var Reboot: StaticStructureSchema = [3, n0, _R, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceSummary: StaticStructureSchema = [3, n0, _RS, 0, [_rT, _ar, _id], [0, 0, 0]];
 export var SecurityGroupIdentifier: StaticStructureSchema = [3, n0, _SGI, 0, [_gI, _gN], [0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SoftwareInformation: StaticStructureSchema = [3, n0, _SI, 0, [_iV, _iVn, _iS], [0, 0, 0]];
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _tag], [[0, 1], 128 | 0]];
 export var TaskSummary: StaticStructureSchema = [3, n0, _TS, 0, [_tI, _tA, _st, _tag], [0, 0, 0, 128 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var Unlock: StaticStructureSchema = [3, n0, _U, 0, [], []];
 export var UntagResourceInput: StaticStructureSchema = [
   3,
@@ -479,29 +358,12 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SnowDeviceManagementServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -511,32 +373,25 @@ export var SnowDeviceManagementServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(SnowDeviceManagementServiceException, __SnowDeviceManagementServiceException);
-
 export var CapacityList: StaticListSchema = [1, n0, _CL, 0, () => Capacity];
 export var DeviceSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DeviceSummary];
 export var ExecutionSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => ExecutionSummary];
 export var InstanceBlockDeviceMappingList: StaticListSchema = [1, n0, _IBDML, 0, () => InstanceBlockDeviceMapping];
 export var InstanceIdsList = 64 | 0;
-
 export var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => InstanceSummary];
 export var PhysicalNetworkInterfaceList: StaticListSchema = [1, n0, _PNIL, 0, () => PhysicalNetworkInterface];
 export var ResourceSummaryList: StaticListSchema = [1, n0, _RSL, 0, () => ResourceSummary];
 export var SecurityGroupIdentifierList: StaticListSchema = [1, n0, _SGIL, 0, () => SecurityGroupIdentifier];
 export var TagKeys = 64 | 0;
-
 export var TargetList = 64 | 0;
-
 export var TaskSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TaskSummary];
 export var TagMap = 128 | 0;
-
 export var Command: StaticStructureSchema = [3, n0, _Co, 0, [_un, _re], [() => Unlock, () => Reboot]];
 export var CancelTask: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_h]: ["POST", "/task/{taskId}/cancel", 200],
-  },
+  { [_h]: ["POST", "/task/{taskId}/cancel", 200] },
   () => CancelTaskInput,
   () => CancelTaskOutput,
 ];
@@ -544,9 +399,7 @@ export var CreateTask: StaticOperationSchema = [
   9,
   n0,
   _CTr,
-  {
-    [_h]: ["POST", "/task", 200],
-  },
+  { [_h]: ["POST", "/task", 200] },
   () => CreateTaskInput,
   () => CreateTaskOutput,
 ];
@@ -554,9 +407,7 @@ export var DescribeDevice: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  {
-    [_h]: ["POST", "/managed-device/{managedDeviceId}/describe", 200],
-  },
+  { [_h]: ["POST", "/managed-device/{managedDeviceId}/describe", 200] },
   () => DescribeDeviceInput,
   () => DescribeDeviceOutput,
 ];
@@ -564,9 +415,7 @@ export var DescribeDeviceEc2Instances: StaticOperationSchema = [
   9,
   n0,
   _DDEIe,
-  {
-    [_h]: ["POST", "/managed-device/{managedDeviceId}/resources/ec2/describe", 200],
-  },
+  { [_h]: ["POST", "/managed-device/{managedDeviceId}/resources/ec2/describe", 200] },
   () => DescribeDeviceEc2Input,
   () => DescribeDeviceEc2Output,
 ];
@@ -574,9 +423,7 @@ export var DescribeExecution: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  {
-    [_h]: ["POST", "/task/{taskId}/execution/{managedDeviceId}", 200],
-  },
+  { [_h]: ["POST", "/task/{taskId}/execution/{managedDeviceId}", 200] },
   () => DescribeExecutionInput,
   () => DescribeExecutionOutput,
 ];
@@ -584,9 +431,7 @@ export var DescribeTask: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["POST", "/task/{taskId}", 200],
-  },
+  { [_h]: ["POST", "/task/{taskId}", 200] },
   () => DescribeTaskInput,
   () => DescribeTaskOutput,
 ];
@@ -594,9 +439,7 @@ export var ListDeviceResources: StaticOperationSchema = [
   9,
   n0,
   _LDR,
-  {
-    [_h]: ["GET", "/managed-device/{managedDeviceId}/resources", 200],
-  },
+  { [_h]: ["GET", "/managed-device/{managedDeviceId}/resources", 200] },
   () => ListDeviceResourcesInput,
   () => ListDeviceResourcesOutput,
 ];
@@ -604,9 +447,7 @@ export var ListDevices: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/managed-devices", 200],
-  },
+  { [_h]: ["GET", "/managed-devices", 200] },
   () => ListDevicesInput,
   () => ListDevicesOutput,
 ];
@@ -614,9 +455,7 @@ export var ListExecutions: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  {
-    [_h]: ["GET", "/executions", 200],
-  },
+  { [_h]: ["GET", "/executions", 200] },
   () => ListExecutionsInput,
   () => ListExecutionsOutput,
 ];
@@ -624,9 +463,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -634,9 +471,7 @@ export var ListTasks: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["GET", "/tasks", 200],
-  },
+  { [_h]: ["GET", "/tasks", 200] },
   () => ListTasksInput,
   () => ListTasksOutput,
 ];
@@ -644,9 +479,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceInput,
   () => __Unit,
 ];
@@ -654,9 +487,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => __Unit,
 ];

@@ -509,7 +509,7 @@ const n0 = "com.amazonaws.auditmanager";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -529,7 +529,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ActionPlanInstructions: StaticSimpleSchema = [0, n0, _API, 8, 0];
 export var ActionPlanTitle: StaticSimpleSchema = [0, n0, _APT, 8, 0];
 export var AssessmentDescription: StaticSimpleSchema = [0, n0, _AD, 8, 0];
@@ -548,19 +547,8 @@ export var SNSTopic: StaticSimpleSchema = [0, n0, _SNST, 8, 0];
 export var TestingInformation: StaticSimpleSchema = [0, n0, _TI, 8, 0];
 export var TroubleshootingText: StaticSimpleSchema = [0, n0, _TT, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Assessment: StaticStructureSchema = [
   3,
   n0,
@@ -968,12 +956,7 @@ export var DeleteAssessmentFrameworkShareRequest: StaticStructureSchema = [
   [_rI, _rTe],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rTe,
-      },
-    ],
+    [0, { [_hQ]: _rTe }],
   ],
 ];
 export var DeleteAssessmentFrameworkShareResponse: StaticStructureSchema = [3, n0, _DAFSRe, 0, [], []];
@@ -1081,30 +1064,10 @@ export var GetChangeLogsRequest: StaticStructureSchema = [
   [_aI, _cSI, _cI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _cSI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _cSI }],
+    [0, { [_hQ]: _cI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetChangeLogsResponse: StaticStructureSchema = [3, n0, _GCLRe, 0, [_cL, _nT], [() => ChangeLogs, 0]];
@@ -1117,18 +1080,8 @@ export var GetDelegationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetDelegationsResponse: StaticStructureSchema = [
@@ -1149,18 +1102,8 @@ export var GetEvidenceByEvidenceFolderRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetEvidenceByEvidenceFolderResponse: StaticStructureSchema = [
@@ -1177,14 +1120,7 @@ export var GetEvidenceFileUploadUrlRequest: StaticStructureSchema = [
   _GEFUUR,
   0,
   [_fNi],
-  [
-    [
-      () => ManualEvidenceLocalFileName,
-      {
-        [_hQ]: _fNi,
-      },
-    ],
-  ],
+  [[() => ManualEvidenceLocalFileName, { [_hQ]: _fNi }]],
 ];
 export var GetEvidenceFileUploadUrlResponse: StaticStructureSchema = [3, n0, _GEFUURe, 8, [_eFN, _uU], [0, 0]];
 export var GetEvidenceFolderRequest: StaticStructureSchema = [
@@ -1217,18 +1153,8 @@ export var GetEvidenceFoldersByAssessmentControlRequest: StaticStructureSchema =
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetEvidenceFoldersByAssessmentControlResponse: StaticStructureSchema = [
@@ -1247,18 +1173,8 @@ export var GetEvidenceFoldersByAssessmentRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetEvidenceFoldersByAssessmentResponse: StaticStructureSchema = [
@@ -1316,19 +1232,8 @@ export var InsightsByAssessment: StaticStructureSchema = [
   [_nEC, _cEC, _iEC, _aCCBNE, _tACC, _lU],
   [1, 1, 1, 1, 1, 4],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListAssessmentControlInsightsByControlDomainRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1336,30 +1241,10 @@ export var ListAssessmentControlInsightsByControlDomainRequest: StaticStructureS
   0,
   [_cDI, _aI, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _cDI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _cDI }],
+    [0, { [_hQ]: _aI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssessmentControlInsightsByControlDomainResponse: StaticStructureSchema = [
@@ -1377,24 +1262,9 @@ export var ListAssessmentFrameworkShareRequestsRequest: StaticStructureSchema = 
   0,
   [_rTe, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _rTe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _rTe }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssessmentFrameworkShareRequestsResponse: StaticStructureSchema = [
@@ -1412,24 +1282,9 @@ export var ListAssessmentFrameworksRequest: StaticStructureSchema = [
   0,
   [_fT, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _fT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _fT }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssessmentFrameworksResponse: StaticStructureSchema = [
@@ -1447,18 +1302,8 @@ export var ListAssessmentReportsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssessmentReportsResponse: StaticStructureSchema = [
@@ -1476,24 +1321,9 @@ export var ListAssessmentsRequest: StaticStructureSchema = [
   0,
   [_s, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _s,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _s }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssessmentsResponse: StaticStructureSchema = [
@@ -1511,24 +1341,9 @@ export var ListControlDomainInsightsByAssessmentRequest: StaticStructureSchema =
   0,
   [_aI, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _aI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _aI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListControlDomainInsightsByAssessmentResponse: StaticStructureSchema = [
@@ -1546,18 +1361,8 @@ export var ListControlDomainInsightsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListControlDomainInsightsResponse: StaticStructureSchema = [
@@ -1575,24 +1380,9 @@ export var ListControlInsightsByControlDomainRequest: StaticStructureSchema = [
   0,
   [_cDI, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _cDI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _cDI }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListControlInsightsByControlDomainResponse: StaticStructureSchema = [
@@ -1610,30 +1400,10 @@ export var ListControlsRequest: StaticStructureSchema = [
   0,
   [_cTo, _nT, _mR, _cCI],
   [
-    [
-      0,
-      {
-        [_hQ]: _cTo,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _cCI,
-      },
-    ],
+    [0, { [_hQ]: _cTo }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _cCI }],
   ],
 ];
 export var ListControlsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_cML, _nT], [() => ControlMetadataList, 0]];
@@ -1644,24 +1414,9 @@ export var ListKeywordsForDataSourceRequest: StaticStructureSchema = [
   0,
   [_so, _nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _so,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _so }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListKeywordsForDataSourceResponse: StaticStructureSchema = [3, n0, _LKFDSRi, 0, [_k, _nT], [64 | 0, 0]];
@@ -1672,18 +1427,8 @@ export var ListNotificationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListNotificationsResponse: StaticStructureSchema = [
@@ -1721,31 +1466,16 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rIes, _rTes],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Role: StaticStructureSchema = [3, n0, _Ro, 0, [_rT, _rA], [0, 0]];
 export var Scope: StaticStructureSchema = [3, n0, _S, 8, [_aAw, _aS], [[() => AWSAccounts, 0], () => AWSServices]];
 export var ServiceMetadata: StaticStructureSchema = [3, n0, _SM, 0, [_n, _dN, _d, _ca], [0, 0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Settings: StaticStructureSchema = [
   3,
   n0,
@@ -1782,19 +1512,8 @@ export var StartAssessmentFrameworkShareResponse: StaticStructureSchema = [
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1803,12 +1522,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rAe, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1943,21 +1657,14 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fi],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var AuditManagerServiceException: StaticErrorSchema = [-3, _sm, "AuditManagerServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AuditManagerServiceException, __AuditManagerServiceException);
-
 export var AssessmentControls: StaticListSchema = [1, n0, _ACs, 0, [() => AssessmentControl, 0]];
 export var AssessmentControlSets: StaticListSchema = [1, n0, _ACSs, 0, [() => AssessmentControlSet, 0]];
 export var AssessmentEvidenceFolders: StaticListSchema = [1, n0, _AEFs, 0, () => AssessmentEvidenceFolder];
@@ -2025,17 +1732,13 @@ export var CreateAssessmentFrameworkControlSets: StaticListSchema = [
 export var CreateControlMappingSources: StaticListSchema = [1, n0, _CCMSr, 0, [() => CreateControlMappingSource, 0]];
 export var CreateDelegationRequests: StaticListSchema = [1, n0, _CDRr, 8, [() => CreateDelegationRequest, 0]];
 export var DelegationIds = 64 | 0;
-
 export var DelegationMetadataList: StaticListSchema = [1, n0, _DML, 0, [() => DelegationMetadata, 0]];
 export var Delegations: StaticListSchema = [1, n0, _De, 0, [() => Delegation, 0]];
 export var EvidenceIds = 64 | 0;
-
 export var EvidenceList: StaticListSchema = [1, n0, _EL, 0, () => Evidence];
 export var EvidenceSources = 64 | 0;
-
 export var FrameworkMetadataList: StaticListSchema = [1, n0, _FML, 0, [() => AssessmentFrameworkMetadata, 0]];
 export var Keywords = 64 | 0;
-
 export var ListAssessmentMetadata: StaticListSchema = [1, n0, _LAM, 0, [() => AssessmentMetadataItem, 0]];
 export var ManualEvidenceList: StaticListSchema = [1, n0, _MEL, 0, [() => ManualEvidence, 0]];
 export var Notifications: StaticListSchema = [1, n0, _No, 0, [() => Notification, 0]];
@@ -2043,7 +1746,6 @@ export var Resources: StaticListSchema = [1, n0, _Re, 0, () => Resource];
 export var Roles: StaticListSchema = [1, n0, _Rol, 8, () => Role];
 export var ServiceMetadataList: StaticListSchema = [1, n0, _SML, 0, () => ServiceMetadata];
 export var TagKeyList = 64 | 0;
-
 export var UpdateAssessmentFrameworkControlSets: StaticListSchema = [
   1,
   n0,
@@ -2052,19 +1754,14 @@ export var UpdateAssessmentFrameworkControlSets: StaticListSchema = [
   () => UpdateAssessmentFrameworkControlSet,
 ];
 export var ValidationErrors = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var EvidenceAttributes = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssociateAssessmentReportEvidenceFolder: StaticOperationSchema = [
   9,
   n0,
   _AAREF,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/associateToAssessmentReport", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/associateToAssessmentReport", 200] },
   () => AssociateAssessmentReportEvidenceFolderRequest,
   () => AssociateAssessmentReportEvidenceFolderResponse,
 ];
@@ -2072,9 +1769,7 @@ export var BatchAssociateAssessmentReportEvidence: StaticOperationSchema = [
   9,
   n0,
   _BAARE,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/batchAssociateToAssessmentReport", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/batchAssociateToAssessmentReport", 200] },
   () => BatchAssociateAssessmentReportEvidenceRequest,
   () => BatchAssociateAssessmentReportEvidenceResponse,
 ];
@@ -2082,9 +1777,7 @@ export var BatchCreateDelegationByAssessment: StaticOperationSchema = [
   9,
   n0,
   _BCDBA,
-  {
-    [_h]: ["POST", "/assessments/{assessmentId}/delegations", 200],
-  },
+  { [_h]: ["POST", "/assessments/{assessmentId}/delegations", 200] },
   () => BatchCreateDelegationByAssessmentRequest,
   () => BatchCreateDelegationByAssessmentResponse,
 ];
@@ -2092,9 +1785,7 @@ export var BatchDeleteDelegationByAssessment: StaticOperationSchema = [
   9,
   n0,
   _BDDBA,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/delegations", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/delegations", 200] },
   () => BatchDeleteDelegationByAssessmentRequest,
   () => BatchDeleteDelegationByAssessmentResponse,
 ];
@@ -2102,9 +1793,7 @@ export var BatchDisassociateAssessmentReportEvidence: StaticOperationSchema = [
   9,
   n0,
   _BDARE,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/batchDisassociateFromAssessmentReport", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/batchDisassociateFromAssessmentReport", 200] },
   () => BatchDisassociateAssessmentReportEvidenceRequest,
   () => BatchDisassociateAssessmentReportEvidenceResponse,
 ];
@@ -2112,9 +1801,7 @@ export var BatchImportEvidenceToAssessmentControl: StaticOperationSchema = [
   9,
   n0,
   _BIETAC,
-  {
-    [_h]: ["POST", "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence", 200],
-  },
+  { [_h]: ["POST", "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence", 200] },
   () => BatchImportEvidenceToAssessmentControlRequest,
   () => BatchImportEvidenceToAssessmentControlResponse,
 ];
@@ -2122,9 +1809,7 @@ export var CreateAssessment: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/assessments", 200],
-  },
+  { [_h]: ["POST", "/assessments", 200] },
   () => CreateAssessmentRequest,
   () => CreateAssessmentResponse,
 ];
@@ -2132,9 +1817,7 @@ export var CreateAssessmentFramework: StaticOperationSchema = [
   9,
   n0,
   _CAF,
-  {
-    [_h]: ["POST", "/assessmentFrameworks", 200],
-  },
+  { [_h]: ["POST", "/assessmentFrameworks", 200] },
   () => CreateAssessmentFrameworkRequest,
   () => CreateAssessmentFrameworkResponse,
 ];
@@ -2142,9 +1825,7 @@ export var CreateAssessmentReport: StaticOperationSchema = [
   9,
   n0,
   _CARre,
-  {
-    [_h]: ["POST", "/assessments/{assessmentId}/reports", 200],
-  },
+  { [_h]: ["POST", "/assessments/{assessmentId}/reports", 200] },
   () => CreateAssessmentReportRequest,
   () => CreateAssessmentReportResponse,
 ];
@@ -2152,9 +1833,7 @@ export var CreateControl: StaticOperationSchema = [
   9,
   n0,
   _CCr,
-  {
-    [_h]: ["POST", "/controls", 200],
-  },
+  { [_h]: ["POST", "/controls", 200] },
   () => CreateControlRequest,
   () => CreateControlResponse,
 ];
@@ -2162,9 +1841,7 @@ export var DeleteAssessment: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/assessments/{assessmentId}", 200],
-  },
+  { [_h]: ["DELETE", "/assessments/{assessmentId}", 200] },
   () => DeleteAssessmentRequest,
   () => DeleteAssessmentResponse,
 ];
@@ -2172,9 +1849,7 @@ export var DeleteAssessmentFramework: StaticOperationSchema = [
   9,
   n0,
   _DAF,
-  {
-    [_h]: ["DELETE", "/assessmentFrameworks/{frameworkId}", 200],
-  },
+  { [_h]: ["DELETE", "/assessmentFrameworks/{frameworkId}", 200] },
   () => DeleteAssessmentFrameworkRequest,
   () => DeleteAssessmentFrameworkResponse,
 ];
@@ -2182,9 +1857,7 @@ export var DeleteAssessmentFrameworkShare: StaticOperationSchema = [
   9,
   n0,
   _DAFS,
-  {
-    [_h]: ["DELETE", "/assessmentFrameworkShareRequests/{requestId}", 200],
-  },
+  { [_h]: ["DELETE", "/assessmentFrameworkShareRequests/{requestId}", 200] },
   () => DeleteAssessmentFrameworkShareRequest,
   () => DeleteAssessmentFrameworkShareResponse,
 ];
@@ -2192,9 +1865,7 @@ export var DeleteAssessmentReport: StaticOperationSchema = [
   9,
   n0,
   _DARel,
-  {
-    [_h]: ["DELETE", "/assessments/{assessmentId}/reports/{assessmentReportId}", 200],
-  },
+  { [_h]: ["DELETE", "/assessments/{assessmentId}/reports/{assessmentReportId}", 200] },
   () => DeleteAssessmentReportRequest,
   () => DeleteAssessmentReportResponse,
 ];
@@ -2202,9 +1873,7 @@ export var DeleteControl: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_h]: ["DELETE", "/controls/{controlId}", 200],
-  },
+  { [_h]: ["DELETE", "/controls/{controlId}", 200] },
   () => DeleteControlRequest,
   () => DeleteControlResponse,
 ];
@@ -2212,9 +1881,7 @@ export var DeregisterAccount: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["POST", "/account/deregisterAccount", 200],
-  },
+  { [_h]: ["POST", "/account/deregisterAccount", 200] },
   () => DeregisterAccountRequest,
   () => DeregisterAccountResponse,
 ];
@@ -2222,9 +1889,7 @@ export var DeregisterOrganizationAdminAccount: StaticOperationSchema = [
   9,
   n0,
   _DOAA,
-  {
-    [_h]: ["POST", "/account/deregisterOrganizationAdminAccount", 200],
-  },
+  { [_h]: ["POST", "/account/deregisterOrganizationAdminAccount", 200] },
   () => DeregisterOrganizationAdminAccountRequest,
   () => DeregisterOrganizationAdminAccountResponse,
 ];
@@ -2232,9 +1897,7 @@ export var DisassociateAssessmentReportEvidenceFolder: StaticOperationSchema = [
   9,
   n0,
   _DAREF,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/disassociateFromAssessmentReport", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/disassociateFromAssessmentReport", 200] },
   () => DisassociateAssessmentReportEvidenceFolderRequest,
   () => DisassociateAssessmentReportEvidenceFolderResponse,
 ];
@@ -2242,9 +1905,7 @@ export var GetAccountStatus: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["GET", "/account/status", 200],
-  },
+  { [_h]: ["GET", "/account/status", 200] },
   () => GetAccountStatusRequest,
   () => GetAccountStatusResponse,
 ];
@@ -2252,9 +1913,7 @@ export var GetAssessment: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/assessments/{assessmentId}", 200],
-  },
+  { [_h]: ["GET", "/assessments/{assessmentId}", 200] },
   () => GetAssessmentRequest,
   () => GetAssessmentResponse,
 ];
@@ -2262,9 +1921,7 @@ export var GetAssessmentFramework: StaticOperationSchema = [
   9,
   n0,
   _GAF,
-  {
-    [_h]: ["GET", "/assessmentFrameworks/{frameworkId}", 200],
-  },
+  { [_h]: ["GET", "/assessmentFrameworks/{frameworkId}", 200] },
   () => GetAssessmentFrameworkRequest,
   () => GetAssessmentFrameworkResponse,
 ];
@@ -2272,9 +1929,7 @@ export var GetAssessmentReportUrl: StaticOperationSchema = [
   9,
   n0,
   _GARU,
-  {
-    [_h]: ["GET", "/assessments/{assessmentId}/reports/{assessmentReportId}/url", 200],
-  },
+  { [_h]: ["GET", "/assessments/{assessmentId}/reports/{assessmentReportId}/url", 200] },
   () => GetAssessmentReportUrlRequest,
   () => GetAssessmentReportUrlResponse,
 ];
@@ -2282,9 +1937,7 @@ export var GetChangeLogs: StaticOperationSchema = [
   9,
   n0,
   _GCL,
-  {
-    [_h]: ["GET", "/assessments/{assessmentId}/changelogs", 200],
-  },
+  { [_h]: ["GET", "/assessments/{assessmentId}/changelogs", 200] },
   () => GetChangeLogsRequest,
   () => GetChangeLogsResponse,
 ];
@@ -2292,9 +1945,7 @@ export var GetControl: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/controls/{controlId}", 200],
-  },
+  { [_h]: ["GET", "/controls/{controlId}", 200] },
   () => GetControlRequest,
   () => GetControlResponse,
 ];
@@ -2302,9 +1953,7 @@ export var GetDelegations: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/delegations", 200],
-  },
+  { [_h]: ["GET", "/delegations", 200] },
   () => GetDelegationsRequest,
   () => GetDelegationsResponse,
 ];
@@ -2340,9 +1989,7 @@ export var GetEvidenceFileUploadUrl: StaticOperationSchema = [
   9,
   n0,
   _GEFUU,
-  {
-    [_h]: ["GET", "/evidenceFileUploadUrl", 200],
-  },
+  { [_h]: ["GET", "/evidenceFileUploadUrl", 200] },
   () => GetEvidenceFileUploadUrlRequest,
   () => GetEvidenceFileUploadUrlResponse,
 ];
@@ -2350,9 +1997,7 @@ export var GetEvidenceFolder: StaticOperationSchema = [
   9,
   n0,
   _GEF,
-  {
-    [_h]: ["GET", "/assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}", 200],
-  },
+  { [_h]: ["GET", "/assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}", 200] },
   () => GetEvidenceFolderRequest,
   () => GetEvidenceFolderResponse,
 ];
@@ -2360,9 +2005,7 @@ export var GetEvidenceFoldersByAssessment: StaticOperationSchema = [
   9,
   n0,
   _GEFBA,
-  {
-    [_h]: ["GET", "/assessments/{assessmentId}/evidenceFolders", 200],
-  },
+  { [_h]: ["GET", "/assessments/{assessmentId}/evidenceFolders", 200] },
   () => GetEvidenceFoldersByAssessmentRequest,
   () => GetEvidenceFoldersByAssessmentResponse,
 ];
@@ -2380,9 +2023,7 @@ export var GetInsights: StaticOperationSchema = [
   9,
   n0,
   _GI,
-  {
-    [_h]: ["GET", "/insights", 200],
-  },
+  { [_h]: ["GET", "/insights", 200] },
   () => GetInsightsRequest,
   () => GetInsightsResponse,
 ];
@@ -2390,9 +2031,7 @@ export var GetInsightsByAssessment: StaticOperationSchema = [
   9,
   n0,
   _GIBA,
-  {
-    [_h]: ["GET", "/insights/assessments/{assessmentId}", 200],
-  },
+  { [_h]: ["GET", "/insights/assessments/{assessmentId}", 200] },
   () => GetInsightsByAssessmentRequest,
   () => GetInsightsByAssessmentResponse,
 ];
@@ -2400,9 +2039,7 @@ export var GetOrganizationAdminAccount: StaticOperationSchema = [
   9,
   n0,
   _GOAA,
-  {
-    [_h]: ["GET", "/account/organizationAdminAccount", 200],
-  },
+  { [_h]: ["GET", "/account/organizationAdminAccount", 200] },
   () => GetOrganizationAdminAccountRequest,
   () => GetOrganizationAdminAccountResponse,
 ];
@@ -2410,9 +2047,7 @@ export var GetServicesInScope: StaticOperationSchema = [
   9,
   n0,
   _GSIS,
-  {
-    [_h]: ["GET", "/services", 200],
-  },
+  { [_h]: ["GET", "/services", 200] },
   () => GetServicesInScopeRequest,
   () => GetServicesInScopeResponse,
 ];
@@ -2420,9 +2055,7 @@ export var GetSettings: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/settings/{attribute}", 200],
-  },
+  { [_h]: ["GET", "/settings/{attribute}", 200] },
   () => GetSettingsRequest,
   () => GetSettingsResponse,
 ];
@@ -2430,9 +2063,7 @@ export var ListAssessmentControlInsightsByControlDomain: StaticOperationSchema =
   9,
   n0,
   _LACIBCD,
-  {
-    [_h]: ["GET", "/insights/controls-by-assessment", 200],
-  },
+  { [_h]: ["GET", "/insights/controls-by-assessment", 200] },
   () => ListAssessmentControlInsightsByControlDomainRequest,
   () => ListAssessmentControlInsightsByControlDomainResponse,
 ];
@@ -2440,9 +2071,7 @@ export var ListAssessmentFrameworks: StaticOperationSchema = [
   9,
   n0,
   _LAF,
-  {
-    [_h]: ["GET", "/assessmentFrameworks", 200],
-  },
+  { [_h]: ["GET", "/assessmentFrameworks", 200] },
   () => ListAssessmentFrameworksRequest,
   () => ListAssessmentFrameworksResponse,
 ];
@@ -2450,9 +2079,7 @@ export var ListAssessmentFrameworkShareRequests: StaticOperationSchema = [
   9,
   n0,
   _LAFSR,
-  {
-    [_h]: ["GET", "/assessmentFrameworkShareRequests", 200],
-  },
+  { [_h]: ["GET", "/assessmentFrameworkShareRequests", 200] },
   () => ListAssessmentFrameworkShareRequestsRequest,
   () => ListAssessmentFrameworkShareRequestsResponse,
 ];
@@ -2460,9 +2087,7 @@ export var ListAssessmentReports: StaticOperationSchema = [
   9,
   n0,
   _LARis,
-  {
-    [_h]: ["GET", "/assessmentReports", 200],
-  },
+  { [_h]: ["GET", "/assessmentReports", 200] },
   () => ListAssessmentReportsRequest,
   () => ListAssessmentReportsResponse,
 ];
@@ -2470,9 +2095,7 @@ export var ListAssessments: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/assessments", 200],
-  },
+  { [_h]: ["GET", "/assessments", 200] },
   () => ListAssessmentsRequest,
   () => ListAssessmentsResponse,
 ];
@@ -2480,9 +2103,7 @@ export var ListControlDomainInsights: StaticOperationSchema = [
   9,
   n0,
   _LCDI,
-  {
-    [_h]: ["GET", "/insights/control-domains", 200],
-  },
+  { [_h]: ["GET", "/insights/control-domains", 200] },
   () => ListControlDomainInsightsRequest,
   () => ListControlDomainInsightsResponse,
 ];
@@ -2490,9 +2111,7 @@ export var ListControlDomainInsightsByAssessment: StaticOperationSchema = [
   9,
   n0,
   _LCDIBA,
-  {
-    [_h]: ["GET", "/insights/control-domains-by-assessment", 200],
-  },
+  { [_h]: ["GET", "/insights/control-domains-by-assessment", 200] },
   () => ListControlDomainInsightsByAssessmentRequest,
   () => ListControlDomainInsightsByAssessmentResponse,
 ];
@@ -2500,9 +2119,7 @@ export var ListControlInsightsByControlDomain: StaticOperationSchema = [
   9,
   n0,
   _LCIBCD,
-  {
-    [_h]: ["GET", "/insights/controls", 200],
-  },
+  { [_h]: ["GET", "/insights/controls", 200] },
   () => ListControlInsightsByControlDomainRequest,
   () => ListControlInsightsByControlDomainResponse,
 ];
@@ -2510,9 +2127,7 @@ export var ListControls: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/controls", 200],
-  },
+  { [_h]: ["GET", "/controls", 200] },
   () => ListControlsRequest,
   () => ListControlsResponse,
 ];
@@ -2520,9 +2135,7 @@ export var ListKeywordsForDataSource: StaticOperationSchema = [
   9,
   n0,
   _LKFDS,
-  {
-    [_h]: ["GET", "/dataSourceKeywords", 200],
-  },
+  { [_h]: ["GET", "/dataSourceKeywords", 200] },
   () => ListKeywordsForDataSourceRequest,
   () => ListKeywordsForDataSourceResponse,
 ];
@@ -2530,9 +2143,7 @@ export var ListNotifications: StaticOperationSchema = [
   9,
   n0,
   _LN,
-  {
-    [_h]: ["GET", "/notifications", 200],
-  },
+  { [_h]: ["GET", "/notifications", 200] },
   () => ListNotificationsRequest,
   () => ListNotificationsResponse,
 ];
@@ -2540,9 +2151,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2550,9 +2159,7 @@ export var RegisterAccount: StaticOperationSchema = [
   9,
   n0,
   _RA,
-  {
-    [_h]: ["POST", "/account/registerAccount", 200],
-  },
+  { [_h]: ["POST", "/account/registerAccount", 200] },
   () => RegisterAccountRequest,
   () => RegisterAccountResponse,
 ];
@@ -2560,9 +2167,7 @@ export var RegisterOrganizationAdminAccount: StaticOperationSchema = [
   9,
   n0,
   _ROAA,
-  {
-    [_h]: ["POST", "/account/registerOrganizationAdminAccount", 200],
-  },
+  { [_h]: ["POST", "/account/registerOrganizationAdminAccount", 200] },
   () => RegisterOrganizationAdminAccountRequest,
   () => RegisterOrganizationAdminAccountResponse,
 ];
@@ -2570,9 +2175,7 @@ export var StartAssessmentFrameworkShare: StaticOperationSchema = [
   9,
   n0,
   _SAFS,
-  {
-    [_h]: ["POST", "/assessmentFrameworks/{frameworkId}/shareRequests", 200],
-  },
+  { [_h]: ["POST", "/assessmentFrameworks/{frameworkId}/shareRequests", 200] },
   () => StartAssessmentFrameworkShareRequest,
   () => StartAssessmentFrameworkShareResponse,
 ];
@@ -2580,9 +2183,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2590,9 +2191,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2600,9 +2199,7 @@ export var UpdateAssessment: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}", 200] },
   () => UpdateAssessmentRequest,
   () => UpdateAssessmentResponse,
 ];
@@ -2610,9 +2207,7 @@ export var UpdateAssessmentControl: StaticOperationSchema = [
   9,
   n0,
   _UAC,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}", 200] },
   () => UpdateAssessmentControlRequest,
   () => UpdateAssessmentControlResponse,
 ];
@@ -2620,9 +2215,7 @@ export var UpdateAssessmentControlSetStatus: StaticOperationSchema = [
   9,
   n0,
   _UACSS,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/controlSets/{controlSetId}/status", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/controlSets/{controlSetId}/status", 200] },
   () => UpdateAssessmentControlSetStatusRequest,
   () => UpdateAssessmentControlSetStatusResponse,
 ];
@@ -2630,9 +2223,7 @@ export var UpdateAssessmentFramework: StaticOperationSchema = [
   9,
   n0,
   _UAF,
-  {
-    [_h]: ["PUT", "/assessmentFrameworks/{frameworkId}", 200],
-  },
+  { [_h]: ["PUT", "/assessmentFrameworks/{frameworkId}", 200] },
   () => UpdateAssessmentFrameworkRequest,
   () => UpdateAssessmentFrameworkResponse,
 ];
@@ -2640,9 +2231,7 @@ export var UpdateAssessmentFrameworkShare: StaticOperationSchema = [
   9,
   n0,
   _UAFS,
-  {
-    [_h]: ["PUT", "/assessmentFrameworkShareRequests/{requestId}", 200],
-  },
+  { [_h]: ["PUT", "/assessmentFrameworkShareRequests/{requestId}", 200] },
   () => UpdateAssessmentFrameworkShareRequest,
   () => UpdateAssessmentFrameworkShareResponse,
 ];
@@ -2650,9 +2239,7 @@ export var UpdateAssessmentStatus: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PUT", "/assessments/{assessmentId}/status", 200],
-  },
+  { [_h]: ["PUT", "/assessments/{assessmentId}/status", 200] },
   () => UpdateAssessmentStatusRequest,
   () => UpdateAssessmentStatusResponse,
 ];
@@ -2660,9 +2247,7 @@ export var UpdateControl: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["PUT", "/controls/{controlId}", 200],
-  },
+  { [_h]: ["PUT", "/controls/{controlId}", 200] },
   () => UpdateControlRequest,
   () => UpdateControlResponse,
 ];
@@ -2670,9 +2255,7 @@ export var UpdateSettings: StaticOperationSchema = [
   9,
   n0,
   _US,
-  {
-    [_h]: ["PUT", "/settings", 200],
-  },
+  { [_h]: ["PUT", "/settings", 200] },
   () => UpdateSettingsRequest,
   () => UpdateSettingsResponse,
 ];
@@ -2680,9 +2263,7 @@ export var ValidateAssessmentReportIntegrity: StaticOperationSchema = [
   9,
   n0,
   _VARI,
-  {
-    [_h]: ["POST", "/assessmentReports/integrity", 200],
-  },
+  { [_h]: ["POST", "/assessmentReports/integrity", 200] },
   () => ValidateAssessmentReportIntegrityRequest,
   () => ValidateAssessmentReportIntegrityResponse,
 ];

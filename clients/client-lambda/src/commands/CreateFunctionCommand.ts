@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { CreateFunctionRequest, FunctionConfiguration } from "../models/models_0";
+import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import type { CreateFunctionRequest, FunctionConfiguration } from "../models/models_0";
 import { CreateFunction } from "../schemas/schemas_0";
 
 /**
@@ -112,6 +112,18 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  *     LogGroup: "STRING_VALUE",
  *   },
+ *   CapacityProviderConfig: { // CapacityProviderConfig
+ *     LambdaManagedInstancesCapacityProviderConfig: { // LambdaManagedInstancesCapacityProviderConfig
+ *       CapacityProviderArn: "STRING_VALUE", // required
+ *       PerExecutionEnvironmentMaxConcurrency: Number("int"),
+ *       ExecutionEnvironmentMemoryGiBPerVCpu: Number("double"),
+ *     },
+ *   },
+ *   PublishTo: "LATEST_PUBLISHED",
+ *   DurableConfig: { // DurableConfig
+ *     RetentionPeriodInDays: Number("int"),
+ *     ExecutionTimeout: Number("int"),
+ *   },
  *   TenancyConfig: { // TenancyConfig
  *     TenantIsolationMode: "PER_TENANT", // required
  *   },
@@ -167,12 +179,12 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //       SigningJobArn: "STRING_VALUE",
  * //     },
  * //   ],
- * //   State: "Pending" || "Active" || "Inactive" || "Failed",
+ * //   State: "Pending" || "Active" || "Inactive" || "Failed" || "Deactivating" || "Deactivated" || "ActiveNonInvocable" || "Deleting",
  * //   StateReason: "STRING_VALUE",
- * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError",
+ * //   StateReasonCode: "Idle" || "Creating" || "Restoring" || "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "DrainingDurableExecutions" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl",
  * //   LastUpdateStatus: "Successful" || "Failed" || "InProgress",
  * //   LastUpdateStatusReason: "STRING_VALUE",
- * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError",
+ * //   LastUpdateStatusReasonCode: "EniLimitExceeded" || "InsufficientRolePermissions" || "InvalidConfiguration" || "InternalError" || "SubnetOutOfIPAddresses" || "InvalidSubnet" || "InvalidSecurityGroup" || "ImageDeleted" || "ImageAccessDenied" || "InvalidImage" || "KMSKeyAccessDenied" || "KMSKeyNotFound" || "InvalidStateKMSKey" || "DisabledKMSKey" || "EFSIOError" || "EFSMountConnectivityError" || "EFSMountFailure" || "EFSMountTimeout" || "InvalidRuntime" || "InvalidZipFileException" || "FunctionError" || "VcpuLimitExceeded" || "CapacityProviderScalingLimitExceeded" || "InsufficientCapacity" || "EC2RequestLimitExceeded" || "FunctionError.InitTimeout" || "FunctionError.RuntimeInitError" || "FunctionError.ExtensionInitError" || "FunctionError.InvalidEntryPoint" || "FunctionError.InvalidWorkingDirectory" || "FunctionError.PermissionDenied" || "FunctionError.TooManyExtensions" || "FunctionError.InitResourceExhausted" || "DisallowedByVpcEncryptionControl",
  * //   FileSystemConfigs: [ // FileSystemConfigList
  * //     { // FileSystemConfig
  * //       Arn: "STRING_VALUE", // required
@@ -220,6 +232,18 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  * //     LogGroup: "STRING_VALUE",
  * //   },
+ * //   CapacityProviderConfig: { // CapacityProviderConfig
+ * //     LambdaManagedInstancesCapacityProviderConfig: { // LambdaManagedInstancesCapacityProviderConfig
+ * //       CapacityProviderArn: "STRING_VALUE", // required
+ * //       PerExecutionEnvironmentMaxConcurrency: Number("int"),
+ * //       ExecutionEnvironmentMemoryGiBPerVCpu: Number("double"),
+ * //     },
+ * //   },
+ * //   ConfigSha256: "STRING_VALUE",
+ * //   DurableConfig: { // DurableConfig
+ * //     RetentionPeriodInDays: Number("int"),
+ * //     ExecutionTimeout: Number("int"),
+ * //   },
  * //   TenancyConfig: { // TenancyConfig
  * //     TenantIsolationMode: "PER_TENANT", // required
  * //   },
@@ -241,6 +265,9 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *
  * @throws {@link CodeVerificationFailedException} (client fault)
  *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+ *
+ * @throws {@link FunctionVersionsPerCapacityProviderLimitExceededException} (client fault)
+ *  <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  *
  * @throws {@link InvalidCodeSignatureException} (client fault)
  *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
@@ -273,6 +300,10 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     S3Key: "function.zip"
  *   },
  *   Description: "Process image objects from Amazon S3.",
+ *   DurableConfig: {
+ *     ExecutionTimeout: 31622400,
+ *     RetentionPeriodInDays: 30
+ *   },
  *   Environment: {
  *     Variables: {
  *       BUCKET: "my-bucket-1xpuxmplzrlbh",
@@ -301,6 +332,10 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *   CodeSha256: "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
  *   CodeSize: 5797206,
  *   Description: "Process image objects from Amazon S3.",
+ *   DurableConfig: {
+ *     ExecutionTimeout: 31622400,
+ *     RetentionPeriodInDays: 30
+ *   },
  *   Environment: {
  *     Variables: {
  *       BUCKET: "my-bucket-1xpuxmplzrlbh",

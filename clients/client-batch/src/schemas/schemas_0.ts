@@ -570,7 +570,7 @@ const n0 = "com.amazonaws.batch";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -582,7 +582,6 @@ import { BatchServiceException as __BatchServiceException } from "../models/Batc
 import { ClientException as __ClientException, ServerException as __ServerException } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var ArrayProperties: StaticStructureSchema = [3, n0, _AP, 0, [_s], [1]];
 export var ArrayPropertiesDetail: StaticStructureSchema = [3, n0, _APD, 0, [_sS, _s, _i], [128 | 1, 1, 1]];
 export var ArrayPropertiesSummary: StaticStructureSchema = [3, n0, _APS, 0, [_s, _i], [1, 1]];
@@ -621,19 +620,8 @@ export var AttemptTaskContainerDetails: StaticStructureSchema = [
 export var CancelJobRequest: StaticStructureSchema = [3, n0, _CJR, 0, [_jI, _r], [0, 0]];
 export var CancelJobResponse: StaticStructureSchema = [3, n0, _CJRa, 0, [], []];
 export var CapacityLimit: StaticStructureSchema = [3, n0, _CL, 0, [_mC, _cU], [1, 0]];
-export var ClientException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _cl,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ClientException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _cl, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ClientException, __ClientException);
-
 export var ComputeEnvironmentDetail: StaticStructureSchema = [
   3,
   n0,
@@ -1530,19 +1518,8 @@ export var SchedulingPolicyDetail: StaticStructureSchema = [
 ];
 export var SchedulingPolicyListingDetail: StaticStructureSchema = [3, n0, _SPLD, 0, [_a], [0]];
 export var Secret: StaticStructureSchema = [3, n0, _S, 0, [_n, _vF], [0, 0]];
-export var ServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var ServerException: StaticErrorSchema = [-3, n0, _SE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServerException, __ServerException);
-
 export var ServiceEnvironmentDetail: StaticStructureSchema = [
   3,
   n0,
@@ -1698,12 +1675,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1761,11 +1733,8 @@ export var Volume: StaticStructureSchema = [
   [_h, _n, _eVC],
   [() => Host, 0, () => EFSVolumeConfiguration],
 ];
-export var __Unit = "unit" as const;
-
 export var BatchServiceException: StaticErrorSchema = [-3, _sm, "BatchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BatchServiceException, __BatchServiceException);
-
 export var AttemptDetails: StaticListSchema = [1, n0, _ADt, 0, () => AttemptDetail];
 export var CapacityLimits: StaticListSchema = [1, n0, _CLa, 0, () => CapacityLimit];
 export var ComputeEnvironmentDetailList: StaticListSchema = [1, n0, _CEDL, 0, () => ComputeEnvironmentDetail];
@@ -1773,7 +1742,6 @@ export var ComputeEnvironmentOrders: StaticListSchema = [1, n0, _CEOo, 0, () => 
 export var ConsumableResourceList: StaticListSchema = [1, n0, _CRL, 0, () => ConsumableResourceRequirement];
 export var ConsumableResourceSummaryList: StaticListSchema = [1, n0, _CRSL, 0, () => ConsumableResourceSummary];
 export var DeviceCgroupPermissions = 64 | 0;
-
 export var DevicesList: StaticListSchema = [1, n0, _DL, 0, () => Device];
 export var Ec2ConfigurationList: StaticListSchema = [1, n0, _ECL, 0, () => Ec2Configuration];
 export var EksAttemptContainerDetails: StaticListSchema = [1, n0, _EACDk, 0, () => EksAttemptContainerDetail];
@@ -1830,7 +1798,6 @@ export var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => Netwo
 export var NodePropertyOverrides: StaticListSchema = [1, n0, _NPOo, 0, () => NodePropertyOverride];
 export var NodeRangeProperties: StaticListSchema = [1, n0, _NRPo, 0, () => NodeRangeProperty];
 export var PlatformCapabilityList = 64 | 0;
-
 export var ResourceRequirements: StaticListSchema = [1, n0, _RRe, 0, () => ResourceRequirement];
 export var SchedulingPolicyDetailList: StaticListSchema = [1, n0, _SPDL, 0, () => SchedulingPolicyDetail];
 export var SchedulingPolicyListingDetailList: StaticListSchema = [
@@ -1848,40 +1815,26 @@ export var ServiceJobEvaluateOnExitList: StaticListSchema = [1, n0, _SJEOEL, 0, 
 export var ServiceJobSummaryList: StaticListSchema = [1, n0, _SJSL, 0, () => ServiceJobSummary];
 export var ShareAttributesList: StaticListSchema = [1, n0, _SAL, 0, () => ShareAttributes];
 export var StringList = 64 | 0;
-
 export var TagKeysList = 64 | 0;
-
 export var TaskContainerDependencyList: StaticListSchema = [1, n0, _TCDL, 0, () => TaskContainerDependency];
 export var TmpfsList: StaticListSchema = [1, n0, _TL, 0, () => Tmpfs];
 export var Ulimits: StaticListSchema = [1, n0, _Ul, 0, () => Ulimit];
 export var Volumes: StaticListSchema = [1, n0, _Vo, 0, () => Volume];
 export var ArrayJobStatusSummary = 128 | 1;
-
 export var EksAnnotationsMap = 128 | 0;
-
 export var EksLabelsMap = 128 | 0;
-
 export var EksLimits = 128 | 0;
-
 export var EksRequests = 128 | 0;
-
 export var FirelensConfigurationOptionsMap = 128 | 0;
-
 export var LogConfigurationOptionsMap = 128 | 0;
-
 export var ParametersMap = 128 | 0;
-
 export var TagrisTagsMap = 128 | 0;
-
 export var TagsMap = 128 | 0;
-
 export var CancelJob: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  {
-    [_ht]: ["POST", "/v1/canceljob", 200],
-  },
+  { [_ht]: ["POST", "/v1/canceljob", 200] },
   () => CancelJobRequest,
   () => CancelJobResponse,
 ];
@@ -1889,9 +1842,7 @@ export var CreateComputeEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CCE,
-  {
-    [_ht]: ["POST", "/v1/createcomputeenvironment", 200],
-  },
+  { [_ht]: ["POST", "/v1/createcomputeenvironment", 200] },
   () => CreateComputeEnvironmentRequest,
   () => CreateComputeEnvironmentResponse,
 ];
@@ -1899,9 +1850,7 @@ export var CreateConsumableResource: StaticOperationSchema = [
   9,
   n0,
   _CCR,
-  {
-    [_ht]: ["POST", "/v1/createconsumableresource", 200],
-  },
+  { [_ht]: ["POST", "/v1/createconsumableresource", 200] },
   () => CreateConsumableResourceRequest,
   () => CreateConsumableResourceResponse,
 ];
@@ -1909,9 +1858,7 @@ export var CreateJobQueue: StaticOperationSchema = [
   9,
   n0,
   _CJQ,
-  {
-    [_ht]: ["POST", "/v1/createjobqueue", 200],
-  },
+  { [_ht]: ["POST", "/v1/createjobqueue", 200] },
   () => CreateJobQueueRequest,
   () => CreateJobQueueResponse,
 ];
@@ -1919,9 +1866,7 @@ export var CreateSchedulingPolicy: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_ht]: ["POST", "/v1/createschedulingpolicy", 200],
-  },
+  { [_ht]: ["POST", "/v1/createschedulingpolicy", 200] },
   () => CreateSchedulingPolicyRequest,
   () => CreateSchedulingPolicyResponse,
 ];
@@ -1929,9 +1874,7 @@ export var CreateServiceEnvironment: StaticOperationSchema = [
   9,
   n0,
   _CSE,
-  {
-    [_ht]: ["POST", "/v1/createserviceenvironment", 200],
-  },
+  { [_ht]: ["POST", "/v1/createserviceenvironment", 200] },
   () => CreateServiceEnvironmentRequest,
   () => CreateServiceEnvironmentResponse,
 ];
@@ -1939,9 +1882,7 @@ export var DeleteComputeEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DCE,
-  {
-    [_ht]: ["POST", "/v1/deletecomputeenvironment", 200],
-  },
+  { [_ht]: ["POST", "/v1/deletecomputeenvironment", 200] },
   () => DeleteComputeEnvironmentRequest,
   () => DeleteComputeEnvironmentResponse,
 ];
@@ -1949,9 +1890,7 @@ export var DeleteConsumableResource: StaticOperationSchema = [
   9,
   n0,
   _DCR,
-  {
-    [_ht]: ["POST", "/v1/deleteconsumableresource", 200],
-  },
+  { [_ht]: ["POST", "/v1/deleteconsumableresource", 200] },
   () => DeleteConsumableResourceRequest,
   () => DeleteConsumableResourceResponse,
 ];
@@ -1959,9 +1898,7 @@ export var DeleteJobQueue: StaticOperationSchema = [
   9,
   n0,
   _DJQ,
-  {
-    [_ht]: ["POST", "/v1/deletejobqueue", 200],
-  },
+  { [_ht]: ["POST", "/v1/deletejobqueue", 200] },
   () => DeleteJobQueueRequest,
   () => DeleteJobQueueResponse,
 ];
@@ -1969,9 +1906,7 @@ export var DeleteSchedulingPolicy: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  {
-    [_ht]: ["POST", "/v1/deleteschedulingpolicy", 200],
-  },
+  { [_ht]: ["POST", "/v1/deleteschedulingpolicy", 200] },
   () => DeleteSchedulingPolicyRequest,
   () => DeleteSchedulingPolicyResponse,
 ];
@@ -1979,9 +1914,7 @@ export var DeleteServiceEnvironment: StaticOperationSchema = [
   9,
   n0,
   _DSE,
-  {
-    [_ht]: ["POST", "/v1/deleteserviceenvironment", 200],
-  },
+  { [_ht]: ["POST", "/v1/deleteserviceenvironment", 200] },
   () => DeleteServiceEnvironmentRequest,
   () => DeleteServiceEnvironmentResponse,
 ];
@@ -1989,9 +1922,7 @@ export var DeregisterJobDefinition: StaticOperationSchema = [
   9,
   n0,
   _DJD,
-  {
-    [_ht]: ["POST", "/v1/deregisterjobdefinition", 200],
-  },
+  { [_ht]: ["POST", "/v1/deregisterjobdefinition", 200] },
   () => DeregisterJobDefinitionRequest,
   () => DeregisterJobDefinitionResponse,
 ];
@@ -1999,9 +1930,7 @@ export var DescribeComputeEnvironments: StaticOperationSchema = [
   9,
   n0,
   _DCEe,
-  {
-    [_ht]: ["POST", "/v1/describecomputeenvironments", 200],
-  },
+  { [_ht]: ["POST", "/v1/describecomputeenvironments", 200] },
   () => DescribeComputeEnvironmentsRequest,
   () => DescribeComputeEnvironmentsResponse,
 ];
@@ -2009,9 +1938,7 @@ export var DescribeConsumableResource: StaticOperationSchema = [
   9,
   n0,
   _DCRe,
-  {
-    [_ht]: ["POST", "/v1/describeconsumableresource", 200],
-  },
+  { [_ht]: ["POST", "/v1/describeconsumableresource", 200] },
   () => DescribeConsumableResourceRequest,
   () => DescribeConsumableResourceResponse,
 ];
@@ -2019,9 +1946,7 @@ export var DescribeJobDefinitions: StaticOperationSchema = [
   9,
   n0,
   _DJDe,
-  {
-    [_ht]: ["POST", "/v1/describejobdefinitions", 200],
-  },
+  { [_ht]: ["POST", "/v1/describejobdefinitions", 200] },
   () => DescribeJobDefinitionsRequest,
   () => DescribeJobDefinitionsResponse,
 ];
@@ -2029,9 +1954,7 @@ export var DescribeJobQueues: StaticOperationSchema = [
   9,
   n0,
   _DJQe,
-  {
-    [_ht]: ["POST", "/v1/describejobqueues", 200],
-  },
+  { [_ht]: ["POST", "/v1/describejobqueues", 200] },
   () => DescribeJobQueuesRequest,
   () => DescribeJobQueuesResponse,
 ];
@@ -2039,9 +1962,7 @@ export var DescribeJobs: StaticOperationSchema = [
   9,
   n0,
   _DJ,
-  {
-    [_ht]: ["POST", "/v1/describejobs", 200],
-  },
+  { [_ht]: ["POST", "/v1/describejobs", 200] },
   () => DescribeJobsRequest,
   () => DescribeJobsResponse,
 ];
@@ -2049,9 +1970,7 @@ export var DescribeSchedulingPolicies: StaticOperationSchema = [
   9,
   n0,
   _DSPe,
-  {
-    [_ht]: ["POST", "/v1/describeschedulingpolicies", 200],
-  },
+  { [_ht]: ["POST", "/v1/describeschedulingpolicies", 200] },
   () => DescribeSchedulingPoliciesRequest,
   () => DescribeSchedulingPoliciesResponse,
 ];
@@ -2059,9 +1978,7 @@ export var DescribeServiceEnvironments: StaticOperationSchema = [
   9,
   n0,
   _DSEe,
-  {
-    [_ht]: ["POST", "/v1/describeserviceenvironments", 200],
-  },
+  { [_ht]: ["POST", "/v1/describeserviceenvironments", 200] },
   () => DescribeServiceEnvironmentsRequest,
   () => DescribeServiceEnvironmentsResponse,
 ];
@@ -2069,9 +1986,7 @@ export var DescribeServiceJob: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
-  {
-    [_ht]: ["POST", "/v1/describeservicejob", 200],
-  },
+  { [_ht]: ["POST", "/v1/describeservicejob", 200] },
   () => DescribeServiceJobRequest,
   () => DescribeServiceJobResponse,
 ];
@@ -2079,9 +1994,7 @@ export var GetJobQueueSnapshot: StaticOperationSchema = [
   9,
   n0,
   _GJQS,
-  {
-    [_ht]: ["POST", "/v1/getjobqueuesnapshot", 200],
-  },
+  { [_ht]: ["POST", "/v1/getjobqueuesnapshot", 200] },
   () => GetJobQueueSnapshotRequest,
   () => GetJobQueueSnapshotResponse,
 ];
@@ -2089,9 +2002,7 @@ export var ListConsumableResources: StaticOperationSchema = [
   9,
   n0,
   _LCR,
-  {
-    [_ht]: ["POST", "/v1/listconsumableresources", 200],
-  },
+  { [_ht]: ["POST", "/v1/listconsumableresources", 200] },
   () => ListConsumableResourcesRequest,
   () => ListConsumableResourcesResponse,
 ];
@@ -2099,9 +2010,7 @@ export var ListJobs: StaticOperationSchema = [
   9,
   n0,
   _LJ,
-  {
-    [_ht]: ["POST", "/v1/listjobs", 200],
-  },
+  { [_ht]: ["POST", "/v1/listjobs", 200] },
   () => ListJobsRequest,
   () => ListJobsResponse,
 ];
@@ -2109,9 +2018,7 @@ export var ListJobsByConsumableResource: StaticOperationSchema = [
   9,
   n0,
   _LJBCR,
-  {
-    [_ht]: ["POST", "/v1/listjobsbyconsumableresource", 200],
-  },
+  { [_ht]: ["POST", "/v1/listjobsbyconsumableresource", 200] },
   () => ListJobsByConsumableResourceRequest,
   () => ListJobsByConsumableResourceResponse,
 ];
@@ -2119,9 +2026,7 @@ export var ListSchedulingPolicies: StaticOperationSchema = [
   9,
   n0,
   _LSP,
-  {
-    [_ht]: ["POST", "/v1/listschedulingpolicies", 200],
-  },
+  { [_ht]: ["POST", "/v1/listschedulingpolicies", 200] },
   () => ListSchedulingPoliciesRequest,
   () => ListSchedulingPoliciesResponse,
 ];
@@ -2129,9 +2034,7 @@ export var ListServiceJobs: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
-  {
-    [_ht]: ["POST", "/v1/listservicejobs", 200],
-  },
+  { [_ht]: ["POST", "/v1/listservicejobs", 200] },
   () => ListServiceJobsRequest,
   () => ListServiceJobsResponse,
 ];
@@ -2139,9 +2042,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_ht]: ["GET", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/v1/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2149,9 +2050,7 @@ export var RegisterJobDefinition: StaticOperationSchema = [
   9,
   n0,
   _RJD,
-  {
-    [_ht]: ["POST", "/v1/registerjobdefinition", 200],
-  },
+  { [_ht]: ["POST", "/v1/registerjobdefinition", 200] },
   () => RegisterJobDefinitionRequest,
   () => RegisterJobDefinitionResponse,
 ];
@@ -2159,9 +2058,7 @@ export var SubmitJob: StaticOperationSchema = [
   9,
   n0,
   _SJ,
-  {
-    [_ht]: ["POST", "/v1/submitjob", 200],
-  },
+  { [_ht]: ["POST", "/v1/submitjob", 200] },
   () => SubmitJobRequest,
   () => SubmitJobResponse,
 ];
@@ -2169,9 +2066,7 @@ export var SubmitServiceJob: StaticOperationSchema = [
   9,
   n0,
   _SSJ,
-  {
-    [_ht]: ["POST", "/v1/submitservicejob", 200],
-  },
+  { [_ht]: ["POST", "/v1/submitservicejob", 200] },
   () => SubmitServiceJobRequest,
   () => SubmitServiceJobResponse,
 ];
@@ -2179,9 +2074,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_ht]: ["POST", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["POST", "/v1/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2189,9 +2082,7 @@ export var TerminateJob: StaticOperationSchema = [
   9,
   n0,
   _TJ,
-  {
-    [_ht]: ["POST", "/v1/terminatejob", 200],
-  },
+  { [_ht]: ["POST", "/v1/terminatejob", 200] },
   () => TerminateJobRequest,
   () => TerminateJobResponse,
 ];
@@ -2199,9 +2090,7 @@ export var TerminateServiceJob: StaticOperationSchema = [
   9,
   n0,
   _TSJ,
-  {
-    [_ht]: ["POST", "/v1/terminateservicejob", 200],
-  },
+  { [_ht]: ["POST", "/v1/terminateservicejob", 200] },
   () => TerminateServiceJobRequest,
   () => TerminateServiceJobResponse,
 ];
@@ -2209,9 +2098,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_ht]: ["DELETE", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2219,9 +2106,7 @@ export var UpdateComputeEnvironment: StaticOperationSchema = [
   9,
   n0,
   _UCE,
-  {
-    [_ht]: ["POST", "/v1/updatecomputeenvironment", 200],
-  },
+  { [_ht]: ["POST", "/v1/updatecomputeenvironment", 200] },
   () => UpdateComputeEnvironmentRequest,
   () => UpdateComputeEnvironmentResponse,
 ];
@@ -2229,9 +2114,7 @@ export var UpdateConsumableResource: StaticOperationSchema = [
   9,
   n0,
   _UCR,
-  {
-    [_ht]: ["POST", "/v1/updateconsumableresource", 200],
-  },
+  { [_ht]: ["POST", "/v1/updateconsumableresource", 200] },
   () => UpdateConsumableResourceRequest,
   () => UpdateConsumableResourceResponse,
 ];
@@ -2239,9 +2122,7 @@ export var UpdateJobQueue: StaticOperationSchema = [
   9,
   n0,
   _UJQ,
-  {
-    [_ht]: ["POST", "/v1/updatejobqueue", 200],
-  },
+  { [_ht]: ["POST", "/v1/updatejobqueue", 200] },
   () => UpdateJobQueueRequest,
   () => UpdateJobQueueResponse,
 ];
@@ -2249,9 +2130,7 @@ export var UpdateSchedulingPolicy: StaticOperationSchema = [
   9,
   n0,
   _USP,
-  {
-    [_ht]: ["POST", "/v1/updateschedulingpolicy", 200],
-  },
+  { [_ht]: ["POST", "/v1/updateschedulingpolicy", 200] },
   () => UpdateSchedulingPolicyRequest,
   () => UpdateSchedulingPolicyResponse,
 ];
@@ -2259,9 +2138,7 @@ export var UpdateServiceEnvironment: StaticOperationSchema = [
   9,
   n0,
   _USE,
-  {
-    [_ht]: ["POST", "/v1/updateserviceenvironment", 200],
-  },
+  { [_ht]: ["POST", "/v1/updateserviceenvironment", 200] },
   () => UpdateServiceEnvironmentRequest,
   () => UpdateServiceEnvironmentResponse,
 ];

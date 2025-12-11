@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   BedrockAgentCoreControlClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateGatewayRequest, UpdateGatewayResponse } from "../models/models_0";
+import type { UpdateGatewayRequest, UpdateGatewayResponse } from "../models/models_0";
 import { UpdateGateway } from "../schemas/schemas_0";
 
 /**
@@ -65,6 +65,24 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *       allowedClients: [ // AllowedClientsList
  *         "STRING_VALUE",
  *       ],
+ *       allowedScopes: [ // AllowedScopesType
+ *         "STRING_VALUE",
+ *       ],
+ *       customClaims: [ // CustomClaimValidationsType
+ *         { // CustomClaimValidationType
+ *           inboundTokenClaimName: "STRING_VALUE", // required
+ *           inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ *           authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ *             claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ *               matchValueString: "STRING_VALUE",
+ *               matchValueStringList: [ // MatchValueStringList
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
@@ -83,6 +101,10 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *       },
  *     },
  *   ],
+ *   policyEngineConfiguration: { // GatewayPolicyEngineConfiguration
+ *     arn: "STRING_VALUE", // required
+ *     mode: "LOG_ONLY" || "ENFORCE", // required
+ *   },
  *   exceptionLevel: "DEBUG",
  * };
  * const command = new UpdateGatewayCommand(input);
@@ -120,6 +142,24 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //       allowedClients: [ // AllowedClientsList
  * //         "STRING_VALUE",
  * //       ],
+ * //       allowedScopes: [ // AllowedScopesType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       customClaims: [ // CustomClaimValidationsType
+ * //         { // CustomClaimValidationType
+ * //           inboundTokenClaimName: "STRING_VALUE", // required
+ * //           inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ * //           authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ * //             claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ * //               matchValueString: "STRING_VALUE",
+ * //               matchValueStringList: [ // MatchValueStringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   kmsKeyArn: "STRING_VALUE",
@@ -138,6 +178,10 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * //       },
  * //     },
  * //   ],
+ * //   policyEngineConfiguration: { // GatewayPolicyEngineConfiguration
+ * //     arn: "STRING_VALUE", // required
+ * //     mode: "LOG_ONLY" || "ENFORCE", // required
+ * //   },
  * //   workloadIdentityDetails: { // WorkloadIdentityDetails
  * //     workloadIdentityArn: "STRING_VALUE", // required
  * //   },

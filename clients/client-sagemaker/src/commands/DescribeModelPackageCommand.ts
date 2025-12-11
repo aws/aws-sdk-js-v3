@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_2";
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import type { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_2";
+import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeModelPackage } from "../schemas/schemas_0";
 
 /**
@@ -45,6 +45,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //   ModelPackageName: "STRING_VALUE", // required
  * //   ModelPackageGroupName: "STRING_VALUE",
  * //   ModelPackageVersion: Number("int"),
+ * //   ModelPackageRegistrationType: "Logged" || "Registered",
  * //   ModelPackageArn: "STRING_VALUE", // required
  * //   ModelPackageDescription: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
@@ -88,6 +89,12 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //           ETag: "STRING_VALUE",
  * //         },
  * //         ModelDataETag: "STRING_VALUE",
+ * //         IsCheckpoint: true || false,
+ * //         BaseModel: { // BaseModel
+ * //           HubContentName: "STRING_VALUE",
+ * //           HubContentVersion: "STRING_VALUE",
+ * //           RecipeName: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -328,6 +335,12 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //             ETag: "STRING_VALUE",
  * //           },
  * //           ModelDataETag: "STRING_VALUE",
+ * //           IsCheckpoint: true || false,
+ * //           BaseModel: {
+ * //             HubContentName: "STRING_VALUE",
+ * //             HubContentVersion: "STRING_VALUE",
+ * //             RecipeName: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       SupportedTransformInstanceTypes: [

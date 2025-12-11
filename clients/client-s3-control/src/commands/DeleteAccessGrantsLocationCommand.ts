@@ -3,11 +3,11 @@ import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAccessGrantsLocationRequest } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { DeleteAccessGrantsLocationRequest } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DeleteAccessGrantsLocation } from "../schemas/schemas_0";
 
 /**
@@ -29,21 +29,13 @@ export interface DeleteAccessGrantsLocationCommandInput extends DeleteAccessGran
 export interface DeleteAccessGrantsLocationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deregisters a location from your S3 Access Grants instance. You can only delete a location
- *          registration from an S3 Access Grants instance if there are no grants associated with this location.
- *          See <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html">Delete a grant</a> for
- *          information on how to delete grants. You need to have at least one registered location in
- *          your S3 Access Grants instance in order to create access grants. </p>
+ * <p>Deregisters a location from your S3 Access Grants instance. You can only delete a location registration from an S3 Access Grants instance if there are no grants associated with this location. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html">Delete a grant</a> for information on how to delete grants. You need to have at least one registered location in your S3 Access Grants instance in order to create access grants. </p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have the <code>s3:DeleteAccessGrantsLocation</code> permission to use
- *                   this operation. </p>
+ *                <p>You must have the <code>s3:DeleteAccessGrantsLocation</code> permission to use this operation. </p>
  *             </dd>
  *          </dl>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

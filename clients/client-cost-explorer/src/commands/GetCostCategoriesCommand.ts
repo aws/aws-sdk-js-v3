@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCostCategoriesRequest, GetCostCategoriesResponse } from "../models/models_0";
+import type { GetCostCategoriesRequest, GetCostCategoriesResponse } from "../models/models_0";
 import { GetCostCategories } from "../schemas/schemas_0";
 
 /**
@@ -27,9 +27,9 @@ export interface GetCostCategoriesCommandInput extends GetCostCategoriesRequest 
 export interface GetCostCategoriesCommandOutput extends GetCostCategoriesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
+ * <p>Retrieves an array of cost category names and values incurred cost.</p>
  *          <note>
- *             <p>If some Cost Category names and values are not associated with any cost, they will not
+ *             <p>If some cost category names and values are not associated with any cost, they will not
  *         be returned by this API.</p>
  *          </note>
  * @example

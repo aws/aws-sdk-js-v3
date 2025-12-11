@@ -1,11 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSecurityProfileApplicationsRequest, ListSecurityProfileApplicationsResponse } from "../models/models_2";
+import type {
+  ListSecurityProfileApplicationsRequest,
+  ListSecurityProfileApplicationsResponse,
+} from "../models/models_2";
 import { ListSecurityProfileApplications } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +32,7 @@ export interface ListSecurityProfileApplicationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of third-party applications in a specific security profile.</p>
+ * <p>Returns a list of third-party applications or MCP Servers in a specific security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +56,7 @@ export interface ListSecurityProfileApplicationsCommandOutput
  * //       ApplicationPermissions: [ // ApplicationPermissions
  * //         "STRING_VALUE",
  * //       ],
+ * //       Type: "MCP" || "THIRD_PARTY_APPLICATION",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

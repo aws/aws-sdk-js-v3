@@ -1,14 +1,14 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   DescribeSavingsPlansOfferingRatesRequest,
   DescribeSavingsPlansOfferingRatesResponse,
 } from "../models/models_0";
-import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
+import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { DescribeSavingsPlansOfferingRates } from "../schemas/schemas_0";
 
 /**
@@ -32,7 +32,7 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the offering rates for the specified Savings Plans.</p>
+ * <p>Describes the offering rates for Savings Plans you might want to purchase.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,13 +49,13 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  *     "All Upfront" || "Partial Upfront" || "No Upfront",
  *   ],
  *   savingsPlanTypes: [ // SavingsPlanTypeList
- *     "Compute" || "EC2Instance" || "SageMaker",
+ *     "Compute" || "EC2Instance" || "SageMaker" || "Database",
  *   ],
  *   products: [ // SavingsPlanProductTypeList
- *     "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ *     "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
  *   ],
  *   serviceCodes: [ // SavingsPlanRateServiceCodeList
- *     "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
+ *     "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc",
  *   ],
  *   usageTypes: [ // SavingsPlanRateUsageTypeList
  *     "STRING_VALUE",
@@ -82,15 +82,15 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  * //       savingsPlanOffering: { // ParentSavingsPlanOffering
  * //         offeringId: "STRING_VALUE",
  * //         paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
- * //         planType: "Compute" || "EC2Instance" || "SageMaker",
+ * //         planType: "Compute" || "EC2Instance" || "SageMaker" || "Database",
  * //         durationSeconds: Number("long"),
- * //         currency: "CNY" || "USD",
+ * //         currency: "CNY" || "USD" || "EUR",
  * //         planDescription: "STRING_VALUE",
  * //       },
  * //       rate: "STRING_VALUE",
- * //       unit: "Hrs" || "Lambda-GB-Second" || "Request",
- * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
- * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request" || "ACU-Hr" || "ReadRequestUnits" || "WriteRequestUnits" || "ReadCapacityUnit-Hrs" || "WriteCapacityUnit-Hrs" || "ReplicatedWriteRequestUnits" || "ReplicatedWriteCapacityUnit-Hrs" || "GB-Hours" || "DPU" || "ElastiCacheProcessingUnit" || "DCU-Hr" || "NCU-hr",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanOfferingRatePropertyList

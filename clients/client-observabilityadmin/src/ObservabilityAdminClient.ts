@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -21,46 +21,63 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultObservabilityAdminHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
   CreateCentralizationRuleForOrganizationCommandInput,
   CreateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
+import {
+  CreateS3TableIntegrationCommandInput,
+  CreateS3TableIntegrationCommandOutput,
+} from "./commands/CreateS3TableIntegrationCommand";
+import {
+  CreateTelemetryPipelineCommandInput,
+  CreateTelemetryPipelineCommandOutput,
+} from "./commands/CreateTelemetryPipelineCommand";
 import {
   CreateTelemetryRuleCommandInput,
   CreateTelemetryRuleCommandOutput,
@@ -74,6 +91,14 @@ import {
   DeleteCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
 import {
+  DeleteS3TableIntegrationCommandInput,
+  DeleteS3TableIntegrationCommandOutput,
+} from "./commands/DeleteS3TableIntegrationCommand";
+import {
+  DeleteTelemetryPipelineCommandInput,
+  DeleteTelemetryPipelineCommandOutput,
+} from "./commands/DeleteTelemetryPipelineCommand";
+import {
   DeleteTelemetryRuleCommandInput,
   DeleteTelemetryRuleCommandOutput,
 } from "./commands/DeleteTelemetryRuleCommand";
@@ -86,6 +111,10 @@ import {
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
 import {
+  GetS3TableIntegrationCommandInput,
+  GetS3TableIntegrationCommandOutput,
+} from "./commands/GetS3TableIntegrationCommand";
+import {
   GetTelemetryEnrichmentStatusCommandInput,
   GetTelemetryEnrichmentStatusCommandOutput,
 } from "./commands/GetTelemetryEnrichmentStatusCommand";
@@ -97,6 +126,10 @@ import {
   GetTelemetryEvaluationStatusForOrganizationCommandInput,
   GetTelemetryEvaluationStatusForOrganizationCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusForOrganizationCommand";
+import {
+  GetTelemetryPipelineCommandInput,
+  GetTelemetryPipelineCommandOutput,
+} from "./commands/GetTelemetryPipelineCommand";
 import { GetTelemetryRuleCommandInput, GetTelemetryRuleCommandOutput } from "./commands/GetTelemetryRuleCommand";
 import {
   GetTelemetryRuleForOrganizationCommandInput,
@@ -115,9 +148,17 @@ import {
   ListResourceTelemetryForOrganizationCommandOutput,
 } from "./commands/ListResourceTelemetryForOrganizationCommand";
 import {
+  ListS3TableIntegrationsCommandInput,
+  ListS3TableIntegrationsCommandOutput,
+} from "./commands/ListS3TableIntegrationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTelemetryPipelinesCommandInput,
+  ListTelemetryPipelinesCommandOutput,
+} from "./commands/ListTelemetryPipelinesCommand";
 import { ListTelemetryRulesCommandInput, ListTelemetryRulesCommandOutput } from "./commands/ListTelemetryRulesCommand";
 import {
   ListTelemetryRulesForOrganizationCommandInput,
@@ -148,11 +189,19 @@ import {
   StopTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StopTelemetryEvaluationForOrganizationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestTelemetryPipelineCommandInput,
+  TestTelemetryPipelineCommandOutput,
+} from "./commands/TestTelemetryPipelineCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateCentralizationRuleForOrganizationCommandInput,
   UpdateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/UpdateCentralizationRuleForOrganizationCommand";
+import {
+  UpdateTelemetryPipelineCommandInput,
+  UpdateTelemetryPipelineCommandOutput,
+} from "./commands/UpdateTelemetryPipelineCommand";
 import {
   UpdateTelemetryRuleCommandInput,
   UpdateTelemetryRuleCommandOutput,
@@ -162,13 +211,17 @@ import {
   UpdateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/UpdateTelemetryRuleForOrganizationCommand";
 import {
+  ValidateTelemetryPipelineConfigurationCommandInput,
+  ValidateTelemetryPipelineConfigurationCommandOutput,
+} from "./commands/ValidateTelemetryPipelineConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -177,21 +230,29 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateCentralizationRuleForOrganizationCommandInput
+  | CreateS3TableIntegrationCommandInput
+  | CreateTelemetryPipelineCommandInput
   | CreateTelemetryRuleCommandInput
   | CreateTelemetryRuleForOrganizationCommandInput
   | DeleteCentralizationRuleForOrganizationCommandInput
+  | DeleteS3TableIntegrationCommandInput
+  | DeleteTelemetryPipelineCommandInput
   | DeleteTelemetryRuleCommandInput
   | DeleteTelemetryRuleForOrganizationCommandInput
   | GetCentralizationRuleForOrganizationCommandInput
+  | GetS3TableIntegrationCommandInput
   | GetTelemetryEnrichmentStatusCommandInput
   | GetTelemetryEvaluationStatusCommandInput
   | GetTelemetryEvaluationStatusForOrganizationCommandInput
+  | GetTelemetryPipelineCommandInput
   | GetTelemetryRuleCommandInput
   | GetTelemetryRuleForOrganizationCommandInput
   | ListCentralizationRulesForOrganizationCommandInput
   | ListResourceTelemetryCommandInput
   | ListResourceTelemetryForOrganizationCommandInput
+  | ListS3TableIntegrationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTelemetryPipelinesCommandInput
   | ListTelemetryRulesCommandInput
   | ListTelemetryRulesForOrganizationCommandInput
   | StartTelemetryEnrichmentCommandInput
@@ -201,31 +262,42 @@ export type ServiceInputTypes =
   | StopTelemetryEvaluationCommandInput
   | StopTelemetryEvaluationForOrganizationCommandInput
   | TagResourceCommandInput
+  | TestTelemetryPipelineCommandInput
   | UntagResourceCommandInput
   | UpdateCentralizationRuleForOrganizationCommandInput
+  | UpdateTelemetryPipelineCommandInput
   | UpdateTelemetryRuleCommandInput
-  | UpdateTelemetryRuleForOrganizationCommandInput;
+  | UpdateTelemetryRuleForOrganizationCommandInput
+  | ValidateTelemetryPipelineConfigurationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateCentralizationRuleForOrganizationCommandOutput
+  | CreateS3TableIntegrationCommandOutput
+  | CreateTelemetryPipelineCommandOutput
   | CreateTelemetryRuleCommandOutput
   | CreateTelemetryRuleForOrganizationCommandOutput
   | DeleteCentralizationRuleForOrganizationCommandOutput
+  | DeleteS3TableIntegrationCommandOutput
+  | DeleteTelemetryPipelineCommandOutput
   | DeleteTelemetryRuleCommandOutput
   | DeleteTelemetryRuleForOrganizationCommandOutput
   | GetCentralizationRuleForOrganizationCommandOutput
+  | GetS3TableIntegrationCommandOutput
   | GetTelemetryEnrichmentStatusCommandOutput
   | GetTelemetryEvaluationStatusCommandOutput
   | GetTelemetryEvaluationStatusForOrganizationCommandOutput
+  | GetTelemetryPipelineCommandOutput
   | GetTelemetryRuleCommandOutput
   | GetTelemetryRuleForOrganizationCommandOutput
   | ListCentralizationRulesForOrganizationCommandOutput
   | ListResourceTelemetryCommandOutput
   | ListResourceTelemetryForOrganizationCommandOutput
+  | ListS3TableIntegrationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTelemetryPipelinesCommandOutput
   | ListTelemetryRulesCommandOutput
   | ListTelemetryRulesForOrganizationCommandOutput
   | StartTelemetryEnrichmentCommandOutput
@@ -235,10 +307,13 @@ export type ServiceOutputTypes =
   | StopTelemetryEvaluationCommandOutput
   | StopTelemetryEvaluationForOrganizationCommandOutput
   | TagResourceCommandOutput
+  | TestTelemetryPipelineCommandOutput
   | UntagResourceCommandOutput
   | UpdateCentralizationRuleForOrganizationCommandOutput
+  | UpdateTelemetryPipelineCommandOutput
   | UpdateTelemetryRuleCommandOutput
-  | UpdateTelemetryRuleForOrganizationCommandOutput;
+  | UpdateTelemetryRuleForOrganizationCommandOutput
+  | ValidateTelemetryPipelineConfigurationCommandOutput;
 
 /**
  * @public

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetQueryResultsRequest, GetQueryResultsResponse } from "../models/models_0";
+import type { GetQueryResultsRequest, GetQueryResultsResponse } from "../models/models_0";
 import { GetQueryResults } from "../schemas/schemas_0";
 
 /**
@@ -40,6 +44,9 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *       operation returns only partial results. If you see a value of <code>Scheduled</code> or
  *         <code>Running</code> for the status, you can retry the operation later to see the final
  *       results. </p>
+ *          <p>This operation is used both for retrieving results from interactive queries and from
+ *       automated scheduled query executions. Scheduled queries use <code>GetQueryResults</code>
+ *       internally to retrieve query results for processing and delivery to configured destinations.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation
  *       in a monitoring account to start queries in linked source accounts. For more information, see
  *         <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>

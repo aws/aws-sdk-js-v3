@@ -1,13 +1,13 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   StartFaceLivenessSessionCommand,
   StartFaceLivenessSessionCommandInput,
   StartFaceLivenessSessionCommandOutput,
 } from "./commands/StartFaceLivenessSessionCommand";
-import { RekognitionStreamingClient, RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
+import { RekognitionStreamingClient } from "./RekognitionStreamingClient";
 
 const commands = {
   StartFaceLivenessSessionCommand,

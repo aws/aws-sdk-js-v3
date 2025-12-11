@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePreparedStatementInput, UpdatePreparedStatementOutput } from "../models/models_0";
+import type { UpdatePreparedStatementInput, UpdatePreparedStatementOutput } from "../models/models_0";
 import { UpdatePreparedStatement } from "../schemas/schemas_0";
 
 /**

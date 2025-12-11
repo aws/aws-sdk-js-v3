@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAggregatorV2Request, DeleteAggregatorV2Response } from "../models/models_2";
+import type { DeleteAggregatorV2Request, DeleteAggregatorV2Response } from "../models/models_2";
 import { DeleteAggregatorV2 } from "../schemas/schemas_0";
-import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface DeleteAggregatorV2CommandInput extends DeleteAggregatorV2Reques
 export interface DeleteAggregatorV2CommandOutput extends DeleteAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Deletes the Aggregator V2. This API is in public preview and subject to change.</p>
+ * <p>Deletes the Aggregator V2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

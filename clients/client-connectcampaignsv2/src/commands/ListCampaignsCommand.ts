@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   ConnectCampaignsV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
+import type { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
 import { ListCampaigns } from "../schemas/schemas_0";
 
 /**
@@ -63,6 +63,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * //       channelSubtypes: [ // ChannelSubtypeList // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       type: "STRING_VALUE",
  * //       schedule: { // Schedule
  * //         startTime: new Date("TIMESTAMP"), // required
  * //         endTime: new Date("TIMESTAMP"), // required

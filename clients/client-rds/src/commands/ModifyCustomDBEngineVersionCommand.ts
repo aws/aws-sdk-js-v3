@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DBEngineVersion } from "../models/models_0";
-import { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import type { DBEngineVersion } from "../models/models_0";
+import type { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
+import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyCustomDBEngineVersion } from "../schemas/schemas_0";
 
 /**
@@ -144,6 +144,10 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

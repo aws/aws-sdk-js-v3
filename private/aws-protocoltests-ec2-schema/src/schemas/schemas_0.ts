@@ -179,7 +179,7 @@ const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -191,62 +191,18 @@ import { EC2ProtocolServiceException as __EC2ProtocolServiceException } from "..
 import { ComplexError as __ComplexError, InvalidGreeting as __InvalidGreeting } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var ComplexError: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_TL, _N],
-  [0, () => ComplexNestedErrorData],
-];
+export var ComplexError: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_TL, _N], [0, () => ComplexNestedErrorData]];
 TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
-
 export var ComplexNestedErrorData: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [0]];
 export var DatetimeOffsetsOutput: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
 export var EmptyInputAndEmptyOutputInput: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
 export var EmptyInputAndEmptyOutputOutput: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
 export var FractionalSecondsOutput: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
 export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
-export var HostLabelInput: StaticStructureSchema = [
-  3,
-  n0,
-  _HLI,
-  0,
-  [_l],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-      },
-    ],
-  ],
-];
-export var IgnoresWrappingXmlNameOutput: StaticStructureSchema = [
-  3,
-  n0,
-  _IWXNO,
-  {
-    [_xN]: _IM,
-  },
-  [_f],
-  [0],
-];
-export var InvalidGreeting: StaticErrorSchema = [
-  -3,
-  n0,
-  _IG,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var HostLabelInput: StaticStructureSchema = [3, n0, _HLI, 0, [_l], [[0, { [_hL]: 1 }]]];
+export var IgnoresWrappingXmlNameOutput: StaticStructureSchema = [3, n0, _IWXNO, { [_xN]: _IM }, [_f], [0]];
+export var InvalidGreeting: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
-
 export var NestedStructuresInput: StaticStructureSchema = [3, n0, _NSI, 0, [_N], [() => StructArg]];
 export var NestedStructWithList: StaticStructureSchema = [3, n0, _NSWL, 0, [_LA], [64 | 0]];
 export var NoInputAndOutputOutput: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
@@ -256,15 +212,7 @@ export var PutWithContentEncodingInput: StaticStructureSchema = [
   _PWCEI,
   0,
   [_en, _da],
-  [
-    [
-      0,
-      {
-        [_hH]: _CE_,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _CE_ }], 0],
 ];
 export var QueryIdempotencyTokenAutoFillInput: StaticStructureSchema = [3, n0, _QITAFI, 0, [_t], [[0, 4]]];
 export var QueryListsInput: StaticStructureSchema = [
@@ -277,12 +225,7 @@ export var QueryListsInput: StaticStructureSchema = [
     64 | 0,
     () => GreetingList,
     [() => ListWithXmlName, 0],
-    [
-      () => ListWithXmlName,
-      {
-        [_xN]: _H,
-      },
-    ],
+    [() => ListWithXmlName, { [_xN]: _H }],
     () => NestedStructWithList,
   ],
 ];
@@ -326,25 +269,9 @@ export var SimpleInputParamsInput: StaticStructureSchema = [
     1,
     21,
     0,
-    [
-      0,
-      {
-        [_eQN]: `HasQueryName`,
-      },
-    ],
-    [
-      0,
-      {
-        [_eQN]: `HasQueryAndXmlName`,
-        [_xN]: _hQAXN,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _uXN,
-      },
-    ],
+    [0, { [_eQN]: `HasQueryName` }],
+    [0, { [_eQN]: `HasQueryAndXmlName`, [_xN]: _hQAXN }],
+    [0, { [_xN]: _uXN }],
   ],
 ];
 export var SimpleScalarXmlPropertiesOutput: StaticStructureSchema = [
@@ -353,28 +280,7 @@ export var SimpleScalarXmlPropertiesOutput: StaticStructureSchema = [
   _SSXPO,
   0,
   [_sV, _eSV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dV],
-  [
-    [
-      0,
-      {
-        [_eQN]: `IgnoreMe`,
-      },
-    ],
-    0,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    [
-      1,
-      {
-        [_xN]: _DD,
-      },
-    ],
-  ],
+  [[0, { [_eQN]: `IgnoreMe` }], 0, 2, 2, 1, 1, 1, 1, 1, [1, { [_xN]: _DD }]],
 ];
 export var StructArg: StaticStructureSchema = [3, n0, _SA, 0, [_SAt, _OA, _RA], [0, 2, () => StructArg]];
 export var StructureListMember: StaticStructureSchema = [
@@ -384,18 +290,8 @@ export var StructureListMember: StaticStructureSchema = [
   0,
   [_a, _b_],
   [
-    [
-      0,
-      {
-        [_xN]: _v,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _o,
-      },
-    ],
+    [0, { [_xN]: _v }],
+    [0, { [_xN]: _o }],
   ],
 ];
 export var XmlBlobsOutput: StaticStructureSchema = [3, n0, _XBO, 0, [_da], [21]];
@@ -430,75 +326,30 @@ export var XmlListsOutput: StaticStructureSchema = [
     64 | 0,
     64 | 1,
     [1, n1, _NSL, 0, 64 | 0],
-    [
-      () => RenamedListMembers,
-      {
-        [_xN]: _r,
-      },
-    ],
-    [
-      () => RenamedListMembers,
-      {
-        [_xF]: 1,
-      },
-    ],
-    [
-      () => RenamedListMembers,
-      {
-        [_xN]: _cN,
-        [_xF]: 1,
-      },
-    ],
-    [
-      () => ListWithMemberNamespace,
-      {
-        [_xF]: 1,
-      },
-    ],
-    [
-      () => ListWithNamespace,
-      {
-        [_xF]: 1,
-      },
-    ],
-    [
-      () => StructureList,
-      {
-        [_xN]: _mSL,
-      },
-    ],
+    [() => RenamedListMembers, { [_xN]: _r }],
+    [() => RenamedListMembers, { [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => ListWithMemberNamespace, { [_xF]: 1 }],
+    [() => ListWithNamespace, { [_xF]: 1 }],
+    [() => StructureList, { [_xN]: _mSL }],
   ],
 ];
 export var XmlNamespaceNested: StaticStructureSchema = [
   3,
   n0,
   _XNN,
-  {
-    [_xNm]: [_, _h],
-  },
+  { [_xNm]: [_, _h] },
   [_f, _va],
   [
-    [
-      0,
-      {
-        [_xNm]: [_ba, _ht],
-      },
-    ],
-    [
-      () => XmlNamespacedList,
-      {
-        [_xNm]: [_, _htt],
-      },
-    ],
+    [0, { [_xNm]: [_ba, _ht] }],
+    [() => XmlNamespacedList, { [_xNm]: [_, _htt] }],
   ],
 ];
 export var XmlNamespacesOutput: StaticStructureSchema = [
   3,
   n0,
   _XNO,
-  {
-    [_xNm]: [_, _h],
-  },
+  { [_xNm]: [_, _h] },
   [_n],
   [[() => XmlNamespaceNested, 0]],
 ];
@@ -512,105 +363,27 @@ export var XmlTimestampsOutput: StaticStructureSchema = [
 ];
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
 export var __Unit = "unit" as const;
-
 export var EC2ProtocolServiceException: StaticErrorSchema = [-3, _s, "EC2ProtocolServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(EC2ProtocolServiceException, __EC2ProtocolServiceException);
-
-export var ListWithMemberNamespace: StaticListSchema = [
-  1,
-  n0,
-  _LWMN,
-  {
-    [_xNm]: [_, _hl],
-  },
-  [
-    0,
-    {
-      [_xNm]: [_, _hm],
-    },
-  ],
-];
-export var ListWithNamespace: StaticListSchema = [
-  1,
-  n0,
-  _LWN,
-  {
-    [_xNm]: [_, _hl],
-  },
-  0,
-];
-export var ListWithXmlName: StaticListSchema = [
-  1,
-  n0,
-  _LWXN,
-  0,
-  [
-    0,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
-export var RenamedListMembers: StaticListSchema = [
-  1,
-  n0,
-  _RLM,
-  0,
-  [
-    0,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
-export var StructureList: StaticListSchema = [
-  1,
-  n0,
-  _SL,
-  0,
-  [
-    () => StructureListMember,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
-export var XmlNamespacedList: StaticListSchema = [
-  1,
-  n0,
-  _XNL,
-  0,
-  [
-    0,
-    {
-      [_xNm]: [_, _http],
-    },
-  ],
-];
+export var ListWithMemberNamespace: StaticListSchema = [1, n0, _LWMN, { [_xNm]: [_, _hl] }, [0, { [_xNm]: [_, _hm] }]];
+export var ListWithNamespace: StaticListSchema = [1, n0, _LWN, { [_xNm]: [_, _hl] }, 0];
+export var ListWithXmlName: StaticListSchema = [1, n0, _LWXN, 0, [0, { [_xN]: _i }]];
+export var RenamedListMembers: StaticListSchema = [1, n0, _RLM, 0, [0, { [_xN]: _i }]];
+export var StructureList: StaticListSchema = [1, n0, _SL, 0, [() => StructureListMember, { [_xN]: _i }]];
+export var XmlNamespacedList: StaticListSchema = [1, n0, _XNL, 0, [0, { [_xNm]: [_, _http] }]];
 export var BooleanList = 64 | 2;
-
 export var FooEnumList = 64 | 0;
-
 export var FooEnumSet = 64 | 0;
-
 export var GreetingList: StaticListSchema = [1, n1, _GL, 0, () => GreetingStruct];
 export var IntegerEnumList = 64 | 1;
-
 export var IntegerEnumSet = 64 | 1;
-
 export var IntegerList = 64 | 1;
-
 export var NestedStringList: StaticListSchema = [1, n1, _NSL, 0, 64 | 0];
 export var StringList = 64 | 0;
-
 export var StringSet = 64 | 0;
-
 export var TimestampList = 64 | 4;
-
 export var FooEnumMap = 128 | 0;
-
 export var IntegerEnumMap = 128 | 1;
-
 export var DatetimeOffsets: StaticOperationSchema = [9, n0, _DO, 0, () => __Unit, () => DatetimeOffsetsOutput];
 export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
   9,
@@ -620,23 +393,12 @@ export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
   () => EmptyInputAndEmptyOutputInput,
   () => EmptyInputAndEmptyOutputOutput,
 ];
-export var EndpointOperation: StaticOperationSchema = [
-  9,
-  n0,
-  _EO,
-  {
-    [_end]: ["foo."],
-  },
-  () => __Unit,
-  () => __Unit,
-];
+export var EndpointOperation: StaticOperationSchema = [9, n0, _EO, { [_end]: ["foo."] }, () => __Unit, () => __Unit];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
-  {
-    [_end]: ["foo.{label}."],
-  },
+  { [_end]: ["foo.{label}."] },
   () => HostLabelInput,
   () => __Unit,
 ];

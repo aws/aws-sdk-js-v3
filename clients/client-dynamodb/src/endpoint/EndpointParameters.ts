@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
+import type { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
 
 /**
  * @public
@@ -13,10 +13,16 @@ export interface ClientInputEndpointParameters {
   accountIdEndpointMode?: string | undefined | Provider<string | undefined>;
 }
 
+/**
+ * @public
+ */
 export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
+/**
+ * @internal
+ */
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
@@ -27,6 +33,9 @@ export const resolveClientEndpointParameters = <T>(
   });
 };
 
+/**
+ * @internal
+ */
 export const commonParams = {
   UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
   AccountId: { type: "builtInParams", name: "accountId" },
@@ -36,6 +45,9 @@ export const commonParams = {
   AccountIdEndpointMode: { type: "builtInParams", name: "accountIdEndpointMode" },
 } as const;
 
+/**
+ * @internal
+ */
 export interface EndpointParameters extends __EndpointParameters {
   Region?: string | undefined;
   UseDualStack?: boolean | undefined;

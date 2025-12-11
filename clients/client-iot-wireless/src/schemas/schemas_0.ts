@@ -860,7 +860,7 @@ const n0 = "com.amazonaws.iotwireless";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -880,25 +880,13 @@ import {
 import { IoTWirelessServiceException as __IoTWirelessServiceException } from "../models/IoTWirelessServiceException";
 
 /* eslint no-var: 0 */
-
 export var ApplicationServerPublicKey: StaticSimpleSchema = [0, n0, _ASPK, 8, 0];
 export var AppServerPrivateKey: StaticSimpleSchema = [0, n0, _ASPKp, 8, 0];
 export var Fingerprint: StaticSimpleSchema = [0, n0, _F, 8, 0];
 export var AbpV1_0_x: StaticStructureSchema = [3, n0, _Ax, 0, [_DA, _SK, _FCS], [0, () => SessionKeysAbpV1_0_x, 1]];
 export var AbpV1_1: StaticStructureSchema = [3, n0, _A, 0, [_DA, _SK, _FCS], [0, () => SessionKeysAbpV1_1, 1]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Accuracy: StaticStructureSchema = [3, n0, _Ac, 0, [_HA, _VA], [1, 1]];
 export var ApplicationConfig: StaticStructureSchema = [3, n0, _AC, 0, [_FP, _T, _DN], [1, 0, 0]];
 export var AssociateAwsAccountWithPartnerAccountRequest: StaticStructureSchema = [
@@ -986,19 +974,8 @@ export var CellTowers: StaticStructureSchema = [
   [() => GsmList, () => WcdmaList, () => TdscdmaList, () => LteList, () => CdmaList],
 ];
 export var CertificateList: StaticStructureSchema = [3, n0, _CL, 0, [_SA, _V], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _RT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _RT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConnectionStatusEventConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1124,18 +1101,8 @@ export var DeleteQueuedMessagesRequest: StaticStructureSchema = [
   [_I, _MI, _WDT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _mI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _WDT,
-      },
-    ],
+    [0, { [_hQ]: _mI }],
+    [0, { [_hQ]: _WDT }],
   ],
 ];
 export var DeleteQueuedMessagesResponse: StaticStructureSchema = [3, n0, _DQMRe, 0, [], []];
@@ -1159,12 +1126,7 @@ export var DeregisterWirelessDeviceRequest: StaticStructureSchema = [
   [_Id, _WDT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _WDT,
-      },
-    ],
+    [0, { [_hQ]: _WDT }],
   ],
 ];
 export var DeregisterWirelessDeviceResponse: StaticStructureSchema = [3, n0, _DWDRere, 0, [], []];
@@ -1195,12 +1157,7 @@ export var DisassociateAwsAccountFromPartnerAccountRequest: StaticStructureSchem
   [_PAI, _PT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [0, { [_hQ]: _pT }],
   ],
 ];
 export var DisassociateAwsAccountFromPartnerAccountResponse: StaticStructureSchema = [3, n0, _DAAFPARi, 0, [], []];
@@ -1399,12 +1356,7 @@ export var GetPartnerAccountRequest: StaticStructureSchema = [
   [_PAI, _PT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [0, { [_hQ]: _pT }],
   ],
 ];
 export var GetPartnerAccountResponse: StaticStructureSchema = [
@@ -1423,12 +1375,7 @@ export var GetPositionConfigurationRequest: StaticStructureSchema = [
   [_RIe, _RT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var GetPositionConfigurationResponse: StaticStructureSchema = [
@@ -1456,12 +1403,7 @@ export var GetPositionRequest: StaticStructureSchema = [
   [_RIe, _RT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var GetPositionResponse: StaticStructureSchema = [
@@ -1480,18 +1422,8 @@ export var GetResourceEventConfigurationRequest: StaticStructureSchema = [
   [_Id, _IT, _PT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [0, { [_hQ]: _iT }],
+    [0, { [_hQ]: _pT }],
   ],
 ];
 export var GetResourceEventConfigurationResponse: StaticStructureSchema = [
@@ -1516,12 +1448,7 @@ export var GetResourceLogLevelRequest: StaticStructureSchema = [
   [_RIe, _RT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var GetResourceLogLevelResponse: StaticStructureSchema = [3, n0, _GRLLRe, 0, [_LL], [0]];
@@ -1533,30 +1460,11 @@ export var GetResourcePositionRequest: StaticStructureSchema = [
   [_RIe, _RT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var GetResourcePositionResponse: StaticStructureSchema = [3, n0, _GRPRe, 0, [_GJP], [[21, 16]]];
-export var GetServiceEndpointRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _GSER,
-  0,
-  [_STe],
-  [
-    [
-      0,
-      {
-        [_hQ]: _sT,
-      },
-    ],
-  ],
-];
+export var GetServiceEndpointRequest: StaticStructureSchema = [3, n0, _GSER, 0, [_STe], [[0, { [_hQ]: _sT }]]];
 export var GetServiceEndpointResponse: StaticStructureSchema = [3, n0, _GSERe, 0, [_STe, _SE, _STer], [0, 0, 0]];
 export var GetServiceProfileRequest: StaticStructureSchema = [3, n0, _GSPR, 0, [_I], [[0, 1]]];
 export var GetServiceProfileResponse: StaticStructureSchema = [
@@ -1584,12 +1492,7 @@ export var GetWirelessDeviceRequest: StaticStructureSchema = [
   [_Id, _IT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iT,
-      },
-    ],
+    [0, { [_hQ]: _iT }],
   ],
 ];
 export var GetWirelessDeviceResponse: StaticStructureSchema = [
@@ -1635,12 +1538,7 @@ export var GetWirelessGatewayRequest: StaticStructureSchema = [
   [_Id, _IT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iT,
-      },
-    ],
+    [0, { [_hQ]: _iT }],
   ],
 ];
 export var GetWirelessGatewayResponse: StaticStructureSchema = [
@@ -1692,19 +1590,8 @@ export var GsmObj: StaticStructureSchema = [
 ];
 export var ImportedSidewalkDevice: StaticStructureSchema = [3, n0, _ISD, 0, [_SMS, _OS, _OSR, _LUT], [0, 0, 0, 5]];
 export var ImportedWirelessDevice: StaticStructureSchema = [3, n0, _IWD, 0, [_S], [() => ImportedSidewalkDevice]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var Ip: StaticStructureSchema = [3, n0, _Ip, 0, [_IA], [0]];
 export var JoinEventConfiguration: StaticStructureSchema = [
   3,
@@ -1729,18 +1616,8 @@ export var ListDestinationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDestinationsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_NT, _DL], [0, () => DestinationList]];
@@ -1751,24 +1628,9 @@ export var ListDeviceProfilesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR, _DPT],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dPT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _dPT }],
   ],
 ];
 export var ListDeviceProfilesResponse: StaticStructureSchema = [
@@ -1786,30 +1648,10 @@ export var ListDevicesForWirelessDeviceImportTaskRequest: StaticStructureSchema 
   0,
   [_I, _MR, _NT, _St],
   [
-    [
-      0,
-      {
-        [_hQ]: _i,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
+    [0, { [_hQ]: _i }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _st }],
   ],
 ];
 export var ListDevicesForWirelessDeviceImportTaskResponse: StaticStructureSchema = [
@@ -1827,24 +1669,9 @@ export var ListEventConfigurationsRequest: StaticStructureSchema = [
   0,
   [_RT, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListEventConfigurationsResponse: StaticStructureSchema = [
@@ -1862,18 +1689,8 @@ export var ListFuotaTasksRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFuotaTasksResponse: StaticStructureSchema = [3, n0, _LFTRi, 0, [_NT, _FTL], [0, () => FuotaTaskList]];
@@ -1885,18 +1702,8 @@ export var ListMulticastGroupsByFuotaTaskRequest: StaticStructureSchema = [
   [_I, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListMulticastGroupsByFuotaTaskResponse: StaticStructureSchema = [
@@ -1914,18 +1721,8 @@ export var ListMulticastGroupsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListMulticastGroupsResponse: StaticStructureSchema = [
@@ -1943,18 +1740,8 @@ export var ListNetworkAnalyzerConfigurationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListNetworkAnalyzerConfigurationsResponse: StaticStructureSchema = [
@@ -1972,18 +1759,8 @@ export var ListPartnerAccountsRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPartnerAccountsResponse: StaticStructureSchema = [
@@ -2001,24 +1778,9 @@ export var ListPositionConfigurationsRequest: StaticStructureSchema = [
   0,
   [_RT, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListPositionConfigurationsResponse: StaticStructureSchema = [
@@ -2037,24 +1799,9 @@ export var ListQueuedMessagesRequest: StaticStructureSchema = [
   [_I, _NT, _MR, _WDT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _WDT,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _WDT }],
   ],
 ];
 export var ListQueuedMessagesResponse: StaticStructureSchema = [
@@ -2072,18 +1819,8 @@ export var ListServiceProfilesRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListServiceProfilesResponse: StaticStructureSchema = [
@@ -2094,21 +1831,7 @@ export var ListServiceProfilesResponse: StaticStructureSchema = [
   [_NT, _SPL],
   [0, () => ServiceProfileList],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRR,
-  0,
-  [_RAes],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-  ],
-];
+export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAes], [[0, { [_hQ]: _rA }]]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
 export var ListWirelessDeviceImportTasksRequest: StaticStructureSchema = [
   3,
@@ -2117,18 +1840,8 @@ export var ListWirelessDeviceImportTasksRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListWirelessDeviceImportTasksResponse: StaticStructureSchema = [
@@ -2146,54 +1859,14 @@ export var ListWirelessDevicesRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _DN, _DPI, _SPI, _WDT, _FTI, _MGI],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dN,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _dPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sPI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _wDT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _fTI,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _mGI,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _dN }],
+    [0, { [_hQ]: _dPI }],
+    [0, { [_hQ]: _sPI }],
+    [0, { [_hQ]: _wDT }],
+    [0, { [_hQ]: _fTI }],
+    [0, { [_hQ]: _mGI }],
   ],
 ];
 export var ListWirelessDevicesResponse: StaticStructureSchema = [
@@ -2211,18 +1884,8 @@ export var ListWirelessGatewaysRequest: StaticStructureSchema = [
   0,
   [_NT, _MR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListWirelessGatewaysResponse: StaticStructureSchema = [
@@ -2240,24 +1903,9 @@ export var ListWirelessGatewayTaskDefinitionsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT, _TDT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tDT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _tDT }],
   ],
 ];
 export var ListWirelessGatewayTaskDefinitionsResponse: StaticStructureSchema = [
@@ -2526,17 +2174,7 @@ export var PutPositionConfigurationRequest: StaticStructureSchema = [
   _PPCR,
   0,
   [_RIe, _RT, _So, _Dest],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    () => PositionSolverConfigurations,
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _rT }], () => PositionSolverConfigurations, 0],
 ];
 export var PutPositionConfigurationResponse: StaticStructureSchema = [3, n0, _PPCRu, 0, [], []];
 export var PutResourceLogLevelRequest: StaticStructureSchema = [
@@ -2545,16 +2183,7 @@ export var PutResourceLogLevelRequest: StaticStructureSchema = [
   _PRLLR,
   0,
   [_RIe, _RT, _LL],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _rT }], 0],
 ];
 export var PutResourceLogLevelResponse: StaticStructureSchema = [3, n0, _PRLLRu, 0, [], []];
 export var ResetAllResourceLogLevelsRequest: StaticStructureSchema = [3, n0, _RARLLR, 0, [], []];
@@ -2567,12 +2196,7 @@ export var ResetResourceLogLevelRequest: StaticStructureSchema = [
   [_RIe, _RT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
   ],
 ];
 export var ResetResourceLogLevelResponse: StaticStructureSchema = [3, n0, _RRLLRe, 0, [], []];
@@ -2580,15 +2204,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var SemtechGnssConfiguration: StaticStructureSchema = [3, n0, _SGC, 0, [_St, _Fe], [0, 0]];
 export var SemtechGnssDetail: StaticStructureSchema = [3, n0, _SGD, 0, [_Pro, _T, _St, _Fe], [0, 0, 0, 0]];
 export var SendDataToMulticastGroupRequest: StaticStructureSchema = [
@@ -2800,15 +2420,7 @@ export var TagResourceRequest: StaticStructureSchema = [
   _TRR,
   0,
   [_RAes, _Ta],
-  [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    () => TagList,
-  ],
+  [[0, { [_hQ]: _rA }], () => TagList],
 ];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TdscdmaLocalId: StaticStructureSchema = [3, n0, _TLI, 0, [_Ua, _CP], [1, 1]];
@@ -2823,32 +2435,10 @@ export var TdscdmaObj: StaticStructureSchema = [
 ];
 export var TestWirelessDeviceRequest: StaticStructureSchema = [3, n0, _TWDR, 0, [_I], [[0, 1]]];
 export var TestWirelessDeviceResponse: StaticStructureSchema = [3, n0, _TWDRe, 0, [_Re], [0]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TraceContent: StaticStructureSchema = [3, n0, _TC, 0, [_WDFI, _LL, _MFI], [0, 0, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -2857,18 +2447,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
   0,
   [_RAes, _TK],
   [
-    [
-      0,
-      {
-        [_hQ]: _rA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [0, { [_hQ]: _rA }],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -2953,12 +2533,7 @@ export var UpdatePartnerAccountRequest: StaticStructureSchema = [
   [
     [() => SidewalkUpdateAccount, 0],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [0, { [_hQ]: _pT }],
   ],
 ];
 export var UpdatePartnerAccountResponse: StaticStructureSchema = [3, n0, _UPARp, 0, [], []];
@@ -2968,16 +2543,7 @@ export var UpdatePositionRequest: StaticStructureSchema = [
   _UPR,
   0,
   [_RIe, _RT, _Po],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
-    64 | 1,
-  ],
+  [[0, 1], [0, { [_hQ]: _rT }], 64 | 1],
 ];
 export var UpdatePositionResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [], []];
 export var UpdateResourceEventConfigurationRequest: StaticStructureSchema = [
@@ -2988,18 +2554,8 @@ export var UpdateResourceEventConfigurationRequest: StaticStructureSchema = [
   [_Id, _IT, _PT, _DRS, _Pr, _J, _CS, _MDS],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _pT,
-      },
-    ],
+    [0, { [_hQ]: _iT }],
+    [0, { [_hQ]: _pT }],
     () => DeviceRegistrationStateEventConfiguration,
     () => ProximityEventConfiguration,
     () => JoinEventConfiguration,
@@ -3016,12 +2572,7 @@ export var UpdateResourcePositionRequest: StaticStructureSchema = [
   [_RIe, _RT, _GJP],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _rT,
-      },
-    ],
+    [0, { [_hQ]: _rT }],
     [21, 16],
   ],
 ];
@@ -3069,19 +2620,8 @@ export var UpdateWirelessGatewayTaskEntry: StaticStructureSchema = [
   [_I, _LRWAN, _Ar],
   [0, () => LoRaWANUpdateGatewayTaskEntry, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var WcdmaLocalId: StaticStructureSchema = [3, n0, _WLI, 0, [_Uar, _Ps], [1, 1]];
 export var WcdmaNmrObj: StaticStructureSchema = [3, n0, _WNO, 0, [_Uar, _Ps, _UC, _Rsc, _PL], [1, 1, 1, 1, 1]];
 export var WcdmaObj: StaticStructureSchema = [
@@ -3143,41 +2683,32 @@ export var WirelessMetadata: StaticStructureSchema = [
   [_LRWAN, _S],
   [() => LoRaWANSendDataToDevice, () => SidewalkSendDataToDevice],
 ];
-export var __Unit = "unit" as const;
-
 export var IoTWirelessServiceException: StaticErrorSchema = [-3, _sm, "IoTWirelessServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTWirelessServiceException, __IoTWirelessServiceException);
-
 export var Applications: StaticListSchema = [1, n0, _Ap, 0, () => ApplicationConfig];
 export var AssistPosition = 64 | 1;
-
 export var BeaconingFrequencies = 64 | 1;
-
 export var CdmaList: StaticListSchema = [1, n0, _CLd, 0, () => CdmaObj];
 export var CdmaNmrList: StaticListSchema = [1, n0, _CNL, 0, () => CdmaNmrObj];
 export var DakCertificateMetadataList: StaticListSchema = [1, n0, _DCML, 0, () => DakCertificateMetadata];
 export var DestinationList: StaticListSchema = [1, n0, _DL, 0, () => Destinations];
 export var DeviceCertificateList: StaticListSchema = [1, n0, _DCL, 0, () => CertificateList];
 export var DeviceCreationFileList = 64 | 0;
-
 export var DeviceProfileList: StaticListSchema = [1, n0, _DPL, 0, () => DeviceProfile];
 export var Dimensions: StaticListSchema = [1, n0, _Dim, 0, () => Dimension];
 export var DownlinkQueueMessagesList: StaticListSchema = [1, n0, _DQML, 0, () => DownlinkQueueMessage];
 export var EventConfigurationsList: StaticListSchema = [1, n0, _ECL, 0, () => EventConfigurationItem];
 export var FactoryPresetFreqsList = 64 | 1;
-
 export var FuotaTaskEventLogOptionList: StaticListSchema = [1, n0, _FTELOL, 0, () => FuotaTaskEventLogOption];
 export var FuotaTaskList: StaticListSchema = [1, n0, _FTL, 0, () => FuotaTask];
 export var FuotaTaskLogOptionList: StaticListSchema = [1, n0, _FTLOL, 0, () => FuotaTaskLogOption];
 export var GatewayList: StaticListSchema = [1, n0, _GL, 0, () => GatewayListItem];
 export var GatewayListMulticast = 64 | 0;
-
 export var GsmList: StaticListSchema = [1, n0, _GLs, 0, () => GsmObj];
 export var GsmNmrList: StaticListSchema = [1, n0, _GNL, 0, () => GsmNmrObj];
 export var ImportedWirelessDeviceList: StaticListSchema = [1, n0, _IWDL, 0, () => ImportedWirelessDevice];
 export var JoinEuiFilters: StaticListSchema = [1, n0, _JEF, 0, 64 | 0];
 export var JoinEuiRange = 64 | 0;
-
 export var LoRaWANGatewayMetadataList: StaticListSchema = [1, n0, _LRWANGML, 0, () => LoRaWANGatewayMetadata];
 export var LoRaWANPublicGatewayMetadataList: StaticListSchema = [
   1,
@@ -3189,27 +2720,21 @@ export var LoRaWANPublicGatewayMetadataList: StaticListSchema = [
 export var LteList: StaticListSchema = [1, n0, _LLt, 0, () => LteObj];
 export var LteNmrList: StaticListSchema = [1, n0, _LNL, 0, () => LteNmrObj];
 export var MetricQueryTimestamps = 64 | 4;
-
 export var MetricQueryValues: StaticListSchema = [1, n0, _MQVe, 0, () => MetricQueryValue];
 export var MulticastGroupList: StaticListSchema = [1, n0, _MGL, 0, () => MulticastGroup];
 export var MulticastGroupListByFuotaTask: StaticListSchema = [1, n0, _MGLBFT, 0, () => MulticastGroupByFuotaTask];
 export var NetIdFilters = 64 | 0;
-
 export var NetworkAnalyzerConfigurationList: StaticListSchema = [1, n0, _NACL, 0, () => NetworkAnalyzerConfigurations];
 export var NetworkAnalyzerMulticastGroupList = 64 | 0;
-
 export var PositionConfigurationList: StaticListSchema = [1, n0, _PCL, 0, () => PositionConfigurationItem];
 export var PositionCoordinate = 64 | 1;
-
 export var PrivateKeysList: StaticListSchema = [1, n0, _PKL, 0, () => CertificateList];
 export var ServiceProfileList: StaticListSchema = [1, n0, _SPL, 0, () => ServiceProfile];
 export var SidewalkAccountList: StaticListSchema = [1, n0, _SAL, 0, [() => SidewalkAccountInfoWithFingerprint, 0]];
 export var SubBands = 64 | 1;
-
 export var SummaryMetricQueries: StaticListSchema = [1, n0, _SMQ, 0, () => SummaryMetricQuery];
 export var SummaryMetricQueryResults: StaticListSchema = [1, n0, _SMQR, 0, () => SummaryMetricQueryResult];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TdscdmaList: StaticListSchema = [1, n0, _TLd, 0, () => TdscdmaObj];
 export var TdscdmaNmrList: StaticListSchema = [1, n0, _TNL, 0, () => TdscdmaNmrObj];
@@ -3219,7 +2744,6 @@ export var WiFiAccessPoints: StaticListSchema = [1, n0, _WFAP, 0, () => WiFiAcce
 export var WirelessDeviceEventLogOptionList: StaticListSchema = [1, n0, _WDELOL, 0, () => WirelessDeviceEventLogOption];
 export var WirelessDeviceImportTaskList: StaticListSchema = [1, n0, _WDITL, 0, () => WirelessDeviceImportTask];
 export var WirelessDeviceList = 64 | 0;
-
 export var WirelessDeviceLogOptionList: StaticListSchema = [1, n0, _WDLOL, 0, () => WirelessDeviceLogOption];
 export var WirelessDeviceStatisticsList: StaticListSchema = [1, n0, _WDSL, 0, () => WirelessDeviceStatistics];
 export var WirelessGatewayEventLogOptionList: StaticListSchema = [
@@ -3230,7 +2754,6 @@ export var WirelessGatewayEventLogOptionList: StaticListSchema = [
   () => WirelessGatewayEventLogOption,
 ];
 export var WirelessGatewayList = 64 | 0;
-
 export var WirelessGatewayLogOptionList: StaticListSchema = [1, n0, _WGLOL, 0, () => WirelessGatewayLogOption];
 export var WirelessGatewayStatisticsList: StaticListSchema = [1, n0, _WGSL, 0, () => WirelessGatewayStatistics];
 export var WirelessGatewayTaskDefinitionList: StaticListSchema = [
@@ -3244,9 +2767,7 @@ export var AssociateAwsAccountWithPartnerAccount: StaticOperationSchema = [
   9,
   n0,
   _AAAWPA,
-  {
-    [_h]: ["POST", "/partner-accounts", 200],
-  },
+  { [_h]: ["POST", "/partner-accounts", 200] },
   () => AssociateAwsAccountWithPartnerAccountRequest,
   () => AssociateAwsAccountWithPartnerAccountResponse,
 ];
@@ -3254,9 +2775,7 @@ export var AssociateMulticastGroupWithFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _AMGWFT,
-  {
-    [_h]: ["PUT", "/fuota-tasks/{Id}/multicast-group", 204],
-  },
+  { [_h]: ["PUT", "/fuota-tasks/{Id}/multicast-group", 204] },
   () => AssociateMulticastGroupWithFuotaTaskRequest,
   () => AssociateMulticastGroupWithFuotaTaskResponse,
 ];
@@ -3264,9 +2783,7 @@ export var AssociateWirelessDeviceWithFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _AWDWFT,
-  {
-    [_h]: ["PUT", "/fuota-tasks/{Id}/wireless-device", 204],
-  },
+  { [_h]: ["PUT", "/fuota-tasks/{Id}/wireless-device", 204] },
   () => AssociateWirelessDeviceWithFuotaTaskRequest,
   () => AssociateWirelessDeviceWithFuotaTaskResponse,
 ];
@@ -3274,9 +2791,7 @@ export var AssociateWirelessDeviceWithMulticastGroup: StaticOperationSchema = [
   9,
   n0,
   _AWDWMG,
-  {
-    [_h]: ["PUT", "/multicast-groups/{Id}/wireless-device", 204],
-  },
+  { [_h]: ["PUT", "/multicast-groups/{Id}/wireless-device", 204] },
   () => AssociateWirelessDeviceWithMulticastGroupRequest,
   () => AssociateWirelessDeviceWithMulticastGroupResponse,
 ];
@@ -3284,9 +2799,7 @@ export var AssociateWirelessDeviceWithThing: StaticOperationSchema = [
   9,
   n0,
   _AWDWT,
-  {
-    [_h]: ["PUT", "/wireless-devices/{Id}/thing", 204],
-  },
+  { [_h]: ["PUT", "/wireless-devices/{Id}/thing", 204] },
   () => AssociateWirelessDeviceWithThingRequest,
   () => AssociateWirelessDeviceWithThingResponse,
 ];
@@ -3294,9 +2807,7 @@ export var AssociateWirelessGatewayWithCertificate: StaticOperationSchema = [
   9,
   n0,
   _AWGWC,
-  {
-    [_h]: ["PUT", "/wireless-gateways/{Id}/certificate", 200],
-  },
+  { [_h]: ["PUT", "/wireless-gateways/{Id}/certificate", 200] },
   () => AssociateWirelessGatewayWithCertificateRequest,
   () => AssociateWirelessGatewayWithCertificateResponse,
 ];
@@ -3304,9 +2815,7 @@ export var AssociateWirelessGatewayWithThing: StaticOperationSchema = [
   9,
   n0,
   _AWGWT,
-  {
-    [_h]: ["PUT", "/wireless-gateways/{Id}/thing", 204],
-  },
+  { [_h]: ["PUT", "/wireless-gateways/{Id}/thing", 204] },
   () => AssociateWirelessGatewayWithThingRequest,
   () => AssociateWirelessGatewayWithThingResponse,
 ];
@@ -3314,9 +2823,7 @@ export var CancelMulticastGroupSession: StaticOperationSchema = [
   9,
   n0,
   _CMGS,
-  {
-    [_h]: ["DELETE", "/multicast-groups/{Id}/session", 204],
-  },
+  { [_h]: ["DELETE", "/multicast-groups/{Id}/session", 204] },
   () => CancelMulticastGroupSessionRequest,
   () => CancelMulticastGroupSessionResponse,
 ];
@@ -3324,9 +2831,7 @@ export var CreateDestination: StaticOperationSchema = [
   9,
   n0,
   _CD,
-  {
-    [_h]: ["POST", "/destinations", 201],
-  },
+  { [_h]: ["POST", "/destinations", 201] },
   () => CreateDestinationRequest,
   () => CreateDestinationResponse,
 ];
@@ -3334,9 +2839,7 @@ export var CreateDeviceProfile: StaticOperationSchema = [
   9,
   n0,
   _CDP,
-  {
-    [_h]: ["POST", "/device-profiles", 201],
-  },
+  { [_h]: ["POST", "/device-profiles", 201] },
   () => CreateDeviceProfileRequest,
   () => CreateDeviceProfileResponse,
 ];
@@ -3344,9 +2847,7 @@ export var CreateFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _CFT,
-  {
-    [_h]: ["POST", "/fuota-tasks", 201],
-  },
+  { [_h]: ["POST", "/fuota-tasks", 201] },
   () => CreateFuotaTaskRequest,
   () => CreateFuotaTaskResponse,
 ];
@@ -3354,9 +2855,7 @@ export var CreateMulticastGroup: StaticOperationSchema = [
   9,
   n0,
   _CMG,
-  {
-    [_h]: ["POST", "/multicast-groups", 201],
-  },
+  { [_h]: ["POST", "/multicast-groups", 201] },
   () => CreateMulticastGroupRequest,
   () => CreateMulticastGroupResponse,
 ];
@@ -3364,9 +2863,7 @@ export var CreateNetworkAnalyzerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CNAC,
-  {
-    [_h]: ["POST", "/network-analyzer-configurations", 201],
-  },
+  { [_h]: ["POST", "/network-analyzer-configurations", 201] },
   () => CreateNetworkAnalyzerConfigurationRequest,
   () => CreateNetworkAnalyzerConfigurationResponse,
 ];
@@ -3374,9 +2871,7 @@ export var CreateServiceProfile: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  {
-    [_h]: ["POST", "/service-profiles", 201],
-  },
+  { [_h]: ["POST", "/service-profiles", 201] },
   () => CreateServiceProfileRequest,
   () => CreateServiceProfileResponse,
 ];
@@ -3384,9 +2879,7 @@ export var CreateWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _CWD,
-  {
-    [_h]: ["POST", "/wireless-devices", 201],
-  },
+  { [_h]: ["POST", "/wireless-devices", 201] },
   () => CreateWirelessDeviceRequest,
   () => CreateWirelessDeviceResponse,
 ];
@@ -3394,9 +2887,7 @@ export var CreateWirelessGateway: StaticOperationSchema = [
   9,
   n0,
   _CWG,
-  {
-    [_h]: ["POST", "/wireless-gateways", 201],
-  },
+  { [_h]: ["POST", "/wireless-gateways", 201] },
   () => CreateWirelessGatewayRequest,
   () => CreateWirelessGatewayResponse,
 ];
@@ -3404,9 +2895,7 @@ export var CreateWirelessGatewayTask: StaticOperationSchema = [
   9,
   n0,
   _CWGT,
-  {
-    [_h]: ["POST", "/wireless-gateways/{Id}/tasks", 201],
-  },
+  { [_h]: ["POST", "/wireless-gateways/{Id}/tasks", 201] },
   () => CreateWirelessGatewayTaskRequest,
   () => CreateWirelessGatewayTaskResponse,
 ];
@@ -3414,9 +2903,7 @@ export var CreateWirelessGatewayTaskDefinition: StaticOperationSchema = [
   9,
   n0,
   _CWGTD,
-  {
-    [_h]: ["POST", "/wireless-gateway-task-definitions", 201],
-  },
+  { [_h]: ["POST", "/wireless-gateway-task-definitions", 201] },
   () => CreateWirelessGatewayTaskDefinitionRequest,
   () => CreateWirelessGatewayTaskDefinitionResponse,
 ];
@@ -3424,9 +2911,7 @@ export var DeleteDestination: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["DELETE", "/destinations/{Name}", 204],
-  },
+  { [_h]: ["DELETE", "/destinations/{Name}", 204] },
   () => DeleteDestinationRequest,
   () => DeleteDestinationResponse,
 ];
@@ -3434,9 +2919,7 @@ export var DeleteDeviceProfile: StaticOperationSchema = [
   9,
   n0,
   _DDP,
-  {
-    [_h]: ["DELETE", "/device-profiles/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/device-profiles/{Id}", 204] },
   () => DeleteDeviceProfileRequest,
   () => DeleteDeviceProfileResponse,
 ];
@@ -3444,9 +2927,7 @@ export var DeleteFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _DFT,
-  {
-    [_h]: ["DELETE", "/fuota-tasks/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/fuota-tasks/{Id}", 204] },
   () => DeleteFuotaTaskRequest,
   () => DeleteFuotaTaskResponse,
 ];
@@ -3454,9 +2935,7 @@ export var DeleteMulticastGroup: StaticOperationSchema = [
   9,
   n0,
   _DMG,
-  {
-    [_h]: ["DELETE", "/multicast-groups/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/multicast-groups/{Id}", 204] },
   () => DeleteMulticastGroupRequest,
   () => DeleteMulticastGroupResponse,
 ];
@@ -3464,9 +2943,7 @@ export var DeleteNetworkAnalyzerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DNAC,
-  {
-    [_h]: ["DELETE", "/network-analyzer-configurations/{ConfigurationName}", 204],
-  },
+  { [_h]: ["DELETE", "/network-analyzer-configurations/{ConfigurationName}", 204] },
   () => DeleteNetworkAnalyzerConfigurationRequest,
   () => DeleteNetworkAnalyzerConfigurationResponse,
 ];
@@ -3474,9 +2951,7 @@ export var DeleteQueuedMessages: StaticOperationSchema = [
   9,
   n0,
   _DQMe,
-  {
-    [_h]: ["DELETE", "/wireless-devices/{Id}/data", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-devices/{Id}/data", 204] },
   () => DeleteQueuedMessagesRequest,
   () => DeleteQueuedMessagesResponse,
 ];
@@ -3484,9 +2959,7 @@ export var DeleteServiceProfile: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  {
-    [_h]: ["DELETE", "/service-profiles/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/service-profiles/{Id}", 204] },
   () => DeleteServiceProfileRequest,
   () => DeleteServiceProfileResponse,
 ];
@@ -3494,9 +2967,7 @@ export var DeleteWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _DWD,
-  {
-    [_h]: ["DELETE", "/wireless-devices/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-devices/{Id}", 204] },
   () => DeleteWirelessDeviceRequest,
   () => DeleteWirelessDeviceResponse,
 ];
@@ -3504,9 +2975,7 @@ export var DeleteWirelessDeviceImportTask: StaticOperationSchema = [
   9,
   n0,
   _DWDIT,
-  {
-    [_h]: ["DELETE", "/wireless_device_import_task/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/wireless_device_import_task/{Id}", 204] },
   () => DeleteWirelessDeviceImportTaskRequest,
   () => DeleteWirelessDeviceImportTaskResponse,
 ];
@@ -3514,9 +2983,7 @@ export var DeleteWirelessGateway: StaticOperationSchema = [
   9,
   n0,
   _DWG,
-  {
-    [_h]: ["DELETE", "/wireless-gateways/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-gateways/{Id}", 204] },
   () => DeleteWirelessGatewayRequest,
   () => DeleteWirelessGatewayResponse,
 ];
@@ -3524,9 +2991,7 @@ export var DeleteWirelessGatewayTask: StaticOperationSchema = [
   9,
   n0,
   _DWGT,
-  {
-    [_h]: ["DELETE", "/wireless-gateways/{Id}/tasks", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-gateways/{Id}/tasks", 204] },
   () => DeleteWirelessGatewayTaskRequest,
   () => DeleteWirelessGatewayTaskResponse,
 ];
@@ -3534,9 +2999,7 @@ export var DeleteWirelessGatewayTaskDefinition: StaticOperationSchema = [
   9,
   n0,
   _DWGTD,
-  {
-    [_h]: ["DELETE", "/wireless-gateway-task-definitions/{Id}", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-gateway-task-definitions/{Id}", 204] },
   () => DeleteWirelessGatewayTaskDefinitionRequest,
   () => DeleteWirelessGatewayTaskDefinitionResponse,
 ];
@@ -3544,9 +3007,7 @@ export var DeregisterWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _DWDe,
-  {
-    [_h]: ["PATCH", "/wireless-devices/{Identifier}/deregister", 200],
-  },
+  { [_h]: ["PATCH", "/wireless-devices/{Identifier}/deregister", 200] },
   () => DeregisterWirelessDeviceRequest,
   () => DeregisterWirelessDeviceResponse,
 ];
@@ -3554,9 +3015,7 @@ export var DisassociateAwsAccountFromPartnerAccount: StaticOperationSchema = [
   9,
   n0,
   _DAAFPA,
-  {
-    [_h]: ["DELETE", "/partner-accounts/{PartnerAccountId}", 204],
-  },
+  { [_h]: ["DELETE", "/partner-accounts/{PartnerAccountId}", 204] },
   () => DisassociateAwsAccountFromPartnerAccountRequest,
   () => DisassociateAwsAccountFromPartnerAccountResponse,
 ];
@@ -3564,9 +3023,7 @@ export var DisassociateMulticastGroupFromFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _DMGFFT,
-  {
-    [_h]: ["DELETE", "/fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}", 204],
-  },
+  { [_h]: ["DELETE", "/fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}", 204] },
   () => DisassociateMulticastGroupFromFuotaTaskRequest,
   () => DisassociateMulticastGroupFromFuotaTaskResponse,
 ];
@@ -3574,9 +3031,7 @@ export var DisassociateWirelessDeviceFromFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _DWDFFT,
-  {
-    [_h]: ["DELETE", "/fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}", 204],
-  },
+  { [_h]: ["DELETE", "/fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}", 204] },
   () => DisassociateWirelessDeviceFromFuotaTaskRequest,
   () => DisassociateWirelessDeviceFromFuotaTaskResponse,
 ];
@@ -3584,9 +3039,7 @@ export var DisassociateWirelessDeviceFromMulticastGroup: StaticOperationSchema =
   9,
   n0,
   _DWDFMG,
-  {
-    [_h]: ["DELETE", "/multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}", 204],
-  },
+  { [_h]: ["DELETE", "/multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}", 204] },
   () => DisassociateWirelessDeviceFromMulticastGroupRequest,
   () => DisassociateWirelessDeviceFromMulticastGroupResponse,
 ];
@@ -3594,9 +3047,7 @@ export var DisassociateWirelessDeviceFromThing: StaticOperationSchema = [
   9,
   n0,
   _DWDFT,
-  {
-    [_h]: ["DELETE", "/wireless-devices/{Id}/thing", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-devices/{Id}/thing", 204] },
   () => DisassociateWirelessDeviceFromThingRequest,
   () => DisassociateWirelessDeviceFromThingResponse,
 ];
@@ -3604,9 +3055,7 @@ export var DisassociateWirelessGatewayFromCertificate: StaticOperationSchema = [
   9,
   n0,
   _DWGFC,
-  {
-    [_h]: ["DELETE", "/wireless-gateways/{Id}/certificate", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-gateways/{Id}/certificate", 204] },
   () => DisassociateWirelessGatewayFromCertificateRequest,
   () => DisassociateWirelessGatewayFromCertificateResponse,
 ];
@@ -3614,9 +3063,7 @@ export var DisassociateWirelessGatewayFromThing: StaticOperationSchema = [
   9,
   n0,
   _DWGFT,
-  {
-    [_h]: ["DELETE", "/wireless-gateways/{Id}/thing", 204],
-  },
+  { [_h]: ["DELETE", "/wireless-gateways/{Id}/thing", 204] },
   () => DisassociateWirelessGatewayFromThingRequest,
   () => DisassociateWirelessGatewayFromThingResponse,
 ];
@@ -3624,9 +3071,7 @@ export var GetDestination: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  {
-    [_h]: ["GET", "/destinations/{Name}", 200],
-  },
+  { [_h]: ["GET", "/destinations/{Name}", 200] },
   () => GetDestinationRequest,
   () => GetDestinationResponse,
 ];
@@ -3634,9 +3079,7 @@ export var GetDeviceProfile: StaticOperationSchema = [
   9,
   n0,
   _GDP,
-  {
-    [_h]: ["GET", "/device-profiles/{Id}", 200],
-  },
+  { [_h]: ["GET", "/device-profiles/{Id}", 200] },
   () => GetDeviceProfileRequest,
   () => GetDeviceProfileResponse,
 ];
@@ -3644,9 +3087,7 @@ export var GetEventConfigurationByResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _GECBRT,
-  {
-    [_h]: ["GET", "/event-configurations-resource-types", 200],
-  },
+  { [_h]: ["GET", "/event-configurations-resource-types", 200] },
   () => GetEventConfigurationByResourceTypesRequest,
   () => GetEventConfigurationByResourceTypesResponse,
 ];
@@ -3654,9 +3095,7 @@ export var GetFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _GFT,
-  {
-    [_h]: ["GET", "/fuota-tasks/{Id}", 200],
-  },
+  { [_h]: ["GET", "/fuota-tasks/{Id}", 200] },
   () => GetFuotaTaskRequest,
   () => GetFuotaTaskResponse,
 ];
@@ -3664,9 +3103,7 @@ export var GetLogLevelsByResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _GLLBRT,
-  {
-    [_h]: ["GET", "/log-levels", 200],
-  },
+  { [_h]: ["GET", "/log-levels", 200] },
   () => GetLogLevelsByResourceTypesRequest,
   () => GetLogLevelsByResourceTypesResponse,
 ];
@@ -3674,9 +3111,7 @@ export var GetMetricConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GMC,
-  {
-    [_h]: ["GET", "/metric-configuration", 200],
-  },
+  { [_h]: ["GET", "/metric-configuration", 200] },
   () => GetMetricConfigurationRequest,
   () => GetMetricConfigurationResponse,
 ];
@@ -3684,9 +3119,7 @@ export var GetMetrics: StaticOperationSchema = [
   9,
   n0,
   _GM,
-  {
-    [_h]: ["POST", "/metrics", 200],
-  },
+  { [_h]: ["POST", "/metrics", 200] },
   () => GetMetricsRequest,
   () => GetMetricsResponse,
 ];
@@ -3694,9 +3127,7 @@ export var GetMulticastGroup: StaticOperationSchema = [
   9,
   n0,
   _GMG,
-  {
-    [_h]: ["GET", "/multicast-groups/{Id}", 200],
-  },
+  { [_h]: ["GET", "/multicast-groups/{Id}", 200] },
   () => GetMulticastGroupRequest,
   () => GetMulticastGroupResponse,
 ];
@@ -3704,9 +3135,7 @@ export var GetMulticastGroupSession: StaticOperationSchema = [
   9,
   n0,
   _GMGS,
-  {
-    [_h]: ["GET", "/multicast-groups/{Id}/session", 200],
-  },
+  { [_h]: ["GET", "/multicast-groups/{Id}/session", 200] },
   () => GetMulticastGroupSessionRequest,
   () => GetMulticastGroupSessionResponse,
 ];
@@ -3714,9 +3143,7 @@ export var GetNetworkAnalyzerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GNAC,
-  {
-    [_h]: ["GET", "/network-analyzer-configurations/{ConfigurationName}", 200],
-  },
+  { [_h]: ["GET", "/network-analyzer-configurations/{ConfigurationName}", 200] },
   () => GetNetworkAnalyzerConfigurationRequest,
   () => GetNetworkAnalyzerConfigurationResponse,
 ];
@@ -3724,9 +3151,7 @@ export var GetPartnerAccount: StaticOperationSchema = [
   9,
   n0,
   _GPA,
-  {
-    [_h]: ["GET", "/partner-accounts/{PartnerAccountId}", 200],
-  },
+  { [_h]: ["GET", "/partner-accounts/{PartnerAccountId}", 200] },
   () => GetPartnerAccountRequest,
   () => GetPartnerAccountResponse,
 ];
@@ -3734,9 +3159,7 @@ export var GetPosition: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/positions/{ResourceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/positions/{ResourceIdentifier}", 200] },
   () => GetPositionRequest,
   () => GetPositionResponse,
 ];
@@ -3744,9 +3167,7 @@ export var GetPositionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GPC,
-  {
-    [_h]: ["GET", "/position-configurations/{ResourceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/position-configurations/{ResourceIdentifier}", 200] },
   () => GetPositionConfigurationRequest,
   () => GetPositionConfigurationResponse,
 ];
@@ -3754,9 +3175,7 @@ export var GetPositionEstimate: StaticOperationSchema = [
   9,
   n0,
   _GPE,
-  {
-    [_h]: ["POST", "/position-estimate", 200],
-  },
+  { [_h]: ["POST", "/position-estimate", 200] },
   () => GetPositionEstimateRequest,
   () => GetPositionEstimateResponse,
 ];
@@ -3764,9 +3183,7 @@ export var GetResourceEventConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GREC,
-  {
-    [_h]: ["GET", "/event-configurations/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/event-configurations/{Identifier}", 200] },
   () => GetResourceEventConfigurationRequest,
   () => GetResourceEventConfigurationResponse,
 ];
@@ -3774,9 +3191,7 @@ export var GetResourceLogLevel: StaticOperationSchema = [
   9,
   n0,
   _GRLL,
-  {
-    [_h]: ["GET", "/log-levels/{ResourceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/log-levels/{ResourceIdentifier}", 200] },
   () => GetResourceLogLevelRequest,
   () => GetResourceLogLevelResponse,
 ];
@@ -3784,9 +3199,7 @@ export var GetResourcePosition: StaticOperationSchema = [
   9,
   n0,
   _GRP,
-  {
-    [_h]: ["GET", "/resource-positions/{ResourceIdentifier}", 200],
-  },
+  { [_h]: ["GET", "/resource-positions/{ResourceIdentifier}", 200] },
   () => GetResourcePositionRequest,
   () => GetResourcePositionResponse,
 ];
@@ -3794,9 +3207,7 @@ export var GetServiceEndpoint: StaticOperationSchema = [
   9,
   n0,
   _GSE,
-  {
-    [_h]: ["GET", "/service-endpoint", 200],
-  },
+  { [_h]: ["GET", "/service-endpoint", 200] },
   () => GetServiceEndpointRequest,
   () => GetServiceEndpointResponse,
 ];
@@ -3804,9 +3215,7 @@ export var GetServiceProfile: StaticOperationSchema = [
   9,
   n0,
   _GSP,
-  {
-    [_h]: ["GET", "/service-profiles/{Id}", 200],
-  },
+  { [_h]: ["GET", "/service-profiles/{Id}", 200] },
   () => GetServiceProfileRequest,
   () => GetServiceProfileResponse,
 ];
@@ -3814,9 +3223,7 @@ export var GetWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _GWD,
-  {
-    [_h]: ["GET", "/wireless-devices/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/wireless-devices/{Identifier}", 200] },
   () => GetWirelessDeviceRequest,
   () => GetWirelessDeviceResponse,
 ];
@@ -3824,9 +3231,7 @@ export var GetWirelessDeviceImportTask: StaticOperationSchema = [
   9,
   n0,
   _GWDIT,
-  {
-    [_h]: ["GET", "/wireless_device_import_task/{Id}", 200],
-  },
+  { [_h]: ["GET", "/wireless_device_import_task/{Id}", 200] },
   () => GetWirelessDeviceImportTaskRequest,
   () => GetWirelessDeviceImportTaskResponse,
 ];
@@ -3834,9 +3239,7 @@ export var GetWirelessDeviceStatistics: StaticOperationSchema = [
   9,
   n0,
   _GWDS,
-  {
-    [_h]: ["GET", "/wireless-devices/{WirelessDeviceId}/statistics", 200],
-  },
+  { [_h]: ["GET", "/wireless-devices/{WirelessDeviceId}/statistics", 200] },
   () => GetWirelessDeviceStatisticsRequest,
   () => GetWirelessDeviceStatisticsResponse,
 ];
@@ -3844,9 +3247,7 @@ export var GetWirelessGateway: StaticOperationSchema = [
   9,
   n0,
   _GWG,
-  {
-    [_h]: ["GET", "/wireless-gateways/{Identifier}", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateways/{Identifier}", 200] },
   () => GetWirelessGatewayRequest,
   () => GetWirelessGatewayResponse,
 ];
@@ -3854,9 +3255,7 @@ export var GetWirelessGatewayCertificate: StaticOperationSchema = [
   9,
   n0,
   _GWGC,
-  {
-    [_h]: ["GET", "/wireless-gateways/{Id}/certificate", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateways/{Id}/certificate", 200] },
   () => GetWirelessGatewayCertificateRequest,
   () => GetWirelessGatewayCertificateResponse,
 ];
@@ -3864,9 +3263,7 @@ export var GetWirelessGatewayFirmwareInformation: StaticOperationSchema = [
   9,
   n0,
   _GWGFI,
-  {
-    [_h]: ["GET", "/wireless-gateways/{Id}/firmware-information", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateways/{Id}/firmware-information", 200] },
   () => GetWirelessGatewayFirmwareInformationRequest,
   () => GetWirelessGatewayFirmwareInformationResponse,
 ];
@@ -3874,9 +3271,7 @@ export var GetWirelessGatewayStatistics: StaticOperationSchema = [
   9,
   n0,
   _GWGS,
-  {
-    [_h]: ["GET", "/wireless-gateways/{WirelessGatewayId}/statistics", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateways/{WirelessGatewayId}/statistics", 200] },
   () => GetWirelessGatewayStatisticsRequest,
   () => GetWirelessGatewayStatisticsResponse,
 ];
@@ -3884,9 +3279,7 @@ export var GetWirelessGatewayTask: StaticOperationSchema = [
   9,
   n0,
   _GWGT,
-  {
-    [_h]: ["GET", "/wireless-gateways/{Id}/tasks", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateways/{Id}/tasks", 200] },
   () => GetWirelessGatewayTaskRequest,
   () => GetWirelessGatewayTaskResponse,
 ];
@@ -3894,9 +3287,7 @@ export var GetWirelessGatewayTaskDefinition: StaticOperationSchema = [
   9,
   n0,
   _GWGTD,
-  {
-    [_h]: ["GET", "/wireless-gateway-task-definitions/{Id}", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateway-task-definitions/{Id}", 200] },
   () => GetWirelessGatewayTaskDefinitionRequest,
   () => GetWirelessGatewayTaskDefinitionResponse,
 ];
@@ -3904,9 +3295,7 @@ export var ListDestinations: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["GET", "/destinations", 200],
-  },
+  { [_h]: ["GET", "/destinations", 200] },
   () => ListDestinationsRequest,
   () => ListDestinationsResponse,
 ];
@@ -3914,9 +3303,7 @@ export var ListDeviceProfiles: StaticOperationSchema = [
   9,
   n0,
   _LDP,
-  {
-    [_h]: ["GET", "/device-profiles", 200],
-  },
+  { [_h]: ["GET", "/device-profiles", 200] },
   () => ListDeviceProfilesRequest,
   () => ListDeviceProfilesResponse,
 ];
@@ -3924,9 +3311,7 @@ export var ListDevicesForWirelessDeviceImportTask: StaticOperationSchema = [
   9,
   n0,
   _LDFWDIT,
-  {
-    [_h]: ["GET", "/wireless_device_import_task", 200],
-  },
+  { [_h]: ["GET", "/wireless_device_import_task", 200] },
   () => ListDevicesForWirelessDeviceImportTaskRequest,
   () => ListDevicesForWirelessDeviceImportTaskResponse,
 ];
@@ -3934,9 +3319,7 @@ export var ListEventConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LEC,
-  {
-    [_h]: ["GET", "/event-configurations", 200],
-  },
+  { [_h]: ["GET", "/event-configurations", 200] },
   () => ListEventConfigurationsRequest,
   () => ListEventConfigurationsResponse,
 ];
@@ -3944,9 +3327,7 @@ export var ListFuotaTasks: StaticOperationSchema = [
   9,
   n0,
   _LFT,
-  {
-    [_h]: ["GET", "/fuota-tasks", 200],
-  },
+  { [_h]: ["GET", "/fuota-tasks", 200] },
   () => ListFuotaTasksRequest,
   () => ListFuotaTasksResponse,
 ];
@@ -3954,9 +3335,7 @@ export var ListMulticastGroups: StaticOperationSchema = [
   9,
   n0,
   _LMG,
-  {
-    [_h]: ["GET", "/multicast-groups", 200],
-  },
+  { [_h]: ["GET", "/multicast-groups", 200] },
   () => ListMulticastGroupsRequest,
   () => ListMulticastGroupsResponse,
 ];
@@ -3964,9 +3343,7 @@ export var ListMulticastGroupsByFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _LMGBFT,
-  {
-    [_h]: ["GET", "/fuota-tasks/{Id}/multicast-groups", 200],
-  },
+  { [_h]: ["GET", "/fuota-tasks/{Id}/multicast-groups", 200] },
   () => ListMulticastGroupsByFuotaTaskRequest,
   () => ListMulticastGroupsByFuotaTaskResponse,
 ];
@@ -3974,9 +3351,7 @@ export var ListNetworkAnalyzerConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LNAC,
-  {
-    [_h]: ["GET", "/network-analyzer-configurations", 200],
-  },
+  { [_h]: ["GET", "/network-analyzer-configurations", 200] },
   () => ListNetworkAnalyzerConfigurationsRequest,
   () => ListNetworkAnalyzerConfigurationsResponse,
 ];
@@ -3984,9 +3359,7 @@ export var ListPartnerAccounts: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  {
-    [_h]: ["GET", "/partner-accounts", 200],
-  },
+  { [_h]: ["GET", "/partner-accounts", 200] },
   () => ListPartnerAccountsRequest,
   () => ListPartnerAccountsResponse,
 ];
@@ -3994,9 +3367,7 @@ export var ListPositionConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LPC,
-  {
-    [_h]: ["GET", "/position-configurations", 200],
-  },
+  { [_h]: ["GET", "/position-configurations", 200] },
   () => ListPositionConfigurationsRequest,
   () => ListPositionConfigurationsResponse,
 ];
@@ -4004,9 +3375,7 @@ export var ListQueuedMessages: StaticOperationSchema = [
   9,
   n0,
   _LQM,
-  {
-    [_h]: ["GET", "/wireless-devices/{Id}/data", 200],
-  },
+  { [_h]: ["GET", "/wireless-devices/{Id}/data", 200] },
   () => ListQueuedMessagesRequest,
   () => ListQueuedMessagesResponse,
 ];
@@ -4014,9 +3383,7 @@ export var ListServiceProfiles: StaticOperationSchema = [
   9,
   n0,
   _LSP,
-  {
-    [_h]: ["GET", "/service-profiles", 200],
-  },
+  { [_h]: ["GET", "/service-profiles", 200] },
   () => ListServiceProfilesRequest,
   () => ListServiceProfilesResponse,
 ];
@@ -4024,9 +3391,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags", 200],
-  },
+  { [_h]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -4034,9 +3399,7 @@ export var ListWirelessDeviceImportTasks: StaticOperationSchema = [
   9,
   n0,
   _LWDIT,
-  {
-    [_h]: ["GET", "/wireless_device_import_tasks", 200],
-  },
+  { [_h]: ["GET", "/wireless_device_import_tasks", 200] },
   () => ListWirelessDeviceImportTasksRequest,
   () => ListWirelessDeviceImportTasksResponse,
 ];
@@ -4044,9 +3407,7 @@ export var ListWirelessDevices: StaticOperationSchema = [
   9,
   n0,
   _LWD,
-  {
-    [_h]: ["GET", "/wireless-devices", 200],
-  },
+  { [_h]: ["GET", "/wireless-devices", 200] },
   () => ListWirelessDevicesRequest,
   () => ListWirelessDevicesResponse,
 ];
@@ -4054,9 +3415,7 @@ export var ListWirelessGateways: StaticOperationSchema = [
   9,
   n0,
   _LWG,
-  {
-    [_h]: ["GET", "/wireless-gateways", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateways", 200] },
   () => ListWirelessGatewaysRequest,
   () => ListWirelessGatewaysResponse,
 ];
@@ -4064,9 +3423,7 @@ export var ListWirelessGatewayTaskDefinitions: StaticOperationSchema = [
   9,
   n0,
   _LWGTD,
-  {
-    [_h]: ["GET", "/wireless-gateway-task-definitions", 200],
-  },
+  { [_h]: ["GET", "/wireless-gateway-task-definitions", 200] },
   () => ListWirelessGatewayTaskDefinitionsRequest,
   () => ListWirelessGatewayTaskDefinitionsResponse,
 ];
@@ -4074,9 +3431,7 @@ export var PutPositionConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PPC,
-  {
-    [_h]: ["PUT", "/position-configurations/{ResourceIdentifier}", 200],
-  },
+  { [_h]: ["PUT", "/position-configurations/{ResourceIdentifier}", 200] },
   () => PutPositionConfigurationRequest,
   () => PutPositionConfigurationResponse,
 ];
@@ -4084,9 +3439,7 @@ export var PutResourceLogLevel: StaticOperationSchema = [
   9,
   n0,
   _PRLL,
-  {
-    [_h]: ["PUT", "/log-levels/{ResourceIdentifier}", 200],
-  },
+  { [_h]: ["PUT", "/log-levels/{ResourceIdentifier}", 200] },
   () => PutResourceLogLevelRequest,
   () => PutResourceLogLevelResponse,
 ];
@@ -4094,9 +3447,7 @@ export var ResetAllResourceLogLevels: StaticOperationSchema = [
   9,
   n0,
   _RARLL,
-  {
-    [_h]: ["DELETE", "/log-levels", 204],
-  },
+  { [_h]: ["DELETE", "/log-levels", 204] },
   () => ResetAllResourceLogLevelsRequest,
   () => ResetAllResourceLogLevelsResponse,
 ];
@@ -4104,9 +3455,7 @@ export var ResetResourceLogLevel: StaticOperationSchema = [
   9,
   n0,
   _RRLL,
-  {
-    [_h]: ["DELETE", "/log-levels/{ResourceIdentifier}", 204],
-  },
+  { [_h]: ["DELETE", "/log-levels/{ResourceIdentifier}", 204] },
   () => ResetResourceLogLevelRequest,
   () => ResetResourceLogLevelResponse,
 ];
@@ -4114,9 +3463,7 @@ export var SendDataToMulticastGroup: StaticOperationSchema = [
   9,
   n0,
   _SDTMG,
-  {
-    [_h]: ["POST", "/multicast-groups/{Id}/data", 201],
-  },
+  { [_h]: ["POST", "/multicast-groups/{Id}/data", 201] },
   () => SendDataToMulticastGroupRequest,
   () => SendDataToMulticastGroupResponse,
 ];
@@ -4124,9 +3471,7 @@ export var SendDataToWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _SDTWD,
-  {
-    [_h]: ["POST", "/wireless-devices/{Id}/data", 202],
-  },
+  { [_h]: ["POST", "/wireless-devices/{Id}/data", 202] },
   () => SendDataToWirelessDeviceRequest,
   () => SendDataToWirelessDeviceResponse,
 ];
@@ -4134,9 +3479,7 @@ export var StartBulkAssociateWirelessDeviceWithMulticastGroup: StaticOperationSc
   9,
   n0,
   _SBAWDWMG,
-  {
-    [_h]: ["PATCH", "/multicast-groups/{Id}/bulk", 204],
-  },
+  { [_h]: ["PATCH", "/multicast-groups/{Id}/bulk", 204] },
   () => StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
   () => StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
 ];
@@ -4144,9 +3487,7 @@ export var StartBulkDisassociateWirelessDeviceFromMulticastGroup: StaticOperatio
   9,
   n0,
   _SBDWDFMG,
-  {
-    [_h]: ["POST", "/multicast-groups/{Id}/bulk", 204],
-  },
+  { [_h]: ["POST", "/multicast-groups/{Id}/bulk", 204] },
   () => StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
   () => StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
 ];
@@ -4154,9 +3495,7 @@ export var StartFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _SFT,
-  {
-    [_h]: ["PUT", "/fuota-tasks/{Id}", 204],
-  },
+  { [_h]: ["PUT", "/fuota-tasks/{Id}", 204] },
   () => StartFuotaTaskRequest,
   () => StartFuotaTaskResponse,
 ];
@@ -4164,9 +3503,7 @@ export var StartMulticastGroupSession: StaticOperationSchema = [
   9,
   n0,
   _SMGS,
-  {
-    [_h]: ["PUT", "/multicast-groups/{Id}/session", 204],
-  },
+  { [_h]: ["PUT", "/multicast-groups/{Id}/session", 204] },
   () => StartMulticastGroupSessionRequest,
   () => StartMulticastGroupSessionResponse,
 ];
@@ -4174,9 +3511,7 @@ export var StartSingleWirelessDeviceImportTask: StaticOperationSchema = [
   9,
   n0,
   _SSWDIT,
-  {
-    [_h]: ["POST", "/wireless_single_device_import_task", 201],
-  },
+  { [_h]: ["POST", "/wireless_single_device_import_task", 201] },
   () => StartSingleWirelessDeviceImportTaskRequest,
   () => StartSingleWirelessDeviceImportTaskResponse,
 ];
@@ -4184,9 +3519,7 @@ export var StartWirelessDeviceImportTask: StaticOperationSchema = [
   9,
   n0,
   _SWDIT,
-  {
-    [_h]: ["POST", "/wireless_device_import_task", 201],
-  },
+  { [_h]: ["POST", "/wireless_device_import_task", 201] },
   () => StartWirelessDeviceImportTaskRequest,
   () => StartWirelessDeviceImportTaskResponse,
 ];
@@ -4194,9 +3527,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags", 204],
-  },
+  { [_h]: ["POST", "/tags", 204] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -4204,9 +3535,7 @@ export var TestWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _TWD,
-  {
-    [_h]: ["POST", "/wireless-devices/{Id}/test", 200],
-  },
+  { [_h]: ["POST", "/wireless-devices/{Id}/test", 200] },
   () => TestWirelessDeviceRequest,
   () => TestWirelessDeviceResponse,
 ];
@@ -4214,9 +3543,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _URn,
-  {
-    [_h]: ["DELETE", "/tags", 204],
-  },
+  { [_h]: ["DELETE", "/tags", 204] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -4224,9 +3551,7 @@ export var UpdateDestination: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PATCH", "/destinations/{Name}", 204],
-  },
+  { [_h]: ["PATCH", "/destinations/{Name}", 204] },
   () => UpdateDestinationRequest,
   () => UpdateDestinationResponse,
 ];
@@ -4234,9 +3559,7 @@ export var UpdateEventConfigurationByResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _UECBRT,
-  {
-    [_h]: ["PATCH", "/event-configurations-resource-types", 204],
-  },
+  { [_h]: ["PATCH", "/event-configurations-resource-types", 204] },
   () => UpdateEventConfigurationByResourceTypesRequest,
   () => UpdateEventConfigurationByResourceTypesResponse,
 ];
@@ -4244,9 +3567,7 @@ export var UpdateFuotaTask: StaticOperationSchema = [
   9,
   n0,
   _UFT,
-  {
-    [_h]: ["PATCH", "/fuota-tasks/{Id}", 204],
-  },
+  { [_h]: ["PATCH", "/fuota-tasks/{Id}", 204] },
   () => UpdateFuotaTaskRequest,
   () => UpdateFuotaTaskResponse,
 ];
@@ -4254,9 +3575,7 @@ export var UpdateLogLevelsByResourceTypes: StaticOperationSchema = [
   9,
   n0,
   _ULLBRT,
-  {
-    [_h]: ["POST", "/log-levels", 200],
-  },
+  { [_h]: ["POST", "/log-levels", 200] },
   () => UpdateLogLevelsByResourceTypesRequest,
   () => UpdateLogLevelsByResourceTypesResponse,
 ];
@@ -4264,9 +3583,7 @@ export var UpdateMetricConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UMC,
-  {
-    [_h]: ["PUT", "/metric-configuration", 204],
-  },
+  { [_h]: ["PUT", "/metric-configuration", 204] },
   () => UpdateMetricConfigurationRequest,
   () => UpdateMetricConfigurationResponse,
 ];
@@ -4274,9 +3591,7 @@ export var UpdateMulticastGroup: StaticOperationSchema = [
   9,
   n0,
   _UMG,
-  {
-    [_h]: ["PATCH", "/multicast-groups/{Id}", 204],
-  },
+  { [_h]: ["PATCH", "/multicast-groups/{Id}", 204] },
   () => UpdateMulticastGroupRequest,
   () => UpdateMulticastGroupResponse,
 ];
@@ -4284,9 +3599,7 @@ export var UpdateNetworkAnalyzerConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UNAC,
-  {
-    [_h]: ["PATCH", "/network-analyzer-configurations/{ConfigurationName}", 204],
-  },
+  { [_h]: ["PATCH", "/network-analyzer-configurations/{ConfigurationName}", 204] },
   () => UpdateNetworkAnalyzerConfigurationRequest,
   () => UpdateNetworkAnalyzerConfigurationResponse,
 ];
@@ -4294,9 +3607,7 @@ export var UpdatePartnerAccount: StaticOperationSchema = [
   9,
   n0,
   _UPA,
-  {
-    [_h]: ["PATCH", "/partner-accounts/{PartnerAccountId}", 204],
-  },
+  { [_h]: ["PATCH", "/partner-accounts/{PartnerAccountId}", 204] },
   () => UpdatePartnerAccountRequest,
   () => UpdatePartnerAccountResponse,
 ];
@@ -4304,9 +3615,7 @@ export var UpdatePosition: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  {
-    [_h]: ["PATCH", "/positions/{ResourceIdentifier}", 204],
-  },
+  { [_h]: ["PATCH", "/positions/{ResourceIdentifier}", 204] },
   () => UpdatePositionRequest,
   () => UpdatePositionResponse,
 ];
@@ -4314,9 +3623,7 @@ export var UpdateResourceEventConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UREC,
-  {
-    [_h]: ["PATCH", "/event-configurations/{Identifier}", 204],
-  },
+  { [_h]: ["PATCH", "/event-configurations/{Identifier}", 204] },
   () => UpdateResourceEventConfigurationRequest,
   () => UpdateResourceEventConfigurationResponse,
 ];
@@ -4324,9 +3631,7 @@ export var UpdateResourcePosition: StaticOperationSchema = [
   9,
   n0,
   _URPp,
-  {
-    [_h]: ["PATCH", "/resource-positions/{ResourceIdentifier}", 204],
-  },
+  { [_h]: ["PATCH", "/resource-positions/{ResourceIdentifier}", 204] },
   () => UpdateResourcePositionRequest,
   () => UpdateResourcePositionResponse,
 ];
@@ -4334,9 +3639,7 @@ export var UpdateWirelessDevice: StaticOperationSchema = [
   9,
   n0,
   _UWD,
-  {
-    [_h]: ["PATCH", "/wireless-devices/{Id}", 204],
-  },
+  { [_h]: ["PATCH", "/wireless-devices/{Id}", 204] },
   () => UpdateWirelessDeviceRequest,
   () => UpdateWirelessDeviceResponse,
 ];
@@ -4344,9 +3647,7 @@ export var UpdateWirelessDeviceImportTask: StaticOperationSchema = [
   9,
   n0,
   _UWDIT,
-  {
-    [_h]: ["PATCH", "/wireless_device_import_task/{Id}", 204],
-  },
+  { [_h]: ["PATCH", "/wireless_device_import_task/{Id}", 204] },
   () => UpdateWirelessDeviceImportTaskRequest,
   () => UpdateWirelessDeviceImportTaskResponse,
 ];
@@ -4354,9 +3655,7 @@ export var UpdateWirelessGateway: StaticOperationSchema = [
   9,
   n0,
   _UWG,
-  {
-    [_h]: ["PATCH", "/wireless-gateways/{Id}", 204],
-  },
+  { [_h]: ["PATCH", "/wireless-gateways/{Id}", 204] },
   () => UpdateWirelessGatewayRequest,
   () => UpdateWirelessGatewayResponse,
 ];

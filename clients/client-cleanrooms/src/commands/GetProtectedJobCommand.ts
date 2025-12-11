@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProtectedJobInput, GetProtectedJobOutput } from "../models/models_0";
+import type { GetProtectedJobInput, GetProtectedJobOutput } from "../models/models_0";
 import { GetProtectedJob } from "../schemas/schemas_0";
 
 /**
@@ -49,7 +49,7 @@ export interface GetProtectedJobCommandOutput extends GetProtectedJobOutput, __M
  * //     membershipArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     jobParameters: { // ProtectedJobParameters
- * //       analysisTemplateArn: "STRING_VALUE",
+ * //       analysisTemplateArn: "STRING_VALUE", // required
  * //     },
  * //     status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS", // required
  * //     resultConfiguration: { // ProtectedJobResultConfigurationOutput

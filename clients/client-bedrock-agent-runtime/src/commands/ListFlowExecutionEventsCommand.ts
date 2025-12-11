@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import {
+import type {
   BedrockAgentRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFlowExecutionEventsRequest, ListFlowExecutionEventsResponse } from "../models/models_0";
+import type { ListFlowExecutionEventsRequest, ListFlowExecutionEventsResponse } from "../models/models_0";
 import { ListFlowExecutionEvents } from "../schemas/schemas_0";
 
 /**
@@ -497,9 +497,17 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * //                       retrievedReferences: [ // RetrievedReferences
  * //                         { // RetrievedReference
  * //                           content: { // RetrievalResultContent
- * //                             type: "TEXT" || "IMAGE" || "ROW",
+ * //                             type: "TEXT" || "IMAGE" || "ROW" || "AUDIO" || "VIDEO",
  * //                             text: "STRING_VALUE",
  * //                             byteContent: "STRING_VALUE",
+ * //                             video: { // VideoSegment
+ * //                               s3Uri: "STRING_VALUE", // required
+ * //                               summary: "STRING_VALUE",
+ * //                             },
+ * //                             audio: { // AudioSegment
+ * //                               s3Uri: "STRING_VALUE", // required
+ * //                               transcription: "STRING_VALUE",
+ * //                             },
  * //                             row: [ // RetrievalResultContentRow
  * //                               { // RetrievalResultContentColumn
  * //                                 columnName: "STRING_VALUE",
@@ -785,9 +793,17 @@ export interface ListFlowExecutionEventsCommandOutput extends ListFlowExecutionE
  * //                       retrievedReferences: [
  * //                         {
  * //                           content: {
- * //                             type: "TEXT" || "IMAGE" || "ROW",
+ * //                             type: "TEXT" || "IMAGE" || "ROW" || "AUDIO" || "VIDEO",
  * //                             text: "STRING_VALUE",
  * //                             byteContent: "STRING_VALUE",
+ * //                             video: {
+ * //                               s3Uri: "STRING_VALUE", // required
+ * //                               summary: "STRING_VALUE",
+ * //                             },
+ * //                             audio: {
+ * //                               s3Uri: "STRING_VALUE", // required
+ * //                               transcription: "STRING_VALUE",
+ * //                             },
  * //                             row: [
  * //                               {
  * //                                 columnName: "STRING_VALUE",

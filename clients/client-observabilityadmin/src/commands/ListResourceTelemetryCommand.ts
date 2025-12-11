@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListResourceTelemetryInput, ListResourceTelemetryOutput } from "../models/models_0";
-import {
+import type { ListResourceTelemetryInput, ListResourceTelemetryOutput } from "../models/models_0";
+import type {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -43,7 +43,7 @@ export interface ListResourceTelemetryCommandOutput extends ListResourceTelemetr
  * const input = { // ListResourceTelemetryInput
  *   ResourceIdentifierPrefix: "STRING_VALUE",
  *   ResourceTypes: [ // ResourceTypes
- *     "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function",
+ *     "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter",
  *   ],
  *   TelemetryConfigurationState: { // TelemetryConfigurationState
  *     "<keys>": "Enabled" || "Disabled" || "NotApplicable",
@@ -63,7 +63,7 @@ export interface ListResourceTelemetryCommandOutput extends ListResourceTelemetr
  * //       TelemetryConfigurationState: { // TelemetryConfigurationState
  * //         "<keys>": "Enabled" || "Disabled" || "NotApplicable",
  * //       },
- * //       ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function",
+ * //       ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter",
  * //       ResourceIdentifier: "STRING_VALUE",
  * //       ResourceTags: { // TagMapOutput
  * //         "<keys>": "STRING_VALUE",

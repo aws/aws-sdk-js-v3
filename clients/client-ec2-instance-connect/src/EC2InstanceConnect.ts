@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   SendSerialConsoleSSHPublicKeyCommand,
@@ -12,7 +12,7 @@ import {
   SendSSHPublicKeyCommandInput,
   SendSSHPublicKeyCommandOutput,
 } from "./commands/SendSSHPublicKeyCommand";
-import { EC2InstanceConnectClient, EC2InstanceConnectClientConfig } from "./EC2InstanceConnectClient";
+import { EC2InstanceConnectClient } from "./EC2InstanceConnectClient";
 
 const commands = {
   SendSerialConsoleSSHPublicKeyCommand,

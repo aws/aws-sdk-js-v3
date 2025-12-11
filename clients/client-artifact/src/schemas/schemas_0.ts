@@ -94,7 +94,7 @@ const n0 = "com.amazonaws.artifact";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ArtifactServiceException as __ArtifactServiceException } from "../models/ArtifactServiceException";
 import {
@@ -108,34 +108,11 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountSettings: StaticStructureSchema = [3, n0, _AS, 0, [_nSS], [0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CustomerAgreementSummary: StaticStructureSchema = [
   3,
   n0,
@@ -153,18 +130,8 @@ export var GetReportMetadataRequest: StaticStructureSchema = [
   0,
   [_rIe, _rV],
   [
-    [
-      0,
-      {
-        [_hQ]: _rIe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _rV,
-      },
-    ],
+    [0, { [_hQ]: _rIe }],
+    [1, { [_hQ]: _rV }],
   ],
 ];
 export var GetReportMetadataResponse: StaticStructureSchema = [3, n0, _GRMRe, 0, [_rD], [() => ReportDetail]];
@@ -175,24 +142,9 @@ export var GetReportRequest: StaticStructureSchema = [
   0,
   [_rIe, _rV, _tTe],
   [
-    [
-      0,
-      {
-        [_hQ]: _rIe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _rV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _tTe,
-      },
-    ],
+    [0, { [_hQ]: _rIe }],
+    [1, { [_hQ]: _rV }],
+    [0, { [_hQ]: _tTe }],
   ],
 ];
 export var GetReportResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_dPU], [0]];
@@ -203,18 +155,8 @@ export var GetTermForReportRequest: StaticStructureSchema = [
   0,
   [_rIe, _rV],
   [
-    [
-      0,
-      {
-        [_hQ]: _rIe,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _rV,
-      },
-    ],
+    [0, { [_hQ]: _rIe }],
+    [1, { [_hQ]: _rV }],
   ],
 ];
 export var GetTermForReportResponse: StaticStructureSchema = [3, n0, _GTFRRe, 0, [_dPU, _tTe], [0, 0]];
@@ -222,23 +164,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListCustomerAgreementsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -246,18 +176,8 @@ export var ListCustomerAgreementsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListCustomerAgreementsResponse: StaticStructureSchema = [
@@ -275,18 +195,8 @@ export var ListReportsRequest: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListReportsResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_r, _nT], [() => ReportsList, 0]];
@@ -312,72 +222,42 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var ArtifactServiceException: StaticErrorSchema = [-3, _sm, "ArtifactServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ArtifactServiceException, __ArtifactServiceException);
-
 export var AgreementTerms = 64 | 0;
-
 export var CustomerAgreementList: StaticListSchema = [1, n0, _CAL, 0, () => CustomerAgreementSummary];
 export var ReportsList: StaticListSchema = [1, n0, _RL, 0, () => ReportSummary];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
@@ -385,9 +265,7 @@ export var GetAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _GAS,
-  {
-    [_h]: ["GET", "/v1/account-settings/get", 200],
-  },
+  { [_h]: ["GET", "/v1/account-settings/get", 200] },
   () => GetAccountSettingsRequest,
   () => GetAccountSettingsResponse,
 ];
@@ -395,9 +273,7 @@ export var GetReport: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/v1/report/get", 200],
-  },
+  { [_h]: ["GET", "/v1/report/get", 200] },
   () => GetReportRequest,
   () => GetReportResponse,
 ];
@@ -405,9 +281,7 @@ export var GetReportMetadata: StaticOperationSchema = [
   9,
   n0,
   _GRM,
-  {
-    [_h]: ["GET", "/v1/report/getMetadata", 200],
-  },
+  { [_h]: ["GET", "/v1/report/getMetadata", 200] },
   () => GetReportMetadataRequest,
   () => GetReportMetadataResponse,
 ];
@@ -415,9 +289,7 @@ export var GetTermForReport: StaticOperationSchema = [
   9,
   n0,
   _GTFR,
-  {
-    [_h]: ["GET", "/v1/report/getTermForReport", 200],
-  },
+  { [_h]: ["GET", "/v1/report/getTermForReport", 200] },
   () => GetTermForReportRequest,
   () => GetTermForReportResponse,
 ];
@@ -425,9 +297,7 @@ export var ListCustomerAgreements: StaticOperationSchema = [
   9,
   n0,
   _LCA,
-  {
-    [_h]: ["GET", "/v1/customer-agreement/list", 200],
-  },
+  { [_h]: ["GET", "/v1/customer-agreement/list", 200] },
   () => ListCustomerAgreementsRequest,
   () => ListCustomerAgreementsResponse,
 ];
@@ -435,9 +305,7 @@ export var ListReports: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/v1/report/list", 200],
-  },
+  { [_h]: ["GET", "/v1/report/list", 200] },
   () => ListReportsRequest,
   () => ListReportsResponse,
 ];
@@ -445,9 +313,7 @@ export var PutAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _PAS,
-  {
-    [_h]: ["PUT", "/v1/account-settings/put", 200],
-  },
+  { [_h]: ["PUT", "/v1/account-settings/put", 200] },
   () => PutAccountSettingsRequest,
   () => PutAccountSettingsResponse,
 ];

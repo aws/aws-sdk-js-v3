@@ -102,7 +102,7 @@ const n0 = "com.amazonaws.controlcatalog";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ControlCatalogServiceException as __ControlCatalogServiceException } from "../models/ControlCatalogServiceException";
 import {
@@ -114,20 +114,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociatedDomainSummary: StaticStructureSchema = [3, n0, _ADS, 0, [_A, _N], [0, 0]];
 export var AssociatedObjectiveSummary: StaticStructureSchema = [3, n0, _AOS, 0, [_A, _N], [0, 0]];
 export var CommonControlFilter: StaticStructureSchema = [3, n0, _CCF, 0, [_O], [() => ObjectiveResourceFilterList]];
@@ -174,40 +162,15 @@ export var GetControlResponse: StaticStructureSchema = [
 export var ImplementationDetails: StaticStructureSchema = [3, n0, _ID, 0, [_T, _Id], [0, 0]];
 export var ImplementationFilter: StaticStructureSchema = [3, n0, _IF, 0, [_Ty, _Ide], [64 | 0, 64 | 0]];
 export var ImplementationSummary: StaticStructureSchema = [3, n0, _IS, 0, [_T, _Id], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListCommonControlsRequest: StaticStructureSchema = [
   3,
   n0,
   _LCCR,
   0,
   [_MR, _NT, _CCF],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    () => CommonControlFilter,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], () => CommonControlFilter],
 ];
 export var ListCommonControlsResponse: StaticStructureSchema = [
   3,
@@ -223,21 +186,7 @@ export var ListControlMappingsRequest: StaticStructureSchema = [
   _LCMR,
   0,
   [_NT, _MR, _F],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    () => ControlMappingFilter,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => ControlMappingFilter],
 ];
 export var ListControlMappingsResponse: StaticStructureSchema = [
   3,
@@ -253,21 +202,7 @@ export var ListControlsRequest: StaticStructureSchema = [
   _LCR,
   0,
   [_NT, _MR, _F],
-  [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    () => ControlFilter,
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => ControlFilter],
 ];
 export var ListControlsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_C, _NT], [() => Controls, 0]];
 export var ListDomainsRequest: StaticStructureSchema = [
@@ -277,18 +212,8 @@ export var ListDomainsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListDomainsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dom, _NT], [() => DomainSummaryList, 0]];
@@ -298,21 +223,7 @@ export var ListObjectivesRequest: StaticStructureSchema = [
   _LOR,
   0,
   [_MR, _NT, _OF],
-  [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    () => ObjectiveFilter,
-  ],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], () => ObjectiveFilter],
 ];
 export var ListObjectivesResponse: StaticStructureSchema = [
   3,
@@ -334,72 +245,28 @@ export var ObjectiveSummary: StaticStructureSchema = [
 ];
 export var RegionConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_Sc, _DR], [0, 64 | 0]];
 export var RelatedControlMappingDetails: StaticStructureSchema = [3, n0, _RCMD, 0, [_CA, _RT], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var ControlCatalogServiceException: StaticErrorSchema = [-3, _sm, "ControlCatalogServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ControlCatalogServiceException, __ControlCatalogServiceException);
-
 export var CommonControlArnFilterList = 64 | 0;
-
 export var CommonControlSummaryList: StaticListSchema = [1, n0, _CCSL, 0, () => CommonControlSummary];
 export var ControlAliases = 64 | 0;
-
 export var ControlArnFilterList = 64 | 0;
-
 export var ControlMappings: StaticListSchema = [1, n0, _CMo, 0, () => ControlMapping];
 export var ControlParameters: StaticListSchema = [1, n0, _CPo, 0, () => ControlParameter];
 export var Controls: StaticListSchema = [1, n0, _C, 0, () => ControlSummary];
 export var DeployableRegions = 64 | 0;
-
 export var DomainResourceFilterList: StaticListSchema = [1, n0, _DRFL, 0, () => DomainResourceFilter];
 export var DomainSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DomainSummary];
 export var GovernedResources = 64 | 0;
-
 export var ImplementationIdentifierFilterList = 64 | 0;
-
 export var ImplementationTypeFilterList = 64 | 0;
-
 export var MappingTypeFilterList = 64 | 0;
-
 export var ObjectiveResourceFilterList: StaticListSchema = [1, n0, _ORFL, 0, () => ObjectiveResourceFilter];
 export var ObjectiveSummaryList: StaticListSchema = [1, n0, _OSL, 0, () => ObjectiveSummary];
 export var Mapping: StaticStructureSchema = [
@@ -414,9 +281,7 @@ export var GetControl: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["POST", "/get-control", 200],
-  },
+  { [_h]: ["POST", "/get-control", 200] },
   () => GetControlRequest,
   () => GetControlResponse,
 ];
@@ -424,9 +289,7 @@ export var ListCommonControls: StaticOperationSchema = [
   9,
   n0,
   _LCC,
-  {
-    [_h]: ["POST", "/common-controls", 200],
-  },
+  { [_h]: ["POST", "/common-controls", 200] },
   () => ListCommonControlsRequest,
   () => ListCommonControlsResponse,
 ];
@@ -434,9 +297,7 @@ export var ListControlMappings: StaticOperationSchema = [
   9,
   n0,
   _LCM,
-  {
-    [_h]: ["POST", "/list-control-mappings", 200],
-  },
+  { [_h]: ["POST", "/list-control-mappings", 200] },
   () => ListControlMappingsRequest,
   () => ListControlMappingsResponse,
 ];
@@ -444,9 +305,7 @@ export var ListControls: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["POST", "/list-controls", 200],
-  },
+  { [_h]: ["POST", "/list-controls", 200] },
   () => ListControlsRequest,
   () => ListControlsResponse,
 ];
@@ -454,9 +313,7 @@ export var ListDomains: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  {
-    [_h]: ["POST", "/domains", 200],
-  },
+  { [_h]: ["POST", "/domains", 200] },
   () => ListDomainsRequest,
   () => ListDomainsResponse,
 ];
@@ -464,9 +321,7 @@ export var ListObjectives: StaticOperationSchema = [
   9,
   n0,
   _LO,
-  {
-    [_h]: ["POST", "/objectives", 200],
-  },
+  { [_h]: ["POST", "/objectives", 200] },
   () => ListObjectivesRequest,
   () => ListObjectivesResponse,
 ];

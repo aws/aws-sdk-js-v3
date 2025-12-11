@@ -1067,7 +1067,7 @@ export interface CreateApiRequest {
    *          connecting, publishing, and subscribing to an Event API.</p>
    * @public
    */
-  eventConfig?: EventConfig | undefined;
+  eventConfig: EventConfig | undefined;
 }
 
 /**
@@ -4995,7 +4995,7 @@ export interface UpdateApiRequest {
    *          connecting, publishing, and subscribing to an Event API.</p>
    * @public
    */
-  eventConfig?: EventConfig | undefined;
+  eventConfig: EventConfig | undefined;
 }
 
 /**

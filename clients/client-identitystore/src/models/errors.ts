@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   AccessDeniedExceptionReason,
@@ -226,7 +226,7 @@ export class ConflictException extends __BaseException {
   RequestId?: string | undefined;
 
   /**
-   * <p>This request cannot be completed for one of the following reasons:</p> <ul> <li> <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p> </li> <li> <p>The requested resource was being concurrently modified by another request.</p> </li> </ul>
+   * <p>Indicates the reason for a conflict error when the service is unable to access a Customer Managed KMS key. For non-KMS permission errors, this field is not included.</p>
    * @public
    */
   Reason?: ConflictExceptionReason | undefined;

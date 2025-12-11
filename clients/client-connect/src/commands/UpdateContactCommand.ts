@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactResponse } from "../models/models_2";
-import { UpdateContactRequest } from "../models/models_3";
+import type { UpdateContactRequest, UpdateContactResponse } from "../models/models_3";
 import { UpdateContact } from "../schemas/schemas_0";
 
 /**
@@ -29,11 +28,10 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Adds or updates user-defined contact information associated with the specified contact. At
- *    least one field to be updated must be present in the request.</p>
+ *          <p>Adds or updates user-defined contact information associated with the specified contact. At least one field to be
+ *    updated must be present in the request.</p>
  *          <important>
- *             <p>You can add or update user-defined contact information for both ongoing and completed
- *     contacts.</p>
+ *             <p>You can add or update user-defined contact information for both ongoing and completed contacts.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,7 +49,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
  *       Value: "STRING_VALUE",
- *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  *       Arn: "STRING_VALUE",
  *       StatusReason: "STRING_VALUE",
@@ -111,8 +109,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

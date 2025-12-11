@@ -1,4 +1,5 @@
 import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";
+import type { JsonCodec } from "./JsonCodec";
 
 /**
  * @public
@@ -9,15 +10,18 @@ export class AwsJson1_1Protocol extends AwsJsonRpcProtocol {
     defaultNamespace,
     serviceTarget,
     awsQueryCompatible,
+    jsonCodec,
   }: {
     defaultNamespace: string;
     serviceTarget: string;
     awsQueryCompatible?: boolean;
+    jsonCodec?: JsonCodec;
   }) {
     super({
       defaultNamespace,
       serviceTarget,
       awsQueryCompatible,
+      jsonCodec,
     });
   }
 

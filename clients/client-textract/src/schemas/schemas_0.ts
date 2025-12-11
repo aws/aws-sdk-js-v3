@@ -292,7 +292,7 @@ const n0 = "com.amazonaws.textract";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -324,28 +324,15 @@ import {
 import { TextractServiceException as __TextractServiceException } from "../models/TextractServiceException";
 
 /* eslint no-var: 0 */
-
 export var SynthesizedJsonHumanLoopActivationConditionsEvaluationResults: StaticSimpleSchema = [
   0,
   n0,
   _SJHLACER,
-  {
-    [_mT]: _a,
-  },
+  { [_mT]: _a },
   0,
 ];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Adapter: StaticStructureSchema = [3, n0, _A, 0, [_AI, _P, _V], [0, 64 | 0, 0]];
 export var AdapterOverview: StaticStructureSchema = [3, n0, _AO, 0, [_AI, _AN, _CT, _FT], [0, 0, 4, 64 | 0]];
 export var AdaptersConfig: StaticStructureSchema = [3, n0, _AC, 0, [_Ad], [() => Adapters]];
@@ -408,18 +395,8 @@ export var AnalyzeIDResponse: StaticStructureSchema = [
   [_ID, _DM, _AIDMV],
   [() => IdentityDocumentList, () => DocumentMetadata, 0],
 ];
-export var BadDocumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _BDE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var BadDocumentException: StaticErrorSchema = [-3, n0, _BDE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(BadDocumentException, __BadDocumentException);
-
 export var Block: StaticStructureSchema = [
   3,
   n0,
@@ -429,18 +406,8 @@ export var Block: StaticStructureSchema = [
   [0, 1, 0, 0, 1, 1, 1, 1, () => Geometry, 0, () => RelationshipList, 64 | 0, 0, 1, () => Query],
 ];
 export var BoundingBox: StaticStructureSchema = [3, n0, _BB, 0, [_W, _H, _L, _To], [1, 1, 1, 1]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAdapterRequest: StaticStructureSchema = [
   3,
   n0,
@@ -484,18 +451,8 @@ export var DocumentGroup: StaticStructureSchema = [
 ];
 export var DocumentLocation: StaticStructureSchema = [3, n0, _DL, 0, [_SO], [() => S3Object]];
 export var DocumentMetadata: StaticStructureSchema = [3, n0, _DM, 0, [_P], [1]];
-export var DocumentTooLargeException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DTLE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var DocumentTooLargeException: StaticErrorSchema = [-3, n0, _DTLE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(DocumentTooLargeException, __DocumentTooLargeException);
-
 export var EvaluationMetric: StaticStructureSchema = [3, n0, _EM, 0, [_FS, _Pr, _Re], [1, 1, 1]];
 export var ExpenseCurrency: StaticStructureSchema = [3, n0, _EC, 0, [_C, _Co], [0, 1]];
 export var ExpenseDetection: StaticStructureSchema = [3, n0, _EDx, 0, [_T, _G, _Co], [0, () => Geometry, 1]];
@@ -629,27 +586,13 @@ export var HumanLoopQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _HLQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_RT, _QCu, _SC, _M, _C],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(HumanLoopQuotaExceededException, __HumanLoopQuotaExceededException);
-
-export var IdempotentParameterMismatchException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPME,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var IdempotentParameterMismatchException: StaticErrorSchema = [-3, n0, _IPME, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException, __IdempotentParameterMismatchException);
-
 export var IdentityDocument: StaticStructureSchema = [
   3,
   n0,
@@ -666,66 +609,16 @@ export var IdentityDocumentField: StaticStructureSchema = [
   [_Ty, _VD],
   [() => AnalyzeIDDetections, () => AnalyzeIDDetections],
 ];
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var InvalidJobIdException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IJIE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var InvalidJobIdException: StaticErrorSchema = [-3, n0, _IJIE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidJobIdException, __InvalidJobIdException);
-
-export var InvalidKMSKeyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IKMSKE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var InvalidKMSKeyException: StaticErrorSchema = [-3, n0, _IKMSKE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidKMSKeyException, __InvalidKMSKeyException);
-
-export var InvalidParameterException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IPE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-
-export var InvalidS3ObjectException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISOE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var InvalidS3ObjectException: StaticErrorSchema = [-3, n0, _ISOE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidS3ObjectException, __InvalidS3ObjectException);
-
 export var LendingDetection: StaticStructureSchema = [3, n0, _LDen, 0, [_T, _SS, _G, _Co], [0, 0, () => Geometry, 1]];
 export var LendingDocument: StaticStructureSchema = [
   3,
@@ -752,18 +645,8 @@ export var LendingResult: StaticStructureSchema = [
   [1, () => PageClassification, () => ExtractionList],
 ];
 export var LendingSummary: StaticStructureSchema = [3, n0, _LS, 0, [_DGo, _UDT], [() => DocumentGroupList, 64 | 0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var LineItemFields: StaticStructureSchema = [3, n0, _LIF, 0, [_LIEF], [() => ExpenseFieldList]];
 export var LineItemGroup: StaticStructureSchema = [3, n0, _LIGi, 0, [_LIGI, _LI], [1, () => LineItemList]];
 export var ListAdaptersRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_ACT, _BCT, _MR, _NT], [4, 4, 1, 0]];
@@ -799,46 +682,16 @@ export var PageClassification: StaticStructureSchema = [
 ];
 export var Point: StaticStructureSchema = [3, n0, _Poi, 0, [_X, _Y], [1, 1]];
 export var Prediction: StaticStructureSchema = [3, n0, _Pre, 0, [_Va, _Co], [0, 1]];
-export var ProvisionedThroughputExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ProvisionedThroughputExceededException: StaticErrorSchema = [-3, n0, _PTEE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException, __ProvisionedThroughputExceededException);
-
 export var QueriesConfig: StaticStructureSchema = [3, n0, _QC, 0, [_Qu], [() => Queries]];
 export var Query: StaticStructureSchema = [3, n0, _Q, 0, [_T, _Al, _P], [0, 0, 64 | 0]];
 export var Relationship: StaticStructureSchema = [3, n0, _Rel, 0, [_Ty, _Id], [0, 64 | 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3Object: StaticStructureSchema = [3, n0, _SO, 0, [_Bu, _N, _V], [0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SignatureDetection: StaticStructureSchema = [3, n0, _SDig, 0, [_Co, _G], [1, () => Geometry]];
 export var SplitDocument: StaticStructureSchema = [3, n0, _SDp, 0, [_In, _P], [1, 64 | 1]];
 export var StartDocumentAnalysisRequest: StaticStructureSchema = [
@@ -889,31 +742,11 @@ export var StartLendingAnalysisRequest: StaticStructureSchema = [
 export var StartLendingAnalysisResponse: StaticStructureSchema = [3, n0, _SLARt, 0, [_JI], [0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _s,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _s }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UndetectedSignature: StaticStructureSchema = [3, n0, _USn, 0, [_Pa], [1]];
-export var UnsupportedDocumentException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UDE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var UnsupportedDocumentException: StaticErrorSchema = [-3, n0, _UDE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(UnsupportedDocumentException, __UnsupportedDocumentException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAdapterRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_AI, _De, _AN, _AU], [0, 0, 0, 0]];
@@ -925,77 +758,51 @@ export var UpdateAdapterResponse: StaticStructureSchema = [
   [_AI, _AN, _CT, _De, _FT, _AU],
   [0, 0, 4, 0, 64 | 0, 0],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-  },
-  [_M, _C],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_M, _C], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var Warning: StaticStructureSchema = [3, n0, _War, 0, [_ECr, _P], [0, 64 | 1]];
-export var __Unit = "unit" as const;
-
 export var TextractServiceException: StaticErrorSchema = [-3, _sm, "TextractServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(TextractServiceException, __TextractServiceException);
-
 export var AdapterList: StaticListSchema = [1, n0, _AL, 0, () => AdapterOverview];
 export var AdapterPages = 64 | 0;
-
 export var Adapters: StaticListSchema = [1, n0, _Ad, 0, () => Adapter];
 export var AdapterVersionEvaluationMetrics: StaticListSchema = [1, n0, _AVEMd, 0, () => AdapterVersionEvaluationMetric];
 export var AdapterVersionList: StaticListSchema = [1, n0, _AVL, 0, () => AdapterVersionOverview];
 export var BlockList: StaticListSchema = [1, n0, _BL, 0, () => Block];
 export var ContentClassifiers = 64 | 0;
-
 export var DetectedSignatureList: StaticListSchema = [1, n0, _DSL, 0, () => DetectedSignature];
 export var DocumentGroupList: StaticListSchema = [1, n0, _DGL, 0, () => DocumentGroup];
 export var DocumentPages: StaticListSchema = [1, n0, _DP, 0, () => Document];
 export var EntityTypes = 64 | 0;
-
 export var ExpenseDocumentList: StaticListSchema = [1, n0, _EDL, 0, () => ExpenseDocument];
 export var ExpenseFieldList: StaticListSchema = [1, n0, _EFL, 0, () => ExpenseField];
 export var ExpenseGroupPropertyList: StaticListSchema = [1, n0, _EGPL, 0, () => ExpenseGroupProperty];
 export var ExtractionList: StaticListSchema = [1, n0, _EL, 0, () => Extraction];
 export var FeatureTypes = 64 | 0;
-
 export var HumanLoopActivationReasons = 64 | 0;
-
 export var IdentityDocumentFieldList: StaticListSchema = [1, n0, _IDFL, 0, () => IdentityDocumentField];
 export var IdentityDocumentList: StaticListSchema = [1, n0, _IDL, 0, () => IdentityDocument];
 export var IdList = 64 | 0;
-
 export var LendingDetectionList: StaticListSchema = [1, n0, _LDL, 0, () => LendingDetection];
 export var LendingFieldList: StaticListSchema = [1, n0, _LFL, 0, () => LendingField];
 export var LendingResultList: StaticListSchema = [1, n0, _LRL, 0, () => LendingResult];
 export var LineItemGroupList: StaticListSchema = [1, n0, _LIGL, 0, () => LineItemGroup];
 export var LineItemList: StaticListSchema = [1, n0, _LIL, 0, () => LineItemFields];
 export var PageList = 64 | 1;
-
 export var Pages = 64 | 1;
-
 export var Polygon: StaticListSchema = [1, n0, _Po, 0, () => Point];
 export var PredictionList: StaticListSchema = [1, n0, _PL, 0, () => Prediction];
 export var Queries: StaticListSchema = [1, n0, _Qu, 0, () => Query];
 export var QueryPages = 64 | 0;
-
 export var RelationshipList: StaticListSchema = [1, n0, _RL, 0, () => Relationship];
 export var SignatureDetectionList: StaticListSchema = [1, n0, _SDL, 0, () => SignatureDetection];
 export var SplitDocumentList: StaticListSchema = [1, n0, _SDLp, 0, () => SplitDocument];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var UndetectedDocumentTypeList = 64 | 0;
-
 export var UndetectedSignatureList: StaticListSchema = [1, n0, _USL, 0, () => UndetectedSignature];
 export var Warnings: StaticListSchema = [1, n0, _Wa, 0, () => Warning];
 export var TagMap = 128 | 0;
-
 export var AnalyzeDocument: StaticOperationSchema = [
   9,
   n0,

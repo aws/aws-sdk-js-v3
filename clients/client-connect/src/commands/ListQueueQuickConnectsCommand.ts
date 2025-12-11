@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_1";
+import type { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_2";
 import { ListQueueQuickConnects } from "../schemas/schemas_0";
 
 /**
@@ -51,7 +51,7 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
+ * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER" || "FLOW",
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",
  * //     },

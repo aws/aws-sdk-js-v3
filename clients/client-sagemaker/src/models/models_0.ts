@@ -74,6 +74,7 @@ import {
   ModelApprovalStatus,
   ModelCacheSetting,
   ModelCompressionType,
+  ModelPackageRegistrationType,
   ModelPackageStatus,
   NodeUnavailabilityType,
   ObjectiveStatus,
@@ -296,6 +297,30 @@ export interface AdditionalS3DataSource {
 }
 
 /**
+ * <p>Identifies the foundation model that was used as the starting point for model customization.</p>
+ * @public
+ */
+export interface BaseModel {
+  /**
+   * <p> The hub content name of the base model. </p>
+   * @public
+   */
+  HubContentName?: string | undefined;
+
+  /**
+   * <p> The hub content version of the base model. </p>
+   * @public
+   */
+  HubContentVersion?: string | undefined;
+
+  /**
+   * <p> The recipe name of the base model. </p>
+   * @public
+   */
+  RecipeName?: string | undefined;
+}
+
+/**
  * <p>Configuration information specifying which hub contents have accessible deployment options.</p>
  * @public
  */
@@ -479,6 +504,18 @@ export interface ModelPackageContainerDefinition {
    * @public
    */
   ModelDataETag?: string | undefined;
+
+  /**
+   * <p> The checkpoint of the model package. </p>
+   * @public
+   */
+  IsCheckpoint?: boolean | undefined;
+
+  /**
+   * <p> The base model of the package. </p>
+   * @public
+   */
+  BaseModel?: BaseModel | undefined;
 }
 
 /**
@@ -816,6 +853,18 @@ export interface AlgorithmSummary {
 }
 
 /**
+ * <p> Specifies a dataset source for a channel. </p>
+ * @public
+ */
+export interface DatasetSource {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset resource. </p>
+   * @public
+   */
+  DatasetArn: string | undefined;
+}
+
+/**
  * <p>Specifies a file system data source for a channel.</p>
  * @public
  */
@@ -921,6 +970,12 @@ export interface DataSource {
    * @public
    */
   FileSystemDataSource?: FileSystemDataSource | undefined;
+
+  /**
+   * <p> The dataset resource that's associated with a channel. </p>
+   * @public
+   */
+  DatasetSource?: DatasetSource | undefined;
 }
 
 /**
@@ -1085,7 +1140,7 @@ export interface ResourceConfig {
   InstanceCount?: number | undefined;
 
   /**
-   * <p>The size of the ML storage volume that you want to provision. </p> <p>ML storage volumes store model artifacts and incremental states. Training algorithms might also use the ML storage volume for scratch space. If you want to store the training data in the ML storage volume, choose <code>File</code> as the <code>TrainingInputMode</code> in the algorithm specification. </p> <p>When using an ML instance with <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes">NVMe SSD volumes</a>, SageMaker doesn't provision Amazon EBS General Purpose SSD (gp2) storage. Available storage is fixed to the NVMe-type instance's storage capacity. SageMaker configures storage paths for training datasets, checkpoints, model artifacts, and outputs to use the entire capacity of the instance storage. For example, ML instance families with the NVMe-type instance storage include <code>ml.p4d</code>, <code>ml.g4dn</code>, and <code>ml.g5</code>. </p> <p>When using an ML instance with the EBS-only storage option and without instance storage, you must define the size of EBS volume through <code>VolumeSizeInGB</code> in the <code>ResourceConfig</code> API. For example, ML instance families that use EBS volumes include <code>ml.c5</code> and <code>ml.p2</code>. </p> <p>To look up instance types and their instance storage types and volumes, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>.</p> <p>To find the default local paths defined by the SageMaker training platform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html">Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs</a>.</p>
+   * <p>The size of the ML storage volume that you want to provision. </p> <p>SageMaker automatically selects the volume size for serverless training jobs. You cannot customize this setting.</p> <p>ML storage volumes store model artifacts and incremental states. Training algorithms might also use the ML storage volume for scratch space. If you want to store the training data in the ML storage volume, choose <code>File</code> as the <code>TrainingInputMode</code> in the algorithm specification. </p> <p>When using an ML instance with <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes">NVMe SSD volumes</a>, SageMaker doesn't provision Amazon EBS General Purpose SSD (gp2) storage. Available storage is fixed to the NVMe-type instance's storage capacity. SageMaker configures storage paths for training datasets, checkpoints, model artifacts, and outputs to use the entire capacity of the instance storage. For example, ML instance families with the NVMe-type instance storage include <code>ml.p4d</code>, <code>ml.g4dn</code>, and <code>ml.g5</code>. </p> <p>When using an ML instance with the EBS-only storage option and without instance storage, you must define the size of EBS volume through <code>VolumeSizeInGB</code> in the <code>ResourceConfig</code> API. For example, ML instance families that use EBS volumes include <code>ml.c5</code> and <code>ml.p2</code>. </p> <p>To look up instance types and their instance storage types and volumes, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>.</p> <p>To find the default local paths defined by the SageMaker training platform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html">Amazon SageMaker Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and Outputs</a>.</p>
    * @public
    */
   VolumeSizeInGB?: number | undefined;
@@ -1861,6 +1916,24 @@ export interface AssociateTrialComponentResponse {
    * @public
    */
   TrialArn?: string | undefined;
+}
+
+/**
+ * <p> The data type used to describe the relationship between different sources. </p>
+ * @public
+ */
+export interface AssociationInfo {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the <code>AssociationInfo</code> source. </p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the <code>AssociationInfo</code> destination. </p>
+   * @public
+   */
+  DestinationArn: string | undefined;
 }
 
 /**
@@ -3682,6 +3755,12 @@ export interface BatchDescribeModelPackageSummary {
    * @public
    */
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
+
+  /**
+   * <p> The package registration type of the model package summary. </p>
+   * @public
+   */
+  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
 }
 
 /**
@@ -4031,6 +4110,54 @@ export interface BatchTransformInput {
    * @public
    */
   ExcludeFeaturesAttribute?: string | undefined;
+}
+
+/**
+ * <p> The metadata of the Amazon Bedrock custom model deployment. </p>
+ * @public
+ */
+export interface BedrockCustomModelDeploymentMetadata {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the metadata for the Amazon Bedrock custom model deployment. </p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p> The metadata of the Amazon Bedrock custom model. </p>
+ * @public
+ */
+export interface BedrockCustomModelMetadata {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock custom model metadata. </p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p> The metadata of the Amazon Bedrock model import. </p>
+ * @public
+ */
+export interface BedrockModelImportMetadata {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock model import metadata. </p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p> The metadata of the Amazon Bedrock provisioned model throughput. </p>
+ * @public
+ */
+export interface BedrockProvisionedModelThroughputMetadata {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Amazon Bedrock provisioned model throughput metadata. </p>
+   * @public
+   */
+  Arn?: string | undefined;
 }
 
 /**
@@ -5725,13 +5852,13 @@ export interface ClusterInstanceGroupDetails {
   CapacityRequirements?: ClusterCapacityRequirements | undefined;
 
   /**
-   * <p>The number of nodes running a specific image ID since the last software update request.</p>
+   * <p>Represents the number of running nodes using the desired Image ID.</p> <ol> <li> <p> <b>During software update operations:</b> This count shows the number of nodes running on the desired Image ID. If a rollback occurs, the current image ID and desired image ID (both included in the describe cluster response) swap values. The TargetStateCount then shows the number of nodes running on the newly designated desired image ID (which was previously the current image ID).</p> </li> <li> <p> <b>During simultaneous scaling and software update operations:</b> This count shows the number of instances running on the desired image ID, including any new instances created as part of the scaling request. New nodes are always created using the desired image ID, so TargetStateCount reflects the total count of nodes running on the desired image ID, even during rollback scenarios.</p> </li> </ol>
    * @public
    */
   TargetStateCount?: number | undefined;
 
   /**
-   * <p>Status of the last software udpate request.</p>
+   * <p>Status of the last software udpate request.</p> <p>Status transitions follow these possible sequences:</p> <ul> <li> <p>Pending -&gt; InProgress -&gt; Succeeded</p> </li> <li> <p>Pending -&gt; InProgress -&gt; RollbackInProgress -&gt; RollbackComplete</p> </li> <li> <p>Pending -&gt; InProgress -&gt; RollbackInProgress -&gt; Failed</p> </li> </ul>
    * @public
    */
   SoftwareUpdateStatus?: SoftwareUpdateStatus | undefined;
@@ -8281,163 +8408,4 @@ export interface CreateComputeQuotaRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateComputeQuotaResponse {
-  /**
-   * <p>ARN of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaArn: string | undefined;
-
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateContextRequest {
-  /**
-   * <p>The name of the context. Must be unique to your account in an Amazon Web Services Region.</p>
-   * @public
-   */
-  ContextName: string | undefined;
-
-  /**
-   * <p>The source type, ID, and URI.</p>
-   * @public
-   */
-  Source: ContextSource | undefined;
-
-  /**
-   * <p>The context type.</p>
-   * @public
-   */
-  ContextType: string | undefined;
-
-  /**
-   * <p>The description of the context.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of properties to add to the context.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>A list of tags to apply to the context.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   * @public
-   */
-  ContextArn?: string | undefined;
-}
-
-/**
- * <p>Information about the container that a data quality monitoring job runs.</p>
- * @public
- */
-export interface DataQualityAppSpecification {
-  /**
-   * <p>The container image that the data quality monitoring job runs.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>The entrypoint for a container used to run a monitoring job.</p>
-   * @public
-   */
-  ContainerEntrypoint?: string[] | undefined;
-
-  /**
-   * <p>The arguments to send to the container that the monitoring job runs.</p>
-   * @public
-   */
-  ContainerArguments?: string[] | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  RecordPreprocessorSourceUri?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  PostAnalyticsProcessorSourceUri?: string | undefined;
-
-  /**
-   * <p>Sets the environment variables in the container that the monitoring job runs.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The constraints resource for a monitoring job.</p>
- * @public
- */
-export interface MonitoringConstraintsResource {
-  /**
-   * <p>The Amazon S3 URI for the constraints resource.</p>
-   * @public
-   */
-  S3Uri?: string | undefined;
-}
-
-/**
- * <p>The statistics resource for a monitoring job.</p>
- * @public
- */
-export interface MonitoringStatisticsResource {
-  /**
-   * <p>The Amazon S3 URI for the statistics resource.</p>
-   * @public
-   */
-  S3Uri?: string | undefined;
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
- * @public
- */
-export interface DataQualityBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the data quality monitoring job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The constraints resource for a monitoring job.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-
-  /**
-   * <p>The statistics resource for a monitoring job.</p>
-   * @public
-   */
-  StatisticsResource?: MonitoringStatisticsResource | undefined;
 }

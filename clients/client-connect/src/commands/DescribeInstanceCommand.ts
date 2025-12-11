@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeInstanceRequest, DescribeInstanceResponse } from "../models/models_1";
+import type { DescribeInstanceRequest, DescribeInstanceResponse } from "../models/models_1";
 import { DescribeInstance } from "../schemas/schemas_0";
 
 /**
@@ -28,11 +28,10 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns the current state of the specified instance identifier. It tracks the instance while
- *    it is being created and returns an error status, if applicable. </p>
- *          <p>If an instance is not created successfully, the instance status reason field returns details
- *    relevant to the reason. The instance in a failed state is returned only for 24 hours after the
- *    CreateInstance API was invoked.</p>
+ *          <p>Returns the current state of the specified instance identifier. It tracks the instance while it is being created
+ *    and returns an error status, if applicable. </p>
+ *          <p>If an instance is not created successfully, the instance status reason field returns details relevant to the
+ *    reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

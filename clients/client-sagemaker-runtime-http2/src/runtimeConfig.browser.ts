@@ -8,12 +8,13 @@ import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smit
 import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
 import { invalidFunction, invalidProvider } from "@smithy/invalid-dependency";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { SageMakerRuntimeHTTP2ClientConfig } from "./SageMakerRuntimeHTTP2Client";
-import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
+
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import type { SageMakerRuntimeHTTP2ClientConfig } from "./SageMakerRuntimeHTTP2Client";
 
 /**
  * @internal
@@ -35,7 +36,9 @@ export const getRuntimeConfig = (config: SageMakerRuntimeHTTP2ClientConfig) => {
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     eventStreamPayloadHandlerProvider:
       config?.eventStreamPayloadHandlerProvider ??
-      (() => ({ handle: invalidFunction("event stream request is not supported in browser.") })),
+      (() => ({
+        handle: invalidFunction("event stream request is not supported in browser."),
+      })),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),

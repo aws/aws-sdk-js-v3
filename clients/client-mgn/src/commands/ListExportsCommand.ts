@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { ListExportsRequest, ListExportsResponse } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { ListExportsRequest, ListExportsResponse } from "../models/models_0";
 import { ListExports } from "../schemas/schemas_0";
 
 /**
@@ -51,6 +51,7 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * //   items: [ // ExportsList
  * //     { // ExportTask
  * //       exportID: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
  * //       s3Bucket: "STRING_VALUE",
  * //       s3Key: "STRING_VALUE",
  * //       s3BucketOwner: "STRING_VALUE",
@@ -62,6 +63,9 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * //         serversCount: Number("long"),
  * //         applicationsCount: Number("long"),
  * //         wavesCount: Number("long"),
+ * //       },
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse } from "../models/models_0";
+import type { GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse } from "../models/models_0";
 import { GetSavingsPlansCoverage } from "../schemas/schemas_0";
 
 /**
@@ -29,7 +29,7 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
 /**
  * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
  *       your cost is covered by a Savings Plan. An organization’s management account can see the
- *       coverage of the associated member accounts. This supports dimensions, Cost Categories, and
+ *       coverage of the associated member accounts. This supports dimensions, cost categories, and
  *       nested expressions. For any time period, you can filter data for Savings Plans usage with the
  *       following dimensions:</p>
  *          <ul>

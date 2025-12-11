@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
-import { AppIntegrationsClientConfig } from "./AppIntegrationsClient";
+import type { AppIntegrationsClientConfig } from "./AppIntegrationsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**

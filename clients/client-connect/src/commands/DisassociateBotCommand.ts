@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateBotRequest } from "../models/models_1";
+import type { DisassociateBotRequest } from "../models/models_1";
 import { DisassociateBot } from "../schemas/schemas_0";
 
 /**
@@ -28,8 +28,7 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
- *    bot. </p>
+ *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

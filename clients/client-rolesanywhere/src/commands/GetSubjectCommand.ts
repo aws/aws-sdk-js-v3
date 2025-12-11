@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ScalarSubjectRequest, SubjectDetailResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ScalarSubjectRequest, SubjectDetailResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { GetSubject } from "../schemas/schemas_0";
 
 /**
@@ -27,14 +27,7 @@ export interface GetSubjectCommandInput extends ScalarSubjectRequest {}
 export interface GetSubjectCommandOutput extends SubjectDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a <i>subject</i>, which associates a certificate identity with
- *          authentication attempts. The subject stores auditing information such as the status
- *          of the last authentication attempt, the certificate data used in the attempt, and the
- *          last time the associated identity attempted authentication. </p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:GetSubject</code>.
- *          </p>
+ * <p>Gets a <i>subject</i>, which associates a certificate identity with authentication attempts. The subject stores auditing information such as the status of the last authentication attempt, the certificate data used in the attempt, and the last time the associated identity attempted authentication. </p> <p> <b>Required permissions: </b> <code>rolesanywhere:GetSubject</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

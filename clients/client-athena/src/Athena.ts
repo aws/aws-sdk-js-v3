@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AthenaClient, AthenaClientConfig } from "./AthenaClient";
+import { AthenaClient } from "./AthenaClient";
 import {
   BatchGetNamedQueryCommand,
   BatchGetNamedQueryCommandInput,

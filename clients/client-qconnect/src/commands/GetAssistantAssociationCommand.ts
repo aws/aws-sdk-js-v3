@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAssistantAssociationRequest, GetAssistantAssociationResponse } from "../models/models_0";
-import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import type { GetAssistantAssociationRequest, GetAssistantAssociationResponse } from "../models/models_0";
+import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { GetAssistantAssociation } from "../schemas/schemas_0";
 
 /**
@@ -53,6 +53,10 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * //       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
  * //         knowledgeBaseId: "STRING_VALUE",
  * //         knowledgeBaseArn: "STRING_VALUE",
+ * //       },
+ * //       externalBedrockKnowledgeBaseConfig: { // ExternalBedrockKnowledgeBaseConfig
+ * //         bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ * //         accessRoleArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     tags: { // Tags

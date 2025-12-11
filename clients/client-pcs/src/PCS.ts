@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateClusterCommand,
@@ -69,7 +69,7 @@ import {
   UpdateComputeNodeGroupCommandOutput,
 } from "./commands/UpdateComputeNodeGroupCommand";
 import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
-import { PCSClient, PCSClientConfig } from "./PCSClient";
+import { PCSClient } from "./PCSClient";
 
 const commands = {
   CreateClusterCommand,

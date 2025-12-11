@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAssociatedContactsRequest, ListAssociatedContactsResponse } from "../models/models_1";
+import type { ListAssociatedContactsRequest, ListAssociatedContactsResponse } from "../models/models_1";
 import { ListAssociatedContacts } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,7 @@ export interface ListAssociatedContactsCommandInput extends ListAssociatedContac
 export interface ListAssociatedContactsCommandOutput extends ListAssociatedContactsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about contact tree, a list of associated contacts with a unique
- *    identifier.</p>
+ * <p>Provides information about contact tree, a list of associated contacts with a unique identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

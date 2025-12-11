@@ -125,7 +125,7 @@ const n0 = "com.amazonaws.cloudhsm";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { CloudHSMServiceException as __CloudHSMServiceException } from "../models/CloudHSMServiceException";
 import {
@@ -135,92 +135,29 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AddTagsToResourceRequest: StaticStructureSchema = [3, n0, _ATTRR, 0, [_RA, _TL], [0, () => TagList]];
 export var AddTagsToResourceResponse: StaticStructureSchema = [3, n0, _ATTRRd, 0, [_S], [0]];
-export var CloudHsmInternalException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHIE,
-  {
-    [_e]: _s,
-  },
-  [_m, _r],
-  [0, 2],
-];
+export var CloudHsmInternalException: StaticErrorSchema = [-3, n0, _CHIE, { [_e]: _s }, [_m, _r], [0, 2]];
 TypeRegistry.for(n0).registerError(CloudHsmInternalException, __CloudHsmInternalException);
-
-export var CloudHsmServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHSE,
-  {
-    [_e]: _c,
-  },
-  [_m, _r],
-  [0, 2],
-];
+export var CloudHsmServiceException: StaticErrorSchema = [-3, n0, _CHSE, { [_e]: _c }, [_m, _r], [0, 2]];
 TypeRegistry.for(n0).registerError(CloudHsmServiceException, __CloudHsmServiceException);
-
 export var CreateHapgRequest: StaticStructureSchema = [3, n0, _CHR, 0, [_L], [0]];
 export var CreateHapgResponse: StaticStructureSchema = [3, n0, _CHRr, 0, [_HA], [0]];
 export var CreateHsmRequest: StaticStructureSchema = [
   3,
   n0,
   _CHRre,
-  {
-    [_xN]: _CHRre,
-  },
+  { [_xN]: _CHRre },
   [_SI, _SK, _EI, _IRA, _EIx, _ST, _CT, _SIy],
   [
-    [
-      0,
-      {
-        [_xN]: _SI,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _SK,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _EI,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _IRA,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _EIx,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _ST,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _CT,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _SIy,
-      },
-    ],
+    [0, { [_xN]: _SI }],
+    [0, { [_xN]: _SK }],
+    [0, { [_xN]: _EI }],
+    [0, { [_xN]: _IRA }],
+    [0, { [_xN]: _EIx }],
+    [0, { [_xN]: _ST }],
+    [0, { [_xN]: _CT }],
+    [0, { [_xN]: _SIy }],
   ],
 ];
 export var CreateHsmResponse: StaticStructureSchema = [3, n0, _CHRrea, 0, [_HAs], [0]];
@@ -228,23 +165,7 @@ export var CreateLunaClientRequest: StaticStructureSchema = [3, n0, _CLCR, 0, [_
 export var CreateLunaClientResponse: StaticStructureSchema = [3, n0, _CLCRr, 0, [_CA], [0]];
 export var DeleteHapgRequest: StaticStructureSchema = [3, n0, _DHR, 0, [_HA], [0]];
 export var DeleteHapgResponse: StaticStructureSchema = [3, n0, _DHRe, 0, [_S], [0]];
-export var DeleteHsmRequest: StaticStructureSchema = [
-  3,
-  n0,
-  _DHRel,
-  {
-    [_xN]: _DHRel,
-  },
-  [_HAs],
-  [
-    [
-      0,
-      {
-        [_xN]: _HAs,
-      },
-    ],
-  ],
-];
+export var DeleteHsmRequest: StaticStructureSchema = [3, n0, _DHRel, { [_xN]: _DHRel }, [_HAs], [[0, { [_xN]: _HAs }]]];
 export var DeleteHsmResponse: StaticStructureSchema = [3, n0, _DHRele, 0, [_S], [0]];
 export var DeleteLunaClientRequest: StaticStructureSchema = [3, n0, _DLCR, 0, [_CA], [0]];
 export var DeleteLunaClientResponse: StaticStructureSchema = [3, n0, _DLCRe, 0, [_S], [0]];
@@ -277,18 +198,8 @@ export var DescribeLunaClientResponse: StaticStructureSchema = [
 ];
 export var GetConfigRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_CA, _CV, _HL], [0, 0, 64 | 0]];
 export var GetConfigResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_CTo, _CFo, _CC], [0, 0, 0]];
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-  },
-  [_m, _r],
-  [0, 2],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_m, _r], [0, 2]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var ListAvailableZonesRequest: StaticStructureSchema = [3, n0, _LAZR, 0, [], []];
 export var ListAvailableZonesResponse: StaticStructureSchema = [3, n0, _LAZRi, 0, [_AZL], [64 | 0]];
 export var ListHapgsRequest: StaticStructureSchema = [3, n0, _LHR, 0, [_NT], [0]];
@@ -305,47 +216,15 @@ export var ModifyHsmRequest: StaticStructureSchema = [
   3,
   n0,
   _MHRod,
-  {
-    [_xN]: _MHRod,
-  },
+  { [_xN]: _MHRod },
   [_HAs, _SI, _EI, _IRA, _EIx, _SIy],
   [
-    [
-      0,
-      {
-        [_xN]: _HAs,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _SI,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _EI,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _IRA,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _EIx,
-      },
-    ],
-    [
-      0,
-      {
-        [_xN]: _SIy,
-      },
-    ],
+    [0, { [_xN]: _HAs }],
+    [0, { [_xN]: _SI }],
+    [0, { [_xN]: _EI }],
+    [0, { [_xN]: _IRA }],
+    [0, { [_xN]: _EIx }],
+    [0, { [_xN]: _SIy }],
   ],
 ];
 export var ModifyHsmResponse: StaticStructureSchema = [3, n0, _MHRodi, 0, [_HAs], [0]];
@@ -354,25 +233,15 @@ export var ModifyLunaClientResponse: StaticStructureSchema = [3, n0, _MLCRo, 0, 
 export var RemoveTagsFromResourceRequest: StaticStructureSchema = [3, n0, _RTFRR, 0, [_RA, _TKL], [0, 64 | 0]];
 export var RemoveTagsFromResourceResponse: StaticStructureSchema = [3, n0, _RTFRRe, 0, [_S], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
-export var __Unit = "unit" as const;
-
 export var CloudHSMServiceException: StaticErrorSchema = [-3, _sm, "CloudHSMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudHSMServiceException, __CloudHSMServiceException);
-
 export var AZList = 64 | 0;
-
 export var ClientList = 64 | 0;
-
 export var HapgList = 64 | 0;
-
 export var HsmList = 64 | 0;
-
 export var PartitionList = 64 | 0;
-
 export var PartitionSerialList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var AddTagsToResource: StaticOperationSchema = [
   9,

@@ -444,7 +444,7 @@ const n0 = "com.amazonaws.elasticbeanstalk";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import { ElasticBeanstalkSyntheticServiceException as __ElasticBeanstalkSyntheticServiceException } from "../models/ElasticBeanstalkSyntheticServiceException";
 import {
@@ -470,7 +470,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AbortEnvironmentUpdateMessage: StaticStructureSchema = [3, n0, _AEUM, 0, [_EI, _EN], [0, 0]];
 export var ApplicationDescription: StaticStructureSchema = [
   3,
@@ -571,16 +570,11 @@ export var CodeBuildNotInServiceRegionException: StaticErrorSchema = [
   -3,
   n0,
   _CBNISRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`CodeBuildNotInServiceRegionException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`CodeBuildNotInServiceRegionException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(CodeBuildNotInServiceRegionException, __CodeBuildNotInServiceRegionException);
-
 export var ComposeEnvironmentsMessage: StaticStructureSchema = [3, n0, _CEM, 0, [_AN, _GN, _VLe], [0, 0, 64 | 0]];
 export var ConfigurationOptionDescription: StaticStructureSchema = [
   3,
@@ -813,18 +807,8 @@ export var DescribePlatformVersionResult: StaticStructureSchema = [
   [() => PlatformDescription],
 ];
 export var DisassociateEnvironmentOperationsRoleMessage: StaticStructureSchema = [3, n0, _DEORM, 0, [_EN], [0]];
-export var ElasticBeanstalkServiceException: StaticErrorSchema = [
-  -3,
-  n0,
-  _EBSE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ElasticBeanstalkServiceException: StaticErrorSchema = [-3, n0, _EBSE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ElasticBeanstalkServiceException, __ElasticBeanstalkServiceException);
-
 export var EnvironmentDescription: StaticStructureSchema = [
   3,
   n0,
@@ -928,30 +912,20 @@ export var InsufficientPrivilegesException: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-    [_aQE]: [`InsufficientPrivilegesException`, 403],
-  },
+  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientPrivilegesException`, 403] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InsufficientPrivilegesException, __InsufficientPrivilegesException);
-
 export var InvalidRequestException: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`InvalidRequestException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRequestException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var Latency: StaticStructureSchema = [
   3,
   n0,
@@ -1026,32 +1000,22 @@ export var ManagedActionInvalidStateException: StaticErrorSchema = [
   -3,
   n0,
   _MAISE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ManagedActionInvalidStateException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ManagedActionInvalidStateException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ManagedActionInvalidStateException, __ManagedActionInvalidStateException);
-
 export var MaxAgeRule: StaticStructureSchema = [3, n0, _MAR, 0, [_En, _MAID, _DSFS], [2, 1, 2]];
 export var MaxCountRule: StaticStructureSchema = [3, n0, _MCR, 0, [_En, _MC, _DSFS], [2, 1, 2]];
 export var OperationInProgressException: StaticErrorSchema = [
   -3,
   n0,
   _OIPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`OperationInProgressFailure`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationInProgressFailure`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(OperationInProgressException, __OperationInProgressException);
-
 export var OptionRestrictionRegex: StaticStructureSchema = [3, n0, _ORR, 0, [_Pa, _La], [0, 0]];
 export var OptionSpecification: StaticStructureSchema = [3, n0, _OSp, 0, [_RN, _Na, _ON], [0, 0, 0]];
 export var PlatformBranchSummary: StaticStructureSchema = [
@@ -1107,16 +1071,11 @@ export var PlatformVersionStillReferencedException: StaticErrorSchema = [
   -3,
   n0,
   _PVSRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`PlatformVersionStillReferencedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`PlatformVersionStillReferencedException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PlatformVersionStillReferencedException, __PlatformVersionStillReferencedException);
-
 export var Queue: StaticStructureSchema = [3, n0, _Qu, 0, [_N, _URL], [0, 0]];
 export var RebuildEnvironmentMessage: StaticStructureSchema = [3, n0, _REM, 0, [_EI, _EN], [0, 0]];
 export var RequestEnvironmentInfoMessage: StaticStructureSchema = [3, n0, _REIM, 0, [_EI, _EN, _IT], [0, 0, 0]];
@@ -1124,16 +1083,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceNotFoundException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceNotFoundException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceQuota: StaticStructureSchema = [3, n0, _RQe, 0, [_Max], [1]];
 export var ResourceQuotas: StaticStructureSchema = [
   3,
@@ -1148,16 +1102,11 @@ export var ResourceTypeNotSupportedException: StaticErrorSchema = [
   -3,
   n0,
   _RTNSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`ResourceTypeNotSupportedException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceTypeNotSupportedException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ResourceTypeNotSupportedException, __ResourceTypeNotSupportedException);
-
 export var RestartAppServerMessage: StaticStructureSchema = [3, n0, _RASM, 0, [_EI, _EN], [0, 0]];
 export var RetrieveEnvironmentInfoMessage: StaticStructureSchema = [3, n0, _REIMe, 0, [_EI, _EN, _IT], [0, 0, 0]];
 export var RetrieveEnvironmentInfoResultMessage: StaticStructureSchema = [
@@ -1173,30 +1122,20 @@ export var S3LocationNotInServiceRegionException: StaticErrorSchema = [
   -3,
   n0,
   _SLNISRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`S3LocationNotInServiceRegionException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`S3LocationNotInServiceRegionException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(S3LocationNotInServiceRegionException, __S3LocationNotInServiceRegionException);
-
 export var S3SubscriptionRequiredException: StaticErrorSchema = [
   -3,
   n0,
   _SSRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`S3SubscriptionRequiredException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`S3SubscriptionRequiredException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(S3SubscriptionRequiredException, __S3SubscriptionRequiredException);
-
 export var SearchFilter: StaticStructureSchema = [3, n0, _SF, 0, [_At, _Op, _Val], [0, 0, 64 | 0]];
 export var SingleInstanceHealth: StaticStructureSchema = [
   3,
@@ -1212,16 +1151,11 @@ export var SourceBundleDeletionException: StaticErrorSchema = [
   -3,
   n0,
   _SBDE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`SourceBundleDeletionFailure`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`SourceBundleDeletionFailure`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SourceBundleDeletionException, __SourceBundleDeletionException);
-
 export var SourceConfiguration: StaticStructureSchema = [3, n0, _SCo, 0, [_AN, _TN], [0, 0]];
 export var StatusCodes: StaticStructureSchema = [3, n0, _SC, 0, [_St, _Sta, _Stat, _Statu], [1, 1, 1, 1]];
 export var SwapEnvironmentCNAMEsMessage: StaticStructureSchema = [
@@ -1239,98 +1173,58 @@ export var TooManyApplicationsException: StaticErrorSchema = [
   -3,
   n0,
   _TMAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyApplicationsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyApplicationsException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyApplicationsException, __TooManyApplicationsException);
-
-export var TooManyApplicationVersionsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMAVE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var TooManyApplicationVersionsException: StaticErrorSchema = [-3, n0, _TMAVE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(TooManyApplicationVersionsException, __TooManyApplicationVersionsException);
-
 export var TooManyBucketsException: StaticErrorSchema = [
   -3,
   n0,
   _TMBE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyBucketsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyBucketsException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyBucketsException, __TooManyBucketsException);
-
 export var TooManyConfigurationTemplatesException: StaticErrorSchema = [
   -3,
   n0,
   _TMCTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyConfigurationTemplatesException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyConfigurationTemplatesException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyConfigurationTemplatesException, __TooManyConfigurationTemplatesException);
-
 export var TooManyEnvironmentsException: StaticErrorSchema = [
   -3,
   n0,
   _TMEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyEnvironmentsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyEnvironmentsException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyEnvironmentsException, __TooManyEnvironmentsException);
-
 export var TooManyPlatformsException: StaticErrorSchema = [
   -3,
   n0,
   _TMPE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyPlatformsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyPlatformsException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyPlatformsException, __TooManyPlatformsException);
-
 export var TooManyTagsException: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-    [_aQE]: [`TooManyTagsException`, 400],
-  },
+  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTagsException`, 400] },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var Trigger: StaticStructureSchema = [3, n0, _Tri, 0, [_N], [0]];
 export var UpdateApplicationMessage: StaticStructureSchema = [3, n0, _UAM, 0, [_AN, _D], [0, 0]];
 export var UpdateApplicationResourceLifecycleMessage: StaticStructureSchema = [
@@ -1376,7 +1270,6 @@ export var ValidateConfigurationSettingsMessage: StaticStructureSchema = [
 ];
 export var ValidationMessage: StaticStructureSchema = [3, n0, _VM, 0, [_Me, _Se, _Na, _ON], [0, 0, 0, 0]];
 export var __Unit = "unit" as const;
-
 export var ElasticBeanstalkSyntheticServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -1389,17 +1282,13 @@ TypeRegistry.for(_s).registerError(
   ElasticBeanstalkSyntheticServiceException,
   __ElasticBeanstalkSyntheticServiceException
 );
-
 export var ApplicationDescriptionList: StaticListSchema = [1, n0, _ADL, 0, () => ApplicationDescription];
 export var ApplicationNamesList = 64 | 0;
-
 export var ApplicationVersionDescriptionList: StaticListSchema = [1, n0, _AVDL, 0, () => ApplicationVersionDescription];
 export var AutoScalingGroupList: StaticListSchema = [1, n0, _ASGL, 0, () => AutoScalingGroup];
 export var AvailableSolutionStackDetailsList: StaticListSchema = [1, n0, _ASSDL, 0, () => SolutionStackDescription];
 export var AvailableSolutionStackNamesList = 64 | 0;
-
 export var Causes = 64 | 0;
-
 export var ConfigurationOptionDescriptionsList: StaticListSchema = [
   1,
   n0,
@@ -1408,7 +1297,6 @@ export var ConfigurationOptionDescriptionsList: StaticListSchema = [
   () => ConfigurationOptionDescription,
 ];
 export var ConfigurationOptionPossibleValues = 64 | 0;
-
 export var ConfigurationOptionSettingsList: StaticListSchema = [1, n0, _COSL, 0, () => ConfigurationOptionSetting];
 export var ConfigurationSettingsDescriptionList: StaticListSchema = [
   1,
@@ -1418,26 +1306,20 @@ export var ConfigurationSettingsDescriptionList: StaticListSchema = [
   () => ConfigurationSettingsDescription,
 ];
 export var ConfigurationTemplateNamesList = 64 | 0;
-
 export var CustomAmiList: StaticListSchema = [1, n0, _CAL, 0, () => CustomAmi];
 export var EnvironmentDescriptionsList: StaticListSchema = [1, n0, _EDL, 0, () => EnvironmentDescription];
 export var EnvironmentHealthAttributes = 64 | 0;
-
 export var EnvironmentIdList = 64 | 0;
-
 export var EnvironmentInfoDescriptionList: StaticListSchema = [1, n0, _EIDL, 0, () => EnvironmentInfoDescription];
 export var EnvironmentLinks: StaticListSchema = [1, n0, _EL, 0, () => EnvironmentLink];
 export var EnvironmentNamesList = 64 | 0;
-
 export var EventDescriptionList: StaticListSchema = [1, n0, _EDLv, 0, () => EventDescription];
 export var InstanceHealthList: StaticListSchema = [1, n0, _IHL, 0, () => SingleInstanceHealth];
 export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance];
 export var InstancesHealthAttributes = 64 | 0;
-
 export var LaunchConfigurationList: StaticListSchema = [1, n0, _LCL, 0, () => LaunchConfiguration];
 export var LaunchTemplateList: StaticListSchema = [1, n0, _LTL, 0, () => LaunchTemplate];
 export var LoadAverage = 64 | 1;
-
 export var LoadBalancerList: StaticListSchema = [1, n0, _LBL, 0, () => LoadBalancer];
 export var LoadBalancerListenersDescription: StaticListSchema = [1, n0, _LBLD, 0, () => Listener];
 export var ManagedActionHistoryItems: StaticListSchema = [1, n0, _MAHI, 0, () => ManagedActionHistoryItem];
@@ -1446,30 +1328,22 @@ export var OptionsSpecifierList: StaticListSchema = [1, n0, _OSL, 0, () => Optio
 export var PlatformBranchSummaryList: StaticListSchema = [1, n0, _PBSL, 0, () => PlatformBranchSummary];
 export var PlatformFilters: StaticListSchema = [1, n0, _PFla, 0, () => PlatformFilter];
 export var PlatformFilterValueList = 64 | 0;
-
 export var PlatformFrameworks: StaticListSchema = [1, n0, _PFlat, 0, () => PlatformFramework];
 export var PlatformProgrammingLanguages: StaticListSchema = [1, n0, _PPLl, 0, () => PlatformProgrammingLanguage];
 export var PlatformSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PlatformSummary];
 export var QueueList: StaticListSchema = [1, n0, _QL, 0, () => Queue];
 export var SearchFilters: StaticListSchema = [1, n0, _SFe, 0, () => SearchFilter];
 export var SearchFilterValues = 64 | 0;
-
 export var SolutionStackFileTypeList = 64 | 0;
-
 export var SupportedAddonList = 64 | 0;
-
 export var SupportedTierList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
 export var TriggerList: StaticListSchema = [1, n0, _TLr, 0, () => Trigger];
 export var ValidationMessagesList: StaticListSchema = [1, n0, _VML, 0, () => ValidationMessage];
 export var VersionLabels = 64 | 0;
-
 export var VersionLabelsList = 64 | 0;
-
 export var AbortEnvironmentUpdate: StaticOperationSchema = [
   9,
   n0,

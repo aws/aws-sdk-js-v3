@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PauseContactRequest, PauseContactResponse } from "../models/models_2";
+import type { PauseContactRequest, PauseContactResponse } from "../models/models_2";
 import { PauseContact } from "../schemas/schemas_0";
 
 /**
@@ -57,8 +57,8 @@ export interface PauseContactCommandOutput extends PauseContactResponse, __Metad
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
+ *    state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

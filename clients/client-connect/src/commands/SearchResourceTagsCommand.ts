@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchResourceTagsRequest, SearchResourceTagsResponse } from "../models/models_2";
+import type { SearchResourceTagsRequest, SearchResourceTagsResponse } from "../models/models_2";
 import { SearchResourceTags } from "../schemas/schemas_0";
 
 /**
@@ -82,8 +82,8 @@ export interface SearchResourceTagsCommandOutput extends SearchResourceTagsRespo
  *  <p>The request is not valid.</p>
  *
  * @throws {@link MaximumResultReturnedException} (client fault)
- *  <p>Maximum number (1000) of tags have been returned with current request. Consider changing
- *    request parameters to get more tags.</p>
+ *  <p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to
+ *    get more tags.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>

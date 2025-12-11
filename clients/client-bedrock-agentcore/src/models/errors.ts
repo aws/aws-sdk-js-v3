@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BedrockAgentCoreServiceException as __BaseException } from "./BedrockAgentCoreServiceException";
 import { ValidationExceptionReason } from "./enums";
@@ -186,6 +186,26 @@ export class UnauthorizedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
+ * <p> An exception thrown when attempting to create a resource with an identifier that already exists.</p>
+ * @public
+ */
+export class DuplicateIdException extends __BaseException {
+  readonly name = "DuplicateIdException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateIdException, __BaseException>) {
+    super({
+      name: "DuplicateIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateIdException.prototype);
   }
 }
 

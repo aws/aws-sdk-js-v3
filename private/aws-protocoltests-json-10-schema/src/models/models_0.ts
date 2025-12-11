@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { DocumentType as __DocumentType } from "@smithy/types";
+import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import { FooEnum, IntegerEnum, RequiredEnum, RequiredIntEnum, TestEnum, TestIntEnum } from "./enums";
+import type { FooEnum, IntegerEnum, RequiredEnum, RequiredIntEnum, TestEnum, TestIntEnum } from "./enums";
 
 /**
  * @public

@@ -2,11 +2,11 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResult } from "../models/models_0";
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import type { UntagResourceRequest, UntagResourceResult } from "../models/models_0";
+import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { UntagResource } from "../schemas/schemas_0";
 
 /**
@@ -28,11 +28,15 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResult, __MetadataBearer {}
 
 /**
- * <p>This operation removes the specified user-defined tags from an S3 resource. You can pass
- *          one or more tag keys. </p>
+ * <p>This operation removes the specified user-defined tags from an S3 resource. You can pass one or more tag keys. </p>
  *          <note>
  *             <p>This operation is only supported for the following Amazon S3 resources:</p>
  *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">General purpose buckets</a>
+ *                   </p>
+ *                </li>
  *                <li>
  *                   <p>
  *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-db-tagging.html">Access Points for directory buckets</a>
@@ -50,7 +54,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *                </li>
  *                <li>
  *                   <p>
- *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">Storage Lens groups</a>
+ *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3 Storage Lens groups</a>
  *                   </p>
  *                </li>
  *                <li>
@@ -62,16 +66,11 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>For Storage Lens groups and S3 Access Grants, you must have the
- *                      <code>s3:UntagResource</code> permission to use this operation. </p>
- *                <p>For more information about the required Storage Lens Groups permissions, see
- *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
+ *                <p>For general purpose buckets, access points for general purpose buckets, Storage Lens groups, and S3 Access Grants, you must have the <code>s3:UntagResource</code> permission to use this operation. </p>
  *             </dd>
  *             <dt>Directory bucket permissions</dt>
  *             <dd>
- *                <p>For directory buckets and access points for directory buckets, you must have
- *                   the <code>s3express:UntagResource</code> permission to use this operation.
- *                   For more information about directory buckets policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html">Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                <p>For directory buckets, you must have the <code>s3express:UntagResource</code> permission to use this operation. For more information about directory buckets policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-permissions.html">Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>
@@ -81,9 +80,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *          </dl>
  *          <p>For information about S3 Tagging errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList">List of Amazon S3
  *             Tagging error codes</a>.</p>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

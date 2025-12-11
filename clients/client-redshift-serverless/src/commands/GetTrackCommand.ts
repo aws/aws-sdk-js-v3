@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTrackRequest, GetTrackResponse } from "../models/models_0";
-import {
+import type { GetTrackRequest, GetTrackResponse } from "../models/models_0";
+import type {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -71,6 +71,9 @@ export interface GetTrackCommandOutput extends GetTrackResponse, __MetadataBeare
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link DryRunException} (client fault)
+ *  <p>This exception is thrown when the request was successful, but dry run was enabled so no action was taken.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>

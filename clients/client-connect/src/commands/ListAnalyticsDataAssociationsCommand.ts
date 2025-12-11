@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAnalyticsDataAssociationsRequest, ListAnalyticsDataAssociationsResponse } from "../models/models_1";
+import type { ListAnalyticsDataAssociationsRequest, ListAnalyticsDataAssociationsResponse } from "../models/models_1";
 import { ListAnalyticsDataAssociations } from "../schemas/schemas_0";
 
 /**
@@ -29,8 +29,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the association status of requested dataset ID for a given Amazon Connect
- *    instance.</p>
+ * <p>Lists the association status of requested dataset ID for a given Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

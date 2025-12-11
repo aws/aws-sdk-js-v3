@@ -353,9 +353,11 @@ export interface ParticipantToken {
   userId?: string | undefined;
 
   /**
-   * <p>Application-provided attributes to encode into the token and attach to a stage.
-   *             <i>This field is exposed to all stage participants and should not be used for
-   *             personally identifying, confidential, or sensitive information.</i>
+   * <p>Application-provided attributes to encode into the token and attach to a
+   *          stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field
+   *          is 1 KB total. <i>This field is exposed to all stage participants and should not be
+   *             used for personally identifying, confidential, or sensitive
+   *          information.</i>
    *          </p>
    * @public
    */
@@ -2067,6 +2069,49 @@ export interface ListParticipantEventsRequest {
 }
 
 /**
+ * <p>Object specifying an exchanged participant token in a stage, created when an original participant token is updated.</p>
+ *          <p>
+ *             <b>Important</b>: Treat tokens as opaque; i.e., do not build
+ *          functionality based on token contents. The format of tokens could change in the
+ *          future.</p>
+ * @public
+ */
+export interface ExchangedParticipantToken {
+  /**
+   * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
+   * @public
+   */
+  capabilities?: ParticipantTokenCapability[] | undefined;
+
+  /**
+   * <p>Application-provided attributes to encode into the token and attach to a
+   *          stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field
+   *          is 1 KB total. <i>This field is exposed to all stage participants and should not be
+   *             used for personally identifying, confidential, or sensitive
+   *          information.</i>
+   *          </p>
+   * @public
+   */
+  attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Customer-assigned name to help identify the token; this can be used to link a
+   *          participant to a user in the customer’s own systems. This can be any UTF-8 encoded text.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information.</i>
+   *          </p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>ISO 8601 timestamp (returned as a string) for when this token expires.</p>
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
  * <p>An occurrence during a stage session.</p>
  * @public
  */
@@ -2208,6 +2253,18 @@ export interface Event {
    * @public
    */
   replica?: boolean | undefined;
+
+  /**
+   * <p>Source participant token for <code>TOKEN_EXCHANGED</code> event.</p>
+   * @public
+   */
+  previousToken?: ExchangedParticipantToken | undefined;
+
+  /**
+   * <p>Participant token created during <code>TOKEN_EXCHANGED</code> event.</p>
+   * @public
+   */
+  newToken?: ExchangedParticipantToken | undefined;
 }
 
 /**

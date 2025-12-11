@@ -337,7 +337,7 @@ const n0 = "com.amazonaws.migrationhubstrategy";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -359,21 +359,9 @@ import {
 import { MigrationHubStrategyServiceException as __MigrationHubStrategyServiceException } from "../models/MigrationHubStrategyServiceException";
 
 /* eslint no-var: 0 */
-
 export var SecretsManagerKey: StaticSimpleSchema = [0, n0, _SMK, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AnalyzableServerSummary: StaticStructureSchema = [3, n0, _ASS, 0, [_h, _iA, _s, _vI], [0, 0, 0, 0]];
 export var AntipatternReportResult: StaticStructureSchema = [
   3,
@@ -498,19 +486,8 @@ export var ConfigurationSummary: StaticStructureSchema = [
     () => RemoteSourceCodeAnalysisServerInfo,
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var DatabaseConfigDetail: StaticStructureSchema = [3, n0, _DCD, 0, [_sN], [0]];
 export var DatabasePreferences: StaticStructureSchema = [
   3,
@@ -528,19 +505,8 @@ export var DataCollectionDetails: StaticStructureSchema = [
   [_st, _ser, _f, _su, _iPn, _sT, _cT, _sM],
   [0, 1, 1, 1, 1, 4, 4, 0],
 ];
-export var DependencyException: StaticErrorSchema = [
-  -3,
-  n0,
-  _DE,
-  {
-    [_e]: _serv,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var DependencyException: StaticErrorSchema = [-3, n0, _DE, { [_e]: _serv, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(DependencyException, __DependencyException);
-
 export var GetApplicationComponentDetailsRequest: StaticStructureSchema = [3, n0, _GACDR, 0, [_aCI], [[0, 1]]];
 export var GetApplicationComponentDetailsResponse: StaticStructureSchema = [
   3,
@@ -607,18 +573,8 @@ export var GetServerDetailsRequest: StaticStructureSchema = [
   [_sI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetServerDetailsResponse: StaticStructureSchema = [
@@ -642,19 +598,8 @@ export var ImportFileTaskInformation: StaticStructureSchema = [
   [_i, _st, _sT, _iSB, _iSK, _sRSB, _sRSK, _cT, _nORS, _nORF, _iN],
   [0, 0, 4, 0, 0, 0, 0, 4, 1, 1, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _serv,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _serv, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IPAddressBasedRemoteInfo: StaticStructureSchema = [3, n0, _IPABRI, 0, [_iACTS, _aTu, _oT], [0, 0, 0]];
 export var ListAnalyzableServersRequest: StaticStructureSchema = [3, n0, _LASR, 0, [_so, _nT, _mR], [0, 0, 1]];
 export var ListAnalyzableServersResponse: StaticStructureSchema = [
@@ -688,18 +633,8 @@ export var ListCollectorsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListCollectorsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_Co, _nT], [() => Collectors, 0]];
@@ -710,18 +645,8 @@ export var ListImportFileTaskRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListImportFileTaskResponse: StaticStructureSchema = [
@@ -773,19 +698,8 @@ export var RecommendationSet: StaticStructureSchema = [
   [() => TransformationTool, 0, 0],
 ];
 export var RemoteSourceCodeAnalysisServerInfo: StaticStructureSchema = [3, n0, _RSCASI, 0, [_rSCASCT], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Result: StaticStructureSchema = [
   3,
   n0,
@@ -834,28 +748,13 @@ export var ServiceLinkedRoleLockClientException: StaticErrorSchema = [
   -3,
   n0,
   _SLRLCE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceLinkedRoleLockClientException, __ServiceLinkedRoleLockClientException);
-
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SourceCode: StaticStructureSchema = [3, n0, _SC, 0, [_vC, _sV, _l, _pN], [0, 0, 0, 0]];
 export var SourceCodeRepository: StaticStructureSchema = [3, n0, _SCR, 0, [_re, _b, _vCT, _pN], [0, 0, 0, 0]];
 export var StartAssessmentRequest: StaticStructureSchema = [
@@ -897,19 +796,8 @@ export var SystemInfo: StaticStructureSchema = [
   [_oI, _fST, _nIL, _cA],
   [() => OSInfo, 0, () => NetworkInfoList, 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TransformationTool: StaticStructureSchema = [3, n0, _TT, 0, [_n, _d, _tTIL], [0, 0, 0]];
 export var UpdateApplicationComponentConfigRequest: StaticStructureSchema = [
   3,
@@ -922,19 +810,8 @@ export var UpdateApplicationComponentConfigRequest: StaticStructureSchema = [
 export var UpdateApplicationComponentConfigResponse: StaticStructureSchema = [3, n0, _UACCRp, 0, [], []];
 export var UpdateServerConfigRequest: StaticStructureSchema = [3, n0, _USCR, 0, [_sI, _sO], [0, () => StrategyOption]];
 export var UpdateServerConfigResponse: StaticStructureSchema = [3, n0, _USCRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var VcenterBasedRemoteInfo: StaticStructureSchema = [3, n0, _VBRI, 0, [_vCTS, _oT], [0, 0]];
 export var VersionControlInfo: StaticStructureSchema = [3, n0, _VCI, 0, [_vCT, _vCCTS], [0, 0]];
 export var MigrationHubStrategyServiceException: StaticErrorSchema = [
@@ -946,25 +823,19 @@ export var MigrationHubStrategyServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(MigrationHubStrategyServiceException, __MigrationHubStrategyServiceException);
-
 export var AnalyzableServerSummaryList: StaticListSchema = [1, n0, _ASSL, 0, () => AnalyzableServerSummary];
 export var AntipatternReportResultList: StaticListSchema = [1, n0, _ARRL, 0, () => AntipatternReportResult];
 export var ApplicationComponentDetails: StaticListSchema = [1, n0, _ACDp, 0, () => ApplicationComponentDetail];
 export var ApplicationComponentStrategies: StaticListSchema = [1, n0, _ACSpp, 0, () => ApplicationComponentStrategy];
 export var AssessmentTargets: StaticListSchema = [1, n0, _ATs, 0, () => AssessmentTarget];
 export var AssessmentTargetValues = 64 | 0;
-
 export var AssociatedApplications: StaticListSchema = [1, n0, _AAs, 0, () => AssociatedApplication];
 export var AssociatedServerIDs = 64 | 0;
-
 export var AwsManagedTargetDestinations = 64 | 0;
-
 export var Collectors: StaticListSchema = [1, n0, _Co, 0, () => Collector];
 export var GroupIds: StaticListSchema = [1, n0, _GI, 0, () => Group];
 export var HeterogeneousTargetDatabaseEngines = 64 | 0;
-
 export var HomogeneousTargetDatabaseEngines = 64 | 0;
-
 export var IPAddressBasedRemoteInfoList: StaticListSchema = [1, n0, _IPABRIL, 0, () => IPAddressBasedRemoteInfo];
 export var ListAntipatternSeveritySummary: StaticListSchema = [1, n0, _LASS, 0, () => AntipatternSeveritySummary];
 export var ListApplicationComponentStatusSummary: StaticListSchema = [
@@ -981,19 +852,15 @@ export var ListServerSummary: StaticListSchema = [1, n0, _LSS, 0, () => ServerSu
 export var ListStrategySummary: StaticListSchema = [1, n0, _LSSi, 0, () => StrategySummary];
 export var NetworkInfoList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInfo];
 export var NoPreferenceTargetDestinations = 64 | 0;
-
 export var PipelineInfoList: StaticListSchema = [1, n0, _PIL, 0, () => PipelineInfo];
 export var ResultList: StaticListSchema = [1, n0, _RL, 0, () => Result];
 export var S3Keys = 64 | 0;
-
 export var SelfManageTargetDestinations = 64 | 0;
-
 export var ServerDetails: StaticListSchema = [1, n0, _SDe, 0, () => ServerDetail];
 export var ServerStrategies: StaticListSchema = [1, n0, _SSer, 0, () => ServerStrategy];
 export var SourceCodeList: StaticListSchema = [1, n0, _SCL, 0, () => SourceCode];
 export var SourceCodeRepositories: StaticListSchema = [1, n0, _SCRo, 0, () => SourceCodeRepository];
 export var TargetDatabaseEngines = 64 | 0;
-
 export var VcenterBasedRemoteInfoList: StaticListSchema = [1, n0, _VBRIL, 0, () => VcenterBasedRemoteInfo];
 export var VersionControlInfoList: StaticListSchema = [1, n0, _VCIL, 0, () => VersionControlInfo];
 export var AnalysisStatusUnion: StaticStructureSchema = [3, n0, _ASU, 0, [_rAS, _sCODAS], [0, 0]];
@@ -1018,9 +885,7 @@ export var GetApplicationComponentDetails: StaticOperationSchema = [
   9,
   n0,
   _GACD,
-  {
-    [_ht]: ["GET", "/get-applicationcomponent-details/{applicationComponentId}", 200],
-  },
+  { [_ht]: ["GET", "/get-applicationcomponent-details/{applicationComponentId}", 200] },
   () => GetApplicationComponentDetailsRequest,
   () => GetApplicationComponentDetailsResponse,
 ];
@@ -1028,9 +893,7 @@ export var GetApplicationComponentStrategies: StaticOperationSchema = [
   9,
   n0,
   _GACS,
-  {
-    [_ht]: ["GET", "/get-applicationcomponent-strategies/{applicationComponentId}", 200],
-  },
+  { [_ht]: ["GET", "/get-applicationcomponent-strategies/{applicationComponentId}", 200] },
   () => GetApplicationComponentStrategiesRequest,
   () => GetApplicationComponentStrategiesResponse,
 ];
@@ -1038,9 +901,7 @@ export var GetAssessment: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_ht]: ["GET", "/get-assessment/{id}", 200],
-  },
+  { [_ht]: ["GET", "/get-assessment/{id}", 200] },
   () => GetAssessmentRequest,
   () => GetAssessmentResponse,
 ];
@@ -1048,9 +909,7 @@ export var GetImportFileTask: StaticOperationSchema = [
   9,
   n0,
   _GIFT,
-  {
-    [_ht]: ["GET", "/get-import-file-task/{id}", 200],
-  },
+  { [_ht]: ["GET", "/get-import-file-task/{id}", 200] },
   () => GetImportFileTaskRequest,
   () => GetImportFileTaskResponse,
 ];
@@ -1058,9 +917,7 @@ export var GetLatestAssessmentId: StaticOperationSchema = [
   9,
   n0,
   _GLAI,
-  {
-    [_ht]: ["GET", "/get-latest-assessment-id", 200],
-  },
+  { [_ht]: ["GET", "/get-latest-assessment-id", 200] },
   () => GetLatestAssessmentIdRequest,
   () => GetLatestAssessmentIdResponse,
 ];
@@ -1068,9 +925,7 @@ export var GetPortfolioPreferences: StaticOperationSchema = [
   9,
   n0,
   _GPP,
-  {
-    [_ht]: ["GET", "/get-portfolio-preferences", 200],
-  },
+  { [_ht]: ["GET", "/get-portfolio-preferences", 200] },
   () => GetPortfolioPreferencesRequest,
   () => GetPortfolioPreferencesResponse,
 ];
@@ -1078,9 +933,7 @@ export var GetPortfolioSummary: StaticOperationSchema = [
   9,
   n0,
   _GPS,
-  {
-    [_ht]: ["GET", "/get-portfolio-summary", 200],
-  },
+  { [_ht]: ["GET", "/get-portfolio-summary", 200] },
   () => GetPortfolioSummaryRequest,
   () => GetPortfolioSummaryResponse,
 ];
@@ -1088,9 +941,7 @@ export var GetRecommendationReportDetails: StaticOperationSchema = [
   9,
   n0,
   _GRRD,
-  {
-    [_ht]: ["GET", "/get-recommendation-report-details/{id}", 200],
-  },
+  { [_ht]: ["GET", "/get-recommendation-report-details/{id}", 200] },
   () => GetRecommendationReportDetailsRequest,
   () => GetRecommendationReportDetailsResponse,
 ];
@@ -1098,9 +949,7 @@ export var GetServerDetails: StaticOperationSchema = [
   9,
   n0,
   _GSD,
-  {
-    [_ht]: ["GET", "/get-server-details/{serverId}", 200],
-  },
+  { [_ht]: ["GET", "/get-server-details/{serverId}", 200] },
   () => GetServerDetailsRequest,
   () => GetServerDetailsResponse,
 ];
@@ -1108,9 +957,7 @@ export var GetServerStrategies: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  {
-    [_ht]: ["GET", "/get-server-strategies/{serverId}", 200],
-  },
+  { [_ht]: ["GET", "/get-server-strategies/{serverId}", 200] },
   () => GetServerStrategiesRequest,
   () => GetServerStrategiesResponse,
 ];
@@ -1118,9 +965,7 @@ export var ListAnalyzableServers: StaticOperationSchema = [
   9,
   n0,
   _LAS,
-  {
-    [_ht]: ["POST", "/list-analyzable-servers", 200],
-  },
+  { [_ht]: ["POST", "/list-analyzable-servers", 200] },
   () => ListAnalyzableServersRequest,
   () => ListAnalyzableServersResponse,
 ];
@@ -1128,9 +973,7 @@ export var ListApplicationComponents: StaticOperationSchema = [
   9,
   n0,
   _LAC,
-  {
-    [_ht]: ["POST", "/list-applicationcomponents", 200],
-  },
+  { [_ht]: ["POST", "/list-applicationcomponents", 200] },
   () => ListApplicationComponentsRequest,
   () => ListApplicationComponentsResponse,
 ];
@@ -1138,9 +981,7 @@ export var ListCollectors: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["GET", "/list-collectors", 200],
-  },
+  { [_ht]: ["GET", "/list-collectors", 200] },
   () => ListCollectorsRequest,
   () => ListCollectorsResponse,
 ];
@@ -1148,9 +989,7 @@ export var ListImportFileTask: StaticOperationSchema = [
   9,
   n0,
   _LIFT,
-  {
-    [_ht]: ["GET", "/list-import-file-task", 200],
-  },
+  { [_ht]: ["GET", "/list-import-file-task", 200] },
   () => ListImportFileTaskRequest,
   () => ListImportFileTaskResponse,
 ];
@@ -1158,9 +997,7 @@ export var ListServers: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_ht]: ["POST", "/list-servers", 200],
-  },
+  { [_ht]: ["POST", "/list-servers", 200] },
   () => ListServersRequest,
   () => ListServersResponse,
 ];
@@ -1168,9 +1005,7 @@ export var PutPortfolioPreferences: StaticOperationSchema = [
   9,
   n0,
   _PPP,
-  {
-    [_ht]: ["POST", "/put-portfolio-preferences", 200],
-  },
+  { [_ht]: ["POST", "/put-portfolio-preferences", 200] },
   () => PutPortfolioPreferencesRequest,
   () => PutPortfolioPreferencesResponse,
 ];
@@ -1178,9 +1013,7 @@ export var StartAssessment: StaticOperationSchema = [
   9,
   n0,
   _SA,
-  {
-    [_ht]: ["POST", "/start-assessment", 200],
-  },
+  { [_ht]: ["POST", "/start-assessment", 200] },
   () => StartAssessmentRequest,
   () => StartAssessmentResponse,
 ];
@@ -1188,9 +1021,7 @@ export var StartImportFileTask: StaticOperationSchema = [
   9,
   n0,
   _SIFT,
-  {
-    [_ht]: ["POST", "/start-import-file-task", 200],
-  },
+  { [_ht]: ["POST", "/start-import-file-task", 200] },
   () => StartImportFileTaskRequest,
   () => StartImportFileTaskResponse,
 ];
@@ -1198,9 +1029,7 @@ export var StartRecommendationReportGeneration: StaticOperationSchema = [
   9,
   n0,
   _SRRG,
-  {
-    [_ht]: ["POST", "/start-recommendation-report-generation", 200],
-  },
+  { [_ht]: ["POST", "/start-recommendation-report-generation", 200] },
   () => StartRecommendationReportGenerationRequest,
   () => StartRecommendationReportGenerationResponse,
 ];
@@ -1208,9 +1037,7 @@ export var StopAssessment: StaticOperationSchema = [
   9,
   n0,
   _SAt,
-  {
-    [_ht]: ["POST", "/stop-assessment", 200],
-  },
+  { [_ht]: ["POST", "/stop-assessment", 200] },
   () => StopAssessmentRequest,
   () => StopAssessmentResponse,
 ];
@@ -1218,9 +1045,7 @@ export var UpdateApplicationComponentConfig: StaticOperationSchema = [
   9,
   n0,
   _UACC,
-  {
-    [_ht]: ["POST", "/update-applicationcomponent-config/", 200],
-  },
+  { [_ht]: ["POST", "/update-applicationcomponent-config/", 200] },
   () => UpdateApplicationComponentConfigRequest,
   () => UpdateApplicationComponentConfigResponse,
 ];
@@ -1228,9 +1053,7 @@ export var UpdateServerConfig: StaticOperationSchema = [
   9,
   n0,
   _USC,
-  {
-    [_ht]: ["POST", "/update-server-config/", 200],
-  },
+  { [_ht]: ["POST", "/update-server-config/", 200] },
   () => UpdateServerConfigRequest,
   () => UpdateServerConfigResponse,
 ];

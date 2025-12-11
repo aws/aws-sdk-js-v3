@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRequest, ListTrustAnchorsResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ListRequest, ListTrustAnchorsResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ListTrustAnchors } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface ListTrustAnchorsCommandInput extends ListRequest {}
 export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:ListTrustAnchors</code>.
- *          </p>
+ * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListTrustAnchors</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

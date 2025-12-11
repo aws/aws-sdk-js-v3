@@ -47,6 +47,7 @@ const _EII = "ExternalIdIdentifier";
 const _EIIx = "ExternalIdIssuer";
 const _EIx = "ExternalId";
 const _Em = "Email";
+const _Ex = "Extensions";
 const _F = "Formatted";
 const _FN = "FamilyName";
 const _Fi = "Filter";
@@ -156,9 +157,10 @@ const n0 = "com.amazonaws.identitystore";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -176,7 +178,6 @@ import {
 import { IdentitystoreServiceException as __IdentitystoreServiceException } from "../models/IdentitystoreServiceException";
 
 /* eslint no-var: 0 */
-
 export var ExternalIdIdentifier: StaticSimpleSchema = [0, n0, _EII, 8, 0];
 export var ExternalIdIssuer: StaticSimpleSchema = [0, n0, _EIIx, 8, 0];
 export var GroupDisplayName: StaticSimpleSchema = [0, n0, _GDN, 8, 0];
@@ -187,15 +188,11 @@ export var AccessDeniedException: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _RI, _R],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var Address: StaticStructureSchema = [
   3,
   n0,
@@ -214,19 +211,8 @@ export var Address: StaticStructureSchema = [
   ],
 ];
 export var AttributeOperation: StaticStructureSchema = [3, n0, _AO, 0, [_AP, _AV], [0, 15]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI, _R],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI, _R], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateGroupMembershipRequest: StaticStructureSchema = [
   3,
   n0,
@@ -250,7 +236,7 @@ export var CreateUserRequest: StaticStructureSchema = [
   n0,
   _CUR,
   0,
-  [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B],
+  [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B, _Ex],
   [
     0,
     [() => UserName, 0],
@@ -269,6 +255,7 @@ export var CreateUserRequest: StaticStructureSchema = [
     [() => Photos, 0],
     [() => SensitiveStringType, 0],
     [() => SensitiveStringType, 0],
+    128 | 15,
   ],
 ];
 export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [_ISI, _UI], [0, 0]];
@@ -296,7 +283,7 @@ export var DescribeGroupResponse: StaticStructureSchema = [
   [_GI, _DN, _EI, _D, _CA, _UA, _CB, _UB, _ISI],
   [0, [() => GroupDisplayName, 0], [() => ExternalIds, 0], [() => SensitiveStringType, 0], 4, 4, 0, 0, 0],
 ];
-export var DescribeUserRequest: StaticStructureSchema = [3, n0, _DURes, 0, [_ISI, _UI], [0, 0]];
+export var DescribeUserRequest: StaticStructureSchema = [3, n0, _DURes, 0, [_ISI, _UI, _Ex], [0, 0, 64 | 0]];
 export var DescribeUserResponse: StaticStructureSchema = [
   3,
   n0,
@@ -327,6 +314,7 @@ export var DescribeUserResponse: StaticStructureSchema = [
     _CB,
     _UA,
     _UB,
+    _Ex,
   ],
   [
     0,
@@ -353,6 +341,7 @@ export var DescribeUserResponse: StaticStructureSchema = [
     0,
     4,
     0,
+    128 | 15,
   ],
 ];
 export var Email: StaticStructureSchema = [
@@ -434,24 +423,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_M, _RI, _RAS],
-  [
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IsMemberInGroupsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -507,8 +483,8 @@ export var ListUsersRequest: StaticStructureSchema = [
   n0,
   _LUR,
   0,
-  [_ISI, _MR, _NT, _Fil],
-  [0, 1, 0, [() => Filters, 0]],
+  [_ISI, _Ex, _MR, _NT, _Fil],
+  [0, 64 | 0, 1, 0, [() => Filters, 0]],
 ];
 export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_U, _NT], [[() => Users, 0], 0]];
 export var Name: StaticStructureSchema = [
@@ -555,51 +531,29 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_RT, _RIe, _R, _M, _RI],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_M, _RI, _RAS, _R],
-  [
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-    0,
-  ],
+  [0, 0, [1, { [_hH]: _RA }], 0],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UniqueAttribute: StaticStructureSchema = [3, n0, _UAn, 0, [_AP, _AV], [0, 15]];
 export var UpdateGroupRequest: StaticStructureSchema = [
   3,
@@ -649,6 +603,7 @@ export var User: StaticStructureSchema = [
     _CB,
     _UA,
     _UB,
+    _Ex,
   ],
   [
     0,
@@ -675,33 +630,20 @@ export var User: StaticStructureSchema = [
     0,
     4,
     0,
+    128 | 15,
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RI, _R],
-  [0, 0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _RI, _R], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
-export var __Unit = "unit" as const;
-
 export var IdentitystoreServiceException: StaticErrorSchema = [-3, _sm, "IdentitystoreServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IdentitystoreServiceException, __IdentitystoreServiceException);
-
 export var Addresses: StaticListSchema = [1, n0, _Ad, 0, [() => Address, 0]];
 export var AttributeOperations: StaticListSchema = [1, n0, _AOt, 0, () => AttributeOperation];
 export var Emails: StaticListSchema = [1, n0, _E, 0, [() => Email, 0]];
+export var ExtensionNames = 64 | 0;
 export var ExternalIds: StaticListSchema = [1, n0, _EI, 0, [() => ExternalId, 0]];
 export var Filters: StaticListSchema = [1, n0, _Fil, 0, [() => Filter, 0]];
 export var GroupIds = 64 | 0;
-
 export var GroupMembershipExistenceResults: StaticListSchema = [
   1,
   n0,
@@ -714,6 +656,7 @@ export var Groups: StaticListSchema = [1, n0, _Gr, 0, [() => Group, 0]];
 export var PhoneNumbers: StaticListSchema = [1, n0, _PN, 0, [() => PhoneNumber, 0]];
 export var Photos: StaticListSchema = [1, n0, _Ph, 0, [() => Photo, 0]];
 export var Users: StaticListSchema = [1, n0, _U, 0, [() => User, 0]];
+export var Extensions = 128 | 15;
 export var AlternateIdentifier: StaticStructureSchema = [
   3,
   n0,

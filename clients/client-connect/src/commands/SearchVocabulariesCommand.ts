@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_2";
+import type { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_2";
 import { SearchVocabularies } from "../schemas/schemas_0";
 
 /**
@@ -27,8 +27,8 @@ export interface SearchVocabulariesCommandInput extends SearchVocabulariesReques
 export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for vocabularies within a specific Amazon Connect instance using
- *     <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+ * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>,
+ *     <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

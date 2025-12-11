@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p></p>
+ * <p>Amazon Lex Model Building Service provides APIs for creating, managing, and deploying conversational bots and their components.</p>
  *
  * @packageDocumentation
  */

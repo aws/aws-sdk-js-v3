@@ -463,7 +463,7 @@ const n0 = "com.amazonaws.workspacesweb";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -485,7 +485,6 @@ import {
 import { WorkSpacesWebServiceException as __WorkSpacesWebServiceException } from "../models/WorkSpacesWebServiceException";
 
 /* eslint no-var: 0 */
-
 export var BrowserPolicy: StaticSimpleSchema = [0, n0, _BP, 8, 0];
 export var BuiltInPatternId: StaticSimpleSchema = [0, n0, _BIPI, 8, 0];
 export var CookieDomain: StaticSimpleSchema = [0, n0, _CD, 8, 0];
@@ -508,19 +507,8 @@ export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var UrlPattern: StaticSimpleSchema = [0, n0, _UP, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AssociateBrowserSettingsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -529,12 +517,7 @@ export var AssociateBrowserSettingsRequest: StaticStructureSchema = [
   [_pA, _bSA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _bSA,
-      },
-    ],
+    [0, { [_hQ]: _bSA }],
   ],
 ];
 export var AssociateBrowserSettingsResponse: StaticStructureSchema = [3, n0, _ABSRs, 0, [_pA, _bSA], [0, 0]];
@@ -546,12 +529,7 @@ export var AssociateDataProtectionSettingsRequest: StaticStructureSchema = [
   [_pA, _dPSA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _dPSA,
-      },
-    ],
+    [0, { [_hQ]: _dPSA }],
   ],
 ];
 export var AssociateDataProtectionSettingsResponse: StaticStructureSchema = [3, n0, _ADPSRs, 0, [_pA, _dPSA], [0, 0]];
@@ -563,12 +541,7 @@ export var AssociateIpAccessSettingsRequest: StaticStructureSchema = [
   [_pA, _iASA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _iASA,
-      },
-    ],
+    [0, { [_hQ]: _iASA }],
   ],
 ];
 export var AssociateIpAccessSettingsResponse: StaticStructureSchema = [3, n0, _AIASRs, 0, [_pA, _iASA], [0, 0]];
@@ -580,12 +553,7 @@ export var AssociateNetworkSettingsRequest: StaticStructureSchema = [
   [_pA, _nSA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nSA,
-      },
-    ],
+    [0, { [_hQ]: _nSA }],
   ],
 ];
 export var AssociateNetworkSettingsResponse: StaticStructureSchema = [3, n0, _ANSRs, 0, [_pA, _nSA], [0, 0]];
@@ -597,12 +565,7 @@ export var AssociateSessionLoggerRequest: StaticStructureSchema = [
   [_pA, _sLA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _sLA,
-      },
-    ],
+    [0, { [_hQ]: _sLA }],
   ],
 ];
 export var AssociateSessionLoggerResponse: StaticStructureSchema = [3, n0, _ASLRs, 0, [_pA, _sLA], [0, 0]];
@@ -614,12 +577,7 @@ export var AssociateTrustStoreRequest: StaticStructureSchema = [
   [_pA, _tSA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _tSA,
-      },
-    ],
+    [0, { [_hQ]: _tSA }],
   ],
 ];
 export var AssociateTrustStoreResponse: StaticStructureSchema = [3, n0, _ATSRs, 0, [_pA, _tSA], [0, 0]];
@@ -631,12 +589,7 @@ export var AssociateUserAccessLoggingSettingsRequest: StaticStructureSchema = [
   [_pA, _uALSA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uALSA,
-      },
-    ],
+    [0, { [_hQ]: _uALSA }],
   ],
 ];
 export var AssociateUserAccessLoggingSettingsResponse: StaticStructureSchema = [
@@ -655,12 +608,7 @@ export var AssociateUserSettingsRequest: StaticStructureSchema = [
   [_pA, _uSA],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _uSA,
-      },
-    ],
+    [0, { [_hQ]: _uSA }],
   ],
 ];
 export var AssociateUserSettingsResponse: StaticStructureSchema = [3, n0, _AUSRs, 0, [_pA, _uSA], [0, 0]];
@@ -675,19 +623,8 @@ export var BrowserSettings: StaticStructureSchema = [
 export var BrowserSettingsSummary: StaticStructureSchema = [3, n0, _BSS, 0, [_bSA], [0]];
 export var Certificate: StaticStructureSchema = [3, n0, _C, 0, [_t, _s, _i, _nVB, _nVA, _b], [0, 0, 0, 4, 4, 21]];
 export var CertificateSummary: StaticStructureSchema = [3, n0, _CS, 0, [_t, _s, _i, _nVB, _nVA], [0, 0, 0, 4, 4]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CookieSpecification: StaticStructureSchema = [
   3,
   n0,
@@ -967,12 +904,7 @@ export var GetTrustStoreCertificateRequest: StaticStructureSchema = [
   [_tSA, _t],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
+    [0, { [_hQ]: _t }],
   ],
 ];
 export var GetTrustStoreCertificateResponse: StaticStructureSchema = [
@@ -1039,23 +971,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _ser,
-    [_hE]: 500,
-  },
+  { [_e]: _ser, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var IpAccessSettings: StaticStructureSchema = [
   3,
   n0,
@@ -1090,18 +1010,8 @@ export var ListBrowserSettingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListBrowserSettingsResponse: StaticStructureSchema = [
@@ -1119,18 +1029,8 @@ export var ListDataProtectionSettingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataProtectionSettingsResponse: StaticStructureSchema = [
@@ -1148,18 +1048,8 @@ export var ListIdentityProvidersRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _pA],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
     [0, 1],
   ],
 ];
@@ -1178,18 +1068,8 @@ export var ListIpAccessSettingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListIpAccessSettingsResponse: StaticStructureSchema = [
@@ -1207,18 +1087,8 @@ export var ListNetworkSettingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListNetworkSettingsResponse: StaticStructureSchema = [
@@ -1236,18 +1106,8 @@ export var ListPortalsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListPortalsResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_por, _nT], [[() => PortalList, 0], 0]];
@@ -1258,18 +1118,8 @@ export var ListSessionLoggersRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSessionLoggersResponse: StaticStructureSchema = [
@@ -1288,42 +1138,12 @@ export var ListSessionsRequest: StaticStructureSchema = [
   [_pI, _u, _sIe, _sB, _st, _mR, _nT],
   [
     [0, 1],
-    [
-      () => Username,
-      {
-        [_hQ]: _u,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sIe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sB,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _st,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [() => Username, { [_hQ]: _u }],
+    [0, { [_hQ]: _sIe }],
+    [0, { [_hQ]: _sB }],
+    [0, { [_hQ]: _st }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListSessionsResponse: StaticStructureSchema = [
@@ -1344,18 +1164,8 @@ export var ListTrustStoreCertificatesRequest: StaticStructureSchema = [
   [_tSA, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTrustStoreCertificatesResponse: StaticStructureSchema = [
@@ -1373,18 +1183,8 @@ export var ListTrustStoresRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTrustStoresResponse: StaticStructureSchema = [
@@ -1402,18 +1202,8 @@ export var ListUserAccessLoggingSettingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUserAccessLoggingSettingsResponse: StaticStructureSchema = [
@@ -1431,18 +1221,8 @@ export var ListUserSettingsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListUserSettingsResponse: StaticStructureSchema = [
@@ -1513,15 +1293,11 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var S3LogConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1534,15 +1310,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var Session: StaticStructureSchema = [
   3,
   n0,
@@ -1603,39 +1375,14 @@ export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var ToolbarConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_tT, _vM, _hTI, _mDR], [0, 0, 64 | 0, 0]];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m, _rN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var TrustStore: StaticStructureSchema = [3, n0, _TS, 0, [_aPA, _tSA], [64 | 0, 0]];
 export var TrustStoreSummary: StaticStructureSchema = [3, n0, _TSS, 0, [_tSA], [0]];
 export var UntagResourceRequest: StaticStructureSchema = [
@@ -1646,12 +1393,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      () => TagKeyList,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [() => TagKeyList, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1834,15 +1576,11 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var WebContentFilteringPolicy: StaticStructureSchema = [
   3,
@@ -1853,27 +1591,19 @@ export var WebContentFilteringPolicy: StaticStructureSchema = [
   [64 | 0, [() => UrlPatternList, 0], [() => UrlPatternList, 0]],
 ];
 export var __Unit = "unit" as const;
-
 export var WorkSpacesWebServiceException: StaticErrorSchema = [-3, _sm, "WorkSpacesWebServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WorkSpacesWebServiceException, __WorkSpacesWebServiceException);
-
 export var ArnList = 64 | 0;
-
 export var BlockedCategories = 64 | 0;
-
 export var BrowserSettingsList: StaticListSchema = [1, n0, _BSL, 0, () => BrowserSettingsSummary];
 export var CertificateList = 64 | 21;
-
 export var CertificateSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CertificateSummary];
 export var CertificateThumbprintList = 64 | 0;
-
 export var CookieSpecifications: StaticListSchema = [1, n0, _CSoo, 0, [() => CookieSpecification, 0]];
 export var DataProtectionSettingsList: StaticListSchema = [1, n0, _DPSL, 0, [() => DataProtectionSettingsSummary, 0]];
 export var Events = 64 | 0;
-
 export var GlobalInlineRedactionUrls: StaticListSchema = [1, n0, _GIRU, 0, [() => InlineRedactionUrl, 0]];
 export var HiddenToolbarItemList = 64 | 0;
-
 export var IdentityProviderList: StaticListSchema = [1, n0, _IPL, 0, [() => IdentityProviderSummary, 0]];
 export var InlineRedactionPatterns: StaticListSchema = [1, n0, _IRPn, 0, [() => InlineRedactionPattern, 0]];
 export var InlineRedactionUrls: StaticListSchema = [1, n0, _IRUn, 0, [() => InlineRedactionUrl, 0]];
@@ -1883,11 +1613,9 @@ export var IpRuleList: StaticListSchema = [1, n0, _IRL, 8, [() => IpRule, 0]];
 export var NetworkSettingsList: StaticListSchema = [1, n0, _NSL, 0, () => NetworkSettingsSummary];
 export var PortalList: StaticListSchema = [1, n0, _PL, 0, [() => PortalSummary, 0]];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SessionLoggerList: StaticListSchema = [1, n0, _SLL, 0, [() => SessionLoggerSummary, 0]];
 export var SessionSummaryList: StaticListSchema = [1, n0, _SSL, 0, [() => SessionSummary, 0]];
 export var SubnetIdList = 64 | 0;
-
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
 export var TrustStoreSummaryList: StaticListSchema = [1, n0, _TSSL, 0, () => TrustStoreSummary];
@@ -1896,16 +1624,13 @@ export var UserAccessLoggingSettingsList: StaticListSchema = [1, n0, _UALSL, 0, 
 export var UserSettingsList: StaticListSchema = [1, n0, _USL, 0, [() => UserSettingsSummary, 0]];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var EncryptionContextMap = 128 | 0;
-
 export var IdentityProviderDetails: StaticMapSchema = [2, n0, _IPD, 8, 0, 0];
 export var EventFilter: StaticStructureSchema = [3, n0, _EF, 0, [_al, _in], [() => __Unit, 64 | 0]];
 export var AssociateBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _ABS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/browserSettings", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/browserSettings", 200] },
   () => AssociateBrowserSettingsRequest,
   () => AssociateBrowserSettingsResponse,
 ];
@@ -1913,9 +1638,7 @@ export var AssociateDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _ADPS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/dataProtectionSettings", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/dataProtectionSettings", 200] },
   () => AssociateDataProtectionSettingsRequest,
   () => AssociateDataProtectionSettingsResponse,
 ];
@@ -1923,9 +1646,7 @@ export var AssociateIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _AIAS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/ipAccessSettings", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/ipAccessSettings", 200] },
   () => AssociateIpAccessSettingsRequest,
   () => AssociateIpAccessSettingsResponse,
 ];
@@ -1933,9 +1654,7 @@ export var AssociateNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _ANS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/networkSettings", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/networkSettings", 200] },
   () => AssociateNetworkSettingsRequest,
   () => AssociateNetworkSettingsResponse,
 ];
@@ -1943,9 +1662,7 @@ export var AssociateSessionLogger: StaticOperationSchema = [
   9,
   n0,
   _ASL,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/sessionLogger", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/sessionLogger", 200] },
   () => AssociateSessionLoggerRequest,
   () => AssociateSessionLoggerResponse,
 ];
@@ -1953,9 +1670,7 @@ export var AssociateTrustStore: StaticOperationSchema = [
   9,
   n0,
   _ATS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/trustStores", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/trustStores", 200] },
   () => AssociateTrustStoreRequest,
   () => AssociateTrustStoreResponse,
 ];
@@ -1963,9 +1678,7 @@ export var AssociateUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _AUALS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/userAccessLoggingSettings", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/userAccessLoggingSettings", 200] },
   () => AssociateUserAccessLoggingSettingsRequest,
   () => AssociateUserAccessLoggingSettingsResponse,
 ];
@@ -1973,9 +1686,7 @@ export var AssociateUserSettings: StaticOperationSchema = [
   9,
   n0,
   _AUS,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}/userSettings", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}/userSettings", 200] },
   () => AssociateUserSettingsRequest,
   () => AssociateUserSettingsResponse,
 ];
@@ -1983,9 +1694,7 @@ export var CreateBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _CBS,
-  {
-    [_h]: ["POST", "/browserSettings", 200],
-  },
+  { [_h]: ["POST", "/browserSettings", 200] },
   () => CreateBrowserSettingsRequest,
   () => CreateBrowserSettingsResponse,
 ];
@@ -1993,9 +1702,7 @@ export var CreateDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _CDPS,
-  {
-    [_h]: ["POST", "/dataProtectionSettings", 200],
-  },
+  { [_h]: ["POST", "/dataProtectionSettings", 200] },
   () => CreateDataProtectionSettingsRequest,
   () => CreateDataProtectionSettingsResponse,
 ];
@@ -2003,9 +1710,7 @@ export var CreateIdentityProvider: StaticOperationSchema = [
   9,
   n0,
   _CIP,
-  {
-    [_h]: ["POST", "/identityProviders", 200],
-  },
+  { [_h]: ["POST", "/identityProviders", 200] },
   () => CreateIdentityProviderRequest,
   () => CreateIdentityProviderResponse,
 ];
@@ -2013,9 +1718,7 @@ export var CreateIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _CIAS,
-  {
-    [_h]: ["POST", "/ipAccessSettings", 200],
-  },
+  { [_h]: ["POST", "/ipAccessSettings", 200] },
   () => CreateIpAccessSettingsRequest,
   () => CreateIpAccessSettingsResponse,
 ];
@@ -2023,9 +1726,7 @@ export var CreateNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _CNS,
-  {
-    [_h]: ["POST", "/networkSettings", 200],
-  },
+  { [_h]: ["POST", "/networkSettings", 200] },
   () => CreateNetworkSettingsRequest,
   () => CreateNetworkSettingsResponse,
 ];
@@ -2033,9 +1734,7 @@ export var CreatePortal: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  {
-    [_h]: ["POST", "/portals", 200],
-  },
+  { [_h]: ["POST", "/portals", 200] },
   () => CreatePortalRequest,
   () => CreatePortalResponse,
 ];
@@ -2043,9 +1742,7 @@ export var CreateSessionLogger: StaticOperationSchema = [
   9,
   n0,
   _CSLr,
-  {
-    [_h]: ["POST", "/sessionLoggers", 200],
-  },
+  { [_h]: ["POST", "/sessionLoggers", 200] },
   () => CreateSessionLoggerRequest,
   () => CreateSessionLoggerResponse,
 ];
@@ -2053,9 +1750,7 @@ export var CreateTrustStore: StaticOperationSchema = [
   9,
   n0,
   _CTS,
-  {
-    [_h]: ["POST", "/trustStores", 200],
-  },
+  { [_h]: ["POST", "/trustStores", 200] },
   () => CreateTrustStoreRequest,
   () => CreateTrustStoreResponse,
 ];
@@ -2063,9 +1758,7 @@ export var CreateUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _CUALS,
-  {
-    [_h]: ["POST", "/userAccessLoggingSettings", 200],
-  },
+  { [_h]: ["POST", "/userAccessLoggingSettings", 200] },
   () => CreateUserAccessLoggingSettingsRequest,
   () => CreateUserAccessLoggingSettingsResponse,
 ];
@@ -2073,9 +1766,7 @@ export var CreateUserSettings: StaticOperationSchema = [
   9,
   n0,
   _CUS,
-  {
-    [_h]: ["POST", "/userSettings", 200],
-  },
+  { [_h]: ["POST", "/userSettings", 200] },
   () => CreateUserSettingsRequest,
   () => CreateUserSettingsResponse,
 ];
@@ -2083,9 +1774,7 @@ export var DeleteBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _DBS,
-  {
-    [_h]: ["DELETE", "/browserSettings/{browserSettingsArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/browserSettings/{browserSettingsArn+}", 200] },
   () => DeleteBrowserSettingsRequest,
   () => DeleteBrowserSettingsResponse,
 ];
@@ -2093,9 +1782,7 @@ export var DeleteDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _DDPS,
-  {
-    [_h]: ["DELETE", "/dataProtectionSettings/{dataProtectionSettingsArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/dataProtectionSettings/{dataProtectionSettingsArn+}", 200] },
   () => DeleteDataProtectionSettingsRequest,
   () => DeleteDataProtectionSettingsResponse,
 ];
@@ -2103,9 +1790,7 @@ export var DeleteIdentityProvider: StaticOperationSchema = [
   9,
   n0,
   _DIP,
-  {
-    [_h]: ["DELETE", "/identityProviders/{identityProviderArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/identityProviders/{identityProviderArn+}", 200] },
   () => DeleteIdentityProviderRequest,
   () => DeleteIdentityProviderResponse,
 ];
@@ -2113,9 +1798,7 @@ export var DeleteIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _DIAS,
-  {
-    [_h]: ["DELETE", "/ipAccessSettings/{ipAccessSettingsArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/ipAccessSettings/{ipAccessSettingsArn+}", 200] },
   () => DeleteIpAccessSettingsRequest,
   () => DeleteIpAccessSettingsResponse,
 ];
@@ -2123,9 +1806,7 @@ export var DeleteNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _DNSe,
-  {
-    [_h]: ["DELETE", "/networkSettings/{networkSettingsArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/networkSettings/{networkSettingsArn+}", 200] },
   () => DeleteNetworkSettingsRequest,
   () => DeleteNetworkSettingsResponse,
 ];
@@ -2133,9 +1814,7 @@ export var DeletePortal: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}", 200] },
   () => DeletePortalRequest,
   () => DeletePortalResponse,
 ];
@@ -2143,9 +1822,7 @@ export var DeleteSessionLogger: StaticOperationSchema = [
   9,
   n0,
   _DSL,
-  {
-    [_h]: ["DELETE", "/sessionLoggers/{sessionLoggerArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/sessionLoggers/{sessionLoggerArn+}", 200] },
   () => DeleteSessionLoggerRequest,
   () => DeleteSessionLoggerResponse,
 ];
@@ -2153,9 +1830,7 @@ export var DeleteTrustStore: StaticOperationSchema = [
   9,
   n0,
   _DTS,
-  {
-    [_h]: ["DELETE", "/trustStores/{trustStoreArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/trustStores/{trustStoreArn+}", 200] },
   () => DeleteTrustStoreRequest,
   () => DeleteTrustStoreResponse,
 ];
@@ -2163,9 +1838,7 @@ export var DeleteUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _DUALS,
-  {
-    [_h]: ["DELETE", "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}", 200] },
   () => DeleteUserAccessLoggingSettingsRequest,
   () => DeleteUserAccessLoggingSettingsResponse,
 ];
@@ -2173,9 +1846,7 @@ export var DeleteUserSettings: StaticOperationSchema = [
   9,
   n0,
   _DUS,
-  {
-    [_h]: ["DELETE", "/userSettings/{userSettingsArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/userSettings/{userSettingsArn+}", 200] },
   () => DeleteUserSettingsRequest,
   () => DeleteUserSettingsResponse,
 ];
@@ -2183,9 +1854,7 @@ export var DisassociateBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _DBSi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/browserSettings", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/browserSettings", 200] },
   () => DisassociateBrowserSettingsRequest,
   () => DisassociateBrowserSettingsResponse,
 ];
@@ -2193,9 +1862,7 @@ export var DisassociateDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _DDPSi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/dataProtectionSettings", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/dataProtectionSettings", 200] },
   () => DisassociateDataProtectionSettingsRequest,
   () => DisassociateDataProtectionSettingsResponse,
 ];
@@ -2203,9 +1870,7 @@ export var DisassociateIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _DIASi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/ipAccessSettings", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/ipAccessSettings", 200] },
   () => DisassociateIpAccessSettingsRequest,
   () => DisassociateIpAccessSettingsResponse,
 ];
@@ -2213,9 +1878,7 @@ export var DisassociateNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _DNSi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/networkSettings", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/networkSettings", 200] },
   () => DisassociateNetworkSettingsRequest,
   () => DisassociateNetworkSettingsResponse,
 ];
@@ -2223,9 +1886,7 @@ export var DisassociateSessionLogger: StaticOperationSchema = [
   9,
   n0,
   _DSLi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/sessionLogger", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/sessionLogger", 200] },
   () => DisassociateSessionLoggerRequest,
   () => DisassociateSessionLoggerResponse,
 ];
@@ -2233,9 +1894,7 @@ export var DisassociateTrustStore: StaticOperationSchema = [
   9,
   n0,
   _DTSi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/trustStores", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/trustStores", 200] },
   () => DisassociateTrustStoreRequest,
   () => DisassociateTrustStoreResponse,
 ];
@@ -2243,9 +1902,7 @@ export var DisassociateUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _DUALSi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/userAccessLoggingSettings", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/userAccessLoggingSettings", 200] },
   () => DisassociateUserAccessLoggingSettingsRequest,
   () => DisassociateUserAccessLoggingSettingsResponse,
 ];
@@ -2253,9 +1910,7 @@ export var DisassociateUserSettings: StaticOperationSchema = [
   9,
   n0,
   _DUSi,
-  {
-    [_h]: ["DELETE", "/portals/{portalArn+}/userSettings", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalArn+}/userSettings", 200] },
   () => DisassociateUserSettingsRequest,
   () => DisassociateUserSettingsResponse,
 ];
@@ -2263,9 +1918,7 @@ export var ExpireSession: StaticOperationSchema = [
   9,
   n0,
   _ES,
-  {
-    [_h]: ["DELETE", "/portals/{portalId}/sessions/{sessionId}", 200],
-  },
+  { [_h]: ["DELETE", "/portals/{portalId}/sessions/{sessionId}", 200] },
   () => ExpireSessionRequest,
   () => ExpireSessionResponse,
 ];
@@ -2273,9 +1926,7 @@ export var GetBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _GBS,
-  {
-    [_h]: ["GET", "/browserSettings/{browserSettingsArn+}", 200],
-  },
+  { [_h]: ["GET", "/browserSettings/{browserSettingsArn+}", 200] },
   () => GetBrowserSettingsRequest,
   () => GetBrowserSettingsResponse,
 ];
@@ -2283,9 +1934,7 @@ export var GetDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _GDPS,
-  {
-    [_h]: ["GET", "/dataProtectionSettings/{dataProtectionSettingsArn+}", 200],
-  },
+  { [_h]: ["GET", "/dataProtectionSettings/{dataProtectionSettingsArn+}", 200] },
   () => GetDataProtectionSettingsRequest,
   () => GetDataProtectionSettingsResponse,
 ];
@@ -2293,9 +1942,7 @@ export var GetIdentityProvider: StaticOperationSchema = [
   9,
   n0,
   _GIP,
-  {
-    [_h]: ["GET", "/identityProviders/{identityProviderArn+}", 200],
-  },
+  { [_h]: ["GET", "/identityProviders/{identityProviderArn+}", 200] },
   () => GetIdentityProviderRequest,
   () => GetIdentityProviderResponse,
 ];
@@ -2303,9 +1950,7 @@ export var GetIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _GIAS,
-  {
-    [_h]: ["GET", "/ipAccessSettings/{ipAccessSettingsArn+}", 200],
-  },
+  { [_h]: ["GET", "/ipAccessSettings/{ipAccessSettingsArn+}", 200] },
   () => GetIpAccessSettingsRequest,
   () => GetIpAccessSettingsResponse,
 ];
@@ -2313,9 +1958,7 @@ export var GetNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _GNS,
-  {
-    [_h]: ["GET", "/networkSettings/{networkSettingsArn+}", 200],
-  },
+  { [_h]: ["GET", "/networkSettings/{networkSettingsArn+}", 200] },
   () => GetNetworkSettingsRequest,
   () => GetNetworkSettingsResponse,
 ];
@@ -2323,9 +1966,7 @@ export var GetPortal: StaticOperationSchema = [
   9,
   n0,
   _GP,
-  {
-    [_h]: ["GET", "/portals/{portalArn+}", 200],
-  },
+  { [_h]: ["GET", "/portals/{portalArn+}", 200] },
   () => GetPortalRequest,
   () => GetPortalResponse,
 ];
@@ -2333,9 +1974,7 @@ export var GetPortalServiceProviderMetadata: StaticOperationSchema = [
   9,
   n0,
   _GPSPM,
-  {
-    [_h]: ["GET", "/portalIdp/{portalArn+}", 200],
-  },
+  { [_h]: ["GET", "/portalIdp/{portalArn+}", 200] },
   () => GetPortalServiceProviderMetadataRequest,
   () => GetPortalServiceProviderMetadataResponse,
 ];
@@ -2343,9 +1982,7 @@ export var GetSession: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  {
-    [_h]: ["GET", "/portals/{portalId}/sessions/{sessionId}", 200],
-  },
+  { [_h]: ["GET", "/portals/{portalId}/sessions/{sessionId}", 200] },
   () => GetSessionRequest,
   () => GetSessionResponse,
 ];
@@ -2353,9 +1990,7 @@ export var GetSessionLogger: StaticOperationSchema = [
   9,
   n0,
   _GSL,
-  {
-    [_h]: ["GET", "/sessionLoggers/{sessionLoggerArn+}", 200],
-  },
+  { [_h]: ["GET", "/sessionLoggers/{sessionLoggerArn+}", 200] },
   () => GetSessionLoggerRequest,
   () => GetSessionLoggerResponse,
 ];
@@ -2363,9 +1998,7 @@ export var GetTrustStore: StaticOperationSchema = [
   9,
   n0,
   _GTS,
-  {
-    [_h]: ["GET", "/trustStores/{trustStoreArn+}", 200],
-  },
+  { [_h]: ["GET", "/trustStores/{trustStoreArn+}", 200] },
   () => GetTrustStoreRequest,
   () => GetTrustStoreResponse,
 ];
@@ -2373,9 +2006,7 @@ export var GetTrustStoreCertificate: StaticOperationSchema = [
   9,
   n0,
   _GTSC,
-  {
-    [_h]: ["GET", "/trustStores/{trustStoreArn+}/certificate", 200],
-  },
+  { [_h]: ["GET", "/trustStores/{trustStoreArn+}/certificate", 200] },
   () => GetTrustStoreCertificateRequest,
   () => GetTrustStoreCertificateResponse,
 ];
@@ -2383,9 +2014,7 @@ export var GetUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _GUALS,
-  {
-    [_h]: ["GET", "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}", 200],
-  },
+  { [_h]: ["GET", "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}", 200] },
   () => GetUserAccessLoggingSettingsRequest,
   () => GetUserAccessLoggingSettingsResponse,
 ];
@@ -2393,9 +2022,7 @@ export var GetUserSettings: StaticOperationSchema = [
   9,
   n0,
   _GUS,
-  {
-    [_h]: ["GET", "/userSettings/{userSettingsArn+}", 200],
-  },
+  { [_h]: ["GET", "/userSettings/{userSettingsArn+}", 200] },
   () => GetUserSettingsRequest,
   () => GetUserSettingsResponse,
 ];
@@ -2403,9 +2030,7 @@ export var ListBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _LBS,
-  {
-    [_h]: ["GET", "/browserSettings", 200],
-  },
+  { [_h]: ["GET", "/browserSettings", 200] },
   () => ListBrowserSettingsRequest,
   () => ListBrowserSettingsResponse,
 ];
@@ -2413,9 +2038,7 @@ export var ListDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _LDPS,
-  {
-    [_h]: ["GET", "/dataProtectionSettings", 200],
-  },
+  { [_h]: ["GET", "/dataProtectionSettings", 200] },
   () => ListDataProtectionSettingsRequest,
   () => ListDataProtectionSettingsResponse,
 ];
@@ -2423,9 +2046,7 @@ export var ListIdentityProviders: StaticOperationSchema = [
   9,
   n0,
   _LIP,
-  {
-    [_h]: ["GET", "/portals/{portalArn+}/identityProviders", 200],
-  },
+  { [_h]: ["GET", "/portals/{portalArn+}/identityProviders", 200] },
   () => ListIdentityProvidersRequest,
   () => ListIdentityProvidersResponse,
 ];
@@ -2433,9 +2054,7 @@ export var ListIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _LIAS,
-  {
-    [_h]: ["GET", "/ipAccessSettings", 200],
-  },
+  { [_h]: ["GET", "/ipAccessSettings", 200] },
   () => ListIpAccessSettingsRequest,
   () => ListIpAccessSettingsResponse,
 ];
@@ -2443,9 +2062,7 @@ export var ListNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _LNS,
-  {
-    [_h]: ["GET", "/networkSettings", 200],
-  },
+  { [_h]: ["GET", "/networkSettings", 200] },
   () => ListNetworkSettingsRequest,
   () => ListNetworkSettingsResponse,
 ];
@@ -2453,9 +2070,7 @@ export var ListPortals: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  {
-    [_h]: ["GET", "/portals", 200],
-  },
+  { [_h]: ["GET", "/portals", 200] },
   () => ListPortalsRequest,
   () => ListPortalsResponse,
 ];
@@ -2463,9 +2078,7 @@ export var ListSessionLoggers: StaticOperationSchema = [
   9,
   n0,
   _LSL,
-  {
-    [_h]: ["GET", "/sessionLoggers", 200],
-  },
+  { [_h]: ["GET", "/sessionLoggers", 200] },
   () => ListSessionLoggersRequest,
   () => ListSessionLoggersResponse,
 ];
@@ -2473,9 +2086,7 @@ export var ListSessions: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  {
-    [_h]: ["GET", "/portals/{portalId}/sessions", 200],
-  },
+  { [_h]: ["GET", "/portals/{portalId}/sessions", 200] },
   () => ListSessionsRequest,
   () => ListSessionsResponse,
 ];
@@ -2483,9 +2094,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn+}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn+}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2493,9 +2102,7 @@ export var ListTrustStoreCertificates: StaticOperationSchema = [
   9,
   n0,
   _LTSC,
-  {
-    [_h]: ["GET", "/trustStores/{trustStoreArn+}/certificates", 200],
-  },
+  { [_h]: ["GET", "/trustStores/{trustStoreArn+}/certificates", 200] },
   () => ListTrustStoreCertificatesRequest,
   () => ListTrustStoreCertificatesResponse,
 ];
@@ -2503,9 +2110,7 @@ export var ListTrustStores: StaticOperationSchema = [
   9,
   n0,
   _LTS,
-  {
-    [_h]: ["GET", "/trustStores", 200],
-  },
+  { [_h]: ["GET", "/trustStores", 200] },
   () => ListTrustStoresRequest,
   () => ListTrustStoresResponse,
 ];
@@ -2513,9 +2118,7 @@ export var ListUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _LUALS,
-  {
-    [_h]: ["GET", "/userAccessLoggingSettings", 200],
-  },
+  { [_h]: ["GET", "/userAccessLoggingSettings", 200] },
   () => ListUserAccessLoggingSettingsRequest,
   () => ListUserAccessLoggingSettingsResponse,
 ];
@@ -2523,9 +2126,7 @@ export var ListUserSettings: StaticOperationSchema = [
   9,
   n0,
   _LUS,
-  {
-    [_h]: ["GET", "/userSettings", 200],
-  },
+  { [_h]: ["GET", "/userSettings", 200] },
   () => ListUserSettingsRequest,
   () => ListUserSettingsResponse,
 ];
@@ -2533,9 +2134,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn+}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn+}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2543,9 +2142,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn+}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn+}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2553,9 +2150,7 @@ export var UpdateBrowserSettings: StaticOperationSchema = [
   9,
   n0,
   _UBS,
-  {
-    [_h]: ["PATCH", "/browserSettings/{browserSettingsArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/browserSettings/{browserSettingsArn+}", 200] },
   () => UpdateBrowserSettingsRequest,
   () => UpdateBrowserSettingsResponse,
 ];
@@ -2563,9 +2158,7 @@ export var UpdateDataProtectionSettings: StaticOperationSchema = [
   9,
   n0,
   _UDPS,
-  {
-    [_h]: ["PATCH", "/dataProtectionSettings/{dataProtectionSettingsArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/dataProtectionSettings/{dataProtectionSettingsArn+}", 200] },
   () => UpdateDataProtectionSettingsRequest,
   () => UpdateDataProtectionSettingsResponse,
 ];
@@ -2573,9 +2166,7 @@ export var UpdateIdentityProvider: StaticOperationSchema = [
   9,
   n0,
   _UIP,
-  {
-    [_h]: ["PATCH", "/identityProviders/{identityProviderArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/identityProviders/{identityProviderArn+}", 200] },
   () => UpdateIdentityProviderRequest,
   () => UpdateIdentityProviderResponse,
 ];
@@ -2583,9 +2174,7 @@ export var UpdateIpAccessSettings: StaticOperationSchema = [
   9,
   n0,
   _UIAS,
-  {
-    [_h]: ["PATCH", "/ipAccessSettings/{ipAccessSettingsArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/ipAccessSettings/{ipAccessSettingsArn+}", 200] },
   () => UpdateIpAccessSettingsRequest,
   () => UpdateIpAccessSettingsResponse,
 ];
@@ -2593,9 +2182,7 @@ export var UpdateNetworkSettings: StaticOperationSchema = [
   9,
   n0,
   _UNS,
-  {
-    [_h]: ["PATCH", "/networkSettings/{networkSettingsArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/networkSettings/{networkSettingsArn+}", 200] },
   () => UpdateNetworkSettingsRequest,
   () => UpdateNetworkSettingsResponse,
 ];
@@ -2603,9 +2190,7 @@ export var UpdatePortal: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  {
-    [_h]: ["PUT", "/portals/{portalArn+}", 200],
-  },
+  { [_h]: ["PUT", "/portals/{portalArn+}", 200] },
   () => UpdatePortalRequest,
   () => UpdatePortalResponse,
 ];
@@ -2613,9 +2198,7 @@ export var UpdateSessionLogger: StaticOperationSchema = [
   9,
   n0,
   _USLp,
-  {
-    [_h]: ["POST", "/sessionLoggers/{sessionLoggerArn+}", 200],
-  },
+  { [_h]: ["POST", "/sessionLoggers/{sessionLoggerArn+}", 200] },
   () => UpdateSessionLoggerRequest,
   () => UpdateSessionLoggerResponse,
 ];
@@ -2623,9 +2206,7 @@ export var UpdateTrustStore: StaticOperationSchema = [
   9,
   n0,
   _UTS,
-  {
-    [_h]: ["PATCH", "/trustStores/{trustStoreArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/trustStores/{trustStoreArn+}", 200] },
   () => UpdateTrustStoreRequest,
   () => UpdateTrustStoreResponse,
 ];
@@ -2633,9 +2214,7 @@ export var UpdateUserAccessLoggingSettings: StaticOperationSchema = [
   9,
   n0,
   _UUALS,
-  {
-    [_h]: ["PATCH", "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}", 200] },
   () => UpdateUserAccessLoggingSettingsRequest,
   () => UpdateUserAccessLoggingSettingsResponse,
 ];
@@ -2643,9 +2222,7 @@ export var UpdateUserSettings: StaticOperationSchema = [
   9,
   n0,
   _UUS,
-  {
-    [_h]: ["PATCH", "/userSettings/{userSettingsArn+}", 200],
-  },
+  { [_h]: ["PATCH", "/userSettings/{userSettingsArn+}", 200] },
   () => UpdateUserSettingsRequest,
   () => UpdateUserSettingsResponse,
 ];

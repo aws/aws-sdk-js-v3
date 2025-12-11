@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateProfileRequest, ProfileDetailResponse } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { CreateProfileRequest, ProfileDetailResponse } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { CreateProfile } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:CreateProfile</code>.
- *          </p>
+ * <p>Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:CreateProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

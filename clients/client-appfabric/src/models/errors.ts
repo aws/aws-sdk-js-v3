@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppFabricServiceException as __BaseException } from "./AppFabricServiceException";
 import { ValidationExceptionReason } from "./enums";

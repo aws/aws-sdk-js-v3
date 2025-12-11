@@ -396,7 +396,7 @@ const n0 = "com.amazonaws.cloudwatchevents";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -421,7 +421,6 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
 export var AuthHeaderParametersSensitive: StaticSimpleSchema = [0, n0, _AHPS, 8, 0];
 export var HeaderValueSensitive: StaticSimpleSchema = [0, n0, _HVS, 8, 0];
 export var QueryStringValueSensitive: StaticSimpleSchema = [0, n0, _QSVS, 8, 0];
@@ -457,18 +456,8 @@ export var BatchRetryStrategy: StaticStructureSchema = [3, n0, _BRS, 0, [_At], [
 export var CancelReplayRequest: StaticStructureSchema = [3, n0, _CRR, 0, [_RN], [0]];
 export var CancelReplayResponse: StaticStructureSchema = [3, n0, _CRRa, 0, [_RA, _S, _SR], [0, 0, 0]];
 export var CapacityProviderStrategyItem: StaticStructureSchema = [3, n0, _CPSI, 0, [_cP, _w, _b], [0, 1, 1]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
 export var Condition: StaticStructureSchema = [3, n0, _C, 0, [_T, _K, _V], [0, 0, 0]];
 export var Connection: StaticStructureSchema = [
   3,
@@ -727,68 +716,18 @@ export var EnableRuleRequest: StaticStructureSchema = [3, n0, _ERR, 0, [_N, _EBN
 export var EventBus: StaticStructureSchema = [3, n0, _EB, 0, [_N, _Ar, _Po], [0, 0, 0]];
 export var EventSource: StaticStructureSchema = [3, n0, _ES, 0, [_Ar, _CB, _CT, _ET, _N, _S], [0, 0, 4, 4, 0, 0]];
 export var HttpParameters: StaticStructureSchema = [3, n0, _HPt, 0, [_PPV, _HP, _QSP], [64 | 0, 128 | 0, 128 | 0]];
-export var IllegalStatusException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var IllegalStatusException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(IllegalStatusException, __IllegalStatusException);
-
 export var InputTransformer: StaticStructureSchema = [3, n0, _IT, 0, [_IPM, _ITn], [128 | 0, 0]];
-export var InternalException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEn,
-  {
-    [_e]: _s,
-  },
-  [_m],
-  [0],
-];
+export var InternalException: StaticErrorSchema = [-3, n0, _IEn, { [_e]: _s }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-
-export var InvalidEventPatternException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEPE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidEventPatternException: StaticErrorSchema = [-3, n0, _IEPE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidEventPatternException, __InvalidEventPatternException);
-
-export var InvalidStateException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISEn,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-
 export var KinesisParameters: StaticStructureSchema = [3, n0, _KP, 0, [_PKP], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListApiDestinationsRequest: StaticStructureSchema = [3, n0, _LADR, 0, [_NP, _CA, _NT, _L], [0, 0, 0, 1]];
 export var ListApiDestinationsResponse: StaticStructureSchema = [
   3,
@@ -862,47 +801,17 @@ export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
 export var ListTargetsByRuleRequest: StaticStructureSchema = [3, n0, _LTBRR, 0, [_Rul, _EBN, _NT, _L], [0, 0, 0, 1]];
 export var ListTargetsByRuleResponse: StaticStructureSchema = [3, n0, _LTBRRi, 0, [_Tar, _NT], [() => TargetList, 0]];
-export var ManagedRuleException: StaticErrorSchema = [
-  -3,
-  n0,
-  _MRE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ManagedRuleException: StaticErrorSchema = [-3, n0, _MRE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ManagedRuleException, __ManagedRuleException);
-
 export var NetworkConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_aC], [() => AwsVpcConfiguration]];
-export var OperationDisabledException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ODE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var OperationDisabledException: StaticErrorSchema = [-3, n0, _ODE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(OperationDisabledException, __OperationDisabledException);
-
 export var PartnerEventSource: StaticStructureSchema = [3, n0, _PESa, 0, [_Ar, _N], [0, 0]];
 export var PartnerEventSourceAccount: StaticStructureSchema = [3, n0, _PESAa, 0, [_Ac, _CT, _ET, _S], [0, 4, 4, 0]];
 export var PlacementConstraint: StaticStructureSchema = [3, n0, _PCl, 0, [_t, _ex], [0, 0]];
 export var PlacementStrategy: StaticStructureSchema = [3, n0, _PS, 0, [_t, _f], [0, 0]];
-export var PolicyLengthExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _PLEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var PolicyLengthExceededException: StaticErrorSchema = [-3, n0, _PLEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(PolicyLengthExceededException, __PolicyLengthExceededException);
-
 export var PutEventsRequest: StaticStructureSchema = [3, n0, _PER, 0, [_E], [() => PutEventsRequestEntryList]];
 export var PutEventsRequestEntry: StaticStructureSchema = [
   3,
@@ -1001,30 +910,10 @@ export var Replay: StaticStructureSchema = [
   [0, 0, 0, 0, 4, 4, 4, 4, 4],
 ];
 export var ReplayDestination: StaticStructureSchema = [3, n0, _RDe, 0, [_Ar, _FA], [0, 64 | 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RAEE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var RetryPolicy: StaticStructureSchema = [3, n0, _RP, 0, [_MRA, _MEAIS], [1, 1]];
 export var Rule: StaticStructureSchema = [
   3,
@@ -1167,7 +1056,6 @@ export var UpdateConnectionResponse: StaticStructureSchema = [
   [0, 0, 4, 4, 4],
 ];
 export var __Unit = "unit" as const;
-
 export var CloudWatchEventsServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -1177,7 +1065,6 @@ export var CloudWatchEventsServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(CloudWatchEventsServiceException, __CloudWatchEventsServiceException);
-
 export var ApiDestinationResponseList: StaticListSchema = [1, n0, _ADRL, 0, () => ApiDestination];
 export var ArchiveResponseList: StaticListSchema = [1, n0, _ARL, 0, () => Archive];
 export var CapacityProviderStrategy: StaticListSchema = [1, n0, _CPS, 0, () => CapacityProviderStrategyItem];
@@ -1193,12 +1080,10 @@ export var ConnectionQueryStringParametersList: StaticListSchema = [
 export var ConnectionResponseList: StaticListSchema = [1, n0, _CRL, 0, () => Connection];
 export var EventBusList: StaticListSchema = [1, n0, _EBL, 0, () => EventBus];
 export var EventResourceList = 64 | 0;
-
 export var EventSourceList: StaticListSchema = [1, n0, _ESL, 0, () => EventSource];
 export var PartnerEventSourceAccountList: StaticListSchema = [1, n0, _PESAL, 0, () => PartnerEventSourceAccount];
 export var PartnerEventSourceList: StaticListSchema = [1, n0, _PESL, 0, () => PartnerEventSource];
 export var PathParameterList = 64 | 0;
-
 export var PlacementConstraints: StaticListSchema = [1, n0, _PC, 0, () => PlacementConstraint];
 export var PlacementStrategies: StaticListSchema = [1, n0, _PSl, 0, () => PlacementStrategy];
 export var PutEventsRequestEntryList: StaticListSchema = [1, n0, _PEREL, 0, () => PutEventsRequestEntry];
@@ -1208,29 +1093,20 @@ export var PutPartnerEventsResultEntryList: StaticListSchema = [1, n0, _PPERELu,
 export var PutTargetsResultEntryList: StaticListSchema = [1, n0, _PTREL, 0, () => PutTargetsResultEntry];
 export var RemoveTargetsResultEntryList: StaticListSchema = [1, n0, _RTREL, 0, () => RemoveTargetsResultEntry];
 export var ReplayDestinationFilters = 64 | 0;
-
 export var ReplayList: StaticListSchema = [1, n0, _RL, 0, () => Replay];
 export var RuleNameList = 64 | 0;
-
 export var RuleResponseList: StaticListSchema = [1, n0, _RRL, 0, () => Rule];
 export var RunCommandTargets: StaticListSchema = [1, n0, _RCT, 0, () => RunCommandTarget];
 export var RunCommandTargetValues = 64 | 0;
-
 export var SageMakerPipelineParameterList: StaticListSchema = [1, n0, _SMPPL, 0, () => SageMakerPipelineParameter];
 export var StringList = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TargetIdList = 64 | 0;
-
 export var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => Target];
 export var HeaderParametersMap = 128 | 0;
-
 export var QueryStringParametersMap = 128 | 0;
-
 export var TransformerPaths = 128 | 0;
-
 export var ActivateEventSource: StaticOperationSchema = [
   9,
   n0,

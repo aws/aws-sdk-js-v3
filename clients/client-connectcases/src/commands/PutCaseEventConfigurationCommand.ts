@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
+import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutCaseEventConfigurationRequest, PutCaseEventConfigurationResponse } from "../models/models_0";
+import type { PutCaseEventConfigurationRequest, PutCaseEventConfigurationResponse } from "../models/models_0";
 import { PutCaseEventConfiguration } from "../schemas/schemas_0";
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AddLFTagsToResourceCommand,
@@ -282,7 +282,7 @@ import {
   UpdateTableStorageOptimizerCommandInput,
   UpdateTableStorageOptimizerCommandOutput,
 } from "./commands/UpdateTableStorageOptimizerCommand";
-import { LakeFormationClient, LakeFormationClientConfig } from "./LakeFormationClient";
+import { LakeFormationClient } from "./LakeFormationClient";
 
 const commands = {
   AddLFTagsToResourceCommand,

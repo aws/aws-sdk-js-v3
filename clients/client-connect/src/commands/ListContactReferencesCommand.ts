@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContactReferencesRequest, ListContactReferencesResponse } from "../models/models_1";
+import type { ListContactReferencesRequest, ListContactReferencesResponse } from "../models/models_2";
 import { ListContactReferences } from "../schemas/schemas_0";
 
 /**
@@ -28,9 +28,9 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with
- *    the contact. <i>References</i> are links to documents that are related to a
- *    contact, such as emails, attachments, or URLs.</p>
+ *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact.
+ *     <i>References</i> are links to documents that are related to a contact, such as emails, attachments,
+ *    or URLs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,7 +43,7 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   ReferenceTypes: [ // ReferenceTypes // required
- *     "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE",
+ *     "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT",
  *   ],
  *   NextToken: "STRING_VALUE",
  * };
@@ -63,6 +63,10 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * //         Arn: "STRING_VALUE",
  * //       },
  * //       EmailMessage: { // EmailMessageReference
+ * //         Name: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       EmailMessagePlainText: {
  * //         Name: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //       },

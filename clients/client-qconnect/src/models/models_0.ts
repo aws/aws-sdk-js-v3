@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import {
   AIAgentAssociationConfigurationType,
   AIAgentType,
@@ -16,7 +18,6 @@ import {
   ContentStatus,
   ConversationStatus,
   ConversationStatusReason,
-  ExternalSource,
   FilterField,
   FilterOperator,
   GuardrailContentFilterType,
@@ -26,11 +27,10 @@ import {
   GuardrailPiiEntityType,
   GuardrailSensitiveInformationAction,
   GuardrailTopicType,
-  ImportJobStatus,
-  ImportJobType,
   KnowledgeBaseSearchType,
   KnowledgeBaseStatus,
   KnowledgeBaseType,
+  MessageFilterType,
   MessageTemplateAttributeType,
   MessageType,
   Origin,
@@ -42,6 +42,7 @@ import {
   QuickResponseStatus,
   RecommendationSourceType,
   RecommendationTriggerType,
+  RecommendationType,
   ReferenceType,
   Relevance,
   RelevanceLevel,
@@ -50,6 +51,8 @@ import {
   Status,
   SyncStatus,
   TargetType,
+  ToolOverrideInputValueType,
+  ToolType,
   VisibilityStatus,
   WebScopeType,
   WhatsAppSourceConfigurationStatus,
@@ -383,6 +386,36 @@ export interface AnswerRecommendationAIAgentConfiguration {
    * @public
    */
   locale?: string | undefined;
+
+  /**
+   * <p>The suggested messages configuration for the Answer Recommendation AI Agent.</p>
+   * @public
+   */
+  suggestedMessages?: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for AI Agents of type <code>CASE_SUMMARIZATION</code>.</p>
+ * @public
+ */
+export interface CaseSummarizationAIAgentConfiguration {
+  /**
+   * <p>The AI Prompt identifier used by the Case Summarization AI Agent.</p>
+   * @public
+   */
+  caseSummarizationAIPromptId?: string | undefined;
+
+  /**
+   * <p>The AI Guardrail identifier used by the Case Summarization AI Agent.</p>
+   * @public
+   */
+  caseSummarizationAIGuardrailId?: string | undefined;
+
+  /**
+   * <p>The locale setting for the Case Summarization AI Agent.</p>
+   * @public
+   */
+  locale?: string | undefined;
 }
 
 /**
@@ -494,6 +527,303 @@ export interface ManualSearchAIAgentConfiguration {
 }
 
 /**
+ * <p>The configuration for AI Agents of type <code>NOTE_TAKING</code>.</p>
+ * @public
+ */
+export interface NoteTakingAIAgentConfiguration {
+  /**
+   * <p>The AI Prompt identifier used by the Note Taking AI Agent.</p>
+   * @public
+   */
+  noteTakingAIPromptId?: string | undefined;
+
+  /**
+   * <p>The AI Guardrail identifier used by the Note Taking AI Agent.</p>
+   * @public
+   */
+  noteTakingAIGuardrailId?: string | undefined;
+
+  /**
+   * <p>The locale setting for language-specific case summarization generation (for example, en_US, es_ES).</p>
+   * @public
+   */
+  locale?: string | undefined;
+}
+
+/**
+ * <p>An annotation that provides additional context or metadata.</p>
+ * @public
+ */
+export interface Annotation {
+  /**
+   * <p>The title of the annotation.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>A hint indicating that the annotation contains potentially destructive content.</p>
+   * @public
+   */
+  destructiveHint?: boolean | undefined;
+}
+
+/**
+ * <p>Instructions for using a tool.</p>
+ * @public
+ */
+export interface ToolInstruction {
+  /**
+   * <p>The instruction text for the tool.</p>
+   * @public
+   */
+  instruction?: string | undefined;
+
+  /**
+   * <p>Examples for using the tool.</p>
+   * @public
+   */
+  examples?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for tool output handling.</p>
+ * @public
+ */
+export interface ToolOutputConfiguration {
+  /**
+   * <p>Override the tool output results to different variable name.</p>
+   * @public
+   */
+  outputVariableNameOverride?: string | undefined;
+
+  /**
+   * <p>The session data namespace for tool output.</p>
+   * @public
+   */
+  sessionDataNamespace?: string | undefined;
+}
+
+/**
+ * <p>Filter configuration for tool output.</p>
+ * @public
+ */
+export interface ToolOutputFilter {
+  /**
+   * <p>The JSON path for filtering tool output.</p>
+   * @public
+   */
+  jsonPath: string | undefined;
+
+  /**
+   * <p>The output configuration for the filter.</p>
+   * @public
+   */
+  outputConfiguration?: ToolOutputConfiguration | undefined;
+}
+
+/**
+ * <p>A constant input value for tool override.</p>
+ * @public
+ */
+export interface ToolOverrideConstantInputValue {
+  /**
+   * <p>Override tool input value with constant values</p>
+   * @public
+   */
+  type: ToolOverrideInputValueType | undefined;
+
+  /**
+   * <p>The constant input override value.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>Configuration for overriding tool input values.</p>
+ * @public
+ */
+export type ToolOverrideInputValueConfiguration =
+  | ToolOverrideInputValueConfiguration.ConstantMember
+  | ToolOverrideInputValueConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolOverrideInputValueConfiguration {
+  /**
+   * <p>Constant input value configuration for tool override.</p>
+   * @public
+   */
+  export interface ConstantMember {
+    constant: ToolOverrideConstantInputValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    constant?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    constant: (value: ToolOverrideConstantInputValue) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>An input value override for tools.</p>
+ * @public
+ */
+export interface ToolOverrideInputValue {
+  /**
+   * <p>The JSON path for the input value override.</p>
+   * @public
+   */
+  jsonPath: string | undefined;
+
+  /**
+   * <p>The override input value.</p>
+   * @public
+   */
+  value: ToolOverrideInputValueConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for user interaction settings.</p>
+ * @public
+ */
+export interface UserInteractionConfiguration {
+  /**
+   * <p>Indicates whether user confirmation is required for the interaction.</p>
+   * @public
+   */
+  isUserConfirmationRequired?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration settings for a tool used by AI Agents.</p>
+ * @public
+ */
+export interface ToolConfiguration {
+  /**
+   * <p>The name of the tool.</p>
+   * @public
+   */
+  toolName: string | undefined;
+
+  /**
+   * <p>The type of the tool.</p>
+   * @public
+   */
+  toolType: ToolType | undefined;
+
+  /**
+   * <p>The title of the tool configuration.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The identifier of the tool, for example toolName from Model Context Provider server.</p>
+   * @public
+   */
+  toolId?: string | undefined;
+
+  /**
+   * <p>The description of the tool configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Instructions for using the tool.</p>
+   * @public
+   */
+  instruction?: ToolInstruction | undefined;
+
+  /**
+   * <p>Override input values for the tool configuration.</p>
+   * @public
+   */
+  overrideInputValues?: ToolOverrideInputValue[] | undefined;
+
+  /**
+   * <p>Output filters applies to the tool result.</p>
+   * @public
+   */
+  outputFilters?: ToolOutputFilter[] | undefined;
+
+  /**
+   * <p>The input schema for the tool configuration.</p>
+   * @public
+   */
+  inputSchema?: __DocumentType | undefined;
+
+  /**
+   * <p>The output schema for the tool configuration.</p>
+   * @public
+   */
+  outputSchema?: __DocumentType | undefined;
+
+  /**
+   * <p>Annotations for the tool configuration.</p>
+   * @public
+   */
+  annotations?: Annotation | undefined;
+
+  /**
+   * <p>Configuration for user interaction with the tool.</p>
+   * @public
+   */
+  userInteractionConfiguration?: UserInteractionConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration for AI Agents of type <code>ORCHESTRATION</code>.</p>
+ * @public
+ */
+export interface OrchestrationAIAgentConfiguration {
+  /**
+   * <p>The AI Prompt identifier used by the Orchestration AI Agent.</p>
+   * @public
+   */
+  orchestrationAIPromptId: string | undefined;
+
+  /**
+   * <p>The AI Guardrail identifier used by the Orchestration AI Agent.</p>
+   * @public
+   */
+  orchestrationAIGuardrailId?: string | undefined;
+
+  /**
+   * <p>The tool configurations used by the Orchestration AI Agent.</p>
+   * @public
+   */
+  toolConfigurations?: ToolConfiguration[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Connect instance used by the Orchestration AI Agent.</p>
+   * @public
+   */
+  connectInstanceArn?: string | undefined;
+
+  /**
+   * <p>The locale setting for the Orchestration AI Agent.</p>
+   * @public
+   */
+  locale?: string | undefined;
+}
+
+/**
  * <p>The configuration for AI Agents of type SELF_SERVICE.</p>
  * @public
  */
@@ -529,10 +859,13 @@ export interface SelfServiceAIAgentConfiguration {
  */
 export type AIAgentConfiguration =
   | AIAgentConfiguration.AnswerRecommendationAIAgentConfigurationMember
+  | AIAgentConfiguration.CaseSummarizationAIAgentConfigurationMember
   | AIAgentConfiguration.EmailGenerativeAnswerAIAgentConfigurationMember
   | AIAgentConfiguration.EmailOverviewAIAgentConfigurationMember
   | AIAgentConfiguration.EmailResponseAIAgentConfigurationMember
   | AIAgentConfiguration.ManualSearchAIAgentConfigurationMember
+  | AIAgentConfiguration.NoteTakingAIAgentConfigurationMember
+  | AIAgentConfiguration.OrchestrationAIAgentConfigurationMember
   | AIAgentConfiguration.SelfServiceAIAgentConfigurationMember
   | AIAgentConfiguration.$UnknownMember;
 
@@ -551,6 +884,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration?: never;
     emailOverviewAIAgentConfiguration?: never;
     emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -565,6 +901,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration?: never;
     emailOverviewAIAgentConfiguration?: never;
     emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -579,6 +918,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration?: never;
     emailOverviewAIAgentConfiguration?: never;
     emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -593,6 +935,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration: EmailResponseAIAgentConfiguration;
     emailOverviewAIAgentConfiguration?: never;
     emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -607,6 +952,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration?: never;
     emailOverviewAIAgentConfiguration: EmailOverviewAIAgentConfiguration;
     emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -621,6 +969,60 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration?: never;
     emailOverviewAIAgentConfiguration?: never;
     emailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for AI Agents of type <code>ORCHESTRATION</code>.</p>
+   * @public
+   */
+  export interface OrchestrationAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration: OrchestrationAIAgentConfiguration;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for AI Agents of type <code>NOTE_TAKING</code>.</p>
+   * @public
+   */
+  export interface NoteTakingAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration: NoteTakingAIAgentConfiguration;
+    caseSummarizationAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for AI Agents of type <code>CASE_SUMMARIZATION</code>.</p>
+   * @public
+   */
+  export interface CaseSummarizationAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration: CaseSummarizationAIAgentConfiguration;
     $unknown?: never;
   }
 
@@ -634,6 +1036,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration?: never;
     emailOverviewAIAgentConfiguration?: never;
     emailGenerativeAnswerAIAgentConfiguration?: never;
+    orchestrationAIAgentConfiguration?: never;
+    noteTakingAIAgentConfiguration?: never;
+    caseSummarizationAIAgentConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -648,6 +1053,9 @@ export namespace AIAgentConfiguration {
     emailResponseAIAgentConfiguration: (value: EmailResponseAIAgentConfiguration) => T;
     emailOverviewAIAgentConfiguration: (value: EmailOverviewAIAgentConfiguration) => T;
     emailGenerativeAnswerAIAgentConfiguration: (value: EmailGenerativeAnswerAIAgentConfiguration) => T;
+    orchestrationAIAgentConfiguration: (value: OrchestrationAIAgentConfiguration) => T;
+    noteTakingAIAgentConfiguration: (value: NoteTakingAIAgentConfiguration) => T;
+    caseSummarizationAIAgentConfiguration: (value: CaseSummarizationAIAgentConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2001,6 +2409,87 @@ export interface UpdateAIGuardrailResponse {
 }
 
 /**
+ * <p>The assessment information from the AI Guardrail.</p>
+ * @public
+ */
+export interface AIGuardrailAssessment {
+  /**
+   * <p>Indicates whether the AI Guardrail blocked the content.</p>
+   * @public
+   */
+  blocked: boolean | undefined;
+}
+
+/**
+ * <p>Inference configuration for text-based AI Prompts.</p>
+ * @public
+ */
+export interface TextAIPromptInferenceConfiguration {
+  /**
+   * <p>The temperature setting for controlling randomness in the generated response.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The top-P sampling parameter for nucleus sampling.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>The top-K sampling parameter for token selection.</p>
+   * @public
+   */
+  topK?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens to generate in the response.</p>
+   * @public
+   */
+  maxTokensToSample?: number | undefined;
+}
+
+/**
+ * <p>The configuration for inference parameters when using AI Prompts.</p>
+ * @public
+ */
+export type AIPromptInferenceConfiguration =
+  | AIPromptInferenceConfiguration.TextAIPromptInferenceConfigurationMember
+  | AIPromptInferenceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AIPromptInferenceConfiguration {
+  /**
+   * <p>The inference configuration for text-based AI Prompts.</p>
+   * @public
+   */
+  export interface TextAIPromptInferenceConfigurationMember {
+    textAIPromptInferenceConfiguration: TextAIPromptInferenceConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    textAIPromptInferenceConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    textAIPromptInferenceConfiguration: (value: TextAIPromptInferenceConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.</p>
  * @public
  */
@@ -2120,6 +2609,12 @@ export interface CreateAIPromptRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The inference configuration for the AI Prompt being created.</p>
+   * @public
+   */
+  inferenceConfiguration?: AIPromptInferenceConfiguration | undefined;
 }
 
 /**
@@ -2186,6 +2681,12 @@ export interface AIPromptData {
    * @public
    */
   templateConfiguration: AIPromptTemplateConfiguration | undefined;
+
+  /**
+   * <p>The configuration for inference parameters when using the AI Prompt.</p>
+   * @public
+   */
+  inferenceConfiguration?: AIPromptInferenceConfiguration | undefined;
 
   /**
    * <p>The time the AI Prompt was last modified.</p>
@@ -2622,6 +3123,12 @@ export interface UpdateAIPromptRequest {
    * @public
    */
   modelId?: string | undefined;
+
+  /**
+   * <p>The updated inference configuration for the AI Prompt.</p>
+   * @public
+   */
+  inferenceConfiguration?: AIPromptInferenceConfiguration | undefined;
 }
 
 /**
@@ -2666,10 +3173,29 @@ export interface AppIntegrationsConfiguration {
 }
 
 /**
+ * <p>Configuration for an external Bedrock knowledge base.</p>
+ * @public
+ */
+export interface ExternalBedrockKnowledgeBaseConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the external Bedrock knowledge base.</p>
+   * @public
+   */
+  bedrockKnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to access the external Bedrock knowledge base.</p>
+   * @public
+   */
+  accessRoleArn: string | undefined;
+}
+
+/**
  * <p>The data that is input into Amazon Q in Connect as a result of the assistant association.</p>
  * @public
  */
 export type AssistantAssociationInputData =
+  | AssistantAssociationInputData.ExternalBedrockKnowledgeBaseConfigMember
   | AssistantAssociationInputData.KnowledgeBaseIdMember
   | AssistantAssociationInputData.$UnknownMember;
 
@@ -2683,6 +3209,17 @@ export namespace AssistantAssociationInputData {
    */
   export interface KnowledgeBaseIdMember {
     knowledgeBaseId: string;
+    externalBedrockKnowledgeBaseConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an external Bedrock knowledge base association.</p>
+   * @public
+   */
+  export interface ExternalBedrockKnowledgeBaseConfigMember {
+    knowledgeBaseId?: never;
+    externalBedrockKnowledgeBaseConfig: ExternalBedrockKnowledgeBaseConfig;
     $unknown?: never;
   }
 
@@ -2691,6 +3228,7 @@ export namespace AssistantAssociationInputData {
    */
   export interface $UnknownMember {
     knowledgeBaseId?: never;
+    externalBedrockKnowledgeBaseConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2700,6 +3238,7 @@ export namespace AssistantAssociationInputData {
    */
   export interface Visitor<T> {
     knowledgeBaseId: (value: string) => T;
+    externalBedrockKnowledgeBaseConfig: (value: ExternalBedrockKnowledgeBaseConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2762,6 +3301,7 @@ export interface KnowledgeBaseAssociationData {
  * @public
  */
 export type AssistantAssociationOutputData =
+  | AssistantAssociationOutputData.ExternalBedrockKnowledgeBaseConfigMember
   | AssistantAssociationOutputData.KnowledgeBaseAssociationMember
   | AssistantAssociationOutputData.$UnknownMember;
 
@@ -2775,6 +3315,17 @@ export namespace AssistantAssociationOutputData {
    */
   export interface KnowledgeBaseAssociationMember {
     knowledgeBaseAssociation: KnowledgeBaseAssociationData;
+    externalBedrockKnowledgeBaseConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an external Bedrock knowledge base association in the output data.</p>
+   * @public
+   */
+  export interface ExternalBedrockKnowledgeBaseConfigMember {
+    knowledgeBaseAssociation?: never;
+    externalBedrockKnowledgeBaseConfig: ExternalBedrockKnowledgeBaseConfig;
     $unknown?: never;
   }
 
@@ -2783,6 +3334,7 @@ export namespace AssistantAssociationOutputData {
    */
   export interface $UnknownMember {
     knowledgeBaseAssociation?: never;
+    externalBedrockKnowledgeBaseConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2792,6 +3344,7 @@ export namespace AssistantAssociationOutputData {
    */
   export interface Visitor<T> {
     knowledgeBaseAssociation: (value: KnowledgeBaseAssociationData) => T;
+    externalBedrockKnowledgeBaseConfig: (value: ExternalBedrockKnowledgeBaseConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3071,6 +3624,24 @@ export interface AssistantIntegrationConfiguration {
 }
 
 /**
+ * <p>An entry in the orchestrator configuration list.</p>
+ * @public
+ */
+export interface OrchestratorConfigurationEntry {
+  /**
+   * <p>The identifier of the AI Agent in the orchestrator configuration.</p>
+   * @public
+   */
+  aiAgentId?: string | undefined;
+
+  /**
+   * <p>The use case for the orchestrator configuration. (for example Connect.SelfService, Connect.AgentAssistance)</p>
+   * @public
+   */
+  orchestratorUseCase: string | undefined;
+}
+
+/**
  * <p>The assistant data.</p>
  * @public
  */
@@ -3140,6 +3711,12 @@ export interface AssistantData {
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
+
+  /**
+   * <p>The list of orchestrator configurations for the assistant.</p>
+   * @public
+   */
+  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
 }
 
 /**
@@ -3221,6 +3798,30 @@ export interface GetRecommendationsRequest {
 
   /**
    * <p>The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
+
+  /**
+   * <p>The type of recommendation being requested.</p>
+   * @public
+   */
+  recommendationType?: RecommendationType | undefined;
+}
+
+/**
+ * <p>Details about case summarization chunk data.</p>
+ * @public
+ */
+export interface CaseSummarizationChunkDataDetails {
+  /**
+   * <p>A chunk of the case summarization completion.</p>
+   * @public
+   */
+  completion?: string | undefined;
+
+  /**
+   * <p>Token for retrieving the next chunk of streaming summarization data, if available.</p>
    * @public
    */
   nextChunkToken?: string | undefined;
@@ -3368,6 +3969,42 @@ export interface IntentDetectedDataDetails {
    * @public
    */
   intentId: string | undefined;
+
+  /**
+   * <p>The relevance level of the detected intent.</p>
+   * @public
+   */
+  relevanceLevel?: RelevanceLevel | undefined;
+}
+
+/**
+ * <p>Details about notes chunk data.</p>
+ * @public
+ */
+export interface NotesChunkDataDetails {
+  /**
+   * <p>A chunk of the notes completion.</p>
+   * @public
+   */
+  completion?: string | undefined;
+
+  /**
+   * <p>The token for the next chunk of notes data.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
+}
+
+/**
+ * <p>Details about notes data.</p>
+ * @public
+ */
+export interface NotesDataDetails {
+  /**
+   * <p>The completion data for notes.</p>
+   * @public
+   */
+  completion?: string | undefined;
 }
 
 /**
@@ -3422,6 +4059,18 @@ export interface SourceContentDataDetails {
    * @public
    */
   citationSpan?: CitationSpan | undefined;
+}
+
+/**
+ * <p>Details about suggested message data.</p>
+ * @public
+ */
+export interface SuggestedMessageDataDetails {
+  /**
+   * <p>The text content of the suggested message.</p>
+   * @public
+   */
+  messageText: string | undefined;
 }
 
 /**
@@ -3485,12 +4134,31 @@ export interface GenerativeReference {
 }
 
 /**
+ * <p>Reference information for a suggested message.</p>
+ * @public
+ */
+export interface SuggestedMessageReference {
+  /**
+   * <p>The identifier of the AI Agent that generated the suggested message.</p>
+   * @public
+   */
+  aiAgentId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI Agent that generated the suggested message.</p>
+   * @public
+   */
+  aiAgentArn: string | undefined;
+}
+
+/**
  * <p>Reference data.</p>
  * @public
  */
 export type DataReference =
   | DataReference.ContentReferenceMember
   | DataReference.GenerativeReferenceMember
+  | DataReference.SuggestedMessageReferenceMember
   | DataReference.$UnknownMember;
 
 /**
@@ -3504,6 +4172,7 @@ export namespace DataReference {
   export interface ContentReferenceMember {
     contentReference: ContentReference;
     generativeReference?: never;
+    suggestedMessageReference?: never;
     $unknown?: never;
   }
 
@@ -3514,6 +4183,18 @@ export namespace DataReference {
   export interface GenerativeReferenceMember {
     contentReference?: never;
     generativeReference: GenerativeReference;
+    suggestedMessageReference?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Reference information for suggested messages.</p>
+   * @public
+   */
+  export interface SuggestedMessageReferenceMember {
+    contentReference?: never;
+    generativeReference?: never;
+    suggestedMessageReference: SuggestedMessageReference;
     $unknown?: never;
   }
 
@@ -3523,6 +4204,7 @@ export namespace DataReference {
   export interface $UnknownMember {
     contentReference?: never;
     generativeReference?: never;
+    suggestedMessageReference?: never;
     $unknown: [string, any];
   }
 
@@ -3533,6 +4215,7 @@ export namespace DataReference {
   export interface Visitor<T> {
     contentReference: (value: ContentReference) => T;
     generativeReference: (value: GenerativeReference) => T;
+    suggestedMessageReference: (value: SuggestedMessageReference) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3735,6 +4418,12 @@ export interface AssistantSummary {
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
+
+  /**
+   * <p>The list of orchestrator configurations for the assistant.</p>
+   * @public
+   */
+  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
 }
 
 /**
@@ -3989,6 +4678,18 @@ export namespace QueryCondition {
 }
 
 /**
+ * <p>Input data for case summarization.</p>
+ * @public
+ */
+export interface CaseSummarizationInputData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the case for summarization.</p>
+   * @public
+   */
+  caseArn: string | undefined;
+}
+
+/**
  * <p>Information about the Amazon Q intent.</p>
  * @public
  */
@@ -4017,6 +4718,7 @@ export interface QueryTextInputData {
  * @public
  */
 export type QueryInputData =
+  | QueryInputData.CaseSummarizationInputDataMember
   | QueryInputData.IntentInputDataMember
   | QueryInputData.QueryTextInputDataMember
   | QueryInputData.$UnknownMember;
@@ -4032,6 +4734,7 @@ export namespace QueryInputData {
   export interface QueryTextInputDataMember {
     queryTextInputData: QueryTextInputData;
     intentInputData?: never;
+    caseSummarizationInputData?: never;
     $unknown?: never;
   }
 
@@ -4042,6 +4745,18 @@ export namespace QueryInputData {
   export interface IntentInputDataMember {
     queryTextInputData?: never;
     intentInputData: IntentInputData;
+    caseSummarizationInputData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input data for case summarization queries.</p>
+   * @public
+   */
+  export interface CaseSummarizationInputDataMember {
+    queryTextInputData?: never;
+    intentInputData?: never;
+    caseSummarizationInputData: CaseSummarizationInputData;
     $unknown?: never;
   }
 
@@ -4051,6 +4766,7 @@ export namespace QueryInputData {
   export interface $UnknownMember {
     queryTextInputData?: never;
     intentInputData?: never;
+    caseSummarizationInputData?: never;
     $unknown: [string, any];
   }
 
@@ -4061,6 +4777,7 @@ export namespace QueryInputData {
   export interface Visitor<T> {
     queryTextInputData: (value: QueryTextInputData) => T;
     intentInputData: (value: IntentInputData) => T;
+    caseSummarizationInputData: (value: CaseSummarizationInputData) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4133,12 +4850,114 @@ export interface RemoveAssistantAIAgentRequest {
    * @public
    */
   aiAgentType: AIAgentType | undefined;
+
+  /**
+   * <p>The orchestrator use case for the AI Agent being removed.</p>
+   * @public
+   */
+  orchestratorUseCase?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface RemoveAssistantAIAgentResponse {}
+
+/**
+ * <p>An attribute used for filtering.</p>
+ * @public
+ */
+export interface FilterAttribute {
+  /**
+   * <p>The key of the filter attribute.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the filter attribute.</p>
+   * @public
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
+ * <p>A knowledge source that provides content for recommendations.</p>
+ * @public
+ */
+export type KnowledgeSource = KnowledgeSource.AssistantAssociationIdsMember | KnowledgeSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace KnowledgeSource {
+  /**
+   * <p>The list of assistant association identifiers for the knowledge source.</p>
+   * @public
+   */
+  export interface AssistantAssociationIdsMember {
+    assistantAssociationIds: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    assistantAssociationIds?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    assistantAssociationIds: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A single result from a content retrieval operation.</p>
+ * @public
+ */
+export interface RetrieveResult {
+  /**
+   * <p>The identifier of the assistant association for the retrieved result.</p>
+   * @public
+   */
+  associationId: string | undefined;
+
+  /**
+   * <p>The URL, URI, or ID of the retrieved content when available, or a UUID when unavailable.</p>
+   * @public
+   */
+  sourceId: string | undefined;
+
+  /**
+   * <p>A type to define the KB origin of a retrieved content.</p>
+   * @public
+   */
+  referenceType: ReferenceType | undefined;
+
+  /**
+   * <p>The text content of the retrieved result.</p>
+   * @public
+   */
+  contentText: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveResponse {
+  /**
+   * <p>The results of the content retrieval operation.</p>
+   * @public
+   */
+  results: RetrieveResult[] | undefined;
+}
 
 /**
  * <p>A search filter.</p>
@@ -4303,6 +5122,18 @@ export interface CreateSessionRequest {
    * @public
    */
   contactArn?: string | undefined;
+
+  /**
+   * <p>The list of orchestrator configurations for the session being created.</p>
+   * @public
+   */
+  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
+
+  /**
+   * <p>The list of orchestrator configurations to remove from the session.</p>
+   * @public
+   */
+  removeOrchestratorConfigurationList?: boolean | undefined;
 }
 
 /**
@@ -4375,6 +5206,12 @@ export interface SessionData {
    * @public
    */
   origin?: Origin | undefined;
+
+  /**
+   * <p>The list of orchestrator configurations for the session.</p>
+   * @public
+   */
+  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
 }
 
 /**
@@ -4487,6 +5324,48 @@ export interface ConversationState {
 }
 
 /**
+ * <p>A citation that references source content.</p>
+ * @public
+ */
+export interface Citation {
+  /**
+   * <p>The identifier of the content being cited.</p>
+   * @public
+   */
+  contentId?: string | undefined;
+
+  /**
+   * <p>The title of the cited content.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base containing the cited content.</p>
+   * @public
+   */
+  knowledgeBaseId?: string | undefined;
+
+  /**
+   * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+   * @public
+   */
+  citationSpan: CitationSpan | undefined;
+
+  /**
+   * <p>The source URL for the citation.</p>
+   * @public
+   */
+  sourceURL?: string | undefined;
+
+  /**
+   * <p>A type to define the KB origin of a cited content</p>
+   * @public
+   */
+  referenceType: ReferenceType | undefined;
+}
+
+/**
  * <p>The message data in text type.</p>
  * @public
  */
@@ -4496,13 +5375,55 @@ export interface TextMessage {
    * @public
    */
   value?: string | undefined;
+
+  /**
+   * <p>The citations associated with the text message.</p>
+   * @public
+   */
+  citations?: Citation[] | undefined;
+
+  /**
+   * <p>The AI Guardrail assessment for the text message.</p>
+   * @public
+   */
+  aiGuardrailAssessment?: AIGuardrailAssessment | undefined;
+}
+
+/**
+ * <p>Data about the result of tool usage.</p>
+ * @public
+ */
+export interface ToolUseResultData {
+  /**
+   * <p>The identifier of the tool use instance.</p>
+   * @public
+   */
+  toolUseId: string | undefined;
+
+  /**
+   * <p>The name of the tool that was used.</p>
+   * @public
+   */
+  toolName: string | undefined;
+
+  /**
+   * <p>The result of the tool usage.</p>
+   * @public
+   */
+  toolResult: __DocumentType | undefined;
+
+  /**
+   * <p>The input schema for the tool use result.</p>
+   * @public
+   */
+  inputSchema?: __DocumentType | undefined;
 }
 
 /**
  * <p>The message data.</p>
  * @public
  */
-export type MessageData = MessageData.TextMember | MessageData.$UnknownMember;
+export type MessageData = MessageData.TextMember | MessageData.ToolUseResultMember | MessageData.$UnknownMember;
 
 /**
  * @public
@@ -4514,6 +5435,17 @@ export namespace MessageData {
    */
   export interface TextMember {
     text: TextMessage;
+    toolUseResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of tool usage in the message.</p>
+   * @public
+   */
+  export interface ToolUseResultMember {
+    text?: never;
+    toolUseResult: ToolUseResultData;
     $unknown?: never;
   }
 
@@ -4522,6 +5454,7 @@ export namespace MessageData {
    */
   export interface $UnknownMember {
     text?: never;
+    toolUseResult?: never;
     $unknown: [string, any];
   }
 
@@ -4531,6 +5464,7 @@ export namespace MessageData {
    */
   export interface Visitor<T> {
     text: (value: TextMessage) => T;
+    toolUseResult: (value: ToolUseResultData) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4604,6 +5538,12 @@ export interface GetNextMessageResponse {
    * @public
    */
   conversationSessionData?: RuntimeSessionData[] | undefined;
+
+  /**
+   * <p>Indicates whether the chunked response has been terminated.</p>
+   * @public
+   */
+  chunkedResponseTerminated?: boolean | undefined;
 }
 
 /**
@@ -4661,6 +5601,12 @@ export interface ListMessagesRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The filter criteria for listing messages.</p>
+   * @public
+   */
+  filter?: MessageFilterType | undefined;
 }
 
 /**
@@ -4681,6 +5627,113 @@ export interface ListMessagesResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListSpansRequest {
+  /**
+   * <p>UUID or ARN of the Connect AI Assistant resource</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>UUID or ARN of the Connect AI Session resource</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Pagination token for retrieving the next page of results</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of spans to return per page</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A citation that spans a specific range of text.</p>
+ * @public
+ */
+export interface SpanCitation {
+  /**
+   * <p>The identifier of the content being cited in the span.</p>
+   * @public
+   */
+  contentId?: string | undefined;
+
+  /**
+   * <p>The title of the content being cited in the span.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base containing the cited content.</p>
+   * @public
+   */
+  knowledgeBaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base containing the cited content.</p>
+   * @public
+   */
+  knowledgeBaseArn?: string | undefined;
+}
+
+/**
+ * <p>Text message content</p>
+ * @public
+ */
+export interface SpanTextValue {
+  /**
+   * <p>String content of the message text</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The citations associated with the span text.</p>
+   * @public
+   */
+  citations?: SpanCitation[] | undefined;
+
+  /**
+   * <p>The AI Guardrail assessment for the span text.</p>
+   * @public
+   */
+  aiGuardrailAssessment?: AIGuardrailAssessment | undefined;
+}
+
+/**
+ * <p>Tool invocation message content</p>
+ * @public
+ */
+export interface SpanToolUseValue {
+  /**
+   * <p>Unique ID for this tool invocation</p>
+   * @public
+   */
+  toolUseId: string | undefined;
+
+  /**
+   * <p>The tool name</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The tool input arguments</p>
+   * @public
+   */
+  arguments: __DocumentType | undefined;
+}
+
+/**
  * <p>The configuration for a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_SendMessage.html">SendMessage</a> request.</p>
  * @public
  */
@@ -4690,6 +5743,12 @@ export interface MessageConfiguration {
    * @public
    */
   generateFillerMessage?: boolean | undefined;
+
+  /**
+   * <p>Configuration for generating chunked messages.</p>
+   * @public
+   */
+  generateChunkedMessage?: boolean | undefined;
 }
 
 /**
@@ -4701,7 +5760,7 @@ export interface SelfServiceConversationHistory {
    * <p>The number of turn of the conversation history data.</p>
    * @public
    */
-  turnNumber: number | undefined;
+  turnNumber?: number | undefined;
 
   /**
    * <p>The input transcript of the conversation history data.</p>
@@ -4714,6 +5773,12 @@ export interface SelfServiceConversationHistory {
    * @public
    */
   botResponse?: string | undefined;
+
+  /**
+   * <p>The timestamp of the conversation history entry.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
 }
 
 /**
@@ -4769,6 +5834,12 @@ export interface SendMessageRequest {
   message: MessageInput | undefined;
 
   /**
+   * <p>The identifier of the AI Agent to use for processing the message.</p>
+   * @public
+   */
+  aiAgentId?: string | undefined;
+
+  /**
    * <p>The conversation context before the Amazon Q in Connect session.</p>
    * @public
    */
@@ -4785,6 +5856,18 @@ export interface SendMessageRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The orchestrator use case for message processing.</p>
+   * @public
+   */
+  orchestratorUseCase?: string | undefined;
+
+  /**
+   * <p>Additional metadata for the message.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -4843,6 +5926,18 @@ export interface UpdateSessionRequest {
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
+
+  /**
+   * <p>The updated list of orchestrator configurations for the session.</p>
+   * @public
+   */
+  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
+
+  /**
+   * <p>The list of orchestrator configurations to remove from the session.</p>
+   * @public
+   */
+  removeOrchestratorConfigurationList?: boolean | undefined;
 }
 
 /**
@@ -4935,6 +6030,12 @@ export interface UpdateAssistantAIAgentRequest {
    * @public
    */
   configuration: AIAgentConfigurationData | undefined;
+
+  /**
+   * <p>The updated list of orchestrator configurations for the assistant AI Agent.</p>
+   * @public
+   */
+  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
 }
 
 /**
@@ -8106,793 +9207,4 @@ export interface DeactivateMessageTemplateResponse {
    * @public
    */
   versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteImportJobRequest {
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the import job to be deleted.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteImportJobResponse {}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseRequest {
-  /**
-   * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseResponse {}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateResponse {}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateAttachmentRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The identifier of the attachment file.</p>
-   * @public
-   */
-  attachmentId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateAttachmentResponse {}
-
-/**
- * @public
- */
-export interface DeleteQuickResponseRequest {
-  /**
-   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response to delete.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteQuickResponseResponse {}
-
-/**
- * <p>The configuration information of the external data source.</p>
- * @public
- */
-export interface ExternalSourceConfiguration {
-  /**
-   * <p>The type of the external data source.</p>
-   * @public
-   */
-  source: ExternalSource | undefined;
-
-  /**
-   * <p>The configuration information of the external data source.</p>
-   * @public
-   */
-  configuration: Configuration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetImportJobRequest {
-  /**
-   * <p>The identifier of the import job to retrieve.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base that the import job belongs to.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * <p>Summary information about the import job.</p>
- * @public
- */
-export interface ImportJobData {
-  /**
-   * <p>The identifier of the import job.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The type of the import job.</p>
-   * @public
-   */
-  importJobType: ImportJobType | undefined;
-
-  /**
-   * <p>The status of the import job.</p>
-   * @public
-   */
-  status: ImportJobStatus | undefined;
-
-  /**
-   * <p>The download link to the resource file that is uploaded to the import job.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>The link to download the information of resource data that failed to be imported.</p>
-   * @public
-   */
-  failedRecordReport?: string | undefined;
-
-  /**
-   * <p>The expiration time of the URL as an epoch timestamp.</p>
-   * @public
-   */
-  urlExpiry: Date | undefined;
-
-  /**
-   * <p>The timestamp when the import job was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the import job data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The configuration information of the external data source.</p>
-   * @public
-   */
-  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetImportJobResponse {
-  /**
-   * <p>The import job.</p>
-   * @public
-   */
-  importJob?: ImportJobData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseResponse {
-  /**
-   * <p>The knowledge base.</p>
-   * @public
-   */
-  knowledgeBase?: KnowledgeBaseData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMessageTemplateRequest {
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMessageTemplateResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: ExtendedMessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetQuickResponseRequest {
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetQuickResponseResponse {
-  /**
-   * <p>The quick response.</p>
-   * @public
-   */
-  quickResponse?: QuickResponseData | undefined;
-}
-
-/**
- * <p>Summary information about the import job.</p>
- * @public
- */
-export interface ImportJobSummary {
-  /**
-   * <p>The identifier of the import job.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The type of import job.</p>
-   * @public
-   */
-  importJobType: ImportJobType | undefined;
-
-  /**
-   * <p>The status of the import job.</p>
-   * @public
-   */
-  status: ImportJobStatus | undefined;
-
-  /**
-   * <p>The timestamp when the import job was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the import job was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The configuration information of the external source that the resource data are imported from.</p>
-   * @public
-   */
-  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImportJobsRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImportJobsResponse {
-  /**
-   * <p>Summary information about the import jobs.</p>
-   * @public
-   */
-  importJobSummaries: ImportJobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Summary information about the knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseSummary {
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The name of the knowledge base.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseType: KnowledgeBaseType | undefined;
-
-  /**
-   * <p>The status of the knowledge base summary.</p>
-   * @public
-   */
-  status: KnowledgeBaseStatus | undefined;
-
-  /**
-   * <p>Configuration information about the external data source.</p>
-   * @public
-   */
-  sourceConfiguration?: SourceConfiguration | undefined;
-
-  /**
-   * <p>Contains details about how to ingest the documents in a data source.</p>
-   * @public
-   */
-  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
-
-  /**
-   * <p>Information about how to render the content.</p>
-   * @public
-   */
-  renderingConfiguration?: RenderingConfiguration | undefined;
-
-  /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
-   * @public
-   */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
-
-  /**
-   * <p>The description of the knowledge base.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesResponse {
-  /**
-   * <p>Information about the knowledge bases.</p>
-   * @public
-   */
-  knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplatesRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * <p>The summary of the message template.</p>
- * @public
- */
-export interface MessageTemplateSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel this message template applies to.</p>
-   * @public
-   */
-  channel?: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The container of message template source configuration.</p>
-   * @public
-   */
-  sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
-
-  /**
-   * <p>The version number of the message template version that is activated.</p>
-   * @public
-   */
-  activeVersionNumber?: number | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplatesResponse {
-  /**
-   * <p>Summary information about the message template.</p>
-   * @public
-   */
-  messageTemplateSummaries: MessageTemplateSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplateVersionsRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of the message template version.</p>
- * @public
- */
-export interface MessageTemplateVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel of the message template.</p>
-   * @public
-   */
-  channel?: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>Whether the version of the message template is activated.</p>
-   * @public
-   */
-  isActive: boolean | undefined;
-
-  /**
-   * <p>The version number of the message template version.</p>
-   * @public
-   */
-  versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplateVersionsResponse {
-  /**
-   * <p>Summary information about the versions of a message template.</p>
-   * @public
-   */
-  messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RenderMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable.</p>
-   * @public
-   */
-  attributes: MessageTemplateAttributes | undefined;
 }

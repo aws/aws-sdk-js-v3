@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeBatchInferenceJob } from "../schemas/schemas_0";
 
 /**
@@ -66,6 +66,9 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * //     batchInferenceJobConfig: { // BatchInferenceJobConfig
  * //       itemExplorationConfig: { // HyperParameters
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       rankingInfluence: { // RankingInfluence
+ * //         "<keys>": Number("double"),
  * //       },
  * //     },
  * //     roleArn: "STRING_VALUE",

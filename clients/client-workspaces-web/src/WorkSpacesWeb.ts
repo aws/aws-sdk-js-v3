@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateBrowserSettingsCommand,
@@ -361,7 +361,7 @@ import {
   UpdateUserSettingsCommandInput,
   UpdateUserSettingsCommandOutput,
 } from "./commands/UpdateUserSettingsCommand";
-import { WorkSpacesWebClient, WorkSpacesWebClientConfig } from "./WorkSpacesWebClient";
+import { WorkSpacesWebClient } from "./WorkSpacesWebClient";
 
 const commands = {
   AssociateBrowserSettingsCommand,

@@ -524,7 +524,7 @@ const n0 = "com.amazonaws.appsync";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -550,20 +550,8 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AdditionalAuthenticationProvider: StaticStructureSchema = [
   3,
   n0,
@@ -590,45 +578,19 @@ export var ApiCache: StaticStructureSchema = [
   [1, 0, 2, 2, 0, 0, 0],
 ];
 export var ApiKey: StaticStructureSchema = [3, n0, _AK, 0, [_i, _de, _ex, _del], [0, 0, 1, 1]];
-export var ApiKeyLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _AKLEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ApiKeyLimitExceededException: StaticErrorSchema = [-3, n0, _AKLEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ApiKeyLimitExceededException, __ApiKeyLimitExceededException);
-
 export var ApiKeyValidityOutOfBoundsException: StaticErrorSchema = [
   -3,
   n0,
   _AKVOOBE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ApiKeyValidityOutOfBoundsException, __ApiKeyValidityOutOfBoundsException);
-
-export var ApiLimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ALEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ApiLimitExceededException: StaticErrorSchema = [-3, n0, _ALEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ApiLimitExceededException, __ApiLimitExceededException);
-
 export var AppSyncRuntime: StaticStructureSchema = [3, n0, _ASR, 0, [_n, _rV], [0, 0]];
 export var AssociateApiRequest: StaticStructureSchema = [3, n0, _AAR, 0, [_dN, _aI], [[0, 1], 0]];
 export var AssociateApiResponse: StaticStructureSchema = [3, n0, _AARs, 0, [_aAp], [() => ApiAssociation]];
@@ -680,15 +642,11 @@ export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _det],
   [0, 0, () => BadRequestDetail],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var CachingConfig: StaticStructureSchema = [3, n0, _CC, 0, [_tt, _cK], [1, 64 | 0]];
 export var ChannelNamespace: StaticStructureSchema = [
   3,
@@ -702,32 +660,10 @@ export var CodeError: StaticStructureSchema = [3, n0, _CE, 0, [_eT, _v, _l], [0,
 export var CodeErrorLocation: StaticStructureSchema = [3, n0, _CEL, 0, [_li, _co, _sp], [1, 1, 1]];
 export var CognitoConfig: StaticStructureSchema = [3, n0, _CCo, 0, [_uPI, _aR, _aICR], [0, 0, 0]];
 export var CognitoUserPoolConfig: StaticStructureSchema = [3, n0, _CUPC, 0, [_uPI, _aR, _aICR], [0, 0, 0]];
-export var ConcurrentModificationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CME,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CEo,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CEo, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApiCacheRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1104,24 +1040,9 @@ export var GetDataSourceIntrospectionRequest: StaticStructureSchema = [
   [_iI, _iMSDL, _nT, _mR],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _iMSDL,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [2, { [_hQ]: _iMSDL }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetDataSourceIntrospectionResponse: StaticStructureSchema = [
@@ -1170,18 +1091,8 @@ export var GetIntrospectionSchemaRequest: StaticStructureSchema = [
   [_aI, _f, _iD],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _iD,
-      },
-    ],
+    [0, { [_hQ]: _f }],
+    [2, { [_hQ]: _iD }],
   ],
 ];
 export var GetIntrospectionSchemaResponse: StaticStructureSchema = [3, n0, _GISRe, 0, [_sc], [[21, 16]]];
@@ -1228,12 +1139,7 @@ export var GetTypeRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
+    [0, { [_hQ]: _f }],
   ],
 ];
 export var GetTypeResponse: StaticStructureSchema = [3, n0, _GTRe, 0, [_ty], [() => Type]];
@@ -1293,19 +1199,8 @@ export var GraphqlApi: StaticStructureSchema = [
     () => EnhancedMetricsConfig,
   ],
 ];
-export var GraphQLSchemaException: StaticErrorSchema = [
-  -3,
-  n0,
-  _GQLSE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var GraphQLSchemaException: StaticErrorSchema = [-3, n0, _GQLSE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(GraphQLSchemaException, __GraphQLSchemaException);
-
 export var HandlerConfig: StaticStructureSchema = [3, n0, _HC, 0, [_b, _int], [0, () => Integration]];
 export var HandlerConfigs: StaticStructureSchema = [
   3,
@@ -1317,36 +1212,14 @@ export var HandlerConfigs: StaticStructureSchema = [
 ];
 export var HttpDataSourceConfig: StaticStructureSchema = [3, n0, _HDSC, 0, [_en, _aCu], [0, () => AuthorizationConfig]];
 export var Integration: StaticStructureSchema = [3, n0, _I, 0, [_dSN, _lC], [0, () => LambdaConfig]];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
 export var LambdaAuthorizerConfig: StaticStructureSchema = [3, n0, _LAC, 0, [_aRTIS, _aU, _iVE], [1, 0, 0]];
 export var LambdaConfig: StaticStructureSchema = [3, n0, _LC, 0, [_iT], [0]];
 export var LambdaConflictHandlerConfig: StaticStructureSchema = [3, n0, _LCHC, 0, [_lCHA], [0]];
 export var LambdaDataSourceConfig: StaticStructureSchema = [3, n0, _LDSC, 0, [_lFA], [0]];
-export var LimitExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m],
-  [0],
-];
+export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var ListApiKeysRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1355,18 +1228,8 @@ export var ListApiKeysRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListApiKeysResponse: StaticStructureSchema = [3, n0, _LAKRi, 0, [_aKp, _nT], [() => ApiKeys, 0]];
@@ -1377,18 +1240,8 @@ export var ListApisRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListApisResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_ap, _nT], [() => Apis, 0]];
@@ -1400,18 +1253,8 @@ export var ListChannelNamespacesRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListChannelNamespacesResponse: StaticStructureSchema = [
@@ -1430,18 +1273,8 @@ export var ListDataSourcesRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDataSourcesResponse: StaticStructureSchema = [3, n0, _LDSRi, 0, [_dSa, _nT], [() => DataSources, 0]];
@@ -1452,18 +1285,8 @@ export var ListDomainNamesRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListDomainNamesResponse: StaticStructureSchema = [
@@ -1482,18 +1305,8 @@ export var ListFunctionsRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListFunctionsResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_fun, _nT], [() => Functions, 0]];
@@ -1504,30 +1317,10 @@ export var ListGraphqlApisRequest: StaticStructureSchema = [
   0,
   [_nT, _mR, _aTp, _o],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _aTp,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _o,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _aTp }],
+    [0, { [_hQ]: _o }],
   ],
 ];
 export var ListGraphqlApisResponse: StaticStructureSchema = [3, n0, _LGARi, 0, [_gAr, _nT], [() => GraphqlApis, 0]];
@@ -1540,18 +1333,8 @@ export var ListResolversByFunctionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListResolversByFunctionResponse: StaticStructureSchema = [
@@ -1571,18 +1354,8 @@ export var ListResolversRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListResolversResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_res, _nT], [() => Resolvers, 0]];
@@ -1594,18 +1367,8 @@ export var ListSourceApiAssociationsRequest: StaticStructureSchema = [
   [_aI, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListSourceApiAssociationsResponse: StaticStructureSchema = [
@@ -1627,24 +1390,9 @@ export var ListTypesByAssociationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTypesByAssociationResponse: StaticStructureSchema = [
@@ -1663,41 +1411,15 @@ export var ListTypesRequest: StaticStructureSchema = [
   [_aI, _f, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _f,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _f }],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListTypesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_typ, _nT], [() => TypeList, 0]];
 export var LogConfig: StaticStructureSchema = [3, n0, _LCo, 0, [_fLL, _cWLRA, _eVC], [0, 0, 2]];
-export var NotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var OpenIDConnectConfig: StaticStructureSchema = [3, n0, _OIDCC, 0, [_is, _cI, _iTTL, _aTTL], [0, 0, 1, 1]];
 export var OpenSearchServiceDataSourceConfig: StaticStructureSchema = [3, n0, _OSSDSC, 0, [_en, _aR], [0, 0]];
 export var PipelineConfig: StaticStructureSchema = [3, n0, _PC, 0, [_fun], [64 | 0]];
@@ -1735,19 +1457,8 @@ export var Resolver: StaticStructureSchema = [
   [_tN, _fN, _dSN, _rAe, _rMT, _rMTe, _k, _pC, _sC, _cCa, _mBS, _ru, _cod, _mC],
   [0, 0, 0, 0, 0, 0, 0, () => PipelineConfig, () => SyncConfig, () => CachingConfig, 1, () => AppSyncRuntime, 0, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SourceApiAssociation: StaticStructureSchema = [
   3,
   n0,
@@ -1806,19 +1517,8 @@ export var SyncConfig: StaticStructureSchema = [
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var Type: StaticStructureSchema = [3, n0, _T, 0, [_n, _de, _ar, _def, _f], [0, 0, 0, 0, 0]];
-export var UnauthorizedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_m],
-  [0],
-];
+export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1827,12 +1527,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -1967,11 +1662,8 @@ export var UpdateSourceApiAssociationResponse: StaticStructureSchema = [
 export var UpdateTypeRequest: StaticStructureSchema = [3, n0, _UTR, 0, [_aI, _tN, _def, _f], [[0, 1], [0, 1], 0, 0]];
 export var UpdateTypeResponse: StaticStructureSchema = [3, n0, _UTRp, 0, [_ty], [() => Type]];
 export var UserPoolConfig: StaticStructureSchema = [3, n0, _UPC, 0, [_uPI, _aR, _dA, _aICR], [0, 0, 0, 0]];
-export var __Unit = "unit" as const;
-
 export var AppSyncServiceException: StaticErrorSchema = [-3, _sm, "AppSyncServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AppSyncServiceException, __AppSyncServiceException);
-
 export var AdditionalAuthenticationProviders: StaticListSchema = [
   1,
   n0,
@@ -1984,7 +1676,6 @@ export var Apis: StaticListSchema = [1, n0, _Ap, 0, () => Api];
 export var AuthModes: StaticListSchema = [1, n0, _AMu, 0, () => AuthMode];
 export var AuthProviders: StaticListSchema = [1, n0, _APu, 0, () => AuthProvider];
 export var CachingKeys = 64 | 0;
-
 export var ChannelNamespaces: StaticListSchema = [1, n0, _CNh, 0, () => ChannelNamespace];
 export var CodeErrors: StaticListSchema = [1, n0, _CEod, 0, () => CodeError];
 export var DataSourceIntrospectionModelFields: StaticListSchema = [
@@ -1995,7 +1686,6 @@ export var DataSourceIntrospectionModelFields: StaticListSchema = [
   () => DataSourceIntrospectionModelField,
 ];
 export var DataSourceIntrospectionModelFieldTypeValues = 64 | 0;
-
 export var DataSourceIntrospectionModelIndexes: StaticListSchema = [
   1,
   n0,
@@ -2004,34 +1694,25 @@ export var DataSourceIntrospectionModelIndexes: StaticListSchema = [
   () => DataSourceIntrospectionModelIndex,
 ];
 export var DataSourceIntrospectionModelIndexFields = 64 | 0;
-
 export var DataSourceIntrospectionModels: StaticListSchema = [1, n0, _DSIMa, 0, () => DataSourceIntrospectionModel];
 export var DataSources: StaticListSchema = [1, n0, _DSa, 0, () => DataSource];
 export var DomainNameConfigs: StaticListSchema = [1, n0, _DNCo, 0, () => DomainNameConfig];
 export var Functions: StaticListSchema = [1, n0, _F, 0, () => FunctionConfiguration];
 export var FunctionsIds = 64 | 0;
-
 export var GraphqlApis: StaticListSchema = [1, n0, _GAr, 0, () => GraphqlApi];
 export var Logs = 64 | 0;
-
 export var Resolvers: StaticListSchema = [1, n0, _Re, 0, () => Resolver];
 export var SourceApiAssociationSummaryList: StaticListSchema = [1, n0, _SAASL, 0, () => SourceApiAssociationSummary];
 export var TagKeyList = 64 | 0;
-
 export var TypeList: StaticListSchema = [1, n0, _TL, 0, () => Type];
 export var EnvironmentVariableMap = 128 | 0;
-
 export var MapOfStringToString = 128 | 0;
-
 export var TagMap = 128 | 0;
-
 export var AssociateApi: StaticOperationSchema = [
   9,
   n0,
   _AAs,
-  {
-    [_h]: ["POST", "/v1/domainnames/{domainName}/apiassociation", 200],
-  },
+  { [_h]: ["POST", "/v1/domainnames/{domainName}/apiassociation", 200] },
   () => AssociateApiRequest,
   () => AssociateApiResponse,
 ];
@@ -2039,9 +1720,7 @@ export var AssociateMergedGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _AMGA,
-  {
-    [_h]: ["POST", "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations", 200],
-  },
+  { [_h]: ["POST", "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations", 200] },
   () => AssociateMergedGraphqlApiRequest,
   () => AssociateMergedGraphqlApiResponse,
 ];
@@ -2049,9 +1728,7 @@ export var AssociateSourceGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _ASGA,
-  {
-    [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations", 200],
-  },
+  { [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations", 200] },
   () => AssociateSourceGraphqlApiRequest,
   () => AssociateSourceGraphqlApiResponse,
 ];
@@ -2059,9 +1736,7 @@ export var CreateApi: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/v2/apis", 200],
-  },
+  { [_h]: ["POST", "/v2/apis", 200] },
   () => CreateApiRequest,
   () => CreateApiResponse,
 ];
@@ -2069,9 +1744,7 @@ export var CreateApiCache: StaticOperationSchema = [
   9,
   n0,
   _CAC,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/ApiCaches", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/ApiCaches", 200] },
   () => CreateApiCacheRequest,
   () => CreateApiCacheResponse,
 ];
@@ -2079,9 +1752,7 @@ export var CreateApiKey: StaticOperationSchema = [
   9,
   n0,
   _CAK,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/apikeys", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/apikeys", 200] },
   () => CreateApiKeyRequest,
   () => CreateApiKeyResponse,
 ];
@@ -2089,9 +1760,7 @@ export var CreateChannelNamespace: StaticOperationSchema = [
   9,
   n0,
   _CCN,
-  {
-    [_h]: ["POST", "/v2/apis/{apiId}/channelNamespaces", 200],
-  },
+  { [_h]: ["POST", "/v2/apis/{apiId}/channelNamespaces", 200] },
   () => CreateChannelNamespaceRequest,
   () => CreateChannelNamespaceResponse,
 ];
@@ -2099,9 +1768,7 @@ export var CreateDataSource: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/datasources", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/datasources", 200] },
   () => CreateDataSourceRequest,
   () => CreateDataSourceResponse,
 ];
@@ -2109,9 +1776,7 @@ export var CreateDomainName: StaticOperationSchema = [
   9,
   n0,
   _CDN,
-  {
-    [_h]: ["POST", "/v1/domainnames", 200],
-  },
+  { [_h]: ["POST", "/v1/domainnames", 200] },
   () => CreateDomainNameRequest,
   () => CreateDomainNameResponse,
 ];
@@ -2119,9 +1784,7 @@ export var CreateFunction: StaticOperationSchema = [
   9,
   n0,
   _CF,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/functions", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/functions", 200] },
   () => CreateFunctionRequest,
   () => CreateFunctionResponse,
 ];
@@ -2129,9 +1792,7 @@ export var CreateGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _CGA,
-  {
-    [_h]: ["POST", "/v1/apis", 200],
-  },
+  { [_h]: ["POST", "/v1/apis", 200] },
   () => CreateGraphqlApiRequest,
   () => CreateGraphqlApiResponse,
 ];
@@ -2139,9 +1800,7 @@ export var CreateResolver: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}/resolvers", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}/resolvers", 200] },
   () => CreateResolverRequest,
   () => CreateResolverResponse,
 ];
@@ -2149,9 +1808,7 @@ export var CreateType: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/types", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/types", 200] },
   () => CreateTypeRequest,
   () => CreateTypeResponse,
 ];
@@ -2159,9 +1816,7 @@ export var DeleteApi: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/v2/apis/{apiId}", 200],
-  },
+  { [_h]: ["DELETE", "/v2/apis/{apiId}", 200] },
   () => DeleteApiRequest,
   () => DeleteApiResponse,
 ];
@@ -2169,9 +1824,7 @@ export var DeleteApiCache: StaticOperationSchema = [
   9,
   n0,
   _DAC,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/ApiCaches", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/ApiCaches", 200] },
   () => DeleteApiCacheRequest,
   () => DeleteApiCacheResponse,
 ];
@@ -2179,9 +1832,7 @@ export var DeleteApiKey: StaticOperationSchema = [
   9,
   n0,
   _DAK,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/apikeys/{id}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/apikeys/{id}", 200] },
   () => DeleteApiKeyRequest,
   () => DeleteApiKeyResponse,
 ];
@@ -2189,9 +1840,7 @@ export var DeleteChannelNamespace: StaticOperationSchema = [
   9,
   n0,
   _DCN,
-  {
-    [_h]: ["DELETE", "/v2/apis/{apiId}/channelNamespaces/{name}", 200],
-  },
+  { [_h]: ["DELETE", "/v2/apis/{apiId}/channelNamespaces/{name}", 200] },
   () => DeleteChannelNamespaceRequest,
   () => DeleteChannelNamespaceResponse,
 ];
@@ -2199,9 +1848,7 @@ export var DeleteDataSource: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/datasources/{name}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/datasources/{name}", 200] },
   () => DeleteDataSourceRequest,
   () => DeleteDataSourceResponse,
 ];
@@ -2209,9 +1856,7 @@ export var DeleteDomainName: StaticOperationSchema = [
   9,
   n0,
   _DDN,
-  {
-    [_h]: ["DELETE", "/v1/domainnames/{domainName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/domainnames/{domainName}", 200] },
   () => DeleteDomainNameRequest,
   () => DeleteDomainNameResponse,
 ];
@@ -2219,9 +1864,7 @@ export var DeleteFunction: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/functions/{functionId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/functions/{functionId}", 200] },
   () => DeleteFunctionRequest,
   () => DeleteFunctionResponse,
 ];
@@ -2229,9 +1872,7 @@ export var DeleteGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _DGA,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}", 200] },
   () => DeleteGraphqlApiRequest,
   () => DeleteGraphqlApiResponse,
 ];
@@ -2239,9 +1880,7 @@ export var DeleteResolver: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200] },
   () => DeleteResolverRequest,
   () => DeleteResolverResponse,
 ];
@@ -2249,9 +1888,7 @@ export var DeleteType: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/types/{typeName}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/types/{typeName}", 200] },
   () => DeleteTypeRequest,
   () => DeleteTypeResponse,
 ];
@@ -2259,9 +1896,7 @@ export var DisassociateApi: StaticOperationSchema = [
   9,
   n0,
   _DAi,
-  {
-    [_h]: ["DELETE", "/v1/domainnames/{domainName}/apiassociation", 200],
-  },
+  { [_h]: ["DELETE", "/v1/domainnames/{domainName}/apiassociation", 200] },
   () => DisassociateApiRequest,
   () => DisassociateApiResponse,
 ];
@@ -2269,9 +1904,7 @@ export var DisassociateMergedGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _DMGA,
-  {
-    [_h]: ["DELETE", "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}", 200] },
   () => DisassociateMergedGraphqlApiRequest,
   () => DisassociateMergedGraphqlApiResponse,
 ];
@@ -2279,9 +1912,7 @@ export var DisassociateSourceGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _DSGA,
-  {
-    [_h]: ["DELETE", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200] },
   () => DisassociateSourceGraphqlApiRequest,
   () => DisassociateSourceGraphqlApiResponse,
 ];
@@ -2289,9 +1920,7 @@ export var EvaluateCode: StaticOperationSchema = [
   9,
   n0,
   _ECv,
-  {
-    [_h]: ["POST", "/v1/dataplane-evaluatecode", 200],
-  },
+  { [_h]: ["POST", "/v1/dataplane-evaluatecode", 200] },
   () => EvaluateCodeRequest,
   () => EvaluateCodeResponse,
 ];
@@ -2299,9 +1928,7 @@ export var EvaluateMappingTemplate: StaticOperationSchema = [
   9,
   n0,
   _EMT,
-  {
-    [_h]: ["POST", "/v1/dataplane-evaluatetemplate", 200],
-  },
+  { [_h]: ["POST", "/v1/dataplane-evaluatetemplate", 200] },
   () => EvaluateMappingTemplateRequest,
   () => EvaluateMappingTemplateResponse,
 ];
@@ -2309,9 +1936,7 @@ export var FlushApiCache: StaticOperationSchema = [
   9,
   n0,
   _FAC,
-  {
-    [_h]: ["DELETE", "/v1/apis/{apiId}/FlushCache", 200],
-  },
+  { [_h]: ["DELETE", "/v1/apis/{apiId}/FlushCache", 200] },
   () => FlushApiCacheRequest,
   () => FlushApiCacheResponse,
 ];
@@ -2319,9 +1944,7 @@ export var GetApi: StaticOperationSchema = [
   9,
   n0,
   _GAe,
-  {
-    [_h]: ["GET", "/v2/apis/{apiId}", 200],
-  },
+  { [_h]: ["GET", "/v2/apis/{apiId}", 200] },
   () => GetApiRequest,
   () => GetApiResponse,
 ];
@@ -2329,9 +1952,7 @@ export var GetApiAssociation: StaticOperationSchema = [
   9,
   n0,
   _GAA,
-  {
-    [_h]: ["GET", "/v1/domainnames/{domainName}/apiassociation", 200],
-  },
+  { [_h]: ["GET", "/v1/domainnames/{domainName}/apiassociation", 200] },
   () => GetApiAssociationRequest,
   () => GetApiAssociationResponse,
 ];
@@ -2339,9 +1960,7 @@ export var GetApiCache: StaticOperationSchema = [
   9,
   n0,
   _GAC,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/ApiCaches", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/ApiCaches", 200] },
   () => GetApiCacheRequest,
   () => GetApiCacheResponse,
 ];
@@ -2349,9 +1968,7 @@ export var GetChannelNamespace: StaticOperationSchema = [
   9,
   n0,
   _GCN,
-  {
-    [_h]: ["GET", "/v2/apis/{apiId}/channelNamespaces/{name}", 200],
-  },
+  { [_h]: ["GET", "/v2/apis/{apiId}/channelNamespaces/{name}", 200] },
   () => GetChannelNamespaceRequest,
   () => GetChannelNamespaceResponse,
 ];
@@ -2359,9 +1976,7 @@ export var GetDataSource: StaticOperationSchema = [
   9,
   n0,
   _GDS,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/datasources/{name}", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/datasources/{name}", 200] },
   () => GetDataSourceRequest,
   () => GetDataSourceResponse,
 ];
@@ -2369,9 +1984,7 @@ export var GetDataSourceIntrospection: StaticOperationSchema = [
   9,
   n0,
   _GDSI,
-  {
-    [_h]: ["GET", "/v1/datasources/introspections/{introspectionId}", 200],
-  },
+  { [_h]: ["GET", "/v1/datasources/introspections/{introspectionId}", 200] },
   () => GetDataSourceIntrospectionRequest,
   () => GetDataSourceIntrospectionResponse,
 ];
@@ -2379,9 +1992,7 @@ export var GetDomainName: StaticOperationSchema = [
   9,
   n0,
   _GDN,
-  {
-    [_h]: ["GET", "/v1/domainnames/{domainName}", 200],
-  },
+  { [_h]: ["GET", "/v1/domainnames/{domainName}", 200] },
   () => GetDomainNameRequest,
   () => GetDomainNameResponse,
 ];
@@ -2389,9 +2000,7 @@ export var GetFunction: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/functions/{functionId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/functions/{functionId}", 200] },
   () => GetFunctionRequest,
   () => GetFunctionResponse,
 ];
@@ -2399,9 +2008,7 @@ export var GetGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _GGA,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}", 200] },
   () => GetGraphqlApiRequest,
   () => GetGraphqlApiResponse,
 ];
@@ -2409,9 +2016,7 @@ export var GetGraphqlApiEnvironmentVariables: StaticOperationSchema = [
   9,
   n0,
   _GGAEV,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/environmentVariables", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/environmentVariables", 200] },
   () => GetGraphqlApiEnvironmentVariablesRequest,
   () => GetGraphqlApiEnvironmentVariablesResponse,
 ];
@@ -2419,9 +2024,7 @@ export var GetIntrospectionSchema: StaticOperationSchema = [
   9,
   n0,
   _GIS,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/schema", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/schema", 200] },
   () => GetIntrospectionSchemaRequest,
   () => GetIntrospectionSchemaResponse,
 ];
@@ -2429,9 +2032,7 @@ export var GetResolver: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200] },
   () => GetResolverRequest,
   () => GetResolverResponse,
 ];
@@ -2439,9 +2040,7 @@ export var GetSchemaCreationStatus: StaticOperationSchema = [
   9,
   n0,
   _GSCS,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/schemacreation", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/schemacreation", 200] },
   () => GetSchemaCreationStatusRequest,
   () => GetSchemaCreationStatusResponse,
 ];
@@ -2449,9 +2048,7 @@ export var GetSourceApiAssociation: StaticOperationSchema = [
   9,
   n0,
   _GSAA,
-  {
-    [_h]: ["GET", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200],
-  },
+  { [_h]: ["GET", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200] },
   () => GetSourceApiAssociationRequest,
   () => GetSourceApiAssociationResponse,
 ];
@@ -2459,9 +2056,7 @@ export var GetType: StaticOperationSchema = [
   9,
   n0,
   _GT,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}", 200] },
   () => GetTypeRequest,
   () => GetTypeResponse,
 ];
@@ -2469,9 +2064,7 @@ export var ListApiKeys: StaticOperationSchema = [
   9,
   n0,
   _LAK,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/apikeys", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/apikeys", 200] },
   () => ListApiKeysRequest,
   () => ListApiKeysResponse,
 ];
@@ -2479,9 +2072,7 @@ export var ListApis: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/v2/apis", 200],
-  },
+  { [_h]: ["GET", "/v2/apis", 200] },
   () => ListApisRequest,
   () => ListApisResponse,
 ];
@@ -2489,9 +2080,7 @@ export var ListChannelNamespaces: StaticOperationSchema = [
   9,
   n0,
   _LCN,
-  {
-    [_h]: ["GET", "/v2/apis/{apiId}/channelNamespaces", 200],
-  },
+  { [_h]: ["GET", "/v2/apis/{apiId}/channelNamespaces", 200] },
   () => ListChannelNamespacesRequest,
   () => ListChannelNamespacesResponse,
 ];
@@ -2499,9 +2088,7 @@ export var ListDataSources: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/datasources", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/datasources", 200] },
   () => ListDataSourcesRequest,
   () => ListDataSourcesResponse,
 ];
@@ -2509,9 +2096,7 @@ export var ListDomainNames: StaticOperationSchema = [
   9,
   n0,
   _LDN,
-  {
-    [_h]: ["GET", "/v1/domainnames", 200],
-  },
+  { [_h]: ["GET", "/v1/domainnames", 200] },
   () => ListDomainNamesRequest,
   () => ListDomainNamesResponse,
 ];
@@ -2519,9 +2104,7 @@ export var ListFunctions: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/functions", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/functions", 200] },
   () => ListFunctionsRequest,
   () => ListFunctionsResponse,
 ];
@@ -2529,9 +2112,7 @@ export var ListGraphqlApis: StaticOperationSchema = [
   9,
   n0,
   _LGA,
-  {
-    [_h]: ["GET", "/v1/apis", 200],
-  },
+  { [_h]: ["GET", "/v1/apis", 200] },
   () => ListGraphqlApisRequest,
   () => ListGraphqlApisResponse,
 ];
@@ -2539,9 +2120,7 @@ export var ListResolvers: StaticOperationSchema = [
   9,
   n0,
   _LR,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}/resolvers", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/types/{typeName}/resolvers", 200] },
   () => ListResolversRequest,
   () => ListResolversResponse,
 ];
@@ -2549,9 +2128,7 @@ export var ListResolversByFunction: StaticOperationSchema = [
   9,
   n0,
   _LRBF,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/functions/{functionId}/resolvers", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/functions/{functionId}/resolvers", 200] },
   () => ListResolversByFunctionRequest,
   () => ListResolversByFunctionResponse,
 ];
@@ -2559,9 +2136,7 @@ export var ListSourceApiAssociations: StaticOperationSchema = [
   9,
   n0,
   _LSAA,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/sourceApiAssociations", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/sourceApiAssociations", 200] },
   () => ListSourceApiAssociationsRequest,
   () => ListSourceApiAssociationsResponse,
 ];
@@ -2569,9 +2144,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/v1/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -2579,9 +2152,7 @@ export var ListTypes: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_h]: ["GET", "/v1/apis/{apiId}/types", 200],
-  },
+  { [_h]: ["GET", "/v1/apis/{apiId}/types", 200] },
   () => ListTypesRequest,
   () => ListTypesResponse,
 ];
@@ -2589,9 +2160,7 @@ export var ListTypesByAssociation: StaticOperationSchema = [
   9,
   n0,
   _LTBA,
-  {
-    [_h]: ["GET", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types", 200],
-  },
+  { [_h]: ["GET", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types", 200] },
   () => ListTypesByAssociationRequest,
   () => ListTypesByAssociationResponse,
 ];
@@ -2599,9 +2168,7 @@ export var PutGraphqlApiEnvironmentVariables: StaticOperationSchema = [
   9,
   n0,
   _PGAEV,
-  {
-    [_h]: ["PUT", "/v1/apis/{apiId}/environmentVariables", 200],
-  },
+  { [_h]: ["PUT", "/v1/apis/{apiId}/environmentVariables", 200] },
   () => PutGraphqlApiEnvironmentVariablesRequest,
   () => PutGraphqlApiEnvironmentVariablesResponse,
 ];
@@ -2609,9 +2176,7 @@ export var StartDataSourceIntrospection: StaticOperationSchema = [
   9,
   n0,
   _SDSI,
-  {
-    [_h]: ["POST", "/v1/datasources/introspections", 200],
-  },
+  { [_h]: ["POST", "/v1/datasources/introspections", 200] },
   () => StartDataSourceIntrospectionRequest,
   () => StartDataSourceIntrospectionResponse,
 ];
@@ -2619,9 +2184,7 @@ export var StartSchemaCreation: StaticOperationSchema = [
   9,
   n0,
   _SSC,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/schemacreation", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/schemacreation", 200] },
   () => StartSchemaCreationRequest,
   () => StartSchemaCreationResponse,
 ];
@@ -2629,9 +2192,7 @@ export var StartSchemaMerge: StaticOperationSchema = [
   9,
   n0,
   _SSM,
-  {
-    [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge", 200],
-  },
+  { [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge", 200] },
   () => StartSchemaMergeRequest,
   () => StartSchemaMergeResponse,
 ];
@@ -2639,9 +2200,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/v1/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -2649,9 +2208,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/v1/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -2659,9 +2216,7 @@ export var UpdateApi: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["POST", "/v2/apis/{apiId}", 200],
-  },
+  { [_h]: ["POST", "/v2/apis/{apiId}", 200] },
   () => UpdateApiRequest,
   () => UpdateApiResponse,
 ];
@@ -2669,9 +2224,7 @@ export var UpdateApiCache: StaticOperationSchema = [
   9,
   n0,
   _UAC,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/ApiCaches/update", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/ApiCaches/update", 200] },
   () => UpdateApiCacheRequest,
   () => UpdateApiCacheResponse,
 ];
@@ -2679,9 +2232,7 @@ export var UpdateApiKey: StaticOperationSchema = [
   9,
   n0,
   _UAK,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/apikeys/{id}", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/apikeys/{id}", 200] },
   () => UpdateApiKeyRequest,
   () => UpdateApiKeyResponse,
 ];
@@ -2689,9 +2240,7 @@ export var UpdateChannelNamespace: StaticOperationSchema = [
   9,
   n0,
   _UCN,
-  {
-    [_h]: ["POST", "/v2/apis/{apiId}/channelNamespaces/{name}", 200],
-  },
+  { [_h]: ["POST", "/v2/apis/{apiId}/channelNamespaces/{name}", 200] },
   () => UpdateChannelNamespaceRequest,
   () => UpdateChannelNamespaceResponse,
 ];
@@ -2699,9 +2248,7 @@ export var UpdateDataSource: StaticOperationSchema = [
   9,
   n0,
   _UDS,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/datasources/{name}", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/datasources/{name}", 200] },
   () => UpdateDataSourceRequest,
   () => UpdateDataSourceResponse,
 ];
@@ -2709,9 +2256,7 @@ export var UpdateDomainName: StaticOperationSchema = [
   9,
   n0,
   _UDN,
-  {
-    [_h]: ["POST", "/v1/domainnames/{domainName}", 200],
-  },
+  { [_h]: ["POST", "/v1/domainnames/{domainName}", 200] },
   () => UpdateDomainNameRequest,
   () => UpdateDomainNameResponse,
 ];
@@ -2719,9 +2264,7 @@ export var UpdateFunction: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/functions/{functionId}", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/functions/{functionId}", 200] },
   () => UpdateFunctionRequest,
   () => UpdateFunctionResponse,
 ];
@@ -2729,9 +2272,7 @@ export var UpdateGraphqlApi: StaticOperationSchema = [
   9,
   n0,
   _UGA,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}", 200] },
   () => UpdateGraphqlApiRequest,
   () => UpdateGraphqlApiResponse,
 ];
@@ -2739,9 +2280,7 @@ export var UpdateResolver: StaticOperationSchema = [
   9,
   n0,
   _URp,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}", 200] },
   () => UpdateResolverRequest,
   () => UpdateResolverResponse,
 ];
@@ -2749,9 +2288,7 @@ export var UpdateSourceApiAssociation: StaticOperationSchema = [
   9,
   n0,
   _USAA,
-  {
-    [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200],
-  },
+  { [_h]: ["POST", "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}", 200] },
   () => UpdateSourceApiAssociationRequest,
   () => UpdateSourceApiAssociationResponse,
 ];
@@ -2759,9 +2296,7 @@ export var UpdateType: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}", 200],
-  },
+  { [_h]: ["POST", "/v1/apis/{apiId}/types/{typeName}", 200] },
   () => UpdateTypeRequest,
   () => UpdateTypeResponse,
 ];

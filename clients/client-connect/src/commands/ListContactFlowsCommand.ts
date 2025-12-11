@@ -1,11 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContactFlowsRequest, ListContactFlowsResponse } from "../models/models_1";
+import type { ListContactFlowsRequest } from "../models/models_1";
+import type { ListContactFlowsResponse } from "../models/models_2";
 import { ListContactFlows } from "../schemas/schemas_0";
 
 /**
@@ -30,8 +31,8 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
- *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the
- *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the <i>Amazon Connect
+ *     Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

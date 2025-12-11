@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Encoder as __Encoder } from "@smithy/types";
-import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "stream";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { Encoder as __Encoder } from "@smithy/types";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
@@ -277,7 +277,7 @@ it("AwsJson10EmptyInputAndEmptyOutputSendJsonObject:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -384,7 +384,7 @@ it("AwsJson10InvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         message: "Hi",
@@ -436,7 +436,7 @@ it("AwsJson10ComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
         TopLevel: "Top level",
@@ -487,7 +487,7 @@ it("AwsJson10EmptyComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r.$metadata.httpStatusCode).toBe(400);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -516,7 +516,7 @@ it("AwsJson10FooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => 
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -548,7 +548,7 @@ it("AwsJson10FooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -578,7 +578,7 @@ it("AwsJson10FooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithEr
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -616,7 +616,7 @@ it("AwsJson10FooErrorUsingCode:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -652,7 +652,7 @@ it("AwsJson10FooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -688,7 +688,7 @@ it("AwsJson10FooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async (
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -724,7 +724,7 @@ it("AwsJson10FooErrorWithDunderType:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -760,7 +760,7 @@ it("AwsJson10FooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -796,7 +796,7 @@ it("AwsJson10FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", as
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -840,7 +840,7 @@ it("AwsJson10FooErrorWithNestedTypeProperty:Error:GreetingWithErrors", async () 
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(500);
+    expect(r.$metadata.httpStatusCode).toBe(500);
     return;
   }
   fail("Expected an exception to be thrown from response");
@@ -1338,7 +1338,7 @@ it("AwsJson10DeserializeStringUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1385,7 +1385,7 @@ it("AwsJson10DeserializeBooleanUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1432,7 +1432,7 @@ it("AwsJson10DeserializeNumberUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1479,7 +1479,7 @@ it("AwsJson10DeserializeBlobUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1526,7 +1526,7 @@ it("AwsJson10DeserializeTimestampUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1573,7 +1573,7 @@ it("AwsJson10DeserializeEnumUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1620,7 +1620,7 @@ it("AwsJson10DeserializeIntEnumUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1667,7 +1667,7 @@ it("AwsJson10DeserializeListUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1717,7 +1717,7 @@ it("AwsJson10DeserializeMapUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1769,7 +1769,7 @@ it("AwsJson10DeserializeStructureUnionValue:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1821,7 +1821,7 @@ it("AwsJson10DeserializeIgnoreType:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1881,7 +1881,7 @@ it("AwsJson10DeserializeAllowNulls:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       contents: {
@@ -1968,7 +1968,7 @@ it("AwsJson10HandlesEmptyOutputShape:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -2002,7 +2002,7 @@ it("AwsJson10HandlesUnexpectedJsonOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -2035,7 +2035,7 @@ it("AwsJson10ServiceRespondsWithNoPayload:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -2098,7 +2098,7 @@ it("AwsJson10NoInputAndOutput:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
 });
 
 /**
@@ -2401,7 +2401,7 @@ it.skip("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       defaultString: "hi",
@@ -2497,7 +2497,7 @@ it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       defaultString: "bye",
@@ -2709,7 +2709,7 @@ it.skip("AwsJson10ClientPopulatesNestedDefaultsWhenMissingInResponseBody:Respons
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       dialog: {
@@ -2789,7 +2789,7 @@ it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Re
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       requiredString: "",
@@ -2841,7 +2841,7 @@ it.skip("AwsJson10ClientErrorCorrectsWithDefaultValuesWhenServerFailsToSerialize
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       requiredString: "hi",
@@ -3114,7 +3114,7 @@ it("AwsJson10SupportsNaNFloatInputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: NaN,
@@ -3159,7 +3159,7 @@ it("AwsJson10SupportsInfinityFloatInputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: Infinity,
@@ -3204,7 +3204,7 @@ it("AwsJson10SupportsNegativeInfinityFloatInputs:Response", async () => {
     fail("Expected a valid response to be returned, got " + err);
     return;
   }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
+  expect(r.$metadata.httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
       floatValue: -Infinity,

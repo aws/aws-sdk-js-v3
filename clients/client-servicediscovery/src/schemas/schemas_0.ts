@@ -217,7 +217,7 @@ const n0 = "com.amazonaws.servicediscovery";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -245,7 +245,6 @@ import {
 import { ServiceDiscoveryServiceException as __ServiceDiscoveryServiceException } from "../models/ServiceDiscoveryServiceException";
 
 /* eslint no-var: 0 */
-
 export var CreateHttpNamespaceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -282,19 +281,8 @@ export var CreateServiceRequest: StaticStructureSchema = [
   [0, 0, [0, 4], 0, () => DnsConfig, () => HealthCheckConfig, () => HealthCheckCustomConfig, () => TagList, 0],
 ];
 export var CreateServiceResponse: StaticStructureSchema = [3, n0, _CSRr, 0, [_S], [() => Service]];
-export var CustomHealthNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _CHNF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var CustomHealthNotFound: StaticErrorSchema = [-3, n0, _CHNF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CustomHealthNotFound, __CustomHealthNotFound);
-
 export var DeleteNamespaceRequest: StaticStructureSchema = [3, n0, _DNR, 0, [_I], [0]];
 export var DeleteNamespaceResponse: StaticStructureSchema = [3, n0, _DNRe, 0, [_OI], [0]];
 export var DeleteServiceAttributesRequest: StaticStructureSchema = [3, n0, _DSAR, 0, [_SI, _A], [0, 64 | 0]];
@@ -325,19 +313,8 @@ export var DnsConfig: StaticStructureSchema = [3, n0, _DC, 0, [_NI, _RP, _DR], [
 export var DnsConfigChange: StaticStructureSchema = [3, n0, _DCC, 0, [_DR], [() => DnsRecordList]];
 export var DnsProperties: StaticStructureSchema = [3, n0, _DP, 0, [_HZI, _SOA], [0, () => SOA]];
 export var DnsRecord: StaticStructureSchema = [3, n0, _DRn, 0, [_Ty, _TTL], [0, 1]];
-export var DuplicateRequest: StaticErrorSchema = [
-  -3,
-  n0,
-  _DRu,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _DOI],
-  [0, 0],
-];
+export var DuplicateRequest: StaticErrorSchema = [-3, n0, _DRu, { [_e]: _c, [_hE]: 409 }, [_M, _DOI], [0, 0]];
 TypeRegistry.for(n0).registerError(DuplicateRequest, __DuplicateRequest);
-
 export var GetInstanceRequest: StaticStructureSchema = [3, n0, _GIR, 0, [_SI, _II], [0, 0]];
 export var GetInstanceResponse: StaticStructureSchema = [3, n0, _GIRe, 0, [_RO, _Ins], [0, () => Instance]];
 export var GetInstancesHealthStatusRequest: StaticStructureSchema = [
@@ -370,33 +347,11 @@ export var HttpInstanceSummary: StaticStructureSchema = [
 export var HttpNamespaceChange: StaticStructureSchema = [3, n0, _HNC, 0, [_D], [0]];
 export var HttpProperties: StaticStructureSchema = [3, n0, _HP, 0, [_HN], [0]];
 export var Instance: StaticStructureSchema = [3, n0, _Ins, 0, [_I, _CRI, _A, _CBA], [0, 0, 128 | 0, 0]];
-export var InstanceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _INF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var InstanceNotFound: StaticErrorSchema = [-3, n0, _INF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InstanceNotFound, __InstanceNotFound);
-
 export var InstanceSummary: StaticStructureSchema = [3, n0, _IS, 0, [_I, _A, _CBA], [0, 128 | 0, 0]];
-export var InvalidInput: StaticErrorSchema = [
-  -3,
-  n0,
-  _IIn,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var InvalidInput: StaticErrorSchema = [-3, n0, _IIn, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidInput, __InvalidInput);
-
 export var ListInstancesRequest: StaticStructureSchema = [3, n0, _LIR, 0, [_SI, _NT, _MR], [0, 0, 1]];
 export var ListInstancesResponse: StaticStructureSchema = [
   3,
@@ -461,29 +416,14 @@ export var NamespaceAlreadyExists: StaticErrorSchema = [
   -3,
   n0,
   _NAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _CRI, _NI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(NamespaceAlreadyExists, __NamespaceAlreadyExists);
-
 export var NamespaceFilter: StaticStructureSchema = [3, n0, _NF, 0, [_N, _Va, _C], [0, [() => FilterValues, 0], 0]];
-export var NamespaceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _NNF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var NamespaceNotFound: StaticErrorSchema = [-3, n0, _NNF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(NamespaceNotFound, __NamespaceNotFound);
-
 export var NamespaceProperties: StaticStructureSchema = [
   3,
   n0,
@@ -509,19 +449,8 @@ export var Operation: StaticStructureSchema = [
   [0, 0, 0, 0, 0, 0, 4, 4, 128 | 0],
 ];
 export var OperationFilter: StaticStructureSchema = [3, n0, _OF, 0, [_N, _Va, _C], [0, [() => FilterValues, 0], 0]];
-export var OperationNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var OperationNotFound: StaticErrorSchema = [-3, n0, _ONF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(OperationNotFound, __OperationNotFound);
-
 export var OperationSummary: StaticStructureSchema = [3, n0, _OS, 0, [_I, _St], [0, 0]];
 export var PrivateDnsNamespaceChange: StaticStructureSchema = [
   3,
@@ -584,58 +513,14 @@ export var RegisterInstanceRequest: StaticStructureSchema = [
   [0, 0, [0, 4], 128 | 0],
 ];
 export var RegisterInstanceResponse: StaticStructureSchema = [3, n0, _RIRe, 0, [_OI], [0]];
-export var RequestLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M],
-  [0],
-];
+export var RequestLimitExceeded: StaticErrorSchema = [-3, n0, _RLE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(RequestLimitExceeded, __RequestLimitExceeded);
-
-export var ResourceInUse: StaticErrorSchema = [
-  -3,
-  n0,
-  _RIU,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ResourceInUse: StaticErrorSchema = [-3, n0, _RIU, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceInUse, __ResourceInUse);
-
-export var ResourceLimitExceeded: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLEe,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M],
-  [0],
-];
+export var ResourceLimitExceeded: StaticErrorSchema = [-3, n0, _RLEe, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceLimitExceeded, __ResourceLimitExceeded);
-
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var Service: StaticStructureSchema = [
   3,
   n0,
@@ -648,29 +533,21 @@ export var ServiceAlreadyExists: StaticErrorSchema = [
   -3,
   n0,
   _SAE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _CRI, _SI, _SAe],
   [0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceAlreadyExists, __ServiceAlreadyExists);
-
 export var ServiceAttributes: StaticStructureSchema = [3, n0, _SA, 0, [_SAe, _RO, _A], [0, 0, 128 | 0]];
 export var ServiceAttributesLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SALEE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServiceAttributesLimitExceededException, __ServiceAttributesLimitExceededException);
-
 export var ServiceChange: StaticStructureSchema = [
   3,
   n0,
@@ -680,19 +557,8 @@ export var ServiceChange: StaticStructureSchema = [
   [0, () => DnsConfigChange, () => HealthCheckConfig],
 ];
 export var ServiceFilter: StaticStructureSchema = [3, n0, _SF, 0, [_N, _Va, _C], [0, [() => FilterValues, 0], 0]];
-export var ServiceNotFound: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNF,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M],
-  [0],
-];
+export var ServiceNotFound: StaticErrorSchema = [-3, n0, _SNF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceNotFound, __ServiceNotFound);
-
 export var ServiceSummary: StaticStructureSchema = [
   3,
   n0,
@@ -706,19 +572,8 @@ export var SOAChange: StaticStructureSchema = [3, n0, _SOAC, 0, [_TTL], [1]];
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Val], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyTagsException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TMTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RN],
-  [0, 0],
-];
+export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_M, _RN], [0, 0]];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateHttpNamespaceRequest: StaticStructureSchema = [
@@ -761,7 +616,6 @@ export var UpdateServiceAttributesResponse: StaticStructureSchema = [3, n0, _USA
 export var UpdateServiceRequest: StaticStructureSchema = [3, n0, _USR, 0, [_I, _S], [0, () => ServiceChange]];
 export var UpdateServiceResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_OI], [0]];
 export var __Unit = "unit" as const;
-
 export var ServiceDiscoveryServiceException: StaticErrorSchema = [
   -3,
   _s,
@@ -771,108 +625,24 @@ export var ServiceDiscoveryServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_s).registerError(ServiceDiscoveryServiceException, __ServiceDiscoveryServiceException);
-
 export var DnsRecordList: StaticListSchema = [1, n0, _DRL, 0, () => DnsRecord];
-export var FilterValues: StaticListSchema = [
-  1,
-  n0,
-  _FV,
-  0,
-  [
-    0,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
+export var FilterValues: StaticListSchema = [1, n0, _FV, 0, [0, { [_xN]: _i }]];
 export var HttpInstanceSummaryList: StaticListSchema = [1, n0, _HISL, 0, () => HttpInstanceSummary];
-export var InstanceIdList: StaticListSchema = [
-  1,
-  n0,
-  _IIL,
-  0,
-  [
-    0,
-    {
-      [_xN]: _II,
-    },
-  ],
-];
-export var InstanceSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _ISL,
-  0,
-  [
-    () => InstanceSummary,
-    {
-      [_xN]: _IS,
-    },
-  ],
-];
-export var NamespaceFilters: StaticListSchema = [
-  1,
-  n0,
-  _NFa,
-  0,
-  [
-    () => NamespaceFilter,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
+export var InstanceIdList: StaticListSchema = [1, n0, _IIL, 0, [0, { [_xN]: _II }]];
+export var InstanceSummaryList: StaticListSchema = [1, n0, _ISL, 0, [() => InstanceSummary, { [_xN]: _IS }]];
+export var NamespaceFilters: StaticListSchema = [1, n0, _NFa, 0, [() => NamespaceFilter, { [_xN]: _i }]];
 export var NamespaceSummariesList: StaticListSchema = [1, n0, _NSL, 0, () => NamespaceSummary];
-export var OperationFilters: StaticListSchema = [
-  1,
-  n0,
-  _OFp,
-  0,
-  [
-    () => OperationFilter,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
-export var OperationSummaryList: StaticListSchema = [
-  1,
-  n0,
-  _OSL,
-  0,
-  [
-    () => OperationSummary,
-    {
-      [_xN]: _OS,
-    },
-  ],
-];
+export var OperationFilters: StaticListSchema = [1, n0, _OFp, 0, [() => OperationFilter, { [_xN]: _i }]];
+export var OperationSummaryList: StaticListSchema = [1, n0, _OSL, 0, [() => OperationSummary, { [_xN]: _OS }]];
 export var ServiceAttributeKeyList = 64 | 0;
-
-export var ServiceFilters: StaticListSchema = [
-  1,
-  n0,
-  _SFe,
-  0,
-  [
-    () => ServiceFilter,
-    {
-      [_xN]: _i,
-    },
-  ],
-];
+export var ServiceFilters: StaticListSchema = [1, n0, _SFe, 0, [() => ServiceFilter, { [_xN]: _i }]];
 export var ServiceSummariesList: StaticListSchema = [1, n0, _SSL, 0, () => ServiceSummary];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Attributes = 128 | 0;
-
 export var InstanceHealthStatusMap = 128 | 0;
-
 export var OperationTargetsMap = 128 | 0;
-
 export var ServiceAttributesMap = 128 | 0;
-
 export var CreateHttpNamespace: StaticOperationSchema = [
   9,
   n0,
@@ -941,9 +711,7 @@ export var DiscoverInstances: StaticOperationSchema = [
   9,
   n0,
   _DIi,
-  {
-    [_en]: ["data-"],
-  },
+  { [_en]: ["data-"] },
   () => DiscoverInstancesRequest,
   () => DiscoverInstancesResponse,
 ];
@@ -951,9 +719,7 @@ export var DiscoverInstancesRevision: StaticOperationSchema = [
   9,
   n0,
   _DIRisc,
-  {
-    [_en]: ["data-"],
-  },
+  { [_en]: ["data-"] },
   () => DiscoverInstancesRevisionRequest,
   () => DiscoverInstancesRevisionResponse,
 ];

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AssociateDRTLogBucketCommand,
@@ -174,7 +174,7 @@ import {
   UpdateSubscriptionCommandInput,
   UpdateSubscriptionCommandOutput,
 } from "./commands/UpdateSubscriptionCommand";
-import { ShieldClient, ShieldClientConfig } from "./ShieldClient";
+import { ShieldClient } from "./ShieldClient";
 
 const commands = {
   AssociateDRTLogBucketCommand,

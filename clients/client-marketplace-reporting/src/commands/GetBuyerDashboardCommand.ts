@@ -1,15 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
+import type {
   MarketplaceReportingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceReportingClient";
-import { GetBuyerDashboardInput, GetBuyerDashboardOutput } from "../models/models_0";
+import type { GetBuyerDashboardInput, GetBuyerDashboardOutput } from "../models/models_0";
 import { GetBuyerDashboard } from "../schemas/schemas_0";
 
 /**

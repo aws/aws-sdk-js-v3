@@ -1,12 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateEvaluationJobResponse } from "../models/models_0";
-import { CreateEvaluationJobRequest } from "../models/models_1";
+import type { CreateEvaluationJobResponse } from "../models/models_0";
+import type { CreateEvaluationJobRequest } from "../models/models_1";
 import { CreateEvaluationJob } from "../schemas/schemas_0";
 
 /**

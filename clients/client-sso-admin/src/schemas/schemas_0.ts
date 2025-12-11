@@ -388,7 +388,7 @@ const n0 = "com.amazonaws.ssoadmin";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -408,7 +408,6 @@ import {
 import { SSOAdminServiceException as __SSOAdminServiceException } from "../models/SSOAdminServiceException";
 
 /* eslint no-var: 0 */
-
 export var AccessControlAttribute: StaticStructureSchema = [
   3,
   n0,
@@ -418,19 +417,8 @@ export var AccessControlAttribute: StaticStructureSchema = [
   [0, () => AccessControlAttributeValue],
 ];
 export var AccessControlAttributeValue: StaticStructureSchema = [3, n0, _ACAV, 0, [_S], [64 | 0]];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountAssignment: StaticStructureSchema = [3, n0, _AA, 0, [_AI, _PSA, _PT, _PI], [0, 0, 0, 0]];
 export var AccountAssignmentForPrincipal: StaticStructureSchema = [
   3,
@@ -510,19 +498,8 @@ export var AuthenticationMethodItem: StaticStructureSchema = [
 ];
 export var AuthorizationCodeGrant: StaticStructureSchema = [3, n0, _ACG, 0, [_RU], [64 | 0]];
 export var AuthorizedTokenIssuer: StaticStructureSchema = [3, n0, _ATI, 0, [_TTIA, _AAu], [0, 64 | 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateAccountAssignmentRequest: StaticStructureSchema = [
   3,
   n0,
@@ -863,19 +840,8 @@ export var InstanceMetadata: StaticStructureSchema = [
   [_IA, _ISI, _OAI, _N, _CD, _St, _SR],
   [0, 0, 0, 0, 4, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var JwtBearerGrant: StaticStructureSchema = [3, n0, _JBG, 0, [_ATIu], [() => AuthorizedTokenIssuers]];
 export var ListAccountAssignmentCreationStatusRequest: StaticStructureSchema = [
   3,
@@ -1201,52 +1167,19 @@ export var PutPermissionsBoundaryToPermissionSetRequest: StaticStructureSchema =
 ];
 export var PutPermissionsBoundaryToPermissionSetResponse: StaticStructureSchema = [3, n0, _PPBTPSRu, 0, [], []];
 export var RefreshTokenGrant: StaticStructureSchema = [3, n0, _RTG, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourceServerConfig: StaticStructureSchema = [3, n0, _RSC, 0, [_Sco], [() => ResourceServerScopes]];
 export var ResourceServerScopeDetails: StaticStructureSchema = [3, n0, _RSSD, 0, [_LD, _DT], [0, 0]];
 export var ScopeDetails: StaticStructureSchema = [3, n0, _SDc, 0, [_Sc, _AT], [0, 64 | 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_M],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SignInOptions: StaticStructureSchema = [3, n0, _SIO, 0, [_O, _AU], [0, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_IA, _RA, _T], [0, 0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TokenExchangeGrant: StaticStructureSchema = [3, n0, _TEG, 0, [], []];
 export var TrustedTokenIssuerMetadata: StaticStructureSchema = [3, n0, _TTIM, 0, [_TTIA, _N, _TTIT], [0, 0, 0]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_IA, _RA, _TK], [0, 0, 64 | 0]];
@@ -1304,27 +1237,13 @@ export var UpdateTrustedTokenIssuerRequest: StaticStructureSchema = [
   [0, 0, () => TrustedTokenIssuerUpdateConfiguration],
 ];
 export var UpdateTrustedTokenIssuerResponse: StaticStructureSchema = [3, n0, _UTTIRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _R],
-  [0, 0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var SSOAdminServiceException: StaticErrorSchema = [-3, _sm, "SSOAdminServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSOAdminServiceException, __SSOAdminServiceException);
-
 export var AccessControlAttributeList: StaticListSchema = [1, n0, _ACAL, 0, () => AccessControlAttribute];
 export var AccessControlAttributeValueSourceList = 64 | 0;
-
 export var AccountAssignmentList: StaticListSchema = [1, n0, _AAL, 0, () => AccountAssignment];
 export var AccountAssignmentListForPrincipal: StaticListSchema = [
   1,
@@ -1341,7 +1260,6 @@ export var AccountAssignmentOperationStatusList: StaticListSchema = [
   () => AccountAssignmentOperationStatusMetadata,
 ];
 export var AccountList = 64 | 0;
-
 export var ApplicationAssignmentListForPrincipal: StaticListSchema = [
   1,
   n0,
@@ -1365,7 +1283,6 @@ export var CustomerManagedPolicyReferenceList: StaticListSchema = [
 export var Grants: StaticListSchema = [1, n0, _Gr, 0, () => GrantItem];
 export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => InstanceMetadata];
 export var PermissionSetList = 64 | 0;
-
 export var PermissionSetProvisioningStatusList: StaticListSchema = [
   1,
   n0,
@@ -1374,15 +1291,11 @@ export var PermissionSetProvisioningStatusList: StaticListSchema = [
   () => PermissionSetProvisioningStatusMetadata,
 ];
 export var RedirectUris = 64 | 0;
-
 export var Scopes: StaticListSchema = [1, n0, _Sco, 0, () => ScopeDetails];
 export var ScopeTargets = 64 | 0;
-
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TokenIssuerAudiences = 64 | 0;
-
 export var TrustedTokenIssuerList: StaticListSchema = [1, n0, _TTIL, 0, () => TrustedTokenIssuerMetadata];
 export var ResourceServerScopes: StaticMapSchema = [2, n0, _RSS, 0, 0, () => ResourceServerScopeDetails];
 export var AuthenticationMethod: StaticStructureSchema = [3, n0, _AM, 0, [_Ia], [() => IamAuthenticationMethod]];

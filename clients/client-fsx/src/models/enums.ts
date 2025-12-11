@@ -688,6 +688,19 @@ export type UpdateOpenZFSVolumeOption = (typeof UpdateOpenZFSVolumeOption)[keyof
  * @public
  * @enum
  */
+export const OntapFileSystemUserType = {
+  UNIX: "UNIX",
+  WINDOWS: "WINDOWS",
+} as const;
+/**
+ * @public
+ */
+export type OntapFileSystemUserType = (typeof OntapFileSystemUserType)[keyof typeof OntapFileSystemUserType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OpenZFSFileSystemUserType = {
   POSIX: "POSIX",
 } as const;
@@ -701,6 +714,7 @@ export type OpenZFSFileSystemUserType = (typeof OpenZFSFileSystemUserType)[keyof
  * @enum
  */
 export const S3AccessPointAttachmentType = {
+  ONTAP: "ONTAP",
   OPENZFS: "OPENZFS",
 } as const;
 /**
@@ -718,6 +732,7 @@ export const S3AccessPointAttachmentLifecycle = {
   CREATING: "CREATING",
   DELETING: "DELETING",
   FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
   UPDATING: "UPDATING",
 } as const;
 /**

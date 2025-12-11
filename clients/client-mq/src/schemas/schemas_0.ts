@@ -316,7 +316,7 @@ const n0 = "com.amazonaws.mq";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -335,7 +335,6 @@ import {
 import { MqServiceException as __MqServiceException } from "../models/MqServiceException";
 
 /* eslint no-var: 0 */
-
 export var ActionRequired: StaticStructureSchema = [
   3,
   n0,
@@ -343,61 +342,23 @@ export var ActionRequired: StaticStructureSchema = [
   0,
   [_ARC, _ARI],
   [
-    [
-      0,
-      {
-        [_jN]: _aRC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aRI,
-      },
-    ],
+    [0, { [_jN]: _aRC }],
+    [0, { [_jN]: _aRI }],
   ],
 ];
-export var AvailabilityZone: StaticStructureSchema = [
-  3,
-  n0,
-  _AZ,
-  0,
-  [_N],
-  [
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-  ],
-];
+export var AvailabilityZone: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [[0, { [_jN]: _n }]]];
 export var BadRequestException: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_EA, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _eA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _eA }],
+    [0, { [_jN]: _m }],
   ],
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-
 export var BrokerEngineType: StaticStructureSchema = [
   3,
   n0,
@@ -405,18 +366,8 @@ export var BrokerEngineType: StaticStructureSchema = [
   0,
   [_ET, _EV],
   [
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      () => __listOfEngineVersion,
-      {
-        [_jN]: _eV,
-      },
-    ],
+    [0, { [_jN]: _eT }],
+    [() => __listOfEngineVersion, { [_jN]: _eV }],
   ],
 ];
 export var BrokerInstance: StaticStructureSchema = [
@@ -426,24 +377,9 @@ export var BrokerInstance: StaticStructureSchema = [
   0,
   [_CURL, _E, _IA],
   [
-    [
-      0,
-      {
-        [_jN]: _cURL,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _en,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _iA,
-      },
-    ],
+    [0, { [_jN]: _cURL }],
+    [64 | 0, { [_jN]: _en }],
+    [0, { [_jN]: _iA }],
   ],
 ];
 export var BrokerInstanceOption: StaticStructureSchema = [
@@ -453,42 +389,12 @@ export var BrokerInstanceOption: StaticStructureSchema = [
   0,
   [_AZv, _ET, _HIT, _ST, _SDM, _SEV],
   [
-    [
-      () => __listOfAvailabilityZone,
-      {
-        [_jN]: _aZ,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hIT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sDM,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sEV,
-      },
-    ],
+    [() => __listOfAvailabilityZone, { [_jN]: _aZ }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _hIT }],
+    [0, { [_jN]: _sT }],
+    [64 | 0, { [_jN]: _sDM }],
+    [64 | 0, { [_jN]: _sEV }],
   ],
 ];
 export var BrokerSummary: StaticStructureSchema = [
@@ -498,54 +404,14 @@ export var BrokerSummary: StaticStructureSchema = [
   0,
   [_BA, _BIr, _BN, _BSr, _C, _DM, _ET, _HIT],
   [
-    [
-      0,
-      {
-        [_jN]: _bA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bS,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hIT,
-      },
-    ],
+    [0, { [_jN]: _bA }],
+    [0, { [_jN]: _bI }],
+    [0, { [_jN]: _bN }],
+    [0, { [_jN]: _bS }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _dM }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _hIT }],
   ],
 ];
 export var Configuration: StaticStructureSchema = [
@@ -555,66 +421,16 @@ export var Configuration: StaticStructureSchema = [
   0,
   [_A, _AS, _C, _D, _ET, _EVn, _I, _LR, _N, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => ConfigurationRevision,
-      {
-        [_jN]: _lR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [0, { [_jN]: _aS }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _d }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _i }],
+    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [0, { [_jN]: _n }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var ConfigurationId: StaticStructureSchema = [
@@ -624,18 +440,8 @@ export var ConfigurationId: StaticStructureSchema = [
   0,
   [_I, _R],
   [
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _r,
-      },
-    ],
+    [0, { [_jN]: _i }],
+    [1, { [_jN]: _r }],
   ],
 ];
 export var ConfigurationRevision: StaticStructureSchema = [
@@ -645,24 +451,9 @@ export var ConfigurationRevision: StaticStructureSchema = [
   0,
   [_C, _D, _R],
   [
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _d,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _r,
-      },
-    ],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _d }],
+    [1, { [_jN]: _r }],
   ],
 ];
 export var Configurations: StaticStructureSchema = [
@@ -672,52 +463,23 @@ export var Configurations: StaticStructureSchema = [
   0,
   [_Cu, _H, _P],
   [
-    [
-      () => ConfigurationId,
-      {
-        [_jN]: _cu,
-      },
-    ],
-    [
-      () => __listOfConfigurationId,
-      {
-        [_jN]: _h,
-      },
-    ],
-    [
-      () => ConfigurationId,
-      {
-        [_jN]: _p,
-      },
-    ],
+    [() => ConfigurationId, { [_jN]: _cu }],
+    [() => __listOfConfigurationId, { [_jN]: _h }],
+    [() => ConfigurationId, { [_jN]: _p }],
   ],
 ];
 export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_EA, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _eA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _eA }],
+    [0, { [_jN]: _m }],
   ],
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateBrokerRequest: StaticStructureSchema = [
   3,
   n0,
@@ -725,133 +487,27 @@ export var CreateBrokerRequest: StaticStructureSchema = [
   0,
   [_AS, _AMVU, _BN, _Co, _CRI, _DM, _EO, _ET, _EVn, _HIT, _LSM, _L, _MWST, _PA, _SG, _ST, _SI, _T, _U, _DRM, _DRPBA],
   [
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _aMVU,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bN,
-      },
-    ],
-    [
-      () => ConfigurationId,
-      {
-        [_jN]: _co,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _cRI,
-        [_iT]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => EncryptionOptions,
-      {
-        [_jN]: _eO,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hIT,
-      },
-    ],
-    [
-      () => LdapServerMetadataInput,
-      {
-        [_jN]: _lSM,
-      },
-    ],
-    [
-      () => Logs,
-      {
-        [_jN]: _l,
-      },
-    ],
-    [
-      () => WeeklyStartTime,
-      {
-        [_jN]: _mWST,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _pA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sG,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sI,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    [
-      () => __listOfUser,
-      {
-        [_jN]: _u,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dRM,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dRPBA,
-      },
-    ],
+    [0, { [_jN]: _aS }],
+    [2, { [_jN]: _aMVU }],
+    [0, { [_jN]: _bN }],
+    [() => ConfigurationId, { [_jN]: _co }],
+    [0, { [_jN]: _cRI, [_iT]: 1 }],
+    [0, { [_jN]: _dM }],
+    [() => EncryptionOptions, { [_jN]: _eO }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _hIT }],
+    [() => LdapServerMetadataInput, { [_jN]: _lSM }],
+    [() => Logs, { [_jN]: _l }],
+    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [2, { [_jN]: _pA }],
+    [64 | 0, { [_jN]: _sG }],
+    [0, { [_jN]: _sT }],
+    [64 | 0, { [_jN]: _sI }],
+    [128 | 0, { [_jN]: _t }],
+    [() => __listOfUser, { [_jN]: _u }],
+    [0, { [_jN]: _dRM }],
+    [0, { [_jN]: _dRPBA }],
   ],
 ];
 export var CreateBrokerResponse: StaticStructureSchema = [
@@ -861,18 +517,8 @@ export var CreateBrokerResponse: StaticStructureSchema = [
   0,
   [_BA, _BIr],
   [
-    [
-      0,
-      {
-        [_jN]: _bA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
+    [0, { [_jN]: _bA }],
+    [0, { [_jN]: _bI }],
   ],
 ];
 export var CreateConfigurationRequest: StaticStructureSchema = [
@@ -882,36 +528,11 @@ export var CreateConfigurationRequest: StaticStructureSchema = [
   0,
   [_AS, _ET, _EVn, _N, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _aS }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _n }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateConfigurationResponse: StaticStructureSchema = [
@@ -921,42 +542,12 @@ export var CreateConfigurationResponse: StaticStructureSchema = [
   0,
   [_A, _AS, _C, _I, _LR, _N],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => ConfigurationRevision,
-      {
-        [_jN]: _lR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [0, { [_jN]: _aS }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _i }],
+    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [0, { [_jN]: _n }],
   ],
 ];
 export var CreateTagsRequest: StaticStructureSchema = [
@@ -967,12 +558,7 @@ export var CreateTagsRequest: StaticStructureSchema = [
   [_RA, _T],
   [
     [0, 1],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var CreateUserRequest: StaticStructureSchema = [
@@ -983,31 +569,11 @@ export var CreateUserRequest: StaticStructureSchema = [
   [_BIr, _CA, _G, _Pa, _Us, _RU],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _g,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pa,
-      },
-    ],
+    [2, { [_jN]: _cA }],
+    [64 | 0, { [_jN]: _g }],
+    [0, { [_jN]: _pa }],
     [0, 1],
-    [
-      2,
-      {
-        [_jN]: _rU,
-      },
-    ],
+    [2, { [_jN]: _rU }],
   ],
 ];
 export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
@@ -1018,18 +584,8 @@ export var DataReplicationCounterpart: StaticStructureSchema = [
   0,
   [_BIr, _Re],
   [
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _re,
-      },
-    ],
+    [0, { [_jN]: _bI }],
+    [0, { [_jN]: _re }],
   ],
 ];
 export var DataReplicationMetadataOutput: StaticStructureSchema = [
@@ -1039,52 +595,14 @@ export var DataReplicationMetadataOutput: StaticStructureSchema = [
   0,
   [_DRC, _DRR],
   [
-    [
-      () => DataReplicationCounterpart,
-      {
-        [_jN]: _dRC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dRR,
-      },
-    ],
+    [() => DataReplicationCounterpart, { [_jN]: _dRC }],
+    [0, { [_jN]: _dRR }],
   ],
 ];
 export var DeleteBrokerRequest: StaticStructureSchema = [3, n0, _DBR, 0, [_BIr], [[0, 1]]];
-export var DeleteBrokerResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DBRe,
-  0,
-  [_BIr],
-  [
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-  ],
-];
+export var DeleteBrokerResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_BIr], [[0, { [_jN]: _bI }]]];
 export var DeleteConfigurationRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CI], [[0, 1]]];
-export var DeleteConfigurationResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _DCRe,
-  0,
-  [_CI],
-  [
-    [
-      0,
-      {
-        [_jN]: _cI,
-      },
-    ],
-  ],
-];
+export var DeleteConfigurationResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [_CI], [[0, { [_jN]: _cI }]]];
 export var DeleteTagsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1093,12 +611,7 @@ export var DeleteTagsRequest: StaticStructureSchema = [
   [_RA, _TK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var DeleteUserRequest: StaticStructureSchema = [
@@ -1120,24 +633,9 @@ export var DescribeBrokerEngineTypesRequest: StaticStructureSchema = [
   0,
   [_ET, _MR, _NT],
   [
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [0, { [_hQ]: _eT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var DescribeBrokerEngineTypesResponse: StaticStructureSchema = [
@@ -1147,24 +645,9 @@ export var DescribeBrokerEngineTypesResponse: StaticStructureSchema = [
   0,
   [_BETr, _MR, _NT],
   [
-    [
-      () => __listOfBrokerEngineType,
-      {
-        [_jN]: _bET,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => __listOfBrokerEngineType, { [_jN]: _bET }],
+    [1, { [_jN]: _mR }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var DescribeBrokerInstanceOptionsRequest: StaticStructureSchema = [
@@ -1174,36 +657,11 @@ export var DescribeBrokerInstanceOptionsRequest: StaticStructureSchema = [
   0,
   [_ET, _HIT, _MR, _NT, _ST],
   [
-    [
-      0,
-      {
-        [_hQ]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _hIT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _sT,
-      },
-    ],
+    [0, { [_hQ]: _eT }],
+    [0, { [_hQ]: _hIT }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _sT }],
   ],
 ];
 export var DescribeBrokerInstanceOptionsResponse: StaticStructureSchema = [
@@ -1213,24 +671,9 @@ export var DescribeBrokerInstanceOptionsResponse: StaticStructureSchema = [
   0,
   [_BIOr, _MR, _NT],
   [
-    [
-      () => __listOfBrokerInstanceOption,
-      {
-        [_jN]: _bIO,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => __listOfBrokerInstanceOption, { [_jN]: _bIO }],
+    [1, { [_jN]: _mR }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var DescribeBrokerRequest: StaticStructureSchema = [3, n0, _DBRes, 0, [_BIr], [[0, 1]]];
@@ -1275,204 +718,39 @@ export var DescribeBrokerResponse: StaticStructureSchema = [
     _PDRMe,
   ],
   [
-    [
-      () => __listOfActionRequired,
-      {
-        [_jN]: _aR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _aMVU,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-    [
-      () => __listOfBrokerInstance,
-      {
-        [_jN]: _bIr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bS,
-      },
-    ],
-    [
-      () => Configurations,
-      {
-        [_jN]: _con,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dM,
-      },
-    ],
-    [
-      () => EncryptionOptions,
-      {
-        [_jN]: _eO,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hIT,
-      },
-    ],
-    [
-      () => LdapServerMetadataOutput,
-      {
-        [_jN]: _lSM,
-      },
-    ],
-    [
-      () => LogsSummary,
-      {
-        [_jN]: _l,
-      },
-    ],
-    [
-      () => WeeklyStartTime,
-      {
-        [_jN]: _mWST,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pAS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pEV,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pHIT,
-      },
-    ],
-    [
-      () => LdapServerMetadataOutput,
-      {
-        [_jN]: _pLSM,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _pSG,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _pA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sG,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sI,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-    [
-      () => __listOfUserSummary,
-      {
-        [_jN]: _u,
-      },
-    ],
-    [
-      () => DataReplicationMetadataOutput,
-      {
-        [_jN]: _dRMa,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dRM,
-      },
-    ],
-    [
-      () => DataReplicationMetadataOutput,
-      {
-        [_jN]: _pDRM,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pDRMe,
-      },
-    ],
+    [() => __listOfActionRequired, { [_jN]: _aR }],
+    [0, { [_jN]: _aS }],
+    [2, { [_jN]: _aMVU }],
+    [0, { [_jN]: _bA }],
+    [0, { [_jN]: _bI }],
+    [() => __listOfBrokerInstance, { [_jN]: _bIr }],
+    [0, { [_jN]: _bN }],
+    [0, { [_jN]: _bS }],
+    [() => Configurations, { [_jN]: _con }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _dM }],
+    [() => EncryptionOptions, { [_jN]: _eO }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _hIT }],
+    [() => LdapServerMetadataOutput, { [_jN]: _lSM }],
+    [() => LogsSummary, { [_jN]: _l }],
+    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [0, { [_jN]: _pAS }],
+    [0, { [_jN]: _pEV }],
+    [0, { [_jN]: _pHIT }],
+    [() => LdapServerMetadataOutput, { [_jN]: _pLSM }],
+    [64 | 0, { [_jN]: _pSG }],
+    [2, { [_jN]: _pA }],
+    [64 | 0, { [_jN]: _sG }],
+    [0, { [_jN]: _sT }],
+    [64 | 0, { [_jN]: _sI }],
+    [128 | 0, { [_jN]: _t }],
+    [() => __listOfUserSummary, { [_jN]: _u }],
+    [() => DataReplicationMetadataOutput, { [_jN]: _dRMa }],
+    [0, { [_jN]: _dRM }],
+    [() => DataReplicationMetadataOutput, { [_jN]: _pDRM }],
+    [0, { [_jN]: _pDRMe }],
   ],
 ];
 export var DescribeConfigurationRequest: StaticStructureSchema = [3, n0, _DCRes, 0, [_CI], [[0, 1]]];
@@ -1483,66 +761,16 @@ export var DescribeConfigurationResponse: StaticStructureSchema = [
   0,
   [_A, _AS, _C, _D, _ET, _EVn, _I, _LR, _N, _T],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _d,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eT,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => ConfigurationRevision,
-      {
-        [_jN]: _lR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [0, { [_jN]: _aS }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _d }],
+    [0, { [_jN]: _eT }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _i }],
+    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [0, { [_jN]: _n }],
+    [128 | 0, { [_jN]: _t }],
   ],
 ];
 export var DescribeConfigurationRevisionRequest: StaticStructureSchema = [
@@ -1563,30 +791,10 @@ export var DescribeConfigurationRevisionResponse: StaticStructureSchema = [
   0,
   [_CI, _C, _Da, _D],
   [
-    [
-      0,
-      {
-        [_jN]: _cI,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _da,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _d,
-      },
-    ],
+    [0, { [_jN]: _cI }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _da }],
+    [0, { [_jN]: _d }],
   ],
 ];
 export var DescribeUserRequest: StaticStructureSchema = [
@@ -1607,42 +815,12 @@ export var DescribeUserResponse: StaticStructureSchema = [
   0,
   [_BIr, _CA, _G, _P, _Us, _RU],
   [
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _g,
-      },
-    ],
-    [
-      () => UserPendingChanges,
-      {
-        [_jN]: _p,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _us,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _rU,
-      },
-    ],
+    [0, { [_jN]: _bI }],
+    [2, { [_jN]: _cA }],
+    [64 | 0, { [_jN]: _g }],
+    [() => UserPendingChanges, { [_jN]: _p }],
+    [0, { [_jN]: _us }],
+    [2, { [_jN]: _rU }],
   ],
 ];
 export var EncryptionOptions: StaticStructureSchema = [
@@ -1652,87 +830,35 @@ export var EncryptionOptions: StaticStructureSchema = [
   0,
   [_KKI, _UAOK],
   [
-    [
-      0,
-      {
-        [_jN]: _kKI,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _uAOK,
-      },
-    ],
+    [0, { [_jN]: _kKI }],
+    [2, { [_jN]: _uAOK }],
   ],
 ];
-export var EngineVersion: StaticStructureSchema = [
-  3,
-  n0,
-  _EVn,
-  0,
-  [_N],
-  [
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-  ],
-];
+export var EngineVersion: StaticStructureSchema = [3, n0, _EVn, 0, [_N], [[0, { [_jN]: _n }]]];
 export var ForbiddenException: StaticErrorSchema = [
   -3,
   n0,
   _FE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_EA, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _eA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _eA }],
+    [0, { [_jN]: _m }],
   ],
 ];
 TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-
 export var InternalServerErrorException: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
+  { [_e]: _s, [_hE]: 500 },
   [_EA, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _eA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _eA }],
+    [0, { [_jN]: _m }],
   ],
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-
 export var LdapServerMetadataInput: StaticStructureSchema = [
   3,
   n0,
@@ -1740,72 +866,17 @@ export var LdapServerMetadataInput: StaticStructureSchema = [
   0,
   [_Ho, _RB, _RN, _RSM, _RSS, _SAP, _SAU, _UB, _URN, _USM, _USS],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ho,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rB,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _rSS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sAP,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sAU,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uB,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uRN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uSM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _uSS,
-      },
-    ],
+    [64 | 0, { [_jN]: _ho }],
+    [0, { [_jN]: _rB }],
+    [0, { [_jN]: _rN }],
+    [0, { [_jN]: _rSM }],
+    [2, { [_jN]: _rSS }],
+    [0, { [_jN]: _sAP }],
+    [0, { [_jN]: _sAU }],
+    [0, { [_jN]: _uB }],
+    [0, { [_jN]: _uRN }],
+    [0, { [_jN]: _uSM }],
+    [2, { [_jN]: _uSS }],
   ],
 ];
 export var LdapServerMetadataOutput: StaticStructureSchema = [
@@ -1815,66 +886,16 @@ export var LdapServerMetadataOutput: StaticStructureSchema = [
   0,
   [_Ho, _RB, _RN, _RSM, _RSS, _SAU, _UB, _URN, _USM, _USS],
   [
-    [
-      64 | 0,
-      {
-        [_jN]: _ho,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rB,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rSM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _rSS,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _sAU,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uB,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uRN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _uSM,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _uSS,
-      },
-    ],
+    [64 | 0, { [_jN]: _ho }],
+    [0, { [_jN]: _rB }],
+    [0, { [_jN]: _rN }],
+    [0, { [_jN]: _rSM }],
+    [2, { [_jN]: _rSS }],
+    [0, { [_jN]: _sAU }],
+    [0, { [_jN]: _uB }],
+    [0, { [_jN]: _uRN }],
+    [0, { [_jN]: _uSM }],
+    [2, { [_jN]: _uSS }],
   ],
 ];
 export var ListBrokersRequest: StaticStructureSchema = [
@@ -1884,18 +905,8 @@ export var ListBrokersRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListBrokersResponse: StaticStructureSchema = [
@@ -1905,18 +916,8 @@ export var ListBrokersResponse: StaticStructureSchema = [
   0,
   [_BSro, _NT],
   [
-    [
-      () => __listOfBrokerSummary,
-      {
-        [_jN]: _bSr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => __listOfBrokerSummary, { [_jN]: _bSr }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var ListConfigurationRevisionsRequest: StaticStructureSchema = [
@@ -1927,18 +928,8 @@ export var ListConfigurationRevisionsRequest: StaticStructureSchema = [
   [_CI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListConfigurationRevisionsResponse: StaticStructureSchema = [
@@ -1948,30 +939,10 @@ export var ListConfigurationRevisionsResponse: StaticStructureSchema = [
   0,
   [_CI, _MR, _NT, _Rev],
   [
-    [
-      0,
-      {
-        [_jN]: _cI,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfConfigurationRevision,
-      {
-        [_jN]: _rev,
-      },
-    ],
+    [0, { [_jN]: _cI }],
+    [1, { [_jN]: _mR }],
+    [0, { [_jN]: _nT }],
+    [() => __listOfConfigurationRevision, { [_jN]: _rev }],
   ],
 ];
 export var ListConfigurationsRequest: StaticStructureSchema = [
@@ -1981,18 +952,8 @@ export var ListConfigurationsRequest: StaticStructureSchema = [
   0,
   [_MR, _NT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListConfigurationsResponse: StaticStructureSchema = [
@@ -2002,42 +963,13 @@ export var ListConfigurationsResponse: StaticStructureSchema = [
   0,
   [_Con, _MR, _NT],
   [
-    [
-      () => __listOfConfiguration,
-      {
-        [_jN]: _con,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
+    [() => __listOfConfiguration, { [_jN]: _con }],
+    [1, { [_jN]: _mR }],
+    [0, { [_jN]: _nT }],
   ],
 ];
 export var ListTagsRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_RA], [[0, 1]]];
-export var ListTagsResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _LTRi,
-  0,
-  [_T],
-  [
-    [
-      128 | 0,
-      {
-        [_jN]: _t,
-      },
-    ],
-  ],
-];
+export var ListTagsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
 export var ListUsersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2046,18 +978,8 @@ export var ListUsersRequest: StaticStructureSchema = [
   [_BIr, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
   ],
 ];
 export var ListUsersResponse: StaticStructureSchema = [
@@ -2067,30 +989,10 @@ export var ListUsersResponse: StaticStructureSchema = [
   0,
   [_BIr, _MR, _NT, _U],
   [
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-    [
-      1,
-      {
-        [_jN]: _mR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _nT,
-      },
-    ],
-    [
-      () => __listOfUserSummary,
-      {
-        [_jN]: _u,
-      },
-    ],
+    [0, { [_jN]: _bI }],
+    [1, { [_jN]: _mR }],
+    [0, { [_jN]: _nT }],
+    [() => __listOfUserSummary, { [_jN]: _u }],
   ],
 ];
 export var Logs: StaticStructureSchema = [
@@ -2100,18 +1002,8 @@ export var Logs: StaticStructureSchema = [
   0,
   [_Au, _Ge],
   [
-    [
-      2,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _ge,
-      },
-    ],
+    [2, { [_jN]: _au }],
+    [2, { [_jN]: _ge }],
   ],
 ];
 export var LogsSummary: StaticStructureSchema = [
@@ -2121,64 +1013,25 @@ export var LogsSummary: StaticStructureSchema = [
   0,
   [_Au, _ALG, _Ge, _GLG, _P],
   [
-    [
-      2,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _aLG,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _ge,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _gLG,
-      },
-    ],
-    [
-      () => PendingLogs,
-      {
-        [_jN]: _p,
-      },
-    ],
+    [2, { [_jN]: _au }],
+    [0, { [_jN]: _aLG }],
+    [2, { [_jN]: _ge }],
+    [0, { [_jN]: _gLG }],
+    [() => PendingLogs, { [_jN]: _p }],
   ],
 ];
 export var NotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_EA, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _eA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _eA }],
+    [0, { [_jN]: _m }],
   ],
 ];
 TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-
 export var PendingLogs: StaticStructureSchema = [
   3,
   n0,
@@ -2186,18 +1039,8 @@ export var PendingLogs: StaticStructureSchema = [
   0,
   [_Au, _Ge],
   [
-    [
-      2,
-      {
-        [_jN]: _au,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _ge,
-      },
-    ],
+    [2, { [_jN]: _au }],
+    [2, { [_jN]: _ge }],
   ],
 ];
 export var PromoteRequest: StaticStructureSchema = [
@@ -2208,29 +1051,10 @@ export var PromoteRequest: StaticStructureSchema = [
   [_BIr, _Mo],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _mo,
-      },
-    ],
+    [0, { [_jN]: _mo }],
   ],
 ];
-export var PromoteResponse: StaticStructureSchema = [
-  3,
-  n0,
-  _PRr,
-  0,
-  [_BIr],
-  [
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-  ],
-];
+export var PromoteResponse: StaticStructureSchema = [3, n0, _PRr, 0, [_BIr], [[0, { [_jN]: _bI }]]];
 export var RebootBrokerRequest: StaticStructureSchema = [3, n0, _RBR, 0, [_BIr], [[0, 1]]];
 export var RebootBrokerResponse: StaticStructureSchema = [3, n0, _RBRe, 0, [], []];
 export var SanitizationWarning: StaticStructureSchema = [
@@ -2240,52 +1064,23 @@ export var SanitizationWarning: StaticStructureSchema = [
   0,
   [_AN, _EN, _Rea],
   [
-    [
-      0,
-      {
-        [_jN]: _aN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eN,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _rea,
-      },
-    ],
+    [0, { [_jN]: _aN }],
+    [0, { [_jN]: _eN }],
+    [0, { [_jN]: _rea }],
   ],
 ];
 export var UnauthorizedException: StaticErrorSchema = [
   -3,
   n0,
   _UE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
+  { [_e]: _c, [_hE]: 401 },
   [_EA, _M],
   [
-    [
-      0,
-      {
-        [_jN]: _eA,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _m,
-      },
-    ],
+    [0, { [_jN]: _eA }],
+    [0, { [_jN]: _m }],
   ],
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-
 export var UpdateBrokerRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2293,67 +1088,17 @@ export var UpdateBrokerRequest: StaticStructureSchema = [
   0,
   [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRM],
   [
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _aMVU,
-      },
-    ],
+    [0, { [_jN]: _aS }],
+    [2, { [_jN]: _aMVU }],
     [0, 1],
-    [
-      () => ConfigurationId,
-      {
-        [_jN]: _co,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hIT,
-      },
-    ],
-    [
-      () => LdapServerMetadataInput,
-      {
-        [_jN]: _lSM,
-      },
-    ],
-    [
-      () => Logs,
-      {
-        [_jN]: _l,
-      },
-    ],
-    [
-      () => WeeklyStartTime,
-      {
-        [_jN]: _mWST,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sG,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dRM,
-      },
-    ],
+    [() => ConfigurationId, { [_jN]: _co }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _hIT }],
+    [() => LdapServerMetadataInput, { [_jN]: _lSM }],
+    [() => Logs, { [_jN]: _l }],
+    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [64 | 0, { [_jN]: _sG }],
+    [0, { [_jN]: _dRM }],
   ],
 ];
 export var UpdateBrokerResponse: StaticStructureSchema = [
@@ -2363,90 +1108,20 @@ export var UpdateBrokerResponse: StaticStructureSchema = [
   0,
   [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRMa, _DRM, _PDRM, _PDRMe],
   [
-    [
-      0,
-      {
-        [_jN]: _aS,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _aMVU,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _bI,
-      },
-    ],
-    [
-      () => ConfigurationId,
-      {
-        [_jN]: _co,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _eVn,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _hIT,
-      },
-    ],
-    [
-      () => LdapServerMetadataOutput,
-      {
-        [_jN]: _lSM,
-      },
-    ],
-    [
-      () => Logs,
-      {
-        [_jN]: _l,
-      },
-    ],
-    [
-      () => WeeklyStartTime,
-      {
-        [_jN]: _mWST,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _sG,
-      },
-    ],
-    [
-      () => DataReplicationMetadataOutput,
-      {
-        [_jN]: _dRMa,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _dRM,
-      },
-    ],
-    [
-      () => DataReplicationMetadataOutput,
-      {
-        [_jN]: _pDRM,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pDRMe,
-      },
-    ],
+    [0, { [_jN]: _aS }],
+    [2, { [_jN]: _aMVU }],
+    [0, { [_jN]: _bI }],
+    [() => ConfigurationId, { [_jN]: _co }],
+    [0, { [_jN]: _eVn }],
+    [0, { [_jN]: _hIT }],
+    [() => LdapServerMetadataOutput, { [_jN]: _lSM }],
+    [() => Logs, { [_jN]: _l }],
+    [() => WeeklyStartTime, { [_jN]: _mWST }],
+    [64 | 0, { [_jN]: _sG }],
+    [() => DataReplicationMetadataOutput, { [_jN]: _dRMa }],
+    [0, { [_jN]: _dRM }],
+    [() => DataReplicationMetadataOutput, { [_jN]: _pDRM }],
+    [0, { [_jN]: _pDRMe }],
   ],
 ];
 export var UpdateConfigurationRequest: StaticStructureSchema = [
@@ -2457,18 +1132,8 @@ export var UpdateConfigurationRequest: StaticStructureSchema = [
   [_CI, _Da, _D],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_jN]: _da,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _d,
-      },
-    ],
+    [0, { [_jN]: _da }],
+    [0, { [_jN]: _d }],
   ],
 ];
 export var UpdateConfigurationResponse: StaticStructureSchema = [
@@ -2478,42 +1143,12 @@ export var UpdateConfigurationResponse: StaticStructureSchema = [
   0,
   [_A, _C, _I, _LR, _N, _W],
   [
-    [
-      0,
-      {
-        [_jN]: _a,
-      },
-    ],
-    [
-      5,
-      {
-        [_jN]: _cr,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _i,
-      },
-    ],
-    [
-      () => ConfigurationRevision,
-      {
-        [_jN]: _lR,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _n,
-      },
-    ],
-    [
-      () => __listOfSanitizationWarning,
-      {
-        [_jN]: _w,
-      },
-    ],
+    [0, { [_jN]: _a }],
+    [5, { [_jN]: _cr }],
+    [0, { [_jN]: _i }],
+    [() => ConfigurationRevision, { [_jN]: _lR }],
+    [0, { [_jN]: _n }],
+    [() => __listOfSanitizationWarning, { [_jN]: _w }],
   ],
 ];
 export var UpdateUserRequest: StaticStructureSchema = [
@@ -2524,31 +1159,11 @@ export var UpdateUserRequest: StaticStructureSchema = [
   [_BIr, _CA, _G, _Pa, _Us, _RU],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _g,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pa,
-      },
-    ],
+    [2, { [_jN]: _cA }],
+    [64 | 0, { [_jN]: _g }],
+    [0, { [_jN]: _pa }],
     [0, 1],
-    [
-      2,
-      {
-        [_jN]: _rU,
-      },
-    ],
+    [2, { [_jN]: _rU }],
   ],
 ];
 export var UpdateUserResponse: StaticStructureSchema = [3, n0, _UURp, 0, [], []];
@@ -2559,36 +1174,11 @@ export var User: StaticStructureSchema = [
   0,
   [_CA, _G, _Pa, _Us, _RU],
   [
-    [
-      2,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _g,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pa,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _us,
-      },
-    ],
-    [
-      2,
-      {
-        [_jN]: _rU,
-      },
-    ],
+    [2, { [_jN]: _cA }],
+    [64 | 0, { [_jN]: _g }],
+    [0, { [_jN]: _pa }],
+    [0, { [_jN]: _us }],
+    [2, { [_jN]: _rU }],
   ],
 ];
 export var UserPendingChanges: StaticStructureSchema = [
@@ -2598,24 +1188,9 @@ export var UserPendingChanges: StaticStructureSchema = [
   0,
   [_CA, _G, _PC],
   [
-    [
-      2,
-      {
-        [_jN]: _cA,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_jN]: _g,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _pC,
-      },
-    ],
+    [2, { [_jN]: _cA }],
+    [64 | 0, { [_jN]: _g }],
+    [0, { [_jN]: _pC }],
   ],
 ];
 export var UserSummary: StaticStructureSchema = [
@@ -2625,18 +1200,8 @@ export var UserSummary: StaticStructureSchema = [
   0,
   [_PC, _Us],
   [
-    [
-      0,
-      {
-        [_jN]: _pC,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _us,
-      },
-    ],
+    [0, { [_jN]: _pC }],
+    [0, { [_jN]: _us }],
   ],
 ];
 export var WeeklyStartTime: StaticStructureSchema = [
@@ -2646,33 +1211,15 @@ export var WeeklyStartTime: StaticStructureSchema = [
   0,
   [_DOW, _TOD, _TZ],
   [
-    [
-      0,
-      {
-        [_jN]: _dOW,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _tOD,
-      },
-    ],
-    [
-      0,
-      {
-        [_jN]: _tZ,
-      },
-    ],
+    [0, { [_jN]: _dOW }],
+    [0, { [_jN]: _tOD }],
+    [0, { [_jN]: _tZ }],
   ],
 ];
 export var __Unit = "unit" as const;
-
 export var MqServiceException: StaticErrorSchema = [-3, _sm, "MqServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MqServiceException, __MqServiceException);
-
 export var __listOf__string = 64 | 0;
-
 export var __listOfActionRequired: StaticListSchema = [1, n0, _lOAR, 0, [() => ActionRequired, 0]];
 export var __listOfAvailabilityZone: StaticListSchema = [1, n0, _lOAZ, 0, [() => AvailabilityZone, 0]];
 export var __listOfBrokerEngineType: StaticListSchema = [1, n0, _lOBET, 0, [() => BrokerEngineType, 0]];
@@ -2683,20 +1230,16 @@ export var __listOfConfiguration: StaticListSchema = [1, n0, _lOC, 0, [() => Con
 export var __listOfConfigurationId: StaticListSchema = [1, n0, _lOCI, 0, [() => ConfigurationId, 0]];
 export var __listOfConfigurationRevision: StaticListSchema = [1, n0, _lOCR, 0, [() => ConfigurationRevision, 0]];
 export var __listOfDeploymentMode = 64 | 0;
-
 export var __listOfEngineVersion: StaticListSchema = [1, n0, _lOEV, 0, [() => EngineVersion, 0]];
 export var __listOfSanitizationWarning: StaticListSchema = [1, n0, _lOSW, 0, [() => SanitizationWarning, 0]];
 export var __listOfUser: StaticListSchema = [1, n0, _lOU, 0, [() => User, 0]];
 export var __listOfUserSummary: StaticListSchema = [1, n0, _lOUS, 0, [() => UserSummary, 0]];
 export var __mapOf__string = 128 | 0;
-
 export var CreateBroker: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  {
-    [_ht]: ["POST", "/v1/brokers", 200],
-  },
+  { [_ht]: ["POST", "/v1/brokers", 200] },
   () => CreateBrokerRequest,
   () => CreateBrokerResponse,
 ];
@@ -2704,9 +1247,7 @@ export var CreateConfiguration: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_ht]: ["POST", "/v1/configurations", 200],
-  },
+  { [_ht]: ["POST", "/v1/configurations", 200] },
   () => CreateConfigurationRequest,
   () => CreateConfigurationResponse,
 ];
@@ -2714,9 +1255,7 @@ export var CreateTags: StaticOperationSchema = [
   9,
   n0,
   _CT,
-  {
-    [_ht]: ["POST", "/v1/tags/{ResourceArn}", 204],
-  },
+  { [_ht]: ["POST", "/v1/tags/{ResourceArn}", 204] },
   () => CreateTagsRequest,
   () => __Unit,
 ];
@@ -2724,9 +1263,7 @@ export var CreateUser: StaticOperationSchema = [
   9,
   n0,
   _CU,
-  {
-    [_ht]: ["POST", "/v1/brokers/{BrokerId}/users/{Username}", 200],
-  },
+  { [_ht]: ["POST", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
   () => CreateUserRequest,
   () => CreateUserResponse,
 ];
@@ -2734,9 +1271,7 @@ export var DeleteBroker: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  {
-    [_ht]: ["DELETE", "/v1/brokers/{BrokerId}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/brokers/{BrokerId}", 200] },
   () => DeleteBrokerRequest,
   () => DeleteBrokerResponse,
 ];
@@ -2744,9 +1279,7 @@ export var DeleteConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_ht]: ["DELETE", "/v1/configurations/{ConfigurationId}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/configurations/{ConfigurationId}", 200] },
   () => DeleteConfigurationRequest,
   () => DeleteConfigurationResponse,
 ];
@@ -2754,9 +1287,7 @@ export var DeleteTags: StaticOperationSchema = [
   9,
   n0,
   _DT,
-  {
-    [_ht]: ["DELETE", "/v1/tags/{ResourceArn}", 204],
-  },
+  { [_ht]: ["DELETE", "/v1/tags/{ResourceArn}", 204] },
   () => DeleteTagsRequest,
   () => __Unit,
 ];
@@ -2764,9 +1295,7 @@ export var DeleteUser: StaticOperationSchema = [
   9,
   n0,
   _DU,
-  {
-    [_ht]: ["DELETE", "/v1/brokers/{BrokerId}/users/{Username}", 200],
-  },
+  { [_ht]: ["DELETE", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
   () => DeleteUserRequest,
   () => DeleteUserResponse,
 ];
@@ -2774,9 +1303,7 @@ export var DescribeBroker: StaticOperationSchema = [
   9,
   n0,
   _DBe,
-  {
-    [_ht]: ["GET", "/v1/brokers/{BrokerId}", 200],
-  },
+  { [_ht]: ["GET", "/v1/brokers/{BrokerId}", 200] },
   () => DescribeBrokerRequest,
   () => DescribeBrokerResponse,
 ];
@@ -2784,9 +1311,7 @@ export var DescribeBrokerEngineTypes: StaticOperationSchema = [
   9,
   n0,
   _DBET,
-  {
-    [_ht]: ["GET", "/v1/broker-engine-types", 200],
-  },
+  { [_ht]: ["GET", "/v1/broker-engine-types", 200] },
   () => DescribeBrokerEngineTypesRequest,
   () => DescribeBrokerEngineTypesResponse,
 ];
@@ -2794,9 +1319,7 @@ export var DescribeBrokerInstanceOptions: StaticOperationSchema = [
   9,
   n0,
   _DBIO,
-  {
-    [_ht]: ["GET", "/v1/broker-instance-options", 200],
-  },
+  { [_ht]: ["GET", "/v1/broker-instance-options", 200] },
   () => DescribeBrokerInstanceOptionsRequest,
   () => DescribeBrokerInstanceOptionsResponse,
 ];
@@ -2804,9 +1327,7 @@ export var DescribeConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DCe,
-  {
-    [_ht]: ["GET", "/v1/configurations/{ConfigurationId}", 200],
-  },
+  { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}", 200] },
   () => DescribeConfigurationRequest,
   () => DescribeConfigurationResponse,
 ];
@@ -2814,9 +1335,7 @@ export var DescribeConfigurationRevision: StaticOperationSchema = [
   9,
   n0,
   _DCRescr,
-  {
-    [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}", 200],
-  },
+  { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}", 200] },
   () => DescribeConfigurationRevisionRequest,
   () => DescribeConfigurationRevisionResponse,
 ];
@@ -2824,9 +1343,7 @@ export var DescribeUser: StaticOperationSchema = [
   9,
   n0,
   _DUe,
-  {
-    [_ht]: ["GET", "/v1/brokers/{BrokerId}/users/{Username}", 200],
-  },
+  { [_ht]: ["GET", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
   () => DescribeUserRequest,
   () => DescribeUserResponse,
 ];
@@ -2834,9 +1351,7 @@ export var ListBrokers: StaticOperationSchema = [
   9,
   n0,
   _LB,
-  {
-    [_ht]: ["GET", "/v1/brokers", 200],
-  },
+  { [_ht]: ["GET", "/v1/brokers", 200] },
   () => ListBrokersRequest,
   () => ListBrokersResponse,
 ];
@@ -2844,9 +1359,7 @@ export var ListConfigurationRevisions: StaticOperationSchema = [
   9,
   n0,
   _LCRis,
-  {
-    [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions", 200],
-  },
+  { [_ht]: ["GET", "/v1/configurations/{ConfigurationId}/revisions", 200] },
   () => ListConfigurationRevisionsRequest,
   () => ListConfigurationRevisionsResponse,
 ];
@@ -2854,9 +1367,7 @@ export var ListConfigurations: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_ht]: ["GET", "/v1/configurations", 200],
-  },
+  { [_ht]: ["GET", "/v1/configurations", 200] },
   () => ListConfigurationsRequest,
   () => ListConfigurationsResponse,
 ];
@@ -2864,9 +1375,7 @@ export var ListTags: StaticOperationSchema = [
   9,
   n0,
   _LT,
-  {
-    [_ht]: ["GET", "/v1/tags/{ResourceArn}", 200],
-  },
+  { [_ht]: ["GET", "/v1/tags/{ResourceArn}", 200] },
   () => ListTagsRequest,
   () => ListTagsResponse,
 ];
@@ -2874,9 +1383,7 @@ export var ListUsers: StaticOperationSchema = [
   9,
   n0,
   _LU,
-  {
-    [_ht]: ["GET", "/v1/brokers/{BrokerId}/users", 200],
-  },
+  { [_ht]: ["GET", "/v1/brokers/{BrokerId}/users", 200] },
   () => ListUsersRequest,
   () => ListUsersResponse,
 ];
@@ -2884,9 +1391,7 @@ export var Promote: StaticOperationSchema = [
   9,
   n0,
   _Pr,
-  {
-    [_ht]: ["POST", "/v1/brokers/{BrokerId}/promote", 200],
-  },
+  { [_ht]: ["POST", "/v1/brokers/{BrokerId}/promote", 200] },
   () => PromoteRequest,
   () => PromoteResponse,
 ];
@@ -2894,9 +1399,7 @@ export var RebootBroker: StaticOperationSchema = [
   9,
   n0,
   _RBe,
-  {
-    [_ht]: ["POST", "/v1/brokers/{BrokerId}/reboot", 200],
-  },
+  { [_ht]: ["POST", "/v1/brokers/{BrokerId}/reboot", 200] },
   () => RebootBrokerRequest,
   () => RebootBrokerResponse,
 ];
@@ -2904,9 +1407,7 @@ export var UpdateBroker: StaticOperationSchema = [
   9,
   n0,
   _UBp,
-  {
-    [_ht]: ["PUT", "/v1/brokers/{BrokerId}", 200],
-  },
+  { [_ht]: ["PUT", "/v1/brokers/{BrokerId}", 200] },
   () => UpdateBrokerRequest,
   () => UpdateBrokerResponse,
 ];
@@ -2914,9 +1415,7 @@ export var UpdateConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_ht]: ["PUT", "/v1/configurations/{ConfigurationId}", 200],
-  },
+  { [_ht]: ["PUT", "/v1/configurations/{ConfigurationId}", 200] },
   () => UpdateConfigurationRequest,
   () => UpdateConfigurationResponse,
 ];
@@ -2924,9 +1423,7 @@ export var UpdateUser: StaticOperationSchema = [
   9,
   n0,
   _UU,
-  {
-    [_ht]: ["PUT", "/v1/brokers/{BrokerId}/users/{Username}", 200],
-  },
+  { [_ht]: ["PUT", "/v1/brokers/{BrokerId}/users/{Username}", 200] },
   () => UpdateUserRequest,
   () => UpdateUserResponse,
 ];

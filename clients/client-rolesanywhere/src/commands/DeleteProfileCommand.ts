@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
-import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
+import type { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
+import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { DeleteProfile } from "../schemas/schemas_0";
 
 /**
@@ -27,11 +27,7 @@ export interface DeleteProfileCommandInput extends ScalarProfileRequest {}
 export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a profile.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DeleteProfile</code>.
- *          </p>
+ * <p>Deletes a profile.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:DeleteProfile</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

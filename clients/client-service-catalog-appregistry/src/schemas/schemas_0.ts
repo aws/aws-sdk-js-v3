@@ -150,7 +150,7 @@ const n0 = "com.amazonaws.servicecatalogappregistry";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -169,7 +169,6 @@ import {
 import { ServiceCatalogAppRegistryServiceException as __ServiceCatalogAppRegistryServiceException } from "../models/ServiceCatalogAppRegistryServiceException";
 
 /* eslint no-var: 0 */
-
 export var Application: StaticStructureSchema = [
   3,
   n0,
@@ -226,19 +225,8 @@ export var AttributeGroupSummary: StaticStructureSchema = [
   [_i, _a, _n, _d, _cT, _lUT, _cB],
   [0, 0, 0, 0, 5, 5, 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m],
-  [0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateApplicationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -312,24 +300,9 @@ export var GetAssociatedResourceRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _rTS,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [64 | 0, { [_hQ]: _rTS }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var GetAssociatedResourceResponse: StaticStructureSchema = [
@@ -358,19 +331,8 @@ export var Integrations: StaticStructureSchema = [
   [_rG, _aTRG],
   [() => ResourceGroup, () => ResourceGroup],
 ];
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_m],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListApplicationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -378,18 +340,8 @@ export var ListApplicationsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListApplicationsResponse: StaticStructureSchema = [
@@ -408,18 +360,8 @@ export var ListAssociatedAttributeGroupsRequest: StaticStructureSchema = [
   [_ap, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssociatedAttributeGroupsResponse: StaticStructureSchema = [3, n0, _LAAGRi, 0, [_aGt, _nT], [64 | 0, 0]];
@@ -431,18 +373,8 @@ export var ListAssociatedResourcesRequest: StaticStructureSchema = [
   [_ap, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAssociatedResourcesResponse: StaticStructureSchema = [3, n0, _LARRi, 0, [_r, _nT], [() => Resources, 0]];
@@ -454,18 +386,8 @@ export var ListAttributeGroupsForApplicationRequest: StaticStructureSchema = [
   [_ap, _nT, _mR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAttributeGroupsForApplicationResponse: StaticStructureSchema = [
@@ -483,18 +405,8 @@ export var ListAttributeGroupsRequest: StaticStructureSchema = [
   0,
   [_nT, _mR],
   [
-    [
-      0,
-      {
-        [_hQ]: _nT,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mR,
-      },
-    ],
+    [0, { [_hQ]: _nT }],
+    [1, { [_hQ]: _mR }],
   ],
 ];
 export var ListAttributeGroupsResponse: StaticStructureSchema = [
@@ -520,33 +432,11 @@ export var ResourceInfo: StaticStructureSchema = [
   [0, 0, 0, () => ResourceDetails, 64 | 0],
 ];
 export var ResourceIntegrations: StaticStructureSchema = [3, n0, _RIe, 0, [_rG], [() => ResourceGroup]];
-export var ResourceNotFoundException: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
-  [_m],
-  [0],
-];
+export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcesListItem: StaticStructureSchema = [3, n0, _RLI, 0, [_rA, _eM, _sta, _rT], [0, 0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
-  [_m],
-  [0],
-];
+export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var SyncResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -562,19 +452,8 @@ export var SyncResourceResponse: StaticStructureSchema = [3, n0, _SRRy, 0, [_aA,
 export var TagQueryConfiguration: StaticStructureSchema = [3, n0, _TQC, 0, [_tK], [0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_m, _sC],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m, _sC], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -583,12 +462,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_rA, _tKa],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tKa,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tKa }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
@@ -603,21 +477,9 @@ export var UpdateAttributeGroupRequest: StaticStructureSchema = [
   [[0, 1], 0, 0, 0],
 ];
 export var UpdateAttributeGroupResponse: StaticStructureSchema = [3, n0, _UAGRp, 0, [_aG], [() => AttributeGroup]];
-export var ValidationException: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_m],
-  [0],
-];
+export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var __Unit = "unit" as const;
-
 export var ServiceCatalogAppRegistryServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -630,31 +492,22 @@ TypeRegistry.for(_sm).registerError(
   ServiceCatalogAppRegistryServiceException,
   __ServiceCatalogAppRegistryServiceException
 );
-
 export var ApplicationSummaries: StaticListSchema = [1, n0, _ASp, 0, () => ApplicationSummary];
 export var AttributeGroupDetailsList: StaticListSchema = [1, n0, _AGDL, 0, () => AttributeGroupDetails];
 export var AttributeGroupIds = 64 | 0;
-
 export var AttributeGroupSummaries: StaticListSchema = [1, n0, _AGSt, 0, () => AttributeGroupSummary];
 export var GetAssociatedResourceFilter = 64 | 0;
-
 export var Options = 64 | 0;
-
 export var Resources: StaticListSchema = [1, n0, _Re, 0, () => ResourceInfo];
 export var ResourcesList: StaticListSchema = [1, n0, _RL, 0, () => ResourcesListItem];
 export var TagKeys = 64 | 0;
-
 export var ApplicationTagDefinition = 128 | 0;
-
 export var Tags = 128 | 0;
-
 export var AssociateAttributeGroup: StaticOperationSchema = [
   9,
   n0,
   _AAG,
-  {
-    [_h]: ["PUT", "/applications/{application}/attribute-groups/{attributeGroup}", 200],
-  },
+  { [_h]: ["PUT", "/applications/{application}/attribute-groups/{attributeGroup}", 200] },
   () => AssociateAttributeGroupRequest,
   () => AssociateAttributeGroupResponse,
 ];
@@ -662,9 +515,7 @@ export var AssociateResource: StaticOperationSchema = [
   9,
   n0,
   _AR,
-  {
-    [_h]: ["PUT", "/applications/{application}/resources/{resourceType}/{resource}", 200],
-  },
+  { [_h]: ["PUT", "/applications/{application}/resources/{resourceType}/{resource}", 200] },
   () => AssociateResourceRequest,
   () => AssociateResourceResponse,
 ];
@@ -672,9 +523,7 @@ export var CreateApplication: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  {
-    [_h]: ["POST", "/applications", 201],
-  },
+  { [_h]: ["POST", "/applications", 201] },
   () => CreateApplicationRequest,
   () => CreateApplicationResponse,
 ];
@@ -682,9 +531,7 @@ export var CreateAttributeGroup: StaticOperationSchema = [
   9,
   n0,
   _CAG,
-  {
-    [_h]: ["POST", "/attribute-groups", 201],
-  },
+  { [_h]: ["POST", "/attribute-groups", 201] },
   () => CreateAttributeGroupRequest,
   () => CreateAttributeGroupResponse,
 ];
@@ -692,9 +539,7 @@ export var DeleteApplication: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  {
-    [_h]: ["DELETE", "/applications/{application}", 200],
-  },
+  { [_h]: ["DELETE", "/applications/{application}", 200] },
   () => DeleteApplicationRequest,
   () => DeleteApplicationResponse,
 ];
@@ -702,9 +547,7 @@ export var DeleteAttributeGroup: StaticOperationSchema = [
   9,
   n0,
   _DAG,
-  {
-    [_h]: ["DELETE", "/attribute-groups/{attributeGroup}", 200],
-  },
+  { [_h]: ["DELETE", "/attribute-groups/{attributeGroup}", 200] },
   () => DeleteAttributeGroupRequest,
   () => DeleteAttributeGroupResponse,
 ];
@@ -712,9 +555,7 @@ export var DisassociateAttributeGroup: StaticOperationSchema = [
   9,
   n0,
   _DAGi,
-  {
-    [_h]: ["DELETE", "/applications/{application}/attribute-groups/{attributeGroup}", 200],
-  },
+  { [_h]: ["DELETE", "/applications/{application}/attribute-groups/{attributeGroup}", 200] },
   () => DisassociateAttributeGroupRequest,
   () => DisassociateAttributeGroupResponse,
 ];
@@ -722,9 +563,7 @@ export var DisassociateResource: StaticOperationSchema = [
   9,
   n0,
   _DR,
-  {
-    [_h]: ["DELETE", "/applications/{application}/resources/{resourceType}/{resource}", 200],
-  },
+  { [_h]: ["DELETE", "/applications/{application}/resources/{resourceType}/{resource}", 200] },
   () => DisassociateResourceRequest,
   () => DisassociateResourceResponse,
 ];
@@ -732,9 +571,7 @@ export var GetApplication: StaticOperationSchema = [
   9,
   n0,
   _GA,
-  {
-    [_h]: ["GET", "/applications/{application}", 200],
-  },
+  { [_h]: ["GET", "/applications/{application}", 200] },
   () => GetApplicationRequest,
   () => GetApplicationResponse,
 ];
@@ -742,9 +579,7 @@ export var GetAssociatedResource: StaticOperationSchema = [
   9,
   n0,
   _GARet,
-  {
-    [_h]: ["GET", "/applications/{application}/resources/{resourceType}/{resource}", 200],
-  },
+  { [_h]: ["GET", "/applications/{application}/resources/{resourceType}/{resource}", 200] },
   () => GetAssociatedResourceRequest,
   () => GetAssociatedResourceResponse,
 ];
@@ -752,9 +587,7 @@ export var GetAttributeGroup: StaticOperationSchema = [
   9,
   n0,
   _GAG,
-  {
-    [_h]: ["GET", "/attribute-groups/{attributeGroup}", 200],
-  },
+  { [_h]: ["GET", "/attribute-groups/{attributeGroup}", 200] },
   () => GetAttributeGroupRequest,
   () => GetAttributeGroupResponse,
 ];
@@ -762,9 +595,7 @@ export var GetConfiguration: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/configuration", 200],
-  },
+  { [_h]: ["GET", "/configuration", 200] },
   () => __Unit,
   () => GetConfigurationResponse,
 ];
@@ -772,9 +603,7 @@ export var ListApplications: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  {
-    [_h]: ["GET", "/applications", 200],
-  },
+  { [_h]: ["GET", "/applications", 200] },
   () => ListApplicationsRequest,
   () => ListApplicationsResponse,
 ];
@@ -782,9 +611,7 @@ export var ListAssociatedAttributeGroups: StaticOperationSchema = [
   9,
   n0,
   _LAAG,
-  {
-    [_h]: ["GET", "/applications/{application}/attribute-groups", 200],
-  },
+  { [_h]: ["GET", "/applications/{application}/attribute-groups", 200] },
   () => ListAssociatedAttributeGroupsRequest,
   () => ListAssociatedAttributeGroupsResponse,
 ];
@@ -792,9 +619,7 @@ export var ListAssociatedResources: StaticOperationSchema = [
   9,
   n0,
   _LARis,
-  {
-    [_h]: ["GET", "/applications/{application}/resources", 200],
-  },
+  { [_h]: ["GET", "/applications/{application}/resources", 200] },
   () => ListAssociatedResourcesRequest,
   () => ListAssociatedResourcesResponse,
 ];
@@ -802,9 +627,7 @@ export var ListAttributeGroups: StaticOperationSchema = [
   9,
   n0,
   _LAG,
-  {
-    [_h]: ["GET", "/attribute-groups", 200],
-  },
+  { [_h]: ["GET", "/attribute-groups", 200] },
   () => ListAttributeGroupsRequest,
   () => ListAttributeGroupsResponse,
 ];
@@ -812,9 +635,7 @@ export var ListAttributeGroupsForApplication: StaticOperationSchema = [
   9,
   n0,
   _LAGFA,
-  {
-    [_h]: ["GET", "/applications/{application}/attribute-group-details", 200],
-  },
+  { [_h]: ["GET", "/applications/{application}/attribute-group-details", 200] },
   () => ListAttributeGroupsForApplicationRequest,
   () => ListAttributeGroupsForApplicationResponse,
 ];
@@ -822,9 +643,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -832,9 +651,7 @@ export var PutConfiguration: StaticOperationSchema = [
   9,
   n0,
   _PC,
-  {
-    [_h]: ["PUT", "/configuration", 200],
-  },
+  { [_h]: ["PUT", "/configuration", 200] },
   () => PutConfigurationRequest,
   () => __Unit,
 ];
@@ -842,9 +659,7 @@ export var SyncResource: StaticOperationSchema = [
   9,
   n0,
   _SR,
-  {
-    [_h]: ["POST", "/sync/{resourceType}/{resource}", 200],
-  },
+  { [_h]: ["POST", "/sync/{resourceType}/{resource}", 200] },
   () => SyncResourceRequest,
   () => SyncResourceResponse,
 ];
@@ -852,9 +667,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -862,9 +675,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -872,9 +683,7 @@ export var UpdateApplication: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  {
-    [_h]: ["PATCH", "/applications/{application}", 200],
-  },
+  { [_h]: ["PATCH", "/applications/{application}", 200] },
   () => UpdateApplicationRequest,
   () => UpdateApplicationResponse,
 ];
@@ -882,9 +691,7 @@ export var UpdateAttributeGroup: StaticOperationSchema = [
   9,
   n0,
   _UAG,
-  {
-    [_h]: ["PATCH", "/attribute-groups/{attributeGroup}", 200],
-  },
+  { [_h]: ["PATCH", "/attribute-groups/{attributeGroup}", 200] },
   () => UpdateAttributeGroupRequest,
   () => UpdateAttributeGroupResponse,
 ];

@@ -3425,7 +3425,7 @@ const n0 = "com.amazonaws.quicksight";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -3461,7 +3461,6 @@ import {
 import { QuickSightServiceException as __QuickSightServiceException } from "../models/QuickSightServiceException";
 
 /* eslint no-var: 0 */
-
 export var ActionConnectorDescription: StaticSimpleSchema = [0, n0, _ACD, 8, 0];
 export var ActionConnectorName: StaticSimpleSchema = [0, n0, _ACN, 8, 0];
 export var ActionPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
@@ -3493,19 +3492,8 @@ export var SensitiveTimestamp: StaticSimpleSchema = [0, n0, _ST, 8, 4];
 export var SessionTagValue: StaticSimpleSchema = [0, n0, _STV, 8, 0];
 export var SqlQuery: StaticSimpleSchema = [0, n0, _SQ, 8, 0];
 export var Suffix: StaticSimpleSchema = [0, n0, _S, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 401,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 401 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var AccountCustomization: StaticStructureSchema = [3, n0, _AC, 0, [_DT, _DECT], [0, 0]];
 export var AccountInfo: StaticStructureSchema = [
   3,
@@ -4827,19 +4815,8 @@ export var Computation: StaticStructureSchema = [
     () => ForecastComputation,
   ],
 ];
-export var ConcurrentUpdatingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CUE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ConcurrentUpdatingException: StaticErrorSchema = [-3, n0, _CUE, { [_e]: _s, [_hE]: 500 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ConcurrentUpdatingException, __ConcurrentUpdatingException);
-
 export var ConditionalFormattingColor: StaticStructureSchema = [
   3,
   n0,
@@ -4901,19 +4878,8 @@ export var ConditionalFormattingSolidColor: StaticStructureSchema = [
   [_Ex, _Col],
   [[() => Expression, 0], 0],
 ];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var ConfluenceParameters: StaticStructureSchema = [3, n0, _CPo, 0, [_CU], [0]];
 export var ContextMenuOption: StaticStructureSchema = [3, n0, _CMO, 0, [_ASv], [0]];
 export var ContextualAccentPalette: StaticStructureSchema = [
@@ -4947,17 +4913,7 @@ export var CreateAccountCustomizationRequest: StaticStructureSchema = [
   _CACR,
   0,
   [_AAI, _Na, _AC, _Ta],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    () => AccountCustomization,
-    () => TagList,
-  ],
+  [[0, 1], [0, { [_hQ]: _n }], () => AccountCustomization, () => TagList],
 ];
 export var CreateAccountCustomizationResponse: StaticStructureSchema = [
   3,
@@ -5529,15 +5485,11 @@ export var CustomerManagedKeyUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _CMKUE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(CustomerManagedKeyUnavailableException, __CustomerManagedKeyUnavailableException);
-
 export var CustomFilterConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -6262,12 +6214,7 @@ export var DeleteAccountCustomizationRequest: StaticStructureSchema = [
   [_AAI, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var DeleteAccountCustomizationResponse: StaticStructureSchema = [3, n0, _DACRe, 0, [_RI, _St], [0, [1, 32]]];
@@ -6303,18 +6250,8 @@ export var DeleteAnalysisRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _rwid,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _fdwr,
-      },
-    ],
+    [1, { [_hQ]: _rwid }],
+    [2, { [_hQ]: _fdwr }],
   ],
 ];
 export var DeleteAnalysisResponse: StaticStructureSchema = [
@@ -6360,12 +6297,7 @@ export var DeleteDashboardRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
   ],
 ];
 export var DeleteDashboardResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [_St, _A, _DI, _RI], [[1, 32], 0, 0, 0]];
@@ -6427,12 +6359,7 @@ export var DeleteDefaultQBusinessApplicationRequest: StaticStructureSchema = [
   [_AAI, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var DeleteDefaultQBusinessApplicationResponse: StaticStructureSchema = [
@@ -6623,12 +6550,7 @@ export var DeleteTemplateRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
   ],
 ];
 export var DeleteTemplateResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [_RI, _A, _TIe, _St], [0, 0, 0, [1, 32]]];
@@ -6661,12 +6583,7 @@ export var DeleteThemeRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
   ],
 ];
 export var DeleteThemeResponse: StaticStructureSchema = [3, n0, _DTRele, 0, [_A, _RI, _St, _TI], [0, 0, [1, 32], 0]];
@@ -6768,18 +6685,8 @@ export var DescribeAccountCustomizationRequest: StaticStructureSchema = [
   [_AAI, _Na, _Res],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _r,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [2, { [_hQ]: _r }],
   ],
 ];
 export var DescribeAccountCustomizationResponse: StaticStructureSchema = [
@@ -7017,12 +6924,7 @@ export var DescribeBrandRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _vI,
-      },
-    ],
+    [0, { [_hQ]: _vI }],
   ],
 ];
 export var DescribeBrandResponse: StaticStructureSchema = [
@@ -7061,18 +6963,8 @@ export var DescribeDashboardDefinitionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _an,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
+    [0, { [_hQ]: _an }],
   ],
 ];
 export var DescribeDashboardDefinitionResponse: StaticStructureSchema = [
@@ -7121,18 +7013,8 @@ export var DescribeDashboardRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _an,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
+    [0, { [_hQ]: _an }],
   ],
 ];
 export var DescribeDashboardResponse: StaticStructureSchema = [
@@ -7295,12 +7177,7 @@ export var DescribeDefaultQBusinessApplicationRequest: StaticStructureSchema = [
   [_AAI, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var DescribeDefaultQBusinessApplicationResponse: StaticStructureSchema = [
@@ -7320,24 +7197,9 @@ export var DescribeFolderPermissionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var DescribeFolderPermissionsResponse: StaticStructureSchema = [
@@ -7368,24 +7230,9 @@ export var DescribeFolderResolvedPermissionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _n }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var DescribeFolderResolvedPermissionsResponse: StaticStructureSchema = [
@@ -7502,12 +7349,7 @@ export var DescribeKeyRegistrationRequest: StaticStructureSchema = [
   [_AAI, _DKO],
   [
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _dko,
-      },
-    ],
+    [2, { [_hQ]: _dko }],
   ],
 ];
 export var DescribeKeyRegistrationResponse: StaticStructureSchema = [
@@ -7631,18 +7473,8 @@ export var DescribeTemplateDefinitionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _an,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
+    [0, { [_hQ]: _an }],
   ],
 ];
 export var DescribeTemplateDefinitionResponse: StaticStructureSchema = [
@@ -7681,18 +7513,8 @@ export var DescribeTemplateRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _an,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
+    [0, { [_hQ]: _an }],
   ],
 ];
 export var DescribeTemplateResponse: StaticStructureSchema = [
@@ -7751,18 +7573,8 @@ export var DescribeThemeRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _vn,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _an,
-      },
-    ],
+    [1, { [_hQ]: _vn }],
+    [0, { [_hQ]: _an }],
   ],
 ];
 export var DescribeThemeResponse: StaticStructureSchema = [
@@ -7917,15 +7729,11 @@ export var DomainNotWhitelistedException: StaticErrorSchema = [
   -3,
   n0,
   _DNWE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(DomainNotWhitelistedException, __DomainNotWhitelistedException);
-
 export var DonutCenterOptions: StaticStructureSchema = [3, n0, _DCO, 0, [_LVa], [0]];
 export var DonutOptions: StaticStructureSchema = [
   3,
@@ -8815,54 +8623,14 @@ export var GetDashboardEmbedUrlRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ct,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _sl,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _urd,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _rd,
-      },
-    ],
-    [
-      2,
-      {
-        [_hQ]: _spe,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ua,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    [
-      64 | 0,
-      {
-        [_hQ]: _adi,
-      },
-    ],
+    [0, { [_hQ]: _ct }],
+    [1, { [_hQ]: _sl }],
+    [2, { [_hQ]: _urd }],
+    [2, { [_hQ]: _rd }],
+    [2, { [_hQ]: _spe }],
+    [0, { [_hQ]: _ua }],
+    [0, { [_hQ]: _n }],
+    [64 | 0, { [_hQ]: _adi }],
   ],
 ];
 export var GetDashboardEmbedUrlResponse: StaticStructureSchema = [
@@ -8919,24 +8687,9 @@ export var GetSessionEmbedUrlRequest: StaticStructureSchema = [
   [_AAI, _EPn, _SLIM, _UAs],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _ep,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _sl,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _ua,
-      },
-    ],
+    [0, { [_hQ]: _ep }],
+    [1, { [_hQ]: _sl }],
+    [0, { [_hQ]: _ua }],
   ],
 ];
 export var GetSessionEmbedUrlResponse: StaticStructureSchema = [
@@ -9148,15 +8901,11 @@ export var IdentityTypeNotSupportedException: StaticErrorSchema = [
   -3,
   n0,
   _ITNSE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(IdentityTypeNotSupportedException, __IdentityTypeNotSupportedException);
-
 export var Image: StaticStructureSchema = [3, n0, _Im, 0, [_So, _GIU], [() => ImageSource, 0]];
 export var ImageConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_So], [() => ImageSource]];
 export var ImageCustomAction: StaticStructureSchema = [
@@ -9273,84 +9022,32 @@ export var IntegerValueWhenUnsetConfiguration: StaticStructureSchema = [
   [_VWUO, _CVus],
   [0, [() => SensitiveLong, 0]],
 ];
-export var InternalFailureException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IFE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var InternalFailureException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalFailureException, __InternalFailureException);
-
-export var InternalServerException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M],
-  [0],
-];
+export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var InvalidDataSetParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IDSPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDataSetParameterValueException, __InvalidDataSetParameterValueException);
-
-export var InvalidNextTokenException: StaticErrorSchema = [
-  -3,
-  n0,
-  _INTE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-
-export var InvalidRequestException: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-
 export var InvalidTopicReviewedAnswer: StaticStructureSchema = [3, n0, _ITRA, 0, [_AInsw, _Er], [0, 0]];
 export var ItemsLimitConfiguration: StaticStructureSchema = [3, n0, _ILCt, 0, [_IL, _OCt], [1, 0]];
 export var JiraParameters: StaticStructureSchema = [3, n0, _JP, 0, [_SBU], [0]];
@@ -9546,15 +9243,11 @@ export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-
 export var LineChartAggregatedFieldWells: StaticStructureSchema = [
   3,
   n0,
@@ -9695,18 +9388,8 @@ export var ListActionConnectorsRequest: StaticStructureSchema = [
   [_AAI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListActionConnectorsResponse: StaticStructureSchema = [
@@ -9725,18 +9408,8 @@ export var ListAnalysesRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListAnalysesResponse: StaticStructureSchema = [
@@ -9755,18 +9428,8 @@ export var ListAssetBundleExportJobsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListAssetBundleExportJobsResponse: StaticStructureSchema = [
@@ -9785,18 +9448,8 @@ export var ListAssetBundleImportJobsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListAssetBundleImportJobsResponse: StaticStructureSchema = [
@@ -9815,18 +9468,8 @@ export var ListBrandsRequest: StaticStructureSchema = [
   [_AAI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListBrandsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_NT, _Br], [0, () => BrandSummaryList]];
@@ -9853,18 +9496,8 @@ export var ListCustomPermissionsRequest: StaticStructureSchema = [
   [_AAI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListCustomPermissionsResponse: StaticStructureSchema = [
@@ -9883,18 +9516,8 @@ export var ListDashboardsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListDashboardsResponse: StaticStructureSchema = [
@@ -9914,18 +9537,8 @@ export var ListDashboardVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListDashboardVersionsResponse: StaticStructureSchema = [
@@ -9944,18 +9557,8 @@ export var ListDataSetsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListDataSetsResponse: StaticStructureSchema = [
@@ -9974,18 +9577,8 @@ export var ListDataSourcesRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListDataSourcesResponse: StaticStructureSchema = [
@@ -10004,18 +9597,8 @@ export var ListFlowsInput: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListFlowsOutput: StaticStructureSchema = [
@@ -10035,18 +9618,8 @@ export var ListFolderMembersRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListFolderMembersResponse: StaticStructureSchema = [
@@ -10066,18 +9639,8 @@ export var ListFoldersForResourceRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListFoldersForResourceResponse: StaticStructureSchema = [
@@ -10096,18 +9659,8 @@ export var ListFoldersRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListFoldersResponse: StaticStructureSchema = [
@@ -10126,18 +9679,8 @@ export var ListGroupMembershipsRequest: StaticStructureSchema = [
   [_GN, _NT, _MR, _AAI, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
     [0, 1],
     [0, 1],
   ],
@@ -10158,18 +9701,8 @@ export var ListGroupsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
     [0, 1],
   ],
 ];
@@ -10190,18 +9723,8 @@ export var ListIAMPolicyAssignmentsForUserRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
     [0, 1],
   ],
 ];
@@ -10221,25 +9744,10 @@ export var ListIAMPolicyAssignmentsRequest: StaticStructureSchema = [
   [_AAI, _ASs, _Na, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _as,
-      },
-    ],
+    [0, { [_hQ]: _as }],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListIAMPolicyAssignmentsResponse: StaticStructureSchema = [
@@ -10258,18 +9766,8 @@ export var ListIdentityPropagationConfigsRequest: StaticStructureSchema = [
   [_AAI, _MR, _NT],
   [
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListIdentityPropagationConfigsResponse: StaticStructureSchema = [
@@ -10288,19 +9786,9 @@ export var ListIngestionsRequest: StaticStructureSchema = [
   [_DSI, _NT, _AAI, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
     [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListIngestionsResponse: StaticStructureSchema = [
@@ -10319,18 +9807,8 @@ export var ListNamespacesRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListNamespacesResponse: StaticStructureSchema = [
@@ -10368,18 +9846,8 @@ export var ListRoleMembershipsRequest: StaticStructureSchema = [
   [_Ro, _NT, _MR, _AAI, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
     [0, 1],
     [0, 1],
   ],
@@ -10410,18 +9878,8 @@ export var ListTemplateAliasesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr_,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr_ }],
   ],
 ];
 export var ListTemplateAliasesResponse: StaticStructureSchema = [
@@ -10440,18 +9898,8 @@ export var ListTemplatesRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr_,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr_ }],
   ],
 ];
 export var ListTemplatesResponse: StaticStructureSchema = [
@@ -10471,18 +9919,8 @@ export var ListTemplateVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListTemplateVersionsResponse: StaticStructureSchema = [
@@ -10502,18 +9940,8 @@ export var ListThemeAliasesRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr_,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr_ }],
   ],
 ];
 export var ListThemeAliasesResponse: StaticStructureSchema = [
@@ -10532,24 +9960,9 @@ export var ListThemesRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR, _T],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _t,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _t }],
   ],
 ];
 export var ListThemesResponse: StaticStructureSchema = [
@@ -10569,18 +9982,8 @@ export var ListThemeVersionsRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListThemeVersionsResponse: StaticStructureSchema = [
@@ -10637,18 +10040,8 @@ export var ListTopicsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListTopicsResponse: StaticStructureSchema = [
@@ -10669,18 +10062,8 @@ export var ListUserGroupsRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListUserGroupsResponse: StaticStructureSchema = [
@@ -10699,18 +10082,8 @@ export var ListUsersRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
     [0, 1],
   ],
 ];
@@ -10730,18 +10103,8 @@ export var ListVPCConnectionsRequest: StaticStructureSchema = [
   [_AAI, _NT, _MR],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
+    [0, { [_hQ]: _nt }],
+    [1, { [_hQ]: _mr }],
   ],
 ];
 export var ListVPCConnectionsResponse: StaticStructureSchema = [
@@ -11461,15 +10824,11 @@ export var PreconditionNotMetException: StaticErrorSchema = [
   -3,
   n0,
   _PNME,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(PreconditionNotMetException, __PreconditionNotMetException);
-
 export var PredefinedHierarchy: StaticStructureSchema = [
   3,
   n0,
@@ -11529,15 +10888,11 @@ export var QuickSightUserNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _QSUNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(QuickSightUserNotFoundException, __QuickSightUserNotFoundException);
-
 export var QuickSuiteActionsOption: StaticStructureSchema = [3, n0, _QSAO, 0, [_ASv], [0]];
 export var RadarChartAggregatedFieldWells: StaticStructureSchema = [
   3,
@@ -11902,42 +11257,30 @@ export var ResourceExistsException: StaticErrorSchema = [
   -3,
   n0,
   _REE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
+  { [_e]: _c, [_hE]: 409 },
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceExistsException, __ResourceExistsException);
-
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ResourcePermission: StaticStructureSchema = [3, n0, _RPes, 0, [_Prin, _Ac], [0, 64 | 0]];
 export var ResourceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
   _RUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
+  { [_e]: _s, [_hE]: 503 },
   [_M, _RTe, _RI],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException, __ResourceUnavailableException);
-
 export var RestoreAnalysisRequest: StaticStructureSchema = [
   3,
   n0,
@@ -11947,12 +11290,7 @@ export var RestoreAnalysisRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [
-      2,
-      {
-        [_hQ]: _rtf,
-      },
-    ],
+    [2, { [_hQ]: _rtf }],
   ],
 ];
 export var RestoreAnalysisResponse: StaticStructureSchema = [
@@ -12166,22 +11504,7 @@ export var SearchActionConnectorsRequest: StaticStructureSchema = [
   _SACR,
   0,
   [_AAI, _MR, _NT, _Fi],
-  [
-    [0, 1],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    () => ActionConnectorSearchFilterList,
-  ],
+  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], () => ActionConnectorSearchFilterList],
 ];
 export var SearchActionConnectorsResponse: StaticStructureSchema = [
   3,
@@ -12294,23 +11617,7 @@ export var SearchGroupsRequest: StaticStructureSchema = [
   _SGR,
   0,
   [_AAI, _NT, _MR, _Na, _Fi],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [0, 1],
-    () => GroupSearchFilterList,
-  ],
+  [[0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }], [0, 1], () => GroupSearchFilterList],
 ];
 export var SearchGroupsResponse: StaticStructureSchema = [
   3,
@@ -12431,10 +11738,7 @@ export var SessionLifetimeInMinutesInvalidException: StaticErrorSchema = [
   -3,
   n0,
   _SLIMIE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_M, _RI],
   [0, 0],
 ];
@@ -12442,7 +11746,6 @@ TypeRegistry.for(n0).registerError(
   SessionLifetimeInMinutesInvalidException,
   __SessionLifetimeInMinutesInvalidException
 );
-
 export var SessionTag: StaticStructureSchema = [3, n0, _STes, 0, [_K, _V], [0, [() => SessionTagValue, 0]]];
 export var SetParameterValueConfiguration: StaticStructureSchema = [
   3,
@@ -13180,19 +12483,8 @@ export var ThemeVersion: StaticStructureSchema = [
 export var ThemeVersionSummary: StaticStructureSchema = [3, n0, _TVSh, 0, [_VN, _A, _D, _CT, _St], [1, 0, 0, 4, 0]];
 export var ThousandSeparatorOptions: StaticStructureSchema = [3, n0, _TSO, 0, [_Sym, _Vi, _GSro], [0, 0, 0]];
 export var ThresholdAlertsConfigurations: StaticStructureSchema = [3, n0, _TAC, 0, [_En], [2]];
-export var ThrottlingException: StaticErrorSchema = [
-  -3,
-  n0,
-  _TEhr,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
-  [_M, _RI],
-  [0, 0],
-];
+export var ThrottlingException: StaticErrorSchema = [-3, n0, _TEhr, { [_e]: _c, [_hE]: 429 }, [_M, _RI], [0, 0]];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var TileLayoutStyle: StaticStructureSchema = [
   3,
   n0,
@@ -13726,28 +13018,20 @@ export var UnsupportedPricingPlanException: StaticErrorSchema = [
   -3,
   n0,
   _UPPE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedPricingPlanException, __UnsupportedPricingPlanException);
-
 export var UnsupportedUserEditionException: StaticErrorSchema = [
   -3,
   n0,
   _UUEE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
+  { [_e]: _c, [_hE]: 403 },
   [_M, _RI],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedUserEditionException, __UnsupportedUserEditionException);
-
 export var UntagColumnOperation: StaticStructureSchema = [3, n0, _UCO, 0, [_CN, _TNa], [0, 64 | 0]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
@@ -13757,12 +13041,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   [_RAeso, _TKa],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _k,
-      },
-    ],
+    [64 | 0, { [_hQ]: _k }],
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [_RI, _St], [0, [1, 32]]];
@@ -13772,16 +13051,7 @@ export var UpdateAccountCustomizationRequest: StaticStructureSchema = [
   _UACR,
   0,
   [_AAI, _Na, _AC],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    () => AccountCustomization,
-  ],
+  [[0, 1], [0, { [_hQ]: _n }], () => AccountCustomization],
 ];
 export var UpdateAccountCustomizationResponse: StaticStructureSchema = [
   3,
@@ -13883,12 +13153,7 @@ export var UpdateApplicationWithTokenExchangeGrantRequest: StaticStructureSchema
   [_AAI, _Na],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
+    [0, { [_hQ]: _n }],
   ],
 ];
 export var UpdateApplicationWithTokenExchangeGrantResponse: StaticStructureSchema = [
@@ -14132,16 +13397,7 @@ export var UpdateDefaultQBusinessApplicationRequest: StaticStructureSchema = [
   _UDQBAR,
   0,
   [_AAI, _Na, _AIp],
-  [
-    [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _n,
-      },
-    ],
-    0,
-  ],
+  [[0, 1], [0, { [_hQ]: _n }], 0],
 ];
 export var UpdateDefaultQBusinessApplicationResponse: StaticStructureSchema = [
   3,
@@ -14836,22 +14092,15 @@ export var WordCloudVisual: StaticStructureSchema = [
   ],
 ];
 export var YAxisOptions: StaticStructureSchema = [3, n0, _YAO, 0, [_YA], [0]];
-export var __Unit = "unit" as const;
-
 export var QuickSightServiceException: StaticErrorSchema = [-3, _sm, "QuickSightServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(QuickSightServiceException, __QuickSightServiceException);
-
 export var ActionConnectorSearchFilterList: StaticListSchema = [1, n0, _ACSFL, 0, () => ActionConnectorSearchFilter];
 export var ActionConnectorSummaryList: StaticListSchema = [1, n0, _ACSL, 0, [() => ActionConnectorSummary, 0]];
 export var ActionIdList = 64 | 0;
-
 export var ActionList = 64 | 0;
-
 export var ActionsList = 64 | 0;
-
 export var ActiveIAMPolicyAssignmentList: StaticListSchema = [1, n0, _AIAMPAL, 0, () => ActiveIAMPolicyAssignment];
 export var AdditionalDashboardIdList = 64 | 0;
-
 export var AggregationList: StaticListSchema = [1, n0, _AL, 0, () => Aggregation];
 export var AggregationPartitionByList: StaticListSchema = [1, n0, _APBL, 0, () => AggregationPartitionBy];
 export var AggregationSortConfigurationList: StaticListSchema = [1, n0, _ASCL, 0, () => AggregationSortConfiguration];
@@ -14859,9 +14108,7 @@ export var AnalysisErrorList: StaticListSchema = [1, n0, _AEL, 0, () => Analysis
 export var AnalysisSearchFilterList: StaticListSchema = [1, n0, _ASFL, 0, () => AnalysisSearchFilter];
 export var AnalysisSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AnalysisSummary];
 export var AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures = 64 | 0;
-
 export var AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures = 64 | 0;
-
 export var AnonymousUserSnapshotJobResultList: StaticListSchema = [
   1,
   n0,
@@ -14870,10 +14117,8 @@ export var AnonymousUserSnapshotJobResultList: StaticListSchema = [
   [() => AnonymousUserSnapshotJobResult, 0],
 ];
 export var AnswerIds = 64 | 0;
-
 export var AppendedColumnList: StaticListSchema = [1, n0, _ACL, 0, () => AppendedColumn];
 export var ArnList = 64 | 0;
-
 export var AssetBundleExportJobAnalysisOverridePropertiesList: StaticListSchema = [
   1,
   n0,
@@ -14882,7 +14127,6 @@ export var AssetBundleExportJobAnalysisOverridePropertiesList: StaticListSchema 
   () => AssetBundleExportJobAnalysisOverrideProperties,
 ];
 export var AssetBundleExportJobAnalysisPropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobDashboardOverridePropertiesList: StaticListSchema = [
   1,
   n0,
@@ -14891,7 +14135,6 @@ export var AssetBundleExportJobDashboardOverridePropertiesList: StaticListSchema
   () => AssetBundleExportJobDashboardOverrideProperties,
 ];
 export var AssetBundleExportJobDashboardPropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobDataSetOverridePropertiesList: StaticListSchema = [
   1,
   n0,
@@ -14900,7 +14143,6 @@ export var AssetBundleExportJobDataSetOverridePropertiesList: StaticListSchema =
   () => AssetBundleExportJobDataSetOverrideProperties,
 ];
 export var AssetBundleExportJobDataSetPropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobDataSourceOverridePropertiesList: StaticListSchema = [
   1,
   n0,
@@ -14909,7 +14151,6 @@ export var AssetBundleExportJobDataSourceOverridePropertiesList: StaticListSchem
   () => AssetBundleExportJobDataSourceOverrideProperties,
 ];
 export var AssetBundleExportJobDataSourcePropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobErrorList: StaticListSchema = [1, n0, _ABEJEL, 0, () => AssetBundleExportJobError];
 export var AssetBundleExportJobFolderOverridePropertiesList: StaticListSchema = [
   1,
@@ -14919,7 +14160,6 @@ export var AssetBundleExportJobFolderOverridePropertiesList: StaticListSchema = 
   () => AssetBundleExportJobFolderOverrideProperties,
 ];
 export var AssetBundleExportJobFolderPropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobRefreshScheduleOverridePropertiesList: StaticListSchema = [
   1,
   n0,
@@ -14928,7 +14168,6 @@ export var AssetBundleExportJobRefreshScheduleOverridePropertiesList: StaticList
   () => AssetBundleExportJobRefreshScheduleOverrideProperties,
 ];
 export var AssetBundleExportJobRefreshSchedulePropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobSummaryList: StaticListSchema = [1, n0, _ABEJSL, 0, () => AssetBundleExportJobSummary];
 export var AssetBundleExportJobThemeOverridePropertiesList: StaticListSchema = [
   1,
@@ -14938,7 +14177,6 @@ export var AssetBundleExportJobThemeOverridePropertiesList: StaticListSchema = [
   () => AssetBundleExportJobThemeOverrideProperties,
 ];
 export var AssetBundleExportJobThemePropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobVPCConnectionOverridePropertiesList: StaticListSchema = [
   1,
   n0,
@@ -14947,7 +14185,6 @@ export var AssetBundleExportJobVPCConnectionOverridePropertiesList: StaticListSc
   () => AssetBundleExportJobVPCConnectionOverrideProperties,
 ];
 export var AssetBundleExportJobVPCConnectionPropertyToOverrideList = 64 | 0;
-
 export var AssetBundleExportJobWarningList: StaticListSchema = [1, n0, _ABEJWL, 0, () => AssetBundleExportJobWarning];
 export var AssetBundleImportJobAnalysisOverrideParametersList: StaticListSchema = [
   1,
@@ -15100,16 +14337,11 @@ export var AssetBundleImportJobVPCConnectionOverrideTagsList: StaticListSchema =
 ];
 export var AssetBundleImportJobWarningList: StaticListSchema = [1, n0, _ABIJWL, 0, () => AssetBundleImportJobWarning];
 export var AssetBundlePrincipalList = 64 | 0;
-
 export var AssetBundleResourceArns = 64 | 0;
-
 export var AssetBundleRestrictiveResourceIdList = 64 | 0;
-
 export var AuthorizedTargetsByServices: StaticListSchema = [1, n0, _ATBSu, 0, () => AuthorizedTargetsByService];
 export var AuthorizedTargetsList = 64 | 0;
-
 export var AuthorSpecifiedAggregations = 64 | 0;
-
 export var AxisLabelOptionsList: StaticListSchema = [1, n0, _ALOL, 0, () => AxisLabelOptions];
 export var BodySectionConfigurationList: StaticListSchema = [1, n0, _BSCL, 0, () => BodySectionConfiguration];
 export var BodySectionDynamicDimensionSortConfigurationList: StaticListSchema = [1, n0, _BSDDSCL, 0, () => ColumnSort];
@@ -15129,11 +14361,9 @@ export var CalculatedFields: StaticListSchema = [1, n0, _CF, 0, [() => Calculate
 export var CascadingControlSourceList: StaticListSchema = [1, n0, _CCSL, 0, () => CascadingControlSource];
 export var CastColumnTypeOperationList: StaticListSchema = [1, n0, _CCTOL, 0, () => CastColumnTypeOperation];
 export var CategoryValueList = 64 | 0;
-
 export var CellValueSynonyms: StaticListSchema = [1, n0, _CVSe, 0, () => CellValueSynonym];
 export var CollectiveConstantEntryList: StaticListSchema = [1, n0, _CCEL, 0, () => CollectiveConstantEntry];
 export var ColorList = 64 | 0;
-
 export var ColorScaleColorList: StaticListSchema = [1, n0, _CSCL, 0, () => DataColor];
 export var ColumnConfigurationList: StaticListSchema = [1, n0, _CCLo, 0, [() => ColumnConfiguration, 0]];
 export var ColumnGroupColumnSchemaList: StaticListSchema = [1, n0, _CGCSL, 0, () => ColumnGroupColumnSchema];
@@ -15141,14 +14371,11 @@ export var ColumnGroupList: StaticListSchema = [1, n0, _CGL, 0, () => ColumnGrou
 export var ColumnGroupSchemaList: StaticListSchema = [1, n0, _CGSL, 0, () => ColumnGroupSchema];
 export var ColumnHierarchyList: StaticListSchema = [1, n0, _CHL, 0, () => ColumnHierarchy];
 export var ColumnLevelPermissionRuleColumnNameList = 64 | 0;
-
 export var ColumnLevelPermissionRuleList: StaticListSchema = [1, n0, _CLPRL, 0, () => ColumnLevelPermissionRule];
 export var ColumnList = 64 | 0;
-
 export var ColumnSchemaList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSchema];
 export var ColumnTagList: StaticListSchema = [1, n0, _CTL, 0, [() => ColumnTag, 0]];
 export var ColumnTagNames = 64 | 0;
-
 export var ColumnToUnpivotList: StaticListSchema = [1, n0, _CTUL, 0, () => ColumnToUnpivot];
 export var ComputationList: StaticListSchema = [1, n0, _CLo, 0, () => Computation];
 export var ContributionAnalysisDefaultList: StaticListSchema = [1, n0, _CADL, 0, () => ContributionAnalysisDefault];
@@ -15163,12 +14390,10 @@ export var DashboardSearchFilterList: StaticListSchema = [1, n0, _DSFL, 0, () =>
 export var DashboardSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DashboardSummary];
 export var DashboardVersionSummaryList: StaticListSchema = [1, n0, _DVSL, 0, () => DashboardVersionSummary];
 export var DatabaseGroupList = 64 | 0;
-
 export var DataLabelTypes: StaticListSchema = [1, n0, _DLT, 0, () => DataLabelType];
 export var DataPathColorList: StaticListSchema = [1, n0, _DPCL, 0, () => DataPathColor];
 export var DataPathValueList: StaticListSchema = [1, n0, _DPVL, 0, [() => DataPathValue, 0]];
 export var DataSetArnsList = 64 | 0;
-
 export var DataSetColumnIdMappingList: StaticListSchema = [1, n0, _DSCIML, 0, () => DataSetColumnIdMapping];
 export var DataSetConfigurationList: StaticListSchema = [1, n0, _DSCL, 0, () => DataSetConfiguration];
 export var DataSetIdentifierDeclarationList: StaticListSchema = [1, n0, _DSIDL, 0, () => DataSetIdentifierDeclaration];
@@ -15189,24 +14414,19 @@ export var DataSourceParametersList: StaticListSchema = [1, n0, _DSPL, 0, () => 
 export var DataSourceSearchFilterList: StaticListSchema = [1, n0, _DSSFLa, 0, () => DataSourceSearchFilter];
 export var DataSourceSummaryList: StaticListSchema = [1, n0, _DSSLa, 0, () => DataSourceSummary];
 export var DateTimeDatasetParameterValueList = 64 | 4;
-
 export var DateTimeDefaultValueList: StaticListSchema = [1, n0, _DTDVL, 0, [() => SensitiveTimestamp, 0]];
 export var DateTimeParameterList: StaticListSchema = [1, n0, _DTPL, 0, [() => DateTimeParameter, 0]];
 export var DecimalDatasetParameterValueList = 64 | 1;
-
 export var DecimalDefaultValueList: StaticListSchema = [1, n0, _DDVL, 0, [() => SensitiveDoubleObject, 0]];
 export var DecimalParameterList: StaticListSchema = [1, n0, _DPLe, 0, [() => DecimalParameter, 0]];
 export var DimensionFieldList: StaticListSchema = [1, n0, _DFL, 0, () => DimensionField];
 export var DnsResolverList = 64 | 0;
-
 export var DrillDownFilterList: StaticListSchema = [1, n0, _DDFL, 0, () => DrillDownFilter];
 export var EntityList: StaticListSchema = [1, n0, _EL, 0, () => Entity];
 export var ErrorList = 64 | 0;
-
 export var ExplicitHierarchyColumnList: StaticListSchema = [1, n0, _EHCL, 0, () => ColumnIdentifier];
 export var FailedKeyRegistrationEntries: StaticListSchema = [1, n0, _FKREa, 0, () => FailedKeyRegistrationEntry];
 export var FieldOrderList = 64 | 0;
-
 export var FieldSortOptionsList: StaticListSchema = [1, n0, _FSOL, 0, () => FieldSortOptions];
 export var FilledMapConditionalFormattingOptionList: StaticListSchema = [
   1,
@@ -15220,19 +14440,15 @@ export var FilledMapMeasureFieldList: StaticListSchema = [1, n0, _FMMFL, 0, () =
 export var FilterAggMetricsList: StaticListSchema = [1, n0, _FAML, 0, () => FilterAggMetrics];
 export var FilterControlList: StaticListSchema = [1, n0, _FCL, 0, () => FilterControl];
 export var FilteredVisualsList = 64 | 0;
-
 export var FilterGroupList: StaticListSchema = [1, n0, _FGL, 0, [() => FilterGroup, 0]];
 export var FilterList: StaticListSchema = [1, n0, _FLi, 0, [() => Filter, 0]];
 export var FilterOperationList: StaticListSchema = [1, n0, _FOL, 0, [() => FilterOperation, 0]];
 export var FlowSummaryList: StaticListSchema = [1, n0, _FSL, 0, () => FlowSummary];
 export var FolderArnList = 64 | 0;
-
 export var FolderColumnList = 64 | 0;
-
 export var FolderMemberList: StaticListSchema = [1, n0, _FML, 0, () => MemberIdArnPair];
 export var FolderSearchFilterList: StaticListSchema = [1, n0, _FSFL, 0, () => FolderSearchFilter];
 export var FoldersForResourceArnList = 64 | 0;
-
 export var FolderSummaryList: StaticListSchema = [1, n0, _FSLo, 0, () => FolderSummary];
 export var FontList: StaticListSchema = [1, n0, _FLo, 0, () => Font];
 export var ForecastConfigurationList: StaticListSchema = [1, n0, _FCLo, 0, () => ForecastConfiguration];
@@ -15261,12 +14477,10 @@ export var GeospatialMapLayerList: StaticListSchema = [1, n0, _GMLL, 0, () => Ge
 export var GradientStopList: StaticListSchema = [1, n0, _GSL, 0, () => GradientStop];
 export var GridLayoutElementList: StaticListSchema = [1, n0, _GLEL, 0, () => GridLayoutElement];
 export var GroupByColumnNameList = 64 | 0;
-
 export var GroupList: StaticListSchema = [1, n0, _GLr, 0, () => Group];
 export var GroupMemberList: StaticListSchema = [1, n0, _GML, 0, () => GroupMember];
 export var GroupSearchFilterList: StaticListSchema = [1, n0, _GSFL, 0, () => GroupSearchFilter];
 export var GroupsList = 64 | 0;
-
 export var HeaderFooterSectionConfigurationList: StaticListSchema = [
   1,
   n0,
@@ -15279,13 +14493,11 @@ export var HeatMapMeasureFieldList: StaticListSchema = [1, n0, _HMMFL, 0, () => 
 export var HistogramMeasureFieldList: StaticListSchema = [1, n0, _HMFL, 0, () => MeasureField];
 export var IAMPolicyAssignmentSummaryList: StaticListSchema = [1, n0, _IAMPASL, 0, () => IAMPolicyAssignmentSummary];
 export var IdentityNameList = 64 | 0;
-
 export var ImageCustomActionList: StaticListSchema = [1, n0, _ICAL, 0, () => ImageCustomAction];
 export var ImageCustomActionOperationList: StaticListSchema = [1, n0, _ICAOL, 0, () => ImageCustomActionOperation];
 export var Ingestions: StaticListSchema = [1, n0, _Inge, 0, () => Ingestion];
 export var InputColumnList: StaticListSchema = [1, n0, _ICL, 0, () => InputColumn];
 export var IntegerDatasetParameterValueList = 64 | 1;
-
 export var IntegerDefaultValueList: StaticListSchema = [1, n0, _IDVL, 0, [() => SensitiveLongObject, 0]];
 export var IntegerParameterList: StaticListSchema = [1, n0, _IPL, 0, [() => IntegerParameter, 0]];
 export var InvalidTopicReviewedAnswers: StaticListSchema = [1, n0, _ITRAn, 0, () => InvalidTopicReviewedAnswer];
@@ -15301,7 +14513,6 @@ export var LayerCustomActionList: StaticListSchema = [1, n0, _LCAL, 0, () => Lay
 export var LayerCustomActionOperationList: StaticListSchema = [1, n0, _LCAOL, 0, () => LayerCustomActionOperation];
 export var LayoutList: StaticListSchema = [1, n0, _LLa, 0, () => Layout];
 export var LinkEntityArnList = 64 | 0;
-
 export var MappedDataSetParameters: StaticListSchema = [1, n0, _MDSP, 0, () => MappedDataSetParameter];
 export var MeasureFieldList: StaticListSchema = [1, n0, _MFLea, 0, () => MeasureField];
 export var MissingDataConfigurationList: StaticListSchema = [1, n0, _MDCL, 0, () => MissingDataConfiguration];
@@ -15309,21 +14520,17 @@ export var NamedEntityDefinitions: StaticListSchema = [1, n0, _NEDa, 0, () => Na
 export var Namespaces: StaticListSchema = [1, n0, _Nam, 0, () => NamespaceInfoV2];
 export var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL, 0, () => NetworkInterface];
 export var NonRepeatingVisualsList = 64 | 0;
-
 export var OperandList: StaticListSchema = [1, n0, _OL, 0, () => Identifier];
 export var OutputColumnList: StaticListSchema = [1, n0, _OCL, 0, [() => OutputColumn, 0]];
 export var OutputColumnNameOverrideList: StaticListSchema = [1, n0, _OCNOL, 0, () => OutputColumnNameOverride];
 export var ParameterControlList: StaticListSchema = [1, n0, _PCL, 0, () => ParameterControl];
 export var ParameterDeclarationList: StaticListSchema = [1, n0, _PDL, 0, [() => ParameterDeclaration, 0]];
 export var ParameterSelectableValueList = 64 | 0;
-
 export var Path = 64 | 0;
-
 export var PermissionsList: StaticListSchema = [1, n0, _PLe, 0, () => Permission];
 export var PivotedLabelList: StaticListSchema = [1, n0, _PLL, 0, () => PivotedLabel];
 export var PivotFieldSortOptionsList: StaticListSchema = [1, n0, _PFSOL, 0, () => PivotFieldSortOptions];
 export var PivotGroupByColumnNameList = 64 | 0;
-
 export var PivotMeasureFieldList: StaticListSchema = [1, n0, _PMFL, 0, () => MeasureField];
 export var PivotTableConditionalFormattingOptionList: StaticListSchema = [
   1,
@@ -15360,9 +14567,7 @@ export var PluginVisualFieldWells: StaticListSchema = [1, n0, _PVFWl, 0, () => P
 export var PluginVisualPropertiesList: StaticListSchema = [1, n0, _PVPL, 0, () => PluginVisualProperty];
 export var PredefinedHierarchyColumnList: StaticListSchema = [1, n0, _PHCL, 0, () => ColumnIdentifier];
 export var PrincipalList = 64 | 0;
-
 export var ProjectedColumnNameList = 64 | 0;
-
 export var QAResults: StaticListSchema = [1, n0, _QARe, 0, [() => QAResult, 0]];
 export var RadarChartCategoryFieldList: StaticListSchema = [1, n0, _RCCFL, 0, () => DimensionField];
 export var RadarChartColorFieldList: StaticListSchema = [1, n0, _RCCFLa, 0, () => DimensionField];
@@ -15372,24 +14577,19 @@ export var RefreshSchedules: StaticListSchema = [1, n0, _RS, 0, () => RefreshSch
 export var RenameColumnOperationList: StaticListSchema = [1, n0, _RCOL, 0, () => RenameColumnOperation];
 export var ResourcePermissionList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePermission];
 export var RowAlternateColorList = 64 | 0;
-
 export var RowLevelPermissionTagRuleConfiguration = 64 | 0;
-
 export var RowLevelPermissionTagRuleConfigurationList: StaticListSchema = [1, n0, _RLPTRCL, 0, 64 | 0];
 export var RowLevelPermissionTagRuleList: StaticListSchema = [1, n0, _RLPTRL, 0, [() => RowLevelPermissionTagRule, 0]];
 export var RowSortList: StaticListSchema = [1, n0, _RSL, 0, () => FieldSortOptions];
 export var SearchFlowsFilterList: StaticListSchema = [1, n0, _SFFL, 0, () => SearchFlowsFilter];
 export var SecurityGroupIdList = 64 | 0;
-
 export var SelectedFieldList = 64 | 0;
-
 export var SensitiveDoubleList: StaticListSchema = [1, n0, _SDL, 0, [() => SensitiveDouble, 0]];
 export var SensitiveLongList: StaticListSchema = [1, n0, _SLL, 0, [() => SensitiveLong, 0]];
 export var SensitiveStringList: StaticListSchema = [1, n0, _SSL, 0, [() => SensitiveString, 0]];
 export var SensitiveTimestampList: StaticListSchema = [1, n0, _STL, 0, [() => SensitiveTimestamp, 0]];
 export var SeriesItemList: StaticListSchema = [1, n0, _SILe, 0, () => SeriesItem];
 export var SessionTagKeyList = 64 | 0;
-
 export var SessionTagList: StaticListSchema = [1, n0, _STLe, 0, [() => SessionTag, 0]];
 export var SetParameterValueConfigurationList: StaticListSchema = [
   1,
@@ -15425,7 +14625,6 @@ export var SnapshotFileGroupList: StaticListSchema = [1, n0, _SFGL, 0, () => Sna
 export var SnapshotFileList: StaticListSchema = [1, n0, _SFL, 0, () => SnapshotFile];
 export var SnapshotFileSheetSelectionList: StaticListSchema = [1, n0, _SFSSL, 0, () => SnapshotFileSheetSelection];
 export var SnapshotFileSheetSelectionVisualIdList = 64 | 0;
-
 export var SnapshotJobResultErrorInfoList: StaticListSchema = [1, n0, _SJREIL, 0, () => SnapshotJobResultErrorInfo];
 export var SnapshotJobResultFileGroupList: StaticListSchema = [
   1,
@@ -15444,13 +14643,10 @@ export var SnapshotS3DestinationConfigurationList: StaticListSchema = [
 ];
 export var StaticFileList: StaticListSchema = [1, n0, _SFLt, 0, () => StaticFile];
 export var StringDatasetParameterValueList = 64 | 0;
-
 export var StringDefaultValueList: StaticListSchema = [1, n0, _SDVL, 0, [() => SensitiveStringObject, 0]];
 export var StringList = 64 | 0;
-
 export var StringParameterList: StaticListSchema = [1, n0, _SPL, 0, [() => StringParameter, 0]];
 export var SubnetIdList = 64 | 0;
-
 export var SucceededTopicReviewedAnswers: StaticListSchema = [1, n0, _STRAu, 0, () => SucceededTopicReviewedAnswer];
 export var SuccessfulKeyRegistrationEntries: StaticListSchema = [
   1,
@@ -15460,7 +14656,6 @@ export var SuccessfulKeyRegistrationEntries: StaticListSchema = [
   () => SuccessfulKeyRegistrationEntry,
 ];
 export var Synonyms = 64 | 0;
-
 export var TableConditionalFormattingOptionList: StaticListSchema = [
   1,
   n0,
@@ -15470,16 +14665,13 @@ export var TableConditionalFormattingOptionList: StaticListSchema = [
 ];
 export var TableFieldOptionList: StaticListSchema = [1, n0, _TFOL, 0, () => TableFieldOption];
 export var TableFieldOrderList = 64 | 0;
-
 export var TableInlineVisualizationList: StaticListSchema = [1, n0, _TIVL, 0, () => TableInlineVisualization];
 export var TablePathElementList: StaticListSchema = [1, n0, _TPEL, 0, () => TablePathElement];
 export var TableStyleTargetList: StaticListSchema = [1, n0, _TSTL, 0, () => TableStyleTarget];
 export var TableUnaggregatedFieldList: StaticListSchema = [1, n0, _TUFL, 0, () => UnaggregatedField];
 export var TagKeyList = 64 | 0;
-
 export var TagList: StaticListSchema = [1, n0, _TLa, 0, () => Tag];
 export var TargetVisualList = 64 | 0;
-
 export var TemplateAliasList: StaticListSchema = [1, n0, _TAL, 0, () => TemplateAlias];
 export var TemplateErrorList: StaticListSchema = [1, n0, _TEL, 0, () => TemplateError];
 export var TemplateSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TemplateSummary];
@@ -15509,7 +14701,6 @@ export var TreeMapDimensionFieldList: StaticListSchema = [1, n0, _TMDFL, 0, () =
 export var TreeMapMeasureFieldList: StaticListSchema = [1, n0, _TMMFL, 0, () => MeasureField];
 export var UnaggregatedFieldList: StaticListSchema = [1, n0, _UFL, 0, () => UnaggregatedField];
 export var UniqueKeyColumnNameList = 64 | 0;
-
 export var UniqueKeyList: StaticListSchema = [1, n0, _UKL, 0, () => UniqueKey];
 export var UpdateFlowPermissionsInputGrantPermissionsList: StaticListSchema = [1, n0, _UFPIGPL, 0, () => Permission];
 export var UpdateFlowPermissionsInputRevokePermissionsList: StaticListSchema = [1, n0, _UFPIRPL, 0, () => Permission];
@@ -15523,14 +14714,11 @@ export var VPCConnectionSummaryList: StaticListSchema = [1, n0, _VPCCSL, 0, () =
 export var WordCloudDimensionFieldList: StaticListSchema = [1, n0, _WCDFL, 0, () => DimensionField];
 export var WordCloudMeasureFieldList: StaticListSchema = [1, n0, _WCMFL, 0, () => MeasureField];
 export var AggFunctionParamMap = 128 | 0;
-
 export var AggregationFunctionParameters = 128 | 0;
-
 export var DestinationTableMap: StaticMapSchema = [2, n0, _DTM, 0, 0, () => DestinationTable];
 export var FieldFolderMap: StaticMapSchema = [2, n0, _FFM, 0, 0, () => FieldFolder];
 export var IdentityMap: StaticMapSchema = [2, n0, _IMd, 0, 0, 64 | 0];
 export var IpRestrictionRuleMap = 128 | 0;
-
 export var LogicalTableMap: StaticMapSchema = [2, n0, _LTM, 0, [0, 0], [() => LogicalTable, 0]];
 export var PhysicalTableMap: StaticMapSchema = [2, n0, _PTM, 0, [0, 0], [() => PhysicalTable, 0]];
 export var RowLevelPermissionDataSetMap: StaticMapSchema = [2, n0, _RLPDSM, 0, 0, () => RowLevelPermissionDataSet];
@@ -15538,11 +14726,8 @@ export var SemanticTableMap: StaticMapSchema = [2, n0, _STMe, 0, [0, 0], [() => 
 export var SourceTableMap: StaticMapSchema = [2, n0, _STM, 0, 0, () => SourceTable];
 export var TransformStepMap: StaticMapSchema = [2, n0, _TSM, 0, [0, 0], [() => TransformStep, 0]];
 export var TypeParameters = 128 | 0;
-
 export var VpcEndpointIdRestrictionRuleMap = 128 | 0;
-
 export var VpcIdRestrictionRuleMap = 128 | 0;
-
 export var AuthenticationMetadata: StaticStructureSchema = [
   3,
   n0,
@@ -15709,9 +14894,7 @@ export var BatchCreateTopicReviewedAnswer: StaticOperationSchema = [
   9,
   n0,
   _BCTRA,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers", 200] },
   () => BatchCreateTopicReviewedAnswerRequest,
   () => BatchCreateTopicReviewedAnswerResponse,
 ];
@@ -15719,9 +14902,7 @@ export var BatchDeleteTopicReviewedAnswer: StaticOperationSchema = [
   9,
   n0,
   _BDTRA,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers", 200] },
   () => BatchDeleteTopicReviewedAnswerRequest,
   () => BatchDeleteTopicReviewedAnswerResponse,
 ];
@@ -15729,9 +14910,7 @@ export var CancelIngestion: StaticOperationSchema = [
   9,
   n0,
   _CIa,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] },
   () => CancelIngestionRequest,
   () => CancelIngestionResponse,
 ];
@@ -15739,9 +14918,7 @@ export var CreateAccountCustomization: StaticOperationSchema = [
   9,
   n0,
   _CAC,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/customizations", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/customizations", 200] },
   () => CreateAccountCustomizationRequest,
   () => CreateAccountCustomizationResponse,
 ];
@@ -15749,9 +14926,7 @@ export var CreateAccountSubscription: StaticOperationSchema = [
   9,
   n0,
   _CAS,
-  {
-    [_h]: ["POST", "/account/{AwsAccountId}", 200],
-  },
+  { [_h]: ["POST", "/account/{AwsAccountId}", 200] },
   () => CreateAccountSubscriptionRequest,
   () => CreateAccountSubscriptionResponse,
 ];
@@ -15759,9 +14934,7 @@ export var CreateActionConnector: StaticOperationSchema = [
   9,
   n0,
   _CACr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/action-connectors", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/action-connectors", 200] },
   () => CreateActionConnectorRequest,
   () => CreateActionConnectorResponse,
 ];
@@ -15769,9 +14942,7 @@ export var CreateAnalysis: StaticOperationSchema = [
   9,
   n0,
   _CAr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
   () => CreateAnalysisRequest,
   () => CreateAnalysisResponse,
 ];
@@ -15779,9 +14950,7 @@ export var CreateBrand: StaticOperationSchema = [
   9,
   n0,
   _CBr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/brands/{BrandId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
   () => CreateBrandRequest,
   () => CreateBrandResponse,
 ];
@@ -15789,9 +14958,7 @@ export var CreateCustomPermissions: StaticOperationSchema = [
   9,
   n0,
   _CCPr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/custom-permissions", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/custom-permissions", 200] },
   () => CreateCustomPermissionsRequest,
   () => CreateCustomPermissionsResponse,
 ];
@@ -15799,9 +14966,7 @@ export var CreateDashboard: StaticOperationSchema = [
   9,
   n0,
   _CDre,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
   () => CreateDashboardRequest,
   () => CreateDashboardResponse,
 ];
@@ -15809,9 +14974,7 @@ export var CreateDataSet: StaticOperationSchema = [
   9,
   n0,
   _CDS,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets", 200] },
   () => CreateDataSetRequest,
   () => CreateDataSetResponse,
 ];
@@ -15819,9 +14982,7 @@ export var CreateDataSource: StaticOperationSchema = [
   9,
   n0,
   _CDSr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources", 200] },
   () => CreateDataSourceRequest,
   () => CreateDataSourceResponse,
 ];
@@ -15829,9 +14990,7 @@ export var CreateFolder: StaticOperationSchema = [
   9,
   n0,
   _CFr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/folders/{FolderId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
   () => CreateFolderRequest,
   () => CreateFolderResponse,
 ];
@@ -15839,9 +14998,7 @@ export var CreateFolderMembership: StaticOperationSchema = [
   9,
   n0,
   _CFM,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", 200] },
   () => CreateFolderMembershipRequest,
   () => CreateFolderMembershipResponse,
 ];
@@ -15849,9 +15006,7 @@ export var CreateGroup: StaticOperationSchema = [
   9,
   n0,
   _CGr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", 200] },
   () => CreateGroupRequest,
   () => CreateGroupResponse,
 ];
@@ -15859,9 +15014,7 @@ export var CreateGroupMembership: StaticOperationSchema = [
   9,
   n0,
   _CGM,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200] },
   () => CreateGroupMembershipRequest,
   () => CreateGroupMembershipResponse,
 ];
@@ -15869,9 +15022,7 @@ export var CreateIAMPolicyAssignment: StaticOperationSchema = [
   9,
   n0,
   _CIAMPA,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments", 200] },
   () => CreateIAMPolicyAssignmentRequest,
   () => CreateIAMPolicyAssignmentResponse,
 ];
@@ -15879,9 +15030,7 @@ export var CreateIngestion: StaticOperationSchema = [
   9,
   n0,
   _CIr,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] },
   () => CreateIngestionRequest,
   () => CreateIngestionResponse,
 ];
@@ -15889,9 +15038,7 @@ export var CreateNamespace: StaticOperationSchema = [
   9,
   n0,
   _CNr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}", 200] },
   () => CreateNamespaceRequest,
   () => CreateNamespaceResponse,
 ];
@@ -15899,9 +15046,7 @@ export var CreateRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _CRS,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] },
   () => CreateRefreshScheduleRequest,
   () => CreateRefreshScheduleResponse,
 ];
@@ -15909,9 +15054,7 @@ export var CreateRoleMembership: StaticOperationSchema = [
   9,
   n0,
   _CRM,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200] },
   () => CreateRoleMembershipRequest,
   () => CreateRoleMembershipResponse,
 ];
@@ -15919,9 +15062,7 @@ export var CreateTemplate: StaticOperationSchema = [
   9,
   n0,
   _CTr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
   () => CreateTemplateRequest,
   () => CreateTemplateResponse,
 ];
@@ -15929,9 +15070,7 @@ export var CreateTemplateAlias: StaticOperationSchema = [
   9,
   n0,
   _CTA,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
   () => CreateTemplateAliasRequest,
   () => CreateTemplateAliasResponse,
 ];
@@ -15939,9 +15078,7 @@ export var CreateTheme: StaticOperationSchema = [
   9,
   n0,
   _CTre,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
   () => CreateThemeRequest,
   () => CreateThemeResponse,
 ];
@@ -15949,9 +15086,7 @@ export var CreateThemeAlias: StaticOperationSchema = [
   9,
   n0,
   _CTAr,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
   () => CreateThemeAliasRequest,
   () => CreateThemeAliasResponse,
 ];
@@ -15959,9 +15094,7 @@ export var CreateTopic: StaticOperationSchema = [
   9,
   n0,
   _CTrea,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/topics", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/topics", 200] },
   () => CreateTopicRequest,
   () => CreateTopicResponse,
 ];
@@ -15969,9 +15102,7 @@ export var CreateTopicRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _CTRS,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", 200] },
   () => CreateTopicRefreshScheduleRequest,
   () => CreateTopicRefreshScheduleResponse,
 ];
@@ -15979,9 +15110,7 @@ export var CreateVPCConnection: StaticOperationSchema = [
   9,
   n0,
   _CVPCC,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/vpc-connections", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/vpc-connections", 200] },
   () => CreateVPCConnectionRequest,
   () => CreateVPCConnectionResponse,
 ];
@@ -15989,9 +15118,7 @@ export var DeleteAccountCustomization: StaticOperationSchema = [
   9,
   n0,
   _DAC,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/customizations", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/customizations", 200] },
   () => DeleteAccountCustomizationRequest,
   () => DeleteAccountCustomizationResponse,
 ];
@@ -15999,9 +15126,7 @@ export var DeleteAccountCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _DACP,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/custom-permission", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/custom-permission", 200] },
   () => DeleteAccountCustomPermissionRequest,
   () => DeleteAccountCustomPermissionResponse,
 ];
@@ -16009,9 +15134,7 @@ export var DeleteAccountSubscription: StaticOperationSchema = [
   9,
   n0,
   _DAS,
-  {
-    [_h]: ["DELETE", "/account/{AwsAccountId}", 200],
-  },
+  { [_h]: ["DELETE", "/account/{AwsAccountId}", 200] },
   () => DeleteAccountSubscriptionRequest,
   () => DeleteAccountSubscriptionResponse,
 ];
@@ -16019,9 +15142,7 @@ export var DeleteActionConnector: StaticOperationSchema = [
   9,
   n0,
   _DACe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200] },
   () => DeleteActionConnectorRequest,
   () => DeleteActionConnectorResponse,
 ];
@@ -16029,9 +15150,7 @@ export var DeleteAnalysis: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
   () => DeleteAnalysisRequest,
   () => DeleteAnalysisResponse,
 ];
@@ -16039,9 +15158,7 @@ export var DeleteBrand: StaticOperationSchema = [
   9,
   n0,
   _DBe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/brands/{BrandId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
   () => DeleteBrandRequest,
   () => DeleteBrandResponse,
 ];
@@ -16049,9 +15166,7 @@ export var DeleteBrandAssignment: StaticOperationSchema = [
   9,
   n0,
   _DBA,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/brandassignments", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/brandassignments", 200] },
   () => DeleteBrandAssignmentRequest,
   () => DeleteBrandAssignmentResponse,
 ];
@@ -16059,9 +15174,7 @@ export var DeleteCustomPermissions: StaticOperationSchema = [
   9,
   n0,
   _DCPe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200] },
   () => DeleteCustomPermissionsRequest,
   () => DeleteCustomPermissionsResponse,
 ];
@@ -16069,9 +15182,7 @@ export var DeleteDashboard: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
   () => DeleteDashboardRequest,
   () => DeleteDashboardResponse,
 ];
@@ -16079,9 +15190,7 @@ export var DeleteDataSet: StaticOperationSchema = [
   9,
   n0,
   _DDS,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200] },
   () => DeleteDataSetRequest,
   () => DeleteDataSetResponse,
 ];
@@ -16089,9 +15198,7 @@ export var DeleteDataSetRefreshProperties: StaticOperationSchema = [
   9,
   n0,
   _DDSRP,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200] },
   () => DeleteDataSetRefreshPropertiesRequest,
   () => DeleteDataSetRefreshPropertiesResponse,
 ];
@@ -16099,9 +15206,7 @@ export var DeleteDataSource: StaticOperationSchema = [
   9,
   n0,
   _DDSe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200] },
   () => DeleteDataSourceRequest,
   () => DeleteDataSourceResponse,
 ];
@@ -16109,9 +15214,7 @@ export var DeleteDefaultQBusinessApplication: StaticOperationSchema = [
   9,
   n0,
   _DDQBA,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/default-qbusiness-application", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] },
   () => DeleteDefaultQBusinessApplicationRequest,
   () => DeleteDefaultQBusinessApplicationResponse,
 ];
@@ -16119,9 +15222,7 @@ export var DeleteFolder: StaticOperationSchema = [
   9,
   n0,
   _DFel,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/folders/{FolderId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
   () => DeleteFolderRequest,
   () => DeleteFolderResponse,
 ];
@@ -16129,9 +15230,7 @@ export var DeleteFolderMembership: StaticOperationSchema = [
   9,
   n0,
   _DFM,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}", 200] },
   () => DeleteFolderMembershipRequest,
   () => DeleteFolderMembershipResponse,
 ];
@@ -16139,9 +15238,7 @@ export var DeleteGroup: StaticOperationSchema = [
   9,
   n0,
   _DGe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200] },
   () => DeleteGroupRequest,
   () => DeleteGroupResponse,
 ];
@@ -16149,9 +15246,7 @@ export var DeleteGroupMembership: StaticOperationSchema = [
   9,
   n0,
   _DGM,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200] },
   () => DeleteGroupMembershipRequest,
   () => DeleteGroupMembershipResponse,
 ];
@@ -16159,9 +15254,7 @@ export var DeleteIAMPolicyAssignment: StaticOperationSchema = [
   9,
   n0,
   _DIAMPA,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}", 200] },
   () => DeleteIAMPolicyAssignmentRequest,
   () => DeleteIAMPolicyAssignmentResponse,
 ];
@@ -16169,9 +15262,7 @@ export var DeleteIdentityPropagationConfig: StaticOperationSchema = [
   9,
   n0,
   _DIPC,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", 200] },
   () => DeleteIdentityPropagationConfigRequest,
   () => DeleteIdentityPropagationConfigResponse,
 ];
@@ -16179,9 +15270,7 @@ export var DeleteNamespace: StaticOperationSchema = [
   9,
   n0,
   _DNe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] },
   () => DeleteNamespaceRequest,
   () => DeleteNamespaceResponse,
 ];
@@ -16189,9 +15278,7 @@ export var DeleteRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _DRS,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200] },
   () => DeleteRefreshScheduleRequest,
   () => DeleteRefreshScheduleResponse,
 ];
@@ -16199,9 +15286,7 @@ export var DeleteRoleCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _DRCP,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] },
   () => DeleteRoleCustomPermissionRequest,
   () => DeleteRoleCustomPermissionResponse,
 ];
@@ -16209,9 +15294,7 @@ export var DeleteRoleMembership: StaticOperationSchema = [
   9,
   n0,
   _DRM,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}", 200] },
   () => DeleteRoleMembershipRequest,
   () => DeleteRoleMembershipResponse,
 ];
@@ -16219,9 +15302,7 @@ export var DeleteTemplate: StaticOperationSchema = [
   9,
   n0,
   _DTel,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
   () => DeleteTemplateRequest,
   () => DeleteTemplateResponse,
 ];
@@ -16229,9 +15310,7 @@ export var DeleteTemplateAlias: StaticOperationSchema = [
   9,
   n0,
   _DTA,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
   () => DeleteTemplateAliasRequest,
   () => DeleteTemplateAliasResponse,
 ];
@@ -16239,9 +15318,7 @@ export var DeleteTheme: StaticOperationSchema = [
   9,
   n0,
   _DTele,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
   () => DeleteThemeRequest,
   () => DeleteThemeResponse,
 ];
@@ -16249,9 +15326,7 @@ export var DeleteThemeAlias: StaticOperationSchema = [
   9,
   n0,
   _DTAe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
   () => DeleteThemeAliasRequest,
   () => DeleteThemeAliasResponse,
 ];
@@ -16259,9 +15334,7 @@ export var DeleteTopic: StaticOperationSchema = [
   9,
   n0,
   _DTelet,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/topics/{TopicId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/topics/{TopicId}", 200] },
   () => DeleteTopicRequest,
   () => DeleteTopicResponse,
 ];
@@ -16269,9 +15342,7 @@ export var DeleteTopicRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _DTRS,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200] },
   () => DeleteTopicRefreshScheduleRequest,
   () => DeleteTopicRefreshScheduleResponse,
 ];
@@ -16279,9 +15350,7 @@ export var DeleteUser: StaticOperationSchema = [
   9,
   n0,
   _DUe,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200] },
   () => DeleteUserRequest,
   () => DeleteUserResponse,
 ];
@@ -16289,9 +15358,7 @@ export var DeleteUserByPrincipalId: StaticOperationSchema = [
   9,
   n0,
   _DUBPI,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}", 200] },
   () => DeleteUserByPrincipalIdRequest,
   () => DeleteUserByPrincipalIdResponse,
 ];
@@ -16299,9 +15366,7 @@ export var DeleteUserCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _DUCP,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission", 200] },
   () => DeleteUserCustomPermissionRequest,
   () => DeleteUserCustomPermissionResponse,
 ];
@@ -16309,9 +15374,7 @@ export var DeleteVPCConnection: StaticOperationSchema = [
   9,
   n0,
   _DVPCC,
-  {
-    [_h]: ["DELETE", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200],
-  },
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200] },
   () => DeleteVPCConnectionRequest,
   () => DeleteVPCConnectionResponse,
 ];
@@ -16319,9 +15382,7 @@ export var DescribeAccountCustomization: StaticOperationSchema = [
   9,
   n0,
   _DACes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/customizations", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/customizations", 200] },
   () => DescribeAccountCustomizationRequest,
   () => DescribeAccountCustomizationResponse,
 ];
@@ -16329,9 +15390,7 @@ export var DescribeAccountCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _DACPe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permission", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permission", 200] },
   () => DescribeAccountCustomPermissionRequest,
   () => DescribeAccountCustomPermissionResponse,
 ];
@@ -16339,9 +15398,7 @@ export var DescribeAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _DASe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/settings", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/settings", 200] },
   () => DescribeAccountSettingsRequest,
   () => DescribeAccountSettingsResponse,
 ];
@@ -16349,9 +15406,7 @@ export var DescribeAccountSubscription: StaticOperationSchema = [
   9,
   n0,
   _DASes,
-  {
-    [_h]: ["GET", "/account/{AwsAccountId}", 200],
-  },
+  { [_h]: ["GET", "/account/{AwsAccountId}", 200] },
   () => DescribeAccountSubscriptionRequest,
   () => DescribeAccountSubscriptionResponse,
 ];
@@ -16359,9 +15414,7 @@ export var DescribeActionConnector: StaticOperationSchema = [
   9,
   n0,
   _DACesc,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200] },
   () => DescribeActionConnectorRequest,
   () => DescribeActionConnectorResponse,
 ];
@@ -16369,9 +15422,7 @@ export var DescribeActionConnectorPermissions: StaticOperationSchema = [
   9,
   n0,
   _DACPes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", 200] },
   () => DescribeActionConnectorPermissionsRequest,
   () => DescribeActionConnectorPermissionsResponse,
 ];
@@ -16379,9 +15430,7 @@ export var DescribeAnalysis: StaticOperationSchema = [
   9,
   n0,
   _DAes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
   () => DescribeAnalysisRequest,
   () => DescribeAnalysisResponse,
 ];
@@ -16389,9 +15438,7 @@ export var DescribeAnalysisDefinition: StaticOperationSchema = [
   9,
   n0,
   _DAD,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition", 200] },
   () => DescribeAnalysisDefinitionRequest,
   () => DescribeAnalysisDefinitionResponse,
 ];
@@ -16399,9 +15446,7 @@ export var DescribeAnalysisPermissions: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200] },
   () => DescribeAnalysisPermissionsRequest,
   () => DescribeAnalysisPermissionsResponse,
 ];
@@ -16409,9 +15454,7 @@ export var DescribeAssetBundleExportJob: StaticOperationSchema = [
   9,
   n0,
   _DABEJ,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}", 200] },
   () => DescribeAssetBundleExportJobRequest,
   () => DescribeAssetBundleExportJobResponse,
 ];
@@ -16419,9 +15462,7 @@ export var DescribeAssetBundleImportJob: StaticOperationSchema = [
   9,
   n0,
   _DABIJ,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}", 200] },
   () => DescribeAssetBundleImportJobRequest,
   () => DescribeAssetBundleImportJobResponse,
 ];
@@ -16429,9 +15470,7 @@ export var DescribeBrand: StaticOperationSchema = [
   9,
   n0,
   _DBes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/brands/{BrandId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
   () => DescribeBrandRequest,
   () => DescribeBrandResponse,
 ];
@@ -16439,9 +15478,7 @@ export var DescribeBrandAssignment: StaticOperationSchema = [
   9,
   n0,
   _DBAe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/brandassignments", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/brandassignments", 200] },
   () => DescribeBrandAssignmentRequest,
   () => DescribeBrandAssignmentResponse,
 ];
@@ -16449,9 +15486,7 @@ export var DescribeBrandPublishedVersion: StaticOperationSchema = [
   9,
   n0,
   _DBPV,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion", 200] },
   () => DescribeBrandPublishedVersionRequest,
   () => DescribeBrandPublishedVersionResponse,
 ];
@@ -16459,9 +15494,7 @@ export var DescribeCustomPermissions: StaticOperationSchema = [
   9,
   n0,
   _DCPes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200] },
   () => DescribeCustomPermissionsRequest,
   () => DescribeCustomPermissionsResponse,
 ];
@@ -16469,9 +15502,7 @@ export var DescribeDashboard: StaticOperationSchema = [
   9,
   n0,
   _DDes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
   () => DescribeDashboardRequest,
   () => DescribeDashboardResponse,
 ];
@@ -16479,9 +15510,7 @@ export var DescribeDashboardDefinition: StaticOperationSchema = [
   9,
   n0,
   _DDD,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/definition", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/definition", 200] },
   () => DescribeDashboardDefinitionRequest,
   () => DescribeDashboardDefinitionResponse,
 ];
@@ -16489,9 +15518,7 @@ export var DescribeDashboardPermissions: StaticOperationSchema = [
   9,
   n0,
   _DDPe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions", 200] },
   () => DescribeDashboardPermissionsRequest,
   () => DescribeDashboardPermissionsResponse,
 ];
@@ -16499,9 +15526,7 @@ export var DescribeDashboardSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _DDSJ,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}", 200] },
   () => DescribeDashboardSnapshotJobRequest,
   () => DescribeDashboardSnapshotJobResponse,
 ];
@@ -16509,9 +15534,7 @@ export var DescribeDashboardSnapshotJobResult: StaticOperationSchema = [
   9,
   n0,
   _DDSJRes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result", 200] },
   () => DescribeDashboardSnapshotJobResultRequest,
   () => DescribeDashboardSnapshotJobResultResponse,
 ];
@@ -16519,9 +15542,7 @@ export var DescribeDashboardsQAConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DDQAC,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards-qa-configuration", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards-qa-configuration", 200] },
   () => DescribeDashboardsQAConfigurationRequest,
   () => DescribeDashboardsQAConfigurationResponse,
 ];
@@ -16529,9 +15550,7 @@ export var DescribeDataSet: StaticOperationSchema = [
   9,
   n0,
   _DDSes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200] },
   () => DescribeDataSetRequest,
   () => DescribeDataSetResponse,
 ];
@@ -16539,9 +15558,7 @@ export var DescribeDataSetPermissions: StaticOperationSchema = [
   9,
   n0,
   _DDSP,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", 200] },
   () => DescribeDataSetPermissionsRequest,
   () => DescribeDataSetPermissionsResponse,
 ];
@@ -16549,9 +15566,7 @@ export var DescribeDataSetRefreshProperties: StaticOperationSchema = [
   9,
   n0,
   _DDSRPe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200] },
   () => DescribeDataSetRefreshPropertiesRequest,
   () => DescribeDataSetRefreshPropertiesResponse,
 ];
@@ -16559,9 +15574,7 @@ export var DescribeDataSource: StaticOperationSchema = [
   9,
   n0,
   _DDSesc,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200] },
   () => DescribeDataSourceRequest,
   () => DescribeDataSourceResponse,
 ];
@@ -16569,9 +15582,7 @@ export var DescribeDataSourcePermissions: StaticOperationSchema = [
   9,
   n0,
   _DDSPe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", 200] },
   () => DescribeDataSourcePermissionsRequest,
   () => DescribeDataSourcePermissionsResponse,
 ];
@@ -16579,9 +15590,7 @@ export var DescribeDefaultQBusinessApplication: StaticOperationSchema = [
   9,
   n0,
   _DDQBAe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/default-qbusiness-application", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] },
   () => DescribeDefaultQBusinessApplicationRequest,
   () => DescribeDefaultQBusinessApplicationResponse,
 ];
@@ -16589,9 +15598,7 @@ export var DescribeFolder: StaticOperationSchema = [
   9,
   n0,
   _DFes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
   () => DescribeFolderRequest,
   () => DescribeFolderResponse,
 ];
@@ -16599,9 +15606,7 @@ export var DescribeFolderPermissions: StaticOperationSchema = [
   9,
   n0,
   _DFP,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/permissions", 200] },
   () => DescribeFolderPermissionsRequest,
   () => DescribeFolderPermissionsResponse,
 ];
@@ -16609,9 +15614,7 @@ export var DescribeFolderResolvedPermissions: StaticOperationSchema = [
   9,
   n0,
   _DFRP,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions", 200] },
   () => DescribeFolderResolvedPermissionsRequest,
   () => DescribeFolderResolvedPermissionsResponse,
 ];
@@ -16619,9 +15622,7 @@ export var DescribeGroup: StaticOperationSchema = [
   9,
   n0,
   _DGes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200] },
   () => DescribeGroupRequest,
   () => DescribeGroupResponse,
 ];
@@ -16629,9 +15630,7 @@ export var DescribeGroupMembership: StaticOperationSchema = [
   9,
   n0,
   _DGMe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}", 200] },
   () => DescribeGroupMembershipRequest,
   () => DescribeGroupMembershipResponse,
 ];
@@ -16639,9 +15638,7 @@ export var DescribeIAMPolicyAssignment: StaticOperationSchema = [
   9,
   n0,
   _DIAMPAe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}", 200] },
   () => DescribeIAMPolicyAssignmentRequest,
   () => DescribeIAMPolicyAssignmentResponse,
 ];
@@ -16649,9 +15646,7 @@ export var DescribeIngestion: StaticOperationSchema = [
   9,
   n0,
   _DIe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] },
   () => DescribeIngestionRequest,
   () => DescribeIngestionResponse,
 ];
@@ -16659,9 +15654,7 @@ export var DescribeIpRestriction: StaticOperationSchema = [
   9,
   n0,
   _DIRes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/ip-restriction", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/ip-restriction", 200] },
   () => DescribeIpRestrictionRequest,
   () => DescribeIpRestrictionResponse,
 ];
@@ -16669,9 +15662,7 @@ export var DescribeKeyRegistration: StaticOperationSchema = [
   9,
   n0,
   _DKR,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/key-registration", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/key-registration", 200] },
   () => DescribeKeyRegistrationRequest,
   () => DescribeKeyRegistrationResponse,
 ];
@@ -16679,9 +15670,7 @@ export var DescribeNamespace: StaticOperationSchema = [
   9,
   n0,
   _DNes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] },
   () => DescribeNamespaceRequest,
   () => DescribeNamespaceResponse,
 ];
@@ -16689,9 +15678,7 @@ export var DescribeQPersonalizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DQPC,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/q-personalization-configuration", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/q-personalization-configuration", 200] },
   () => DescribeQPersonalizationConfigurationRequest,
   () => DescribeQPersonalizationConfigurationResponse,
 ];
@@ -16699,9 +15686,7 @@ export var DescribeQuickSightQSearchConfiguration: StaticOperationSchema = [
   9,
   n0,
   _DQSQSC,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/quicksight-q-search-configuration", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/quicksight-q-search-configuration", 200] },
   () => DescribeQuickSightQSearchConfigurationRequest,
   () => DescribeQuickSightQSearchConfigurationResponse,
 ];
@@ -16709,9 +15694,7 @@ export var DescribeRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _DRSe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200] },
   () => DescribeRefreshScheduleRequest,
   () => DescribeRefreshScheduleResponse,
 ];
@@ -16719,9 +15702,7 @@ export var DescribeRoleCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _DRCPe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] },
   () => DescribeRoleCustomPermissionRequest,
   () => DescribeRoleCustomPermissionResponse,
 ];
@@ -16729,9 +15710,7 @@ export var DescribeTemplate: StaticOperationSchema = [
   9,
   n0,
   _DTesc,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
   () => DescribeTemplateRequest,
   () => DescribeTemplateResponse,
 ];
@@ -16739,9 +15718,7 @@ export var DescribeTemplateAlias: StaticOperationSchema = [
   9,
   n0,
   _DTAes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
   () => DescribeTemplateAliasRequest,
   () => DescribeTemplateAliasResponse,
 ];
@@ -16749,9 +15726,7 @@ export var DescribeTemplateDefinition: StaticOperationSchema = [
   9,
   n0,
   _DTD,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/definition", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/definition", 200] },
   () => DescribeTemplateDefinitionRequest,
   () => DescribeTemplateDefinitionResponse,
 ];
@@ -16759,9 +15734,7 @@ export var DescribeTemplatePermissions: StaticOperationSchema = [
   9,
   n0,
   _DTPe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions", 200] },
   () => DescribeTemplatePermissionsRequest,
   () => DescribeTemplatePermissionsResponse,
 ];
@@ -16769,9 +15742,7 @@ export var DescribeTheme: StaticOperationSchema = [
   9,
   n0,
   _DTescr,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
   () => DescribeThemeRequest,
   () => DescribeThemeResponse,
 ];
@@ -16779,9 +15750,7 @@ export var DescribeThemeAlias: StaticOperationSchema = [
   9,
   n0,
   _DTAesc,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
   () => DescribeThemeAliasRequest,
   () => DescribeThemeAliasResponse,
 ];
@@ -16789,9 +15758,7 @@ export var DescribeThemePermissions: StaticOperationSchema = [
   9,
   n0,
   _DTPes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", 200] },
   () => DescribeThemePermissionsRequest,
   () => DescribeThemePermissionsResponse,
 ];
@@ -16799,9 +15766,7 @@ export var DescribeTopic: StaticOperationSchema = [
   9,
   n0,
   _DTescri,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}", 200] },
   () => DescribeTopicRequest,
   () => DescribeTopicResponse,
 ];
@@ -16809,9 +15774,7 @@ export var DescribeTopicPermissions: StaticOperationSchema = [
   9,
   n0,
   _DTPesc,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/permissions", 200] },
   () => DescribeTopicPermissionsRequest,
   () => DescribeTopicPermissionsResponse,
 ];
@@ -16819,9 +15782,7 @@ export var DescribeTopicRefresh: StaticOperationSchema = [
   9,
   n0,
   _DTRescribeo,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}", 200] },
   () => DescribeTopicRefreshRequest,
   () => DescribeTopicRefreshResponse,
 ];
@@ -16829,9 +15790,7 @@ export var DescribeTopicRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _DTRSe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200] },
   () => DescribeTopicRefreshScheduleRequest,
   () => DescribeTopicRefreshScheduleResponse,
 ];
@@ -16839,9 +15798,7 @@ export var DescribeUser: StaticOperationSchema = [
   9,
   n0,
   _DUes,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200] },
   () => DescribeUserRequest,
   () => DescribeUserResponse,
 ];
@@ -16849,9 +15806,7 @@ export var DescribeVPCConnection: StaticOperationSchema = [
   9,
   n0,
   _DVPCCe,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200] },
   () => DescribeVPCConnectionRequest,
   () => DescribeVPCConnectionResponse,
 ];
@@ -16859,9 +15814,7 @@ export var GenerateEmbedUrlForAnonymousUser: StaticOperationSchema = [
   9,
   n0,
   _GEUFAU,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/anonymous-user", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/anonymous-user", 200] },
   () => GenerateEmbedUrlForAnonymousUserRequest,
   () => GenerateEmbedUrlForAnonymousUserResponse,
 ];
@@ -16869,9 +15822,7 @@ export var GenerateEmbedUrlForRegisteredUser: StaticOperationSchema = [
   9,
   n0,
   _GEUFRU,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/registered-user", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/registered-user", 200] },
   () => GenerateEmbedUrlForRegisteredUserRequest,
   () => GenerateEmbedUrlForRegisteredUserResponse,
 ];
@@ -16879,9 +15830,7 @@ export var GenerateEmbedUrlForRegisteredUserWithIdentity: StaticOperationSchema 
   9,
   n0,
   _GEUFRUWI,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/registered-user-with-identity", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/embed-url/registered-user-with-identity", 200] },
   () => GenerateEmbedUrlForRegisteredUserWithIdentityRequest,
   () => GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
 ];
@@ -16889,9 +15838,7 @@ export var GetDashboardEmbedUrl: StaticOperationSchema = [
   9,
   n0,
   _GDEU,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url", 200] },
   () => GetDashboardEmbedUrlRequest,
   () => GetDashboardEmbedUrlResponse,
 ];
@@ -16899,9 +15846,7 @@ export var GetFlowMetadata: StaticOperationSchema = [
   9,
   n0,
   _GFM,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}/metadata", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}/metadata", 200] },
   () => GetFlowMetadataInput,
   () => GetFlowMetadataOutput,
 ];
@@ -16909,9 +15854,7 @@ export var GetFlowPermissions: StaticOperationSchema = [
   9,
   n0,
   _GFP,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", 200] },
   () => GetFlowPermissionsInput,
   () => GetFlowPermissionsOutput,
 ];
@@ -16919,9 +15862,7 @@ export var GetSessionEmbedUrl: StaticOperationSchema = [
   9,
   n0,
   _GSEU,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/session-embed-url", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/session-embed-url", 200] },
   () => GetSessionEmbedUrlRequest,
   () => GetSessionEmbedUrlResponse,
 ];
@@ -16929,9 +15870,7 @@ export var ListActionConnectors: StaticOperationSchema = [
   9,
   n0,
   _LAC,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors", 200] },
   () => ListActionConnectorsRequest,
   () => ListActionConnectorsResponse,
 ];
@@ -16939,9 +15878,7 @@ export var ListAnalyses: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/analyses", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses", 200] },
   () => ListAnalysesRequest,
   () => ListAnalysesResponse,
 ];
@@ -16949,9 +15886,7 @@ export var ListAssetBundleExportJobs: StaticOperationSchema = [
   9,
   n0,
   _LABEJ,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs", 200] },
   () => ListAssetBundleExportJobsRequest,
   () => ListAssetBundleExportJobsResponse,
 ];
@@ -16959,9 +15894,7 @@ export var ListAssetBundleImportJobs: StaticOperationSchema = [
   9,
   n0,
   _LABIJ,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-import-jobs", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-import-jobs", 200] },
   () => ListAssetBundleImportJobsRequest,
   () => ListAssetBundleImportJobsResponse,
 ];
@@ -16969,9 +15902,7 @@ export var ListBrands: StaticOperationSchema = [
   9,
   n0,
   _LBi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/brands", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/brands", 200] },
   () => ListBrandsRequest,
   () => ListBrandsResponse,
 ];
@@ -16979,9 +15910,7 @@ export var ListCustomPermissions: StaticOperationSchema = [
   9,
   n0,
   _LCP,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permissions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/custom-permissions", 200] },
   () => ListCustomPermissionsRequest,
   () => ListCustomPermissionsResponse,
 ];
@@ -16989,9 +15918,7 @@ export var ListDashboards: StaticOperationSchema = [
   9,
   n0,
   _LDi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards", 200] },
   () => ListDashboardsRequest,
   () => ListDashboardsResponse,
 ];
@@ -16999,9 +15926,7 @@ export var ListDashboardVersions: StaticOperationSchema = [
   9,
   n0,
   _LDV,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions", 200] },
   () => ListDashboardVersionsRequest,
   () => ListDashboardVersionsResponse,
 ];
@@ -17009,9 +15934,7 @@ export var ListDataSets: StaticOperationSchema = [
   9,
   n0,
   _LDS,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets", 200] },
   () => ListDataSetsRequest,
   () => ListDataSetsResponse,
 ];
@@ -17019,9 +15942,7 @@ export var ListDataSources: StaticOperationSchema = [
   9,
   n0,
   _LDSi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources", 200] },
   () => ListDataSourcesRequest,
   () => ListDataSourcesResponse,
 ];
@@ -17029,9 +15950,7 @@ export var ListFlows: StaticOperationSchema = [
   9,
   n0,
   _LF,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/flows", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/flows", 200] },
   () => ListFlowsInput,
   () => ListFlowsOutput,
 ];
@@ -17039,9 +15958,7 @@ export var ListFolderMembers: StaticOperationSchema = [
   9,
   n0,
   _LFM,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/members", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/folders/{FolderId}/members", 200] },
   () => ListFolderMembersRequest,
   () => ListFolderMembersResponse,
 ];
@@ -17049,9 +15966,7 @@ export var ListFolders: StaticOperationSchema = [
   9,
   n0,
   _LFi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/folders", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/folders", 200] },
   () => ListFoldersRequest,
   () => ListFoldersResponse,
 ];
@@ -17059,9 +15974,7 @@ export var ListFoldersForResource: StaticOperationSchema = [
   9,
   n0,
   _LFFR,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/resource/{ResourceArn}/folders", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/resource/{ResourceArn}/folders", 200] },
   () => ListFoldersForResourceRequest,
   () => ListFoldersForResourceResponse,
 ];
@@ -17069,9 +15982,7 @@ export var ListGroupMemberships: StaticOperationSchema = [
   9,
   n0,
   _LGM,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members", 200] },
   () => ListGroupMembershipsRequest,
   () => ListGroupMembershipsResponse,
 ];
@@ -17079,9 +15990,7 @@ export var ListGroups: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups", 200] },
   () => ListGroupsRequest,
   () => ListGroupsResponse,
 ];
@@ -17089,9 +15998,7 @@ export var ListIAMPolicyAssignments: StaticOperationSchema = [
   9,
   n0,
   _LIAMPA,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments", 200] },
   () => ListIAMPolicyAssignmentsRequest,
   () => ListIAMPolicyAssignmentsResponse,
 ];
@@ -17099,9 +16006,7 @@ export var ListIAMPolicyAssignmentsForUser: StaticOperationSchema = [
   9,
   n0,
   _LIAMPAFU,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments", 200] },
   () => ListIAMPolicyAssignmentsForUserRequest,
   () => ListIAMPolicyAssignmentsForUserResponse,
 ];
@@ -17109,9 +16014,7 @@ export var ListIdentityPropagationConfigs: StaticOperationSchema = [
   9,
   n0,
   _LIPC,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/identity-propagation-config", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/identity-propagation-config", 200] },
   () => ListIdentityPropagationConfigsRequest,
   () => ListIdentityPropagationConfigsResponse,
 ];
@@ -17119,9 +16022,7 @@ export var ListIngestions: StaticOperationSchema = [
   9,
   n0,
   _LIis,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions", 200] },
   () => ListIngestionsRequest,
   () => ListIngestionsResponse,
 ];
@@ -17129,9 +16030,7 @@ export var ListNamespaces: StaticOperationSchema = [
   9,
   n0,
   _LNi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces", 200] },
   () => ListNamespacesRequest,
   () => ListNamespacesResponse,
 ];
@@ -17139,9 +16038,7 @@ export var ListRefreshSchedules: StaticOperationSchema = [
   9,
   n0,
   _LRS,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] },
   () => ListRefreshSchedulesRequest,
   () => ListRefreshSchedulesResponse,
 ];
@@ -17149,9 +16046,7 @@ export var ListRoleMemberships: StaticOperationSchema = [
   9,
   n0,
   _LRM,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members", 200] },
   () => ListRoleMembershipsRequest,
   () => ListRoleMembershipsResponse,
 ];
@@ -17159,9 +16054,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/resources/{ResourceArn}/tags", 200],
-  },
+  { [_h]: ["GET", "/resources/{ResourceArn}/tags", 200] },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
@@ -17169,9 +16062,7 @@ export var ListTemplateAliases: StaticOperationSchema = [
   9,
   n0,
   _LTA,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases", 200] },
   () => ListTemplateAliasesRequest,
   () => ListTemplateAliasesResponse,
 ];
@@ -17179,9 +16070,7 @@ export var ListTemplates: StaticOperationSchema = [
   9,
   n0,
   _LTi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates", 200] },
   () => ListTemplatesRequest,
   () => ListTemplatesResponse,
 ];
@@ -17189,9 +16078,7 @@ export var ListTemplateVersions: StaticOperationSchema = [
   9,
   n0,
   _LTV,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/versions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/templates/{TemplateId}/versions", 200] },
   () => ListTemplateVersionsRequest,
   () => ListTemplateVersionsResponse,
 ];
@@ -17199,9 +16086,7 @@ export var ListThemeAliases: StaticOperationSchema = [
   9,
   n0,
   _LTAi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases", 200] },
   () => ListThemeAliasesRequest,
   () => ListThemeAliasesResponse,
 ];
@@ -17209,9 +16094,7 @@ export var ListThemes: StaticOperationSchema = [
   9,
   n0,
   _LTis,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/themes", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/themes", 200] },
   () => ListThemesRequest,
   () => ListThemesResponse,
 ];
@@ -17219,9 +16102,7 @@ export var ListThemeVersions: StaticOperationSchema = [
   9,
   n0,
   _LTVi,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/versions", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/themes/{ThemeId}/versions", 200] },
   () => ListThemeVersionsRequest,
   () => ListThemeVersionsResponse,
 ];
@@ -17229,9 +16110,7 @@ export var ListTopicRefreshSchedules: StaticOperationSchema = [
   9,
   n0,
   _LTRS,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules", 200] },
   () => ListTopicRefreshSchedulesRequest,
   () => ListTopicRefreshSchedulesResponse,
 ];
@@ -17239,9 +16118,7 @@ export var ListTopicReviewedAnswers: StaticOperationSchema = [
   9,
   n0,
   _LTRA,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers", 200] },
   () => ListTopicReviewedAnswersRequest,
   () => ListTopicReviewedAnswersResponse,
 ];
@@ -17249,9 +16126,7 @@ export var ListTopics: StaticOperationSchema = [
   9,
   n0,
   _LTist,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/topics", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/topics", 200] },
   () => ListTopicsRequest,
   () => ListTopicsResponse,
 ];
@@ -17259,9 +16134,7 @@ export var ListUserGroups: StaticOperationSchema = [
   9,
   n0,
   _LUG,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups", 200] },
   () => ListUserGroupsRequest,
   () => ListUserGroupsResponse,
 ];
@@ -17269,9 +16142,7 @@ export var ListUsers: StaticOperationSchema = [
   9,
   n0,
   _LU,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200] },
   () => ListUsersRequest,
   () => ListUsersResponse,
 ];
@@ -17279,9 +16150,7 @@ export var ListVPCConnections: StaticOperationSchema = [
   9,
   n0,
   _LVPCC,
-  {
-    [_h]: ["GET", "/accounts/{AwsAccountId}/vpc-connections", 200],
-  },
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/vpc-connections", 200] },
   () => ListVPCConnectionsRequest,
   () => ListVPCConnectionsResponse,
 ];
@@ -17289,9 +16158,7 @@ export var PredictQAResults: StaticOperationSchema = [
   9,
   n0,
   _PQAR,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/qa/predict", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/qa/predict", 200] },
   () => PredictQAResultsRequest,
   () => PredictQAResultsResponse,
 ];
@@ -17299,9 +16166,7 @@ export var PutDataSetRefreshProperties: StaticOperationSchema = [
   9,
   n0,
   _PDSRP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties", 200] },
   () => PutDataSetRefreshPropertiesRequest,
   () => PutDataSetRefreshPropertiesResponse,
 ];
@@ -17309,9 +16174,7 @@ export var RegisterUser: StaticOperationSchema = [
   9,
   n0,
   _RUe,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200] },
   () => RegisterUserRequest,
   () => RegisterUserResponse,
 ];
@@ -17319,9 +16182,7 @@ export var RestoreAnalysis: StaticOperationSchema = [
   9,
   n0,
   _RAest,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}", 200] },
   () => RestoreAnalysisRequest,
   () => RestoreAnalysisResponse,
 ];
@@ -17329,9 +16190,7 @@ export var SearchActionConnectors: StaticOperationSchema = [
   9,
   n0,
   _SAC,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/action-connectors", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/action-connectors", 200] },
   () => SearchActionConnectorsRequest,
   () => SearchActionConnectorsResponse,
 ];
@@ -17339,9 +16198,7 @@ export var SearchAnalyses: StaticOperationSchema = [
   9,
   n0,
   _SAe,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/analyses", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/analyses", 200] },
   () => SearchAnalysesRequest,
   () => SearchAnalysesResponse,
 ];
@@ -17349,9 +16206,7 @@ export var SearchDashboards: StaticOperationSchema = [
   9,
   n0,
   _SDea,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/dashboards", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/dashboards", 200] },
   () => SearchDashboardsRequest,
   () => SearchDashboardsResponse,
 ];
@@ -17359,9 +16214,7 @@ export var SearchDataSets: StaticOperationSchema = [
   9,
   n0,
   _SDSe,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/data-sets", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/data-sets", 200] },
   () => SearchDataSetsRequest,
   () => SearchDataSetsResponse,
 ];
@@ -17369,9 +16222,7 @@ export var SearchDataSources: StaticOperationSchema = [
   9,
   n0,
   _SDSea,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/data-sources", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/data-sources", 200] },
   () => SearchDataSourcesRequest,
   () => SearchDataSourcesResponse,
 ];
@@ -17379,9 +16230,7 @@ export var SearchFlows: StaticOperationSchema = [
   9,
   n0,
   _SFea,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/flows/searchFlows", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/flows/searchFlows", 200] },
   () => SearchFlowsInput,
   () => SearchFlowsOutput,
 ];
@@ -17389,9 +16238,7 @@ export var SearchFolders: StaticOperationSchema = [
   9,
   n0,
   _SFear,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/folders", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/folders", 200] },
   () => SearchFoldersRequest,
   () => SearchFoldersResponse,
 ];
@@ -17399,9 +16246,7 @@ export var SearchGroups: StaticOperationSchema = [
   9,
   n0,
   _SG,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search", 200] },
   () => SearchGroupsRequest,
   () => SearchGroupsResponse,
 ];
@@ -17409,9 +16254,7 @@ export var SearchTopics: StaticOperationSchema = [
   9,
   n0,
   _STea,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/search/topics", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/search/topics", 200] },
   () => SearchTopicsRequest,
   () => SearchTopicsResponse,
 ];
@@ -17419,9 +16262,7 @@ export var StartAssetBundleExportJob: StaticOperationSchema = [
   9,
   n0,
   _SABEJ,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/export", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/export", 200] },
   () => StartAssetBundleExportJobRequest,
   () => StartAssetBundleExportJobResponse,
 ];
@@ -17429,9 +16270,7 @@ export var StartAssetBundleImportJob: StaticOperationSchema = [
   9,
   n0,
   _SABIJ,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/asset-bundle-import-jobs/import", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/asset-bundle-import-jobs/import", 200] },
   () => StartAssetBundleImportJobRequest,
   () => StartAssetBundleImportJobResponse,
 ];
@@ -17439,9 +16278,7 @@ export var StartDashboardSnapshotJob: StaticOperationSchema = [
   9,
   n0,
   _SDSJ,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs", 200] },
   () => StartDashboardSnapshotJobRequest,
   () => StartDashboardSnapshotJobResponse,
 ];
@@ -17449,9 +16286,7 @@ export var StartDashboardSnapshotJobSchedule: StaticOperationSchema = [
   9,
   n0,
   _SDSJS,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}", 200] },
   () => StartDashboardSnapshotJobScheduleRequest,
   () => StartDashboardSnapshotJobScheduleResponse,
 ];
@@ -17459,9 +16294,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  {
-    [_h]: ["POST", "/resources/{ResourceArn}/tags", 200],
-  },
+  { [_h]: ["POST", "/resources/{ResourceArn}/tags", 200] },
   () => TagResourceRequest,
   () => TagResourceResponse,
 ];
@@ -17469,9 +16302,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _URn,
-  {
-    [_h]: ["DELETE", "/resources/{ResourceArn}/tags", 200],
-  },
+  { [_h]: ["DELETE", "/resources/{ResourceArn}/tags", 200] },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
 ];
@@ -17479,9 +16310,7 @@ export var UpdateAccountCustomization: StaticOperationSchema = [
   9,
   n0,
   _UAC,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/customizations", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/customizations", 200] },
   () => UpdateAccountCustomizationRequest,
   () => UpdateAccountCustomizationResponse,
 ];
@@ -17489,9 +16318,7 @@ export var UpdateAccountCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _UACP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/custom-permission", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/custom-permission", 200] },
   () => UpdateAccountCustomPermissionRequest,
   () => UpdateAccountCustomPermissionResponse,
 ];
@@ -17499,9 +16326,7 @@ export var UpdateAccountSettings: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/settings", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/settings", 200] },
   () => UpdateAccountSettingsRequest,
   () => UpdateAccountSettingsResponse,
 ];
@@ -17509,9 +16334,7 @@ export var UpdateActionConnector: StaticOperationSchema = [
   9,
   n0,
   _UACp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}", 200] },
   () => UpdateActionConnectorRequest,
   () => UpdateActionConnectorResponse,
 ];
@@ -17519,9 +16342,7 @@ export var UpdateActionConnectorPermissions: StaticOperationSchema = [
   9,
   n0,
   _UACPp,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions", 200] },
   () => UpdateActionConnectorPermissionsRequest,
   () => UpdateActionConnectorPermissionsResponse,
 ];
@@ -17529,9 +16350,7 @@ export var UpdateAnalysis: StaticOperationSchema = [
   9,
   n0,
   _UAp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] },
   () => UpdateAnalysisRequest,
   () => UpdateAnalysisResponse,
 ];
@@ -17539,9 +16358,7 @@ export var UpdateAnalysisPermissions: StaticOperationSchema = [
   9,
   n0,
   _UAP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200] },
   () => UpdateAnalysisPermissionsRequest,
   () => UpdateAnalysisPermissionsResponse,
 ];
@@ -17549,9 +16366,7 @@ export var UpdateApplicationWithTokenExchangeGrant: StaticOperationSchema = [
   9,
   n0,
   _UAWTEG,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/application-with-token-exchange-grant", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/application-with-token-exchange-grant", 200] },
   () => UpdateApplicationWithTokenExchangeGrantRequest,
   () => UpdateApplicationWithTokenExchangeGrantResponse,
 ];
@@ -17559,9 +16374,7 @@ export var UpdateBrand: StaticOperationSchema = [
   9,
   n0,
   _UBp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] },
   () => UpdateBrandRequest,
   () => UpdateBrandResponse,
 ];
@@ -17569,9 +16382,7 @@ export var UpdateBrandAssignment: StaticOperationSchema = [
   9,
   n0,
   _UBA,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/brandassignments", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/brandassignments", 200] },
   () => UpdateBrandAssignmentRequest,
   () => UpdateBrandAssignmentResponse,
 ];
@@ -17579,9 +16390,7 @@ export var UpdateBrandPublishedVersion: StaticOperationSchema = [
   9,
   n0,
   _UBPV,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion", 200] },
   () => UpdateBrandPublishedVersionRequest,
   () => UpdateBrandPublishedVersionResponse,
 ];
@@ -17589,9 +16398,7 @@ export var UpdateCustomPermissions: StaticOperationSchema = [
   9,
   n0,
   _UCPp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}", 200] },
   () => UpdateCustomPermissionsRequest,
   () => UpdateCustomPermissionsResponse,
 ];
@@ -17599,9 +16406,7 @@ export var UpdateDashboard: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}", 200] },
   () => UpdateDashboardRequest,
   () => UpdateDashboardResponse,
 ];
@@ -17609,9 +16414,7 @@ export var UpdateDashboardLinks: StaticOperationSchema = [
   9,
   n0,
   _UDL,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities", 200] },
   () => UpdateDashboardLinksRequest,
   () => UpdateDashboardLinksResponse,
 ];
@@ -17619,9 +16422,7 @@ export var UpdateDashboardPermissions: StaticOperationSchema = [
   9,
   n0,
   _UDP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions", 200] },
   () => UpdateDashboardPermissionsRequest,
   () => UpdateDashboardPermissionsResponse,
 ];
@@ -17629,9 +16430,7 @@ export var UpdateDashboardPublishedVersion: StaticOperationSchema = [
   9,
   n0,
   _UDPV,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}", 200] },
   () => UpdateDashboardPublishedVersionRequest,
   () => UpdateDashboardPublishedVersionResponse,
 ];
@@ -17639,9 +16438,7 @@ export var UpdateDashboardsQAConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UDQAC,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards-qa-configuration", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/dashboards-qa-configuration", 200] },
   () => UpdateDashboardsQAConfigurationRequest,
   () => UpdateDashboardsQAConfigurationResponse,
 ];
@@ -17649,9 +16446,7 @@ export var UpdateDataSet: StaticOperationSchema = [
   9,
   n0,
   _UDS,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}", 200] },
   () => UpdateDataSetRequest,
   () => UpdateDataSetResponse,
 ];
@@ -17659,9 +16454,7 @@ export var UpdateDataSetPermissions: StaticOperationSchema = [
   9,
   n0,
   _UDSP,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions", 200] },
   () => UpdateDataSetPermissionsRequest,
   () => UpdateDataSetPermissionsResponse,
 ];
@@ -17669,9 +16462,7 @@ export var UpdateDataSource: StaticOperationSchema = [
   9,
   n0,
   _UDSp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}", 200] },
   () => UpdateDataSourceRequest,
   () => UpdateDataSourceResponse,
 ];
@@ -17679,9 +16470,7 @@ export var UpdateDataSourcePermissions: StaticOperationSchema = [
   9,
   n0,
   _UDSPp,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions", 200] },
   () => UpdateDataSourcePermissionsRequest,
   () => UpdateDataSourcePermissionsResponse,
 ];
@@ -17689,9 +16478,7 @@ export var UpdateDefaultQBusinessApplication: StaticOperationSchema = [
   9,
   n0,
   _UDQBA,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/default-qbusiness-application", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] },
   () => UpdateDefaultQBusinessApplicationRequest,
   () => UpdateDefaultQBusinessApplicationResponse,
 ];
@@ -17699,9 +16486,7 @@ export var UpdateFlowPermissions: StaticOperationSchema = [
   9,
   n0,
   _UFP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/flows/{FlowId}/permissions", 200] },
   () => UpdateFlowPermissionsInput,
   () => UpdateFlowPermissionsOutput,
 ];
@@ -17709,9 +16494,7 @@ export var UpdateFolder: StaticOperationSchema = [
   9,
   n0,
   _UFp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}", 200] },
   () => UpdateFolderRequest,
   () => UpdateFolderResponse,
 ];
@@ -17719,9 +16502,7 @@ export var UpdateFolderPermissions: StaticOperationSchema = [
   9,
   n0,
   _UFPp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/folders/{FolderId}/permissions", 200] },
   () => UpdateFolderPermissionsRequest,
   () => UpdateFolderPermissionsResponse,
 ];
@@ -17729,9 +16510,7 @@ export var UpdateGroup: StaticOperationSchema = [
   9,
   n0,
   _UGp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}", 200] },
   () => UpdateGroupRequest,
   () => UpdateGroupResponse,
 ];
@@ -17739,9 +16518,7 @@ export var UpdateIAMPolicyAssignment: StaticOperationSchema = [
   9,
   n0,
   _UIAMPA,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}", 200] },
   () => UpdateIAMPolicyAssignmentRequest,
   () => UpdateIAMPolicyAssignmentResponse,
 ];
@@ -17749,9 +16526,7 @@ export var UpdateIdentityPropagationConfig: StaticOperationSchema = [
   9,
   n0,
   _UIPC,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/identity-propagation-config/{Service}", 200] },
   () => UpdateIdentityPropagationConfigRequest,
   () => UpdateIdentityPropagationConfigResponse,
 ];
@@ -17759,9 +16534,7 @@ export var UpdateIpRestriction: StaticOperationSchema = [
   9,
   n0,
   _UIR,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/ip-restriction", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/ip-restriction", 200] },
   () => UpdateIpRestrictionRequest,
   () => UpdateIpRestrictionResponse,
 ];
@@ -17769,9 +16542,7 @@ export var UpdateKeyRegistration: StaticOperationSchema = [
   9,
   n0,
   _UKR,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/key-registration", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/key-registration", 200] },
   () => UpdateKeyRegistrationRequest,
   () => UpdateKeyRegistrationResponse,
 ];
@@ -17779,9 +16550,7 @@ export var UpdatePublicSharingSettings: StaticOperationSchema = [
   9,
   n0,
   _UPSS,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/public-sharing-settings", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/public-sharing-settings", 200] },
   () => UpdatePublicSharingSettingsRequest,
   () => UpdatePublicSharingSettingsResponse,
 ];
@@ -17789,9 +16558,7 @@ export var UpdateQPersonalizationConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UQPC,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/q-personalization-configuration", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/q-personalization-configuration", 200] },
   () => UpdateQPersonalizationConfigurationRequest,
   () => UpdateQPersonalizationConfigurationResponse,
 ];
@@ -17799,9 +16566,7 @@ export var UpdateQuickSightQSearchConfiguration: StaticOperationSchema = [
   9,
   n0,
   _UQSQSC,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/quicksight-q-search-configuration", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/quicksight-q-search-configuration", 200] },
   () => UpdateQuickSightQSearchConfigurationRequest,
   () => UpdateQuickSightQSearchConfigurationResponse,
 ];
@@ -17809,9 +16574,7 @@ export var UpdateRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _URS,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] },
   () => UpdateRefreshScheduleRequest,
   () => UpdateRefreshScheduleResponse,
 ];
@@ -17819,9 +16582,7 @@ export var UpdateRoleCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _URCP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission", 200] },
   () => UpdateRoleCustomPermissionRequest,
   () => UpdateRoleCustomPermissionResponse,
 ];
@@ -17829,9 +16590,7 @@ export var UpdateSPICECapacityConfiguration: StaticOperationSchema = [
   9,
   n0,
   _USPICECC,
-  {
-    [_h]: ["POST", "/accounts/{AwsAccountId}/spice-capacity-configuration", 200],
-  },
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/spice-capacity-configuration", 200] },
   () => UpdateSPICECapacityConfigurationRequest,
   () => UpdateSPICECapacityConfigurationResponse,
 ];
@@ -17839,9 +16598,7 @@ export var UpdateTemplate: StaticOperationSchema = [
   9,
   n0,
   _UT,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] },
   () => UpdateTemplateRequest,
   () => UpdateTemplateResponse,
 ];
@@ -17849,9 +16606,7 @@ export var UpdateTemplateAlias: StaticOperationSchema = [
   9,
   n0,
   _UTA,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] },
   () => UpdateTemplateAliasRequest,
   () => UpdateTemplateAliasResponse,
 ];
@@ -17859,9 +16614,7 @@ export var UpdateTemplatePermissions: StaticOperationSchema = [
   9,
   n0,
   _UTP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions", 200] },
   () => UpdateTemplatePermissionsRequest,
   () => UpdateTemplatePermissionsResponse,
 ];
@@ -17869,9 +16622,7 @@ export var UpdateTheme: StaticOperationSchema = [
   9,
   n0,
   _UTp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] },
   () => UpdateThemeRequest,
   () => UpdateThemeResponse,
 ];
@@ -17879,9 +16630,7 @@ export var UpdateThemeAlias: StaticOperationSchema = [
   9,
   n0,
   _UTAp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] },
   () => UpdateThemeAliasRequest,
   () => UpdateThemeAliasResponse,
 ];
@@ -17889,9 +16638,7 @@ export var UpdateThemePermissions: StaticOperationSchema = [
   9,
   n0,
   _UTPp,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions", 200] },
   () => UpdateThemePermissionsRequest,
   () => UpdateThemePermissionsResponse,
 ];
@@ -17899,9 +16646,7 @@ export var UpdateTopic: StaticOperationSchema = [
   9,
   n0,
   _UTpd,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}", 200] },
   () => UpdateTopicRequest,
   () => UpdateTopicResponse,
 ];
@@ -17909,9 +16654,7 @@ export var UpdateTopicPermissions: StaticOperationSchema = [
   9,
   n0,
   _UTPpd,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}/permissions", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}/permissions", 200] },
   () => UpdateTopicPermissionsRequest,
   () => UpdateTopicPermissionsResponse,
 ];
@@ -17919,9 +16662,7 @@ export var UpdateTopicRefreshSchedule: StaticOperationSchema = [
   9,
   n0,
   _UTRS,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}", 200] },
   () => UpdateTopicRefreshScheduleRequest,
   () => UpdateTopicRefreshScheduleResponse,
 ];
@@ -17929,9 +16670,7 @@ export var UpdateUser: StaticOperationSchema = [
   9,
   n0,
   _UU,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}", 200] },
   () => UpdateUserRequest,
   () => UpdateUserResponse,
 ];
@@ -17939,9 +16678,7 @@ export var UpdateUserCustomPermission: StaticOperationSchema = [
   9,
   n0,
   _UUCP,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission", 200] },
   () => UpdateUserCustomPermissionRequest,
   () => UpdateUserCustomPermissionResponse,
 ];
@@ -17949,9 +16686,7 @@ export var UpdateVPCConnection: StaticOperationSchema = [
   9,
   n0,
   _UVPCC,
-  {
-    [_h]: ["PUT", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200],
-  },
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}", 200] },
   () => UpdateVPCConnectionRequest,
   () => UpdateVPCConnectionResponse,
 ];

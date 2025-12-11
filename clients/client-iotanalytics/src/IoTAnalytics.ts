@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchPutMessageCommand,
@@ -168,7 +168,7 @@ import {
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
-import { IoTAnalyticsClient, IoTAnalyticsClientConfig } from "./IoTAnalyticsClient";
+import { IoTAnalyticsClient } from "./IoTAnalyticsClient";
 
 const commands = {
   BatchPutMessageCommand,

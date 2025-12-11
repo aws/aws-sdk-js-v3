@@ -283,6 +283,19 @@ export type ErrorMessageType = (typeof ErrorMessageType)[keyof typeof ErrorMessa
  * @public
  * @enum
  */
+export const SyntheticDataColumnType = {
+  CATEGORICAL: "CATEGORICAL",
+  NUMERICAL: "NUMERICAL",
+} as const;
+/**
+ * @public
+ */
+export type SyntheticDataColumnType = (typeof SyntheticDataColumnType)[keyof typeof SyntheticDataColumnType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalysisTemplateValidationStatus = {
   INVALID: "INVALID",
   UNABLE_TO_VALIDATE: "UNABLE_TO_VALIDATE",

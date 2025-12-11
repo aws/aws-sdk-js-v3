@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContactEvaluationsRequest, ListContactEvaluationsResponse } from "../models/models_1";
+import type { ListContactEvaluationsRequest, ListContactEvaluationsResponse } from "../models/models_1";
 import { ListContactEvaluations } from "../schemas/schemas_0";
 
 /**
@@ -59,6 +59,7 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //         Percentage: Number("double"),
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
+ * //         AppliedWeight: Number("double"),
  * //       },
  * //       Acknowledgement: { // EvaluationAcknowledgementSummary
  * //         AcknowledgedTime: new Date("TIMESTAMP"),
@@ -68,6 +69,10 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //       EvaluationType: "STANDARD" || "CALIBRATION",
  * //       CreatedTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       ContactParticipant: { // EvaluationContactParticipant
+ * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ContactParticipantId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

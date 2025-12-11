@@ -361,6 +361,32 @@ export type GuardrailTrace = (typeof GuardrailTrace)[keyof typeof GuardrailTrace
  * @public
  * @enum
  */
+export const AudioFormat = {
+  AAC: "aac",
+  FLAC: "flac",
+  M4A: "m4a",
+  MKA: "mka",
+  MKV: "mkv",
+  MP3: "mp3",
+  MP4: "mp4",
+  MPEG: "mpeg",
+  MPGA: "mpga",
+  OGG: "ogg",
+  OPUS: "opus",
+  PCM: "pcm",
+  WAV: "wav",
+  WEBM: "webm",
+  X_AAC: "x-aac",
+} as const;
+/**
+ * @public
+ */
+export type AudioFormat = (typeof AudioFormat)[keyof typeof AudioFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const CachePointType = {
   DEFAULT: "default",
 } as const;
@@ -512,6 +538,7 @@ export const ServiceTierType = {
   DEFAULT: "default",
   FLEX: "flex",
   PRIORITY: "priority",
+  RESERVED: "reserved",
 } as const;
 /**
  * @public
@@ -526,6 +553,8 @@ export const StopReason = {
   CONTENT_FILTERED: "content_filtered",
   END_TURN: "end_turn",
   GUARDRAIL_INTERVENED: "guardrail_intervened",
+  MALFORMED_MODEL_OUTPUT: "malformed_model_output",
+  MALFORMED_TOOL_USE: "malformed_tool_use",
   MAX_TOKENS: "max_tokens",
   MODEL_CONTEXT_WINDOW_EXCEEDED: "model_context_window_exceeded",
   STOP_SEQUENCE: "stop_sequence",

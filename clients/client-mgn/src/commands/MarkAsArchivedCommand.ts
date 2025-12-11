@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { MarkAsArchivedRequest, SourceServer } from "../models/models_0";
+import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import type { MarkAsArchivedRequest, SourceServer } from "../models/models_0";
 import { MarkAsArchived } from "../schemas/schemas_0";
 
 /**
@@ -82,6 +82,7 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  * //       rawError: "STRING_VALUE",
  * //     },
  * //     lastSnapshotDateTime: "STRING_VALUE",
+ * //     replicatorId: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",

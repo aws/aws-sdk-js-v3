@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SignerServiceException as __BaseException } from "./SignerServiceException";
 
@@ -115,7 +115,7 @@ export class ServiceLimitExceededException extends __BaseException {
 
 /**
  * <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -205,7 +205,7 @@ export class NotFoundException extends __BaseException {
 
 /**
  * <p>The request was denied due to request throttling.</p>
- * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ *          <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
  *
  * @deprecated Instead of this error, TooManyRequestsException should be used.
  * @public

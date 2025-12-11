@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import type {
+  CustomerProfilesClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIntegrationsRequest, ListIntegrationsResponse } from "../models/models_0";
+import type { ListIntegrationsRequest, ListIntegrationsResponse } from "../models/models_0";
 import { ListIntegrations } from "../schemas/schemas_0";
 
 /**
@@ -64,6 +68,7 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  * //       EventTriggerNames: [ // EventTriggerNames
  * //         "STRING_VALUE",
  * //       ],
+ * //       Scope: "PROFILE" || "DOMAIN",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

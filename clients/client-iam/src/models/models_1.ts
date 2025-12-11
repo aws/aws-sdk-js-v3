@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { AssertionEncryptionModeType, StatusType } from "./enums";
 
-import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, Tag } from "./models_0";
+import { type Role, type ServerCertificateMetadata, type SigningCertificate, type SSHPublicKey, Tag } from "./models_0";
 
 /**
  * @public

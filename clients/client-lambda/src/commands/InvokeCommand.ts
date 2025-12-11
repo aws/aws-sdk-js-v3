@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { InvocationRequest, InvocationResponse } from "../models/models_0";
 import { Invoke } from "../schemas/schemas_0";
 
@@ -56,6 +56,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *   InvocationType: "Event" || "RequestResponse" || "DryRun",
  *   LogType: "None" || "Tail",
  *   ClientContext: "STRING_VALUE",
+ *   DurableExecutionName: "STRING_VALUE",
  *   Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Qualifier: "STRING_VALUE",
  *   TenantId: "STRING_VALUE",
@@ -68,6 +69,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * //   LogResult: "STRING_VALUE",
  * //   Payload: new Uint8Array(),
  * //   ExecutedVersion: "STRING_VALUE",
+ * //   DurableExecutionArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -77,6 +79,9 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @see {@link InvokeCommandInput} for command's `input` shape.
  * @see {@link InvokeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link DurableExecutionAlreadyStartedException} (client fault)
+ *  <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
  *
  * @throws {@link EC2AccessDeniedException} (server fault)
  *  <p>Need additional permissions to configure VPC settings.</p>
@@ -132,6 +137,9 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link KMSNotFoundException} (server fault)
  *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
  *
+ * @throws {@link NoPublishedVersionException} (client fault)
+ *  <p>The function has no published versions available.</p>
+ *
  * @throws {@link RecursiveInvocationException} (client fault)
  *  <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
  *
@@ -148,7 +156,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *  <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
  *
  * @throws {@link SerializedRequestEntityTooLargeException} (client fault)
- *  <p>The processed request payload exceeded the <code>Invoke</code> request body size limit for asynchronous invocations. While the event payload may be under 1 MB, the size after internal serialization exceeds the maximum allowed size for asynchronous invocations.</p>
+ *  <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
@@ -179,7 +187,9 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * ```javascript
  * // The following example invokes version 1 of a function named my-function with an empty event payload.
  * const input = {
+ *   DurableExecutionName: "myExecution",
  *   FunctionName: "my-function",
+ *   InvocationType: "Event",
  *   Payload: "{}",
  *   Qualifier: "1"
  * };

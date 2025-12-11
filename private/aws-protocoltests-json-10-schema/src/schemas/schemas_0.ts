@@ -137,7 +137,7 @@ const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -153,35 +153,17 @@ import {
 import { JSONRPC10ServiceException as __JSONRPC10ServiceException } from "../models/JSONRPC10ServiceException";
 
 /* eslint no-var: 0 */
-
 export var ClientOptionalDefaults: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
 export var ComplexError: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  {
-    [_e]: _c,
-  },
+  { [_e]: _c },
   [_TL, _N],
   [0, [() => ComplexNestedErrorData, 0]],
 ];
 TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
-
-export var ComplexNestedErrorData: StaticStructureSchema = [
-  3,
-  n0,
-  _CNED,
-  0,
-  [_F],
-  [
-    [
-      0,
-      {
-        [_jN]: _Fo,
-      },
-    ],
-  ],
-];
+export var ComplexNestedErrorData: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [[0, { [_jN]: _Fo }]]];
 export var ContentTypeParametersInput: StaticStructureSchema = [3, n0, _CTPI, 0, [_v], [1]];
 export var ContentTypeParametersOutput: StaticStructureSchema = [3, n0, _CTPO, 0, [], []];
 export var Defaults: StaticStructureSchema = [
@@ -224,48 +206,14 @@ export var Defaults: StaticStructureSchema = [
 export var Dialog: StaticStructureSchema = [3, n0, _Di, 0, [_l, _g, _f], [0, 0, () => Farewell]];
 export var EmptyInputAndEmptyOutputInput: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
 export var EmptyInputAndEmptyOutputOutput: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
-export var EndpointWithHostLabelOperationInput: StaticStructureSchema = [
-  3,
-  n0,
-  _EWHLOI,
-  0,
-  [_la],
-  [
-    [
-      0,
-      {
-        [_hL]: 1,
-      },
-    ],
-  ],
-];
+export var EndpointWithHostLabelOperationInput: StaticStructureSchema = [3, n0, _EWHLOI, 0, [_la], [[0, { [_hL]: 1 }]]];
 export var Farewell: StaticStructureSchema = [3, n0, _Fa, 0, [_p], [0]];
-export var FooError: StaticErrorSchema = [
-  -3,
-  n0,
-  _FE,
-  {
-    [_e]: _s,
-  },
-  [],
-  [],
-];
+export var FooError: StaticErrorSchema = [-3, n0, _FE, { [_e]: _s }, [], []];
 TypeRegistry.for(n0).registerError(FooError, __FooError);
-
 export var GreetingWithErrorsInput: StaticStructureSchema = [3, n0, _GWEI, 0, [_g], [0]];
 export var GreetingWithErrorsOutput: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
-export var InvalidGreeting: StaticErrorSchema = [
-  -3,
-  n0,
-  _IG,
-  {
-    [_e]: _c,
-  },
-  [_M],
-  [0],
-];
+export var InvalidGreeting: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
-
 export var JsonUnionsInput: StaticStructureSchema = [3, n0, _JUI, 0, [_co], [() => MyUnion]];
 export var JsonUnionsOutput: StaticStructureSchema = [3, n0, _JUO, 0, [_co], [() => MyUnion]];
 export var NoInputAndOutputOutput: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
@@ -345,15 +293,7 @@ export var PutWithContentEncodingInput: StaticStructureSchema = [
   _PWCEI,
   0,
   [_en, _da],
-  [
-    [
-      0,
-      {
-        [_hH]: _CE_,
-      },
-    ],
-    0,
-  ],
+  [[0, { [_hH]: _CE_ }], 0],
 ];
 export var SimpleScalarPropertiesInput: StaticStructureSchema = [3, n0, _SSPI, 0, [_fV, _dV], [1, 1]];
 export var SimpleScalarPropertiesOutput: StaticStructureSchema = [3, n0, _SSPO, 0, [_fV, _dV], [1, 1]];
@@ -367,24 +307,16 @@ export var TopLevel: StaticStructureSchema = [
 ];
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
 export var __Unit = "unit" as const;
-
 export var JSONRPC10ServiceException: StaticErrorSchema = [-3, _sm, "JSONRPC10ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JSONRPC10ServiceException, __JSONRPC10ServiceException);
-
 export var DialogList: StaticListSchema = [1, n0, _DL, 0, () => Dialog];
 export var RequiredStringList = 64 | 0;
-
 export var TestStringList = 64 | 0;
-
 export var StringList = 64 | 0;
-
 export var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog];
 export var RequiredStringMap = 128 | 0;
-
 export var TestStringMap = 128 | 0;
-
 export var StringMap = 128 | 0;
-
 export var MyUnion: StaticStructureSchema = [
   3,
   n0,
@@ -409,23 +341,12 @@ export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
   () => EmptyInputAndEmptyOutputInput,
   () => EmptyInputAndEmptyOutputOutput,
 ];
-export var EndpointOperation: StaticOperationSchema = [
-  9,
-  n0,
-  _EO,
-  {
-    [_end]: ["foo."],
-  },
-  () => __Unit,
-  () => __Unit,
-];
+export var EndpointOperation: StaticOperationSchema = [9, n0, _EO, { [_end]: ["foo."] }, () => __Unit, () => __Unit];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
-  {
-    [_end]: ["foo.{label}."],
-  },
+  { [_end]: ["foo.{label}."] },
   () => EndpointWithHostLabelOperationInput,
   () => __Unit,
 ];

@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeQueriesRequest, DescribeQueriesResponse } from "../models/models_0";
+import type { DescribeQueriesRequest, DescribeQueriesResponse } from "../models/models_0";
 import { DescribeQueries } from "../schemas/schemas_0";
 
 /**
@@ -30,6 +34,10 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
  *       been run recently in this account. You can request all queries or limit it to queries of a
  *       specific log group or queries with a certain status.</p>
+ *          <p>This operation includes both interactive queries started directly by users and automated
+ *       queries executed by scheduled query configurations. Scheduled query executions appear in the
+ *       results alongside manually initiated queries, providing visibility into all query activity
+ *       in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

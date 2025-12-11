@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import type {
+  CloudWatchLogsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateScheduledQueryRequest, CreateScheduledQueryResponse } from "../models/models_0";
+import type { CreateScheduledQueryRequest, CreateScheduledQueryResponse } from "../models/models_0";
 import { CreateScheduledQuery } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +31,7 @@ export interface CreateScheduledQueryCommandInput extends CreateScheduledQueryRe
 export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Scheduled Query that runs CloudWatch Logs Insights queries on a schedule and delivers results to specified destinations.</p>
+ * <p>Creates a scheduled query that runs CloudWatch Logs Insights queries at regular intervals. Scheduled queries enable proactive monitoring by automatically executing queries to detect patterns and anomalies in your log data. Query results can be delivered to Amazon S3 for analysis or further processing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +87,9 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *  <p>This operation attempted to create a resource that already exists.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ *  <p>An internal server error occurred while processing the request. This exception is returned
+ *       when the service encounters an unexpected condition that prevents it from fulfilling the
+ *       request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

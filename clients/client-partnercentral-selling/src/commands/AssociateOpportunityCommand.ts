@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateOpportunityRequest } from "../models/models_0";
-import {
+import type { AssociateOpportunityRequest } from "../models/models_0";
+import type {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -43,7 +43,7 @@ export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
  * const input = { // AssociateOpportunityRequest
  *   Catalog: "STRING_VALUE", // required
  *   OpportunityIdentifier: "STRING_VALUE", // required
- *   RelatedEntityType: "Solutions" || "AwsProducts" || "AwsMarketplaceOffers", // required
+ *   RelatedEntityType: "Solutions" || "AwsProducts" || "AwsMarketplaceOffers" || "AwsMarketplaceOfferSets", // required
  *   RelatedEntityIdentifier: "STRING_VALUE", // required
  * };
  * const command = new AssociateOpportunityCommand(input);

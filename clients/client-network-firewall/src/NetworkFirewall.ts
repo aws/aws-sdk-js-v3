@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptNetworkFirewallTransitGatewayAttachmentCommand,
@@ -377,7 +377,7 @@ import {
   UpdateTLSInspectionConfigurationCommandInput,
   UpdateTLSInspectionConfigurationCommandOutput,
 } from "./commands/UpdateTLSInspectionConfigurationCommand";
-import { NetworkFirewallClient, NetworkFirewallClientConfig } from "./NetworkFirewallClient";
+import { NetworkFirewallClient } from "./NetworkFirewallClient";
 
 const commands = {
   AcceptNetworkFirewallTransitGatewayAttachmentCommand,

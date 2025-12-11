@@ -1,19 +1,19 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -21,40 +21,49 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultS3TablesHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
@@ -74,8 +83,16 @@ import {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
+import {
+  DeleteTableBucketReplicationCommandInput,
+  DeleteTableBucketReplicationCommandOutput,
+} from "./commands/DeleteTableBucketReplicationCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { DeleteTablePolicyCommandInput, DeleteTablePolicyCommandOutput } from "./commands/DeleteTablePolicyCommand";
+import {
+  DeleteTableReplicationCommandInput,
+  DeleteTableReplicationCommandOutput,
+} from "./commands/DeleteTableReplicationCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetTableBucketCommandInput, GetTableBucketCommandOutput } from "./commands/GetTableBucketCommand";
 import {
@@ -94,6 +111,14 @@ import {
   GetTableBucketPolicyCommandInput,
   GetTableBucketPolicyCommandOutput,
 } from "./commands/GetTableBucketPolicyCommand";
+import {
+  GetTableBucketReplicationCommandInput,
+  GetTableBucketReplicationCommandOutput,
+} from "./commands/GetTableBucketReplicationCommand";
+import {
+  GetTableBucketStorageClassCommandInput,
+  GetTableBucketStorageClassCommandOutput,
+} from "./commands/GetTableBucketStorageClassCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import { GetTableEncryptionCommandInput, GetTableEncryptionCommandOutput } from "./commands/GetTableEncryptionCommand";
 import {
@@ -109,6 +134,26 @@ import {
   GetTableMetadataLocationCommandOutput,
 } from "./commands/GetTableMetadataLocationCommand";
 import { GetTablePolicyCommandInput, GetTablePolicyCommandOutput } from "./commands/GetTablePolicyCommand";
+import {
+  GetTableRecordExpirationConfigurationCommandInput,
+  GetTableRecordExpirationConfigurationCommandOutput,
+} from "./commands/GetTableRecordExpirationConfigurationCommand";
+import {
+  GetTableRecordExpirationJobStatusCommandInput,
+  GetTableRecordExpirationJobStatusCommandOutput,
+} from "./commands/GetTableRecordExpirationJobStatusCommand";
+import {
+  GetTableReplicationCommandInput,
+  GetTableReplicationCommandOutput,
+} from "./commands/GetTableReplicationCommand";
+import {
+  GetTableReplicationStatusCommandInput,
+  GetTableReplicationStatusCommandOutput,
+} from "./commands/GetTableReplicationStatusCommand";
+import {
+  GetTableStorageClassCommandInput,
+  GetTableStorageClassCommandOutput,
+} from "./commands/GetTableStorageClassCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
@@ -133,10 +178,26 @@ import {
   PutTableBucketPolicyCommandOutput,
 } from "./commands/PutTableBucketPolicyCommand";
 import {
+  PutTableBucketReplicationCommandInput,
+  PutTableBucketReplicationCommandOutput,
+} from "./commands/PutTableBucketReplicationCommand";
+import {
+  PutTableBucketStorageClassCommandInput,
+  PutTableBucketStorageClassCommandOutput,
+} from "./commands/PutTableBucketStorageClassCommand";
+import {
   PutTableMaintenanceConfigurationCommandInput,
   PutTableMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableMaintenanceConfigurationCommand";
 import { PutTablePolicyCommandInput, PutTablePolicyCommandOutput } from "./commands/PutTablePolicyCommand";
+import {
+  PutTableRecordExpirationConfigurationCommandInput,
+  PutTableRecordExpirationConfigurationCommandOutput,
+} from "./commands/PutTableRecordExpirationConfigurationCommand";
+import {
+  PutTableReplicationCommandInput,
+  PutTableReplicationCommandOutput,
+} from "./commands/PutTableReplicationCommand";
 import { RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -151,7 +212,7 @@ import {
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -167,20 +228,29 @@ export type ServiceInputTypes =
   | DeleteTableBucketEncryptionCommandInput
   | DeleteTableBucketMetricsConfigurationCommandInput
   | DeleteTableBucketPolicyCommandInput
+  | DeleteTableBucketReplicationCommandInput
   | DeleteTableCommandInput
   | DeleteTablePolicyCommandInput
+  | DeleteTableReplicationCommandInput
   | GetNamespaceCommandInput
   | GetTableBucketCommandInput
   | GetTableBucketEncryptionCommandInput
   | GetTableBucketMaintenanceConfigurationCommandInput
   | GetTableBucketMetricsConfigurationCommandInput
   | GetTableBucketPolicyCommandInput
+  | GetTableBucketReplicationCommandInput
+  | GetTableBucketStorageClassCommandInput
   | GetTableCommandInput
   | GetTableEncryptionCommandInput
   | GetTableMaintenanceConfigurationCommandInput
   | GetTableMaintenanceJobStatusCommandInput
   | GetTableMetadataLocationCommandInput
   | GetTablePolicyCommandInput
+  | GetTableRecordExpirationConfigurationCommandInput
+  | GetTableRecordExpirationJobStatusCommandInput
+  | GetTableReplicationCommandInput
+  | GetTableReplicationStatusCommandInput
+  | GetTableStorageClassCommandInput
   | ListNamespacesCommandInput
   | ListTableBucketsCommandInput
   | ListTablesCommandInput
@@ -189,8 +259,12 @@ export type ServiceInputTypes =
   | PutTableBucketMaintenanceConfigurationCommandInput
   | PutTableBucketMetricsConfigurationCommandInput
   | PutTableBucketPolicyCommandInput
+  | PutTableBucketReplicationCommandInput
+  | PutTableBucketStorageClassCommandInput
   | PutTableMaintenanceConfigurationCommandInput
   | PutTablePolicyCommandInput
+  | PutTableRecordExpirationConfigurationCommandInput
+  | PutTableReplicationCommandInput
   | RenameTableCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -208,20 +282,29 @@ export type ServiceOutputTypes =
   | DeleteTableBucketEncryptionCommandOutput
   | DeleteTableBucketMetricsConfigurationCommandOutput
   | DeleteTableBucketPolicyCommandOutput
+  | DeleteTableBucketReplicationCommandOutput
   | DeleteTableCommandOutput
   | DeleteTablePolicyCommandOutput
+  | DeleteTableReplicationCommandOutput
   | GetNamespaceCommandOutput
   | GetTableBucketCommandOutput
   | GetTableBucketEncryptionCommandOutput
   | GetTableBucketMaintenanceConfigurationCommandOutput
   | GetTableBucketMetricsConfigurationCommandOutput
   | GetTableBucketPolicyCommandOutput
+  | GetTableBucketReplicationCommandOutput
+  | GetTableBucketStorageClassCommandOutput
   | GetTableCommandOutput
   | GetTableEncryptionCommandOutput
   | GetTableMaintenanceConfigurationCommandOutput
   | GetTableMaintenanceJobStatusCommandOutput
   | GetTableMetadataLocationCommandOutput
   | GetTablePolicyCommandOutput
+  | GetTableRecordExpirationConfigurationCommandOutput
+  | GetTableRecordExpirationJobStatusCommandOutput
+  | GetTableReplicationCommandOutput
+  | GetTableReplicationStatusCommandOutput
+  | GetTableStorageClassCommandOutput
   | ListNamespacesCommandOutput
   | ListTableBucketsCommandOutput
   | ListTablesCommandOutput
@@ -230,8 +313,12 @@ export type ServiceOutputTypes =
   | PutTableBucketMaintenanceConfigurationCommandOutput
   | PutTableBucketMetricsConfigurationCommandOutput
   | PutTableBucketPolicyCommandOutput
+  | PutTableBucketReplicationCommandOutput
+  | PutTableBucketStorageClassCommandOutput
   | PutTableMaintenanceConfigurationCommandOutput
   | PutTablePolicyCommandOutput
+  | PutTableRecordExpirationConfigurationCommandOutput
+  | PutTableReplicationCommandOutput
   | RenameTableCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

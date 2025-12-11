@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { BedrockAgentCoreClient, BedrockAgentCoreClientConfig } from "./BedrockAgentCoreClient";
+import { BedrockAgentCoreClient } from "./BedrockAgentCoreClient";
 import {
   BatchCreateMemoryRecordsCommand,
   BatchCreateMemoryRecordsCommandInput,
@@ -30,6 +30,7 @@ import {
   DeleteMemoryRecordCommandInput,
   DeleteMemoryRecordCommandOutput,
 } from "./commands/DeleteMemoryRecordCommand";
+import { EvaluateCommand, EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
 import {
   GetAgentCardCommand,
   GetAgentCardCommandInput,
@@ -162,6 +163,7 @@ const commands = {
   CreateEventCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
+  EvaluateCommand,
   GetAgentCardCommand,
   GetBrowserSessionCommand,
   GetCodeInterpreterSessionCommand,
@@ -297,6 +299,17 @@ export interface BedrockAgentCore {
     args: DeleteMemoryRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteMemoryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EvaluateCommand}
+   */
+  evaluate(args: EvaluateCommandInput, options?: __HttpHandlerOptions): Promise<EvaluateCommandOutput>;
+  evaluate(args: EvaluateCommandInput, cb: (err: any, data?: EvaluateCommandOutput) => void): void;
+  evaluate(
+    args: EvaluateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EvaluateCommandOutput) => void
   ): void;
 
   /**

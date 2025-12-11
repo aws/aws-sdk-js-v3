@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSolutionRequest, UpdateSolutionResponse } from "../models/models_0";
-import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import type { UpdateSolutionRequest, UpdateSolutionResponse } from "../models/models_0";
+import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { UpdateSolution } from "../schemas/schemas_0";
 
 /**
@@ -48,6 +48,7 @@ export interface UpdateSolutionCommandOutput extends UpdateSolutionResponse, __M
  * const input = { // UpdateSolutionRequest
  *   solutionArn: "STRING_VALUE", // required
  *   performAutoTraining: true || false,
+ *   performIncrementalUpdate: true || false,
  *   solutionUpdateConfig: { // SolutionUpdateConfig
  *     autoTrainingConfig: { // AutoTrainingConfig
  *       schedulingExpression: "STRING_VALUE",

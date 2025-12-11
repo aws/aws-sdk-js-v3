@@ -1,20 +1,20 @@
 // smithy-typescript generated code
 import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import { getGlacierPlugin } from "@aws-sdk/middleware-sdk-glacier";
 import {
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
@@ -22,122 +22,137 @@ import {
 } from "@smithy/core";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
-import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
-import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
+  type EndpointInputConfig,
+  type EndpointResolvedConfig,
+  resolveEndpointConfig,
+} from "@smithy/middleware-endpoint";
+import {
+  type RetryInputConfig,
+  type RetryResolvedConfig,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@smithy/middleware-retry";
+import type { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
+import {
+  type DefaultsMode as __DefaultsMode,
+  type SmithyConfiguration as __SmithyConfiguration,
+  type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
-  DefaultsMode as __DefaultsMode,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  type BodyLengthCalculator as __BodyLengthCalculator,
+  type CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  type ChecksumConstructor as __ChecksumConstructor,
+  type ClientProtocol,
+  type Decoder as __Decoder,
+  type Encoder as __Encoder,
+  type HashConstructor as __HashConstructor,
+  type HttpHandlerOptions as __HttpHandlerOptions,
+  type HttpRequest,
+  type HttpResponse,
+  type Logger as __Logger,
+  type Provider as __Provider,
+  type SdkStreamMixinInjector as __SdkStreamMixinInjector,
+  type StreamCollector as __StreamCollector,
+  type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
-  BodyLengthCalculator as __BodyLengthCalculator,
-  CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  ChecksumConstructor as __ChecksumConstructor,
-  ClientProtocol,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
   HttpRequest as __HttpRequest,
-  HttpRequest,
-  HttpResponse,
-  Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
+  type HttpAuthSchemeInputConfig,
+  type HttpAuthSchemeResolvedConfig,
   defaultGlacierHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import {
+import type {
   AbortMultipartUploadCommandInput,
   AbortMultipartUploadCommandOutput,
 } from "./commands/AbortMultipartUploadCommand";
-import { AbortVaultLockCommandInput, AbortVaultLockCommandOutput } from "./commands/AbortVaultLockCommand";
-import { AddTagsToVaultCommandInput, AddTagsToVaultCommandOutput } from "./commands/AddTagsToVaultCommand";
-import {
+import type { AbortVaultLockCommandInput, AbortVaultLockCommandOutput } from "./commands/AbortVaultLockCommand";
+import type { AddTagsToVaultCommandInput, AddTagsToVaultCommandOutput } from "./commands/AddTagsToVaultCommand";
+import type {
   CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
 } from "./commands/CompleteMultipartUploadCommand";
-import { CompleteVaultLockCommandInput, CompleteVaultLockCommandOutput } from "./commands/CompleteVaultLockCommand";
-import { CreateVaultCommandInput, CreateVaultCommandOutput } from "./commands/CreateVaultCommand";
-import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
-import {
+import type {
+  CompleteVaultLockCommandInput,
+  CompleteVaultLockCommandOutput,
+} from "./commands/CompleteVaultLockCommand";
+import type { CreateVaultCommandInput, CreateVaultCommandOutput } from "./commands/CreateVaultCommand";
+import type { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
+import type {
   DeleteVaultAccessPolicyCommandInput,
   DeleteVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteVaultAccessPolicyCommand";
-import { DeleteVaultCommandInput, DeleteVaultCommandOutput } from "./commands/DeleteVaultCommand";
-import {
+import type { DeleteVaultCommandInput, DeleteVaultCommandOutput } from "./commands/DeleteVaultCommand";
+import type {
   DeleteVaultNotificationsCommandInput,
   DeleteVaultNotificationsCommandOutput,
 } from "./commands/DeleteVaultNotificationsCommand";
-import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
-import { DescribeVaultCommandInput, DescribeVaultCommandOutput } from "./commands/DescribeVaultCommand";
-import {
+import type { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import type { DescribeVaultCommandInput, DescribeVaultCommandOutput } from "./commands/DescribeVaultCommand";
+import type {
   GetDataRetrievalPolicyCommandInput,
   GetDataRetrievalPolicyCommandOutput,
 } from "./commands/GetDataRetrievalPolicyCommand";
-import { GetJobOutputCommandInput, GetJobOutputCommandOutput } from "./commands/GetJobOutputCommand";
-import {
+import type { GetJobOutputCommandInput, GetJobOutputCommandOutput } from "./commands/GetJobOutputCommand";
+import type {
   GetVaultAccessPolicyCommandInput,
   GetVaultAccessPolicyCommandOutput,
 } from "./commands/GetVaultAccessPolicyCommand";
-import { GetVaultLockCommandInput, GetVaultLockCommandOutput } from "./commands/GetVaultLockCommand";
-import {
+import type { GetVaultLockCommandInput, GetVaultLockCommandOutput } from "./commands/GetVaultLockCommand";
+import type {
   GetVaultNotificationsCommandInput,
   GetVaultNotificationsCommandOutput,
 } from "./commands/GetVaultNotificationsCommand";
-import { InitiateJobCommandInput, InitiateJobCommandOutput } from "./commands/InitiateJobCommand";
-import {
+import type { InitiateJobCommandInput, InitiateJobCommandOutput } from "./commands/InitiateJobCommand";
+import type {
   InitiateMultipartUploadCommandInput,
   InitiateMultipartUploadCommandOutput,
 } from "./commands/InitiateMultipartUploadCommand";
-import { InitiateVaultLockCommandInput, InitiateVaultLockCommandOutput } from "./commands/InitiateVaultLockCommand";
-import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
+import type {
+  InitiateVaultLockCommandInput,
+  InitiateVaultLockCommandOutput,
+} from "./commands/InitiateVaultLockCommand";
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import type {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand";
-import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
-import {
+import type { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
+import type {
   ListProvisionedCapacityCommandInput,
   ListProvisionedCapacityCommandOutput,
 } from "./commands/ListProvisionedCapacityCommand";
-import { ListTagsForVaultCommandInput, ListTagsForVaultCommandOutput } from "./commands/ListTagsForVaultCommand";
-import { ListVaultsCommandInput, ListVaultsCommandOutput } from "./commands/ListVaultsCommand";
-import {
+import type { ListTagsForVaultCommandInput, ListTagsForVaultCommandOutput } from "./commands/ListTagsForVaultCommand";
+import type { ListVaultsCommandInput, ListVaultsCommandOutput } from "./commands/ListVaultsCommand";
+import type {
   PurchaseProvisionedCapacityCommandInput,
   PurchaseProvisionedCapacityCommandOutput,
 } from "./commands/PurchaseProvisionedCapacityCommand";
-import {
+import type {
   RemoveTagsFromVaultCommandInput,
   RemoveTagsFromVaultCommandOutput,
 } from "./commands/RemoveTagsFromVaultCommand";
-import {
+import type {
   SetDataRetrievalPolicyCommandInput,
   SetDataRetrievalPolicyCommandOutput,
 } from "./commands/SetDataRetrievalPolicyCommand";
-import {
+import type {
   SetVaultAccessPolicyCommandInput,
   SetVaultAccessPolicyCommandOutput,
 } from "./commands/SetVaultAccessPolicyCommand";
-import {
+import type {
   SetVaultNotificationsCommandInput,
   SetVaultNotificationsCommandOutput,
 } from "./commands/SetVaultNotificationsCommand";
-import { UploadArchiveCommandInput, UploadArchiveCommandOutput } from "./commands/UploadArchiveCommand";
-import {
+import type { UploadArchiveCommandInput, UploadArchiveCommandOutput } from "./commands/UploadArchiveCommand";
+import type {
   UploadMultipartPartCommandInput,
   UploadMultipartPartCommandOutput,
 } from "./commands/UploadMultipartPartCommand";
@@ -148,7 +163,7 @@ import {
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
+import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 
 export { __Client };
 
@@ -396,7 +411,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
-
   /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal

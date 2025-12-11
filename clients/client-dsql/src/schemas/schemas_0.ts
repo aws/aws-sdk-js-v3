@@ -98,7 +98,7 @@ const n0 = "com.amazonaws.dsql";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import {
+import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -118,34 +118,11 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-
-export var AccessDeniedException: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
-  {
-    [_e]: _c,
-    [_hE]: 403,
-  },
-  [_m],
-  [0],
-];
+export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-
 export var ClusterSummary: StaticStructureSchema = [3, n0, _CS, 0, [_i, _a], [0, 0]];
-export var ConflictException: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
-  {
-    [_e]: _c,
-    [_hE]: 409,
-  },
-  [_m, _rI, _rT],
-  [0, 0, 0],
-];
+export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-
 export var CreateClusterInput: StaticStructureSchema = [
   3,
   n0,
@@ -170,13 +147,7 @@ export var DeleteClusterInput: StaticStructureSchema = [
   [_i, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _ct,
-      },
-    ],
+    [0, { [_iT]: 1, [_hQ]: _ct }],
   ],
 ];
 export var DeleteClusterOutput: StaticStructureSchema = [3, n0, _DCO, 0, [_i, _a, _s, _cTr], [0, 0, 0, 4]];
@@ -188,19 +159,8 @@ export var DeleteClusterPolicyInput: StaticStructureSchema = [
   [_i, _ePV, _cT],
   [
     [0, 1],
-    [
-      0,
-      {
-        [_hQ]: _epv,
-      },
-    ],
-    [
-      0,
-      {
-        [_iT]: 1,
-        [_hQ]: _ct,
-      },
-    ],
+    [0, { [_hQ]: _epv }],
+    [0, { [_iT]: 1, [_hQ]: _ct }],
   ],
 ];
 export var DeleteClusterPolicyOutput: StaticStructureSchema = [3, n0, _DCPO, 0, [_pV], [0]];
@@ -222,23 +182,11 @@ export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  {
-    [_e]: _se,
-    [_hE]: 500,
-  },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-
 export var ListClustersInput: StaticStructureSchema = [
   3,
   n0,
@@ -246,18 +194,8 @@ export var ListClustersInput: StaticStructureSchema = [
   0,
   [_mR, _nT],
   [
-    [
-      1,
-      {
-        [_hQ]: _mr,
-      },
-    ],
-    [
-      0,
-      {
-        [_hQ]: _nt,
-      },
-    ],
+    [1, { [_hQ]: _mr }],
+    [0, { [_hQ]: _nt }],
   ],
 ];
 export var ListClustersOutput: StaticStructureSchema = [3, n0, _LCO, 0, [_nT, _cl], [0, () => ClusterList]];
@@ -277,52 +215,30 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  {
-    [_e]: _c,
-    [_hE]: 404,
-  },
+  { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  {
-    [_e]: _c,
-    [_hE]: 402,
-  },
+  { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-
 export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  {
-    [_e]: _c,
-    [_hE]: 429,
-  },
+  { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [
-    0,
-    0,
-    0,
-    [
-      1,
-      {
-        [_hH]: _RA,
-      },
-    ],
-  ],
+  [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -331,12 +247,7 @@ export var UntagResourceInput: StaticStructureSchema = [
   [_rA, _tK],
   [
     [0, 1],
-    [
-      64 | 0,
-      {
-        [_hQ]: _tK,
-      },
-    ],
+    [64 | 0, { [_hQ]: _tK }],
   ],
 ];
 export var UpdateClusterInput: StaticStructureSchema = [
@@ -352,36 +263,25 @@ export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
+  { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
 export var __Unit = "unit" as const;
-
 export var DSQLServiceException: StaticErrorSchema = [-3, _sm, "DSQLServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DSQLServiceException, __DSQLServiceException);
-
 export var ClusterArnList = 64 | 0;
-
 export var ClusterList: StaticListSchema = [1, n0, _CL, 0, () => ClusterSummary];
 export var TagKeyList = 64 | 0;
-
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var TagMap = 128 | 0;
-
 export var CreateCluster: StaticOperationSchema = [
   9,
   n0,
   _CC,
-  {
-    [_h]: ["POST", "/cluster", 200],
-  },
+  { [_h]: ["POST", "/cluster", 200] },
   () => CreateClusterInput,
   () => CreateClusterOutput,
 ];
@@ -389,9 +289,7 @@ export var DeleteCluster: StaticOperationSchema = [
   9,
   n0,
   _DC,
-  {
-    [_h]: ["DELETE", "/cluster/{identifier}", 200],
-  },
+  { [_h]: ["DELETE", "/cluster/{identifier}", 200] },
   () => DeleteClusterInput,
   () => DeleteClusterOutput,
 ];
@@ -399,9 +297,7 @@ export var DeleteClusterPolicy: StaticOperationSchema = [
   9,
   n0,
   _DCP,
-  {
-    [_h]: ["DELETE", "/cluster/{identifier}/policy", 200],
-  },
+  { [_h]: ["DELETE", "/cluster/{identifier}/policy", 200] },
   () => DeleteClusterPolicyInput,
   () => DeleteClusterPolicyOutput,
 ];
@@ -409,9 +305,7 @@ export var GetCluster: StaticOperationSchema = [
   9,
   n0,
   _GC,
-  {
-    [_h]: ["GET", "/cluster/{identifier}", 200],
-  },
+  { [_h]: ["GET", "/cluster/{identifier}", 200] },
   () => GetClusterInput,
   () => GetClusterOutput,
 ];
@@ -419,9 +313,7 @@ export var GetClusterPolicy: StaticOperationSchema = [
   9,
   n0,
   _GCP,
-  {
-    [_h]: ["GET", "/cluster/{identifier}/policy", 200],
-  },
+  { [_h]: ["GET", "/cluster/{identifier}/policy", 200] },
   () => GetClusterPolicyInput,
   () => GetClusterPolicyOutput,
 ];
@@ -429,9 +321,7 @@ export var GetVpcEndpointServiceName: StaticOperationSchema = [
   9,
   n0,
   _GVESN,
-  {
-    [_h]: ["GET", "/clusters/{identifier}/vpc-endpoint-service-name", 200],
-  },
+  { [_h]: ["GET", "/clusters/{identifier}/vpc-endpoint-service-name", 200] },
   () => GetVpcEndpointServiceNameInput,
   () => GetVpcEndpointServiceNameOutput,
 ];
@@ -439,9 +329,7 @@ export var ListClusters: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  {
-    [_h]: ["GET", "/cluster", 200],
-  },
+  { [_h]: ["GET", "/cluster", 200] },
   () => ListClustersInput,
   () => ListClustersOutput,
 ];
@@ -449,9 +337,7 @@ export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  {
-    [_h]: ["GET", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceInput,
   () => ListTagsForResourceOutput,
 ];
@@ -459,9 +345,7 @@ export var PutClusterPolicy: StaticOperationSchema = [
   9,
   n0,
   _PCP,
-  {
-    [_h]: ["POST", "/cluster/{identifier}/policy", 200],
-  },
+  { [_h]: ["POST", "/cluster/{identifier}/policy", 200] },
   () => PutClusterPolicyInput,
   () => PutClusterPolicyOutput,
 ];
@@ -469,9 +353,7 @@ export var TagResource: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  {
-    [_h]: ["POST", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceInput,
   () => __Unit,
 ];
@@ -479,9 +361,7 @@ export var UntagResource: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  {
-    [_h]: ["DELETE", "/tags/{resourceArn}", 200],
-  },
+  { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceInput,
   () => __Unit,
 ];
@@ -489,9 +369,7 @@ export var UpdateCluster: StaticOperationSchema = [
   9,
   n0,
   _UC,
-  {
-    [_h]: ["POST", "/cluster/{identifier}", 200],
-  },
+  { [_h]: ["POST", "/cluster/{identifier}", 200] },
   () => UpdateClusterInput,
   () => UpdateClusterOutput,
 ];

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
-import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_1";
+import type { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_1";
 import { DescribeRule } from "../schemas/schemas_0";
 
 /**
@@ -62,7 +62,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //           References: { // ContactReferences
  * //             "<keys>": { // Reference
  * //               Value: "STRING_VALUE",
- * //               Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ * //               Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT", // required
  * //               Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
  * //               Arn: "STRING_VALUE",
  * //               StatusReason: "STRING_VALUE",

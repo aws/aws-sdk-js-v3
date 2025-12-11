@@ -46,7 +46,12 @@ const n0 = "com.amazonaws.sagemakerruntimehttp2";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticOperationSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import {
   InputValidationError as __InputValidationError,
@@ -59,46 +64,13 @@ import {
 import { SageMakerRuntimeHTTP2ServiceException as __SageMakerRuntimeHTTP2ServiceException } from "../models/SageMakerRuntimeHTTP2ServiceException";
 
 /* eslint no-var: 0 */
-
 export var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
-export var InputValidationError: StaticErrorSchema = [
-  -3,
-  n0,
-  _IVE,
-  {
-    [_e]: _c,
-    [_hE]: 400,
-  },
-  [_M, _EC],
-  [0, 0],
-];
+export var InputValidationError: StaticErrorSchema = [-3, n0, _IVE, { [_e]: _c, [_hE]: 400 }, [_M, _EC], [0, 0]];
 TypeRegistry.for(n0).registerError(InputValidationError, __InputValidationError);
-
-export var InternalServerError: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
-  {
-    [_e]: _s,
-    [_hE]: 500,
-  },
-  [_M, _EC],
-  [0, 0],
-];
+export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M, _EC], [0, 0]];
 TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-
-export var InternalStreamFailure: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISF,
-  {
-    [_e]: _s,
-  },
-  [_M],
-  [0],
-];
+export var InternalStreamFailure: StaticErrorSchema = [-3, n0, _ISF, { [_e]: _s }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalStreamFailure, __InternalStreamFailure);
-
 export var InvokeEndpointWithBidirectionalStreamInput: StaticStructureSchema = [
   3,
   n0,
@@ -108,24 +80,9 @@ export var InvokeEndpointWithBidirectionalStreamInput: StaticStructureSchema = [
   [
     [0, 1],
     [() => RequestStreamEvent, 16],
-    [
-      0,
-      {
-        [_hH]: _XASTV,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASMIP,
-      },
-    ],
-    [
-      0,
-      {
-        [_hH]: _XASMQS,
-      },
-    ],
+    [0, { [_hH]: _XASTV }],
+    [0, { [_hH]: _XASMIP }],
+    [0, { [_hH]: _XASMQS }],
   ],
 ];
 export var InvokeEndpointWithBidirectionalStreamOutput: StaticStructureSchema = [
@@ -136,39 +93,20 @@ export var InvokeEndpointWithBidirectionalStreamOutput: StaticStructureSchema = 
   [_B, _IPV],
   [
     [() => ResponseStreamEvent, 16],
-    [
-      0,
-      {
-        [_hH]: _XAIPV,
-      },
-    ],
+    [0, { [_hH]: _XAIPV }],
   ],
 ];
 export var ModelError: StaticErrorSchema = [
   -3,
   n0,
   _ME,
-  {
-    [_e]: _c,
-    [_hE]: 424,
-  },
+  { [_e]: _c, [_hE]: 424 },
   [_M, _OSC, _OM, _LSA, _EC],
   [0, 1, 0, 0, 0],
 ];
 TypeRegistry.for(n0).registerError(ModelError, __ModelError);
-
-export var ModelStreamError: StaticErrorSchema = [
-  -3,
-  n0,
-  _MSE,
-  {
-    [_e]: _c,
-  },
-  [_M, _EC],
-  [0, 0],
-];
+export var ModelStreamError: StaticErrorSchema = [-3, n0, _MSE, { [_e]: _c }, [_M, _EC], [0, 0]];
 TypeRegistry.for(n0).registerError(ModelStreamError, __ModelStreamError);
-
 export var RequestPayloadPart: StaticStructureSchema = [
   3,
   n0,
@@ -176,30 +114,10 @@ export var RequestPayloadPart: StaticStructureSchema = [
   0,
   [_By, _DT, _CS, _P],
   [
-    [
-      () => SensitiveBlob,
-      {
-        [_eP]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
+    [() => SensitiveBlob, { [_eP]: 1 }],
+    [0, { [_eH]: 1 }],
+    [0, { [_eH]: 1 }],
+    [0, { [_eH]: 1 }],
   ],
 ];
 export var ResponsePayloadPart: StaticStructureSchema = [
@@ -209,45 +127,14 @@ export var ResponsePayloadPart: StaticStructureSchema = [
   0,
   [_By, _DT, _CS, _P],
   [
-    [
-      () => SensitiveBlob,
-      {
-        [_eP]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
-    [
-      0,
-      {
-        [_eH]: 1,
-      },
-    ],
+    [() => SensitiveBlob, { [_eP]: 1 }],
+    [0, { [_eH]: 1 }],
+    [0, { [_eH]: 1 }],
+    [0, { [_eH]: 1 }],
   ],
 ];
-export var ServiceUnavailableError: StaticErrorSchema = [
-  -3,
-  n0,
-  _SUE,
-  {
-    [_e]: _s,
-    [_hE]: 503,
-  },
-  [_M, _EC],
-  [0, 0],
-];
+export var ServiceUnavailableError: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M, _EC], [0, 0]];
 TypeRegistry.for(n0).registerError(ServiceUnavailableError, __ServiceUnavailableError);
-
 export var SageMakerRuntimeHTTP2ServiceException: StaticErrorSchema = [
   -3,
   _sm,
@@ -257,14 +144,11 @@ export var SageMakerRuntimeHTTP2ServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(SageMakerRuntimeHTTP2ServiceException, __SageMakerRuntimeHTTP2ServiceException);
-
 export var RequestStreamEvent: StaticStructureSchema = [
   3,
   n0,
   _RSE,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_PP],
   [[() => RequestPayloadPart, 0]],
 ];
@@ -272,9 +156,7 @@ export var ResponseStreamEvent: StaticStructureSchema = [
   3,
   n0,
   _RSEe,
-  {
-    [_st]: 1,
-  },
+  { [_st]: 1 },
   [_PP, _MSE, _ISF],
   [
     [() => ResponsePayloadPart, 0],
@@ -286,9 +168,7 @@ export var InvokeEndpointWithBidirectionalStream: StaticOperationSchema = [
   9,
   n0,
   _IEWBS,
-  {
-    [_h]: ["POST", "/endpoints/{EndpointName}/invocations-bidirectional-stream", 200],
-  },
+  { [_h]: ["POST", "/endpoints/{EndpointName}/invocations-bidirectional-stream", 200] },
   () => InvokeEndpointWithBidirectionalStreamInput,
   () => InvokeEndpointWithBidirectionalStreamOutput,
 ];
