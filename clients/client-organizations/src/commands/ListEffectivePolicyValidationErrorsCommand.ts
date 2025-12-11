@@ -45,7 +45,7 @@ export interface ListEffectivePolicyValidationErrorsCommandOutput
  * const client = new OrganizationsClient(config);
  * const input = { // ListEffectivePolicyValidationErrorsRequest
  *   AccountId: "STRING_VALUE", // required
- *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY", // required
+ *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY" || "NETWORK_SECURITY_DIRECTOR_POLICY", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -53,7 +53,7 @@ export interface ListEffectivePolicyValidationErrorsCommandOutput
  * const response = await client.send(command);
  * // { // ListEffectivePolicyValidationErrorsResponse
  * //   AccountId: "STRING_VALUE",
- * //   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY",
+ * //   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY" || "NETWORK_SECURITY_DIRECTOR_POLICY",
  * //   Path: "STRING_VALUE",
  * //   EvaluationTimestamp: new Date("TIMESTAMP"),
  * //   NextToken: "STRING_VALUE",
