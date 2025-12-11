@@ -77,13 +77,14 @@ export class MetadataService {
         return sdkStreamMixin(response.body).transformToString();
       } else {
         throw Object.assign(new Error(`Request failed with status code ${response.statusCode}`), {
-          statusCode: response.statusCode,
+          $metadata: { httpStatusCode: response.statusCode },
         });
       }
     } catch (error) {
       const wrappedError = new Error(`Error making request to the metadata service: ${error}`);
-      if ((error as any).statusCode !== undefined) {
-        (wrappedError as any).statusCode = (error as any).statusCode;
+      const { $metadata } = error as any;
+      if ($metadata?.httpStatusCode !== undefined) {
+        Object.assign(wrappedError, { $metadata });
       }
       throw wrappedError;
     }
