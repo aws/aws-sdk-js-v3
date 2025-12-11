@@ -39,7 +39,7 @@ final class QueryMemberSerVisitor extends DocumentMemberSerVisitor {
 
     boolean visitSuppliesEntryList(Shape shape) {
         return shape.isStructureShape() || shape.isUnionShape()
-                || shape.isMapShape() || shape.isListShape() || shape.isSetShape();
+                || shape.isMapShape() || shape.isListShape();
     }
 
     @Override
