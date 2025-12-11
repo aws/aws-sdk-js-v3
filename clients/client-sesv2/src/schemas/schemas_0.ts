@@ -648,6 +648,7 @@ const _SER = "SendEmailRequest";
 const _SERe = "SendEmailResponse";
 const _SEe = "SendingEnabled";
 const _SEen = "SendEmail";
+const _SHZ = "SigningHostedZone";
 const _SI = "SendingIps";
 const _SLD = "SuppressionListDestination";
 const _SLH = "SentLast24Hours";
@@ -1138,8 +1139,8 @@ export var DkimAttributes: StaticStructureSchema = [
   n0,
   _DA,
   0,
-  [_SE, _S, _Tok, _SAO, _NSKL, _CSKL, _LKGT],
-  [2, 0, 64 | 0, 0, 0, 0, 4],
+  [_SE, _S, _Tok, _SHZ, _SAO, _NSKL, _CSKL, _LKGT],
+  [2, 0, 64 | 0, 0, 0, 0, 0, 4],
 ];
 export var DkimSigningAttributes: StaticStructureSchema = [
   3,
@@ -1947,8 +1948,8 @@ export var PutEmailIdentityDkimSigningAttributesResponse: StaticStructureSchema 
   n0,
   _PEIDSARu,
   0,
-  [_DS, _DT],
-  [0, 64 | 0],
+  [_DS, _DT, _SHZ],
+  [0, 64 | 0, 0],
 ];
 export var PutEmailIdentityFeedbackAttributesRequest: StaticStructureSchema = [
   3,

@@ -2339,6 +2339,30 @@ export interface DkimAttributes {
   Tokens?: string[] | undefined;
 
   /**
+   * <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity.
+   *         This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
+   *          <p>When configuring DKIM for your domain, create CNAME records in your DNS that point to the selectors in this hosted zone.
+   *         For example:</p>
+   *          <p>
+   *             <code>
+   *             selector1._domainkey.yourdomain.com CNAME selector1.<SigningHostedZone>
+   *         </code>
+   *          </p>
+   *          <p>
+   *             <code>
+   *             selector2._domainkey.yourdomain.com CNAME selector2.<SigningHostedZone>
+   *         </code>
+   *          </p>
+   *          <p>
+   *             <code>
+   *             selector3._domainkey.yourdomain.com CNAME selector3.<SigningHostedZone>
+   *         </code>
+   *          </p>
+   * @public
+   */
+  SigningHostedZone?: string | undefined;
+
+  /**
    * <p>A string that indicates how DKIM was configured for the identity. These are the
    *             possible values:</p>
    *          <ul>
@@ -8125,6 +8149,30 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    * @public
    */
   DkimTokens?: string[] | undefined;
+
+  /**
+   * <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity.
+   *         This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
+   *          <p>When configuring DKIM for your domain, create CNAME records in your DNS that point to the selectors in this hosted zone.
+   *         For example:</p>
+   *          <p>
+   *             <code>
+   *             selector1._domainkey.yourdomain.com CNAME selector1.<SigningHostedZone>
+   *         </code>
+   *          </p>
+   *          <p>
+   *             <code>
+   *             selector2._domainkey.yourdomain.com CNAME selector2.<SigningHostedZone>
+   *         </code>
+   *          </p>
+   *          <p>
+   *             <code>
+   *             selector3._domainkey.yourdomain.com CNAME selector3.<SigningHostedZone>
+   *         </code>
+   *          </p>
+   * @public
+   */
+  SigningHostedZone?: string | undefined;
 }
 
 /**

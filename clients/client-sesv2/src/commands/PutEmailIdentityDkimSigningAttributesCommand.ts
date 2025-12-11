@@ -81,6 +81,7 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * //   DkimTokens: [ // DnsTokenList
  * //     "STRING_VALUE",
  * //   ],
+ * //   SigningHostedZone: "STRING_VALUE",
  * // };
  *
  * ```
