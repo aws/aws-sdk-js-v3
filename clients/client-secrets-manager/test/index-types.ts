@@ -72,6 +72,7 @@ export type {
   ValidateResourcePolicyCommandInput,
   ValidateResourcePolicyCommandOutput,
   FilterNameStringType,
+  SortByType,
   SortOrderType,
   StatusType,
   APIErrorType,

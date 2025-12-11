@@ -32,6 +32,7 @@ import {
   SecretsManager,
   SecretsManagerClient,
   SecretsManagerServiceException,
+  SortByType,
   SortOrderType,
   StatusType,
   StopReplicationToReplicaCommand,
@@ -74,6 +75,7 @@ assert(typeof UpdateSecretVersionStageCommand === "function");
 assert(typeof ValidateResourcePolicyCommand === "function");
 // enums
 assert(typeof FilterNameStringType === "object");
+assert(typeof SortByType === "object");
 assert(typeof SortOrderType === "object");
 assert(typeof StatusType === "object");
 // errors

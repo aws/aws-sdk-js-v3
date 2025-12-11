@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { FilterNameStringType, SortOrderType, StatusType } from "./enums";
+import { FilterNameStringType, SortByType, SortOrderType, StatusType } from "./enums";
 
 /**
  * <p>A custom type that specifies a <code>Region</code> and the <code>KmsKeyId</code> for a
@@ -1153,6 +1153,12 @@ export interface ListSecretsRequest {
    * @public
    */
   SortOrder?: SortOrderType | undefined;
+
+  /**
+   * <p>If not specified, secrets are listed by <code>CreatedDate</code>.</p>
+   * @public
+   */
+  SortBy?: SortByType | undefined;
 }
 
 /**

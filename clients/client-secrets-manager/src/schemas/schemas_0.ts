@@ -133,6 +133,7 @@ const _RWID = "RecoveryWindowInDays";
 const _S = "Status";
 const _SB = "SecretBinary";
 const _SBT = "SecretBinaryType";
+const _SBo = "SortBy";
 const _SE = "ScheduleExpression";
 const _SI = "SecretId";
 const _SIL = "SecretIdList";
@@ -370,8 +371,8 @@ export var ListSecretsRequest: StaticStructureSchema = [
   n0,
   _LSR,
   0,
-  [_IPD, _MR, _NT, _F, _SO],
-  [2, 1, 0, () => FiltersListType, 0],
+  [_IPD, _MR, _NT, _F, _SO, _SBo],
+  [2, 1, 0, () => FiltersListType, 0, 0],
 ];
 export var ListSecretsResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_SL, _NT], [() => SecretListType, 0]];
 export var ListSecretVersionIdsRequest: StaticStructureSchema = [3, n0, _LSVIR, 0, [_SI, _MR, _NT, _ID], [0, 1, 0, 2]];

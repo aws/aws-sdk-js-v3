@@ -70,6 +70,7 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  *     },
  *   ],
  *   SortOrder: "asc" || "desc",
+ *   SortBy: "created-date" || "last-accessed-date" || "last-changed-date" || "name",
  * };
  * const command = new ListSecretsCommand(input);
  * const response = await client.send(command);
