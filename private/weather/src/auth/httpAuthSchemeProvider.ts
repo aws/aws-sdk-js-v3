@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
 import {
+  type ApiKeyIdentity,
+  type ApiKeyIdentityProvider,
   type HandlerExecutionContext,
   type HttpAuthOption,
   type HttpAuthScheme,
@@ -8,8 +10,6 @@ import {
   type HttpAuthSchemeParametersProvider,
   type HttpAuthSchemeProvider,
   type Provider,
-  ApiKeyIdentity,
-  ApiKeyIdentityProvider,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
   HttpApiKeyAuthLocation,
