@@ -69,6 +69,7 @@ export class MetadataService {
       hostname: endpointUrl.hostname,
       path: endpointUrl.pathname + path,
       protocol: endpointUrl.protocol,
+      port: endpointUrl.port ? parseInt(endpointUrl.port) : undefined,
     });
     try {
       const { response } = await handler.handle(request, {} as HttpHandlerOptions);
@@ -102,6 +103,7 @@ export class MetadataService {
       hostname: endpointUrl.hostname,
       path: "/latest/api/token",
       protocol: endpointUrl.protocol,
+      port: endpointUrl.port ? parseInt(endpointUrl.port) : undefined,
     });
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
