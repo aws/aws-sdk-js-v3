@@ -421,6 +421,7 @@ import {
 } from "./commands/GetDashboardEmbedUrlCommand";
 import { GetFlowMetadataCommandInput, GetFlowMetadataCommandOutput } from "./commands/GetFlowMetadataCommand";
 import { GetFlowPermissionsCommandInput, GetFlowPermissionsCommandOutput } from "./commands/GetFlowPermissionsCommand";
+import { GetIdentityContextCommandInput, GetIdentityContextCommandOutput } from "./commands/GetIdentityContextCommand";
 import { GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput } from "./commands/GetSessionEmbedUrlCommand";
 import {
   ListActionConnectorsCommandInput,
@@ -838,6 +839,7 @@ export type ServiceInputTypes =
   | GetDashboardEmbedUrlCommandInput
   | GetFlowMetadataCommandInput
   | GetFlowPermissionsCommandInput
+  | GetIdentityContextCommandInput
   | GetSessionEmbedUrlCommandInput
   | ListActionConnectorsCommandInput
   | ListAnalysesCommandInput
@@ -1068,6 +1070,7 @@ export type ServiceOutputTypes =
   | GetDashboardEmbedUrlCommandOutput
   | GetFlowMetadataCommandOutput
   | GetFlowPermissionsCommandOutput
+  | GetIdentityContextCommandOutput
   | GetSessionEmbedUrlCommandOutput
   | ListActionConnectorsCommandOutput
   | ListAnalysesCommandOutput

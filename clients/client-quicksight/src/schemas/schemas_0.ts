@@ -143,6 +143,7 @@ const _AEu = "AuthorizationEndpoint";
 const _AF = "AggFunction";
 const _AFP = "AggregationFunctionParameters";
 const _AFc = "AccentForeground";
+const _AFd = "AdditionalFields";
 const _AFg = "AggregationFunction";
 const _AG = "AdminGroup";
 const _AGu = "AuthorGroup";
@@ -270,12 +271,14 @@ const _BAr = "BrandArn";
 const _BC = "BookmarksConfigurations";
 const _BCAFW = "BarChartAggregatedFieldWells";
 const _BCC = "BarChartConfiguration";
+const _BCDSS = "BarChartDefaultSeriesSettings";
 const _BCF = "BlankCellFormat";
 const _BCFW = "BarChartFieldWells";
 const _BCL = "BinCountLimit";
 const _BCO = "BinCountOptions";
 const _BCP = "BrandColorPalette";
 const _BCSC = "BarChartSortConfiguration";
+const _BCSS = "BarChartSeriesSettings";
 const _BCTRA = "BatchCreateTopicReviewedAnswer";
 const _BCTRAR = "BatchCreateTopicReviewedAnswerRequest";
 const _BCTRARa = "BatchCreateTopicReviewedAnswerResponse";
@@ -313,13 +316,15 @@ const _BPV = "BoxPlotVisual";
 const _BQP = "BigQueryParameters";
 const _BR = "BorderRadius";
 const _BRu = "BucketRegion";
-const _BS = "BorderStyle";
+const _BS = "BorderSettings";
 const _BSC = "BodySectionConfiguration";
 const _BSCL = "BodySectionConfigurationList";
 const _BSCo = "BodySectionContent";
 const _BSDCDC = "BodySectionDynamicCategoryDimensionConfiguration";
 const _BSDDSCL = "BodySectionDynamicDimensionSortConfigurationList";
 const _BSDNDC = "BodySectionDynamicNumericDimensionConfiguration";
+const _BSI = "BarSeriesItem";
+const _BSIL = "BarSeriesItemList";
 const _BSL = "BrandSummaryList";
 const _BSRC = "BodySectionRepeatConfiguration";
 const _BSRDC = "BodySectionRepeatDimensionConfiguration";
@@ -327,17 +332,19 @@ const _BSRDCL = "BodySectionRepeatDimensionConfigurationList";
 const _BSRPBC = "BodySectionRepeatPageBreakConfiguration";
 const _BSS = "BaseSeriesSettings";
 const _BSa = "BackgroundStyle";
-const _BSo = "BodySections";
+const _BSo = "BorderStyle";
+const _BSod = "BodySections";
 const _BSr = "BrandStatus";
 const _BSra = "BrandSummary";
 const _BT = "BorderThickness";
 const _BTI = "BaseThemeId";
 const _BU = "BucketUrl";
-const _BV = "BarValues";
-const _BVa = "BackgroundVisibility";
-const _BVo = "BorderVisibility";
-const _BW = "BinWidth";
+const _BV = "BorderVisibility";
+const _BVa = "BarValues";
+const _BVac = "BackgroundVisibility";
+const _BW = "BorderWidth";
 const _BWO = "BinWidthOptions";
+const _BWi = "BinWidth";
 const _Ba = "Base";
 const _Bac = "Background";
 const _Bo = "Bounds";
@@ -400,6 +407,7 @@ const _CCC = "CascadingControlConfiguration";
 const _CCCo = "ComboChartConfiguration";
 const _CCCu = "CustomContentConfiguration";
 const _CCD = "ClientCredentialsDetails";
+const _CCDSS = "ComboChartDefaultSeriesSettings";
 const _CCE = "CollectiveConstantEntry";
 const _CCEL = "CollectiveConstantEntryList";
 const _CCFW = "ComboChartFieldWells";
@@ -416,6 +424,7 @@ const _CCPr = "CreateCustomPermissions";
 const _CCS = "CascadingControlSource";
 const _CCSC = "ComboChartSortConfiguration";
 const _CCSL = "CascadingControlSourceList";
+const _CCSS = "ComboChartSeriesSettings";
 const _CCSl = "ClientCredentialsSource";
 const _CCSr = "CreateColumnsStep";
 const _CCTO = "CastColumnTypeOperation";
@@ -447,12 +456,13 @@ const _CDL = "ContributorDimensionList";
 const _CDR = "CreateDashboardRequest";
 const _CDRo = "ColumnDataRole";
 const _CDRr = "CreateDashboardResponse";
-const _CDS = "CreateDataSet";
+const _CDS = "CustomDecalSettings";
 const _CDSR = "CreateDataSetRequest";
 const _CDSRr = "CreateDataSetResponse";
 const _CDSRre = "CreateDataSourceRequest";
 const _CDSRrea = "CreateDataSourceResponse";
-const _CDSr = "CreateDataSource";
+const _CDSr = "CreateDataSet";
+const _CDSre = "CreateDataSource";
 const _CDT = "ColumnDescriptiveText";
 const _CDo = "ContributorDimensions";
 const _CDr = "CrossDataset";
@@ -595,6 +605,8 @@ const _CSA = "CopySourceArn";
 const _CSCIB = "ConsumedSpiceCapacityInBytes";
 const _CSCL = "ColorScaleColorList";
 const _CSF = "CreateSharedFolders";
+const _CSI = "ComboSeriesItem";
+const _CSIL = "ComboSeriesItemList";
 const _CSL = "ColumnSchemaList";
 const _CSO = "CanvasSizeOptions";
 const _CSOo = "CollapseStateOptions";
@@ -673,6 +685,7 @@ const _Cat = "Categorical";
 const _Cata = "Catalog";
 const _Cate = "Categories";
 const _Ce = "Cell";
+const _Ci = "City";
 const _Co = "Colors";
 const _Col = "Color";
 const _Colu = "Columns";
@@ -683,6 +696,10 @@ const _Con = "Content";
 const _Conf = "Configuration";
 const _Conn = "Connection";
 const _Cons = "Constant";
+const _Cont = "Context";
+const _Coo = "Coordinate";
+const _Cou = "Country";
+const _Coun = "County";
 const _Cr = "Credentials";
 const _D = "Description";
 const _DA = "DatasetArn";
@@ -766,10 +783,12 @@ const _DCPRes = "DescribeCustomPermissionsRequest";
 const _DCPResc = "DescribeCustomPermissionsResponse";
 const _DCPe = "DeleteCustomPermissions";
 const _DCPes = "DescribeCustomPermissions";
+const _DCVO = "DashboardCustomizationVisualOptions";
 const _DCW = "DefaultCellWidth";
 const _DCa = "DataColor";
 const _DCat = "DataConfiguration";
-const _DCe = "DestinationConfiguration";
+const _DCe = "DecalColor";
+const _DCes = "DestinationConfiguration";
 const _DCi = "DisplayConfiguration";
 const _DCy = "DynamicConfiguration";
 const _DD = "DataDriven";
@@ -843,9 +862,11 @@ const _DE = "DashboardError";
 const _DECT = "DefaultEmailCustomizationTemplate";
 const _DEL = "DashboardErrorList";
 const _DF = "DisabledFeatures";
+const _DFBSI = "DataFieldBarSeriesItem";
 const _DFC = "DateFilterCondition";
 const _DFCC = "DefaultFilterControlConfiguration";
 const _DFCO = "DefaultFilterControlOptions";
+const _DFCSI = "DataFieldComboSeriesItem";
 const _DFDDCO = "DefaultFilterDropDownControlOptions";
 const _DFFLC = "DefaultFreeFormLayoutConfiguration";
 const _DFL = "DimensionFieldList";
@@ -966,6 +987,7 @@ const _DPS = "DataPathSort";
 const _DPSAF = "DataPrepSimpleAggregationFunction";
 const _DPT = "DataPathType";
 const _DPTO = "DataPointTooltipOption";
+const _DPTe = "DecalPatternType";
 const _DPV = "DataPathValue";
 const _DPVC = "DestinationParameterValueConfiguration";
 const _DPVL = "DataPathValueList";
@@ -1010,15 +1032,16 @@ const _DSA = "DataSetArns";
 const _DSAa = "DataSourceArn";
 const _DSAat = "DataSetArn";
 const _DSBLC = "DefaultSectionBasedLayoutConfiguration";
-const _DSC = "DataSetConfiguration";
+const _DSC = "DecalSettingsConfiguration";
 const _DSCFE = "DataSetCalculatedFieldExpression";
 const _DSCIM = "DataSetColumnIdMapping";
 const _DSCIML = "DataSetColumnIdMappingList";
 const _DSCL = "DataSetConfigurationList";
 const _DSCO = "DefaultSliderControlOptions";
-const _DSCa = "DataSourceCredentials";
-const _DSCat = "DataStoriesConfigurations";
-const _DSCata = "DataSetConfigurations";
+const _DSCa = "DataSetConfiguration";
+const _DSCat = "DataSourceCredentials";
+const _DSCata = "DataStoriesConfigurations";
+const _DSCatae = "DataSetConfigurations";
 const _DSDCFC = "DataSetDateComparisonFilterCondition";
 const _DSDFC = "DataSetDateFilterCondition";
 const _DSDFV = "DataSetDateFilterValue";
@@ -1037,6 +1060,7 @@ const _DSIata = "DataSourceIds";
 const _DSIatae = "DataSetIdentifier";
 const _DSL = "DashboardSummaryList";
 const _DSLa = "DataSourceList";
+const _DSLe = "DecalSettingsList";
 const _DSN = "DataSetName";
 const _DSNCFC = "DataSetNumericComparisonFilterCondition";
 const _DSNFC = "DataSetNumericFilterCondition";
@@ -1052,7 +1076,7 @@ const _DSRL = "DataSetReferenceList";
 const _DSRP = "DataSetRefreshProperties";
 const _DSRa = "DataSetRegion";
 const _DSRat = "DataSetReference";
-const _DSS = "DataSetSchema";
+const _DSS = "DefaultSeriesSettings";
 const _DSSCFC = "DataSetStringComparisonFilterCondition";
 const _DSSF = "DataSetSearchFilter";
 const _DSSFC = "DataSetStringFilterCondition";
@@ -1067,12 +1091,13 @@ const _DSSLFC = "DataSetStringListFilterCondition";
 const _DSSLFV = "DataSetStringListFilterValue";
 const _DSSLa = "DataSourceSummaryList";
 const _DSSO = "DataStoriesSharingOption";
-const _DSSa = "DataSetSummary";
-const _DSSat = "DataSourceSummary";
-const _DSSata = "DataSetSummaries";
+const _DSSa = "DataSetSchema";
+const _DSSat = "DataSetSummary";
+const _DSSata = "DataSourceSummary";
+const _DSSatae = "DataSetSummaries";
 const _DSSatao = "DataSourceSummaries";
-const _DSSe = "DefaultSeriesSettings";
 const _DST = "DashboardSourceTemplate";
+const _DSTe = "DecalStyleType";
 const _DSUC = "DataSetUsageConfiguration";
 const _DSV = "DecimalStaticValues";
 const _DSa = "DataSources";
@@ -1080,8 +1105,9 @@ const _DSas = "DashboardSummary";
 const _DSat = "DataSets";
 const _DSata = "DataSet";
 const _DSatao = "DataSource";
-const _DSe = "DeletionStatus";
+const _DSe = "DecalSettings";
 const _DSec = "DecimalSeparator";
+const _DSel = "DeletionStatus";
 const _DSi = "DisableSsl";
 const _DT = "DefaultTheme";
 const _DTA = "DeleteTemplateAlias";
@@ -1197,6 +1223,7 @@ const _DVWUC = "DecimalValueWhenUnsetConfiguration";
 const _DVa = "DashboardVersion";
 const _DVat = "DataValue";
 const _DVe = "DecimalValues";
+const _DVec = "DecalVisibility";
 const _DVef = "DefaultValues";
 const _DVy = "DynamicValue";
 const _Da = "Dashboard";
@@ -1256,7 +1283,8 @@ const _ETPISR = "ExportToPdfInScheduledReports";
 const _ETr = "ErrorType";
 const _EU = "EmbeddingUrl";
 const _EUm = "EmbedUrl";
-const _EV = "EmptyVisual";
+const _EV = "ElementValue";
+const _EVm = "EmptyVisual";
 const _EWHFO = "ExportWithHiddenFieldsOption";
 const _Ea = "East";
 const _Ed = "Edition";
@@ -1272,6 +1300,7 @@ const _FA = "FailureAction";
 const _FAM = "FilterAggMetrics";
 const _FAML = "FilterAggMetricsList";
 const _FAo = "FolderArns";
+const _FBSI = "FieldBarSeriesItem";
 const _FBT = "FieldBasedTooltip";
 const _FC = "FeatureConfigurations";
 const _FCAFW = "FunnelChartAggregatedFieldWells";
@@ -1285,12 +1314,14 @@ const _FCLo = "ForecastConfigurationList";
 const _FCMFL = "FunnelChartMeasureFieldList";
 const _FCSC = "FilterCrossSheetControl";
 const _FCSCu = "FunnelChartSortConfiguration";
+const _FCSI = "FieldComboSeriesItem";
 const _FCV = "FunnelChartVisual";
 const _FCVS = "FalseyCellValueSynonyms";
 const _FCVa = "FalseyCellValue";
 const _FCa = "FailureConfiguration";
-const _FCi = "FilterControl";
-const _FCil = "FillColor";
+const _FCi = "FieldsConfiguration";
+const _FCil = "FilterControl";
+const _FCill = "FillColor";
 const _FCilt = "FilterControls";
 const _FCilte = "FilterClass";
 const _FCo = "FontConfiguration";
@@ -1465,10 +1496,14 @@ const _GFPO = "GetFlowPermissionsOutput";
 const _GGC = "GeospatialGradientColor";
 const _GGSC = "GeospatialGradientStepColor";
 const _GGSCL = "GeospatialGradientStepColorList";
+const _GH = "GeocoderHierarchy";
 const _GHC = "GeospatialHeatmapConfiguration";
 const _GHCS = "GeospatialHeatmapColorScale";
 const _GHDC = "GeospatialHeatmapDataColor";
 const _GHDCL = "GeospatialHeatmapDataColorList";
+const _GIC = "GetIdentityContext";
+const _GICR = "GetIdentityContextRequest";
+const _GICRe = "GetIdentityContextResponse";
 const _GIU = "GeneratedImageUrl";
 const _GL = "GridLayout";
 const _GLC = "GridLayoutConfiguration";
@@ -1509,13 +1544,17 @@ const _GNDS = "GeospatialNullDataSettings";
 const _GNSS = "GeospatialNullSymbolStyle";
 const _GNl = "GlobalNavbar";
 const _GO = "GradientOffset";
-const _GP = "GrantPermissions";
+const _GP = "GeocodingPreferences";
 const _GPL = "GeospatialPointLayer";
 const _GPLe = "GeospatialPolygonLayer";
+const _GPLeo = "GeocodePreferenceList";
 const _GPS = "GeospatialPointStyle";
 const _GPSO = "GeospatialPointStyleOptions";
 const _GPSS = "GeospatialPolygonSymbolStyle";
 const _GPSe = "GeospatialPolygonStyle";
+const _GPV = "GeocodePreferenceValue";
+const _GPe = "GeocodePreference";
+const _GPr = "GrantPermissions";
 const _GQA = "GenerativeQnA";
 const _GR = "GeographicRole";
 const _GRC = "GrowthRateComputation";
@@ -1704,6 +1743,7 @@ const _JSo = "JoinStep";
 const _K = "Key";
 const _KA = "KeyArn";
 const _KB = "KnowledgeBase";
+const _KPC = "KeyPairCredentials";
 const _KPIAVCF = "KPIActualValueConditionalFormatting";
 const _KPIC = "KPIConfiguration";
 const _KPICF = "KPIConditionalFormatting";
@@ -1719,6 +1759,7 @@ const _KPISO = "KPISparklineOptions";
 const _KPIV = "KPIVisual";
 const _KPIVLO = "KPIVisualLayoutOptions";
 const _KPIVSL = "KPIVisualStandardLayout";
+const _KPU = "KeyPairUsername";
 const _KR = "KeyRegistration";
 const _L = "Linear";
 const _LA = "ListAggregation";
@@ -1845,8 +1886,8 @@ const _LS = "LineStyle";
 const _LSADO = "LineSeriesAxisDisplayOptions";
 const _LSC = "LinkSharingConfiguration";
 const _LSCo = "LogoSetConfiguration";
-const _LSS = "LineSymbolStyle";
-const _LSSi = "LineStyleSettings";
+const _LSS = "LineStyleSettings";
+const _LSSi = "LineSymbolStyle";
 const _LSo = "LogoSet";
 const _LT = "LayerType";
 const _LTA = "ListTemplateAliases";
@@ -1904,6 +1945,7 @@ const _LW = "LineWidth";
 const _LWo = "LookbackWindow";
 const _La = "Layout";
 const _Lab = "Label";
+const _Lat = "Latitude";
 const _Lay = "Layouts";
 const _Le = "Legend";
 const _Lef = "Left";
@@ -1911,6 +1953,7 @@ const _Li = "Limit";
 const _Lis = "List";
 const _Lo = "Logarithmic";
 const _Log = "Logo";
+const _Lon = "Longitude";
 const _M = "Message";
 const _MA = "MemberArn";
 const _MAF = "MeasureAggregationFunction";
@@ -2101,6 +2144,7 @@ const _PCara = "ParameterControls";
 const _PCe = "PerformanceConfiguration";
 const _PCi = "PivotConfiguration";
 const _PCo = "PositiveColor";
+const _PCos = "PostCode";
 const _PCr = "ProjectedColumns";
 const _PD = "ParameterDeclarations";
 const _PDDC = "ParameterDropDownControl";
@@ -2127,6 +2171,8 @@ const _PHCL = "PredefinedHierarchyColumnList";
 const _PI = "ProjectId";
 const _PIr = "PrincipalId";
 const _PIre = "PredictionInterval";
+const _PK = "PrivateKey";
+const _PKP = "PrivateKeyPassphrase";
 const _PL = "PointLayer";
 const _PLC = "PaginatedLayoutConfiguration";
 const _PLCa = "ParameterListControl";
@@ -2251,6 +2297,7 @@ const _Pla = "Placement";
 const _Po = "Port";
 const _Pos = "Position";
 const _Pr = "Properties";
+const _Pre = "Preference";
 const _Pri = "Principals";
 const _Prim = "Primary";
 const _Prin = "Principal";
@@ -2354,6 +2401,7 @@ const _RIo = "RowIndex";
 const _RIow = "RowInfo";
 const _RIows = "RowsIngested";
 const _RJKP = "RightJoinKeyProperties";
+const _RK = "RequestKey";
 const _RL = "ReferenceLines";
 const _RLCLC = "ReferenceLineCustomLabelConfiguration";
 const _RLDC = "ReferenceLineDataConfiguration";
@@ -2431,7 +2479,10 @@ const _RUQSBEC = "RegisteredUserQSearchBarEmbeddingConfiguration";
 const _RUQSCEC = "RegisteredUserQuickSightConsoleEmbeddingConfiguration";
 const _RUR = "RegisterUserRequest";
 const _RURe = "RegisterUserResponse";
-const _RUe = "RegisterUser";
+const _RUSJR = "RegisteredUserSnapshotJobResult";
+const _RUSJRL = "RegisteredUserSnapshotJobResultList";
+const _RUe = "RegisteredUsers";
+const _RUeg = "RegisterUser";
 const _RWID = "RecoveryWindowInDays";
 const _Ra = "Radius";
 const _Re = "Research";
@@ -2558,6 +2609,7 @@ const _SDo = "SortDirection";
 const _SDt = "StartDate";
 const _SE = "SourceEntity";
 const _SEA = "SourceEntityArn";
+const _SEAe = "SessionExpiresAt";
 const _SECO = "SheetElementConfigurationOverrides";
 const _SEP = "SqlEndpointPath";
 const _SERR = "SheetElementRenderingRule";
@@ -3172,6 +3224,7 @@ const _UIR = "UpdateIpRestriction";
 const _UIRR = "UpdateIpRestrictionRequest";
 const _UIRRp = "UpdateIpRestrictionResponse";
 const _UIU = "UserInvitationUrl";
+const _UIs = "UserIdentifier";
 const _UK = "UniqueKey";
 const _UKL = "UniqueKeyList";
 const _UKR = "UpdateKeyRegistration";
@@ -3273,12 +3326,14 @@ const _VASPICEC = "ViewAccountSPICECapacity";
 const _VAe = "VersionArn";
 const _VCA = "VpcConnectionArn";
 const _VCAD = "VisualCustomActionDefaults";
+const _VCAFL = "VisualCustomizationAdditionalFieldsList";
 const _VCAL = "VisualCustomActionList";
 const _VCAO = "VisualCustomActionOperation";
 const _VCAOL = "VisualCustomActionOperationList";
 const _VCAT = "VisualContentAltText";
 const _VCAi = "VisualCustomAction";
 const _VCC = "ValueColumnConfiguration";
+const _VCFC = "VisualCustomizationFieldsConfiguration";
 const _VCP = "VpcConnectionProperties";
 const _VCS = "ValueCellStyle";
 const _VD = "VersionDescription";
@@ -3480,6 +3535,8 @@ export var FieldValue: StaticSimpleSchema = [0, n0, _FV, 8, 0];
 export var JoinOperationOnClause: StaticSimpleSchema = [0, n0, _JOOC, 8, 0];
 export var NullString: StaticSimpleSchema = [0, n0, _NS, 8, 0];
 export var Prefix: StaticSimpleSchema = [0, n0, _P, 8, 0];
+export var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
+export var PrivateKeyPassphrase: StaticSimpleSchema = [0, n0, _PKP, 8, 0];
 export var QAQueryText: StaticSimpleSchema = [0, n0, _QAQT, 8, 0];
 export var SensitiveDouble: StaticSimpleSchema = [0, n0, _SD, 8, 1];
 export var SensitiveDoubleObject: StaticSimpleSchema = [0, n0, _SDO, 8, 1];
@@ -4209,7 +4266,7 @@ export var BarChartConfiguration: StaticStructureSchema = [
   n0,
   _BCC,
   0,
-  [_FW, _SCo, _Or, _BA, _VP, _SMO, _CA, _CLO, _VA, _VLO, _CLOo, _Le, _DL, _To, _RL, _CADo, _I],
+  [_FW, _SCo, _Or, _BA, _VP, _SMO, _CA, _CLO, _VA, _VLO, _CLOo, _DSS, _Ser, _Le, _DL, _To, _RL, _CADo, _I],
   [
     () => BarChartFieldWells,
     () => BarChartSortConfiguration,
@@ -4222,6 +4279,8 @@ export var BarChartConfiguration: StaticStructureSchema = [
     () => AxisDisplayOptions,
     () => ChartAxisLabelOptions,
     () => ChartAxisLabelOptions,
+    () => BarChartDefaultSeriesSettings,
+    () => BarSeriesItemList,
     () => LegendOptions,
     () => DataLabelOptions,
     () => TooltipOptions,
@@ -4230,6 +4289,14 @@ export var BarChartConfiguration: StaticStructureSchema = [
     () => VisualInteractionOptions,
   ],
 ];
+export var BarChartDefaultSeriesSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _BCDSS,
+  0,
+  [_DSe, _BS],
+  [() => DecalSettings, () => BorderSettings],
+];
 export var BarChartFieldWells: StaticStructureSchema = [
   3,
   n0,
@@ -4237,6 +4304,14 @@ export var BarChartFieldWells: StaticStructureSchema = [
   0,
   [_BCAFW],
   [() => BarChartAggregatedFieldWells],
+];
+export var BarChartSeriesSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _BCSS,
+  0,
+  [_DSe, _BS],
+  [() => DecalSettings, () => BorderSettings],
 ];
 export var BarChartSortConfiguration: StaticStructureSchema = [
   3,
@@ -4268,6 +4343,14 @@ export var BarChartVisual: StaticStructureSchema = [
     () => ColumnHierarchyList,
     0,
   ],
+];
+export var BarSeriesItem: StaticStructureSchema = [
+  3,
+  n0,
+  _BSI,
+  0,
+  [_FBSI, _DFBSI],
+  [() => FieldBarSeriesItem, () => DataFieldBarSeriesItem],
 ];
 export var BasicAuthConnectionMetadata: StaticStructureSchema = [
   3,
@@ -4372,7 +4455,8 @@ export var BodySectionRepeatPageBreakConfiguration: StaticStructureSchema = [
   [() => SectionAfterPageBreak],
 ];
 export var BookmarksConfigurations: StaticStructureSchema = [3, n0, _BC, 0, [_En], [2]];
-export var BorderStyle: StaticStructureSchema = [3, n0, _BS, 0, [_Col, _Sho, _W], [0, 2, 0]];
+export var BorderSettings: StaticStructureSchema = [3, n0, _BS, 0, [_BV, _BW, _BCo], [0, 0, 0]];
+export var BorderStyle: StaticStructureSchema = [3, n0, _BSo, 0, [_Col, _Sho, _W], [0, 2, 0]];
 export var BoxPlotAggregatedFieldWells: StaticStructureSchema = [
   3,
   n0,
@@ -4664,8 +4748,14 @@ export var ColumnConfiguration: StaticStructureSchema = [
   n0,
   _CColu,
   0,
-  [_C, _FCor, _Ro, _CCol],
-  [() => ColumnIdentifier, [() => FormatConfiguration, 0], 0, [() => ColorsConfiguration, 0]],
+  [_C, _FCor, _Ro, _CCol, _DSC],
+  [
+    () => ColumnIdentifier,
+    [() => FormatConfiguration, 0],
+    0,
+    [() => ColorsConfiguration, 0],
+    () => DecalSettingsConfiguration,
+  ],
 ];
 export var ColumnDescription: StaticStructureSchema = [3, n0, _CD, 0, [_Te], [[() => ColumnDescriptiveText, 0]]];
 export var ColumnGroup: StaticStructureSchema = [3, n0, _CG, 0, [_GSCG], [() => GeoSpatialColumnGroup]];
@@ -4712,7 +4802,7 @@ export var ComboChartAggregatedFieldWells: StaticStructureSchema = [
   n0,
   _CCAFW,
   0,
-  [_Ca, _BV, _Co, _LV],
+  [_Ca, _BVa, _Co, _LV],
   [() => DimensionFieldList, () => MeasureFieldList, () => DimensionFieldList, () => MeasureFieldList],
 ];
 export var ComboChartConfiguration: StaticStructureSchema = [
@@ -4720,7 +4810,28 @@ export var ComboChartConfiguration: StaticStructureSchema = [
   n0,
   _CCCo,
   0,
-  [_FW, _SCo, _BA, _CA, _CLO, _PYADO, _PYALO, _SYADO, _SYALO, _SAO, _CLOo, _Le, _BDL, _LDL, _To, _RL, _VP, _I],
+  [
+    _FW,
+    _SCo,
+    _BA,
+    _CA,
+    _CLO,
+    _PYADO,
+    _PYALO,
+    _SYADO,
+    _SYALO,
+    _SAO,
+    _CLOo,
+    _DSS,
+    _Ser,
+    _Le,
+    _BDL,
+    _LDL,
+    _To,
+    _RL,
+    _VP,
+    _I,
+  ],
   [
     () => ComboChartFieldWells,
     () => ComboChartSortConfiguration,
@@ -4733,6 +4844,8 @@ export var ComboChartConfiguration: StaticStructureSchema = [
     () => ChartAxisLabelOptions,
     () => SingleAxisOptions,
     () => ChartAxisLabelOptions,
+    () => ComboChartDefaultSeriesSettings,
+    () => ComboSeriesItemList,
     () => LegendOptions,
     () => DataLabelOptions,
     () => DataLabelOptions,
@@ -4742,6 +4855,14 @@ export var ComboChartConfiguration: StaticStructureSchema = [
     () => VisualInteractionOptions,
   ],
 ];
+export var ComboChartDefaultSeriesSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _CCDSS,
+  0,
+  [_LSS, _MSS, _DSe, _BS],
+  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings, () => BorderSettings],
+];
 export var ComboChartFieldWells: StaticStructureSchema = [
   3,
   n0,
@@ -4749,6 +4870,14 @@ export var ComboChartFieldWells: StaticStructureSchema = [
   0,
   [_CCAFW],
   [() => ComboChartAggregatedFieldWells],
+];
+export var ComboChartSeriesSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _CCSS,
+  0,
+  [_LSS, _MSS, _DSe, _BS],
+  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings, () => BorderSettings],
 ];
 export var ComboChartSortConfiguration: StaticStructureSchema = [
   3,
@@ -4778,6 +4907,14 @@ export var ComboChartVisual: StaticStructureSchema = [
     () => ColumnHierarchyList,
     0,
   ],
+];
+export var ComboSeriesItem: StaticStructureSchema = [
+  3,
+  n0,
+  _CSI,
+  0,
+  [_FCSI, _DFCSI],
+  [() => FieldComboSeriesItem, () => DataFieldComboSeriesItem],
 ];
 export var ComparativeOrder: StaticStructureSchema = [3, n0, _CO, 0, [_UO, _SOp, _TUSV], [0, 64 | 0, 0]];
 export var ComparisonConfiguration: StaticStructureSchema = [
@@ -4907,6 +5044,7 @@ export var ContributionAnalysisTimeRanges: StaticStructureSchema = [
   [_SR, _ER],
   [() => TopicIRFilterOption, () => TopicIRFilterOption],
 ];
+export var Coordinate: StaticStructureSchema = [3, n0, _Coo, 0, [_Lat, _Lon], [1, 1]];
 export var CreateAccountCustomizationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5546,6 +5684,14 @@ export var Dashboard: StaticStructureSchema = [
   [_DI, _A, _N, _Ve, _CT, _LPT, _LUT, _LE],
   [0, 0, 0, () => DashboardVersion, 4, 4, 4, 64 | 0],
 ];
+export var DashboardCustomizationVisualOptions: StaticStructureSchema = [
+  3,
+  n0,
+  _DCVO,
+  0,
+  [_FCi],
+  [() => VisualCustomizationFieldsConfiguration],
+];
 export var DashboardError: StaticStructureSchema = [3, n0, _DE, 0, [_T, _M, _VE], [0, 0, () => EntityList]];
 export var DashboardPublishOptions: StaticStructureSchema = [
   3,
@@ -5645,6 +5791,22 @@ export var DataBarsOptions: StaticStructureSchema = [3, n0, _DBO, 0, [_FIi, _PCo
 export var DatabricksParameters: StaticStructureSchema = [3, n0, _DPa, 0, [_H, _Po, _SEP], [0, 1, 0]];
 export var DataColor: StaticStructureSchema = [3, n0, _DCa, 0, [_Col, _DVat], [0, 1]];
 export var DataColorPalette: StaticStructureSchema = [3, n0, _DCP, 0, [_Co, _MMG, _EFC], [64 | 0, 64 | 0, 0]];
+export var DataFieldBarSeriesItem: StaticStructureSchema = [
+  3,
+  n0,
+  _DFBSI,
+  0,
+  [_FIi, _FV, _Set],
+  [0, () => SensitiveString, () => BarChartSeriesSettings],
+];
+export var DataFieldComboSeriesItem: StaticStructureSchema = [
+  3,
+  n0,
+  _DFCSI,
+  0,
+  [_FIi, _FV, _Set],
+  [0, () => SensitiveString, () => ComboChartSeriesSettings],
+];
 export var DataFieldSeriesItem: StaticStructureSchema = [
   3,
   n0,
@@ -5773,9 +5935,9 @@ export var DataSetColumnIdMapping: StaticStructureSchema = [3, n0, _DSCIM, 0, [_
 export var DataSetConfiguration: StaticStructureSchema = [
   3,
   n0,
-  _DSC,
+  _DSCa,
   0,
-  [_Pl, _DSS, _CGSL],
+  [_Pl, _DSSa, _CGSL],
   [0, () => DataSetSchema, () => ColumnGroupSchemaList],
 ];
 export var DataSetDateComparisonFilterCondition: StaticStructureSchema = [
@@ -5868,7 +6030,7 @@ export var DataSetRefreshProperties: StaticStructureSchema = [
   [_RCe, _FCa],
   [() => RefreshConfiguration, () => RefreshFailureConfiguration],
 ];
-export var DataSetSchema: StaticStructureSchema = [3, n0, _DSS, 0, [_CSL], [() => ColumnSchemaList]];
+export var DataSetSchema: StaticStructureSchema = [3, n0, _DSSa, 0, [_CSL], [() => ColumnSchemaList]];
 export var DataSetSearchFilter: StaticStructureSchema = [3, n0, _DSSF, 0, [_O, _N, _V], [0, 0, 0]];
 export var DataSetStringComparisonFilterCondition: StaticStructureSchema = [
   3,
@@ -5913,7 +6075,7 @@ export var DataSetStringListFilterValue: StaticStructureSchema = [
 export var DataSetSummary: StaticStructureSchema = [
   3,
   n0,
-  _DSSa,
+  _DSSat,
   0,
   [_A, _DSI, _N, _CT, _LUT, _IM, _RLPDS, _RLPDSM, _RLPTCA, _CLPRA, _UA],
   [0, 0, 0, 4, 4, 0, () => RowLevelPermissionDataSet, () => RowLevelPermissionDataSetMap, 2, 2, 0],
@@ -5944,22 +6106,22 @@ export var DataSource: StaticStructureSchema = [
 export var DataSourceCredentials: StaticStructureSchema = [
   3,
   n0,
-  _DSCa,
+  _DSCat,
   8,
-  [_CP, _CSA, _SA, _WPC],
-  [() => CredentialPair, 0, 0, () => WebProxyCredentials],
+  [_CP, _CSA, _SA, _KPC, _WPC],
+  [() => CredentialPair, 0, 0, [() => KeyPairCredentials, 0], () => WebProxyCredentials],
 ];
 export var DataSourceErrorInfo: StaticStructureSchema = [3, n0, _DSEI, 0, [_T, _M], [0, 0]];
 export var DataSourceSearchFilter: StaticStructureSchema = [3, n0, _DSSFa, 0, [_O, _N, _V], [0, 0, 0]];
 export var DataSourceSummary: StaticStructureSchema = [
   3,
   n0,
-  _DSSat,
+  _DSSata,
   0,
   [_A, _DSIat, _N, _T, _CT, _LUT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var DataStoriesConfigurations: StaticStructureSchema = [3, n0, _DSCat, 0, [_En], [2]];
+export var DataStoriesConfigurations: StaticStructureSchema = [3, n0, _DSCata, 0, [_En], [2]];
 export var DataStoriesSharingOption: StaticStructureSchema = [3, n0, _DSSO, 0, [_ASv], [0]];
 export var DateAxisOptions: StaticStructureSchema = [3, n0, _DAO, 0, [_MDV], [0]];
 export var DateDimensionField: StaticStructureSchema = [
@@ -6042,6 +6204,8 @@ export var DateTimeValueWhenUnsetConfiguration: StaticStructureSchema = [
   [_VWUO, _CVus],
   [0, [() => SensitiveTimestamp, 0]],
 ];
+export var DecalSettings: StaticStructureSchema = [3, n0, _DSe, 0, [_EV, _DVec, _DCe, _DPTe, _DSTe], [0, 0, 0, 0, 0]];
+export var DecalSettingsConfiguration: StaticStructureSchema = [3, n0, _DSC, 0, [_CDS], [() => DecalSettingsList]];
 export var DecimalDatasetParameter: StaticStructureSchema = [
   3,
   n0,
@@ -6674,7 +6838,7 @@ export var DeleteVPCConnectionResponse: StaticStructureSchema = [
   n0,
   _DVPCCRe,
   0,
-  [_A, _VPCCI, _DSe, _ASv, _RI, _St],
+  [_A, _VPCCI, _DSel, _ASv, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]],
 ];
 export var DescribeAccountCustomizationRequest: StaticStructureSchema = [
@@ -7770,7 +7934,7 @@ export var DynamicDefaultValue: StaticStructureSchema = [
 export var EmptyVisual: StaticStructureSchema = [
   3,
   n0,
-  _EV,
+  _EVm,
   0,
   [_VI, _DSIatae, _Ac],
   [0, 0, () => VisualCustomActionList],
@@ -7793,7 +7957,23 @@ export var ExportHiddenFieldsOption: StaticStructureSchema = [3, n0, _EHFO, 0, [
 export var ExportToCSVOption: StaticStructureSchema = [3, n0, _ETCSVO, 0, [_ASv], [0]];
 export var ExportWithHiddenFieldsOption: StaticStructureSchema = [3, n0, _EWHFO, 0, [_ASv], [0]];
 export var FailedKeyRegistrationEntry: StaticStructureSchema = [3, n0, _FKRE, 0, [_KA, _M, _SCt, _SFe], [0, 0, 1, 2]];
+export var FieldBarSeriesItem: StaticStructureSchema = [
+  3,
+  n0,
+  _FBSI,
+  0,
+  [_FIi, _Set],
+  [0, () => BarChartSeriesSettings],
+];
 export var FieldBasedTooltip: StaticStructureSchema = [3, n0, _FBT, 0, [_AV, _TTT, _TF], [0, 0, () => TooltipItemList]];
+export var FieldComboSeriesItem: StaticStructureSchema = [
+  3,
+  n0,
+  _FCSI,
+  0,
+  [_FIi, _Set],
+  [0, () => ComboChartSeriesSettings],
+];
 export var FieldFolder: StaticStructureSchema = [3, n0, _FFi, 0, [_d, _co], [0, 64 | 0]];
 export var FieldLabelType: StaticStructureSchema = [3, n0, _FLT, 0, [_FIi, _Vi], [0, 0]];
 export var FieldSeriesItem: StaticStructureSchema = [
@@ -7876,7 +8056,7 @@ export var FilledMapVisual: StaticStructureSchema = [
   n0,
   _FMV,
   0,
-  [_VI, _Tit, _Su, _CCh, _CFon, _CH, _Ac, _VCAT],
+  [_VI, _Tit, _Su, _CCh, _CFon, _CH, _Ac, _VCAT, _GP],
   [
     0,
     () => VisualTitleLabelOptions,
@@ -7886,6 +8066,7 @@ export var FilledMapVisual: StaticStructureSchema = [
     () => ColumnHierarchyList,
     () => VisualCustomActionList,
     0,
+    () => GeocodePreferenceList,
   ],
 ];
 export var Filter: StaticStructureSchema = [
@@ -7909,7 +8090,7 @@ export var FilterAggMetrics: StaticStructureSchema = [3, n0, _FAM, 0, [_MOe, _Fu
 export var FilterControl: StaticStructureSchema = [
   3,
   n0,
-  _FCi,
+  _FCil,
   0,
   [_DTPa, _Lis, _Dr, _TFe, _TAex, _Sl, _RDT, _CSro],
   [
@@ -8145,7 +8326,7 @@ export var FreeFormLayoutElement: StaticStructureSchema = [
   n0,
   _FFLE,
   0,
-  [_EIl, _ET, _XAL, _YAL, _W, _He, _Vi, _RRe, _BS, _SBS, _BSa, _LAo, _BR, _Pad],
+  [_EIl, _ET, _XAL, _YAL, _W, _He, _Vi, _RRe, _BSo, _SBS, _BSa, _LAo, _BR, _Pad],
   [
     0,
     0,
@@ -8377,6 +8558,15 @@ export var GenerateEmbedUrlForRegisteredUserWithIdentityResponse: StaticStructur
   [[() => EmbeddingUrl, 0], [1, 32], 0],
 ];
 export var GenerativeAuthoringConfigurations: StaticStructureSchema = [3, n0, _GAC, 0, [_En], [2]];
+export var GeocodePreference: StaticStructureSchema = [
+  3,
+  n0,
+  _GPe,
+  0,
+  [_RK, _Pre],
+  [() => GeocoderHierarchy, () => GeocodePreferenceValue],
+];
+export var GeocoderHierarchy: StaticStructureSchema = [3, n0, _GH, 0, [_Cou, _Sta, _Coun, _Ci, _PCos], [0, 0, 0, 0, 0]];
 export var GeospatialCategoricalColor: StaticStructureSchema = [
   3,
   n0,
@@ -8392,7 +8582,7 @@ export var GeospatialCircleSymbolStyle: StaticStructureSchema = [
   n0,
   _GCSS,
   0,
-  [_FCil, _SCtr, _SW, _CRi],
+  [_FCill, _SCtr, _SW, _CRi],
   [() => GeospatialColor, () => GeospatialColor, () => GeospatialLineWidth, () => GeospatialCircleRadius],
 ];
 export var GeospatialColor: StaticStructureSchema = [
@@ -8499,13 +8689,13 @@ export var GeospatialLayerMapConfiguration: StaticStructureSchema = [
   ],
 ];
 export var GeospatialLineLayer: StaticStructureSchema = [3, n0, _GLL, 0, [_Sty], [() => GeospatialLineStyle]];
-export var GeospatialLineStyle: StaticStructureSchema = [3, n0, _GLS, 0, [_LSS], [() => GeospatialLineSymbolStyle]];
+export var GeospatialLineStyle: StaticStructureSchema = [3, n0, _GLS, 0, [_LSSi], [() => GeospatialLineSymbolStyle]];
 export var GeospatialLineSymbolStyle: StaticStructureSchema = [
   3,
   n0,
   _GLSS,
   0,
-  [_FCil, _LW],
+  [_FCill, _LW],
   [() => GeospatialColor, () => GeospatialLineWidth],
 ];
 export var GeospatialLineWidth: StaticStructureSchema = [3, n0, _GLW, 0, [_LW], [1]];
@@ -8557,7 +8747,7 @@ export var GeospatialMapVisual: StaticStructureSchema = [
   n0,
   _GMV,
   0,
-  [_VI, _Tit, _Su, _CCh, _CH, _Ac, _VCAT],
+  [_VI, _Tit, _Su, _CCh, _CH, _Ac, _VCAT, _GP],
   [
     0,
     () => VisualTitleLabelOptions,
@@ -8566,6 +8756,7 @@ export var GeospatialMapVisual: StaticStructureSchema = [
     () => ColumnHierarchyList,
     () => VisualCustomActionList,
     0,
+    () => GeocodePreferenceList,
   ],
 ];
 export var GeospatialNullDataSettings: StaticStructureSchema = [
@@ -8576,7 +8767,7 @@ export var GeospatialNullDataSettings: StaticStructureSchema = [
   [_SSy],
   [() => GeospatialNullSymbolStyle],
 ];
-export var GeospatialNullSymbolStyle: StaticStructureSchema = [3, n0, _GNSS, 0, [_FCil, _SCtr, _SW], [0, 0, 1]];
+export var GeospatialNullSymbolStyle: StaticStructureSchema = [3, n0, _GNSS, 0, [_FCill, _SCtr, _SW], [0, 0, 1]];
 export var GeospatialPointLayer: StaticStructureSchema = [3, n0, _GPL, 0, [_Sty], [() => GeospatialPointStyle]];
 export var GeospatialPointStyle: StaticStructureSchema = [3, n0, _GPS, 0, [_CSS], [() => GeospatialCircleSymbolStyle]];
 export var GeospatialPointStyleOptions: StaticStructureSchema = [
@@ -8601,7 +8792,7 @@ export var GeospatialPolygonSymbolStyle: StaticStructureSchema = [
   n0,
   _GPSS,
   0,
-  [_FCil, _SCtr, _SW],
+  [_FCill, _SCtr, _SW],
   [() => GeospatialColor, () => GeospatialColor, () => GeospatialLineWidth],
 ];
 export var GeospatialSolidColor: StaticStructureSchema = [3, n0, _GSC, 0, [_Col, _Sta], [0, 0]];
@@ -8679,6 +8870,15 @@ export var GetFlowPermissionsOutput: StaticStructureSchema = [
   [_A, _FIl, _Per, _RI, _St],
   [0, 0, () => PermissionsList, 0, [1, 32]],
 ];
+export var GetIdentityContextRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GICR,
+  0,
+  [_AAI, _UIs, _Na, _SEAe],
+  [[0, 1], [() => UserIdentifier, 0], 0, 4],
+];
+export var GetIdentityContextResponse: StaticStructureSchema = [3, n0, _GICRe, 0, [_St, _RI, _Cont], [[1, 32], 0, 0]];
 export var GetSessionEmbedUrlRequest: StaticStructureSchema = [
   3,
   n0,
@@ -8731,7 +8931,7 @@ export var GridLayoutElement: StaticStructureSchema = [
   n0,
   _GLE,
   0,
-  [_EIl, _ET, _CIolu, _CSolumn, _RIo, _RSo, _BS, _SBS, _BSa, _LAo, _BR, _Pad],
+  [_EIl, _ET, _CIolu, _CSolumn, _RIo, _RSo, _BSo, _SBS, _BSa, _LAo, _BR, _Pad],
   [
     0,
     0,
@@ -8841,7 +9041,7 @@ export var HistogramBinOptions: StaticStructureSchema = [
   n0,
   _HBO,
   0,
-  [_SBT, _BCi, _BW, _SVtar],
+  [_SBT, _BCi, _BWi, _SVtar],
   [0, () => BinCountOptions, () => BinWidthOptions, 1],
 ];
 export var HistogramConfiguration: StaticStructureSchema = [
@@ -9084,6 +9284,14 @@ export var JoinOperation: StaticStructureSchema = [
     () => JoinOperandProperties,
   ],
 ];
+export var KeyPairCredentials: StaticStructureSchema = [
+  3,
+  n0,
+  _KPC,
+  0,
+  [_KPU, _PK, _PKP],
+  [0, [() => PrivateKey, 0], [() => PrivateKeyPassphrase, 0]],
+];
 export var KPIActualValueConditionalFormatting: StaticStructureSchema = [
   3,
   n0,
@@ -9274,7 +9482,7 @@ export var LineChartConfiguration: StaticStructureSchema = [
     _SYADO,
     _SYALO,
     _SAO,
-    _DSSe,
+    _DSS,
     _Ser,
     _Le,
     _DL,
@@ -9313,8 +9521,8 @@ export var LineChartDefaultSeriesSettings: StaticStructureSchema = [
   n0,
   _LCDSS,
   0,
-  [_AB, _LSSi, _MSS],
-  [0, () => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings],
+  [_AB, _LSS, _MSS, _DSe],
+  [0, () => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings],
 ];
 export var LineChartFieldWells: StaticStructureSchema = [
   3,
@@ -9338,8 +9546,8 @@ export var LineChartSeriesSettings: StaticStructureSchema = [
   n0,
   _LCSS,
   0,
-  [_LSSi, _MSS],
-  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings],
+  [_LSS, _MSS, _DSe],
+  [() => LineChartLineStyleSettings, () => LineChartMarkerStyleSettings, () => DecalSettings],
 ];
 export var LineChartSortConfiguration: StaticStructureSchema = [
   3,
@@ -9566,7 +9774,7 @@ export var ListDataSetsResponse: StaticStructureSchema = [
   n0,
   _LDSRi,
   0,
-  [_DSSata, _NT, _RI, _St],
+  [_DSSatae, _NT, _RI, _St],
   [() => DataSetSummaryList, 0, 0, [1, 32]],
 ];
 export var ListDataSourcesRequest: StaticStructureSchema = [
@@ -10370,7 +10578,7 @@ export var PanelConfiguration: StaticStructureSchema = [
   n0,
   _PCa,
   0,
-  [_Tit, _BVo, _BT, _BS, _BCo, _GV, _GSut, _BVa, _BCa],
+  [_Tit, _BV, _BT, _BSo, _BCo, _GV, _GSut, _BVac, _BCa],
   [() => PanelTitleOptions, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var PanelTitleOptions: StaticStructureSchema = [
@@ -10643,7 +10851,7 @@ export var PivotTableConfiguration: StaticStructureSchema = [
   n0,
   _PTC,
   0,
-  [_FW, _SCo, _TOa, _TOot, _FOie, _PRO, _I],
+  [_FW, _SCo, _TOa, _TOot, _FOie, _PRO, _DCVO, _I],
   [
     () => PivotTableFieldWells,
     () => PivotTableSortConfiguration,
@@ -10651,6 +10859,7 @@ export var PivotTableConfiguration: StaticStructureSchema = [
     () => PivotTableTotalOptions,
     () => PivotTableFieldOptions,
     () => PivotTablePaginatedReportOptions,
+    () => DashboardCustomizationVisualOptions,
     () => VisualInteractionOptions,
   ],
 ];
@@ -11192,6 +11401,14 @@ export var RegisteredUserQuickSightConsoleEmbeddingConfiguration: StaticStructur
   [_IPni, _FC],
   [0, () => RegisteredUserConsoleFeatureConfigurations],
 ];
+export var RegisteredUserSnapshotJobResult: StaticStructureSchema = [
+  3,
+  n0,
+  _RUSJR,
+  0,
+  [_FGi],
+  [[() => SnapshotJobResultFileGroupList, 0]],
+];
 export var RegisterUserRequest: StaticStructureSchema = [
   3,
   n0,
@@ -11559,7 +11776,7 @@ export var SearchDataSetsResponse: StaticStructureSchema = [
   n0,
   _SDSRe,
   0,
-  [_DSSata, _NT, _St, _RI],
+  [_DSSatae, _NT, _St, _RI],
   [() => DataSetSummaryList, 0, [1, 32], 0],
 ];
 export var SearchDataSourcesRequest: StaticStructureSchema = [
@@ -11658,7 +11875,7 @@ export var SectionBasedLayoutConfiguration: StaticStructureSchema = [
   n0,
   _SBLC,
   0,
-  [_HS, _BSo, _FSoo, _CSO],
+  [_HS, _BSod, _FSoo, _CSO],
   [
     () => HeaderFooterSectionConfigurationList,
     () => BodySectionConfigurationList,
@@ -11897,7 +12114,7 @@ export var SnapshotConfiguration: StaticStructureSchema = [
   n0,
   _SCn,
   0,
-  [_FGi, _DCe, _Par],
+  [_FGi, _DCes, _Par],
   [() => SnapshotFileGroupList, () => SnapshotDestinationConfiguration, [() => _Parameters, 0]],
 ];
 export var SnapshotDestinationConfiguration: StaticStructureSchema = [
@@ -11924,8 +12141,11 @@ export var SnapshotJobResult: StaticStructureSchema = [
   n0,
   _SJR,
   0,
-  [_AU],
-  [[() => AnonymousUserSnapshotJobResultList, 0]],
+  [_AU, _RUe],
+  [
+    [() => AnonymousUserSnapshotJobResultList, 0],
+    [() => RegisteredUserSnapshotJobResultList, 0],
+  ],
 ];
 export var SnapshotJobResultErrorInfo: StaticStructureSchema = [3, n0, _SJREI, 0, [_EM, _ETr], [0, 0]];
 export var SnapshotJobResultFileGroup: StaticStructureSchema = [
@@ -12209,7 +12429,7 @@ export var TableConfiguration: StaticStructureSchema = [
   n0,
   _TCab,
   0,
-  [_FW, _SCo, _TOa, _TOot, _FOie, _PRO, _TIV, _I],
+  [_FW, _SCo, _TOa, _TOot, _FOie, _PRO, _TIV, _DCVO, _I],
   [
     () => TableFieldWells,
     () => TableSortConfiguration,
@@ -12218,6 +12438,7 @@ export var TableConfiguration: StaticStructureSchema = [
     () => TableFieldOptions,
     () => TablePaginatedReportOptions,
     () => TableInlineVisualizationList,
+    () => DashboardCustomizationVisualOptions,
     () => VisualInteractionOptions,
   ],
 ];
@@ -12398,7 +12619,7 @@ export var TemplateVersion: StaticStructureSchema = [
   n0,
   _TVe,
   0,
-  [_CT, _Err, _VN, _St, _DSCata, _D, _SEA, _TA, _Sh],
+  [_CT, _Err, _VN, _St, _DSCatae, _D, _SEA, _TA, _Sh],
   [4, () => TemplateErrorList, 1, 0, () => DataSetConfigurationList, 0, 0, 0, () => SheetList],
 ];
 export var TemplateVersionDefinition: StaticStructureSchema = [
@@ -12406,7 +12627,7 @@ export var TemplateVersionDefinition: StaticStructureSchema = [
   n0,
   _TVD,
   0,
-  [_DSCata, _Sh, _CF, _PD, _FG, _CC, _AD, _Op, _QEO, _SF],
+  [_DSCatae, _Sh, _CF, _PD, _FG, _CC, _AD, _Op, _QEO, _SF],
   [
     () => DataSetConfigurationList,
     () => SheetDefinitionList,
@@ -13077,7 +13298,7 @@ export var UpdateActionConnectorPermissionsRequest: StaticStructureSchema = [
   n0,
   _UACPRpd,
   0,
-  [_AAI, _ACI, _GP, _RPev],
+  [_AAI, _ACI, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
 export var UpdateActionConnectorPermissionsResponse: StaticStructureSchema = [
@@ -13109,7 +13330,7 @@ export var UpdateAnalysisPermissionsRequest: StaticStructureSchema = [
   n0,
   _UAPR,
   0,
-  [_AAI, _AIn, _GP, _RPev],
+  [_AAI, _AIn, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
 export var UpdateAnalysisPermissionsResponse: StaticStructureSchema = [
@@ -13221,7 +13442,7 @@ export var UpdateDashboardPermissionsRequest: StaticStructureSchema = [
   n0,
   _UDPR,
   0,
-  [_AAI, _DI, _GP, _RPev, _GLP, _RLP],
+  [_AAI, _DI, _GPr, _RPev, _GLP, _RLP],
   [
     [0, 1],
     [0, 1],
@@ -13307,7 +13528,7 @@ export var UpdateDataSetPermissionsRequest: StaticStructureSchema = [
   n0,
   _UDSPR,
   0,
-  [_AAI, _DSI, _GP, _RPev],
+  [_AAI, _DSI, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
 export var UpdateDataSetPermissionsResponse: StaticStructureSchema = [
@@ -13356,7 +13577,7 @@ export var UpdateDataSourcePermissionsRequest: StaticStructureSchema = [
   n0,
   _UDSPRpd,
   0,
-  [_AAI, _DSIat, _GP, _RPev],
+  [_AAI, _DSIat, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
 export var UpdateDataSourcePermissionsResponse: StaticStructureSchema = [
@@ -13412,7 +13633,7 @@ export var UpdateFlowPermissionsInput: StaticStructureSchema = [
   n0,
   _UFPI,
   0,
-  [_AAI, _FIl, _GP, _RPev],
+  [_AAI, _FIl, _GPr, _RPev],
   [
     [0, 1],
     [0, 1],
@@ -13433,7 +13654,7 @@ export var UpdateFolderPermissionsRequest: StaticStructureSchema = [
   n0,
   _UFPR,
   0,
-  [_AAI, _FI, _GP, _RPev],
+  [_AAI, _FI, _GPr, _RPev],
   [[0, 1], [0, 1], () => ResourcePermissionList, () => ResourcePermissionList],
 ];
 export var UpdateFolderPermissionsResponse: StaticStructureSchema = [
@@ -13608,7 +13829,7 @@ export var UpdateTemplatePermissionsRequest: StaticStructureSchema = [
   n0,
   _UTPR,
   0,
-  [_AAI, _TIe, _GP, _RPev],
+  [_AAI, _TIe, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
 export var UpdateTemplatePermissionsResponse: StaticStructureSchema = [
@@ -13656,7 +13877,7 @@ export var UpdateThemePermissionsRequest: StaticStructureSchema = [
   n0,
   _UTPRpd,
   0,
-  [_AAI, _TI, _GP, _RPev],
+  [_AAI, _TI, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
 export var UpdateThemePermissionsResponse: StaticStructureSchema = [
@@ -13688,7 +13909,7 @@ export var UpdateTopicPermissionsRequest: StaticStructureSchema = [
   n0,
   _UTPRpdat,
   0,
-  [_AAI, _TIo, _GP, _RPev],
+  [_AAI, _TIo, _GPr, _RPev],
   [[0, 1], [0, 1], () => UpdateResourcePermissionList, () => UpdateResourcePermissionList],
 ];
 export var UpdateTopicPermissionsResponse: StaticStructureSchema = [
@@ -13824,7 +14045,7 @@ export var Visual: StaticStructureSchema = [
     _IVn,
     _SDV,
     _CCVu,
-    _EV,
+    _EVm,
     _RCV,
     _PVl,
   ],
@@ -13885,6 +14106,14 @@ export var VisualCustomActionOperation: StaticStructureSchema = [
     () => CustomActionURLOperation,
     () => CustomActionSetParametersOperation,
   ],
+];
+export var VisualCustomizationFieldsConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _VCFC,
+  0,
+  [_St, _AFd],
+  [0, () => VisualCustomizationAdditionalFieldsList],
 ];
 export var VisualHighlightOperation: StaticStructureSchema = [3, n0, _VHO, 0, [_Tr], [0]];
 export var VisualInteractionOptions: StaticStructureSchema = [
@@ -14343,6 +14572,7 @@ export var AuthorizedTargetsByServices: StaticListSchema = [1, n0, _ATBSu, 0, ()
 export var AuthorizedTargetsList = 64 | 0;
 export var AuthorSpecifiedAggregations = 64 | 0;
 export var AxisLabelOptionsList: StaticListSchema = [1, n0, _ALOL, 0, () => AxisLabelOptions];
+export var BarSeriesItemList: StaticListSchema = [1, n0, _BSIL, 0, () => BarSeriesItem];
 export var BodySectionConfigurationList: StaticListSchema = [1, n0, _BSCL, 0, () => BodySectionConfiguration];
 export var BodySectionDynamicDimensionSortConfigurationList: StaticListSchema = [1, n0, _BSDDSCL, 0, () => ColumnSort];
 export var BodySectionRepeatDimensionConfigurationList: StaticListSchema = [
@@ -14377,6 +14607,7 @@ export var ColumnSchemaList: StaticListSchema = [1, n0, _CSL, 0, () => ColumnSch
 export var ColumnTagList: StaticListSchema = [1, n0, _CTL, 0, [() => ColumnTag, 0]];
 export var ColumnTagNames = 64 | 0;
 export var ColumnToUnpivotList: StaticListSchema = [1, n0, _CTUL, 0, () => ColumnToUnpivot];
+export var ComboSeriesItemList: StaticListSchema = [1, n0, _CSIL, 0, () => ComboSeriesItem];
 export var ComputationList: StaticListSchema = [1, n0, _CLo, 0, () => Computation];
 export var ContributionAnalysisDefaultList: StaticListSchema = [1, n0, _CADL, 0, () => ContributionAnalysisDefault];
 export var ContributionAnalysisFactorsList: StaticListSchema = [1, n0, _CAFL, 0, () => ContributionAnalysisFactor];
@@ -14416,6 +14647,7 @@ export var DataSourceSummaryList: StaticListSchema = [1, n0, _DSSLa, 0, () => Da
 export var DateTimeDatasetParameterValueList = 64 | 4;
 export var DateTimeDefaultValueList: StaticListSchema = [1, n0, _DTDVL, 0, [() => SensitiveTimestamp, 0]];
 export var DateTimeParameterList: StaticListSchema = [1, n0, _DTPL, 0, [() => DateTimeParameter, 0]];
+export var DecalSettingsList: StaticListSchema = [1, n0, _DSLe, 0, () => DecalSettings];
 export var DecimalDatasetParameterValueList = 64 | 1;
 export var DecimalDefaultValueList: StaticListSchema = [1, n0, _DDVL, 0, [() => SensitiveDoubleObject, 0]];
 export var DecimalParameterList: StaticListSchema = [1, n0, _DPLe, 0, [() => DecimalParameter, 0]];
@@ -14462,6 +14694,7 @@ export var GaugeChartConditionalFormattingOptionList: StaticListSchema = [
   0,
   () => GaugeChartConditionalFormattingOption,
 ];
+export var GeocodePreferenceList: StaticListSchema = [1, n0, _GPLeo, 0, () => GeocodePreference];
 export var GeospatialCategoricalDataColorList: StaticListSchema = [
   1,
   n0,
@@ -14574,6 +14807,13 @@ export var RadarChartColorFieldList: StaticListSchema = [1, n0, _RCCFLa, 0, () =
 export var RadarChartValuesFieldList: StaticListSchema = [1, n0, _RCVFL, 0, () => MeasureField];
 export var ReferenceLineList: StaticListSchema = [1, n0, _RLL, 0, () => ReferenceLine];
 export var RefreshSchedules: StaticListSchema = [1, n0, _RS, 0, () => RefreshSchedule];
+export var RegisteredUserSnapshotJobResultList: StaticListSchema = [
+  1,
+  n0,
+  _RUSJRL,
+  0,
+  [() => RegisteredUserSnapshotJobResult, 0],
+];
 export var RenameColumnOperationList: StaticListSchema = [1, n0, _RCOL, 0, () => RenameColumnOperation];
 export var ResourcePermissionList: StaticListSchema = [1, n0, _RPL, 0, () => ResourcePermission];
 export var RowAlternateColorList = 64 | 0;
@@ -14709,6 +14949,7 @@ export var UpdateResourcePermissionList: StaticListSchema = [1, n0, _URPL, 0, ()
 export var UserList: StaticListSchema = [1, n0, _UL, 0, () => User];
 export var VisualCustomActionList: StaticListSchema = [1, n0, _VCAL, 0, () => VisualCustomAction];
 export var VisualCustomActionOperationList: StaticListSchema = [1, n0, _VCAOL, 0, () => VisualCustomActionOperation];
+export var VisualCustomizationAdditionalFieldsList: StaticListSchema = [1, n0, _VCAFL, 0, () => ColumnIdentifier];
 export var VisualList: StaticListSchema = [1, n0, _VLi, 0, () => Visual];
 export var VPCConnectionSummaryList: StaticListSchema = [1, n0, _VPCCSL, 0, () => VPCConnectionSummary];
 export var WordCloudDimensionFieldList: StaticListSchema = [1, n0, _WCDFL, 0, () => DimensionField];
@@ -14833,6 +15074,14 @@ export var DataSourceParameters: StaticStructureSchema = [
     () => QBusinessParameters,
   ],
 ];
+export var GeocodePreferenceValue: StaticStructureSchema = [
+  3,
+  n0,
+  _GPV,
+  0,
+  [_GH, _Coo],
+  [() => GeocoderHierarchy, () => Coordinate],
+];
 export var ImageSource: StaticStructureSchema = [3, n0, _ISmag, 0, [_PUu, _SU], [0, 0]];
 export var PhysicalTable: StaticStructureSchema = [
   3,
@@ -14889,6 +15138,14 @@ export var TransformOperation: StaticStructureSchema = [
     () => UntagColumnOperation,
     () => OverrideDatasetParameterOperation,
   ],
+];
+export var UserIdentifier: StaticStructureSchema = [
+  3,
+  n0,
+  _UIs,
+  0,
+  [_UN, _E, _UAs],
+  [[() => SensitiveString, 0], [() => SensitiveString, 0], 0],
 ];
 export var BatchCreateTopicReviewedAnswer: StaticOperationSchema = [
   9,
@@ -14973,7 +15230,7 @@ export var CreateDashboard: StaticOperationSchema = [
 export var CreateDataSet: StaticOperationSchema = [
   9,
   n0,
-  _CDS,
+  _CDSr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets", 200] },
   () => CreateDataSetRequest,
   () => CreateDataSetResponse,
@@ -14981,7 +15238,7 @@ export var CreateDataSet: StaticOperationSchema = [
 export var CreateDataSource: StaticOperationSchema = [
   9,
   n0,
-  _CDSr,
+  _CDSre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources", 200] },
   () => CreateDataSourceRequest,
   () => CreateDataSourceResponse,
@@ -15858,6 +16115,14 @@ export var GetFlowPermissions: StaticOperationSchema = [
   () => GetFlowPermissionsInput,
   () => GetFlowPermissionsOutput,
 ];
+export var GetIdentityContext: StaticOperationSchema = [
+  9,
+  n0,
+  _GIC,
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/identity-context", 200] },
+  () => GetIdentityContextRequest,
+  () => GetIdentityContextResponse,
+];
 export var GetSessionEmbedUrl: StaticOperationSchema = [
   9,
   n0,
@@ -16173,7 +16438,7 @@ export var PutDataSetRefreshProperties: StaticOperationSchema = [
 export var RegisterUser: StaticOperationSchema = [
   9,
   n0,
-  _RUe,
+  _RUeg,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/namespaces/{Namespace}/users", 200] },
   () => RegisterUserRequest,
   () => RegisterUserResponse,

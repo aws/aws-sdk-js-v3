@@ -94,6 +94,7 @@ import {
   CustomContentType,
   CustomerManagedKeyUnavailableException,
   DashboardBehavior,
+  DashboardCustomizationStatus,
   DashboardErrorType,
   DashboardFilterAttribute,
   DashboardUIState,
@@ -116,6 +117,8 @@ import {
   DateAggregationFunction,
   DayOfTheWeek,
   DayOfWeek,
+  DecalPatternType,
+  DecalStyleType,
   DefaultAggregation,
   DeleteAccountCustomPermissionCommand,
   DeleteAccountCustomizationCommand,
@@ -237,6 +240,7 @@ import {
   GetDashboardEmbedUrlCommand,
   GetFlowMetadataCommand,
   GetFlowPermissionsCommand,
+  GetIdentityContextCommand,
   GetSessionEmbedUrlCommand,
   GroupFilterAttribute,
   GroupFilterOperator,
@@ -689,6 +693,7 @@ assert(typeof GenerateEmbedUrlForRegisteredUserWithIdentityCommand === "function
 assert(typeof GetDashboardEmbedUrlCommand === "function");
 assert(typeof GetFlowMetadataCommand === "function");
 assert(typeof GetFlowPermissionsCommand === "function");
+assert(typeof GetIdentityContextCommand === "function");
 assert(typeof GetSessionEmbedUrlCommand === "function");
 assert(typeof ListActionConnectorsCommand === "function");
 assert(typeof ListAnalysesCommand === "function");
@@ -857,6 +862,7 @@ assert(typeof CrossDatasetTypes === "object");
 assert(typeof CustomContentImageScalingConfiguration === "object");
 assert(typeof CustomContentType === "object");
 assert(typeof DashboardBehavior === "object");
+assert(typeof DashboardCustomizationStatus === "object");
 assert(typeof DashboardErrorType === "object");
 assert(typeof DashboardFilterAttribute === "object");
 assert(typeof DashboardsQAStatus === "object");
@@ -879,6 +885,8 @@ assert(typeof DataSourceType === "object");
 assert(typeof DateAggregationFunction === "object");
 assert(typeof DayOfTheWeek === "object");
 assert(typeof DayOfWeek === "object");
+assert(typeof DecalPatternType === "object");
+assert(typeof DecalStyleType === "object");
 assert(typeof DefaultAggregation === "object");
 assert(typeof DigitGroupingStyle === "object");
 assert(typeof DisplayFormat === "object");

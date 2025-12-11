@@ -984,6 +984,14 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     },
  *                   },
  *                 ],
+ *                 DashboardCustomizationVisualOptions: { // DashboardCustomizationVisualOptions
+ *                   FieldsConfiguration: { // VisualCustomizationFieldsConfiguration
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     AdditionalFields: [ // VisualCustomizationAdditionalFieldsList
+ *                       "<ColumnIdentifier>",
+ *                     ],
+ *                   },
+ *                 },
  *                 Interactions: { // VisualInteractionOptions
  *                   VisualMenuOption: { // VisualMenuOption
  *                     AvailabilityStatus: "ENABLED" || "DISABLED",
@@ -1496,6 +1504,14 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 DashboardCustomizationVisualOptions: {
+ *                   FieldsConfiguration: {
+ *                     Status: "ENABLED" || "DISABLED",
+ *                     AdditionalFields: [
+ *                       "<ColumnIdentifier>",
+ *                     ],
+ *                   },
+ *                 },
  *                 Interactions: {
  *                   VisualMenuOption: {
  *                     AvailabilityStatus: "ENABLED" || "DISABLED",
@@ -1973,6 +1989,59 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     },
  *                   ],
  *                 },
+ *                 DefaultSeriesSettings: { // BarChartDefaultSeriesSettings
+ *                   DecalSettings: { // DecalSettings
+ *                     ElementValue: "STRING_VALUE",
+ *                     DecalVisibility: "HIDDEN" || "VISIBLE",
+ *                     DecalColor: "STRING_VALUE",
+ *                     DecalPatternType: "SOLID" || "DIAGONAL_MEDIUM" || "CIRCLE_MEDIUM" || "DIAMOND_GRID_MEDIUM" || "CHECKERBOARD_MEDIUM" || "TRIANGLE_MEDIUM" || "DIAGONAL_OPPOSITE_MEDIUM" || "DIAMOND_MEDIUM" || "DIAGONAL_LARGE" || "CIRCLE_LARGE" || "DIAMOND_GRID_LARGE" || "CHECKERBOARD_LARGE" || "TRIANGLE_LARGE" || "DIAGONAL_OPPOSITE_LARGE" || "DIAMOND_LARGE" || "DIAGONAL_SMALL" || "CIRCLE_SMALL" || "DIAMOND_GRID_SMALL" || "CHECKERBOARD_SMALL" || "TRIANGLE_SMALL" || "DIAGONAL_OPPOSITE_SMALL" || "DIAMOND_SMALL",
+ *                     DecalStyleType: "Manual" || "Auto",
+ *                   },
+ *                   BorderSettings: { // BorderSettings
+ *                     BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                     BorderWidth: "STRING_VALUE",
+ *                     BorderColor: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 Series: [ // BarSeriesItemList
+ *                   { // BarSeriesItem
+ *                     FieldBarSeriesItem: { // FieldBarSeriesItem
+ *                       FieldId: "STRING_VALUE", // required
+ *                       Settings: { // BarChartSeriesSettings
+ *                         DecalSettings: {
+ *                           ElementValue: "STRING_VALUE",
+ *                           DecalVisibility: "HIDDEN" || "VISIBLE",
+ *                           DecalColor: "STRING_VALUE",
+ *                           DecalPatternType: "SOLID" || "DIAGONAL_MEDIUM" || "CIRCLE_MEDIUM" || "DIAMOND_GRID_MEDIUM" || "CHECKERBOARD_MEDIUM" || "TRIANGLE_MEDIUM" || "DIAGONAL_OPPOSITE_MEDIUM" || "DIAMOND_MEDIUM" || "DIAGONAL_LARGE" || "CIRCLE_LARGE" || "DIAMOND_GRID_LARGE" || "CHECKERBOARD_LARGE" || "TRIANGLE_LARGE" || "DIAGONAL_OPPOSITE_LARGE" || "DIAMOND_LARGE" || "DIAGONAL_SMALL" || "CIRCLE_SMALL" || "DIAMOND_GRID_SMALL" || "CHECKERBOARD_SMALL" || "TRIANGLE_SMALL" || "DIAGONAL_OPPOSITE_SMALL" || "DIAMOND_SMALL",
+ *                           DecalStyleType: "Manual" || "Auto",
+ *                         },
+ *                         BorderSettings: {
+ *                           BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                           BorderWidth: "STRING_VALUE",
+ *                           BorderColor: "STRING_VALUE",
+ *                         },
+ *                       },
+ *                     },
+ *                     DataFieldBarSeriesItem: { // DataFieldBarSeriesItem
+ *                       FieldId: "STRING_VALUE", // required
+ *                       FieldValue: "STRING_VALUE",
+ *                       Settings: {
+ *                         DecalSettings: {
+ *                           ElementValue: "STRING_VALUE",
+ *                           DecalVisibility: "HIDDEN" || "VISIBLE",
+ *                           DecalColor: "STRING_VALUE",
+ *                           DecalPatternType: "SOLID" || "DIAGONAL_MEDIUM" || "CIRCLE_MEDIUM" || "DIAMOND_GRID_MEDIUM" || "CHECKERBOARD_MEDIUM" || "TRIANGLE_MEDIUM" || "DIAGONAL_OPPOSITE_MEDIUM" || "DIAMOND_MEDIUM" || "DIAGONAL_LARGE" || "CIRCLE_LARGE" || "DIAMOND_GRID_LARGE" || "CHECKERBOARD_LARGE" || "TRIANGLE_LARGE" || "DIAGONAL_OPPOSITE_LARGE" || "DIAMOND_LARGE" || "DIAGONAL_SMALL" || "CIRCLE_SMALL" || "DIAMOND_GRID_SMALL" || "CHECKERBOARD_SMALL" || "TRIANGLE_SMALL" || "DIAGONAL_OPPOSITE_SMALL" || "DIAMOND_SMALL",
+ *                           DecalStyleType: "Manual" || "Auto",
+ *                         },
+ *                         BorderSettings: {
+ *                           BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                           BorderWidth: "STRING_VALUE",
+ *                           BorderColor: "STRING_VALUE",
+ *                         },
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
  *                 Legend: { // LegendOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   Title: "<LabelOptions>",
@@ -3209,6 +3278,13 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     MarkerSize: "STRING_VALUE",
  *                     MarkerColor: "STRING_VALUE",
  *                   },
+ *                   DecalSettings: {
+ *                     ElementValue: "STRING_VALUE",
+ *                     DecalVisibility: "HIDDEN" || "VISIBLE",
+ *                     DecalColor: "STRING_VALUE",
+ *                     DecalPatternType: "SOLID" || "DIAGONAL_MEDIUM" || "CIRCLE_MEDIUM" || "DIAMOND_GRID_MEDIUM" || "CHECKERBOARD_MEDIUM" || "TRIANGLE_MEDIUM" || "DIAGONAL_OPPOSITE_MEDIUM" || "DIAMOND_MEDIUM" || "DIAGONAL_LARGE" || "CIRCLE_LARGE" || "DIAMOND_GRID_LARGE" || "CHECKERBOARD_LARGE" || "TRIANGLE_LARGE" || "DIAGONAL_OPPOSITE_LARGE" || "DIAMOND_LARGE" || "DIAGONAL_SMALL" || "CIRCLE_SMALL" || "DIAMOND_GRID_SMALL" || "CHECKERBOARD_SMALL" || "TRIANGLE_SMALL" || "DIAGONAL_OPPOSITE_SMALL" || "DIAMOND_SMALL",
+ *                     DecalStyleType: "Manual" || "Auto",
+ *                   },
  *                 },
  *                 Series: [ // SeriesItemList
  *                   { // SeriesItem
@@ -3227,6 +3303,13 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                           MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
  *                           MarkerSize: "STRING_VALUE",
  *                           MarkerColor: "STRING_VALUE",
+ *                         },
+ *                         DecalSettings: {
+ *                           ElementValue: "STRING_VALUE",
+ *                           DecalVisibility: "HIDDEN" || "VISIBLE",
+ *                           DecalColor: "STRING_VALUE",
+ *                           DecalPatternType: "SOLID" || "DIAGONAL_MEDIUM" || "CIRCLE_MEDIUM" || "DIAMOND_GRID_MEDIUM" || "CHECKERBOARD_MEDIUM" || "TRIANGLE_MEDIUM" || "DIAGONAL_OPPOSITE_MEDIUM" || "DIAMOND_MEDIUM" || "DIAGONAL_LARGE" || "CIRCLE_LARGE" || "DIAMOND_GRID_LARGE" || "CHECKERBOARD_LARGE" || "TRIANGLE_LARGE" || "DIAGONAL_OPPOSITE_LARGE" || "DIAMOND_LARGE" || "DIAGONAL_SMALL" || "CIRCLE_SMALL" || "DIAMOND_GRID_SMALL" || "CHECKERBOARD_SMALL" || "TRIANGLE_SMALL" || "DIAGONAL_OPPOSITE_SMALL" || "DIAMOND_SMALL",
+ *                           DecalStyleType: "Manual" || "Auto",
  *                         },
  *                       },
  *                     },
@@ -3247,6 +3330,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                           MarkerSize: "STRING_VALUE",
  *                           MarkerColor: "STRING_VALUE",
  *                         },
+ *                         DecalSettings: "<DecalSettings>",
  *                       },
  *                     },
  *                   },
@@ -3644,6 +3728,30 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *               ColumnHierarchies: "<ColumnHierarchyList>",
  *               Actions: "<VisualCustomActionList>",
  *               VisualContentAltText: "STRING_VALUE",
+ *               GeocodingPreferences: [ // GeocodePreferenceList
+ *                 { // GeocodePreference
+ *                   RequestKey: { // GeocoderHierarchy
+ *                     Country: "STRING_VALUE",
+ *                     State: "STRING_VALUE",
+ *                     County: "STRING_VALUE",
+ *                     City: "STRING_VALUE",
+ *                     PostCode: "STRING_VALUE",
+ *                   },
+ *                   Preference: { // GeocodePreferenceValue Union: only one key present
+ *                     GeocoderHierarchy: {
+ *                       Country: "STRING_VALUE",
+ *                       State: "STRING_VALUE",
+ *                       County: "STRING_VALUE",
+ *                       City: "STRING_VALUE",
+ *                       PostCode: "STRING_VALUE",
+ *                     },
+ *                     Coordinate: { // Coordinate
+ *                       Latitude: Number("double"), // required
+ *                       Longitude: Number("double"), // required
+ *                     },
+ *                   },
+ *                 },
+ *               ],
  *             },
  *             FilledMapVisual: { // FilledMapVisual
  *               VisualId: "STRING_VALUE", // required
@@ -3694,6 +3802,30 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *               ColumnHierarchies: "<ColumnHierarchyList>",
  *               Actions: "<VisualCustomActionList>",
  *               VisualContentAltText: "STRING_VALUE",
+ *               GeocodingPreferences: [
+ *                 {
+ *                   RequestKey: {
+ *                     Country: "STRING_VALUE",
+ *                     State: "STRING_VALUE",
+ *                     County: "STRING_VALUE",
+ *                     City: "STRING_VALUE",
+ *                     PostCode: "STRING_VALUE",
+ *                   },
+ *                   Preference: {//  Union: only one key present
+ *                     GeocoderHierarchy: {
+ *                       Country: "STRING_VALUE",
+ *                       State: "STRING_VALUE",
+ *                       County: "STRING_VALUE",
+ *                       City: "STRING_VALUE",
+ *                       PostCode: "STRING_VALUE",
+ *                     },
+ *                     Coordinate: {
+ *                       Latitude: Number("double"), // required
+ *                       Longitude: Number("double"), // required
+ *                     },
+ *                   },
+ *                 },
+ *               ],
  *             },
  *             LayerMapVisual: { // LayerMapVisual
  *               VisualId: "STRING_VALUE", // required
@@ -4080,6 +4212,63 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                   },
  *                 },
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 DefaultSeriesSettings: { // ComboChartDefaultSeriesSettings
+ *                   LineStyleSettings: {
+ *                     LineVisibility: "HIDDEN" || "VISIBLE",
+ *                     LineInterpolation: "LINEAR" || "SMOOTH" || "STEPPED",
+ *                     LineStyle: "SOLID" || "DOTTED" || "DASHED",
+ *                     LineWidth: "STRING_VALUE",
+ *                   },
+ *                   MarkerStyleSettings: {
+ *                     MarkerVisibility: "HIDDEN" || "VISIBLE",
+ *                     MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
+ *                     MarkerSize: "STRING_VALUE",
+ *                     MarkerColor: "STRING_VALUE",
+ *                   },
+ *                   DecalSettings: "<DecalSettings>",
+ *                   BorderSettings: {
+ *                     BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                     BorderWidth: "STRING_VALUE",
+ *                     BorderColor: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 Series: [ // ComboSeriesItemList
+ *                   { // ComboSeriesItem
+ *                     FieldComboSeriesItem: { // FieldComboSeriesItem
+ *                       FieldId: "STRING_VALUE", // required
+ *                       Settings: { // ComboChartSeriesSettings
+ *                         LineStyleSettings: {
+ *                           LineVisibility: "HIDDEN" || "VISIBLE",
+ *                           LineInterpolation: "LINEAR" || "SMOOTH" || "STEPPED",
+ *                           LineStyle: "SOLID" || "DOTTED" || "DASHED",
+ *                           LineWidth: "STRING_VALUE",
+ *                         },
+ *                         MarkerStyleSettings: {
+ *                           MarkerVisibility: "HIDDEN" || "VISIBLE",
+ *                           MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
+ *                           MarkerSize: "STRING_VALUE",
+ *                           MarkerColor: "STRING_VALUE",
+ *                         },
+ *                         DecalSettings: "<DecalSettings>",
+ *                         BorderSettings: {
+ *                           BorderVisibility: "HIDDEN" || "VISIBLE",
+ *                           BorderWidth: "STRING_VALUE",
+ *                           BorderColor: "STRING_VALUE",
+ *                         },
+ *                       },
+ *                     },
+ *                     DataFieldComboSeriesItem: { // DataFieldComboSeriesItem
+ *                       FieldId: "STRING_VALUE", // required
+ *                       FieldValue: "STRING_VALUE",
+ *                       Settings: {
+ *                         LineStyleSettings: "<LineChartLineStyleSettings>",
+ *                         MarkerStyleSettings: "<LineChartMarkerStyleSettings>",
+ *                         DecalSettings: "<DecalSettings>",
+ *                         BorderSettings: "<BorderSettings>",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
  *                 Legend: "<LegendOptions>",
  *                 BarDataLabels: "<DataLabelOptions>",
  *                 LineDataLabels: "<DataLabelOptions>",
@@ -5475,6 +5664,11 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *               Color: "STRING_VALUE", // required
  *               SpecialValue: "EMPTY" || "NULL" || "OTHER",
  *             },
+ *           ],
+ *         },
+ *         DecalSettingsConfiguration: { // DecalSettingsConfiguration
+ *           CustomDecalSettings: [ // DecalSettingsList
+ *             "<DecalSettings>",
  *           ],
  *         },
  *       },

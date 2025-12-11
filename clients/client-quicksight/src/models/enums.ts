@@ -514,6 +514,52 @@ export type SpecialValue = (typeof SpecialValue)[keyof typeof SpecialValue];
  * @public
  * @enum
  */
+export const DecalPatternType = {
+  CHECKERBOARD_LARGE: "CHECKERBOARD_LARGE",
+  CHECKERBOARD_MEDIUM: "CHECKERBOARD_MEDIUM",
+  CHECKERBOARD_SMALL: "CHECKERBOARD_SMALL",
+  CIRCLE_LARGE: "CIRCLE_LARGE",
+  CIRCLE_MEDIUM: "CIRCLE_MEDIUM",
+  CIRCLE_SMALL: "CIRCLE_SMALL",
+  DIAGONAL_LARGE: "DIAGONAL_LARGE",
+  DIAGONAL_MEDIUM: "DIAGONAL_MEDIUM",
+  DIAGONAL_OPPOSITE_LARGE: "DIAGONAL_OPPOSITE_LARGE",
+  DIAGONAL_OPPOSITE_MEDIUM: "DIAGONAL_OPPOSITE_MEDIUM",
+  DIAGONAL_OPPOSITE_SMALL: "DIAGONAL_OPPOSITE_SMALL",
+  DIAGONAL_SMALL: "DIAGONAL_SMALL",
+  DIAMOND_GRID_LARGE: "DIAMOND_GRID_LARGE",
+  DIAMOND_GRID_MEDIUM: "DIAMOND_GRID_MEDIUM",
+  DIAMOND_GRID_SMALL: "DIAMOND_GRID_SMALL",
+  DIAMOND_LARGE: "DIAMOND_LARGE",
+  DIAMOND_MEDIUM: "DIAMOND_MEDIUM",
+  DIAMOND_SMALL: "DIAMOND_SMALL",
+  SOLID: "SOLID",
+  TRIANGLE_LARGE: "TRIANGLE_LARGE",
+  TRIANGLE_MEDIUM: "TRIANGLE_MEDIUM",
+  TRIANGLE_SMALL: "TRIANGLE_SMALL",
+} as const;
+/**
+ * @public
+ */
+export type DecalPatternType = (typeof DecalPatternType)[keyof typeof DecalPatternType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DecalStyleType = {
+  Auto: "Auto",
+  Manual: "Manual",
+} as const;
+/**
+ * @public
+ */
+export type DecalStyleType = (typeof DecalStyleType)[keyof typeof DecalStyleType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NegativeValueDisplayMode = {
   NEGATIVE: "NEGATIVE",
   POSITIVE: "POSITIVE",
@@ -1276,6 +1322,50 @@ export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFil
  * @public
  * @enum
  */
+export const LineInterpolation = {
+  LINEAR: "LINEAR",
+  SMOOTH: "SMOOTH",
+  STEPPED: "STEPPED",
+} as const;
+/**
+ * @public
+ */
+export type LineInterpolation = (typeof LineInterpolation)[keyof typeof LineInterpolation];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineChartLineStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
+/**
+ * @public
+ */
+export type LineChartLineStyle = (typeof LineChartLineStyle)[keyof typeof LineChartLineStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineChartMarkerShape = {
+  CIRCLE: "CIRCLE",
+  DIAMOND: "DIAMOND",
+  ROUNDED_SQUARE: "ROUNDED_SQUARE",
+  SQUARE: "SQUARE",
+  TRIANGLE: "TRIANGLE",
+} as const;
+/**
+ * @public
+ */
+export type LineChartMarkerShape = (typeof LineChartMarkerShape)[keyof typeof LineChartMarkerShape];
+
+/**
+ * @public
+ * @enum
+ */
 export const SingleYAxisOption = {
   PRIMARY_Y_AXIS: "PRIMARY_Y_AXIS",
 } as const;
@@ -1652,50 +1742,6 @@ export type GeospatialMapNavigation = (typeof GeospatialMapNavigation)[keyof typ
  * @public
  * @enum
  */
-export const LineInterpolation = {
-  LINEAR: "LINEAR",
-  SMOOTH: "SMOOTH",
-  STEPPED: "STEPPED",
-} as const;
-/**
- * @public
- */
-export type LineInterpolation = (typeof LineInterpolation)[keyof typeof LineInterpolation];
-
-/**
- * @public
- * @enum
- */
-export const LineChartLineStyle = {
-  DASHED: "DASHED",
-  DOTTED: "DOTTED",
-  SOLID: "SOLID",
-} as const;
-/**
- * @public
- */
-export type LineChartLineStyle = (typeof LineChartLineStyle)[keyof typeof LineChartLineStyle];
-
-/**
- * @public
- * @enum
- */
-export const LineChartMarkerShape = {
-  CIRCLE: "CIRCLE",
-  DIAMOND: "DIAMOND",
-  ROUNDED_SQUARE: "ROUNDED_SQUARE",
-  SQUARE: "SQUARE",
-  TRIANGLE: "TRIANGLE",
-} as const;
-/**
- * @public
- */
-export type LineChartMarkerShape = (typeof LineChartMarkerShape)[keyof typeof LineChartMarkerShape];
-
-/**
- * @public
- * @enum
- */
 export const MissingDataTreatmentOption = {
   INTERPOLATE: "INTERPOLATE",
   SHOW_AS_BLANK: "SHOW_AS_BLANK",
@@ -1734,6 +1780,20 @@ export const ArcThickness = {
  * @public
  */
 export type ArcThickness = (typeof ArcThickness)[keyof typeof ArcThickness];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardCustomizationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DashboardCustomizationStatus =
+  (typeof DashboardCustomizationStatus)[keyof typeof DashboardCustomizationStatus];
 
 /**
  * @public

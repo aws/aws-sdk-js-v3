@@ -28,9 +28,11 @@ import {
   SearchFilterOperator,
   ServiceType,
   SharingModel,
+  ThemeErrorType,
   ThemeType,
   TopicFilterAttribute,
   TopicFilterOperator,
+  TopicRefreshStatus,
   TopicUserExperienceVersion,
   UserRole,
   VisualRole,
@@ -48,15 +50,9 @@ import {
 } from "./models_0";
 
 import {
+  type _Parameters,
   type AnalysisDefinition,
   type AnalysisSourceEntity,
-  type SharedViewConfigurations,
-  AnalysisSearchFilter,
-  AnalysisSummary,
-} from "./models_1";
-
-import {
-  type _Parameters,
   type AnonymousUserEmbeddingExperienceConfiguration,
   type AssetBundleCloudFormationOverridePropertyConfiguration,
   type AssetBundleExportJobValidationStrategy,
@@ -79,15 +75,14 @@ import {
   type DataSetUsageConfiguration,
   type DataSourceParameters,
   type LinkSharingConfiguration,
-  type PerformanceConfiguration,
-  type RowLevelPermissionDataSet,
-  type RowLevelPermissionTagConfiguration,
-  type SemanticModelConfiguration,
+  type SharedViewConfigurations,
   type SslProperties,
   type TopicIR,
   type TopicTemplate,
   type ValidationStrategy,
   type VpcConnectionProperties,
+  AnalysisSearchFilter,
+  AnalysisSummary,
   AssetBundleExportJobSummary,
   AssetBundleImportJobSummary,
   AuthorizedTargetsByService,
@@ -97,7 +92,6 @@ import {
   DatasetParameter,
   FieldFolder,
   LogicalTable,
-  PhysicalTable,
   ResourcePermission,
   Tag,
 } from "./models_2";
@@ -106,6 +100,10 @@ import {
   type CustomInstructions,
   type DashboardVisualResult,
   type DataSourceCredentials,
+  type PerformanceConfiguration,
+  type RowLevelPermissionDataSet,
+  type RowLevelPermissionTagConfiguration,
+  type SemanticModelConfiguration,
   type SnapshotConfiguration,
   type TemplateSourceEntity,
   type TemplateVersionDefinition,
@@ -125,12 +123,709 @@ import {
   GroupMember,
   Ingestion,
   NamespaceInfoV2,
+  PhysicalTable,
   RefreshSchedule,
   RegisteredCustomerManagedKey,
   TemplateAlias,
   ThemeAlias,
-  User,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter
+   * 			value isn't provided, the latest version of the theme is described.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the theme that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * <p>Theme error.</p>
+ * @public
+ */
+export interface ThemeError {
+  /**
+   * <p>The type of error.</p>
+   * @public
+   */
+  Type?: ThemeErrorType | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>A version of a theme.</p>
+ * @public
+ */
+export interface ThemeVersion {
+  /**
+   * <p>The version number of the theme.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The description of the theme.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Quick Sight-defined ID of the theme that a custom theme inherits from. All
+   *             themes initially inherit from a default Quick Sight theme.</p>
+   * @public
+   */
+  BaseThemeId?: string | undefined;
+
+  /**
+   * <p>The date and time that this theme version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The theme configuration, which contains all the theme display properties.</p>
+   * @public
+   */
+  Configuration?: ThemeConfiguration | undefined;
+
+  /**
+   * <p>Errors associated with the theme.</p>
+   * @public
+   */
+  Errors?: ThemeError[] | undefined;
+
+  /**
+   * <p>The status of the theme version.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+}
+
+/**
+ * <p>Summary information about a theme.</p>
+ * @public
+ */
+export interface Theme {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name that the user gives to the theme.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The identifier that the user gives to the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>A version of a theme.</p>
+   * @public
+   */
+  Version?: ThemeVersion | undefined;
+
+  /**
+   * <p>The date and time that the theme was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the theme was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The type of theme, based on how it was created. Valid values include:
+   *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
+   * @public
+   */
+  Type?: ThemeType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeResponse {
+  /**
+   * <p>The information about the theme that you are describing.</p>
+   * @public
+   */
+  Theme?: Theme | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
+   * 			describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name of the theme alias that you want to describe.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeAliasResponse {
+  /**
+   * <p>Information about the theme alias.</p>
+   * @public
+   */
+  ThemeAlias?: ThemeAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme that you want to describe permissions for.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemePermissionsResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions set on the theme. </p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The definition of a topic.</p>
+   * @public
+   */
+  Topic?: TopicDetails | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>Custom instructions for the topic.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want
+   *          described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicPermissionsResponse {
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions that are configured to the topic.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh you want
+   *          to describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh, which is performed when the topic is created or updated.</p>
+   * @public
+   */
+  RefreshId: string | undefined;
+}
+
+/**
+ * <p>The details about the refresh of a topic.</p>
+ * @public
+ */
+export interface TopicRefreshDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
+   * @public
+   */
+  RefreshArn?: string | undefined;
+
+  /**
+   * <p>The ID of the refresh, which occurs as a result of topic creation or topic update.</p>
+   * @public
+   */
+  RefreshId?: string | undefined;
+
+  /**
+   * <p>The status of the refresh job that indicates whether the job is still running, completed successfully, or failed.</p>
+   * @public
+   */
+  RefreshStatus?: TopicRefreshStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshResponse {
+  /**
+   * <p>Details of the refresh, which is performed when the topic is created or updated.</p>
+   * @public
+   */
+  RefreshDetails?: TopicRefreshDetails | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that contains the refresh schedule that you want to describe. This
+   *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DatasetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRefreshScheduleResponse {
+  /**
+   * <p>The ID of the topic that contains the refresh schedule that you want to describe. This
+   *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn?: string | undefined;
+
+  /**
+   * <p>The definition of a refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule?: TopicRefreshSchedule | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserRequest {
+  /**
+   * <p>The name of the user that you want to describe.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * <p>A registered user of Quick Sight. </p>
+ * @public
+ */
+export interface User {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the user.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The user's user name. This value is required if you are registering a user that will be managed in Quick Sight. In the output, the value for <code>UserName</code> is
+   *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
+   *             and the corresponding IAM user is deleted.</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The user's email address.</p>
+   * @public
+   */
+  Email?: string | undefined;
+
+  /**
+   * <p>The Quick Sight role for the user. The user role can be one of the
+   *             following:.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,
+   *                     and dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+   *                     Quick Sight settings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Quick Sight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
+   *                     use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
+   *                     use.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Role?: UserRole | undefined;
+
+  /**
+   * <p>The type of identity authentication used by the user.</p>
+   * @public
+   */
+  IdentityType?: IdentityType | undefined;
+
+  /**
+   * <p>The active status of user. When you create an Quick Sight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
+   *             password.</p>
+   * @public
+   */
+  Active?: boolean | undefined;
+
+  /**
+   * <p>The principal ID of the user.</p>
+   * @public
+   */
+  PrincipalId?: string | undefined;
+
+  /**
+   * <p>The custom permissions profile associated with this user.</p>
+   * @public
+   */
+  CustomPermissionsName?: string | undefined;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let the user
+   *             federate into Quick Sight with an associated IAM role. The type can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ExternalLoginFederationProviderType?: string | undefined;
+
+  /**
+   * <p>The URL of the external login provider.</p>
+   * @public
+   */
+  ExternalLoginFederationProviderUrl?: string | undefined;
+
+  /**
+   * <p>The identity ID for the user in the external login provider.</p>
+   * @public
+   */
+  ExternalLoginId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserResponse {
+  /**
+   * <p>The user name.</p>
+   * @public
+   */
+  User?: User | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * @public
@@ -1537,6 +2232,129 @@ export interface GetFlowPermissionsOutput {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * <p>A structure that contains information to identify a user.</p>
+ * @public
+ */
+export type UserIdentifier =
+  | UserIdentifier.EmailMember
+  | UserIdentifier.UserArnMember
+  | UserIdentifier.UserNameMember
+  | UserIdentifier.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UserIdentifier {
+  /**
+   * <p>The name of the user that you want to get identity context for.</p>
+   * @public
+   */
+  export interface UserNameMember {
+    UserName: string;
+    Email?: never;
+    UserArn?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The email address of the user that you want to get identity context for.</p>
+   * @public
+   */
+  export interface EmailMember {
+    UserName?: never;
+    Email: string;
+    UserArn?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user that you want to get identity context for.</p>
+   * @public
+   */
+  export interface UserArnMember {
+    UserName?: never;
+    Email?: never;
+    UserArn: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    UserName?: never;
+    Email?: never;
+    UserArn?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    UserName: (value: string) => T;
+    Email: (value: string) => T;
+    UserArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>/////////////////////////
+ * /////////////////////////</p>
+ * @public
+ */
+export interface GetIdentityContextRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the user whose identity context you want to retrieve is in. Currently, you use the ID for the Amazon Web Services account that contains your Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The identifier for the user whose identity context you want to retrieve.</p>
+   * @public
+   */
+  UserIdentifier: UserIdentifier | undefined;
+
+  /**
+   * <p>The namespace of the user that you want to get identity context for. This parameter is required when the UserIdentifier is specified using Email or UserName.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the session will expire.</p>
+   * @public
+   */
+  SessionExpiresAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdentityContextResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The identity context information for the user. This is an identity token that should be used as the ContextAssertion parameter in the <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">STS AssumeRole API</a> call to obtain identity enhanced AWS credentials.</p>
+   * @public
+   */
+  Context?: string | undefined;
 }
 
 /**
@@ -5213,6 +6031,9 @@ export interface SnapshotAnonymousUser {
 
 /**
  * <p>A structure that contains information about the users that the dashboard snapshot is generated for.</p>
+ *          <important>
+ *             <p>When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.</p>
+ *          </important>
  * @public
  */
 export interface SnapshotUserConfiguration {
@@ -5247,11 +6068,13 @@ export interface StartDashboardSnapshotJobRequest {
   SnapshotJobId: string | undefined;
 
   /**
-   * <p>
-   *             A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered Amazon Quick Sight.</p>
+   * <p>A structure that contains information about the users that the dashboard snapshot is generated for. The users can be either anonymous users or registered users. Anonymous users cannot be used together with registered users.</p>
+   *          <important>
+   *             <p>When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.</p>
+   *          </important>
    * @public
    */
-  UserConfiguration: SnapshotUserConfiguration | undefined;
+  UserConfiguration?: SnapshotUserConfiguration | undefined;
 
   /**
    * <p>A structure that describes the configuration of the dashboard snapshot.</p>

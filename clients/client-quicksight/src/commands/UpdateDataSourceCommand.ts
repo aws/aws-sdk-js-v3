@@ -419,6 +419,11 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     },
  *     CopySourceArn: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
+ *     KeyPairCredentials: { // KeyPairCredentials
+ *       KeyPairUsername: "STRING_VALUE", // required
+ *       PrivateKey: "STRING_VALUE", // required
+ *       PrivateKeyPassphrase: "STRING_VALUE",
+ *     },
  *     WebProxyCredentials: { // WebProxyCredentials
  *       WebProxyUsername: "STRING_VALUE", // required
  *       WebProxyPassword: "STRING_VALUE", // required

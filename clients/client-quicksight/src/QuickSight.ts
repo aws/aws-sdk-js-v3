@@ -572,6 +572,11 @@ import {
   GetFlowPermissionsCommandOutput,
 } from "./commands/GetFlowPermissionsCommand";
 import {
+  GetIdentityContextCommand,
+  GetIdentityContextCommandInput,
+  GetIdentityContextCommandOutput,
+} from "./commands/GetIdentityContextCommand";
+import {
   GetSessionEmbedUrlCommand,
   GetSessionEmbedUrlCommandInput,
   GetSessionEmbedUrlCommandOutput,
@@ -1159,6 +1164,7 @@ const commands = {
   GetDashboardEmbedUrlCommand,
   GetFlowMetadataCommand,
   GetFlowPermissionsCommand,
+  GetIdentityContextCommand,
   GetSessionEmbedUrlCommand,
   ListActionConnectorsCommand,
   ListAnalysesCommand,
@@ -3174,6 +3180,23 @@ export interface QuickSight {
     args: GetFlowPermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFlowPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIdentityContextCommand}
+   */
+  getIdentityContext(
+    args: GetIdentityContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdentityContextCommandOutput>;
+  getIdentityContext(
+    args: GetIdentityContextCommandInput,
+    cb: (err: any, data?: GetIdentityContextCommandOutput) => void
+  ): void;
+  getIdentityContext(
+    args: GetIdentityContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdentityContextCommandOutput) => void
   ): void;
 
   /**
