@@ -34,6 +34,7 @@ import software.amazon.smithy.utils.StringUtils;
 
 @SmithyInternalApi
 final class DocumentAggregatedClientGenerator implements Runnable {
+
     static final String CLIENT_CONFIG_SECTION = "client_config";
     static final String CLIENT_PROPERTIES_SECTION = "client_properties";
     static final String CLIENT_CONSTRUCTOR_SECTION = "client_constructor";
@@ -47,10 +48,10 @@ final class DocumentAggregatedClientGenerator implements Runnable {
     private final String serviceName;
 
     DocumentAggregatedClientGenerator(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         this.model = model;
         this.symbolProvider = symbolProvider;
@@ -64,33 +65,40 @@ final class DocumentAggregatedClientGenerator implements Runnable {
     @Override
     public void run() {
         // Note: using addImport would register this dependency on the dynamodb client, which must be avoided.
-        writer.write("""
+        writer.write(
+            """
             import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-            """);
-        writer.addRelativeImport(DocumentClientUtils.CLIENT_NAME,
-            DocumentClientUtils.CLIENT_NAME, Paths.get(".", DocumentClientUtils.CLIENT_NAME));
+            """
+        );
+        writer.addRelativeImport(
+            DocumentClientUtils.CLIENT_NAME,
+            DocumentClientUtils.CLIENT_NAME,
+            Paths.get(".", DocumentClientUtils.CLIENT_NAME)
+        );
         writer.writeDocs(DocumentClientUtils.getClientDocs());
-        writer.openBlock("export class $L extends $L {", "}",
-            DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME, () -> {
-
-            generateStaticFactoryFrom();
-            writer.write("");
-            generateOperations();
-        });
+        writer.openBlock(
+            "export class $L extends $L {",
+            "}",
+            DocumentClientUtils.CLIENT_FULL_NAME,
+            DocumentClientUtils.CLIENT_NAME,
+            () -> {
+                generateStaticFactoryFrom();
+                writer.write("");
+                generateOperations();
+            }
+        );
     }
 
     private void generateStaticFactoryFrom() {
         String translateConfig = DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE;
         writer.addRelativeImport(translateConfig, translateConfig, Paths.get(".", DocumentClientUtils.CLIENT_NAME));
-        writer.openBlock("static from(client: $L, translateConfig?: $L) {", "}",
-            serviceName, translateConfig, () -> {
-                writer.write("return new $L(client, translateConfig);", DocumentClientUtils.CLIENT_FULL_NAME);
-            });
+        writer.openBlock("static from(client: $L, translateConfig?: $L) {", "}", serviceName, translateConfig, () -> {
+            writer.write("return new $L(client, translateConfig);", DocumentClientUtils.CLIENT_FULL_NAME);
+        });
     }
 
     private void generateOperations() {
-        Set<OperationShape> containedOperations =
-                new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
+        Set<OperationShape> containedOperations = new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
 
         for (OperationShape operation : containedOperations) {
             if (DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation)) {
@@ -105,8 +113,7 @@ final class DocumentAggregatedClientGenerator implements Runnable {
                 );
                 SymbolReference options = ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType();
 
-                String commandFileLocation = String.format("./%s/%s",
-                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER, name);
+                String commandFileLocation = String.format("./%s/%s", DocumentClientUtils.CLIENT_COMMANDS_FOLDER, name);
                 writer.addImport(name, name, commandFileLocation);
                 writer.addImport(input, input, commandFileLocation);
                 writer.addImport(output, output, commandFileLocation);
@@ -117,13 +124,15 @@ final class DocumentAggregatedClientGenerator implements Runnable {
 
                 // Generate a multiple overloaded methods for each command.
                 writer.writeDocs(DocumentClientUtils.getCommandDocs(operationSymbol.getName()));
-                boolean inputOptional = model.getShape(operation.getInputShape()).map(
-                    shape -> shape.getAllMembers().values().stream().noneMatch(MemberShape::isRequired)
-                ).orElse(true);
+                boolean inputOptional = model
+                    .getShape(operation.getInputShape())
+                    .map(shape -> shape.getAllMembers().values().stream().noneMatch(MemberShape::isRequired))
+                    .orElse(true);
                 if (inputOptional) {
                     writer.write("$L(): Promise<$T>;", methodName, output);
                 }
-                writer.write("""
+                writer.write(
+                    """
                     public $1L(
                       args: $2L,
                       options?: $3T,

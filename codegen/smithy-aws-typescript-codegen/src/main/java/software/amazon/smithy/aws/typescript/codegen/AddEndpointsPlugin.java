@@ -17,6 +17,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 @Deprecated
 public class AddEndpointsPlugin implements TypeScriptIntegration {
+
     @Override
     public List<String> runAfter() {
         return List.of(AddBuiltinPlugins.class.getCanonicalName());

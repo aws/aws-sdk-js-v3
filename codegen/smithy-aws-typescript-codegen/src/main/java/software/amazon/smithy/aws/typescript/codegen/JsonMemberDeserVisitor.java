@@ -40,10 +40,12 @@ final class JsonMemberDeserVisitor extends MemberDeserVisitor {
     /**
      * @inheritDoc
      */
-    JsonMemberDeserVisitor(GenerationContext context,
-                           MemberShape memberShape,
-                           String dataSource,
-                           Format defaultTimestampFormat) {
+    JsonMemberDeserVisitor(
+        GenerationContext context,
+        MemberShape memberShape,
+        String dataSource,
+        Format defaultTimestampFormat
+    ) {
         super(context, dataSource, defaultTimestampFormat);
         this.dataSource = dataSource;
         this.context = context;
@@ -52,9 +54,7 @@ final class JsonMemberDeserVisitor extends MemberDeserVisitor {
         this.serdeElisionEnabled = !context.getSettings().generateServerSdk();
     }
 
-    JsonMemberDeserVisitor(GenerationContext context,
-                           String dataSource,
-                           Format defaultTimestampFormat) {
+    JsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         this(context, null, dataSource, defaultTimestampFormat);
     }
 
@@ -88,7 +88,8 @@ final class JsonMemberDeserVisitor extends MemberDeserVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot deserialize shape type %s on protocol, shape: %s.", shape.getType(), shape.getId())
+        );
     }
 }

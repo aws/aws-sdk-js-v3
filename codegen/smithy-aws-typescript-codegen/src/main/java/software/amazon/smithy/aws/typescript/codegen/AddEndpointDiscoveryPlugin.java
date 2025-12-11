@@ -51,13 +51,11 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * Adds runtime plugins which handle endpoint discovery logic.
  */
 @SmithyInternalApi
-public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
+public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration {
 
     @Override
     public List<String> runAfter() {
-        return List.of(
-            AddAwsAuthPlugin.class.getCanonicalName(),
-            AddHttpAuthSchemePlugin.class.getCanonicalName());
+        return List.of(AddAwsAuthPlugin.class.getCanonicalName(), AddHttpAuthSchemePlugin.class.getCanonicalName());
     }
 
     @Override
@@ -72,8 +70,11 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             // Add import for endpoint discovery command here, as getClientPlugins doesn't have access to writer.
             addEndpointDiscoveryCommandImport(model, symbolProvider, service, writer);
             writer.addImport("Provider", "__Provider", TypeScriptDependency.SMITHY_TYPES);
-            writer.writeDocs("The provider which populates default for endpointDiscoveryEnabled configuration,"
-                + " if it's\nnot passed during client creation.\n@internal")
+            writer
+                .writeDocs(
+                    "The provider which populates default for endpointDiscoveryEnabled configuration," +
+                        " if it's\nnot passed during client creation.\n@internal"
+                )
                 .write("endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;\n");
         }
     }
@@ -81,23 +82,36 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
-                                "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
-                        .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
-                            put("endpointDiscoveryCommandCtor",
-                                    Symbol.builder().name(getClientDiscoveryCommand(s)).build());
-                        }})
-                        .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
-                        .build(),
-                // ToDo: Pass the map of identifiers to the EndpointDiscovery plugin.
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
-                                "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
-                        .operationPredicate((m, s, o) ->
-                            isClientDiscoveredEndpointRequired(s, o) || isClientDiscoveredEndpointOptional(s, o)
-                        ).build()
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
+                    "EndpointDiscovery",
+                    RuntimeClientPlugin.Convention.HAS_CONFIG
+                )
+                .additionalResolveFunctionParamsSupplier((m, s, o) ->
+                    new HashMap<String, Object>() {
+                        {
+                            put(
+                                "endpointDiscoveryCommandCtor",
+                                Symbol.builder().name(getClientDiscoveryCommand(s)).build()
+                            );
+                        }
+                    }
+                )
+                .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
+                .build(),
+            // ToDo: Pass the map of identifiers to the EndpointDiscovery plugin.
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
+                    "EndpointDiscovery",
+                    RuntimeClientPlugin.Convention.HAS_MIDDLEWARE
+                )
+                .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
+                .operationPredicate(
+                    (m, s, o) -> isClientDiscoveredEndpointRequired(s, o) || isClientDiscoveredEndpointOptional(s, o)
+                )
+                .build()
         );
     }
 
@@ -114,31 +128,29 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         }
         switch (target) {
             case BROWSER:
-                return MapUtils.of(
-                    "endpointDiscoveryEnabledProvider", writer -> {
-                        writer.write("(() => Promise.resolve(undefined))");
-                    }
-                );
+                return MapUtils.of("endpointDiscoveryEnabledProvider", writer -> {
+                    writer.write("(() => Promise.resolve(undefined))");
+                });
             case NODE:
-                return MapUtils.of(
-                    "endpointDiscoveryEnabledProvider", writer -> {
-                        writer.addDependency(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY);
-                        writer.addImport("NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
-                                "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
-                                AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY);
-                        writer.write("loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS, loaderConfig)");
-                    }
-                );
+                return MapUtils.of("endpointDiscoveryEnabledProvider", writer -> {
+                    writer.addDependency(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY);
+                    writer.addImport(
+                        "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
+                        "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
+                        AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY
+                    );
+                    writer.write("loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS, loaderConfig)");
+                });
             default:
                 return Collections.emptyMap();
         }
     }
 
     private void addEndpointDiscoveryCommandImport(
-            Model model,
-            SymbolProvider symbolProvider,
-            ServiceShape service,
-            TypeScriptWriter writer
+        Model model,
+        SymbolProvider symbolProvider,
+        ServiceShape service,
+        TypeScriptWriter writer
     ) {
         if (!hasClientEndpointDiscovery(service)) {
             throw new CodegenException(
@@ -188,8 +200,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("clientStack", Symbol.builder().name("cs").build());
         params.put("options", Symbol.builder().name("o").build());
-        params.put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(
-            serviceShape, operationShape));
+        params.put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(serviceShape, operationShape));
 
         OperationIndex operationIndex = OperationIndex.of(model);
         List<MemberShape> membersWithClientEndpointDiscoveryId = getMembersWithClientEndpointDiscoveryId(
@@ -205,14 +216,13 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
     private static String getClientEndpointDiscoveryIdentifiers(
         List<MemberShape> membersWithClientEndpointDiscoveryId
     ) {
-        return membersWithClientEndpointDiscoveryId.stream()
+        return membersWithClientEndpointDiscoveryId
+            .stream()
             .map(member -> member.getMemberName() + ": input." + member.getMemberName())
             .collect(Collectors.joining(", ", "{", "}"));
     }
 
-    private static List<MemberShape> getMembersWithClientEndpointDiscoveryId(
-        Optional<StructureShape> optionalShape
-    ) {
+    private static List<MemberShape> getMembersWithClientEndpointDiscoveryId(Optional<StructureShape> optionalShape) {
         List<MemberShape> membersWithClientEndpointDiscoveryId = new ArrayList<>();
         if (optionalShape.isPresent()) {
             StructureShape structureShape = optionalShape.get();

@@ -31,28 +31,37 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
 public class AddCrossRegionCopyingPlugin implements TypeScriptIntegration {
+
     private static final Map<String, Set<String>> PRESIGNED_URL_OPERATIONS_MAP = MapUtils.of(
-        "RDS", SetUtils.of(
+        "RDS",
+        SetUtils.of(
             "CopyDBClusterSnapshot",
             "CreateDBCluster",
             "CopyDBSnapshot",
             "CreateDBInstanceReadReplica",
-            "StartDBInstanceAutomatedBackupsReplication"),
-        "DocDB", SetUtils.of("CopyDBClusterSnapshot"),
-        "Neptune", SetUtils.of("CopyDBClusterSnapshot", "CreateDBCluster")
+            "StartDBInstanceAutomatedBackupsReplication"
+        ),
+        "DocDB",
+        SetUtils.of("CopyDBClusterSnapshot"),
+        "Neptune",
+        SetUtils.of("CopyDBClusterSnapshot", "CreateDBCluster")
     );
 
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
-        return PRESIGNED_URL_OPERATIONS_MAP.entrySet().stream().map((entry) -> {
-            String serviceId = entry.getKey();
-            Set<String> commands = entry.getValue();
-            return RuntimeClientPlugin.builder()
+        return PRESIGNED_URL_OPERATIONS_MAP.entrySet()
+            .stream()
+            .map(entry -> {
+                String serviceId = entry.getKey();
+                Set<String> commands = entry.getValue();
+                return RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl", HAS_MIDDLEWARE)
                     .operationPredicate(
-                            (m, s, o) -> commands.contains(o.getId().getName(s)) && testServiceId(s, serviceId))
+                        (m, s, o) -> commands.contains(o.getId().getName(s)) && testServiceId(s, serviceId)
+                    )
                     .build();
-        }).collect(Collectors.toList());
+            })
+            .collect(Collectors.toList());
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {

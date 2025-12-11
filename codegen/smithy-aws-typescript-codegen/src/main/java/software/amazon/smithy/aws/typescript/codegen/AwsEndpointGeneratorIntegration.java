@@ -39,6 +39,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegration {
+
     @Override
     public void customize(TypeScriptCodegenContext codegenContext) {
         TypeScriptSettings settings = codegenContext.settings();
@@ -50,34 +51,36 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
     }
 
     private void writeAdditionalFiles(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
-        if (settings.generateClient()
-            && isAwsService(settings, model)
-            && settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-                writerFactory.accept(
-                    Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
-                    writer -> {
-                        writer.addDependency(TypeScriptDependency.UTIL_ENDPOINTS);
-                        writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
+        if (
+            settings.generateClient() &&
+            isAwsService(settings, model) &&
+            settings.getService(model).hasTrait(EndpointRuleSetTrait.class)
+        ) {
+            writerFactory.accept(
+                Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
+                writer -> {
+                    writer.addDependency(TypeScriptDependency.UTIL_ENDPOINTS);
+                    writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
 
-                        writer.addImport("customEndpointFunctions", null, TypeScriptDependency.UTIL_ENDPOINTS);
-                        writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
-                        writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
-                    }
-                );
+                    writer.addImport("customEndpointFunctions", null, TypeScriptDependency.UTIL_ENDPOINTS);
+                    writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
+                    writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
+                }
+            );
         }
     }
 
     @Override
     public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         if (!settings.generateClient() || !isAwsService(settings, model)) {
             return;
@@ -92,17 +95,21 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                     add("resolveClientEndpointParameters");
                     add("EndpointParameters");
                 }
-            }.forEach(name -> writer.addImport(
-                name,
-                null,
-                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
-            ));
+            }
+                .forEach(name ->
+                    writer.addImport(
+                        name,
+                        null,
+                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
+                    )
+                );
 
             writer.addImport("EndpointV2", "__EndpointV2", TypeScriptDependency.SMITHY_TYPES);
         } else {
             writer.addImport("RegionInfoProvider", null, TypeScriptDependency.SMITHY_TYPES);
-            writer.writeDocs("Fetch related hostname, signing name or signing region with given region.\n"
-                + "@internal");
+            writer.writeDocs(
+                "Fetch related hostname, signing name or signing region with given region.\n" + "@internal"
+            );
             writer.write("regionInfoProvider?: RegionInfoProvider;\n");
         }
     }

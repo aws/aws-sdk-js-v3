@@ -40,23 +40,25 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class DefaultsModeConfigGenerator {
 
-    static final String DEFAULTS_MODE_DOC_INTRODUCTION = "Option determining how certain default configuration options "
-    + "are resolved in the SDK. It can be one of the value listed below:\n";
+    static final String DEFAULTS_MODE_DOC_INTRODUCTION =
+        "Option determining how certain default configuration options " +
+        "are resolved in the SDK. It can be one of the value listed below:\n";
 
-    static final String INTERNAL_INTERFACES_BLOCK = ""
-    + "/**\n"
-    + " * @internal\n"
-    + " */\n"
-    + "export type ResolvedDefaultsMode = Exclude<DefaultsMode, \"auto\">;\n"
-    + "\n"
-    + "/**\n"
-    + " * @internal\n"
-    + " */\n"
-    + "export interface DefaultsModeConfigs {\n"
-    + "  retryMode?: string;\n"
-    + "  connectionTimeout?: number;\n"
-    + "  requestTimeout?: number;\n"
-    + "}\n";
+    static final String INTERNAL_INTERFACES_BLOCK =
+        "" +
+        "/**\n" +
+        " * @internal\n" +
+        " */\n" +
+        "export type ResolvedDefaultsMode = Exclude<DefaultsMode, \"auto\">;\n" +
+        "\n" +
+        "/**\n" +
+        " * @internal\n" +
+        " */\n" +
+        "export interface DefaultsModeConfigs {\n" +
+        "  retryMode?: string;\n" +
+        "  connectionTimeout?: number;\n" +
+        "  requestTimeout?: number;\n" +
+        "}\n";
 
     private DefaultsModeConfigGenerator() {}
 
@@ -68,28 +70,34 @@ final class DefaultsModeConfigGenerator {
 
         Path outputPath = Paths.get(args[0]);
         TypeScriptWriter writer = new TypeScriptWriter(outputPath.toString());
-        String defaultsConfigJson = IoUtils.readUtf8Resource(DefaultsModeConfigGenerator.class,
-                "sdk-default-configuration.json");
+        String defaultsConfigJson = IoUtils.readUtf8Resource(
+            DefaultsModeConfigGenerator.class,
+            "sdk-default-configuration.json"
+        );
         ObjectNode defaultsConfigData = Node.parse(defaultsConfigJson).expectObjectNode();
         ObjectNode baseNode = defaultsConfigData.expectObjectMember("base");
         ObjectNode modesNode = defaultsConfigData.expectObjectMember("modes");
 
         writer.writeDocs("@internal");
         writer.openBlock(
-            "export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsModeConfigs => {", "}\n",
+            "export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsModeConfigs => {",
+            "}\n",
             () -> {
                 writer.openBlock("switch (mode) {", "}", () -> {
-                    modesNode.getMembers().forEach((name, mode) -> {
-                        writer.write("case $S:", name.getValue());
-                        DefaultsMode defaultsMode = new DefaultsMode(baseNode, mode.expectObjectNode());
-                        writer.indent();
-                        defaultsMode.useWriter(writer);
-                        writer.dedent();
-                    });
+                    modesNode
+                        .getMembers()
+                        .forEach((name, mode) -> {
+                            writer.write("case $S:", name.getValue());
+                            DefaultsMode defaultsMode = new DefaultsMode(baseNode, mode.expectObjectNode());
+                            writer.indent();
+                            defaultsMode.useWriter(writer);
+                            writer.dedent();
+                        });
                     writer.write("default:");
                     writer.indent().write("return {};").dedent();
                 });
-        });
+            }
+        );
 
         ObjectNode docNode = defaultsConfigData.expectObjectMember("documentation").expectObjectMember("modes");
         List<String> defaultsModes = new LinkedList<String>();
@@ -102,9 +110,18 @@ final class DefaultsModeConfigGenerator {
         }
         defaultsModeDoc.append("\n@default \"legacy\"");
         writer.writeDocs(defaultsModeDoc.toString());
-        writer.write("export type DefaultsMode = $L;\n",
-                String.join(" | ", defaultsModes.stream().map((mod) -> {
-                        return "\"" + mod + "\""; }).collect(Collectors.toList())));
+        writer.write(
+            "export type DefaultsMode = $L;\n",
+            String.join(
+                " | ",
+                defaultsModes
+                    .stream()
+                    .map(mod -> {
+                        return "\"" + mod + "\"";
+                    })
+                    .collect(Collectors.toList())
+            )
+        );
         writer.write(INTERNAL_INTERFACES_BLOCK);
 
         boolean exists = outputPath.toFile().createNewFile();
@@ -127,6 +144,7 @@ final class DefaultsModeConfigGenerator {
     }
 
     private static final class DefaultsMode {
+
         private Optional<String> retryMode;
         private Optional<Number> connectTimeoutInMillis;
         private Optional<Number> httpRequestTimeoutInMillis;
@@ -139,26 +157,42 @@ final class DefaultsModeConfigGenerator {
 
         private DefaultsMode(ObjectNode base, ObjectNode mode) {
             this(base);
-            mode.getObjectMember("retryMode").ifPresent((overrideNode) -> {
-                overrideNode.getMembers().forEach((modifier, value) -> {
-                    String modifierName = modifier.getValue().toUpperCase();
-                    this.modifyRetryMode(Modifier.valueOf(modifierName), value.expectStringNode().getValue());
+            mode
+                .getObjectMember("retryMode")
+                .ifPresent(overrideNode -> {
+                    overrideNode
+                        .getMembers()
+                        .forEach((modifier, value) -> {
+                            String modifierName = modifier.getValue().toUpperCase();
+                            this.modifyRetryMode(Modifier.valueOf(modifierName), value.expectStringNode().getValue());
+                        });
                 });
-            });
-            mode.getObjectMember("connectTimeoutInMillis").ifPresent((overrideNode) -> {
-                overrideNode.getMembers().forEach((modifier, value) -> {
-                    String modifierName = modifier.getValue().toUpperCase();
-                    this.modifyConnectTimeoutInMillis(Modifier.valueOf(modifierName),
-                            value.expectNumberNode().getValue());
+            mode
+                .getObjectMember("connectTimeoutInMillis")
+                .ifPresent(overrideNode -> {
+                    overrideNode
+                        .getMembers()
+                        .forEach((modifier, value) -> {
+                            String modifierName = modifier.getValue().toUpperCase();
+                            this.modifyConnectTimeoutInMillis(
+                                Modifier.valueOf(modifierName),
+                                value.expectNumberNode().getValue()
+                            );
+                        });
                 });
-            });
-            mode.getObjectMember("httpRequestTimeoutInMillis").ifPresent((overrideNode) -> {
-                overrideNode.getMembers().forEach((modifier, value) -> {
-                    String modifierName = modifier.getValue().toUpperCase();
-                    this.modifyHttpRequestTimeoutInMillis(Modifier.valueOf(modifierName),
-                            value.expectNumberNode().getValue());
+            mode
+                .getObjectMember("httpRequestTimeoutInMillis")
+                .ifPresent(overrideNode -> {
+                    overrideNode
+                        .getMembers()
+                        .forEach((modifier, value) -> {
+                            String modifierName = modifier.getValue().toUpperCase();
+                            this.modifyHttpRequestTimeoutInMillis(
+                                Modifier.valueOf(modifierName),
+                                value.expectNumberNode().getValue()
+                            );
+                        });
                 });
-            });
         }
 
         private void modifyRetryMode(Modifier modifier, String val) {
@@ -166,7 +200,8 @@ final class DefaultsModeConfigGenerator {
                 this.retryMode = Optional.of(val);
             } else {
                 throw new CodegenException(
-                        String.format("Unexpected modifier to retryMode, expect \"override\", got %s", modifier.label));
+                    String.format("Unexpected modifier to retryMode, expect \"override\", got %s", modifier.label)
+                );
             }
         }
 
@@ -185,23 +220,25 @@ final class DefaultsModeConfigGenerator {
 
         private void modifyConnectTimeoutInMillis(Modifier modifier, Number val) {
             this.connectTimeoutInMillis = Optional.of(
-                    this.modifyNumber(this.connectTimeoutInMillis.orElse(null), modifier, val));
+                this.modifyNumber(this.connectTimeoutInMillis.orElse(null), modifier, val)
+            );
         }
 
         private void modifyHttpRequestTimeoutInMillis(Modifier modifier, Number val) {
             this.httpRequestTimeoutInMillis = Optional.of(
-                this.modifyNumber(this.httpRequestTimeoutInMillis.orElse(null), modifier, val));
+                this.modifyNumber(this.httpRequestTimeoutInMillis.orElse(null), modifier, val)
+            );
         }
 
         public void useWriter(TypeScriptWriter writer) {
             writer.openBlock("return {", "};", () -> {
-                this.retryMode.ifPresent((retryMode) -> {
+                this.retryMode.ifPresent(retryMode -> {
                     writer.write("retryMode: $S,", this.retryMode);
                 });
-                this.connectTimeoutInMillis.ifPresent((connectTimeoutInMillis) -> {
+                this.connectTimeoutInMillis.ifPresent(connectTimeoutInMillis -> {
                     writer.write("connectionTimeout: $L,", connectTimeoutInMillis);
                 });
-                this.httpRequestTimeoutInMillis.ifPresent((httpRequestTimeoutInMillis) -> {
+                this.httpRequestTimeoutInMillis.ifPresent(httpRequestTimeoutInMillis -> {
                     writer.write("requestTimeout: $L,", httpRequestTimeoutInMillis);
                 });
             });

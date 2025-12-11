@@ -50,54 +50,66 @@ public final class AwsSdkCustomizeHttpBearerTokenAuth implements HttpAuthTypeScr
     ) {
         ServiceShape service = settings.getService(model);
         if (isAwsService(service)) {
-            HttpAuthScheme authScheme = supportedHttpAuthSchemesIndex.getHttpAuthScheme(HttpBearerAuthTrait.ID)
+            HttpAuthScheme authScheme = supportedHttpAuthSchemesIndex
+                .getHttpAuthScheme(HttpBearerAuthTrait.ID)
                 .toBuilder()
                 // Use `@aws-sdk/token-providers` as the default identity provider chain for Node.js
-                .putDefaultIdentityProvider(LanguageTarget.NODE, w -> w
-                    .addDependency(AwsDependency.TOKEN_PROVIDERS)
-                    .addImport("nodeProvider", null, AwsDependency.TOKEN_PROVIDERS)
-                    .addImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
-                    .openBlock("async (idProps) => {", "}", () -> {
-                        String defaultProviderReturn = "return await nodeProvider(idProps as FromSsoInit)(idProps);";
-                        if (useFromEnvSigningName(service)) {
-                            w.openBlock("try {", "}", () -> {
-                                w.addImport("fromEnvSigningName", null, AwsDependency.TOKEN_PROVIDERS);
-                                w.write("return await fromEnvSigningName({ signingName: $S })();",
-                                    service.expectTrait(SigV4Trait.class).getName());
-                            });
-                            w.openBlock("catch (error) {", "}", () -> {
+                .putDefaultIdentityProvider(LanguageTarget.NODE, w ->
+                    w
+                        .addDependency(AwsDependency.TOKEN_PROVIDERS)
+                        .addImport("nodeProvider", null, AwsDependency.TOKEN_PROVIDERS)
+                        .addImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
+                        .openBlock("async (idProps) => {", "}", () -> {
+                            String defaultProviderReturn =
+                                "return await nodeProvider(idProps as FromSsoInit)(idProps);";
+                            if (useFromEnvSigningName(service)) {
+                                w.openBlock("try {", "}", () -> {
+                                    w.addImport("fromEnvSigningName", null, AwsDependency.TOKEN_PROVIDERS);
+                                    w.write(
+                                        "return await fromEnvSigningName({ signingName: $S })();",
+                                        service.expectTrait(SigV4Trait.class).getName()
+                                    );
+                                });
+                                w.openBlock("catch (error) {", "}", () -> {
+                                    w.write(defaultProviderReturn);
+                                });
+                            } else {
                                 w.write(defaultProviderReturn);
-                            });
-                        } else {
-                            w.write(defaultProviderReturn);
-                        }
-                    }))
+                            }
+                        })
+                )
                 // Add identityProperties for backward compatibility of the `nodeProvider` default provider.
                 // If adding new properties that need to be passed into `nodeProvider`, make sure
                 // to update the propertiesExtractor below.
                 // However, the goal should be to NOT add additional properties.
-                .propertiesExtractor(s -> w -> w
-                    .addDependency(AwsDependency.TOKEN_PROVIDERS)
-                    .addImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
-                    .addDependency(TypeScriptDependency.SMITHY_TYPES)
-                    .addImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES)
-                    .write("""
-                        <T>({
-                          profile,
-                          filepath,
-                          configFilepath,
-                          ignoreCache,
-                        }: T & FromSsoInit, context: HandlerExecutionContext) => ({
-                          /**
-                           * @internal
-                           */
-                          identityProperties: {
-                            profile,
-                            filepath,
-                            configFilepath,
-                            ignoreCache,
-                          },
-                        }),"""))
+                .propertiesExtractor(
+                    s ->
+                        w ->
+                            w
+                                .addDependency(AwsDependency.TOKEN_PROVIDERS)
+                                .addImport("FromSsoInit", null, AwsDependency.TOKEN_PROVIDERS)
+                                .addDependency(TypeScriptDependency.SMITHY_TYPES)
+                                .addImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES)
+                                .write(
+                                    """
+                                    <T>({
+                                      profile,
+                                      filepath,
+                                      configFilepath,
+                                      ignoreCache,
+                                    }: T & FromSsoInit, context: HandlerExecutionContext) => ({
+                                      /**
+                                       * @internal
+                                       */
+                                      identityProperties: {
+                                        profile,
+                                        filepath,
+                                        configFilepath,
+                                        ignoreCache,
+                                      },
+                                    }),"""
+                                )
+                )
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
         }

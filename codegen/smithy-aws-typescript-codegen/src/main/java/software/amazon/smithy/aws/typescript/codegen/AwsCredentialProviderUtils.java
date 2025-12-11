@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
- package software.amazon.smithy.aws.typescript.codegen;
+package software.amazon.smithy.aws.typescript.codegen;
 
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;

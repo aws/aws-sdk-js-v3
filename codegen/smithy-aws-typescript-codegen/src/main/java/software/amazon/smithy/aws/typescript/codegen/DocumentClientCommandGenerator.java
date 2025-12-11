@@ -44,6 +44,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
 final class DocumentClientCommandGenerator implements Runnable {
+
     static final String COMMAND_PROPERTIES_SECTION = "command_properties";
     static final String COMMAND_BODY_EXTRA_SECTION = "command_body_extra";
     static final String COMMAND_CONSTRUCTOR_SECTION = "command_constructor";
@@ -71,11 +72,11 @@ final class DocumentClientCommandGenerator implements Runnable {
     private final Map<String, Map<String, String>> orderedUncheckedImports = new TreeMap<>();
 
     DocumentClientCommandGenerator(
-            TypeScriptSettings settings,
-            Model model,
-            OperationShape operation,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        OperationShape operation,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         this.model = model;
         settings.getService(model);
@@ -87,15 +88,11 @@ final class DocumentClientCommandGenerator implements Runnable {
         operationIndex = OperationIndex.of(model);
         String inputType = symbol.expectProperty("inputType", Symbol.class).getName();
         originalInputTypeName = inputType;
-        inputTypeName = DocumentClientUtils.getModifiedName(
-            inputType
-        );
+        inputTypeName = DocumentClientUtils.getModifiedName(inputType);
         inputMembersWithAttr = getStructureMembersWithAttr(operationIndex.getInput(operation));
         String outputType = symbol.expectProperty("outputType", Symbol.class).getName();
         originalOutputTypeName = outputType;
-        outputTypeName = DocumentClientUtils.getModifiedName(
-            outputType
-        );
+        outputTypeName = DocumentClientUtils.getModifiedName(outputType);
         outputMembersWithAttr = getStructureMembersWithAttr(operationIndex.getOutput(operation));
 
         clientCommandClassName = symbol.getName();
@@ -108,13 +105,14 @@ final class DocumentClientCommandGenerator implements Runnable {
         String configType = DocumentClientUtils.CLIENT_CONFIG_NAME;
 
         // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
-        writer.write("""
-           import { %s as %s } from "%s";
-           """.formatted(
-                clientCommandClassName,
-                clientCommandLocalName,
-                AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
-            )
+        writer.write(
+            """
+            import { %s as %s } from "%s";
+            """.formatted(
+                    clientCommandClassName,
+                    clientCommandLocalName,
+                    AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
+                )
         );
 
         // Add required imports.
@@ -131,17 +129,13 @@ final class DocumentClientCommandGenerator implements Runnable {
 
         generateInputAndOutputTypes();
 
-        String ioTypes = String.join(", ", new String[]{
-            inputTypeName,
-            outputTypeName,
-            "__" + originalInputTypeName,
-            "__" + originalOutputTypeName
-        });
+        String ioTypes = String.join(
+            ", ",
+            new String[] { inputTypeName, outputTypeName, "__" + originalInputTypeName, "__" + originalOutputTypeName }
+        );
 
         String name = DocumentClientUtils.getModifiedName(symbol.getName());
-        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName())
-            + "\n\n@public"
-        );
+        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName()) + "\n\n@public");
         writer.openBlock(
             "export class $L extends DynamoDBDocumentClientCommand<" + ioTypes + ", $L> {",
             "}",
@@ -162,8 +156,13 @@ final class DocumentClientCommandGenerator implements Runnable {
                 writer.write("protected readonly clientCommand: $L;", clientCommandLocalName);
                 writer.write(
                     "public readonly middlewareStack: MiddlewareStack<$L>;",
-                    inputTypeName + " | __" + originalInputTypeName
-                        + ", \n" + outputTypeName + " | __" + originalOutputTypeName
+                    inputTypeName +
+                        " | __" +
+                        originalInputTypeName +
+                        ", \n" +
+                        outputTypeName +
+                        " | __" +
+                        originalOutputTypeName
                 );
                 writer.write("");
 
@@ -180,15 +179,17 @@ final class DocumentClientCommandGenerator implements Runnable {
         writer.write("");
         orderedUncheckedImports.forEach((dep, symbols) -> {
             writer.openBlock("import type {", """
-                } from "%s";
-                """.formatted(dep), () -> {
+            } from "%s";
+            """.formatted(dep), () -> {
                 symbols.forEach((externalName, localName) -> {
                     if (externalName.equals(localName)) {
                         writer.writeInline(localName).write(",");
                     } else {
-                        writer.write("""
+                        writer.write(
+                            """
                             %s as %s,
-                            """.formatted(externalName, localName));
+                            """.formatted(externalName, localName)
+                        );
                     }
                 });
             });
@@ -198,11 +199,12 @@ final class DocumentClientCommandGenerator implements Runnable {
     private void generateCommandConstructor() {
         writer.openBlock("constructor(readonly input: $L) {", "}", inputTypeName, () -> {
             // The constructor can be intercepted and changed.
-            writer.pushState(COMMAND_CONSTRUCTOR_SECTION)
-                    .write("super();")
-                    .write("this.clientCommand = new $L(this.input as any);", clientCommandLocalName)
-                    .write("this.middlewareStack = this.clientCommand.middlewareStack;")
-                    .popState();
+            writer
+                .pushState(COMMAND_CONSTRUCTOR_SECTION)
+                .write("super();")
+                .write("this.clientCommand = new $L(this.input as any);", clientCommandLocalName)
+                .write("this.middlewareStack = this.clientCommand.middlewareStack;")
+                .popState();
         });
     }
 
@@ -220,14 +222,14 @@ final class DocumentClientCommandGenerator implements Runnable {
         writer.addImport(handler, handler, TypeScriptDependency.SMITHY_TYPES);
         writer.addImport(middlewareStack, middlewareStack, TypeScriptDependency.SMITHY_TYPES);
 
-        writer.write("resolveMiddleware(")
-                .indent()
-                .write("clientStack: $L<$L, $L>,", middlewareStack, serviceInputTypes, serviceOutputTypes)
-                .write("configuration: $L,", configType)
-                .write("options?: $T", ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType())
-                .dedent();
+        writer
+            .write("resolveMiddleware(")
+            .indent()
+            .write("clientStack: $L<$L, $L>,", middlewareStack, serviceInputTypes, serviceOutputTypes)
+            .write("configuration: $L,", configType)
+            .write("options?: $T", ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType())
+            .dedent();
         writer.openBlock("): $L<$L, $L> {", "}", handler, inputTypeName, outputTypeName, () -> {
-
             String commandVarName = "this.clientCommand";
 
             // marshall middlewares
@@ -238,8 +240,11 @@ final class DocumentClientCommandGenerator implements Runnable {
             writer.write("const stack = clientStack.concat(this.middlewareStack as typeof clientStack);");
 
             String handlerVarName = "handler";
-            writer.write("const $L = $L.resolveMiddleware(stack, configuration, options);",
-                handlerVarName, commandVarName);
+            writer.write(
+                "const $L = $L.resolveMiddleware(stack, configuration, options);",
+                handlerVarName,
+                commandVarName
+            );
             writer.write("");
 
             if (outputMembersWithAttr.isEmpty()) {
@@ -251,7 +256,7 @@ final class DocumentClientCommandGenerator implements Runnable {
     }
 
     private void writeKeyNodes(List<MemberShape> membersWithAttr) {
-        for (MemberShape member: membersWithAttr) {
+        for (MemberShape member : membersWithAttr) {
             writer.openBlock("'$L': ", ",", symbolProvider.toMemberName(member), () -> {
                 writeKeyNode(member);
             });
@@ -263,8 +268,10 @@ final class DocumentClientCommandGenerator implements Runnable {
         if (memberTarget instanceof CollectionShape) {
             MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
             Shape collectionMemberTarget = model.expectShape(collectionMember.getTarget());
-            if (collectionMemberTarget.isUnionShape()
-                    && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")) {
+            if (
+                collectionMemberTarget.isUnionShape() &&
+                symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")
+            ) {
                 writer.addImport("ALL_MEMBERS", null, "./commands/utils");
                 writer.write("ALL_MEMBERS // set/list of AttributeValue");
                 return;
@@ -281,15 +288,20 @@ final class DocumentClientCommandGenerator implements Runnable {
             } else {
                 // An AttributeValue inside Union is not present as of Q1 2021, and is less
                 // likely to appear in future. Writing Omit for it is not straightforward, skipping.
-                throw new CodegenException(String.format(
-                    "AttributeValue inside Union is not supported, attempted for %s", memberTarget.getType()
-                ));
+                throw new CodegenException(
+                    String.format(
+                        "AttributeValue inside Union is not supported, attempted for %s",
+                        memberTarget.getType()
+                    )
+                );
             }
         } else if (memberTarget.isMapShape()) {
             MemberShape mapMember = ((MapShape) memberTarget).getValue();
             Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
-            if (mapMemberTarget.isUnionShape()
-                    && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
+            if (
+                mapMemberTarget.isUnionShape() &&
+                symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")
+            ) {
                 writer.addImport("ALL_VALUES", null, "./commands/utils");
                 writer.write("ALL_VALUES // map with AttributeValue");
                 return;
@@ -307,7 +319,7 @@ final class DocumentClientCommandGenerator implements Runnable {
     private void writeStructureKeyNode(StructureShape structureTarget) {
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
         writer.openBlock("{", "}", () -> {
-            for (MemberShape member: membersWithAttr) {
+            for (MemberShape member : membersWithAttr) {
                 writer.openBlock("'$L': ", ",", symbolProvider.toMemberName(member), () -> {
                     writeKeyNode(member);
                 });
@@ -337,10 +349,10 @@ final class DocumentClientCommandGenerator implements Runnable {
     }
 
     private void writeType(
-            String typeName,
-            String originalTypeName,
-            Optional<StructureShape> optionalShape,
-            List<MemberShape> membersWithAttr
+        String typeName,
+        String originalTypeName,
+        Optional<StructureShape> optionalShape,
+        List<MemberShape> membersWithAttr
     ) {
         writer.writeDocs("@public");
         if (optionalShape.isPresent()) {
@@ -352,12 +364,18 @@ final class DocumentClientCommandGenerator implements Runnable {
             if (membersWithAttr.isEmpty()) {
                 writer.write("export type $L = __$L;", typeName, originalTypeName);
             } else {
-                String memberUnionToOmit = membersWithAttr.stream()
+                String memberUnionToOmit = membersWithAttr
+                    .stream()
                     .map(member -> "'" + symbolProvider.toMemberName(member) + "'")
                     .collect(Collectors.joining(" | "));
-                writer.openBlock("export type $L = Omit<__$L, $L> & {", "};", typeName,
-                    originalTypeName, memberUnionToOmit, () -> {
-                        for (MemberShape member: membersWithAttr) {
+                writer.openBlock(
+                    "export type $L = Omit<__$L, $L> & {",
+                    "};",
+                    typeName,
+                    originalTypeName,
+                    memberUnionToOmit,
+                    () -> {
+                        for (MemberShape member : membersWithAttr) {
                             writeStructureMemberOmitType(member);
                         }
                     }
@@ -371,29 +389,24 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeStructureOmitType(StructureShape structureTarget) {
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
-        String memberUnionToOmit = membersWithAttr.stream()
+        String memberUnionToOmit = membersWithAttr
+            .stream()
             .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
             .collect(Collectors.joining(" | "));
         String typeNameToOmit = symbolProvider.toSymbol(structureTarget).getName();
-        registerTypeImport(
-            typeNameToOmit,
-            typeNameToOmit,
-            AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
-        );
-        writer.openBlock("Omit<$L, $L> & {", "}", typeNameToOmit,
-            memberUnionToOmit, () -> {
-                for (MemberShape memberWithAttr: membersWithAttr) {
-                    writeStructureMemberOmitType(memberWithAttr);
-                }
-            });
+        registerTypeImport(typeNameToOmit, typeNameToOmit, AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName());
+        writer.openBlock("Omit<$L, $L> & {", "}", typeNameToOmit, memberUnionToOmit, () -> {
+            for (MemberShape memberWithAttr : membersWithAttr) {
+                writeStructureMemberOmitType(memberWithAttr);
+            }
+        });
     }
 
     private void writeStructureMemberOmitType(MemberShape member) {
         String optionalSuffix = isRequiredMember(member) ? "" : "?";
-        writer.openBlock("${L}${L}: ", ";", symbolProvider.toMemberName(member),
-            optionalSuffix, () -> {
-                writeMemberOmitType(member, true);
-            });
+        writer.openBlock("${L}${L}: ", ";", symbolProvider.toMemberName(member), optionalSuffix, () -> {
+            writeMemberOmitType(member, true);
+        });
     }
 
     private void writeMemberOmitType(MemberShape member, boolean allowUndefined) {
@@ -406,9 +419,12 @@ final class DocumentClientCommandGenerator implements Runnable {
             } else {
                 // An AttributeValue inside Union is not present as of Q1 2021, and is less
                 // likely to appear in future. Writing Omit for it is not straightforward, skipping.
-                throw new CodegenException(String.format(
-                    "AttributeValue inside Union is not supported, attempted for %s", memberTarget.getType()
-                ));
+                throw new CodegenException(
+                    String.format(
+                        "AttributeValue inside Union is not supported, attempted for %s",
+                        memberTarget.getType()
+                    )
+                );
             }
         } else if (memberTarget.isMapShape()) {
             MemberShape mapMember = ((MapShape) memberTarget).getValue();
@@ -428,11 +444,7 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeNativeAttributeValue() {
         String nativeAttributeValue = "NativeAttributeValue";
-        registerTypeImport(
-            nativeAttributeValue,
-            nativeAttributeValue,
-            AwsDependency.UTIL_DYNAMODB.getPackageName()
-        );
+        registerTypeImport(nativeAttributeValue, nativeAttributeValue, AwsDependency.UTIL_DYNAMODB.getPackageName());
         writer.write(nativeAttributeValue);
     }
 
@@ -450,9 +462,6 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void registerTypeImport(String externalName, String localName, String packageName) {
         orderedUncheckedImports.putIfAbsent(packageName, new TreeMap<>());
-        orderedUncheckedImports.get(packageName)
-            .put(
-                externalName, localName
-            );
+        orderedUncheckedImports.get(packageName).put(externalName, localName);
     }
 }

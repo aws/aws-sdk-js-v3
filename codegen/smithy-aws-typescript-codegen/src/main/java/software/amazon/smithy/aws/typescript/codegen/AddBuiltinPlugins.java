@@ -23,10 +23,12 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddBuiltinPlugins implements TypeScriptIntegration {
+
     @Override
     public List<String> runAfter() {
         return List.of(
-            software.amazon.smithy.typescript.codegen.integration.AddBuiltinPlugins.class.getCanonicalName());
+            software.amazon.smithy.typescript.codegen.integration.AddBuiltinPlugins.class.getCanonicalName()
+        );
     }
 
     @Override
@@ -46,8 +48,11 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
-                    "RecursionDetection", HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
+                    "RecursionDetection",
+                    HAS_MIDDLEWARE
+                )
                 .build()
         );
     }

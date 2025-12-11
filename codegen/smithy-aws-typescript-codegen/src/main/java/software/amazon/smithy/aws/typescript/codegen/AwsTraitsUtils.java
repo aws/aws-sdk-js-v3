@@ -33,6 +33,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AwsTraitsUtils {
+
     // SigV4a is not declared as a trait in existing services, so we need to hard code the following:
     // This should not be copied or made public outside of this class.
     private static final Set<ShapeId> ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES = Set.of(

@@ -52,20 +52,15 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class AwsQuery extends HttpRpcProtocolGenerator {
+
     static {
-        SchemaTraitExtension.INSTANCE.add(
-            AwsQueryErrorTrait.ID,
-            (Trait trait) -> {
-                if (trait instanceof AwsQueryErrorTrait awsQueryError) {
-                    return """
-                        [`%s`, %s]""".formatted(
-                            awsQueryError.getCode(),
-                            awsQueryError.getHttpResponseCode()
-                        );
-                }
-                return "";
+        SchemaTraitExtension.INSTANCE.add(AwsQueryErrorTrait.ID, (Trait trait) -> {
+            if (trait instanceof AwsQueryErrorTrait awsQueryError) {
+                return """
+                [`%s`, %s]""".formatted(awsQueryError.getCode(), awsQueryError.getHttpResponseCode());
             }
-        );
+            return "";
+        });
     }
 
     AwsQuery() {
@@ -115,24 +110,24 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         // Generate a function that handles the complex rules around deserializing
         // an error code from an xml error body.
         SymbolReference responseType = getApplicationProtocol().getResponseType();
-        writer.openBlock("const loadQueryErrorCode = (\n"
-                       + "  output: $T,\n"
-                       + "  data: any\n"
-                       + "): string | undefined => {", "};", responseType, () -> {
-            // Attempt to fetch the error code from the specific location.
-            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
-            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
-                writer.write("return $L;", errorCodeAccessLocation);
-            });
+        writer.openBlock(
+            "const loadQueryErrorCode = (\n" + "  output: $T,\n" + "  data: any\n" + "): string | undefined => {",
+            "};",
+            responseType,
+            () -> {
+                // Attempt to fetch the error code from the specific location.
+                String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
+                String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
+                writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
+                    writer.write("return $L;", errorCodeAccessLocation);
+                });
 
-            // Default a 404 status code to the NotFound code.
-            writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-        });
-        writer.write("");
-        writer.write(
-            context.getStringStore().flushVariableDeclarationCode()
+                // Default a 404 status code to the NotFound code.
+                writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
+            }
         );
+        writer.write("");
+        writer.write(context.getStringStore().flushVariableDeclarationCode());
     }
 
     @Override
@@ -155,17 +150,19 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
 
     @Override
     protected void serializeInputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            StructureShape inputStructure
+        GenerationContext context,
+        OperationShape operation,
+        StructureShape inputStructure
     ) {
         TypeScriptWriter writer = context.getWriter();
 
         // Set the form encoded string.
         writer.openBlock("body = buildFormUrlencodedString({", "});", () -> {
             // Gather all the explicit input entries.
-            writer.write("...$L,",
-                    inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME)));
+            writer.write(
+                "...$L,",
+                inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME))
+            );
             // Set the protocol required values.
             ServiceShape serviceShape = context.getService();
             StringStore stringStore = context.getStringStore();
@@ -173,10 +170,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
                 "[" + stringStore.var("Action") + "]: $L,",
                 stringStore.var(operation.getId().getName(serviceShape))
             );
-            writer.write(
-                "[" + stringStore.var("Version") + "]: $L,",
-                stringStore.var(serviceShape.getVersion())
-            );
+            writer.write("[" + stringStore.var("Version") + "]: $L,", stringStore.var(serviceShape.getVersion()));
         });
     }
 
@@ -195,15 +189,17 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
 
     @Override
     protected void deserializeOutputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            StructureShape outputStructure
+        GenerationContext context,
+        OperationShape operation,
+        StructureShape outputStructure
     ) {
         TypeScriptWriter writer = context.getWriter();
 
         String dataSource = "data." + operation.getId().getName(context.getService()) + "Result";
-        writer.write("contents = $L;",
-                outputStructure.accept(new XmlMemberDeserVisitor(context, dataSource, Format.DATE_TIME)));
+        writer.write(
+            "contents = $L;",
+            outputStructure.accept(new XmlMemberDeserVisitor(context, dataSource, Format.DATE_TIME))
+        );
     }
 
     @Override
@@ -215,17 +211,19 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     public Map<String, ShapeId> getOperationErrors(GenerationContext context, OperationShape operation) {
         Map<String, ShapeId> errors = new TreeMap<>();
 
-        operation.getErrorsSet().forEach(shapeId -> {
-            Shape errorShape = context.getModel().expectShape(shapeId);
-            String errorName = shapeId.getName(context.getService());
+        operation
+            .getErrorsSet()
+            .forEach(shapeId -> {
+                Shape errorShape = context.getModel().expectShape(shapeId);
+                String errorName = shapeId.getName(context.getService());
 
-            Optional<AwsQueryErrorTrait> errorShapeTrait = errorShape.getTrait(AwsQueryErrorTrait.class);
-            if (errorShapeTrait.isPresent()) {
-                errors.put(errorShapeTrait.get().getCode(), shapeId);
-            } else {
-                errors.put(errorName, shapeId);
-            }
-        });
+                Optional<AwsQueryErrorTrait> errorShapeTrait = errorShape.getTrait(AwsQueryErrorTrait.class);
+                if (errorShapeTrait.isPresent()) {
+                    errors.put(errorShapeTrait.get().getCode(), shapeId);
+                } else {
+                    errors.put(errorName, shapeId);
+                }
+            });
 
         return errors;
     }

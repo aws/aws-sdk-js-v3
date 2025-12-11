@@ -23,13 +23,12 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddServiceCustomizationPlugins implements TypeScriptIntegration {
+
     private static final Set<String> ROUTE_53_ID_MEMBERS = Set.of("DelegationSetId", "HostedZoneId", "Id");
 
     @Override
     public List<String> runAfter() {
-        return List.of(
-            AddBuiltinPlugins.class.getCanonicalName()
-        );
+        return List.of(AddBuiltinPlugins.class.getCanonicalName());
     }
 
     @Override
@@ -37,42 +36,42 @@ public class AddServiceCustomizationPlugins implements TypeScriptIntegration {
         return List.of(
             // API Gateway
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader",
-                    HAS_MIDDLEWARE)
+                .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader", HAS_MIDDLEWARE)
                 .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                 .build(),
             // Glacier
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,
-                    "Glacier", HAS_MIDDLEWARE)
+                .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency, "Glacier", HAS_MIDDLEWARE)
                 .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
                 .build(),
             // EC2
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,
-                    "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CopySnapshot")
-                    && testServiceId(s, "EC2"))
+                .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency, "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CopySnapshot") && testServiceId(s, "EC2"))
                 .build(),
             // Machine Learning
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
-                    HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("Predict")
-                    && testServiceId(s, "Machine Learning"))
+                .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint", HAS_MIDDLEWARE)
+                .operationPredicate(
+                    (m, s, o) -> o.getId().getName(s).equals("Predict") && testServiceId(s, "Machine Learning")
+                )
                 .build(),
             // Route 53
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
-                    "ChangeResourceRecordSets", HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets")
-                    && testServiceId(s, "Route 53"))
+                .withConventions(
+                    AwsDependency.ROUTE53_MIDDLEWARE.dependency,
+                    "ChangeResourceRecordSets",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets") && testServiceId(s, "Route 53")
+                )
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
-                    HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
-                    && testServiceId(s, "Route 53"))
+                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer", HAS_MIDDLEWARE)
+                .operationPredicate(
+                    (m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS) && testServiceId(s, "Route 53")
+                )
                 .build()
         );
     }
@@ -83,7 +82,8 @@ public class AddServiceCustomizationPlugins implements TypeScriptIntegration {
         Set<String> expectedMemberNames
     ) {
         OperationIndex operationIndex = OperationIndex.of(model);
-        return operationIndex.getInput(operationShape)
+        return operationIndex
+            .getInput(operationShape)
             .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
             .isPresent();
     }

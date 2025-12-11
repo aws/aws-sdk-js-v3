@@ -130,8 +130,9 @@ final class AwsProtocolUtils {
     static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
         writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
-        writer.write(IoUtils.readUtf8Resource(
-            AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
+        writer.write(
+            IoUtils.readUtf8Resource(AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts")
+        );
     }
 
     /**
@@ -181,12 +182,21 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Write a single function to handle combining a map in to a valid query string.
-        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
-        writer.openBlock("const buildFormUrlencodedString = (formEntries: Record<string, string>): "
-                         + "string => Object.entries(formEntries).map(", ").join(\"&\");",
-            () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
-                               + "__extendedEncodeURIComponent(value)"));
+        writer.addImport(
+            "extendedEncodeURIComponent",
+            "__extendedEncodeURIComponent",
+            TypeScriptDependency.AWS_SMITHY_CLIENT
+        );
+        writer.openBlock(
+            "const buildFormUrlencodedString = (formEntries: Record<string, string>): " +
+                "string => Object.entries(formEntries).map(",
+            ").join(\"&\");",
+            () ->
+                writer.write(
+                    "([key, value]) => __extendedEncodeURIComponent(key) + '=' + " +
+                        "__extendedEncodeURIComponent(value)"
+                )
+        );
         writer.write("");
     }
 
@@ -210,10 +220,7 @@ final class AwsProtocolUtils {
                 "[" + stringStore.var("Action") + "]: $L,",
                 stringStore.var(operation.getId().getName(serviceShape))
             );
-            writer.write(
-                "[" + stringStore.var("Version") + "]: $L,",
-                stringStore.var(serviceShape.getVersion())
-            );
+            writer.write("[" + stringStore.var("Version") + "]: $L,", stringStore.var(serviceShape.getVersion()));
         });
 
         return true;
@@ -259,7 +266,8 @@ final class AwsProtocolUtils {
             TypeScriptWriter writer = context.getWriter();
             writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
             writer.openBlock("if ($L === undefined) {", "}", inputLocation, () ->
-                writer.write("$L = generateIdempotencyToken();", inputLocation));
+                writer.write("$L = generateIdempotencyToken();", inputLocation)
+            );
         }
     }
 
@@ -285,17 +293,21 @@ final class AwsProtocolUtils {
     }
 
     static void generateProtocolTests(ProtocolGenerator generator, GenerationContext context) {
-        new HttpProtocolTestGenerator(context,
+        new HttpProtocolTestGenerator(
+            context,
             generator,
             AwsProtocolUtils::filterProtocolTests,
-            AwsProtocolUtils::filterMalformedRequestTests).run();
+            AwsProtocolUtils::filterMalformedRequestTests
+        ).run();
     }
 
     /**
      * @return map of error full shape id to alias strings having AwsQueryCompat error code.
      */
-    static Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
-                                                        Collection<OperationShape> operations) {
+    static Map<String, TreeSet<String>> getErrorAliases(
+        GenerationContext context,
+        Collection<OperationShape> operations
+    ) {
         Map<String, TreeSet<String>> aliases = new HashMap<>();
         ServiceShape service = context.getService();
         boolean awsQueryCompatible = service.hasTrait(AwsQueryCompatibleTrait.class);
@@ -330,12 +342,15 @@ final class AwsProtocolUtils {
         }
 
         // not implemented in server sdk.
-        if (SetUtils.of(
-            "SDKAppendedGzipAfterProvidedEncoding_restJson1",
-            "SDKAppliedContentEncoding_restJson1",
-            "RestJsonHttpPayloadWithUnsetUnion",
-            "RestJsonMustSupportParametersInContentType"
-        ).contains(testCase.getId()) && settings.generateServerSdk()) {
+        if (
+            SetUtils.of(
+                "SDKAppendedGzipAfterProvidedEncoding_restJson1",
+                "SDKAppliedContentEncoding_restJson1",
+                "RestJsonHttpPayloadWithUnsetUnion",
+                "RestJsonMustSupportParametersInContentType"
+            ).contains(testCase.getId()) &&
+            settings.generateServerSdk()
+        ) {
             return true;
         }
 
@@ -400,8 +415,10 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        if (testCase.getId().equals("RestJsonStringPayloadNoContentType")
-            || testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")) {
+        if (
+            testCase.getId().equals("RestJsonStringPayloadNoContentType") ||
+            testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")
+        ) {
             return settings.generateServerSdk();
         }
 

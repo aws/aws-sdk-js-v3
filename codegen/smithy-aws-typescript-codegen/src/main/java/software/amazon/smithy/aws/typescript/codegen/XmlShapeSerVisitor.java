@@ -55,6 +55,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
+
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
     private final StringStore stringStore;
 
@@ -75,9 +76,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Use the @xmlName trait if present on the member, otherwise use "member".
-        String locationName = memberShape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse("member");
+        String locationName = memberShape.getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse("member");
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
@@ -112,8 +111,9 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
     @Override
     protected void serializeDocument(GenerationContext context, DocumentShape shape) {
-        throw new CodegenException(String.format(
-                "Cannot serialize Document types on AWS XML protocols, shape: %s.", shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot serialize Document types on AWS XML protocols, shape: %s.", shape.getId())
+        );
     }
 
     @Override
@@ -139,9 +139,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use the @xmlName trait if present on the member, otherwise use "key".
             MemberShape keyMember = shape.getKey();
             Shape keyTarget = model.expectShape(keyMember.getTarget());
-            String keyName = keyMember.getTrait(XmlNameTrait.class)
-                    .map(XmlNameTrait::getValue)
-                    .orElse("key");
+            String keyName = keyMember.getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse("key");
             writer.write("const keyNode = $L.n($S);", keyTarget.accept(getMemberVisitor("key")), keyName);
             // Add @xmlNamespace value of the key member.
             AwsProtocolUtils.writeXmlNamespace(context, keyMember, "keyNode");
@@ -151,9 +149,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use the @xmlName trait if present on the member, otherwise use "value".
             MemberShape valueMember = shape.getValue();
             Shape valueTarget = model.expectShape(valueMember.getTarget());
-            String valueName = valueMember.getTrait(XmlNameTrait.class)
-                    .map(XmlNameTrait::getValue)
-                    .orElse("value");
+            String valueName = valueMember.getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse("value");
 
             // Handle the sparse trait by short circuiting null values
             // from serialization, and not including them if encountered
@@ -161,7 +157,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("var n;");
             if (shape.hasTrait(SparseTrait.ID)) {
                 writer.openBlock("if (value === null) {", "} else {", () ->
-                        writer.write("n = __XmlNode.of($L, null);", stringStore.var(valueName)));
+                    writer.write("n = __XmlNode.of($L, null);", stringStore.var(valueName))
+                );
                 writer.indent();
             }
 
@@ -200,9 +197,10 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the structure itself.
-        String nodeName = shape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName(serviceShape));
+        String nodeName = shape
+            .getTrait(XmlNameTrait.class)
+            .map(XmlNameTrait::getValue)
+            .orElse(shape.getId().getName(serviceShape));
 
         // Create the structure's node.
         writer.write("const bn = new __XmlNode($L);", stringStore.var(nodeName));
@@ -222,17 +220,15 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     }
 
     void serializeNamedMember(
-            GenerationContext context,
-            String memberName,
-            MemberShape memberShape,
-            Supplier<String> inputLocation
+        GenerationContext context,
+        String memberName,
+        MemberShape memberShape,
+        Supplier<String> inputLocation
     ) {
         TypeScriptWriter writer = context.getWriter();
 
         // Use the @xmlName trait if present on the member, otherwise use the member name.
-        String locationName = memberShape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse(memberName);
+        String locationName = memberShape.getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse(memberName);
 
         // Handle @xmlAttribute simple members.
         if (memberShape.hasTrait(XmlAttributeTrait.class)) {
@@ -252,9 +248,16 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                     if (timestampFormat.isEmpty()) {
                         timestampFormat = target.getTrait(TimestampFormatTrait.class);
                     }
-                    valueProvider = inputVisitor.getAsXmlText(target,
-                            AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                    timestampFormat.get().getFormat(), inputLocation.get()) + ".toString()");
+                    valueProvider = inputVisitor.getAsXmlText(
+                        target,
+                        AwsProtocolUtils.getInputTimestampValueProvider(
+                                context,
+                                memberShape,
+                                timestampFormat.get().getFormat(),
+                                inputLocation.get()
+                            ) +
+                            ".toString()"
+                    );
                 } else {
                     valueProvider = target.accept(inputVisitor);
                 }
@@ -265,22 +268,19 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 );
 
                 if (hasNamespace || !standardPattern) {
-                    writer.openBlock("if (input[$L] != null) {", "}",
-                        stringStore.var(memberName),
-                        () -> {
-                            if (hasNamespace) {
-                                // Standard members are added as children after updating their names.
-                                writer.write("const n = $L.n($L);", valueProvider, stringStore.var(locationName));
-                                // Add @xmlNamespace value of the target member.
-                                AwsProtocolUtils.writeXmlNamespace(context, memberShape, "n");
-                                writer.write("bn.c(n);");
-                            } else {
-                                writer.openBlock("bn.c(", ");", () -> {
-                                    writer.write("$L.n($L)", valueProvider, stringStore.var(locationName));
-                                });
-                            }
+                    writer.openBlock("if (input[$L] != null) {", "}", stringStore.var(memberName), () -> {
+                        if (hasNamespace) {
+                            // Standard members are added as children after updating their names.
+                            writer.write("const n = $L.n($L);", valueProvider, stringStore.var(locationName));
+                            // Add @xmlNamespace value of the target member.
+                            AwsProtocolUtils.writeXmlNamespace(context, memberShape, "n");
+                            writer.write("bn.c(n);");
+                        } else {
+                            writer.openBlock("bn.c(", ");", () -> {
+                                writer.write("$L.n($L)", valueProvider, stringStore.var(locationName));
+                            });
                         }
-                    );
+                    });
                 } else {
                     // standard pattern.
                     writer.write("bn.cc(input, $L);", stringStore.var(locationName));
@@ -290,12 +290,12 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     }
 
     private void serializeNamedMemberFromArray(
-            GenerationContext context,
-            String memberName,
-            String locationName,
-            MemberShape memberShape,
-            Shape target,
-            DocumentMemberSerVisitor inputVisitor
+        GenerationContext context,
+        String memberName,
+        String locationName,
+        MemberShape memberShape,
+        Shape target,
+        DocumentMemberSerVisitor inputVisitor
     ) {
         TypeScriptWriter writer = context.getWriter();
 
@@ -313,35 +313,32 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 writer.write("bn.lc(input, \"$L\", \"$L\", $L)", memberName, locationName, deserProvider);
             }
         } else {
-            writer.openBlock(
-                "if (input[$L] != null) {", "}", stringStore.var(memberName),
-                () -> {
-                    // Get all the nodes that are going to be serialized.
-                    writer.write("const ns = $L;", target.accept(inputVisitor));
+            writer.openBlock("if (input[$L] != null) {", "}", stringStore.var(memberName), () -> {
+                // Get all the nodes that are going to be serialized.
+                writer.write("const ns = $L;", target.accept(inputVisitor));
 
-                    // Prepare a containing node to hold the nodes if not flattened.
-                    if (!isFlattened) {
-                        writer.write("const containerNode = new __XmlNode($L);", stringStore.var(locationName));
-                        // Add @xmlNamespace value of the target member.
-                        AwsProtocolUtils.writeXmlNamespace(context, memberShape, "containerNode");
-                    }
-
-                    // Add every node to the target node.
-                    writer.openBlock("ns.map((n: any) => {", "});", () -> {
-                        // Adjust to add sub nodes to the right target based on flattening.
-                        String targetNode = isFlattened ? "bn" : "containerNode";
-                        if (isFlattened) {
-                            writer.write("n = n.n($S);", locationName);
-                        }
-                        writer.write("$L.c(n);", targetNode);
-                    });
-
-                    // For non-flattened collected nodes, we have to add the containing node.
-                    if (!isFlattened) {
-                        writer.write("bn.c(containerNode);");
-                    }
+                // Prepare a containing node to hold the nodes if not flattened.
+                if (!isFlattened) {
+                    writer.write("const containerNode = new __XmlNode($L);", stringStore.var(locationName));
+                    // Add @xmlNamespace value of the target member.
+                    AwsProtocolUtils.writeXmlNamespace(context, memberShape, "containerNode");
                 }
-            );
+
+                // Add every node to the target node.
+                writer.openBlock("ns.map((n: any) => {", "});", () -> {
+                    // Adjust to add sub nodes to the right target based on flattening.
+                    String targetNode = isFlattened ? "bn" : "containerNode";
+                    if (isFlattened) {
+                        writer.write("n = n.n($S);", locationName);
+                    }
+                    writer.write("$L.c(n);", targetNode);
+                });
+
+                // For non-flattened collected nodes, we have to add the containing node.
+                if (!isFlattened) {
+                    writer.write("bn.c(containerNode);");
+                }
+            });
         }
     }
 
@@ -357,9 +354,10 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the union itself.
-        String nodeName = shape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName(serviceShape));
+        String nodeName = shape
+            .getTrait(XmlNameTrait.class)
+            .map(XmlNameTrait::getValue)
+            .orElse(shape.getId().getName(serviceShape));
 
         // Create the union's node.
         writer.write("const bn = new __XmlNode($L);", stringStore.var(nodeName));

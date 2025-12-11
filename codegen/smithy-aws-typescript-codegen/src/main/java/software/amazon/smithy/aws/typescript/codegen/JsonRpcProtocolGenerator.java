@@ -73,9 +73,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
             AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
         }
-        writer.write(
-            context.getStringStore().flushVariableDeclarationCode()
-        );
+        writer.write(context.getStringStore().flushVariableDeclarationCode());
     }
 
     @Override
@@ -84,8 +82,10 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
-                                                        Collection<OperationShape> operations) {
+    public Map<String, TreeSet<String>> getErrorAliases(
+        GenerationContext context,
+        Collection<OperationShape> operations
+    ) {
         return AwsProtocolUtils.getErrorAliases(context, operations);
     }
 
@@ -102,25 +102,23 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
         boolean isAwsQueryCompat = context.getService().hasTrait(AwsQueryCompatibleTrait.class);
 
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(
+            context,
+            shapes,
             // AWS JSON does not support jsonName
-            new JsonShapeSerVisitor(
-                context,
-                (shape, name) -> name,
-                !isAwsQueryCompat && enableSerdeElision()
-            )
+            new JsonShapeSerVisitor(context, (shape, name) -> name, !isAwsQueryCompat && enableSerdeElision())
         );
     }
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
         boolean disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
-            context.getService().getTrait(ServiceTrait.class)
-                .map(ServiceTrait::getSdkId)
-                .orElse(null)
+            context.getService().getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(null)
         );
 
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(
+            context,
+            shapes,
             // AWS JSON does not support jsonName
             new JsonShapeDeserVisitor(
                 context,
@@ -151,26 +149,26 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
         writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
         String targetHeader = serviceShape.getId().getName(serviceShape) + ".${operation}";
-        writer.openBlock("function sharedHeaders(operation: string): __HeaderBag { return {", "}};",
-                () -> {
-                    writer.write("'content-type': $S,", getDocumentContentType());
-                    // AWS JSON RPC protocols use a combination of the service and operation shape names,
-                    // separated by a '.' character, for the target header.
-                    writer.write("'x-amz-target': `$L`,", targetHeader);
-                    if (serviceShape.hasTrait(AwsQueryCompatibleTrait.class)) {
-                        writer.write("""
-                            "x-amzn-query-mode": "true",
-                        """);
-                    }
-                }
-        );
+        writer.openBlock("function sharedHeaders(operation: string): __HeaderBag { return {", "}};", () -> {
+            writer.write("'content-type': $S,", getDocumentContentType());
+            // AWS JSON RPC protocols use a combination of the service and operation shape names,
+            // separated by a '.' character, for the target header.
+            writer.write("'x-amz-target': `$L`,", targetHeader);
+            if (serviceShape.hasTrait(AwsQueryCompatibleTrait.class)) {
+                writer.write(
+                    """
+                        "x-amzn-query-mode": "true",
+                    """
+                );
+            }
+        });
     }
 
     @Override
     protected void serializeInputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            StructureShape inputStructure
+        GenerationContext context,
+        OperationShape operation,
+        StructureShape inputStructure
     ) {
         TypeScriptWriter writer = context.getWriter();
 
@@ -203,9 +201,9 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
     @Override
     protected void deserializeOutputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            StructureShape outputStructure
+        GenerationContext context,
+        OperationShape operation,
+        StructureShape outputStructure
     ) {
         TypeScriptWriter writer = context.getWriter();
 

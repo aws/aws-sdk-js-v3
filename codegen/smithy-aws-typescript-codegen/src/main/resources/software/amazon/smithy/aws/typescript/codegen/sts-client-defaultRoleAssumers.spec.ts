@@ -99,14 +99,14 @@ describe("getDefaultRoleAssumer", () => {
     expect(mockHandle).toBeCalledTimes(1);
     // Validate request is signed by sourceCred1
     expect(mockHandle.mock.calls[0][0].headers?.authorization).toEqual(
-      expect.stringContaining("AWS4-HMAC-SHA256 Credential=key1/")
+      expect.stringContaining("AWS4-HMAC-SHA256 Credential=key1/"),
     );
     const sourceCred2 = { accessKeyId: "key2", secretAccessKey: "secrete1" };
     await roleAssumer(sourceCred2, params);
     // Validate request is signed by sourceCred2
     expect(mockHandle).toBeCalledTimes(2);
     expect(mockHandle.mock.calls[1][0].headers?.authorization).toEqual(
-      expect.stringContaining("AWS4-HMAC-SHA256 Credential=key2/")
+      expect.stringContaining("AWS4-HMAC-SHA256 Credential=key2/"),
     );
   });
 

@@ -34,6 +34,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
 final class DocumentBareBonesClientGenerator implements Runnable {
+
     static final String CLIENT_CONFIG_SECTION = "client_config";
     static final String CLIENT_PROPERTIES_SECTION = "client_properties";
     static final String CLIENT_CONSTRUCTOR_SECTION = "client_constructor";
@@ -48,10 +49,10 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     private final String configType;
 
     DocumentBareBonesClientGenerator(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         this.model = model;
         this.symbolProvider = symbolProvider;
@@ -70,7 +71,8 @@ final class DocumentBareBonesClientGenerator implements Runnable {
 
         // Add required imports.
         // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
-        writer.write("""
+        writer.write(
+            """
             import {
               DynamoDBClient,
               DynamoDBClientResolvedConfig,
@@ -78,40 +80,46 @@ final class DocumentBareBonesClientGenerator implements Runnable {
               ServiceOutputTypes as __ServiceOutputTypes,
             } from "@aws-sdk/client-dynamodb";
             import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
-            """);
+            """
+        );
 
         writer.addImport("Client", "__Client", TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.writeDocs("@public");
         writer.write("export { __Client };");
         generateInputOutputImports(serviceInputTypes, serviceOutputTypes);
 
-        generateInputOutputTypeUnion(serviceInputTypes,
-            operationSymbol -> operationSymbol.expectProperty("inputType", Symbol.class).getName());
-        generateInputOutputTypeUnion(serviceOutputTypes,
-            operationSymbol -> operationSymbol.expectProperty("outputType", Symbol.class).getName());
+        generateInputOutputTypeUnion(serviceInputTypes, operationSymbol ->
+            operationSymbol.expectProperty("inputType", Symbol.class).getName()
+        );
+        generateInputOutputTypeUnion(serviceOutputTypes, operationSymbol ->
+            operationSymbol.expectProperty("outputType", Symbol.class).getName()
+        );
         writer.write("");
         generateConfiguration();
 
         writer.writeDocs(DocumentClientUtils.getClientDocs() + "\n\n@public");
-        writer.openBlock("export class $L extends __Client<$T, $L, $L, $L> {", "}",
+        writer.openBlock(
+            "export class $L extends __Client<$T, $L, $L, $L> {",
+            "}",
             DocumentClientUtils.CLIENT_NAME,
             ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType(),
-            serviceInputTypes, serviceOutputTypes,
-            DocumentClientUtils.CLIENT_CONFIG_NAME, () -> {
-
-            generateClientProperties();
-            writer.write("");
-            generateClientConstructor();
-            writer.write("");
-            generateStaticFactoryFrom();
-            writer.write("");
-            generateDestroy();
-        });
+            serviceInputTypes,
+            serviceOutputTypes,
+            DocumentClientUtils.CLIENT_CONFIG_NAME,
+            () -> {
+                generateClientProperties();
+                writer.write("");
+                generateClientConstructor();
+                writer.write("");
+                generateStaticFactoryFrom();
+                writer.write("");
+                generateDestroy();
+            }
+        );
     }
 
     private void generateInputOutputImports(String serviceInputTypes, String serviceOutputTypes) {
-        Set<OperationShape> containedOperations =
-                new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
+        Set<OperationShape> containedOperations = new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
 
         for (OperationShape operation : containedOperations) {
             if (DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation)) {
@@ -125,8 +133,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
                     operationSymbol.expectProperty("outputType", Symbol.class).getName()
                 );
 
-                String commandFileLocation = String.format("./%s/%s",
-                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER, name);
+                String commandFileLocation = String.format("./%s/%s", DocumentClientUtils.CLIENT_COMMANDS_FOLDER, name);
                 writer.addImport(input, input, commandFileLocation);
                 writer.addImport(output, output, commandFileLocation);
             }
@@ -135,15 +142,15 @@ final class DocumentBareBonesClientGenerator implements Runnable {
 
     private void generateInputOutputTypeUnion(String typeName, Function<Symbol, String> mapper) {
         writer.writeDocs("@public");
-        Set<OperationShape> containedOperations =
-                new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
+        Set<OperationShape> containedOperations = new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
 
-        List<String> operationTypeNames = containedOperations.stream()
-                .filter(operation -> DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation))
-                .map(symbolProvider::toSymbol)
-                .map(operation -> mapper.apply(operation))
-                .map(operationtypeName -> DocumentClientUtils.getModifiedName(operationtypeName))
-                .collect(Collectors.toList());
+        List<String> operationTypeNames = containedOperations
+            .stream()
+            .filter(operation -> DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation))
+            .map(symbolProvider::toSymbol)
+            .map(operation -> mapper.apply(operation))
+            .map(operationtypeName -> DocumentClientUtils.getModifiedName(operationtypeName))
+            .collect(Collectors.toList());
 
         writer.write("export type $L = $L", typeName, String.format("__%s", typeName));
         writer.indent();
@@ -163,10 +170,15 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     }
 
     private void generateStaticFactoryFrom() {
-        writer.openBlock("static from(client: $L, translateConfig?: $L) {", "}",
-            serviceName, DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE, () -> {
+        writer.openBlock(
+            "static from(client: $L, translateConfig?: $L) {",
+            "}",
+            serviceName,
+            DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE,
+            () -> {
                 writer.write("return new $L(client, translateConfig);", DocumentClientUtils.CLIENT_NAME);
-            });
+            }
+        );
     }
 
     private void generateClientProperties() {
@@ -176,23 +188,30 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     }
 
     private void generateClientConstructor() {
-        writer.openBlock("protected constructor(client: $L, translateConfig?: $L){", "}",
-            symbol.getName(), DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE, () -> {
+        writer.openBlock(
+            "protected constructor(client: $L, translateConfig?: $L){",
+            "}",
+            symbol.getName(),
+            DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE,
+            () -> {
                 writer.pushState(CLIENT_CONSTRUCTOR_SECTION);
                 writer.write("super(client.config);");
                 writer.write("this.config = client.config;");
                 writer.write("this.config.translateConfig = translateConfig;");
                 writer.write("this.middlewareStack = client.middlewareStack;");
-                writer.write("""
-                if (this.config?.cacheMiddleware) {
-                    throw new Error(
-                        "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the"
-                          + " DynamoDBDocumentClient. This option must be set to false."
-                    );
-                }
-                """);
+                writer.write(
+                    """
+                    if (this.config?.cacheMiddleware) {
+                        throw new Error(
+                            "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the"
+                              + " DynamoDBDocumentClient. This option must be set to false."
+                        );
+                    }
+                    """
+                );
                 writer.popState();
-            });
+            }
+        );
     }
 
     private void generateConfiguration() {
@@ -205,10 +224,9 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         });
         writer.write("");
         writer.writeDocs("@public");
-        writer.openBlock("export type $L = $L & {", "};", DocumentClientUtils.CLIENT_CONFIG_NAME,
-            configType, () -> {
-                writer.write("$L?: $L;", DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY, translateConfigType);
-            });
+        writer.openBlock("export type $L = $L & {", "};", DocumentClientUtils.CLIENT_CONFIG_NAME, configType, () -> {
+            writer.write("$L?: $L;", DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY, translateConfigType);
+        });
         writer.write("");
         writer.popState();
     }

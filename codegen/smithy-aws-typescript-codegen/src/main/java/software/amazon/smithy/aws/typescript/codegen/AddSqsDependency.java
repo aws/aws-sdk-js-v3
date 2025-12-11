@@ -45,47 +45,37 @@ public class AddSqsDependency implements TypeScriptIntegration {
 
     @Override
     public List<String> runAfter() {
-        return List.of(
-            AddBuiltinPlugins.class.getCanonicalName(),
-            AddDefaultEndpointRuleSet.class.getCanonicalName()
-        );
+        return List.of(AddBuiltinPlugins.class.getCanonicalName(), AddDefaultEndpointRuleSet.class.getCanonicalName());
     }
 
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")  && isSqs(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSqs(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(
-                            AwsDependency.SQS_MIDDLEWARE.dependency,
-                            "QueueUrl",
-                            HAS_MIDDLEWARE, HAS_CONFIG
-                        )
-                        .servicePredicate((m, s) -> isSqs(s))
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage") && isSqs(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSqs(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "QueueUrl", HAS_MIDDLEWARE, HAS_CONFIG)
+                .servicePredicate((m, s) -> isSqs(s))
+                .build()
         );
     }
 
     @Override
     public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         if (!isSqs(settings.getService(model))) {
             return;
@@ -95,17 +85,19 @@ public class AddSqsDependency implements TypeScriptIntegration {
         writer.addImport("HashConstructor", "__HashConstructor", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("Checksum", "__Checksum", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
-        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
-                + "that computes MD5 hashes, or false to prevent MD5 computation.");
+        writer.writeDocs(
+            "A constructor for a class implementing the {@link __Checksum} interface \n" +
+                "that computes MD5 hashes, or false to prevent MD5 computation."
+        );
         writer.write("md5?: __ChecksumConstructor | __HashConstructor | false;\n");
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         if (!isSqs(settings.getService(model))) {
             return Collections.emptyMap();
@@ -115,10 +107,8 @@ public class AddSqsDependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
-                    writer.addImport("HashConstructor", "__HashConstructor",
-                            TypeScriptDependency.SMITHY_TYPES);
-                    writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
-                            TypeScriptDependency.SMITHY_TYPES);
+                    writer.addImport("HashConstructor", "__HashConstructor", TypeScriptDependency.SMITHY_TYPES);
+                    writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
                     writer.write("Hash.bind(null, \"md5\")");
                 });
             case BROWSER:

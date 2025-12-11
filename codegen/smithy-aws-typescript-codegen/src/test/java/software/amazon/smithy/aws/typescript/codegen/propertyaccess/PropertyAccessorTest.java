@@ -1,10 +1,11 @@
 package software.amazon.smithy.aws.typescript.codegen.propertyaccess;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Test;
+
 class PropertyAccessorTest {
+
     @Test
     void getFrom() {
         assertEquals("output.fileSystemId", PropertyAccessor.getFrom("output", "fileSystemId"));

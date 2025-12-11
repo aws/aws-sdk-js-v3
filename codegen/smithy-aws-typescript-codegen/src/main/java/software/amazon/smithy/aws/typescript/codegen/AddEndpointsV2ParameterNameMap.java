@@ -24,20 +24,30 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
-
 @SmithyInternalApi
 public class AddEndpointsV2ParameterNameMap implements TypeScriptIntegration {
+
     public static final Map<String, String> NAME_MAP = MapUtils.of(
-        "Region", "region",
-        "UseFIPS", "useFipsEndpoint",
-        "UseDualStack", "useDualstackEndpoint",
-        "ForcePathStyle", "forcePathStyle",
-        "Accelerate", "useAccelerateEndpoint",
-        "DisableMRAP", "disableMultiregionAccessPoints",
-        "DisableMultiRegionAccessPoints", "disableMultiregionAccessPoints",
-        "UseArnRegion", "useArnRegion",
-        "Endpoint", "endpoint",
-        "UseGlobalEndpoint", "useGlobalEndpoint"
+        "Region",
+        "region",
+        "UseFIPS",
+        "useFipsEndpoint",
+        "UseDualStack",
+        "useDualstackEndpoint",
+        "ForcePathStyle",
+        "forcePathStyle",
+        "Accelerate",
+        "useAccelerateEndpoint",
+        "DisableMRAP",
+        "disableMultiregionAccessPoints",
+        "DisableMultiRegionAccessPoints",
+        "disableMultiregionAccessPoints",
+        "UseArnRegion",
+        "useArnRegion",
+        "Endpoint",
+        "endpoint",
+        "UseGlobalEndpoint",
+        "useGlobalEndpoint"
     );
 
     public AddEndpointsV2ParameterNameMap() {

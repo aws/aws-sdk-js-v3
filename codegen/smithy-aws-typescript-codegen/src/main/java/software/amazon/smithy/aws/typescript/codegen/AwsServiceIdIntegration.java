@@ -48,7 +48,10 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
 
     @Override
     public SymbolProvider decorateSymbolProvider(
-            Model model, TypeScriptSettings settings, SymbolProvider symbolProvider) {
+        Model model,
+        TypeScriptSettings settings,
+        SymbolProvider symbolProvider
+    ) {
         return shape -> {
             Symbol symbol = symbolProvider.toSymbol(shape);
 
@@ -59,24 +62,26 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
             // TODO: Should this WARNING be avoided somehow if client is not for an AWS service?
             // If the SDK service ID trait is present, use that, otherwise fall back to
             // the default naming strategy for the service.
-            return shape.getTrait(ServiceTrait.class)
-                    .map(ServiceTrait::getSdkId)
-                    .map(id -> updateServiceSymbol(symbol, id))
-                    .orElseGet(() -> {
-                        LOGGER.warning(String.format("No `%s` trait found on `%s`", ServiceTrait.ID, shape.getId()));
-                        return symbol;
-                    });
+            return shape
+                .getTrait(ServiceTrait.class)
+                .map(ServiceTrait::getSdkId)
+                .map(id -> updateServiceSymbol(symbol, id))
+                .orElseGet(() -> {
+                    LOGGER.warning(String.format("No `%s` trait found on `%s`", ServiceTrait.ID, shape.getId()));
+                    return symbol;
+                });
         };
     }
 
     private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
-        String name = Arrays.asList(serviceId.split(" ")).stream()
-                .map(StringUtils::capitalize)
-                .collect(Collectors.joining("")) + "Client";
-        return symbol.toBuilder()
-                .name(name)
-                .namespace(Paths.get(".", CodegenUtils.SOURCE_FOLDER, name).toString(), "/")
-                .definitionFile(Paths.get(".", CodegenUtils.SOURCE_FOLDER, name + ".ts").toString())
-                .build();
+        String name =
+            Arrays.asList(serviceId.split(" ")).stream().map(StringUtils::capitalize).collect(Collectors.joining("")) +
+            "Client";
+        return symbol
+            .toBuilder()
+            .name(name)
+            .namespace(Paths.get(".", CodegenUtils.SOURCE_FOLDER, name).toString(), "/")
+            .definitionFile(Paths.get(".", CodegenUtils.SOURCE_FOLDER, name + ".ts").toString())
+            .build();
     }
 }

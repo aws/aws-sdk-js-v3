@@ -106,8 +106,9 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
     @Override
     protected void serializeDocument(GenerationContext context, DocumentShape shape) {
-        throw new CodegenException(String.format(
-                "Cannot serialize Document types in the aws.query protocol, shape: %s.", shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot serialize Document types in the aws.query protocol, shape: %s.", shape.getId())
+        );
     }
 
     @Override
@@ -161,18 +162,19 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
     }
 
     private void serializeUnnamedMemberEntryList(
-            GenerationContext context,
-            Shape target,
-            String inputLocation,
-            String entryWrapper
+        GenerationContext context,
+        Shape target,
+        String inputLocation,
+        String entryWrapper
     ) {
         TypeScriptWriter writer = context.getWriter();
 
         QueryMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation);
         // Map entries that supply entry lists need to have them joined properly.
         writer.write("const memberEntries = $L;", target.accept(inputVisitor));
-        writer.openBlock("Object.entries(memberEntries).forEach(([key, value]) => {", "});",
-                () -> writer.write("entries[`$L.$${key}`] = value;", entryWrapper));
+        writer.openBlock("Object.entries(memberEntries).forEach(([key, value]) => {", "});", () ->
+            writer.write("entries[`$L.$${key}`] = value;", entryWrapper)
+        );
     }
 
     @Override
@@ -183,30 +185,27 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         writer.write("const entries: any = {};");
 
         // Serialize every member of the structure if present.
-        shape.getAllMembers().forEach((memberName, memberShape) -> {
-            String inputLocation = "input[" + stringStore.var(memberName) + "]";
+        shape
+            .getAllMembers()
+            .forEach((memberName, memberShape) -> {
+                String inputLocation = "input[" + stringStore.var(memberName) + "]";
 
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+                // Handle if the member is an idempotency token that should be auto-filled.
+                AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock(
-                "if ($1L != null) {",
-                "}",
-                inputLocation,
-                () -> {
+                writer.openBlock("if ($1L != null) {", "}", inputLocation, () -> {
                     serializeNamedMember(context, memberName, memberShape, inputLocation);
-                }
-            );
-        });
+                });
+            });
 
         writer.write("return entries");
     }
 
     private void serializeNamedMember(
-            GenerationContext context,
-            String memberName,
-            MemberShape memberShape,
-            String inputLocation
+        GenerationContext context,
+        String memberName,
+        MemberShape memberShape,
+        String inputLocation
     ) {
         // Grab the target shape so we can use a member serializer on it.
         Shape target = context.getModel().expectShape(memberShape.getTarget());
@@ -218,26 +217,28 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             serializeNamedMemberEntryList(context, locationName, memberShape, target, inputVisitor, inputLocation);
         } else {
             serializeNamedMemberValue(
-                context, locationName,
-                "input[" + stringStore.var(memberName) + "]", memberShape, target
+                context,
+                locationName,
+                "input[" + stringStore.var(memberName) + "]",
+                memberShape,
+                target
             );
         }
     }
 
     private void serializeNamedMemberValue(
-            GenerationContext context,
-            String locationName,
-            String dataSource,
-            MemberShape memberShape,
-            Shape target
+        GenerationContext context,
+        String locationName,
+        String dataSource,
+        MemberShape memberShape,
+        Shape target
     ) {
         TypeScriptWriter writer = context.getWriter();
 
         // Handle @timestampFormat on members not just the targeted shape.
         String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
-                ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                        TIMESTAMP_FORMAT, dataSource)
-                : target.accept(getMemberVisitor(dataSource));
+            ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape, TIMESTAMP_FORMAT, dataSource)
+            : target.accept(getMemberVisitor(dataSource));
 
         writer.write("entries[$L] = $L;", stringStore.var(locationName), valueProvider);
     }
@@ -252,18 +253,16 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
      */
     protected String getMemberSerializedLocationName(MemberShape memberShape, String defaultValue) {
         // Use the @xmlName trait if present on the member, otherwise use the member name.
-        return memberShape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse(defaultValue);
+        return memberShape.getTrait(XmlNameTrait.class).map(XmlNameTrait::getValue).orElse(defaultValue);
     }
 
     private void serializeNamedMemberEntryList(
-            GenerationContext context,
-            String locationName,
-            MemberShape memberShape,
-            Shape target,
-            DocumentMemberSerVisitor inputVisitor,
-            String inputLocation
+        GenerationContext context,
+        String locationName,
+        MemberShape memberShape,
+        Shape target,
+        DocumentMemberSerVisitor inputVisitor,
+        String inputLocation
     ) {
         TypeScriptWriter writer = context.getWriter();
 
@@ -276,14 +275,9 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         Shape targetShape = context.getModel().expectShape(memberShape.getTarget());
 
         if ((targetShape.isListShape() || targetShape.isSetShape()) && serializeEmptyLists) {
-            writer.openBlock(
-                "if ($L?.length === 0) {",
-                "}",
-                inputLocation,
-                () -> {
-                    writer.write("$L = []", PropertyAccessor.getFrom("entries", locationName));
-                }
-            );
+            writer.openBlock("if ($L?.length === 0) {", "}", inputLocation, () -> {
+                writer.write("$L = []", PropertyAccessor.getFrom("entries", locationName));
+            });
         }
 
         // Consolidate every entry in the list.
@@ -322,11 +316,13 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Visit over the union type, then get the right serialization for the member.
         writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
-            shape.getAllMembers().forEach((memberName, memberShape) -> {
-                writer.openBlock("$L: value => {", "},", memberName, () -> {
-                    serializeNamedMember(context, memberName, memberShape, "value");
+            shape
+                .getAllMembers()
+                .forEach((memberName, memberShape) -> {
+                    writer.openBlock("$L: value => {", "},", memberName, () -> {
+                        serializeNamedMember(context, memberName, memberShape, "value");
+                    });
                 });
-            });
 
             // Handle the unknown property.
             writer.openBlock("_: (name: string, value: any) => {", "}", () -> {

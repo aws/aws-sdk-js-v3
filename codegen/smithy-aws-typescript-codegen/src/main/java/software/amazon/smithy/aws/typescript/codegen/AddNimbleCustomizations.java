@@ -41,7 +41,9 @@ public class AddNimbleCustomizations implements TypeScriptIntegration {
             return model;
         }
         Map<ShapeId, ShapeType> overWriteTypeMap = MapUtils.of(
-                ShapeId.from("com.amazonaws.nimble#StudioComponentConfiguration"), ShapeType.STRUCTURE);
+            ShapeId.from("com.amazonaws.nimble#StudioComponentConfiguration"),
+            ShapeType.STRUCTURE
+        );
         return ModelTransformer.create().changeShapeType(model, overWriteTypeMap);
     }
 }

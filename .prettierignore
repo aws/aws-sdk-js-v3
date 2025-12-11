@@ -5,4 +5,3 @@ CHANGELOG.md
 **/*/report.md
 clients/*/src/endpoint/ruleset.ts
 packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
-**/*.java

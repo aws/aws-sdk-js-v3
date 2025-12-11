@@ -16,13 +16,14 @@ import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 
 public class AwsServiceIdIntegrationTest {
+
     @Test
     public void testSomeLibraryMethod() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("NotSame.smithy"))
-                .discoverModels()
-                .assemble()
-                .unwrap();
+            .addImport(getClass().getResource("NotSame.smithy"))
+            .discoverModels()
+            .assemble()
+            .unwrap();
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
@@ -39,10 +40,10 @@ public class AwsServiceIdIntegrationTest {
     @Test
     public void testFirstNotCapitalizedServiceId() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("firstNotCapitalized.smithy"))
-                .discoverModels()
-                .assemble()
-                .unwrap();
+            .addImport(getClass().getResource("firstNotCapitalized.smithy"))
+            .discoverModels()
+            .assemble()
+            .unwrap();
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
@@ -53,17 +54,19 @@ public class AwsServiceIdIntegrationTest {
 
         assertThat(symbol.getName(), equalTo("FirstNotCapitalizedClient"));
         assertThat(symbol.getNamespace(), equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/FirstNotCapitalizedClient"));
-        assertThat(symbol.getDefinitionFile(),
-            equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/FirstNotCapitalizedClient.ts"));
+        assertThat(
+            symbol.getDefinitionFile(),
+            equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/FirstNotCapitalizedClient.ts")
+        );
     }
 
     @Test
     public void testRestNotCapitalizedServiceId() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("Restnotcapitalized.smithy"))
-                .discoverModels()
-                .assemble()
-                .unwrap();
+            .addImport(getClass().getResource("Restnotcapitalized.smithy"))
+            .discoverModels()
+            .assemble()
+            .unwrap();
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
@@ -74,7 +77,9 @@ public class AwsServiceIdIntegrationTest {
 
         assertThat(symbol.getName(), equalTo("RestNotCapitalizedClient"));
         assertThat(symbol.getNamespace(), equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/RestNotCapitalizedClient"));
-        assertThat(symbol.getDefinitionFile(),
-            equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/RestNotCapitalizedClient.ts"));
+        assertThat(
+            symbol.getDefinitionFile(),
+            equalTo("./" + CodegenUtils.SOURCE_FOLDER + "/RestNotCapitalizedClient.ts")
+        );
     }
 }

@@ -27,9 +27,9 @@ import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.SetUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
-
 @SmithyInternalApi
 public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
+
     private static final Set<String> SERVICE_IDS = SetUtils.of(
         "ConnectParticipant", // P43593766
         "DataBrew", // P55897945
@@ -40,14 +40,13 @@ public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "OmitRetryHeaders",
-                                HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> {
-                            String sdkId = s.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-                            return SERVICE_IDS.contains(sdkId);
-                        })
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "OmitRetryHeaders", HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> {
+                    String sdkId = s.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
+                    return SERVICE_IDS.contains(sdkId);
+                })
+                .build()
         );
     }
 }

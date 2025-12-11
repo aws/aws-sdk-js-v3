@@ -38,8 +38,13 @@ final class QueryMemberSerVisitor extends DocumentMemberSerVisitor {
     }
 
     boolean visitSuppliesEntryList(Shape shape) {
-        return shape.isStructureShape() || shape.isUnionShape()
-                || shape.isMapShape() || shape.isListShape() || shape.isSetShape();
+        return (
+            shape.isStructureShape() ||
+            shape.isUnionShape() ||
+            shape.isMapShape() ||
+            shape.isListShape() ||
+            shape.isSetShape()
+        );
     }
 
     @Override
@@ -55,7 +60,8 @@ final class QueryMemberSerVisitor extends DocumentMemberSerVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot serialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot serialize shape type %s on protocol, shape: %s.", shape.getType(), shape.getId())
+        );
     }
 }

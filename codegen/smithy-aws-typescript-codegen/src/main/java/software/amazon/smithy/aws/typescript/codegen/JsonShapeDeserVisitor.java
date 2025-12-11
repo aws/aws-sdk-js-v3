@@ -59,16 +59,20 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     private final BiFunction<MemberShape, String, String> memberNameStrategy;
 
     JsonShapeDeserVisitor(GenerationContext context, boolean serdeElisionEnabled) {
-        this(context,
+        this(
+            context,
             // Use the jsonName trait value if present, otherwise use the member name.
-            (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
-            .map(JsonNameTrait::getValue)
-            .orElse(memberName),
-            serdeElisionEnabled);
+            (memberShape, memberName) ->
+                memberShape.getTrait(JsonNameTrait.class).map(JsonNameTrait::getValue).orElse(memberName),
+            serdeElisionEnabled
+        );
     }
 
-    JsonShapeDeserVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy,
-            boolean serdeElisionEnabled) {
+    JsonShapeDeserVisitor(
+        GenerationContext context,
+        BiFunction<MemberShape, String, String> memberNameStrategy,
+        boolean serdeElisionEnabled
+    ) {
         super(context);
         this.serdeElisionEnabled = serdeElisionEnabled;
         this.memberNameStrategy = memberNameStrategy;
@@ -98,37 +102,37 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         if (returnExpression.equals("entry") && !artifactType.equals(ArtifactType.SSDK)) {
             writer.write("const retVal = (output || [])$L", filterExpression);
         } else {
-            writer.openBlock("const retVal = (output || [])$L.map((entry: any) => {", "});",
-                filterExpression, () -> {
-                    // Short circuit null values from serialization.
-                    if (filterExpression.isEmpty()) {
-                        writer.openBlock("if (entry === null) {", "}", () -> {
-                            // In the SSDK we want to be very strict about not accepting nulls in non-sparse
-                            // lists.
-                            if (!shape.hasTrait(SparseTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
-                                writer.write(
-                                    "throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
-                                    shape.getId());
-                            } else {
-                                writer.write("return null as any;");
-                            }
-                        });
-                    }
-
-                    // Dispatch to the output value provider for any additional handling.
-                    writer.write("return $L$L;",
-                        target.accept(getMemberVisitor(shape.getMember(), "entry")),
-                        usesExpect(target) ? " as any" : "");
+            writer.openBlock("const retVal = (output || [])$L.map((entry: any) => {", "});", filterExpression, () -> {
+                // Short circuit null values from serialization.
+                if (filterExpression.isEmpty()) {
+                    writer.openBlock("if (entry === null) {", "}", () -> {
+                        // In the SSDK we want to be very strict about not accepting nulls in non-sparse
+                        // lists.
+                        if (!shape.hasTrait(SparseTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
+                            writer.write(
+                                "throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
+                                shape.getId()
+                            );
+                        } else {
+                            writer.write("return null as any;");
+                        }
+                    });
                 }
-            );
+
+                // Dispatch to the output value provider for any additional handling.
+                writer.write(
+                    "return $L$L;",
+                    target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                    usesExpect(target) ? " as any" : ""
+                );
+            });
         }
 
         if (shape.isSetShape() && artifactType.equals(ArtifactType.SSDK)) {
             writer.addDependency(TypeScriptDependency.SERVER_COMMON);
             writer.addImport("findDuplicates", "__findDuplicates", "@aws-smithy/server-common");
             writer.openBlock("if (__findDuplicates(retVal).length > 0) {", "}", () -> {
-                writer.write("throw new TypeError('All elements of the set $S must be unique.');",
-                    shape.getId());
+                writer.write("throw new TypeError('All elements of the set $S must be unique.');", shape.getId());
             });
         }
 
@@ -150,7 +154,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [string, any]) => {",
+        writer.openBlock(
+            "return Object.entries(output).reduce((acc: $T, [key, value]: [string, any]) => {",
             "",
             symbolProvider.toSymbol(shape),
             () -> {
@@ -166,7 +171,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 });
 
                 // Dispatch to the output value provider for any additional handling.
-                writer.write("acc[key as $T] = $L$L",
+                writer.write(
+                    "acc[key as $T] = $L$L",
                     symbolProvider.toSymbol(shape.getKey()),
                     target.accept(getMemberVisitor(shape.getValue(), "value")),
                     usesExpect(target) ? " as any;" : ";"
@@ -211,13 +217,15 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                             String functionExpression = value;
                             boolean isUnaryCall = UnaryFunctionCall.check(functionExpression);
                             if (isUnaryCall) {
-                                writer.write("'$L': [,$L,`$L`],",
+                                writer.write(
+                                    "'$L': [,$L,`$L`],",
                                     memberName,
                                     UnaryFunctionCall.toRef(functionExpression),
                                     wireName
                                 );
                             } else {
-                                writer.write("'$L': [, (_: any) => $L,`$L`],",
+                                writer.write(
+                                    "'$L': [, (_: any) => $L,`$L`],",
                                     memberName,
                                     functionExpression,
                                     wireName
@@ -241,15 +249,9 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                             String functionExpression = value;
                             boolean isUnaryCall = UnaryFunctionCall.check(functionExpression);
                             if (isUnaryCall) {
-                                writer.write("'$1L': $2L,",
-                                    memberName,
-                                    UnaryFunctionCall.toRef(functionExpression)
-                                );
+                                writer.write("'$1L': $2L,", memberName, UnaryFunctionCall.toRef(functionExpression));
                             } else {
-                                writer.write("'$1L': (_: any) => $2L,",
-                                    memberName,
-                                    functionExpression
-                                );
+                                writer.write("'$1L': (_: any) => $2L,", memberName, functionExpression);
                             }
                         }
                     }
@@ -290,16 +292,11 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     writer.write("return { $L: $L as any }", memberName, memberValue);
                 });
             } else {
-                writer.openBlock(
-                    "if ($1L != null) {", "}",
-                    getFrom("output", locationName),
-                    () -> writer.openBlock(
-                        "return {", "};",
-                        () -> {
-                            // Dispatch to the output value provider for any additional handling.
-                            writer.write("$L: $L", memberName, memberValue);
-                        }
-                    )
+                writer.openBlock("if ($1L != null) {", "}", getFrom("output", locationName), () ->
+                    writer.openBlock("return {", "};", () -> {
+                        // Dispatch to the output value provider for any additional handling.
+                        writer.write("$L: $L", memberName, memberValue);
+                    })
                 );
             }
         });
