@@ -27,7 +27,8 @@ export interface ListDataTablePrimaryValuesCommandInput extends ListDataTablePri
 export interface ListDataTablePrimaryValuesCommandOutput extends ListDataTablePrimaryValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all primary value combinations for a given data table. Returns the unique combinations of primary attribute values that identify records in the table. Up to 100 records are returned per request.</p>
+ * <p>Lists all primary value combinations for a given data table. Returns the unique combinations of primary
+ *    attribute values that identify records in the table. Up to 100 records are returned per request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -775,7 +775,7 @@ export interface CommonAttributeAndCondition {
 
 /**
  * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
- *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+ *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
  *          <ul>
  *             <li>
  *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
@@ -1851,7 +1851,8 @@ export interface AssociateUserProficienciesRequest {
  */
 export interface AssociateWorkspaceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1863,7 +1864,8 @@ export interface AssociateWorkspaceRequest {
   WorkspaceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the resources to associate with the workspace. Valid resource types are users and routing profiles.</p>
+   * <p>The Amazon Resource Names (ARNs) of the resources to associate with the workspace. Valid resource types are
+   *    users and routing profiles.</p>
    * @public
    */
   ResourceArns: string[] | undefined;
@@ -1894,7 +1896,8 @@ export interface FailedBatchAssociationSummary {
 }
 
 /**
- * <p>Contains information about a resource that was successfully associated with a workspace in a batch operation.</p>
+ * <p>Contains information about a resource that was successfully associated with a workspace in a batch
+ *    operation.</p>
  * @public
  */
 export interface SuccessfulBatchAssociationSummary {
@@ -2024,37 +2027,45 @@ export interface BatchAssociateAnalyticsDataSetResponse {
 }
 
 /**
- * <p>Contains lock version information for different levels of a data table hierarchy. Used for optimistic locking to prevent concurrent modification conflicts. Each component has its own lock version that changes when that component is modified.</p>
+ * <p>Contains lock version information for different levels of a data table hierarchy. Used for optimistic locking to
+ *    prevent concurrent modification conflicts. Each component has its own lock version that changes when that component
+ *    is modified.</p>
  * @public
  */
 export interface DataTableLockVersion {
   /**
-   * <p>The lock version for the data table itself. Used for optimistic locking and table versioning. Changes with each update to the table's metadata or structure.</p>
+   * <p>The lock version for the data table itself. Used for optimistic locking and table versioning. Changes with each
+   *    update to the table's metadata or structure.</p>
    * @public
    */
   DataTable?: string | undefined;
 
   /**
-   * <p>The lock version for a specific attribute. When the ValueLockLevel is ATTRIBUTE, this version changes when any value for the attribute changes. For other lock levels, it only changes when the attribute's properties are directly updated.</p>
+   * <p>The lock version for a specific attribute. When the ValueLockLevel is ATTRIBUTE, this version changes when any
+   *    value for the attribute changes. For other lock levels, it only changes when the attribute's properties are directly
+   *    updated.</p>
    * @public
    */
   Attribute?: string | undefined;
 
   /**
-   * <p>The lock version for a specific set of primary values (record). This includes the default record even if the table does not have any primary attributes. Used for record-level locking.</p>
+   * <p>The lock version for a specific set of primary values (record). This includes the default record even if the
+   *    table does not have any primary attributes. Used for record-level locking.</p>
    * @public
    */
   PrimaryValues?: string | undefined;
 
   /**
-   * <p>The lock version for a specific value. Changes each time the individual value is modified. Used for the finest-grained locking control.</p>
+   * <p>The lock version for a specific value. Changes each time the individual value is modified. Used for the
+   *    finest-grained locking control.</p>
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Represents a primary key value used to identify a specific record in a data table. Primary values are used in combination to create unique record identifiers when a table has multiple primary attributes.</p>
+ * <p>Represents a primary key value used to identify a specific record in a data table. Primary values are used in
+ *    combination to create unique record identifiers when a table has multiple primary attributes.</p>
  * @public
  */
 export interface PrimaryValue {
@@ -2065,7 +2076,8 @@ export interface PrimaryValue {
   AttributeName: string | undefined;
 
   /**
-   * <p>The actual value for the primary attribute. Must be provided as a string regardless of the attribute's value type. Primary values cannot be expressions and must be explicitly specified.</p>
+   * <p>The actual value for the primary attribute. Must be provided as a string regardless of the attribute's value
+   *    type. Primary values cannot be expressions and must be explicitly specified.</p>
    * @public
    */
   Value: string | undefined;
@@ -2124,13 +2136,15 @@ export interface BatchCreateDataTableValueRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no alias is provided, the default behavior is identical to providing the $LATEST alias.</p>
+   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no
+   *    alias is provided, the default behavior is identical to providing the $LATEST alias.</p>
    * @public
    */
   DataTableId: string | undefined;
 
   /**
-   * <p>A list of values to create. Each value must specify the attribute name and optionally primary values if the table has primary attributes.</p>
+   * <p>A list of values to create. Each value must specify the attribute name and optionally primary values if the
+   *    table has primary attributes.</p>
    * @public
    */
   Values: DataTableValue[] | undefined;
@@ -2248,7 +2262,8 @@ export interface BatchDeleteDataTableValueRequest {
   DataTableId: string | undefined;
 
   /**
-   * <p>A list of value identifiers to delete, each specifying primary values, attribute name, and lock version information.</p>
+   * <p>A list of value identifiers to delete, each specifying primary values, attribute name, and lock version
+   *    information.</p>
    * @public
    */
   Values: DataTableDeleteValueIdentifier[] | undefined;
@@ -3637,37 +3652,45 @@ export interface CreateDataTableRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The name for the data table. Must conform to Connect human readable string specification and have 1-127 characters. Whitespace must be trimmed first. Must not start with the reserved case insensitive values 'connect:' and 'aws:'. Must be unique for the instance using case-insensitive comparison.</p>
+   * <p>The name for the data table. Must conform to Connect human readable string specification and have 1-127
+   *    characters. Whitespace must be trimmed first. Must not start with the reserved case insensitive values 'connect:' and
+   *    'aws:'. Must be unique for the instance using case-insensitive comparison.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>An optional description for the data table. Must conform to Connect human readable string specification and have 0-250 characters. Whitespace must be trimmed first.</p>
+   * <p>An optional description for the data table. Must conform to Connect human readable string specification and have
+   *    0-250 characters. Whitespace must be trimmed first.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The IANA timezone identifier to use when resolving time based dynamic values. Required even if no time slices are specified.</p>
+   * <p>The IANA timezone identifier to use when resolving time based dynamic values. Required even if no time slices
+   *    are specified.</p>
    * @public
    */
   TimeZone: string | undefined;
 
   /**
-   * <p>The data level that concurrent value edits are locked on. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE. NONE is the default if unspecified. This determines how concurrent edits are handled when multiple users attempt to modify values simultaneously.</p>
+   * <p>The data level that concurrent value edits are locked on. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE,
+   *    and NONE. NONE is the default if unspecified. This determines how concurrent edits are handled when multiple users
+   *    attempt to modify values simultaneously.</p>
    * @public
    */
   ValueLockLevel: DataTableLockLevel | undefined;
 
   /**
-   * <p>The status of the data table. One of PUBLISHED or SAVED. Required parameter that determines the initial state of the table.</p>
+   * <p>The status of the data table. One of PUBLISHED or SAVED. Required parameter that determines the initial state of
+   *    the table.</p>
    * @public
    */
   Status: DataTableStatus | undefined;
 
   /**
-   * <p>Key value pairs for attribute based access control (TBAC or ABAC). Optional tags to apply to the data table for organization and access control purposes.</p>
+   * <p>Key value pairs for attribute based access control (TBAC or ABAC). Optional tags to apply to the data table for
+   *    organization and access control purposes.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3690,97 +3713,117 @@ export interface CreateDataTableResponse {
   Arn: string | undefined;
 
   /**
-   * <p>The lock version information for the created data table, used for optimistic locking and table versioning.</p>
+   * <p>The lock version information for the created data table, used for optimistic locking and table
+   *    versioning.</p>
    * @public
    */
   LockVersion: DataTableLockVersion | undefined;
 }
 
 /**
- * <p>Defines enumeration validation for attribute values. Allows specifying a list of permitted values and whether custom values beyond the enumerated list are allowed.</p>
+ * <p>Defines enumeration validation for attribute values. Allows specifying a list of permitted values and whether
+ *    custom values beyond the enumerated list are allowed.</p>
  * @public
  */
 export interface ValidationEnum {
   /**
-   * <p>Boolean that defaults to false. When true, only values specified in the enum list are allowed. When false, custom values beyond the enumerated list are permitted.</p>
+   * <p>Boolean that defaults to false. When true, only values specified in the enum list are allowed. When false,
+   *    custom values beyond the enumerated list are permitted.</p>
    * @public
    */
   Strict?: boolean | undefined;
 
   /**
-   * <p>A list of predefined values that are allowed for this attribute. These values are always permitted regardless of the Strict setting.</p>
+   * <p>A list of predefined values that are allowed for this attribute. These values are always permitted regardless of
+   *    the Strict setting.</p>
    * @public
    */
   Values?: string[] | undefined;
 }
 
 /**
- * <p>Defines validation rules for data table attribute values. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations. Validation rules ensure data integrity and consistency across the data table.</p>
+ * <p>Defines validation rules for data table attribute values. Based on JSON Schema Draft 2020-12 with additional
+ *    Connect-specific validations. Validation rules ensure data integrity and consistency across the data table.</p>
  * @public
  */
 export interface Validation {
   /**
-   * <p>The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.</p>
+   * <p>The minimum number of characters a text value can contain. Applies to TEXT value type and values within a
+   *    TEXT_LIST. Must be less than or equal to MaxLength.</p>
    * @public
    */
   MinLength?: number | undefined;
 
   /**
-   * <p>The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.</p>
+   * <p>The maximum number of characters a text value can contain. Applies to TEXT value type and values within a
+   *    TEXT_LIST. Must be greater than or equal to MinLength.</p>
    * @public
    */
   MaxLength?: number | undefined;
 
   /**
-   * <p>The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.</p>
+   * <p>The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to
+   *    MaxValues. Applies to all list types.</p>
    * @public
    */
   MinValues?: number | undefined;
 
   /**
-   * <p>The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.</p>
+   * <p>The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal
+   *    to MinValues. Applies to all list types.</p>
    * @public
    */
   MaxValues?: number | undefined;
 
   /**
-   * <p>Boolean that defaults to false. Applies to text lists and text primary attributes. When true, enforces case-insensitive uniqueness for primary attributes and allows case-insensitive lookups.</p>
+   * <p>Boolean that defaults to false. Applies to text lists and text primary attributes. When true, enforces
+   *    case-insensitive uniqueness for primary attributes and allows case-insensitive lookups.</p>
    * @public
    */
   IgnoreCase?: boolean | undefined;
 
   /**
-   * <p>The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.</p>
+   * <p>The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also
+   *    provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within
+   *    NUMBER_LIST.</p>
    * @public
    */
   Minimum?: number | undefined;
 
   /**
-   * <p>The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.</p>
+   * <p>The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both
+   *    operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER
+   *    and values within NUMBER_LIST.</p>
    * @public
    */
   Maximum?: number | undefined;
 
   /**
-   * <p>The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.</p>
+   * <p>The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate
+   *    independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within
+   *    NUMBER_LIST.</p>
    * @public
    */
   ExclusiveMinimum?: number | undefined;
 
   /**
-   * <p>The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.</p>
+   * <p>The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate
+   *    independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within
+   *    NUMBER_LIST.</p>
    * @public
    */
   ExclusiveMaximum?: number | undefined;
 
   /**
-   * <p>Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.</p>
+   * <p>Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a
+   *    value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.</p>
    * @public
    */
   MultipleOf?: number | undefined;
 
   /**
-   * <p>Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.</p>
+   * <p>Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom
+   *    values are permitted beyond the enumerated list.</p>
    * @public
    */
   Enum?: ValidationEnum | undefined;
@@ -3797,37 +3840,46 @@ export interface CreateDataTableAttributeRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the version is provided as part of the identifier or ARN, the version must be one of the two available system managed aliases, $SAVED or $LATEST.</p>
+   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If the
+   *    version is provided as part of the identifier or ARN, the version must be one of the two available system managed
+   *    aliases, $SAVED or $LATEST.</p>
    * @public
    */
   DataTableId: string | undefined;
 
   /**
-   * <p>The name for the attribute. Must conform to Connect human readable string specification and have 1-127 characters. Must not start with the reserved case insensitive values 'connect:' and 'aws:'. Whitespace trimmed before persisting. Must be unique for the data table using case-insensitive comparison.</p>
+   * <p>The name for the attribute. Must conform to Connect human readable string specification and have 1-127
+   *    characters. Must not start with the reserved case insensitive values 'connect:' and 'aws:'. Whitespace trimmed before
+   *    persisting. Must be unique for the data table using case-insensitive comparison.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of value allowed or the resultant type after the value's expression is evaluated. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, and BOOLEAN.</p>
+   * <p>The type of value allowed or the resultant type after the value's expression is evaluated. Must be one of TEXT,
+   *    TEXT_LIST, NUMBER, NUMBER_LIST, and BOOLEAN.</p>
    * @public
    */
   ValueType: DataTableAttributeValueType | undefined;
 
   /**
-   * <p>An optional description for the attribute. Must conform to Connect human readable string specification and have 0-250 characters. Whitespace trimmed before persisting.</p>
+   * <p>An optional description for the attribute. Must conform to Connect human readable string specification and have
+   *    0-250 characters. Whitespace trimmed before persisting.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Optional boolean that defaults to false. Determines if the value is used to identify a record in the table. Values for primary attributes must not be expressions.</p>
+   * <p>Optional boolean that defaults to false. Determines if the value is used to identify a record in the table.
+   *    Values for primary attributes must not be expressions.</p>
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>Optional validation rules for the attribute. Borrows heavily from JSON Schema - Draft 2020-12. The maximum length of arrays within validations and depth of validations is 5. There are default limits that apply to all types. Customer specified limits in excess of the default limits are not permitted.</p>
+   * <p>Optional validation rules for the attribute. Borrows heavily from JSON Schema - Draft 2020-12. The maximum
+   *    length of arrays within validations and depth of validations is 5. There are default limits that apply to all types.
+   *    Customer specified limits in excess of the default limits are not permitted.</p>
    * @public
    */
   Validation?: Validation | undefined;
@@ -3838,7 +3890,8 @@ export interface CreateDataTableAttributeRequest {
  */
 export interface CreateDataTableAttributeResponse {
   /**
-   * <p>The name of the created attribute since it also serves as the identifier. This could be different than the parameter passed in since it will be trimmed for whitespace.</p>
+   * <p>The name of the created attribute since it also serves as the identifier. This could be different than the
+   *    parameter passed in since it will be trimmed for whitespace.</p>
    * @public
    */
   Name: string | undefined;
@@ -3850,7 +3903,8 @@ export interface CreateDataTableAttributeResponse {
   AttributeId?: string | undefined;
 
   /**
-   * <p>The lock version information for the data table and attribute, used for optimistic locking and versioning.</p>
+   * <p>The lock version information for the data table and attribute, used for optimistic locking and
+   *    versioning.</p>
    * @public
    */
   LockVersion: DataTableLockVersion | undefined;
@@ -6342,7 +6396,8 @@ export interface DataTableAccessControlConfiguration {
 }
 
 /**
- * <p>Contains granular access control configuration for security profiles, including data table access permissions.</p>
+ * <p>Contains granular access control configuration for security profiles, including data table access
+ *    permissions.</p>
  * @public
  */
 export interface GranularAccessControlConfiguration {
@@ -7604,7 +7659,8 @@ export interface WorkspaceTheme {
  */
 export interface CreateWorkspaceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7634,7 +7690,8 @@ export interface CreateWorkspaceRequest {
   Title?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags":
+   *     \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -7662,7 +7719,8 @@ export interface CreateWorkspaceResponse {
  */
 export interface CreateWorkspacePageRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7680,7 +7738,8 @@ export interface CreateWorkspacePageRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
+   * <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom
+   *    pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
    * @public
    */
   Page: string | undefined;

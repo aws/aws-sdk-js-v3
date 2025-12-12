@@ -206,7 +206,8 @@ export interface DeleteDataTableRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data table to delete. Must also accept the table ARN. Fails with an error if the version is provided and is not $LATEST.</p>
+   * <p>The unique identifier for the data table to delete. Must also accept the table ARN. Fails with an error if the
+   *    version is provided and is not $LATEST.</p>
    * @public
    */
   DataTableId: string | undefined;
@@ -715,7 +716,8 @@ export interface DeleteVocabularyResponse {
  */
 export interface DeleteWorkspaceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -737,7 +739,8 @@ export interface DeleteWorkspaceResponse {}
  */
 export interface DeleteWorkspaceMediaRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -749,7 +752,8 @@ export interface DeleteWorkspaceMediaRequest {
   WorkspaceId: string | undefined;
 
   /**
-   * <p>The type of media to delete. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
+   * <p>The type of media to delete. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and
+   *     <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
    * @public
    */
   MediaType: MediaType | undefined;
@@ -765,7 +769,8 @@ export interface DeleteWorkspaceMediaResponse {}
  */
 export interface DeleteWorkspacePageRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2520,19 +2525,24 @@ export interface DescribeDataTableRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no alias is provided, the default behavior is identical to providing the $LATEST alias.</p>
+   * <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no
+   *    alias is provided, the default behavior is identical to providing the $LATEST alias.</p>
    * @public
    */
   DataTableId: string | undefined;
 }
 
 /**
- * <p>Represents a data table in Amazon Connect. A data table is a JSON-like data structure where attributes and values are dynamically set by customers. Customers can reference table values within call flows, applications, views, and workspaces to pinpoint dynamic configuration that changes their contact center's behavior in a predetermined and safe way.</p>
+ * <p>Represents a data table in Amazon Connect. A data table is a JSON-like data structure where attributes and
+ *    values are dynamically set by customers. Customers can reference table values within call flows, applications, views,
+ *    and workspaces to pinpoint dynamic configuration that changes their contact center's behavior in a predetermined and
+ *    safe way.</p>
  * @public
  */
 export interface DataTable {
   /**
-   * <p>The human-readable name of the data table. Must be unique within the instance and conform to Connect naming standards.</p>
+   * <p>The human-readable name of the data table. Must be unique within the instance and conform to Connect naming
+   *    standards.</p>
    * @public
    */
   Name: string | undefined;
@@ -2550,7 +2560,8 @@ export interface DataTable {
   Arn: string | undefined;
 
   /**
-   * <p>The IANA timezone identifier used when resolving time based dynamic values. Required even if no time slices are specified.</p>
+   * <p>The IANA timezone identifier used when resolving time based dynamic values. Required even if no time slices are
+   *    specified.</p>
    * @public
    */
   TimeZone: string | undefined;
@@ -2562,13 +2573,16 @@ export interface DataTable {
   Description?: string | undefined;
 
   /**
-   * <p>The data level that concurrent value edits are locked on. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE. Determines how concurrent edits are handled when multiple users attempt to modify values simultaneously.</p>
+   * <p>The data level that concurrent value edits are locked on. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE,
+   *    and NONE. Determines how concurrent edits are handled when multiple users attempt to modify values
+   *    simultaneously.</p>
    * @public
    */
   ValueLockLevel?: DataTableLockLevel | undefined;
 
   /**
-   * <p>The lock version information used for optimistic locking and table versioning. Changes with each update to prevent concurrent modification conflicts.</p>
+   * <p>The lock version information used for optimistic locking and table versioning. Changes with each update to
+   *    prevent concurrent modification conflicts.</p>
    * @public
    */
   LockVersion?: DataTableLockVersion | undefined;
@@ -2651,7 +2665,9 @@ export interface DescribeDataTableAttributeRequest {
 }
 
 /**
- * <p>Represents an attribute (column) in a data table. Attributes define the schema and validation rules for values that can be stored in the table. They specify the data type, constraints, and whether the attribute is used as a primary key for record identification.</p>
+ * <p>Represents an attribute (column) in a data table. Attributes define the schema and validation rules for values
+ *    that can be stored in the table. They specify the data type, constraints, and whether the attribute is used as a
+ *    primary key for record identification.</p>
  * @public
  */
 export interface DataTableAttribute {
@@ -2662,13 +2678,15 @@ export interface DataTableAttribute {
   AttributeId?: string | undefined;
 
   /**
-   * <p>The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.</p>
+   * <p>The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming
+   *    standards.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.</p>
+   * <p>The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN.
+   *    Determines how values are validated and processed.</p>
    * @public
    */
   ValueType: DataTableAttributeValueType | undefined;
@@ -2692,7 +2710,8 @@ export interface DataTableAttribute {
   DataTableArn?: string | undefined;
 
   /**
-   * <p>Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.</p>
+   * <p>Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes
+   *    must have unique value combinations and cannot contain expressions.</p>
    * @public
    */
   Primary?: boolean | undefined;
@@ -2704,7 +2723,8 @@ export interface DataTableAttribute {
   Version?: string | undefined;
 
   /**
-   * <p>The lock version for this attribute, used for optimistic locking to prevent concurrent modification conflicts.</p>
+   * <p>The lock version for this attribute, used for optimistic locking to prevent concurrent modification
+   *    conflicts.</p>
    * @public
    */
   LockVersion?: DataTableLockVersion | undefined;
@@ -2722,7 +2742,8 @@ export interface DataTableAttribute {
   LastModifiedRegion?: string | undefined;
 
   /**
-   * <p>The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.</p>
+   * <p>The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional
+   *    Connect-specific validations for data integrity.</p>
    * @public
    */
   Validation?: Validation | undefined;
@@ -4755,7 +4776,8 @@ export interface DescribeVocabularyResponse {
  */
 export interface DescribeWorkspaceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4773,7 +4795,8 @@ export interface DescribeWorkspaceRequest {
  */
 export interface Workspace {
   /**
-   * <p>Controls who can access the workspace. Valid values are: <code>ALL</code> (all users), <code>ASSIGNED</code> (only assigned users and routing profiles), and <code>NONE</code> (not visible).</p>
+   * <p>Controls who can access the workspace. Valid values are: <code>ALL</code> (all users), <code>ASSIGNED</code>
+   *    (only assigned users and routing profiles), and <code>NONE</code> (not visible).</p>
    * @public
    */
   Visibility?: Visibility | undefined;
@@ -5294,7 +5317,8 @@ export interface DisassociateUserProficienciesRequest {
  */
 export interface DisassociateWorkspaceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5398,7 +5422,8 @@ export interface EvaluateDataTableValuesRequest {
   Values: DataTableValueEvaluationSet[] | undefined;
 
   /**
-   * <p>Optional IANA timezone identifier to use when resolving time based dynamic values. Defaults to the data table time zone if not provided.</p>
+   * <p>Optional IANA timezone identifier to use when resolving time based dynamic values. Defaults to the data table
+   *    time zone if not provided.</p>
    * @public
    */
   TimeZone?: string | undefined;
@@ -9391,7 +9416,8 @@ export interface ImportPhoneNumberResponse {
  */
 export interface ImportWorkspaceMediaRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -9403,7 +9429,8 @@ export interface ImportWorkspaceMediaRequest {
   WorkspaceId: string | undefined;
 
   /**
-   * <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
+   * <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and
+   *    <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
    * @public
    */
   MediaType: MediaType | undefined;

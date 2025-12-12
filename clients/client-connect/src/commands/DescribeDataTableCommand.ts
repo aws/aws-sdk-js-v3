@@ -27,7 +27,9 @@ export interface DescribeDataTableCommandInput extends DescribeDataTableRequest 
 export interface DescribeDataTableCommandOutput extends DescribeDataTableResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all properties for a data table except for attributes and values. All properties from CreateDataTable are returned as well as properties for region replication, versioning, and system tables. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations.</p>
+ * <p>Returns all properties for a data table except for attributes and values. All properties from CreateDataTable
+ *    are returned as well as properties for region replication, versioning, and system tables. "Describe" is a deprecated
+ *    term but is allowed to maintain consistency with existing operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

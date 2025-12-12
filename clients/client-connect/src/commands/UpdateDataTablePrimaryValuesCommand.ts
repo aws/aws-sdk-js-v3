@@ -29,7 +29,9 @@ export interface UpdateDataTablePrimaryValuesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the primary values for a record. This operation affects all existing values that are currently associated to the record and its primary values. Users that have restrictions on attributes and/or primary values are not authorized to use this endpoint. The combination of new primary values must be unique within the table.</p>
+ * <p>Updates the primary values for a record. This operation affects all existing values that are currently
+ *    associated to the record and its primary values. Users that have restrictions on attributes and/or primary values are
+ *    not authorized to use this endpoint. The combination of new primary values must be unique within the table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

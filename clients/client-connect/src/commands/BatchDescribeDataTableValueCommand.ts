@@ -29,7 +29,9 @@ export interface BatchDescribeDataTableValueCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves multiple values from a data table without evaluating expressions. Returns the raw stored values along with metadata such as lock versions and modification timestamps. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations.</p>
+ * <p>Retrieves multiple values from a data table without evaluating expressions. Returns the raw stored values along
+ *    with metadata such as lock versions and modification timestamps. "Describe" is a deprecated term but is allowed to
+ *    maintain consistency with existing operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

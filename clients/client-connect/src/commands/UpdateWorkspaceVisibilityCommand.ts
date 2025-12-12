@@ -27,7 +27,8 @@ export interface UpdateWorkspaceVisibilityCommandInput extends UpdateWorkspaceVi
 export interface UpdateWorkspaceVisibilityCommandOutput extends UpdateWorkspaceVisibilityResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the visibility setting of a workspace, controlling whether it is available to all users, assigned users only, or none.</p>
+ * <p>Updates the visibility setting of a workspace, controlling whether it is available to all users, assigned users
+ *    only, or none.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

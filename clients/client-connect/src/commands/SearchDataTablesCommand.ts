@@ -28,7 +28,9 @@ export interface SearchDataTablesCommandInput extends SearchDataTablesRequest {}
 export interface SearchDataTablesCommandOutput extends SearchDataTablesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for data tables based on the table's ID, name, and description. In the future, this operation can support searching on attribute names and possibly primary values. Follows other search operations closely and supports both search criteria and filters.</p>
+ * <p>Searches for data tables based on the table's ID, name, and description. In the future, this operation can
+ *    support searching on attribute names and possibly primary values. Follows other search operations closely and
+ *    supports both search criteria and filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

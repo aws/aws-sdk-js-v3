@@ -27,7 +27,9 @@ export interface BatchUpdateDataTableValueCommandInput extends BatchUpdateDataTa
 export interface BatchUpdateDataTableValueCommandOutput extends BatchUpdateDataTableValueResponse, __MetadataBearer {}
 
 /**
- * <p>Updates multiple data table values using all properties from BatchCreateDataTableValue. System managed values are not modifiable by customers. The operation requires proper lock versions to prevent concurrent modification conflicts.</p>
+ * <p>Updates multiple data table values using all properties from BatchCreateDataTableValue. System managed values
+ *    are not modifiable by customers. The operation requires proper lock versions to prevent concurrent modification
+ *    conflicts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

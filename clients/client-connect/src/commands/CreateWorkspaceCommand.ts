@@ -27,7 +27,8 @@ export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a workspace that defines the user experience by mapping views to pages. Workspaces can be assigned to users or routing profiles.</p>
+ * <p>Creates a workspace that defines the user experience by mapping views to pages. Workspaces can be assigned to
+ *    users or routing profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

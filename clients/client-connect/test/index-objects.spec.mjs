@@ -194,6 +194,7 @@ import {
   DisassociateTrafficDistributionGroupUserCommand,
   DisassociateUserProficienciesCommand,
   DisassociateWorkspaceCommand,
+  DisconnectOnCustomerExitParticipantType,
   DismissUserContactCommand,
   DuplicateResourceException,
   EmailHeaderType,
@@ -992,6 +993,7 @@ assert(typeof DateTimeComparisonType === "object");
 assert(typeof DecimalComparisonType === "object");
 assert(typeof DeviceType === "object");
 assert(typeof DirectoryType === "object");
+assert(typeof DisconnectOnCustomerExitParticipantType === "object");
 assert(typeof EmailHeaderType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof EndpointType === "object");

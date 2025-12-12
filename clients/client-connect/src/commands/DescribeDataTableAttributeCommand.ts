@@ -27,7 +27,8 @@ export interface DescribeDataTableAttributeCommandInput extends DescribeDataTabl
 export interface DescribeDataTableAttributeCommandOutput extends DescribeDataTableAttributeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information for a specific data table attribute including its configuration, validation rules, and metadata. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations.</p>
+ * <p>Returns detailed information for a specific data table attribute including its configuration, validation rules,
+ *    and metadata. "Describe" is a deprecated term but is allowed to maintain consistency with existing operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

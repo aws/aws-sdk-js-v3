@@ -27,7 +27,8 @@ export interface ListDataTablesCommandInput extends ListDataTablesRequest {}
 export interface ListDataTablesCommandOutput extends ListDataTablesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all data tables for the specified Amazon Connect instance. Returns summary information for each table including basic metadata and modification details.</p>
+ * <p>Lists all data tables for the specified Amazon Connect instance. Returns summary information for each table
+ *    including basic metadata and modification details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

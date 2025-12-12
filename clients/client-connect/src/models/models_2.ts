@@ -640,7 +640,8 @@ export interface ListDataTableAttributesRequest {
   DataTableId: string | undefined;
 
   /**
-   * <p>Optional list of specific attribute IDs to retrieve. Used for CloudFormation to effectively describe attributes by ID. If NextToken is provided, this parameter is ignored.</p>
+   * <p>Optional list of specific attribute IDs to retrieve. Used for CloudFormation to effectively describe attributes
+   *    by ID. If NextToken is provided, this parameter is ignored.</p>
    * @public
    */
   AttributeIds?: string[] | undefined;
@@ -710,7 +711,8 @@ export interface ListDataTablePrimaryValuesRequest {
   DataTableId: string | undefined;
 
   /**
-   * <p>Optional list of specific record IDs to retrieve. Used for CloudFormation to effectively describe records by ID. If NextToken is provided, this parameter is ignored.</p>
+   * <p>Optional list of specific record IDs to retrieve. Used for CloudFormation to effectively describe records by ID.
+   *    If NextToken is provided, this parameter is ignored.</p>
    * @public
    */
   RecordIds?: string[] | undefined;
@@ -851,7 +853,8 @@ export interface ListDataTablesResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of data table summaries containing basic information about each table including ID, ARN, name, and modification details.</p>
+   * <p>A list of data table summaries containing basic information about each table including ID, ARN, name, and
+   *    modification details.</p>
    * @public
    */
   DataTableSummaryList: DataTableSummary[] | undefined;
@@ -4573,7 +4576,8 @@ export interface ListViewVersionsResponse {
  */
 export interface ListWorkspaceMediaRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4591,7 +4595,8 @@ export interface ListWorkspaceMediaRequest {
  */
 export interface MediaItem {
   /**
-   * <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
+   * <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and
+   *    <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
    * @public
    */
   Type?: MediaType | undefined;
@@ -4619,7 +4624,8 @@ export interface ListWorkspaceMediaResponse {
  */
 export interface ListWorkspacePagesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4631,7 +4637,8 @@ export interface ListWorkspacePagesRequest {
   WorkspaceId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4695,13 +4702,15 @@ export interface ListWorkspacePagesResponse {
  */
 export interface ListWorkspacesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5158,19 +5167,19 @@ export interface DateTimeCondition {
   FieldName?: string | undefined;
 
   /**
-   * <p>A minimum value of the property. </p>
+   * <p>A minimum value of the property.</p>
    * @public
    */
   MinValue?: string | undefined;
 
   /**
-   * <p>A maximum value of the property. </p>
+   * <p>A maximum value of the property.</p>
    * @public
    */
   MaxValue?: string | undefined;
 
   /**
-   * <p>Datetime property comparison type. </p>
+   * <p>Datetime property comparison type.</p>
    * @public
    */
   ComparisonType?: DateTimeComparisonType | undefined;
@@ -5200,7 +5209,7 @@ export interface DecimalCondition {
   MaxValue?: number | undefined;
 
   /**
-   * <p>The type of comparison to be made when evaluating the decimal condition. </p>
+   * <p>The type of comparison to be made when evaluating the decimal condition.</p>
    * @public
    */
   ComparisonType?: DecimalComparisonType | undefined;
@@ -5246,7 +5255,7 @@ export interface NumberCondition {
 export interface EvaluationSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
@@ -5460,7 +5469,7 @@ export interface SearchContactEvaluationsResponse {
 
 /**
  * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
- *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+ *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
  *          <ul>
  *             <li>
  *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -5473,7 +5482,7 @@ export interface SearchContactEvaluationsResponse {
  */
 export interface ControlPlaneTagFilter {
   /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition. </p>
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
    * @public
    */
   OrConditions?: TagCondition[][] | undefined;
@@ -5485,7 +5494,7 @@ export interface ControlPlaneTagFilter {
   AndConditions?: TagCondition[] | undefined;
 
   /**
-   * <p>A leaf node condition which can be used to specify a tag condition. </p>
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
    * @public
    */
   TagCondition?: TagCondition | undefined;
@@ -5498,7 +5507,7 @@ export interface ControlPlaneTagFilter {
 export interface ContactFlowModuleSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -5536,48 +5545,48 @@ export interface SearchContactFlowModulesResponse {
 }
 
 /**
- * <p> The contact flow type condition. </p>
+ * <p> The contact flow type condition.</p>
  * @public
  */
 export interface ContactFlowTypeCondition {
   /**
-   * <p> Contact flow type of the contact flow type condition. </p>
+   * <p> Contact flow type of the contact flow type condition.</p>
    * @public
    */
   ContactFlowType?: ContactFlowType | undefined;
 }
 
 /**
- * <p> A list of conditions which would be applied together with an AND condition. </p>
+ * <p> A list of conditions which would be applied together with an AND condition.</p>
  * @public
  */
 export interface ContactFlowAttributeAndCondition {
   /**
-   * <p> Tag-based conditions for contact flow filtering. </p>
+   * <p> Tag-based conditions for contact flow filtering.</p>
    * @public
    */
   TagConditions?: TagCondition[] | undefined;
 
   /**
-   * <p> Contact flow type condition. </p>
+   * <p> Contact flow type condition.</p>
    * @public
    */
   ContactFlowTypeCondition?: ContactFlowTypeCondition | undefined;
 }
 
 /**
- * <p> Filter for contact flow attributes with multiple condition types. </p>
+ * <p> Filter for contact flow attributes with multiple condition types.</p>
  * @public
  */
 export interface ContactFlowAttributeFilter {
   /**
-   * <p> A list of conditions which would be applied together with an OR condition. </p>
+   * <p> A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
   OrConditions?: ContactFlowAttributeAndCondition[] | undefined;
 
   /**
-   * <p> A list of conditions which would be applied together with a AND condition. </p>
+   * <p> A list of conditions which would be applied together with a AND condition.</p>
    * @public
    */
   AndCondition?: ContactFlowAttributeAndCondition | undefined;
@@ -5590,7 +5599,7 @@ export interface ContactFlowAttributeFilter {
   TagCondition?: TagCondition | undefined;
 
   /**
-   * <p> Contact flow type condition within attribute filter. </p>
+   * <p> Contact flow type condition within attribute filter.</p>
    * @public
    */
   ContactFlowTypeCondition?: ContactFlowTypeCondition | undefined;
@@ -5603,7 +5612,7 @@ export interface ContactFlowAttributeFilter {
 export interface ContactFlowSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6102,7 +6111,7 @@ export interface ContactSearchSummaryQueueInfo {
 export interface DataTableSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
@@ -6121,7 +6130,8 @@ export interface DataTableSearchFilter {
  */
 export interface SearchDataTablesResponse {
   /**
-   * <p>An array of data tables matching the search criteria with the same structure as DescribeTable except Version, VersionDescription, and LockVersion are omitted.</p>
+   * <p>An array of data tables matching the search criteria with the same structure as DescribeTable except Version,
+   *    VersionDescription, and LockVersion are omitted.</p>
    * @public
    */
   DataTables?: DataTable[] | undefined;
@@ -6146,7 +6156,7 @@ export interface SearchDataTablesResponse {
 export interface EmailAddressSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6233,7 +6243,7 @@ export interface SearchEmailAddressesResponse {
 export interface EvaluationFormSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
@@ -6409,7 +6419,7 @@ export interface DateCondition {
 export interface HoursOfOperationSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6501,7 +6511,7 @@ export interface SearchPredefinedAttributesResponse {
 export interface PromptSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6545,7 +6555,7 @@ export interface SearchPromptsResponse {
 export interface QueueSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6589,7 +6599,7 @@ export interface SearchQueuesResponse {
 export interface QuickConnectSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6783,7 +6793,7 @@ export interface SearchResourceTagsResponse {
 export interface RoutingProfileSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -6827,7 +6837,7 @@ export interface SearchRoutingProfilesResponse {
 export interface SecurityProfilesSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -7041,7 +7051,7 @@ export interface AttributeAndCondition {
  *          </ul>
  *          <note>
  *             <p>Only one field can be populated. Maximum number of allowed Tag conditions is 25. Maximum number of allowed
- *     Hierarchy Group conditions is 20. </p>
+ *     Hierarchy Group conditions is 20.</p>
  *          </note>
  * @public
  */
@@ -7079,7 +7089,7 @@ export interface ControlPlaneUserAttributeFilter {
 export interface UserSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
@@ -7228,7 +7238,7 @@ export interface SearchUsersResponse {
 export interface ViewSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
@@ -7383,7 +7393,7 @@ export interface SearchVocabulariesResponse {
 export interface WorkspaceAssociationSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
@@ -7427,7 +7437,8 @@ export interface WorkspaceAssociationSearchSummary {
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The type of resource associated with the workspace. Valid values are: <code>USER</code> and <code>ROUTING_PROFILE</code>.</p>
+   * <p>The type of resource associated with the workspace. Valid values are: <code>USER</code> and
+   *     <code>ROUTING_PROFILE</code>.</p>
    * @public
    */
   ResourceType?: string | undefined;
@@ -7469,7 +7480,7 @@ export interface SearchWorkspaceAssociationsResponse {
 export interface WorkspaceSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
    *          <ul>
    *             <li>
    *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>

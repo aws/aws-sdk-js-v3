@@ -663,6 +663,7 @@ const _DM = "DeliveryMethod";
 const _DN = "DisplayName";
 const _DNAE = "DestinationNotAllowedException";
 const _DO = "DisplayOrder";
+const _DOCE = "DisconnectOnCustomerExit";
 const _DOQI = "DefaultOutboundQueueId";
 const _DORI = "DefaultOptionRefIds";
 const _DORIe = "DefaultOptionRefId";
@@ -8493,7 +8494,7 @@ export var StartChatContactRequest: StaticStructureSchema = [
   n0,
   _SCCR,
   0,
-  [_II, _CFI, _Attr, _PD, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCe, _RCI, _SAe, _CIu],
+  [_II, _CFI, _Attr, _PD, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCe, _RCI, _SAe, _CIu, _DOCE],
   [
     0,
     0,
@@ -8508,6 +8509,7 @@ export var StartChatContactRequest: StaticStructureSchema = [
     0,
     () => SegmentAttributes,
     [() => CustomerIdNonEmpty, 0],
+    64 | 0,
   ],
 ];
 export var StartChatContactResponse: StaticStructureSchema = [3, n0, _SCCRt, 0, [_CI, _PI, _PTa, _CFCI], [0, 0, 0, 0]];
@@ -9840,6 +9842,7 @@ export var DataTableValueIdentifierList: StaticListSchema = [1, n0, _DTVIL, 0, (
 export var DataTableValueList: StaticListSchema = [1, n0, _DTVL, 0, () => DataTableValue];
 export var DataTableValueSummaryList: StaticListSchema = [1, n0, _DTVSL, 0, () => DataTableValueSummary];
 export var DefaultVocabularyList: StaticListSchema = [1, n0, _DVL, 0, () => DefaultVocabulary];
+export var DisconnectOnCustomerExit = 64 | 0;
 export var DistributionList: StaticListSchema = [1, n0, _DL, 0, () => Distribution];
 export var EffectiveHoursOfOperationList: StaticListSchema = [1, n0, _EHOOL, 0, () => EffectiveHoursOfOperations];
 export var EmailAddressList: StaticListSchema = [1, n0, _EAL, 0, [() => EmailAddressMetadata, 0]];

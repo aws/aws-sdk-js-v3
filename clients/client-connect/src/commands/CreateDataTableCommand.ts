@@ -27,7 +27,9 @@ export interface CreateDataTableCommandInput extends CreateDataTableRequest {}
 export interface CreateDataTableCommandOutput extends CreateDataTableResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new data table with the specified properties. Supports the creation of all table properties except for attributes and values. A table with no attributes and values is a valid state for a table. The number of tables per instance is limited to 100 per instance. Customers can request an increase by using AWS Service Quotas.</p>
+ * <p>Creates a new data table with the specified properties. Supports the creation of all table properties except for
+ *    attributes and values. A table with no attributes and values is a valid state for a table. The number of tables per
+ *    instance is limited to 100 per instance. Customers can request an increase by using AWS Service Quotas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

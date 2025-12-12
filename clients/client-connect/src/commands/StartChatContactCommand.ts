@@ -117,6 +117,9 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *     },
  *   },
  *   CustomerId: "STRING_VALUE",
+ *   DisconnectOnCustomerExit: [ // DisconnectOnCustomerExit
+ *     "AGENT",
+ *   ],
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);

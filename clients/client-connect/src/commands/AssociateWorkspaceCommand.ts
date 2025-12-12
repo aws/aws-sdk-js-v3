@@ -27,7 +27,8 @@ export interface AssociateWorkspaceCommandInput extends AssociateWorkspaceReques
 export interface AssociateWorkspaceCommandOutput extends AssociateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a workspace with one or more users or routing profiles, allowing them to access the workspace's configured views and pages.</p>
+ * <p>Associates a workspace with one or more users or routing profiles, allowing them to access the workspace's
+ *    configured views and pages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
