@@ -14,7 +14,7 @@ export class MetadataService {
   private disableFetchToken: boolean;
   private config: Promise<MetadataServiceOptions>;
   private retries: number;
-  private backoffFn: (numFailures: number) => void;
+  private backoffFn: (numFailures: number) => Promise<void> | number;
 
   /**
    * Creates a new MetadataService object with a given set of options.
@@ -36,15 +36,18 @@ export class MetadataService {
     this.backoffFn = this.createBackoffFunction(options?.backoff);
   }
 
-  private createBackoffFunction(backoff?: number | ((numFailures: number) => void)): (numFailures: number) => void {
+  private createBackoffFunction(
+    backoff?: number | ((numFailures: number) => Promise<void> | number)
+  ): (numFailures: number) => Promise<void> | number {
+    // backoff in seconds
     if (typeof backoff === "function") {
       return backoff;
     }
     if (typeof backoff === "number") {
-      return () => this.sleep(backoff * 1000);
+      return () => backoff;
     }
     // Default exponential backoff
-    return (numFailures: number) => this.sleep(Math.pow(1.2, numFailures) * 1000);
+    return (numFailures: number) => Math.pow(1.2, numFailures);
   }
 
   private sleep(ms: number): Promise<void> {
@@ -69,7 +72,12 @@ export class MetadataService {
           throw error;
         }
 
-        await this.backoffFn(attempt);
+        const backoffResult = this.backoffFn(attempt);
+        if (typeof backoffResult === "number") {
+          await this.sleep(backoffResult * 1000); // seconds to milliseconds
+        } else {
+          await backoffResult;
+        }
       }
     }
 

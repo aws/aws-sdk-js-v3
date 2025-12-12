@@ -34,5 +34,5 @@ export interface MetadataServiceOptions {
   /**
    * the number of seconds to sleep in-between retries and/or a customer provided backoff function to call.
    */
-  backoff?: number | ((numFailures: number) => void);
+  backoff?: number | ((numFailures: number) => Promise<void> | number);
 }
