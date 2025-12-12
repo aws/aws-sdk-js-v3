@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
@@ -50,34 +39,36 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
     }
 
     private void writeAdditionalFiles(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
-        if (settings.generateClient()
-            && isAwsService(settings, model)
-            && settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-                writerFactory.accept(
-                    Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
-                    writer -> {
-                        writer.addDependency(TypeScriptDependency.UTIL_ENDPOINTS);
-                        writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
+        if (
+            settings.generateClient()
+                && isAwsService(settings, model)
+                && settings.getService(model).hasTrait(EndpointRuleSetTrait.class)
+        ) {
+            writerFactory.accept(
+                Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
+                writer -> {
+                    writer.addDependency(TypeScriptDependency.UTIL_ENDPOINTS);
+                    writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
 
-                        writer.addImport("customEndpointFunctions", null, TypeScriptDependency.UTIL_ENDPOINTS);
-                        writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
-                        writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
-                    }
-                );
+                    writer.addImport("customEndpointFunctions", null, TypeScriptDependency.UTIL_ENDPOINTS);
+                    writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
+                    writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
+                }
+            );
         }
     }
 
     @Override
     public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         if (!settings.generateClient() || !isAwsService(settings, model)) {
             return;
@@ -92,17 +83,21 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                     add("resolveClientEndpointParameters");
                     add("EndpointParameters");
                 }
-            }.forEach(name -> writer.addImport(
-                name,
-                null,
-                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
-            ));
+            }.forEach(
+                name -> writer.addImport(
+                    name,
+                    null,
+                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/EndpointParameters").toString()
+                )
+            );
 
             writer.addImport("EndpointV2", "__EndpointV2", TypeScriptDependency.SMITHY_TYPES);
         } else {
             writer.addImport("RegionInfoProvider", null, TypeScriptDependency.SMITHY_TYPES);
-            writer.writeDocs("Fetch related hostname, signing name or signing region with given region.\n"
-                + "@internal");
+            writer.writeDocs(
+                "Fetch related hostname, signing name or signing region with given region.\n"
+                    + "@internal"
+            );
             writer.write("regionInfoProvider?: RegionInfoProvider;\n");
         }
     }

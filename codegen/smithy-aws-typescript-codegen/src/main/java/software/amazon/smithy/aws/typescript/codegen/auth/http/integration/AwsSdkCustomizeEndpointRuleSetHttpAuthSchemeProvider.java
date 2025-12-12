@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 
 import java.nio.file.Paths;
@@ -105,7 +104,8 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
     public void customizeSupportedHttpAuthSchemes(
         SupportedHttpAuthSchemesIndex supportedHttpAuthSchemesIndex,
         Model model,
-        TypeScriptSettings settings) {
+        TypeScriptSettings settings
+    ) {
         if (!AwsTraitsUtils.isSigV4AsymmetricService(model, settings)) {
             return;
         }
@@ -114,16 +114,19 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
         if (supportedHttpAuthSchemesIndex.getHttpAuthScheme(SIGV4A_ID) == null) {
             ShapeId sigv4 = ShapeId.from("aws.auth#sigv4");
             HttpAuthScheme sigv4Scheme = supportedHttpAuthSchemesIndex.getHttpAuthScheme(sigv4);
-            supportedHttpAuthSchemesIndex.putHttpAuthScheme(SIGV4A_ID, sigv4Scheme.toBuilder()
-                .schemeId(SIGV4A_ID)
-                .traitId(sigv4)
-                .build());
+            supportedHttpAuthSchemesIndex.putHttpAuthScheme(
+                SIGV4A_ID,
+                sigv4Scheme.toBuilder()
+                    .schemeId(SIGV4A_ID)
+                    .traitId(sigv4)
+                    .build()
+            );
         }
     }
 
     @Override
     public List<? extends CodeInterceptor<? extends CodeSection, TypeScriptWriter>> interceptors(
-            TypeScriptCodegenContext codegenContext
+        TypeScriptCodegenContext codegenContext
     ) {
         if (!AwsTraitsUtils.isSigV4AsymmetricService(codegenContext.model(), codegenContext.settings())) {
             return Collections.emptyList();
@@ -144,43 +147,53 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     String serviceName = CodegenUtils.getServiceName(
                         s.getSettings(),
                         s.getModel(),
-                        s.getSymbolProvider());
+                        s.getSymbolProvider()
+                    );
                     ServiceIndex serviceIndex = ServiceIndex.of(s.getModel());
                     SupportedHttpAuthSchemesIndex authIndex = new SupportedHttpAuthSchemesIndex(
                         codegenContext.integrations(),
                         s.getModel(),
-                        s.getSettings());
+                        s.getSettings()
+                    );
                     TopDownIndex topDownIndex = TopDownIndex.of(s.getModel());
                     Map<ShapeId, HttpAuthScheme> effectiveHttpAuthSchemes =
                         AuthUtils.getAllEffectiveNoAuthAwareAuthSchemes(
                             s.getService(),
                             serviceIndex,
                             authIndex,
-                            topDownIndex);
+                            topDownIndex
+                        );
                     Map<String, HttpAuthSchemeParameter> httpAuthSchemeParameters =
                         AuthUtils.collectHttpAuthSchemeParameters(effectiveHttpAuthSchemes.values());
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("HttpAuthSchemeParameters", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
-                    w.openBlock("""
-                        interface _$LHttpAuthSchemeParameters extends HttpAuthSchemeParameters {""", "}\n",
+                    w.openBlock(
+                        """
+                        interface _$LHttpAuthSchemeParameters extends HttpAuthSchemeParameters {""",
+                        "}\n",
                         serviceName,
                         () -> {
-                        for (HttpAuthSchemeParameter parameter : httpAuthSchemeParameters.values()) {
-                            w.write("$L?: $C;", parameter.name(), parameter.type());
+                            for (HttpAuthSchemeParameter parameter : httpAuthSchemeParameters.values()) {
+                                w.write("$L?: $C;", parameter.name(), parameter.type());
+                            }
                         }
-                    });
+                    );
                     w.addImport("EndpointParameters", null, EndpointsV2Generator.ENDPOINT_PARAMETERS_DEPENDENCY);
                     w.writeDocs("@internal");
-                    w.openBlock("""
+                    w.openBlock(
+                        """
                         export interface $LHttpAuthSchemeParameters extends \
-                        _$LHttpAuthSchemeParameters, EndpointParameters {""", "}",
-                        serviceName, serviceName,
+                        _$LHttpAuthSchemeParameters, EndpointParameters {""",
+                        "}",
+                        serviceName,
+                        serviceName,
                         () -> {
-                        for (HttpAuthSchemeParameter parameter : httpAuthSchemeParameters.values()) {
-                            w.write("$L?: $C;", parameter.name(), parameter.type());
+                            for (HttpAuthSchemeParameter parameter : httpAuthSchemeParameters.values()) {
+                                w.write("$L?: $C;", parameter.name(), parameter.type());
+                            }
                         }
-                    });
+                    );
                 }
             },
             new CodeInterceptor<DefaultHttpAuthSchemeParametersProviderFunctionCodeSection, TypeScriptWriter>() {
@@ -198,24 +211,30 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     String serviceName = CodegenUtils.getServiceName(
                         s.getSettings(),
                         s.getModel(),
-                        s.getSymbolProvider());
+                        s.getSymbolProvider()
+                    );
                     ServiceIndex serviceIndex = ServiceIndex.of(s.getModel());
                     SupportedHttpAuthSchemesIndex authIndex = new SupportedHttpAuthSchemesIndex(
                         codegenContext.integrations(),
                         s.getModel(),
-                        s.getSettings());
+                        s.getSettings()
+                    );
                     TopDownIndex topDownIndex = TopDownIndex.of(s.getModel());
                     Map<ShapeId, HttpAuthScheme> effectiveHttpAuthSchemes =
                         AuthUtils.getAllEffectiveNoAuthAwareAuthSchemes(
                             s.getService(),
                             serviceIndex,
                             authIndex,
-                            topDownIndex);
+                            topDownIndex
+                        );
                     Map<String, HttpAuthSchemeParameter> httpAuthSchemeParameters =
                         AuthUtils.collectHttpAuthSchemeParameters(effectiveHttpAuthSchemes.values());
                     Symbol serviceSymbol = s.getSymbolProvider().toSymbol(s.getService());
-                    w.addRelativeImport(serviceSymbol.getName() + "ResolvedConfig", null,
-                        Paths.get(".", serviceSymbol.getNamespace()));
+                    w.addRelativeImport(
+                        serviceSymbol.getName() + "ResolvedConfig",
+                        null,
+                        Paths.get(".", serviceSymbol.getNamespace())
+                    );
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES);
                     w.addDependency(TypeScriptDependency.UTIL_MIDDLEWARE);
@@ -225,87 +244,96 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     w.addImport("resolveParams", null, TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2);
                     w.writeDocs("@internal");
                     w.write("""
-                        interface EndpointRuleSetSmithyContext {
-                          commandInstance?: {
-                            constructor?: {
-                              getEndpointParameterInstructions(): EndpointParameterInstructions;
-                            };
-                          };
-                        }""");
+                            interface EndpointRuleSetSmithyContext {
+                              commandInstance?: {
+                                constructor?: {
+                                  getEndpointParameterInstructions(): EndpointParameterInstructions;
+                                };
+                              };
+                            }""");
                     w.writeDocs("@internal");
                     w.write("""
-                        interface EndpointRuleSetHttpAuthSchemeParametersProvider<
-                          TConfig extends object,
-                          TContext extends HandlerExecutionContext,
-                          TParameters extends HttpAuthSchemeParameters & EndpointParameters,
-                          TInput extends object
-                        > extends HttpAuthSchemeParametersProvider<TConfig, TContext, TParameters, TInput> {}""");
+                            interface EndpointRuleSetHttpAuthSchemeParametersProvider<
+                              TConfig extends object,
+                              TContext extends HandlerExecutionContext,
+                              TParameters extends HttpAuthSchemeParameters & EndpointParameters,
+                              TInput extends object
+                            > extends HttpAuthSchemeParametersProvider<TConfig, TContext, TParameters, TInput> {}""");
                     w.writeDocs("@internal");
                     w.write("""
-                        const createEndpointRuleSetHttpAuthSchemeParametersProvider =
-                          <
-                            TConfig extends object,
-                            TContext extends HandlerExecutionContext,
-                            THttpAuthSchemeParameters extends HttpAuthSchemeParameters,
-                            TEndpointParameters extends EndpointParameters,
-                            TParameters extends THttpAuthSchemeParameters & TEndpointParameters,
-                            TInput extends object
-                          >(
-                            defaultHttpAuthSchemeParametersProvider: HttpAuthSchemeParametersProvider<
-                              TConfig,
-                              TContext,
-                              THttpAuthSchemeParameters,
-                              TInput
-                            >
-                          ): EndpointRuleSetHttpAuthSchemeParametersProvider<
-                            TConfig,
-                            TContext,
-                            THttpAuthSchemeParameters & TEndpointParameters,
-                            TInput
-                          > =>
-                            async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
-                              if (!input) {
-                                throw new Error(`Could not find \\`input\\` for \
-                        \\`defaultEndpointRuleSetHttpAuthSchemeParametersProvider\\``);
-                              }
-                              const defaultParameters = \
-                        await defaultHttpAuthSchemeParametersProvider(config, context, input);
-                              const instructionsFn = (getSmithyContext(context) as \
-                        EndpointRuleSetSmithyContext)?.commandInstance?.constructor
-                                ?.getEndpointParameterInstructions;
-                              if (!instructionsFn) {
-                                throw new Error(`getEndpointParameterInstructions() is not defined on \
-                        \\`$${context.commandName!}\\``);
-                              }
-                              const endpointParameters = await resolveParams(
-                                input as Record<string, unknown>,
-                                { getEndpointParameterInstructions: instructionsFn! },
-                                config as Record<string, unknown>
-                              );
-                              return Object.assign(defaultParameters, endpointParameters) as TParameters;
-                            };""");
+                            const createEndpointRuleSetHttpAuthSchemeParametersProvider =
+                              <
+                                TConfig extends object,
+                                TContext extends HandlerExecutionContext,
+                                THttpAuthSchemeParameters extends HttpAuthSchemeParameters,
+                                TEndpointParameters extends EndpointParameters,
+                                TParameters extends THttpAuthSchemeParameters & TEndpointParameters,
+                                TInput extends object
+                              >(
+                                defaultHttpAuthSchemeParametersProvider: HttpAuthSchemeParametersProvider<
+                                  TConfig,
+                                  TContext,
+                                  THttpAuthSchemeParameters,
+                                  TInput
+                                >
+                              ): EndpointRuleSetHttpAuthSchemeParametersProvider<
+                                TConfig,
+                                TContext,
+                                THttpAuthSchemeParameters & TEndpointParameters,
+                                TInput
+                              > =>
+                                async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
+                                  if (!input) {
+                                    throw new Error(`Could not find \\`input\\` for \
+                            \\`defaultEndpointRuleSetHttpAuthSchemeParametersProvider\\``);
+                                  }
+                                  const defaultParameters = \
+                            await defaultHttpAuthSchemeParametersProvider(config, context, input);
+                                  const instructionsFn = (getSmithyContext(context) as \
+                            EndpointRuleSetSmithyContext)?.commandInstance?.constructor
+                                    ?.getEndpointParameterInstructions;
+                                  if (!instructionsFn) {
+                                    throw new Error(`getEndpointParameterInstructions() is not defined on \
+                            \\`$${context.commandName!}\\``);
+                                  }
+                                  const endpointParameters = await resolveParams(
+                                    input as Record<string, unknown>,
+                                    { getEndpointParameterInstructions: instructionsFn! },
+                                    config as Record<string, unknown>
+                                  );
+                                  return Object.assign(defaultParameters, endpointParameters) as TParameters;
+                                };""");
                     w.writeDocs("@internal");
-                    w.openBlock("""
+                    w.openBlock(
+                        """
                         const _default$LHttpAuthSchemeParametersProvider = async (\
                         config: $LResolvedConfig, \
                         context: HandlerExecutionContext, \
-                        input: object): Promise<_$LHttpAuthSchemeParameters> => {""", "};",
-                        serviceName, serviceSymbol.getName(), serviceName,
+                        input: object): Promise<_$LHttpAuthSchemeParameters> => {""",
+                        "};",
+                        serviceName,
+                        serviceSymbol.getName(),
+                        serviceName,
                         () -> {
-                        w.openBlock("return {", "};", () -> {
-                            w.write("operation: getSmithyContext(context).operation as string,");
-                            for (HttpAuthSchemeParameter parameter : httpAuthSchemeParameters.values()) {
-                                w.write("$L: $C,", parameter.name(), parameter.source());
-                            }
-                        });
-                    });
+                            w.openBlock("return {", "};", () -> {
+                                w.write("operation: getSmithyContext(context).operation as string,");
+                                for (HttpAuthSchemeParameter parameter : httpAuthSchemeParameters.values()) {
+                                    w.write("$L: $C,", parameter.name(), parameter.source());
+                                }
+                            });
+                        }
+                    );
                     w.writeDocs("@internal");
-                    w.write("""
+                    w.write(
+                        """
                         export const default$LHttpAuthSchemeParametersProvider: \
                         $LHttpAuthSchemeParametersProvider = createEndpointRuleSetHttpAuthSchemeParametersProvider(\
                         _default$LHttpAuthSchemeParametersProvider);
                         """,
-                        serviceName, serviceName, serviceName);
+                        serviceName,
+                        serviceName,
+                        serviceName
+                    );
                 }
             },
             new CodeInterceptor<HttpAuthSchemeProviderInterfaceCodeSection, TypeScriptWriter>() {
@@ -323,19 +351,27 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     String serviceName = CodegenUtils.getServiceName(
                         s.getSettings(),
                         s.getModel(),
-                        s.getSymbolProvider());
+                        s.getSymbolProvider()
+                    );
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("HttpAuthSchemeProvider", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
-                    w.write("""
-                    interface _$LHttpAuthSchemeProvider extends HttpAuthSchemeProvider<$LHttpAuthSchemeParameters> {}
-                    """, serviceName, serviceName);
+                    w.write(
+                        """
+                        interface _$LHttpAuthSchemeProvider extends HttpAuthSchemeProvider<$LHttpAuthSchemeParameters> {}
+                        """,
+                        serviceName,
+                        serviceName
+                    );
                     w.writeDocs("@internal");
-                    w.write("""
+                    w.write(
+                        """
                         export interface $LHttpAuthSchemeProvider extends \
                         HttpAuthSchemeProvider<$LHttpAuthSchemeParameters> {}
                         """,
-                        serviceName, serviceName);
+                        serviceName,
+                        serviceName
+                    );
                 }
             },
             new CodeInterceptor<DefaultHttpAuthSchemeProviderFunctionCodeSection, TypeScriptWriter>() {
@@ -353,37 +389,41 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     String serviceName = CodegenUtils.getServiceName(
                         s.getSettings(),
                         s.getModel(),
-                        s.getSymbolProvider());
+                        s.getSymbolProvider()
+                    );
                     ServiceIndex serviceIndex = ServiceIndex.of(s.getModel());
                     TopDownIndex topDownIndex = TopDownIndex.of(s.getModel());
                     SupportedHttpAuthSchemesIndex authIndex = new SupportedHttpAuthSchemesIndex(
                         codegenContext.integrations(),
                         s.getModel(),
-                        s.getSettings());
+                        s.getSettings()
+                    );
                     Map<ShapeId, HttpAuthScheme> effectiveHttpAuthSchemes =
                         AuthUtils.getAllEffectiveNoAuthAwareAuthSchemes(
                             s.getService(),
                             serviceIndex,
                             authIndex,
-                            topDownIndex);
+                            topDownIndex
+                        );
                     w.writeDocs("@internal");
                     w.write("""
-                        interface EndpointRuleSetHttpAuthSchemeProvider<
-                          EndpointParametersT extends EndpointParameters,
-                          HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
-                        > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> { }""");
+                            interface EndpointRuleSetHttpAuthSchemeProvider<
+                              EndpointParametersT extends EndpointParameters,
+                              HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
+                            > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> { }""");
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION);
                     w.addImport("Logger", null, TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("EndpointV2", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
                     w.write("""
-                        interface DefaultEndpointResolver<EndpointParametersT extends EndpointParameters> {
-                          (params: EndpointParametersT, context?: { logger?: Logger; }): EndpointV2;
-                        }""");
+                            interface DefaultEndpointResolver<EndpointParametersT extends EndpointParameters> {
+                              (params: EndpointParametersT, context?: { logger?: Logger; }): EndpointV2;
+                            }""");
                     w.addImport("HttpAuthSchemeId", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
-                    w.write("""
+                    w.write(
+                        """
                         const createEndpointRuleSetHttpAuthSchemeProvider = <
                           EndpointParametersT extends EndpointParameters,
                           HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
@@ -444,48 +484,70 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                           };
 
                           return endpointRuleSetHttpAuthSchemeProvider;
-                        }""");
+                        }"""
+                    );
                     w.writeDocs("@internal");
-                    w.openBlock("""
+                    w.openBlock(
+                        """
                         const _default$LHttpAuthSchemeProvider: _$LHttpAuthSchemeProvider = \
-                        (authParameters) => {""", "};",
-                        serviceName, serviceName, () -> {
-                        w.write("const options: HttpAuthOption[] = [];");
-                        w.openBlock("switch (authParameters.operation) {", "};", () -> {
-                            var serviceAuthSchemes = serviceIndex.getEffectiveAuthSchemes(
-                                s.getService(), AuthSchemeMode.NO_AUTH_AWARE);
-                            serviceAuthSchemes.put(
-                                SIGV4A_ID, new DynamicTrait(SIGV4A_ID, ObjectNode.objectNode()));
-                            for (OperationShape operationShape : topDownIndex.getContainedOperations(s.getService())) {
-                                ShapeId operationShapeId = operationShape.getId();
-                                var operationAuthSchemes = serviceIndex.getEffectiveAuthSchemes(
-                                    s.getService(), operationShapeId, AuthSchemeMode.NO_AUTH_AWARE);
-                                operationAuthSchemes.put(
-                                    SIGV4A_ID, new DynamicTrait(SIGV4A_ID, ObjectNode.objectNode()));
-                                // Skip operation generation if operation auth schemes are equivalent to the default
-                                // service auth schemes.
-                                if (AuthUtils.areHttpAuthSchemesEqual(serviceAuthSchemes, operationAuthSchemes)) {
-                                    continue;
-                                }
-                                w.openBlock("case $S: {", "};", operationShapeId.getName(), () -> {
-                                    operationAuthSchemes.keySet().forEach(shapeId -> {
-                                        w.write("options.push(create$LHttpAuthOption(authParameters));",
-                                            HttpAuthSchemeProviderGenerator.normalizeAuthSchemeName(shapeId));
+                        (authParameters) => {""",
+                        "};",
+                        serviceName,
+                        serviceName,
+                        () -> {
+                            w.write("const options: HttpAuthOption[] = [];");
+                            w.openBlock("switch (authParameters.operation) {", "};", () -> {
+                                var serviceAuthSchemes = serviceIndex.getEffectiveAuthSchemes(
+                                    s.getService(),
+                                    AuthSchemeMode.NO_AUTH_AWARE
+                                );
+                                serviceAuthSchemes.put(
+                                    SIGV4A_ID,
+                                    new DynamicTrait(SIGV4A_ID, ObjectNode.objectNode())
+                                );
+                                for (
+                                    OperationShape operationShape : topDownIndex.getContainedOperations(s.getService())
+                                ) {
+                                    ShapeId operationShapeId = operationShape.getId();
+                                    var operationAuthSchemes = serviceIndex.getEffectiveAuthSchemes(
+                                        s.getService(),
+                                        operationShapeId,
+                                        AuthSchemeMode.NO_AUTH_AWARE
+                                    );
+                                    operationAuthSchemes.put(
+                                        SIGV4A_ID,
+                                        new DynamicTrait(SIGV4A_ID, ObjectNode.objectNode())
+                                    );
+                                    // Skip operation generation if operation auth schemes are equivalent to the default
+                                    // service auth schemes.
+                                    if (AuthUtils.areHttpAuthSchemesEqual(serviceAuthSchemes, operationAuthSchemes)) {
+                                        continue;
+                                    }
+                                    w.openBlock("case $S: {", "};", operationShapeId.getName(), () -> {
+                                        operationAuthSchemes.keySet().forEach(shapeId -> {
+                                            w.write(
+                                                "options.push(create$LHttpAuthOption(authParameters));",
+                                                HttpAuthSchemeProviderGenerator.normalizeAuthSchemeName(shapeId)
+                                            );
+                                        });
+                                        w.write("break;");
                                     });
-                                    w.write("break;");
-                                });
-                            }
-                            w.openBlock("default: {", "};", () -> {
-                                serviceAuthSchemes.keySet().forEach(shapeId -> {
-                                    w.write("options.push(create$LHttpAuthOption(authParameters));",
-                                        HttpAuthSchemeProviderGenerator.normalizeAuthSchemeName(shapeId));
+                                }
+                                w.openBlock("default: {", "};", () -> {
+                                    serviceAuthSchemes.keySet().forEach(shapeId -> {
+                                        w.write(
+                                            "options.push(create$LHttpAuthOption(authParameters));",
+                                            HttpAuthSchemeProviderGenerator.normalizeAuthSchemeName(shapeId)
+                                        );
+                                    });
                                 });
                             });
-                        });
-                        w.write("return options;");
-                    });
+                            w.write("return options;");
+                        }
+                    );
                     w.addImport("defaultEndpointResolver", null, EndpointsV2Generator.ENDPOINT_RESOLVER_DEPENDENCY);
-                    w.writeInline("""
+                    w.writeInline(
+                        """
                         /**
                          * @internal
                          */
@@ -493,15 +555,21 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         createEndpointRuleSetHttpAuthSchemeProvider(\
                         defaultEndpointResolver, \
                         _default$LHttpAuthSchemeProvider, """,
-                        serviceName, serviceName, serviceName);
+                        serviceName,
+                        serviceName,
+                        serviceName
+                    );
                     w.openBlock("{", "});", () -> {
                         for (HttpAuthScheme scheme : effectiveHttpAuthSchemes.values()) {
-                            w.write("$S: create$LHttpAuthOption,",
+                            w.write(
+                                "$S: create$LHttpAuthOption,",
                                 scheme.getSchemeId(),
-                                HttpAuthSchemeProviderGenerator.normalizeAuthSchemeName(scheme.getSchemeId()));
+                                HttpAuthSchemeProviderGenerator.normalizeAuthSchemeName(scheme.getSchemeId())
+                            );
                         }
                     });
                 }
-            });
+            }
+        );
     }
 }

@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
@@ -37,42 +36,68 @@ public class AddServiceCustomizationPlugins implements TypeScriptIntegration {
         return List.of(
             // API Gateway
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.ACCEPT_HEADER.dependency,
+                    "AcceptHeader",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                 .build(),
             // Glacier
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,
-                    "Glacier", HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.GLACIER_MIDDLEWARE.dependency,
+                    "Glacier",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
                 .build(),
             // EC2
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,
-                    "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CopySnapshot")
-                    && testServiceId(s, "EC2"))
+                .withConventions(
+                    AwsDependency.EC2_MIDDLEWARE.dependency,
+                    "CopySnapshotPresignedUrl",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> o.getId().getName(s).equals("CopySnapshot")
+                        && testServiceId(s, "EC2")
+                )
                 .build(),
             // Machine Learning
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
-                    HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("Predict")
-                    && testServiceId(s, "Machine Learning"))
+                .withConventions(
+                    AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency,
+                    "PredictEndpoint",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> o.getId().getName(s).equals("Predict")
+                        && testServiceId(s, "Machine Learning")
+                )
                 .build(),
             // Route 53
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
-                    "ChangeResourceRecordSets", HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets")
-                    && testServiceId(s, "Route 53"))
+                .withConventions(
+                    AwsDependency.ROUTE53_MIDDLEWARE.dependency,
+                    "ChangeResourceRecordSets",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets")
+                        && testServiceId(s, "Route 53")
+                )
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
-                    HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
-                    && testServiceId(s, "Route 53"))
+                .withConventions(
+                    AwsDependency.ROUTE53_MIDDLEWARE.dependency,
+                    "IdNormalizer",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
+                        && testServiceId(s, "Route 53")
+                )
                 .build()
         );
     }

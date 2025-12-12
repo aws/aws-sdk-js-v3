@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.ArrayList;
@@ -26,7 +25,6 @@ import software.amazon.smithy.waiters.Acceptor;
 import software.amazon.smithy.waiters.Matcher;
 import software.amazon.smithy.waiters.WaitableTrait;
 import software.amazon.smithy.waiters.Waiter;
-
 
 @SmithyInternalApi
 public final class ProcessAwsQueryWaiters implements TypeScriptIntegration {
@@ -69,12 +67,12 @@ public final class ProcessAwsQueryWaiters implements TypeScriptIntegration {
                             String errorCode = matcherNode.expectStringMember("errorType").getValue();
                             if (errorCodeToShapeId.containsKey(errorCode)) {
                                 matcherNode = matcherNode.toBuilder()
-                                        .withMember("errorType", errorCodeToShapeId.get(errorCode))
-                                        .build();
+                                    .withMember("errorType", errorCodeToShapeId.get(errorCode))
+                                    .build();
 
                                 acceptorNode = acceptorNode.toBuilder()
-                                        .withMember("matcher", matcherNode)
-                                        .build();
+                                    .withMember("matcher", matcherNode)
+                                    .build();
                             }
                         }
                         waiterBuilder.addAcceptor(Acceptor.fromNode(acceptorNode));

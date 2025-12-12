@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collection;
@@ -68,8 +57,10 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
-                                                        Collection<OperationShape> operations) {
+    public Map<String, TreeSet<String>> getErrorAliases(
+        GenerationContext context,
+        Collection<OperationShape> operations
+    ) {
         return AwsProtocolUtils.getErrorAliases(context, operations);
     }
 
@@ -105,10 +96,12 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         boolean isAwsQueryCompat = context.getService().hasTrait(AwsQueryCompatibleTrait.class);
         AwsProtocolUtils.generateDocumentBodyShapeSerde(
             context,
-            shapes, new JsonShapeSerVisitor(
+            shapes,
+            new JsonShapeSerVisitor(
                 context,
                 !context.getSettings().generateServerSdk()
-                    && !isAwsQueryCompat && enableSerdeElision()
+                    && !isAwsQueryCompat
+                    && enableSerdeElision()
             )
         );
     }
@@ -116,7 +109,8 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
         boolean disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
-            context.getService().getTrait(ServiceTrait.class)
+            context.getService()
+                .getTrait(ServiceTrait.class)
                 .map(ServiceTrait::getSdkId)
                 .orElse(null)
         );
@@ -127,7 +121,8 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             new JsonShapeDeserVisitor(
                 context,
                 !context.getSettings().generateServerSdk()
-                    && !disableDeserializationFunctionElision && enableSerdeElision()
+                    && !disableDeserializationFunctionElision
+                    && enableSerdeElision()
             )
         );
     }
@@ -150,9 +145,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeInputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
@@ -165,9 +160,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeOutputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
@@ -180,9 +175,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeErrorDocumentBody(
-            GenerationContext context,
-            StructureShape error,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        StructureShape error,
+        List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
@@ -195,9 +190,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeInputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        OperationShape operation,
+        HttpBinding payloadBinding
     ) {
         super.serializeInputPayload(context, operation, payloadBinding);
         serializePayload(context, payloadBinding);
@@ -211,9 +206,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeOutputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        OperationShape operation,
+        HttpBinding payloadBinding
     ) {
         super.serializeOutputPayload(context, operation, payloadBinding);
         serializePayload(context, payloadBinding);
@@ -221,9 +216,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void serializeErrorPayload(
-            GenerationContext context,
-            StructureShape error,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        StructureShape error,
+        HttpBinding payloadBinding
     ) {
         super.serializeErrorPayload(context, error, payloadBinding);
         serializePayload(context, payloadBinding);
@@ -244,36 +239,36 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void deserializeInputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         deserializeDocumentBody(context, documentBindings);
     }
 
     @Override
     protected void deserializeOutputDocumentBody(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        OperationShape operation,
+        List<HttpBinding> documentBindings
     ) {
         deserializeDocumentBody(context, documentBindings);
     }
 
     @Override
     protected void deserializeErrorDocumentBody(
-            GenerationContext context,
-            StructureShape error,
-            List<HttpBinding> documentBindings
+        GenerationContext context,
+        StructureShape error,
+        List<HttpBinding> documentBindings
     ) {
         deserializeDocumentBody(context, documentBindings);
     }
 
     @Override
     protected HttpBinding deserializeInputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        OperationShape operation,
+        HttpBinding payloadBinding
     ) {
         HttpBinding returnedBinding = super.deserializeInputPayload(context, operation, payloadBinding);
         readPayload(context, payloadBinding);
@@ -282,9 +277,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected HttpBinding deserializeOutputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        OperationShape operation,
+        HttpBinding payloadBinding
     ) {
         HttpBinding returnedBinding = super.deserializeOutputPayload(context, operation, payloadBinding);
         readPayload(context, payloadBinding);
@@ -293,9 +288,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected HttpBinding deserializeErrorPayload(
-            GenerationContext context,
-            StructureShape error,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        StructureShape error,
+        HttpBinding payloadBinding
     ) {
         HttpBinding returnedBinding = super.deserializeErrorPayload(context, error, payloadBinding);
         readPayload(context, payloadBinding);
@@ -303,8 +298,8 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     protected void readPayload(
-            GenerationContext context,
-            HttpBinding payloadBinding
+        GenerationContext context,
+        HttpBinding payloadBinding
     ) {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
@@ -344,15 +339,22 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueProvider = "_ => " + (memberShape.hasTrait(TimestampFormatTrait.class)
-                    ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                    getDocumentTimestampFormat(), "_")
+                    ? AwsProtocolUtils.getInputTimestampValueProvider(
+                        context,
+                        memberShape,
+                        getDocumentTimestampFormat(),
+                        "_"
+                    )
                     : target.accept(getMemberSerVisitor(context, "_")));
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
                         writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
-                        writer.write("'$L': [true,_ => _ ?? generateIdempotencyToken(),`$L`],",
-                            wireName, memberName);
+                        writer.write(
+                            "'$L': [true,_ => _ ?? generateIdempotencyToken(),`$L`],",
+                            wireName,
+                            memberName
+                        );
                     } else {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$L': [,,`$L`],", wireName, memberName);
@@ -376,9 +378,11 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         });
     }
 
-    private ShapeVisitor<String> getMemberDeserVisitor(GenerationContext context,
-                                                       MemberShape memberShape,
-                                                       String dataSource) {
+    private ShapeVisitor<String> getMemberDeserVisitor(
+        GenerationContext context,
+        MemberShape memberShape,
+        String dataSource
+    ) {
         return new JsonMemberDeserVisitor(context, memberShape, dataSource, getDocumentTimestampFormat());
     }
 
@@ -393,8 +397,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         // When payload target is a structure or union but payload is not a stream, default
         // to an empty JSON body instead of an undefined body and make sure any structure or union
         // content ends up as a JSON string.
-        if (target instanceof StructureShape
-            || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
+        if (
+            target instanceof StructureShape
+                || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
         ) {
             writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
             writer.write("body = JSON.stringify(body);");
@@ -422,18 +427,24 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                 // The name of the member to get from the input shape.
                 String memberName = symbolProvider.toMemberName(binding.getMember());
                 // Use the jsonName trait value if present, otherwise use the member name.
-                String wireName = binding.getMember().getTrait(JsonNameTrait.class)
+                String wireName = binding.getMember()
+                    .getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElseGet(binding::getLocationName);
                 boolean hasJsonName = binding.getMember().hasTrait(JsonNameTrait.class);
 
                 String valueExpression = target.accept(
-                    getMemberDeserVisitor(context, binding.getMember(), "_"));
+                    getMemberDeserVisitor(context, binding.getMember(), "_")
+                );
                 boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
                 if (hasJsonName) {
                     if (isUnaryCall) {
-                        writer.write("'$L': [, $L, `$L`],",
-                            memberName, UnaryFunctionCall.toRef(valueExpression), wireName);
+                        writer.write(
+                            "'$L': [, $L, `$L`],",
+                            memberName,
+                            UnaryFunctionCall.toRef(valueExpression),
+                            wireName
+                        );
                     } else {
                         writer.write("'$L': [, _ => $L, `$L`],", memberName, valueExpression, wireName);
                     }

@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.NORMAL_DEPENDENCY;
@@ -61,11 +50,13 @@ public enum AwsDependency implements Dependency {
     /**
      * @deprecated use SmithyDependency.UUID.
      */
-    @Deprecated UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
+    @Deprecated
+    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
     /**
      * @deprecated use SmithyDependency.UUID_TYPES.
      */
-    @Deprecated UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
+    @Deprecated
+    UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),
@@ -84,9 +75,12 @@ public enum AwsDependency implements Dependency {
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
 
     // Conditionally added when httpChecksum trait is present
-    @Deprecated MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
-    @Deprecated STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
-    @Deprecated STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
+    @Deprecated
+    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
+    @Deprecated
+    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
+    @Deprecated
+    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
 
     // Conditionally added when auth trait is present
@@ -118,7 +112,6 @@ public enum AwsDependency implements Dependency {
         this.version = version;
     }
 
-
     @Override
     public List<SymbolDependency> getDependencies() {
         return Collections.singletonList(dependency);
@@ -134,7 +127,7 @@ public enum AwsDependency implements Dependency {
 
         static {
             String rawProperties =
-                    IoUtils.readUtf8Url(AwsDependency.class.getResource("sdkVersions.properties")).trim();
+                IoUtils.readUtf8Url(AwsDependency.class.getResource("sdkVersions.properties")).trim();
             Properties p = new Properties();
             try {
                 p.load(new StringReader(rawProperties));

@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen.visitor;
 
 import java.util.Optional;
@@ -46,7 +45,6 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.typescript.codegen.knowledge.SerdeElisionIndex;
 
-
 public class MemberDeserVisitor implements ShapeVisitor<String> {
     protected SerdeElisionIndex serdeElisionIndex;
     protected boolean serdeElisionEnabled;
@@ -65,7 +63,8 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
         this.serdeElisionIndex = SerdeElisionIndex.of(context.getModel());
         this.context = context.copy();
         disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
-            context.getService().getTrait(ServiceTrait.class)
+            context.getService()
+                .getTrait(ServiceTrait.class)
                 .map(ServiceTrait::getSdkId)
                 .orElse(null)
         );
@@ -108,15 +107,23 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
 
     @Override
     public String floatShape(FloatShape shape) {
-        context.getWriter().addImport("limitedParseFloat32", "__limitedParseFloat32",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter()
+            .addImport(
+                "limitedParseFloat32",
+                "__limitedParseFloat32",
+                TypeScriptDependency.AWS_SMITHY_CLIENT
+            );
         return "__limitedParseFloat32(" + dataSource + ")";
     }
 
     @Override
     public String doubleShape(DoubleShape shape) {
-        context.getWriter().addImport("limitedParseDouble", "__limitedParseDouble",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter()
+            .addImport(
+                "limitedParseDouble",
+                "__limitedParseDouble",
+                TypeScriptDependency.AWS_SMITHY_CLIENT
+            );
         return "__limitedParseDouble(" + dataSource + ")";
     }
 
@@ -158,19 +165,24 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
         TimestampFormatTrait.Format format;
         if (getMemberShape() == null) {
             format = httpIndex.determineTimestampFormat(
-                shape, HttpBinding.Location.DOCUMENT, defaultTimestampFormat
+                shape,
+                HttpBinding.Location.DOCUMENT,
+                defaultTimestampFormat
             );
         } else {
             if (!shape.getId().equals(getMemberShape().getTarget())) {
                 throw new IllegalArgumentException(
                     String.format(
                         "Encountered timestamp shape %s that was not the target of member shape %s",
-                        shape.getId(), getMemberShape().getId()
+                        shape.getId(),
+                        getMemberShape().getId()
                     )
                 );
             }
             format = httpIndex.determineTimestampFormat(
-                getMemberShape(), HttpBinding.Location.DOCUMENT, defaultTimestampFormat
+                getMemberShape(),
+                HttpBinding.Location.DOCUMENT,
+                defaultTimestampFormat
             );
         }
 
@@ -181,7 +193,8 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
             shape,
             format,
             requiresNumericEpochSecondsInPayload(),
-            context.getSettings().generateClient());
+            context.getSettings().generateClient()
+        );
     }
 
     @Override
@@ -258,14 +271,16 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
         // Use the shape for the function name.
         Symbol symbol = context.getSymbolProvider().toSymbol(shape);
 
-        if (serdeElisionEnabled
-            && !disableDeserializationFunctionElision
-            && serdeElisionIndex.mayElide(shape)) {
+        if (
+            serdeElisionEnabled
+                && !disableDeserializationFunctionElision
+                && serdeElisionIndex.mayElide(shape)
+        ) {
             context.getWriter().addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
             return "_json(" + customDataSource + ")";
         }
 
         return ProtocolGenerator.getDeserFunctionShortName(symbol)
-                + "(" + customDataSource + ", context)";
+            + "(" + customDataSource + ", context)";
     }
 }
