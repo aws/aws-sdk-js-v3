@@ -11,6 +11,9 @@ on:
 jobs:
   lock:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
     steps:
       - uses: dessant/lock-threads@v2
         if: github.repository == 'aws/aws-sdk-js-v3'
