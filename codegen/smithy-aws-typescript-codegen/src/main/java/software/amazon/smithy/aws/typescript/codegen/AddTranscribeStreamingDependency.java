@@ -50,21 +50,25 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
-                                "TranscribeStreaming", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> isTranscribeStreaming(s)
-                            && AddEventStreamHandlingDependency.hasEventStreamInput(m, o))
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
+                    "TranscribeStreaming",
+                    RuntimeClientPlugin.Convention.HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> isTranscribeStreaming(s) && AddEventStreamHandlingDependency.hasEventStreamInput(m, o)
+                )
+                .build()
         );
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
         if (!isTranscribeStreaming(service)) {
@@ -72,12 +76,17 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
         }
 
         Map<String, Consumer<TypeScriptWriter>> transcribeStreamingHandlerConfig = MapUtils.of(
-                "eventStreamPayloadHandlerProvider", writer -> {
-                        writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
-                        writer.addImport("eventStreamPayloadHandler", "eventStreamPayloadHandler",
-                            AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
-                        writer.write("(() => eventStreamPayloadHandler)");
-                });
+            "eventStreamPayloadHandlerProvider",
+            writer -> {
+                writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
+                writer.addImport(
+                    "eventStreamPayloadHandler",
+                    "eventStreamPayloadHandler",
+                    AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE
+                );
+                writer.write("(() => eventStreamPayloadHandler)");
+            }
+        );
 
         switch (target) {
             case REACT_NATIVE:
@@ -93,5 +102,3 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
         return serviceId.equals("Transcribe Streaming");
     }
 }
-
-

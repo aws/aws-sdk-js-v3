@@ -57,6 +57,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
+
     private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
 
     private final BiFunction<MemberShape, String, String> memberNameStrategy;
@@ -66,21 +67,24 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         .build();
 
     JsonShapeSerVisitor(GenerationContext context, boolean serdeElisionEnabled) {
-        this(context,
-                // Use the jsonName trait value if present, otherwise use the member name.
-                (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
-                        .map(JsonNameTrait::getValue)
-                        .orElse(memberName),
-                serdeElisionEnabled);
+        this(
+            context,
+            // Use the jsonName trait value if present, otherwise use the member name.
+            (memberShape, memberName) ->
+                memberShape.getTrait(JsonNameTrait.class).map(JsonNameTrait::getValue).orElse(memberName),
+            serdeElisionEnabled
+        );
     }
 
-    JsonShapeSerVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy,
-            boolean serdeElisionEnabled) {
+    JsonShapeSerVisitor(
+        GenerationContext context,
+        BiFunction<MemberShape, String, String> memberNameStrategy,
+        boolean serdeElisionEnabled
+    ) {
         super(context);
         this.serdeElisionEnabled = serdeElisionEnabled;
         this.memberNameStrategy = memberNameStrategy;
     }
-
 
     private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
         return new JsonMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
@@ -101,17 +105,17 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         String returnedExpression = target.accept(getMemberVisitor("entry"));
 
         if (returnedExpression.equals("entry")) {
-          writer.write("return input$L;", potentialFilter);
+            writer.write("return input$L;", potentialFilter);
         } else {
-          writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
-              // Short circuit null values from serialization.
-              if (hasSparseTrait) {
-                  writer.write("if (entry === null) { return null as any; }");
-              }
+            writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
+                // Short circuit null values from serialization.
+                if (hasSparseTrait) {
+                    writer.write("if (entry === null) { return null as any; }");
+                }
 
-              // Dispatch to the input value provider for any additional handling.
-              writer.write("return $L;", target.accept(getMemberVisitor("entry")));
-          });
+                // Dispatch to the input value provider for any additional handling.
+                writer.write("return $L;", target.accept(getMemberVisitor("entry")));
+            });
         }
     }
 
@@ -135,8 +139,10 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
-        writer.openBlock("return Object.entries(input).reduce((acc: Record<string, any>, "
-                + "[key, value]: [$1L, any]) => {", "}, {});", entryKeyType,
+        writer.openBlock(
+            "return Object.entries(input).reduce((acc: Record<string, any>, " + "[key, value]: [$1L, any]) => {",
+            "}, {});",
+            entryKeyType,
             () -> {
                 writer.openBlock("if (value === null) {", "}", () -> {
                     // Handle the sparse trait by short-circuiting null values
@@ -170,8 +176,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueExpression = (memberShape.hasTrait(TimestampFormatTrait.class)
-                    ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                            TIMESTAMP_FORMAT, "_")
+                    ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape, TIMESTAMP_FORMAT, "_")
                     : target.accept(getMemberVisitor("_")));
                 String valueProvider = "_ => " + valueExpression;
                 boolean isUnaryCall = UnaryFunctionCall.check(valueExpression);
@@ -184,8 +189,12 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$L': [,,`$L`],", wireName, memberName);
                         } else if (isUnaryCall) {
-                            writer.write("'$L': [,$L,`$L`],", wireName,
-                                UnaryFunctionCall.toRef(valueExpression), memberName);
+                            writer.write(
+                                "'$L': [,$L,`$L`],",
+                                wireName,
+                                UnaryFunctionCall.toRef(valueExpression),
+                                memberName
+                            );
                         } else {
                             writer.write("'$L': [,$L,`$L`],", wireName, valueProvider, memberName);
                         }
@@ -205,7 +214,6 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     }
                 }
             });
-
         });
     }
 
@@ -216,18 +224,26 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         ServiceShape serviceShape = context.getService();
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("return $L.visit(input, {", "});",
-            reservedWords.escape(shape.getId().getName(serviceShape)), () -> {
-            // Use a TreeMap to sort the members.
-            Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-            members.forEach((memberName, memberShape) -> {
+        writer.openBlock(
+            "return $L.visit(input, {",
+            "});",
+            reservedWords.escape(shape.getId().getName(serviceShape)),
+            () -> {
+                // Use a TreeMap to sort the members.
+                Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+                members.forEach((memberName, memberShape) -> {
                     String locationName = memberNameStrategy.apply(memberShape, memberName);
                     Shape target = model.expectShape(memberShape.getTarget());
                     // Dispatch to the input value provider for any additional handling.
-                    writer.write("$L: value => ({ $S: $L }),", memberName, locationName,
-                            target.accept(getMemberVisitor("value")));
+                    writer.write(
+                        "$L: value => ({ $S: $L }),",
+                        memberName,
+                        locationName,
+                        target.accept(getMemberVisitor("value"))
+                    );
                 });
-            writer.write("_: (name, value) => ({ [name]: value } as any)");
-        });
+                writer.write("_: (name, value) => ({ [name]: value } as any)");
+            }
+        );
     }
 }

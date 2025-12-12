@@ -22,20 +22,24 @@ import software.amazon.smithy.utils.IoUtils;
  * AWSQuery compatibility.
  */
 public final class AwsSmithyRpcV2Cbor extends SmithyRpcV2Cbor {
+
     @Override
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
             TypeScriptWriter writer = context.getWriter();
             writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
-            writer.write(IoUtils.readUtf8Resource(
-                AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
+            writer.write(
+                IoUtils.readUtf8Resource(AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts")
+            );
         }
     }
 
     @Override
-    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
-                                                        Collection<OperationShape> operations) {
+    public Map<String, TreeSet<String>> getErrorAliases(
+        GenerationContext context,
+        Collection<OperationShape> operations
+    ) {
         return AwsProtocolUtils.getErrorAliases(context, operations);
     }
 
@@ -45,14 +49,18 @@ public final class AwsSmithyRpcV2Cbor extends SmithyRpcV2Cbor {
         writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
         writer.openBlock("const SHARED_HEADERS: __HeaderBag = {", "};", () -> {
             writer.write("'content-type': $S,", getDocumentContentType());
-            writer.write("""
+            writer.write(
+                """
                 "smithy-protocol": "rpc-v2-cbor",
                 "accept": "application/cbor",
-                """);
+                """
+            );
             if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
-                writer.write("""
+                writer.write(
+                    """
                     "x-amzn-query-mode": "true",
-                    """);
+                    """
+                );
             }
         });
     }
@@ -68,8 +76,10 @@ public final class AwsSmithyRpcV2Cbor extends SmithyRpcV2Cbor {
             writer.write("populateBodyWithQueryCompatibility(parsedOutput, output.headers);");
         }
         writer.addImportSubmodule(
-            "loadSmithyRpcV2CborErrorCode", null,
-            TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CBOR
+            "loadSmithyRpcV2CborErrorCode",
+            null,
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.CBOR
         );
         writer.write("const errorCode = loadSmithyRpcV2CborErrorCode(output, parsedOutput.body);");
     }

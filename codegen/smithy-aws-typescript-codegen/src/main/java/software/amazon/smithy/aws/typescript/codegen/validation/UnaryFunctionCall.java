@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
  * For handling expressions that may be unary function calls.
  */
 public final class UnaryFunctionCall {
+
     private static final Pattern CHECK_PATTERN = Pattern.compile("^(?!new ).+\\(((?!,).)*\\)$");
     private static final Pattern TO_REF_PATTERN = Pattern.compile("(.*)\\(.*\\)$");
 

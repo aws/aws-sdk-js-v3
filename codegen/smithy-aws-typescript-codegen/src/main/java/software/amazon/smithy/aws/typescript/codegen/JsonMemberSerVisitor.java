@@ -42,6 +42,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
+
     private final boolean isAwsQueryCompat;
 
     /**
@@ -137,7 +138,8 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot serialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot serialize shape type %s on protocol, shape: %s.", shape.getType(), shape.getId())
+        );
     }
 }

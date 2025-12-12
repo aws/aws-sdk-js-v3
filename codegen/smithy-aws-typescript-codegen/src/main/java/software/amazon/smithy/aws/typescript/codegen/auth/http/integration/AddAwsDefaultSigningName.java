@@ -24,6 +24,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddAwsDefaultSigningName implements TypeScriptIntegration {
+
     private static final Logger LOGGER = Logger.getLogger(AddAwsDefaultSigningName.class.getName());
 
     /**
@@ -57,7 +58,8 @@ public final class AddAwsDefaultSigningName implements TypeScriptIntegration {
         // Set default name setting for service based on: SigV4 first, then the AWS Service trait
         try {
             settings.setDefaultSigningName(
-                service.getTrait(SigV4Trait.class)
+                service
+                    .getTrait(SigV4Trait.class)
                     .map(SigV4Trait::getName)
                     .orElseGet(() -> service.expectTrait(ServiceTrait.class).getArnNamespace())
             );
@@ -65,5 +67,4 @@ public final class AddAwsDefaultSigningName implements TypeScriptIntegration {
             LOGGER.warning("Unable to set service default signing name. A SigV4 or Service trait is needed.");
         }
     }
-
 }

@@ -57,11 +57,9 @@ final class AwsJsonRpc1_1 extends JsonRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
         writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
         String targetHeader = serviceShape.getId().getName(serviceShape) + ".${operation}";
-        writer.openBlock("function sharedHeaders(operation: string): __HeaderBag { return {", "}};",
-            () -> {
-                writer.write("'content-type': $S,", getDocumentContentType());
-                writer.write("'x-amz-target': `$L`,", targetHeader);
-            }
-        );
+        writer.openBlock("function sharedHeaders(operation: string): __HeaderBag { return {", "}};", () -> {
+            writer.write("'content-type': $S,", getDocumentContentType());
+            writer.write("'x-amz-target': `$L`,", targetHeader);
+        });
     }
 }

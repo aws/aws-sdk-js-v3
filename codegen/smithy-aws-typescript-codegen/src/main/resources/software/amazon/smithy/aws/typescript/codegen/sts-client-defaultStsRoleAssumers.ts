@@ -26,7 +26,7 @@ export type STSRoleAssumerOptions = Pick<
  */
 export type RoleAssumer = (
   sourceCreds: AwsCredentialIdentity,
-  params: AssumeRoleCommandInput
+  params: AssumeRoleCommandInput,
 ) => Promise<AwsCredentialIdentity>;
 
 interface AssumedRoleUser {
@@ -63,7 +63,7 @@ const resolveRegion = async (
   _region: string | Provider<string> | undefined,
   _parentRegion: string | Provider<string> | undefined,
   credentialProviderLogger?: Logger,
-  loaderConfig: Parameters<typeof stsRegionDefaultResolver>[0] = {}
+  loaderConfig: Parameters<typeof stsRegionDefaultResolver>[0] = {},
 ): Promise<string> => {
   const region: string | undefined = typeof _region === "function" ? await _region() : _region;
   const parentRegion: string | undefined = typeof _parentRegion === "function" ? await _parentRegion() : _parentRegion;
@@ -74,7 +74,7 @@ const resolveRegion = async (
     "accepting first of:",
     `${region} (credential provider clientConfig)`,
     `${parentRegion} (contextual client)`,
-    `${stsDefaultRegion} (STS default: AWS_REGION, profile region, or us-east-1)`
+    `${stsDefaultRegion} (STS default: AWS_REGION, profile region, or us-east-1)`,
   );
   return region ?? parentRegion ?? stsDefaultRegion;
 };
@@ -85,7 +85,7 @@ const resolveRegion = async (
  */
 export const getDefaultRoleAssumer = (
   stsOptions: STSRoleAssumerOptions,
-  STSClient: new (options: STSClientConfig) => STSClient
+  STSClient: new (options: STSClientConfig) => STSClient,
 ): RoleAssumer => {
   let stsClient: STSClient;
   let closureSourceCreds: AwsCredentialIdentity;
@@ -107,7 +107,7 @@ export const getDefaultRoleAssumer = (
         {
           logger,
           profile,
-        }
+        },
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
@@ -147,7 +147,7 @@ export const getDefaultRoleAssumer = (
  * @internal
  */
 export type RoleAssumerWithWebIdentity = (
-  params: AssumeRoleWithWebIdentityCommandInput
+  params: AssumeRoleWithWebIdentityCommandInput,
 ) => Promise<AwsCredentialIdentity>;
 
 /**
@@ -156,7 +156,7 @@ export type RoleAssumerWithWebIdentity = (
  */
 export const getDefaultRoleAssumerWithWebIdentity = (
   stsOptions: STSRoleAssumerOptions,
-  STSClient: new (options: STSClientConfig) => STSClient
+  STSClient: new (options: STSClientConfig) => STSClient,
 ): RoleAssumerWithWebIdentity => {
   let stsClient: STSClient;
   return async (params) => {
@@ -176,7 +176,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
         {
           logger,
           profile,
-        }
+        },
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
@@ -233,7 +233,7 @@ export const decorateDefaultCredentialProvider =
       roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor as new (options: STSClientConfig) => STSClient),
       roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(
         input,
-        input.stsClientCtor as new (options: STSClientConfig) => STSClient
+        input.stsClientCtor as new (options: STSClientConfig) => STSClient,
       ),
       ...input,
     });

@@ -58,11 +58,14 @@ final class EndpointGenerator implements Runnable {
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
-        serviceTrait = service.getTrait(ServiceTrait.class)
-                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
+        serviceTrait = service
+            .getTrait(ServiceTrait.class)
+            .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
         endpointPrefix = serviceTrait.getEndpointPrefix();
-        baseSigningService = service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
-                .orElse(serviceTrait.getArnNamespace());
+        baseSigningService = service
+            .getTrait(SigV4Trait.class)
+            .map(SigV4Trait::getName)
+            .orElse(serviceTrait.getArnNamespace());
         endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoints.json")).expectObjectNode();
         validateVersion();
         loadPartitions();
@@ -72,14 +75,14 @@ final class EndpointGenerator implements Runnable {
     private void validateVersion() {
         int version = endpointData.expectNumberMember("version").getValue().intValue();
         if (version != VERSION) {
-            throw new CodegenException("Invalid endpoints.json version. Expected version 3, found " +  version);
+            throw new CodegenException("Invalid endpoints.json version. Expected version 3, found " + version);
         }
     }
 
     private void loadPartitions() {
         List<ObjectNode> partitionObjects = endpointData
-                .expectArrayMember("partitions")
-                .getElementsAs(Node::expectObjectNode);
+            .expectArrayMember("partitions")
+            .getElementsAs(Node::expectObjectNode);
 
         for (ObjectNode partition : partitionObjects) {
             String partitionName = partition.expectStringMember("partition").getValue();
@@ -95,8 +98,10 @@ final class EndpointGenerator implements Runnable {
 
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
                 ObjectNode config = entry.getValue().expectObjectNode();
-                if (!config.containsMember("deprecated")
-                        && (config.containsMember("hostname") || config.containsMember("variants"))) {
+                if (
+                    !config.containsMember("deprecated") &&
+                    (config.containsMember("hostname") || config.containsMember("variants"))
+                ) {
                     String region = entry.getKey();
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
                     String resolvedHostname = getResolvedHostname(hostname, endpointPrefix, region);
@@ -104,7 +109,8 @@ final class EndpointGenerator implements Runnable {
                     ArrayNode variants = getServiceVariants(
                         config.getArrayMember("variants").orElse(ArrayNode.fromNodes()),
                         resolvedHostname,
-                        dnsSuffix);
+                        dnsSuffix
+                    );
 
                     if (config.containsMember("hostname")) {
                         // Populate default variant only if endpoint entry contains hostname
@@ -113,10 +119,10 @@ final class EndpointGenerator implements Runnable {
                         variants = defaultVariant.merge(variants);
                     }
 
-                    endpoints.put(region,
-                        config
-                            .withMember("hostname", resolvedHostname)
-                            .withMember("variants", variants));
+                    endpoints.put(
+                        region,
+                        config.withMember("hostname", resolvedHostname).withMember("variants", variants)
+                    );
                 }
             }
         }
@@ -163,39 +169,43 @@ final class EndpointGenerator implements Runnable {
     private void writePartitionHash() {
         writer.addImport("PartitionHash", "PartitionHash", TypeScriptDependency.CONFIG_RESOLVER);
         writer.openBlock("const partitionHash: PartitionHash = {", "};", () -> {
-            partitions.values().forEach(partition -> {
-                writer.openBlock("$S: {", "},", partition.identifier, () -> {
-                    writer.openBlock("regions: [", "],", () -> {
-                        for (String region : partition.getAllRegions()) {
-                            writer.write("$S,", region);
-                        }
+            partitions
+                .values()
+                .forEach(partition -> {
+                    writer.openBlock("$S: {", "},", partition.identifier, () -> {
+                        writer.openBlock("regions: [", "],", () -> {
+                            for (String region : partition.getAllRegions()) {
+                                writer.write("$S,", region);
+                            }
+                        });
+                        writer.write("regionRegex: $S,", partition.regionRegex);
+                        writer.write("variants: $L,", ArrayNode.prettyPrintJson(partition.variants));
+                        partition.getPartitionEndpoint().ifPresent(endpoint -> writer.write("endpoint: $S,", endpoint));
                     });
-                    writer.write("regionRegex: $S,", partition.regionRegex);
-                    writer.write("variants: $L,", ArrayNode.prettyPrintJson(partition.variants));
-                    partition.getPartitionEndpoint().ifPresent(
-                        endpoint -> writer.write("endpoint: $S,", endpoint));
                 });
-            });
         });
         writer.write("");
     }
 
     private void writeEndpointProviderFunction() {
         writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES);
-        writer.addImport("RegionInfoProviderOptions", "RegionInfoProviderOptions",
-                TypeScriptDependency.AWS_SDK_TYPES);
+        writer.addImport("RegionInfoProviderOptions", "RegionInfoProviderOptions", TypeScriptDependency.AWS_SDK_TYPES);
         writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER);
-        writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = async (\n"
-                         + "  region: string,\n"
-                         + "  options?: RegionInfoProviderOptions\n"
-                         + ") => ", ";", () -> {
-            writer.openBlock("getRegionInfo(region, {", "})", () -> {
-                writer.write("...options,");
-                writer.write("signingService: $S,", baseSigningService);
-                writer.write("regionHash,");
-                writer.write("partitionHash,");
-            });
-        });
+        writer.openBlock(
+            "export const defaultRegionInfoProvider: RegionInfoProvider = async (\n" +
+                "  region: string,\n" +
+                "  options?: RegionInfoProviderOptions\n" +
+                ") => ",
+            ";",
+            () -> {
+                writer.openBlock("getRegionInfo(region, {", "})", () -> {
+                    writer.write("...options,");
+                    writer.write("signingService: $S,", baseSigningService);
+                    writer.write("regionHash,");
+                    writer.write("partitionHash,");
+                });
+            }
+        );
     }
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
@@ -203,21 +213,28 @@ final class EndpointGenerator implements Runnable {
             ArrayNode variants = resolved.expectArrayMember("variants");
             writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
 
-            resolved.getObjectMember("credentialScope").ifPresent(scope -> {
-                scope.getStringMember("region").ifPresent(signingRegion -> {
-                    writer.write("signingRegion: $S,", signingRegion);
+            resolved
+                .getObjectMember("credentialScope")
+                .ifPresent(scope -> {
+                    scope
+                        .getStringMember("region")
+                        .ifPresent(signingRegion -> {
+                            writer.write("signingRegion: $S,", signingRegion);
+                        });
+                    scope
+                        .getStringMember("service")
+                        .ifPresent(signingService -> {
+                            writer.write("signingService: $S,", signingService);
+                        });
                 });
-                scope.getStringMember("service").ifPresent(signingService -> {
-                    writer.write("signingService: $S,", signingService);
-                });
-            });
         });
     }
 
     private ObjectNode getDefaultVariant(String hostname) {
-        return ObjectNode
-            .fromStringMap(Collections.singletonMap("hostname", hostname))
-            .withMember("tags", ArrayNode.fromStrings(Collections.emptyList()));
+        return ObjectNode.fromStringMap(Collections.singletonMap("hostname", hostname)).withMember(
+            "tags",
+            ArrayNode.fromStrings(Collections.emptyList())
+        );
     }
 
     private String getResolvedHostname(String hostnameTemplate, String service) {
@@ -225,9 +242,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private String getResolvedHostname(String hostnameTemplate, String service, String region) {
-        return hostnameTemplate
-            .replace("{service}", service)
-            .replace("{region}", region);
+        return hostnameTemplate.replace("{service}", service).replace("{region}", region);
     }
 
     private String getResolvedHostnameWithDnsSuffix(String hostnameTemplate, String dnsSuffix) {
@@ -235,6 +250,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private final class Partition {
+
         final ArrayNode variants;
         final String dnsSuffix;
         final String identifier;
@@ -271,14 +287,8 @@ final class EndpointGenerator implements Runnable {
 
         Set<String> getAllRegions() {
             Set<String> regions = new TreeSet<String>();
-            regions.addAll(
-                config.getObjectMember("regions")
-                    .orElse(Node.objectNode()).getStringMap().keySet()
-            );
-            regions.addAll(
-                getService().getObjectMember("endpoints")
-                    .orElse(Node.objectNode()).getStringMap().keySet()
-            );
+            regions.addAll(config.getObjectMember("regions").orElse(Node.objectNode()).getStringMap().keySet());
+            regions.addAll(getService().getObjectMember("endpoints").orElse(Node.objectNode()).getStringMap().keySet());
             return regions;
         }
 
@@ -306,13 +316,17 @@ final class EndpointGenerator implements Runnable {
             partitionVariants.forEach(partitionVariant -> {
                 ObjectNode partitionVariantNode = partitionVariant.expectObjectNode();
                 ArrayNode tags = partitionVariantNode.expectArrayMember("tags");
-                Node equivalentServiceVariantNode = serviceVariants.getElements().stream()
-                    .filter(serviceVariantNode -> tags.equals(
-                        serviceVariantNode.expectObjectNode().expectArrayMember("tags")))
+                Node equivalentServiceVariantNode = serviceVariants
+                    .getElements()
+                    .stream()
+                    .filter(serviceVariantNode ->
+                        tags.equals(serviceVariantNode.expectObjectNode().expectArrayMember("tags"))
+                    )
                     .findFirst()
                     .orElse(null);
-                mergedVariants.add((equivalentServiceVariantNode == null)
-                    ? partitionVariantNode : equivalentServiceVariantNode);
+                mergedVariants.add(
+                    (equivalentServiceVariantNode == null) ? partitionVariantNode : equivalentServiceVariantNode
+                );
             });
 
             return ArrayNode.fromNodes(mergedVariants);
@@ -322,8 +336,8 @@ final class EndpointGenerator implements Runnable {
             ObjectNode service = getService();
             // Note: regionalized services always use regionalized endpoints.
             return service.getBooleanMemberOrDefault("isRegionalized", true)
-                   ? Optional.empty()
-                   : service.getStringMember("partitionEndpoint").map(StringNode::getValue);
+                ? Optional.empty()
+                : service.getStringMember("partitionEndpoint").map(StringNode::getValue);
         }
     }
 }

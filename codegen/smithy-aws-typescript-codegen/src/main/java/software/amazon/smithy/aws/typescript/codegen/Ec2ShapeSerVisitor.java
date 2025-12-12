@@ -48,6 +48,7 @@ import software.amazon.smithy.utils.StringUtils;
  */
 @SmithyInternalApi
 final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
+
     Ec2ShapeSerVisitor(GenerationContext context) {
         super(context);
         serializeEmptyLists = false;
@@ -55,8 +56,9 @@ final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
 
     @Override
     protected void serializeDocument(GenerationContext context, DocumentShape shape) {
-        throw new CodegenException(String.format(
-                "Cannot serialize Document types in the aws.ec2 protocol, shape: %s.", shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot serialize Document types in the aws.ec2 protocol, shape: %s.", shape.getId())
+        );
     }
 
     @Override
@@ -69,10 +71,11 @@ final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
 
         // Fall back to the capitalized @xmlName trait if present on the member,
         // otherwise use the capitalized default value.
-        return memberShape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .map(StringUtils::capitalize)
-                .orElseGet(() -> StringUtils.capitalize(defaultValue));
+        return memberShape
+            .getTrait(XmlNameTrait.class)
+            .map(XmlNameTrait::getValue)
+            .map(StringUtils::capitalize)
+            .orElseGet(() -> StringUtils.capitalize(defaultValue));
     }
 
     @Override

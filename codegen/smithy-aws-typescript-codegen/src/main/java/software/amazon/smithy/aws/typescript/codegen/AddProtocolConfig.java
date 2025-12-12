@@ -30,12 +30,12 @@ import software.amazon.smithy.typescript.codegen.schema.SchemaGenerationAllowlis
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
-
 /**
  * Adds a protocol implementation to the runtime config.
  */
 @SmithyInternalApi
 public final class AddProtocolConfig implements TypeScriptIntegration {
+
     static {
         init();
     }
@@ -105,7 +105,8 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
         }
         String namespace = settings.getService().getNamespace();
         String rpcTarget = settings.getService().getName();
-        String xmlns = settings.getService(model)
+        String xmlns = settings
+            .getService(model)
             .getTrait(XmlNamespaceTrait.class)
             .map(XmlNamespaceTrait::getUri)
             .orElse("");
@@ -114,135 +115,109 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
         switch (target) {
             case SHARED:
                 if (Objects.equals(settings.getProtocol(), RestXmlTrait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsRestXmlProtocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write("""
-                                new AwsRestXmlProtocol({
-                                  defaultNamespace: $S,
-                                  xmlNamespace: $S,
-                                })""",
-                                namespace,
-                                xmlns
-                            );
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule("AwsRestXmlProtocol", null, AwsDependency.AWS_SDK_CORE, "/protocols");
+                        writer.write(
+                            """
+                            new AwsRestXmlProtocol({
+                              defaultNamespace: $S,
+                              xmlNamespace: $S,
+                            })""",
+                            namespace,
+                            xmlns
+                        );
+                    });
                 } else if (Objects.equals(settings.getProtocol(), AwsQueryTrait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsQueryProtocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write(
-                                """
-                                new AwsQueryProtocol({
-                                  defaultNamespace: $S,
-                                  xmlNamespace: $S,
-                                  version: $S,
-                                })""",
-                                namespace,
-                                xmlns,
-                                settings.getService(model).getVersion()
-                            );
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule("AwsQueryProtocol", null, AwsDependency.AWS_SDK_CORE, "/protocols");
+                        writer.write(
+                            """
+                            new AwsQueryProtocol({
+                              defaultNamespace: $S,
+                              xmlNamespace: $S,
+                              version: $S,
+                            })""",
+                            namespace,
+                            xmlns,
+                            settings.getService(model).getVersion()
+                        );
+                    });
                 } else if (Objects.equals(settings.getProtocol(), Ec2QueryTrait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsEc2QueryProtocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write(
-                                """
-                                new AwsEc2QueryProtocol({
-                                  defaultNamespace: $S,
-                                  xmlNamespace: $S,
-                                  version: $S,
-                                })""",
-                                namespace,
-                                xmlns,
-                                settings.getService(model).getVersion()
-                            );
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule(
+                            "AwsEc2QueryProtocol",
+                            null,
+                            AwsDependency.AWS_SDK_CORE,
+                            "/protocols"
+                        );
+                        writer.write(
+                            """
+                            new AwsEc2QueryProtocol({
+                              defaultNamespace: $S,
+                              xmlNamespace: $S,
+                              version: $S,
+                            })""",
+                            namespace,
+                            xmlns,
+                            settings.getService(model).getVersion()
+                        );
+                    });
                 } else if (Objects.equals(settings.getProtocol(), RestJson1Trait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsRestJsonProtocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write("new AwsRestJsonProtocol({ defaultNamespace: $S })", namespace);
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule(
+                            "AwsRestJsonProtocol",
+                            null,
+                            AwsDependency.AWS_SDK_CORE,
+                            "/protocols"
+                        );
+                        writer.write("new AwsRestJsonProtocol({ defaultNamespace: $S })", namespace);
+                    });
                 } else if (Objects.equals(settings.getProtocol(), AwsJson1_0Trait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsJson1_0Protocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.openBlock(
-                                """
-                                    new AwsJson1_0Protocol({
-                                      defaultNamespace: $S,
-                                      serviceTarget: $S,
-                                      awsQueryCompatible: $L,""",
-                                """
-                                    })""",
-                                namespace,
-                                rpcTarget,
-                                awsQueryCompat,
-                                () -> {
-                                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
-                                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
-                                    }
-                                }
-                            );
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule("AwsJson1_0Protocol", null, AwsDependency.AWS_SDK_CORE, "/protocols");
+                        writer.openBlock("""
+                        new AwsJson1_0Protocol({
+                          defaultNamespace: $S,
+                          serviceTarget: $S,
+                          awsQueryCompatible: $L,""", """
+                        })""", namespace, rpcTarget, awsQueryCompat, () -> {
+                            if (CUSTOMIZATIONS.containsKey(settings.getService())) {
+                                CUSTOMIZATIONS.get(settings.getService()).accept(writer);
+                            }
+                        });
+                    });
                 } else if (Objects.equals(settings.getProtocol(), AwsJson1_1Trait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsJson1_1Protocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.openBlock(
-                                """
-                                    new AwsJson1_1Protocol({
-                                      defaultNamespace: $S,
-                                      serviceTarget: $S,
-                                      awsQueryCompatible: $L,""",
-                                """
-                                    })""",
-                                namespace,
-                                rpcTarget,
-                                awsQueryCompat,
-                                () -> {
-                                    if (CUSTOMIZATIONS.containsKey(settings.getService())) {
-                                        CUSTOMIZATIONS.get(settings.getService()).accept(writer);
-                                    }
-                                }
-                            );
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule("AwsJson1_1Protocol", null, AwsDependency.AWS_SDK_CORE, "/protocols");
+                        writer.openBlock("""
+                        new AwsJson1_1Protocol({
+                          defaultNamespace: $S,
+                          serviceTarget: $S,
+                          awsQueryCompatible: $L,""", """
+                        })""", namespace, rpcTarget, awsQueryCompat, () -> {
+                            if (CUSTOMIZATIONS.containsKey(settings.getService())) {
+                                CUSTOMIZATIONS.get(settings.getService()).accept(writer);
+                            }
+                        });
+                    });
                 } else if (Objects.equals(settings.getProtocol(), Rpcv2CborTrait.ID)) {
-                    return MapUtils.of(
-                        "protocol", writer -> {
-                            writer.addImportSubmodule(
-                                "AwsSmithyRpcV2CborProtocol", null,
-                                AwsDependency.AWS_SDK_CORE, "/protocols");
-                            writer.write(
-                                """
-                                   new AwsSmithyRpcV2CborProtocol({
-                                     defaultNamespace: $S,
-                                     awsQueryCompatible: $L,
-                                   })""",
-                                namespace,
-                                awsQueryCompat
-                            );
-                        }
-                    );
+                    return MapUtils.of("protocol", writer -> {
+                        writer.addImportSubmodule(
+                            "AwsSmithyRpcV2CborProtocol",
+                            null,
+                            AwsDependency.AWS_SDK_CORE,
+                            "/protocols"
+                        );
+                        writer.write(
+                            """
+                            new AwsSmithyRpcV2CborProtocol({
+                              defaultNamespace: $S,
+                              awsQueryCompatible: $L,
+                            })""",
+                            namespace,
+                            awsQueryCompat
+                        );
+                    });
                 }
             case BROWSER:
             case NODE:

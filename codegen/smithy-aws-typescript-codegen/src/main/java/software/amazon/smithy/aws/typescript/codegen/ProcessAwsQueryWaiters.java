@@ -27,7 +27,6 @@ import software.amazon.smithy.waiters.Matcher;
 import software.amazon.smithy.waiters.WaitableTrait;
 import software.amazon.smithy.waiters.Waiter;
 
-
 @SmithyInternalApi
 public final class ProcessAwsQueryWaiters implements TypeScriptIntegration {
 
@@ -68,13 +67,12 @@ public final class ProcessAwsQueryWaiters implements TypeScriptIntegration {
 
                             String errorCode = matcherNode.expectStringMember("errorType").getValue();
                             if (errorCodeToShapeId.containsKey(errorCode)) {
-                                matcherNode = matcherNode.toBuilder()
-                                        .withMember("errorType", errorCodeToShapeId.get(errorCode))
-                                        .build();
+                                matcherNode = matcherNode
+                                    .toBuilder()
+                                    .withMember("errorType", errorCodeToShapeId.get(errorCode))
+                                    .build();
 
-                                acceptorNode = acceptorNode.toBuilder()
-                                        .withMember("matcher", matcherNode)
-                                        .build();
+                                acceptorNode = acceptorNode.toBuilder().withMember("matcher", matcherNode).build();
                             }
                         }
                         waiterBuilder.addAcceptor(Acceptor.fromNode(acceptorNode));

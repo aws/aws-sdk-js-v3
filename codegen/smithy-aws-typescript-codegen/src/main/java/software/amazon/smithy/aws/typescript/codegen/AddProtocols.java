@@ -29,9 +29,7 @@ public class AddProtocols implements TypeScriptIntegration {
 
     @Override
     public List<String> runAfter() {
-        return List.of(
-            software.amazon.smithy.typescript.codegen.protocols.AddProtocols.class.getCanonicalName()
-        );
+        return List.of(software.amazon.smithy.typescript.codegen.protocols.AddProtocols.class.getCanonicalName());
     }
 
     /**

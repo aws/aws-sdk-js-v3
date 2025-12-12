@@ -21,6 +21,7 @@ import software.amazon.smithy.typescript.codegen.extensions.ExtensionConfigurati
 import software.amazon.smithy.utils.Pair;
 
 public class AwsRegionExtensionConfiguration implements ExtensionConfigurationInterface {
+
     @Override
     public Pair<String, Dependency> name() {
         return Pair.of("AwsRegionExtensionConfiguration", AwsDependency.TYPES);

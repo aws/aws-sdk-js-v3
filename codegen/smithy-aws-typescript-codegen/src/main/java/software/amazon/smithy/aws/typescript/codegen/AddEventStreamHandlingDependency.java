@@ -55,41 +55,43 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
-                                "EventStream", HAS_CONFIG)
-                        .servicePredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
-                                "EventStream", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> hasEventStreamInput(m, o))
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency, "EventStream", HAS_CONFIG)
+                .servicePredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency, "EventStream", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> hasEventStreamInput(m, o))
+                .build()
         );
     }
 
     @Override
     public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         if (hasEventStreamInput(model, settings.getService(model))) {
-            writer.addImport("EventStreamPayloadHandlerProvider", "__EventStreamPayloadHandlerProvider",
-                    TypeScriptDependency.AWS_SDK_TYPES);
-            writer.writeDocs("The function that provides necessary utilities for handling request event stream.\n"
-                            + "@internal");
+            writer.addImport(
+                "EventStreamPayloadHandlerProvider",
+                "__EventStreamPayloadHandlerProvider",
+                TypeScriptDependency.AWS_SDK_TYPES
+            );
+            writer.writeDocs(
+                "The function that provides necessary utilities for handling request event stream.\n" + "@internal"
+            );
             writer.write("eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;\n");
         }
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
         if (!hasEventStreamInput(model, service)) {
@@ -99,8 +101,11 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
-                    writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
-                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
+                    writer.addImport(
+                        "eventStreamPayloadHandlerProvider",
+                        "eventStreamPayloadHandlerProvider",
+                        AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE
+                    );
                     writer.write("eventStreamPayloadHandlerProvider");
                 });
             case BROWSER:
@@ -112,8 +117,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                  */
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY);
+                    writer.addImport("invalidFunction", "invalidFunction", TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
                     });
@@ -126,11 +130,11 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                  */
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY);
+                    writer.addImport("invalidFunction", "invalidFunction", TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.openBlock("(() => ({", "}))", () -> {
-                        writer.write("handle: invalidFunction(\"event stream request "
-                                + "is not supported in ReactNative.\"),");
+                        writer.write(
+                            "handle: invalidFunction(\"event stream request " + "is not supported in ReactNative.\"),"
+                        );
                     });
                 });
             default:

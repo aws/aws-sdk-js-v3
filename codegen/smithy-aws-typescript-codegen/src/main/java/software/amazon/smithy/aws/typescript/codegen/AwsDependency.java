@@ -36,7 +36,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public enum AwsDependency implements Dependency {
-
     AWS_SDK_CORE(NORMAL_DEPENDENCY, "@aws-sdk/core"),
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing"),
     MIDDLEWARE_TOKEN(NORMAL_DEPENDENCY, "@aws-sdk/middleware-token"),
@@ -61,11 +60,13 @@ public enum AwsDependency implements Dependency {
     /**
      * @deprecated use SmithyDependency.UUID.
      */
-    @Deprecated UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
+    @Deprecated
+    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
     /**
      * @deprecated use SmithyDependency.UUID_TYPES.
      */
-    @Deprecated UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
+    @Deprecated
+    UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),
@@ -84,9 +85,12 @@ public enum AwsDependency implements Dependency {
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
 
     // Conditionally added when httpChecksum trait is present
-    @Deprecated MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
-    @Deprecated STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
-    @Deprecated STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
+    @Deprecated
+    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
+    @Deprecated
+    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
+    @Deprecated
+    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
 
     // Conditionally added when auth trait is present
@@ -118,7 +122,6 @@ public enum AwsDependency implements Dependency {
         this.version = version;
     }
 
-
     @Override
     public List<SymbolDependency> getDependencies() {
         return Collections.singletonList(dependency);
@@ -130,11 +133,13 @@ public enum AwsDependency implements Dependency {
     }
 
     private static final class SdkVersion {
+
         private static final Map<String, String> VERSIONS;
 
         static {
-            String rawProperties =
-                    IoUtils.readUtf8Url(AwsDependency.class.getResource("sdkVersions.properties")).trim();
+            String rawProperties = IoUtils.readUtf8Url(
+                AwsDependency.class.getResource("sdkVersions.properties")
+            ).trim();
             Properties p = new Properties();
             try {
                 p.load(new StringReader(rawProperties));

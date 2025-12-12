@@ -48,16 +48,19 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
+
     private final MemberShape memberShape;
 
     XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         this(context, null, dataSource, defaultTimestampFormat);
     }
 
-    XmlMemberDeserVisitor(GenerationContext context,
-                          MemberShape memberShape,
-                          String dataSource,
-                          Format defaultTimestampFormat) {
+    XmlMemberDeserVisitor(
+        GenerationContext context,
+        MemberShape memberShape,
+        String dataSource,
+        Format defaultTimestampFormat
+    ) {
         super(context, dataSource, defaultTimestampFormat);
         this.memberShape = memberShape;
     }
@@ -70,29 +73,33 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     @Override
     public String byteShape(ByteShape shape) {
-        getContext().getWriter().addImport("strictParseByte", "__strictParseByte",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        getContext()
+            .getWriter()
+            .addImport("strictParseByte", "__strictParseByte", TypeScriptDependency.AWS_SMITHY_CLIENT);
         return "__strictParseByte(" + getDataSource() + ") as number";
     }
 
     @Override
     public String shortShape(ShortShape shape) {
-        getContext().getWriter().addImport("strictParseShort", "__strictParseShort",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        getContext()
+            .getWriter()
+            .addImport("strictParseShort", "__strictParseShort", TypeScriptDependency.AWS_SMITHY_CLIENT);
         return "__strictParseShort(" + getDataSource() + ") as number";
     }
 
     @Override
     public String integerShape(IntegerShape shape) {
-        getContext().getWriter().addImport("strictParseInt32", "__strictParseInt32",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        getContext()
+            .getWriter()
+            .addImport("strictParseInt32", "__strictParseInt32", TypeScriptDependency.AWS_SMITHY_CLIENT);
         return "__strictParseInt32(" + getDataSource() + ") as number";
     }
 
     @Override
     public String longShape(LongShape shape) {
-        getContext().getWriter().addImport("strictParseLong", "__strictParseLong",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
+        getContext()
+            .getWriter()
+            .addImport("strictParseLong", "__strictParseLong", TypeScriptDependency.AWS_SMITHY_CLIENT);
         return "__strictParseLong(" + getDataSource() + ") as number";
     }
 
@@ -124,13 +131,15 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot deserialize shape type %s on protocol, shape: %s.", shape.getType(), shape.getId())
+        );
     }
 
     private String deserializeFloat() {
-        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat",
-                TypeScriptDependency.AWS_SMITHY_CLIENT);
+        getContext()
+            .getWriter()
+            .addImport("strictParseFloat", "__strictParseFloat", TypeScriptDependency.AWS_SMITHY_CLIENT);
         return "__strictParseFloat(" + getDataSource() + ") as number";
     }
 }

@@ -53,24 +53,25 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
 
     @Override
     public List<String> runAfter() {
-        return List.of(
-            AddBuiltinPlugins.class.getCanonicalName(),
-            AddDefaultEndpointRuleSet.class.getCanonicalName()
-        );
+        return List.of(AddBuiltinPlugins.class.getCanonicalName(), AddDefaultEndpointRuleSet.class.getCanonicalName());
     }
 
     @Override
-    public void addConfigInterfaceFields(TypeScriptSettings settings,
-                                         Model model,
-                                         SymbolProvider symbolProvider,
-                                         TypeScriptWriter writer) {
+    public void addConfigInterfaceFields(
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
+    ) {
         ServiceShape service = settings.getService(model);
         if (!isS3Control(service)) {
             return;
         }
-        writer.writeDocs(
-                "Whether to override the request region with the region inferred from requested resource's ARN."
-                    + " Defaults to undefined.")
+        writer
+            .writeDocs(
+                "Whether to override the request region with the region inferred from requested resource's ARN." +
+                    " Defaults to undefined."
+            )
             .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
             .write("useArnRegion?: boolean | undefined | Provider<boolean | undefined>;");
     }
@@ -78,31 +79,27 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "S3Control", HAS_CONFIG)
-                        .servicePredicate((m, s) -> isS3Control(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
-                            "HostPrefixDeduplication", HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> isS3Control(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(
-                            AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
-                            "ProcessArnables",
-                            HAS_MIDDLEWARE
-                        )
-                        .operationPredicate((m, s, o) ->  isS3Control(s) && isArnableOperation(o, s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(
-                            AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
-                            "RedirectFromPostId",
-                            HAS_MIDDLEWARE
-                        )
-                        .operationPredicate((m, s, o) ->  isS3Control(s) && !isArnableOperation(o, s))
-                        .build());
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "S3Control", HAS_CONFIG)
+                .servicePredicate((m, s) -> isS3Control(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                    "HostPrefixDeduplication",
+                    HAS_MIDDLEWARE
+                )
+                .servicePredicate((m, s) -> isS3Control(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "ProcessArnables", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> isS3Control(s) && isArnableOperation(o, s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "RedirectFromPostId", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> isS3Control(s) && !isArnableOperation(o, s))
+                .build()
+        );
     }
 
     @Override
@@ -113,7 +110,8 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         boolean hasRuleset = !model.getServiceShapesWithTrait(EndpointRuleSetTrait.class).isEmpty();
         ServiceShape serviceShape = model.expectShape(settings.getService(), ServiceShape.class);
         Function<Shape, Shape> removeRequired = shape -> {
-            Optional<MemberShape> modified = shape.asMemberShape()
+            Optional<MemberShape> modified = shape
+                .asMemberShape()
                 .filter(memberShape -> memberShape.getTarget().getName(serviceShape).equals("AccountId"))
                 .filter(memberShape -> model.expectShape(memberShape.getTarget()).isStringShape())
                 .filter(MemberShape::isRequired)
@@ -121,14 +119,17 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
             return modified.isPresent() ? modified.get() : shape;
         };
         return ModelTransformer.create().mapShapes(
-            model, hasRuleset ? removeRequired.andThen(AddS3Config::removeHostPrefixTrait) : removeRequired
+            model,
+            hasRuleset ? removeRequired.andThen(AddS3Config::removeHostPrefixTrait) : removeRequired
         );
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-        TypeScriptSettings settings, Model model,
-        SymbolProvider symbolProvider, LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         if (!isS3Control(settings.getService(model))) {
             return Collections.emptyMap();
@@ -136,25 +137,28 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         switch (target) {
             case SHARED:
                 return MapUtils.of(
-                "signingEscapePath", writer -> {
+                    "signingEscapePath",
+                    writer -> {
                         writer.write("false");
                     },
-                "useArnRegion", writer -> {
+                    "useArnRegion",
+                    writer -> {
                         writer.write("undefined");
                     }
                 );
             case NODE:
-                return MapUtils.of(
-                    "useArnRegion", writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                            .addImport("loadConfig", "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                            .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                            .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                                AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                            .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
-                    }
-                );
+                return MapUtils.of("useArnRegion", writer -> {
+                    writer
+                        .addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                        .addImport("loadConfig", "loadNodeConfig", TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                        .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
+                        .addImport(
+                            "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
+                            "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
+                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE
+                        )
+                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
+                });
             default:
                 return Collections.emptyMap();
         }

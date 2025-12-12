@@ -52,6 +52,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
+
     private final GenerationContext context;
     private final StringStore stringStore;
 
@@ -117,9 +118,10 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
 
     String getAsXmlText(Shape shape, String dataSource) {
         // Handle the @xmlName trait for the shape itself.
-        String nodeName = shape.getTrait(XmlNameTrait.class)
-                .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName(context.getService()));
+        String nodeName = shape
+            .getTrait(XmlNameTrait.class)
+            .map(XmlNameTrait::getValue)
+            .orElse(shape.getId().getName(context.getService()));
 
         TypeScriptWriter writer = getContext().getWriter();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
@@ -140,7 +142,8 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot serialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
+        throw new CodegenException(
+            String.format("Cannot serialize shape type %s on protocol, shape: %s.", shape.getType(), shape.getId())
+        );
     }
 }

@@ -47,6 +47,7 @@ import software.amazon.smithy.utils.StringUtils;
 
 @SmithyInternalApi
 public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
+
     @Override
     public void customize(TypeScriptCodegenContext codegenContext) {
         TypeScriptSettings settings = codegenContext.settings();
@@ -58,21 +59,21 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
     }
 
     private void writeAdditionalFiles(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
         writerFactory.accept(".gitignore", writer -> {
-            String resource =  IoUtils.readUtf8Resource(getClass(), "gitignore");
+            String resource = IoUtils.readUtf8Resource(getClass(), "gitignore");
             writer.write(resource);
         });
         writerFactory.accept("api-extractor.json", writer -> {
-            String resource =  IoUtils.readUtf8Resource(getClass(), "api-extractor.json");
+            String resource = IoUtils.readUtf8Resource(getClass(), "api-extractor.json");
             writer.write(resource);
         });
         writerFactory.accept("LICENSE", writer -> {
-            String resource =  IoUtils.readUtf8Resource(getClass(), "LICENSE.template");
+            String resource = IoUtils.readUtf8Resource(getClass(), "LICENSE.template");
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
             writer.write(resource);
         });
@@ -84,36 +85,40 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
 
         writerFactory.accept("README.md", writer -> {
             ServiceShape service = settings.getService(model);
-            String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
+            String resource = IoUtils.readUtf8Resource(getClass(), "README.md.template");
             resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
 
             String sdkId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(null);
-            String clientName = Arrays.asList(sdkId.split(" ")).stream()
-                    .map(StringUtils::capitalize)
-                    .collect(Collectors.joining(""));
+            String clientName = Arrays.asList(sdkId.split(" "))
+                .stream()
+                .map(StringUtils::capitalize)
+                .collect(Collectors.joining(""));
             resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName);
 
-            String rawDocumentation = service.getTrait(DocumentationTrait.class)
-                    .map(DocumentationTrait::getValue)
-                    .orElse("");
-            String documentation = Arrays.asList(rawDocumentation.split("\n")).stream()
-                    .map(StringUtils::trim)
-                    .collect(Collectors.joining("\n"));
+            String rawDocumentation = service
+                .getTrait(DocumentationTrait.class)
+                .map(DocumentationTrait::getValue)
+                .orElse("");
+            String documentation = Arrays.asList(rawDocumentation.split("\n"))
+                .stream()
+                .map(StringUtils::trim)
+                .collect(Collectors.joining("\n"));
             resource = resource.replaceAll(Pattern.quote("${documentation}"), Matcher.quoteReplacement(documentation));
 
             TopDownIndex topDownIndex = TopDownIndex.of(model);
 
-            OperationShape sampleOperation =
-                getPreferredExampleOperation(topDownIndex.getContainedOperations(service), model);
+            OperationShape sampleOperation = getPreferredExampleOperation(
+                topDownIndex.getContainedOperations(service),
+                model
+            );
 
-            String operationName =
-                sampleOperation == null
-                ? "Example"
-                : sampleOperation.getId().getName(service);
+            String operationName = sampleOperation == null ? "Example" : sampleOperation.getId().getName(service);
 
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
-            resource = resource.replaceAll(Pattern.quote("${operationName}"),
-                operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
+            resource = resource.replaceAll(
+                Pattern.quote("${operationName}"),
+                operationName.substring(0, 1).toLowerCase() + operationName.substring(1)
+            );
 
             writer.write(resource.replaceAll(Pattern.quote("$"), Matcher.quoteReplacement("$$")));
             writeOperationList(writer, model, settings);
@@ -139,27 +144,31 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             if (name.startsWith("list")) {
                 heuristicScore += 20;
             } else if (
-                name.startsWith("get")
-                || name.startsWith("describe")
-                || name.startsWith("retrieve")
-                || name.startsWith("fetch")
+                name.startsWith("get") ||
+                name.startsWith("describe") ||
+                name.startsWith("retrieve") ||
+                name.startsWith("fetch")
             ) {
                 heuristicScore += 10;
             } else if (
-                name.startsWith("delete")
-                || name.startsWith("remove")
-                || name.startsWith("stop")
-                || name.startsWith("abort")
-                || name.startsWith("terminate")
-                || name.startsWith("deactivate")
-                || name.startsWith("toggle")
+                name.startsWith("delete") ||
+                name.startsWith("remove") ||
+                name.startsWith("stop") ||
+                name.startsWith("abort") ||
+                name.startsWith("terminate") ||
+                name.startsWith("deactivate") ||
+                name.startsWith("toggle")
             ) {
                 heuristicScore -= 20;
             }
 
             Optional<Shape> input = model.getShape(operation.getInputShape());
             if (input.isPresent()) {
-                long inputFields = input.get().getAllMembers().values().stream()
+                long inputFields = input
+                    .get()
+                    .getAllMembers()
+                    .values()
+                    .stream()
                     .filter(member -> member.isRequired())
                     .count();
 
@@ -180,8 +189,10 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
         writer.write("");
         Set<OperationShape> operationShapesSet = model.getOperationShapes();
 
-        List<OperationShape> operationShapes = operationShapesSet.stream()
-                .sorted(Comparator.comparing(Shape::getId)).toList();
+        List<OperationShape> operationShapes = operationShapesSet
+            .stream()
+            .sorted(Comparator.comparing(Shape::getId))
+            .toList();
 
         for (OperationShape operationShape : operationShapes) {
             writer.write("<details>");
@@ -191,9 +202,13 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             writer.write("");
 
             String commandName = operationShape.getId().getName() + "Command";
-            String serviceId = settings.getService(model).getTrait(ServiceTrait.class)
-                    .orElseThrow(() -> new RuntimeException("Missing Service Trait during README doc generation."))
-                    .getSdkId().toLowerCase().replaceAll(" ", "-");
+            String serviceId = settings
+                .getService(model)
+                .getTrait(ServiceTrait.class)
+                .orElseThrow(() -> new RuntimeException("Missing Service Trait during README doc generation."))
+                .getSdkId()
+                .toLowerCase()
+                .replaceAll(" ", "-");
 
             String apiReferencePrefix = "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest";
             String packageNamePrefix = apiReferencePrefix + "/Package/-aws-sdk-client-" + serviceId;
@@ -211,10 +226,10 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String commandOutputUrl = packageNamePrefix + "/Interface/" + commandName + "Output/";
 
             writer.write(
-                    "[Command API Reference]($L) / [Input]($L) / [Output]($L)",
-                    commandUrl,
-                    commandInputUrl,
-                    commandOutputUrl
+                "[Command API Reference]($L) / [Input]($L) / [Output]($L)",
+                commandUrl,
+                commandInputUrl,
+                commandOutputUrl
             );
 
             writer.write("</details>");

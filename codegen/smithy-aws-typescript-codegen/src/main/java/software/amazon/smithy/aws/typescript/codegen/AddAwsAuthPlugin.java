@@ -61,6 +61,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
+
     static final String STS_CLIENT_PREFIX = "sts-client-";
     static final String ROLE_ASSUMERS_FILE = "defaultRoleAssumers";
     static final String ROLE_ASSUMERS_TEST_FILE = "defaultRoleAssumers.spec";
@@ -70,9 +71,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
 
     @Override
     public List<String> runAfter() {
-        return List.of(
-            AddBuiltinPlugins.class.getCanonicalName()
-        );
+        return List.of(AddBuiltinPlugins.class.getCanonicalName());
     }
 
     @Override
@@ -100,9 +99,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         if (!isSigV4Service(service) && isAwsService(service)) {
-            settings.setDefaultSigningName(
-                service.expectTrait(ServiceTrait.class).getArnNamespace()
-            );
+            settings.setDefaultSigningName(service.expectTrait(ServiceTrait.class).getArnNamespace());
             return;
         }
 
@@ -111,20 +108,18 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         }
 
         if (!isAwsService(service)) {
-            writer.writeDocs("The service name to use as the signing service for AWS Auth\n@internal")
-                    .write("signingName?: string;\n");
+            writer
+                .writeDocs("The service name to use as the signing service for AWS Auth\n@internal")
+                .write("signingName?: string;\n");
         }
 
         if (!areAllOptionalAuthOperations(model, service)) {
             writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES);
-            writer.writeDocs("Default credentials provider; Not available in browser runtime.\n"
-                            + "@internal");
+            writer.writeDocs("Default credentials provider; Not available in browser runtime.\n" + "@internal");
             writer.write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         }
 
-        settings.setDefaultSigningName(
-            service.expectTrait(SigV4Trait.class).getName()
-        );
+        settings.setDefaultSigningName(service.expectTrait(SigV4Trait.class).getName());
     }
 
     // Only one of AwsAuth or SigV4Auth should be used
@@ -134,54 +129,56 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
-                    .servicePredicate((m, s) -> isSigV4Service(s)
-                            && isAwsService(s)
-                            && !testServiceId(s, "STS")
-                            && !areAllOptionalAuthOperations(m, s))
-                    .build(),
+                .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
+                .servicePredicate(
+                    (m, s) ->
+                        isSigV4Service(s) &&
+                        isAwsService(s) &&
+                        !testServiceId(s, "STS") &&
+                        !areAllOptionalAuthOperations(m, s)
+                )
+                .build(),
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_CONFIG)
-                    .servicePredicate((m, s) -> isSigV4Service(s)
-                            && !isAwsService(s)
-                            && !areAllOptionalAuthOperations(m, s))
-                    .build(),
+                .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_CONFIG)
+                .servicePredicate(
+                    (m, s) -> isSigV4Service(s) && !isAwsService(s) && !areAllOptionalAuthOperations(m, s)
+                )
+                .build(),
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
-                            "StsAuth", HAS_CONFIG)
-                    .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
-                        put("stsClientCtor", Symbol.builder().name("STSClient").build());
-                    }})
-                    .servicePredicate((m, s) -> testServiceId(s, "STS"))
-                    .build(),
+                .withConventions(AwsDependency.STS_MIDDLEWARE.dependency, "StsAuth", HAS_CONFIG)
+                .additionalResolveFunctionParamsSupplier((m, s, o) ->
+                    new HashMap<String, Object>() {
+                        {
+                            put("stsClientCtor", Symbol.builder().name("STSClient").build());
+                        }
+                    }
+                )
+                .servicePredicate((m, s) -> testServiceId(s, "STS"))
+                .build(),
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
-                    // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
-                    .servicePredicate((m, s) -> isSigV4Service(s)
-                            && isAwsService(s)
-                            && !testServiceId(s, "STS")
-                            && !hasOptionalAuthOperation(m, s))
-                    .build(),
+                .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
+                .servicePredicate(
+                    (m, s) ->
+                        isSigV4Service(s) &&
+                        isAwsService(s) &&
+                        !testServiceId(s, "STS") &&
+                        !hasOptionalAuthOperation(m, s)
+                )
+                .build(),
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_MIDDLEWARE)
-                    // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
-                    .servicePredicate((m, s) -> isSigV4Service(s)
-                            && !isAwsService(s)
-                            && !hasOptionalAuthOperation(m, s))
-                    .build(),
+                .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_MIDDLEWARE)
+                // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
+                .servicePredicate((m, s) -> isSigV4Service(s) && !isAwsService(s) && !hasOptionalAuthOperation(m, s))
+                .build(),
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
-                    .operationPredicate((m, s, o) -> isSigV4Service(s)
-                            && isAwsService(s)
-                            && operationUsesAwsAuth(m, s, o))
-                    .build(),
+                .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> isSigV4Service(s) && isAwsService(s) && operationUsesAwsAuth(m, s, o))
+                .build(),
             RuntimeClientPlugin.builder()
-                    .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_MIDDLEWARE)
-                    .operationPredicate((m, s, o) -> isSigV4Service(s)
-                            && !isAwsService(s)
-                            && operationUsesAwsAuth(m, s, o))
-                    .build()
-
+                .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> isSigV4Service(s) && !isAwsService(s) && operationUsesAwsAuth(m, s, o))
+                .build()
         );
     }
 
@@ -202,27 +199,24 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                     return Collections.emptyMap();
                 }
                 String signingService = service.getTrait(SigV4Trait.class).get().getName();
-                return MapUtils.of(
-                    "signingName", writer -> {
-                        writer.write("$S", signingService);
-                    }
-                );
+                return MapUtils.of("signingName", writer -> {
+                    writer.write("$S", signingService);
+                });
             case BROWSER:
-                return MapUtils.of(
-                    "credentialDefaultProvider", writer -> {
-                        writer.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))");
-                    }
-                );
+                return MapUtils.of("credentialDefaultProvider", writer -> {
+                    writer.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))");
+                });
             case NODE:
-                return MapUtils.of(
-                    "credentialDefaultProvider", writer -> {
-                        writer
-                            .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                            .addImport("defaultProvider", "credentialDefaultProvider",
-                                AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                            .write("credentialDefaultProvider");
-                    }
-                );
+                return MapUtils.of("credentialDefaultProvider", writer -> {
+                    writer
+                        .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                        .addImport(
+                            "defaultProvider",
+                            "credentialDefaultProvider",
+                            AwsDependency.CREDENTIAL_PROVIDER_NODE
+                        )
+                        .write("credentialDefaultProvider");
+                });
             default:
                 return Collections.emptyMap();
         }
@@ -250,9 +244,10 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         if (!testServiceId(service, "STS")) {
             return;
         }
-        String noTouchNoticePrefix = "// Please do not touch this file. It's generated from template in:\n"
-                + "// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/"
-                + "src/main/resources/software/amazon/smithy/aws/typescript/codegen/";
+        String noTouchNoticePrefix =
+            "// Please do not touch this file. It's generated from template in:\n" +
+            "// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/" +
+            "src/main/resources/software/amazon/smithy/aws/typescript/codegen/";
         writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "defaultRoleAssumers.ts").toString(), writer -> {
             String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_FILE);
             String source = IoUtils.readUtf8Resource(getClass(), resourceName);
@@ -273,11 +268,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         });
     }
 
-    private void writeAdditionalExports(
-        TypeScriptSettings settings,
-        Model model,
-        TypeScriptWriter writer
-    ) {
+    private void writeAdditionalExports(TypeScriptSettings settings, Model model, TypeScriptWriter writer) {
         ServiceShape service = settings.getService(model);
         if (!testServiceId(service, "STS")) {
             return;
@@ -293,9 +284,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         // STS doesn't need auth for AssumeRoleWithWebIdentity, AssumeRoleWithSAML.
         // Remove when optionalAuth model update is published in 0533102932.
         if (testServiceId(service, "STS")) {
-            Boolean isUnsignedCommand = SetUtils
-                    .of("AssumeRoleWithWebIdentity", "AssumeRoleWithSAML")
-                    .contains(operation.getId().getName(service));
+            Boolean isUnsignedCommand = SetUtils.of("AssumeRoleWithWebIdentity", "AssumeRoleWithSAML").contains(
+                operation.getId().getName(service)
+            );
             return !isUnsignedCommand;
         }
 
