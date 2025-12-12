@@ -314,6 +314,8 @@ export type {
   TagResourceResponse,
   TaskExecutionFilesFailedDetail,
   TaskExecutionFilesListedDetail,
+  TaskExecutionFoldersFailedDetail,
+  TaskExecutionFoldersListedDetail,
   TaskExecutionListEntry,
   TaskExecutionResultDetail,
   TaskFilter,

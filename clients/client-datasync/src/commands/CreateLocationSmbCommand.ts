@@ -46,6 +46,14 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  *   User: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  *   Password: "STRING_VALUE",
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  *   AgentArns: [ // AgentArnList // required
  *     "STRING_VALUE",
  *   ],

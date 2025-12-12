@@ -59,6 +59,17 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * //   ],
  * //   KerberosPrincipal: "STRING_VALUE",
  * //   AuthenticationType: "NTLM" || "KERBEROS",
+ * //   ManagedSecretConfig: { // ManagedSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //   },
+ * //   CmkSecretConfig: { // CmkSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   CustomSecretConfig: { // CustomSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     SecretAccessRoleArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

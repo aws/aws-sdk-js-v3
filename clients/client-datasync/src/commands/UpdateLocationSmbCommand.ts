@@ -46,6 +46,14 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  *   User: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  *   Password: "STRING_VALUE",
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
