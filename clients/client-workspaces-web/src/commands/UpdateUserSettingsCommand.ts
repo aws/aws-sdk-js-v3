@@ -71,6 +71,34 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  *     ],
  *     maxDisplayResolution: "STRING_VALUE",
  *   },
+ *   brandingConfigurationInput: { // BrandingConfigurationUpdateInput
+ *     logo: { // IconImageInput Union: only one key present
+ *       blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       s3Uri: "STRING_VALUE",
+ *     },
+ *     wallpaper: { // WallpaperImageInput Union: only one key present
+ *       blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       s3Uri: "STRING_VALUE",
+ *     },
+ *     favicon: {//  Union: only one key present
+ *       blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       s3Uri: "STRING_VALUE",
+ *     },
+ *     localizedStrings: { // LocalizedBrandingStringMap
+ *       "<keys>": { // LocalizedBrandingStrings
+ *         browserTabTitle: "STRING_VALUE", // required
+ *         welcomeText: "STRING_VALUE", // required
+ *         loginTitle: "STRING_VALUE",
+ *         loginDescription: "STRING_VALUE",
+ *         loginButtonText: "STRING_VALUE",
+ *         contactLink: "STRING_VALUE",
+ *         contactButtonText: "STRING_VALUE",
+ *         loadingText: "STRING_VALUE",
+ *       },
+ *     },
+ *     colorTheme: "Light" || "Dark",
+ *     termsOfService: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -115,6 +143,37 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * //         "STRING_VALUE",
  * //       ],
  * //       maxDisplayResolution: "STRING_VALUE",
+ * //     },
+ * //     brandingConfiguration: { // BrandingConfiguration
+ * //       logo: { // ImageMetadata
+ * //         mimeType: "image/png" || "image/jpeg" || "image/x-icon", // required
+ * //         fileExtension: "STRING_VALUE", // required
+ * //         lastUploadTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //       wallpaper: {
+ * //         mimeType: "image/png" || "image/jpeg" || "image/x-icon", // required
+ * //         fileExtension: "STRING_VALUE", // required
+ * //         lastUploadTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //       favicon: {
+ * //         mimeType: "image/png" || "image/jpeg" || "image/x-icon", // required
+ * //         fileExtension: "STRING_VALUE", // required
+ * //         lastUploadTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //       localizedStrings: { // LocalizedBrandingStringMap // required
+ * //         "<keys>": { // LocalizedBrandingStrings
+ * //           browserTabTitle: "STRING_VALUE", // required
+ * //           welcomeText: "STRING_VALUE", // required
+ * //           loginTitle: "STRING_VALUE",
+ * //           loginDescription: "STRING_VALUE",
+ * //           loginButtonText: "STRING_VALUE",
+ * //           contactLink: "STRING_VALUE",
+ * //           contactButtonText: "STRING_VALUE",
+ * //           loadingText: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       colorTheme: "Light" || "Dark", // required
+ * //       termsOfService: "STRING_VALUE",
  * //     },
  * //   },
  * // };

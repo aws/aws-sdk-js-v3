@@ -27,9 +27,7 @@ export interface CreateBrowserSettingsCommandInput extends CreateBrowserSettings
 export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a browser settings resource that can be associated with a web portal. Once
- *          associated with a web portal, browser settings control how the browser will behave once a
- *          user starts a streaming session for the web portal. </p>
+ * <p>Creates a browser settings resource that can be associated with a web portal. Once associated with a web portal, browser settings control how the browser will behave once a user starts a streaming session for the web portal. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

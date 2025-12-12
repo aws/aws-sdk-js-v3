@@ -23,6 +23,9 @@ const _AUALSRs = "AssociateUserAccessLoggingSettingsResponse";
 const _AUS = "AssociateUserSettings";
 const _AUSR = "AssociateUserSettingsRequest";
 const _AUSRs = "AssociateUserSettingsResponse";
+const _BC = "BrandingConfiguration";
+const _BCCI = "BrandingConfigurationCreateInput";
+const _BCUI = "BrandingConfigurationUpdateInput";
 const _BIPI = "BuiltInPatternId";
 const _BP = "BrowserPolicy";
 const _BS = "BrowserSettings";
@@ -179,6 +182,9 @@ const _IAL = "IpAddressList";
 const _IAS = "IpAccessSettings";
 const _IASL = "IpAccessSettingsList";
 const _IASS = "IpAccessSettingsSummary";
+const _II = "IconImage";
+const _III = "IconImageInput";
+const _IM = "ImageMetadata";
 const _IP = "IdentityProvider";
 const _IPD = "IdentityProviderDetails";
 const _IPL = "IdentityProviderList";
@@ -194,9 +200,11 @@ const _IRUn = "InlineRedactionUrls";
 const _IRp = "IpRule";
 const _ISE = "InternalServerException";
 const _K = "Key";
-const _LBS = "ListBrowserSettings";
+const _LBS = "LocalizedBrandingStrings";
+const _LBSM = "LocalizedBrandingStringMap";
 const _LBSR = "ListBrowserSettingsRequest";
 const _LBSRi = "ListBrowserSettingsResponse";
+const _LBSi = "ListBrowserSettings";
 const _LC = "LogConfiguration";
 const _LDPS = "ListDataProtectionSettings";
 const _LDPSR = "ListDataProtectionSettingsRequest";
@@ -234,6 +242,7 @@ const _LUALSRi = "ListUserAccessLoggingSettingsResponse";
 const _LUS = "ListUserSettings";
 const _LUSR = "ListUserSettingsRequest";
 const _LUSRi = "ListUserSettingsResponse";
+const _M = "Markdown";
 const _NS = "NetworkSettings";
 const _NSL = "NetworkSettingsList";
 const _NSS = "NetworkSettingsSummary";
@@ -317,6 +326,8 @@ const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _WCFP = "WebContentFilteringPolicy";
+const _WI = "WallpaperImage";
+const _WII = "WallpaperImageInput";
 const _a = "allowlist";
 const _aEC = "additionalEncryptionContext";
 const _aPA = "associatedPortalArns";
@@ -324,28 +335,35 @@ const _aT = "authenticationType";
 const _aU = "allowedUrls";
 const _al = "all";
 const _b = "body";
-const _bC = "blockedCategories";
+const _bC = "brandingConfiguration";
+const _bCI = "brandingConfigurationInput";
+const _bCl = "blockedCategories";
 const _bIPI = "builtInPatternId";
 const _bO = "bucketOwner";
 const _bP = "browserPolicy";
 const _bS = "browserSettings";
 const _bSA = "browserSettingsArn";
 const _bT = "browserType";
+const _bTT = "browserTabTitle";
 const _bU = "blockedUrls";
 const _bl = "blocklist";
+const _blo = "blob";
 const _bu = "bucket";
 const _c = "client";
 const _cA = "copyAllowed";
+const _cBT = "contactButtonText";
 const _cD = "creationDate";
 const _cIA = "clientIpAddresses";
 const _cL = "certificateList";
 const _cLo = "confidenceLevel";
+const _cLon = "contactLink";
 const _cMK = "customerManagedKey";
 const _cP = "customPattern";
 const _cSC = "cookieSynchronizationConfiguration";
-const _cT = "clientToken";
+const _cT = "colorTheme";
 const _cTA = "certificatesToAdd";
 const _cTD = "certificatesToDelete";
+const _cTl = "clientToken";
 const _ce = "certificate";
 const _d = "domain";
 const _dA = "downloadAllowed";
@@ -360,6 +378,8 @@ const _eF = "eventFilter";
 const _eT = "endTime";
 const _eU = "enforcedUrls";
 const _eUx = "exemptUrls";
+const _f = "favicon";
+const _fE = "fileExtension";
 const _fL = "fieldList";
 const _fS = "folderStructure";
 const _gCL = "globalConfidenceLevel";
@@ -370,7 +390,7 @@ const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _hTI = "hiddenToolbarItems";
-const _i = "issuer";
+const _i = "image/*";
 const _iAS = "ipAccessSettings";
 const _iASA = "ipAccessSettingsArn";
 const _iDTIM = "idleDisconnectTimeoutInMinutes";
@@ -386,15 +406,25 @@ const _iRP = "inlineRedactionPatterns";
 const _iRp = "ipRange";
 const _iT = "instanceType";
 const _in = "include";
+const _is = "issuer";
 const _kP = "keyPrefix";
 const _kR = "keywordRegex";
 const _kSA = "kinesisStreamArn";
+const _l = "logo";
+const _lBT = "loginButtonText";
 const _lC = "logConfiguration";
+const _lD = "loginDescription";
 const _lFF = "logFileFormat";
+const _lS = "localizedStrings";
+const _lT = "loginTitle";
+const _lTo = "loadingText";
+const _lUT = "lastUploadTimestamp";
 const _m = "message";
 const _mCS = "maxConcurrentSessions";
 const _mDR = "maxDisplayResolution";
 const _mR = "maxResults";
+const _mT = "mediaType";
+const _mTi = "mimeType";
 const _n = "name";
 const _nS = "networkSettings";
 const _nSA = "networkSettingsArn";
@@ -424,7 +454,7 @@ const _rPHT = "redactionPlaceHolderType";
 const _rPHTe = "redactionPlaceHolderText";
 const _rT = "resourceType";
 const _rTe = "rendererType";
-const _s = "subject";
+const _s = "sensitive";
 const _sB = "sortBy";
 const _sC = "serviceCode";
 const _sGI = "securityGroupIds";
@@ -436,20 +466,24 @@ const _sLe = "sessionLoggers";
 const _sPSM = "serviceProviderSamlMetadata";
 const _sR = "statusReason";
 const _sT = "startTime";
+const _sU = "s3Uri";
 const _s_ = "s3";
 const _se = "session";
 const _ser = "server";
 const _ses = "sessions";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesweb";
 const _st = "status";
-const _t = "thumbprint";
+const _su = "subject";
+const _t = "text/markdown";
 const _tC = "toolbarConfiguration";
 const _tK = "tagKeys";
+const _tOS = "termsOfService";
 const _tS = "trustStore";
 const _tSA = "trustStoreArn";
 const _tSr = "trustStores";
 const _tT = "toolbarType";
 const _ta = "tags";
+const _th = "thumbprint";
 const _u = "username";
 const _uA = "uploadAllowed";
 const _uALS = "userAccessLoggingSettings";
@@ -458,7 +492,9 @@ const _uS = "userSettings";
 const _uSA = "userSettingsArn";
 const _vI = "vpcId";
 const _vM = "visualMode";
+const _w = "wallpaper";
 const _wCFP = "webContentFilteringPolicy";
+const _wT = "welcomeText";
 const n0 = "com.amazonaws.workspacesweb";
 
 // smithy-typescript generated code
@@ -494,10 +530,12 @@ export var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var DescriptionSafe: StaticSimpleSchema = [0, n0, _DS, 8, 0];
 export var DisplayName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
 export var DisplayNameSafe: StaticSimpleSchema = [0, n0, _DNS, 8, 0];
+export var IconImage: StaticSimpleSchema = [0, n0, _II, { [_mT]: _i }, 21];
 export var IdentityProviderName: StaticSimpleSchema = [0, n0, _IPN, 8, 0];
 export var InlineRedactionUrl: StaticSimpleSchema = [0, n0, _IRU, 8, 0];
 export var IpAddress: StaticSimpleSchema = [0, n0, _IA, 8, 0];
 export var IpRange: StaticSimpleSchema = [0, n0, _IR, 8, 0];
+export var Markdown: StaticSimpleSchema = [0, n0, _M, { [_mT]: _t, [_s]: 1 }, 0];
 export var PatternName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 export var RedactionPlaceHolderText: StaticSimpleSchema = [0, n0, _RPHT, 8, 0];
 export var Regex: StaticSimpleSchema = [0, n0, _R, 8, 0];
@@ -507,6 +545,7 @@ export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var UrlPattern: StaticSimpleSchema = [0, n0, _UP, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
+export var WallpaperImage: StaticSimpleSchema = [0, n0, _WI, { [_mT]: _i }, 21];
 export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
 export var AssociateBrowserSettingsRequest: StaticStructureSchema = [
@@ -612,6 +651,51 @@ export var AssociateUserSettingsRequest: StaticStructureSchema = [
   ],
 ];
 export var AssociateUserSettingsResponse: StaticStructureSchema = [3, n0, _AUSRs, 0, [_pA, _uSA], [0, 0]];
+export var BrandingConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _BC,
+  0,
+  [_l, _w, _f, _lS, _cT, _tOS],
+  [
+    () => ImageMetadata,
+    () => ImageMetadata,
+    () => ImageMetadata,
+    () => LocalizedBrandingStringMap,
+    0,
+    [() => Markdown, 0],
+  ],
+];
+export var BrandingConfigurationCreateInput: StaticStructureSchema = [
+  3,
+  n0,
+  _BCCI,
+  0,
+  [_l, _w, _f, _lS, _cT, _tOS],
+  [
+    [() => IconImageInput, 0],
+    [() => WallpaperImageInput, 0],
+    [() => IconImageInput, 0],
+    () => LocalizedBrandingStringMap,
+    0,
+    [() => Markdown, 0],
+  ],
+];
+export var BrandingConfigurationUpdateInput: StaticStructureSchema = [
+  3,
+  n0,
+  _BCUI,
+  0,
+  [_l, _w, _f, _lS, _cT, _tOS],
+  [
+    [() => IconImageInput, 0],
+    [() => WallpaperImageInput, 0],
+    [() => IconImageInput, 0],
+    () => LocalizedBrandingStringMap,
+    0,
+    [() => Markdown, 0],
+  ],
+];
 export var BrowserSettings: StaticStructureSchema = [
   3,
   n0,
@@ -621,8 +705,8 @@ export var BrowserSettings: StaticStructureSchema = [
   [0, 64 | 0, [() => BrowserPolicy, 0], 0, 128 | 0, [() => WebContentFilteringPolicy, 0]],
 ];
 export var BrowserSettingsSummary: StaticStructureSchema = [3, n0, _BSS, 0, [_bSA], [0]];
-export var Certificate: StaticStructureSchema = [3, n0, _C, 0, [_t, _s, _i, _nVB, _nVA, _b], [0, 0, 0, 4, 4, 21]];
-export var CertificateSummary: StaticStructureSchema = [3, n0, _CS, 0, [_t, _s, _i, _nVB, _nVA], [0, 0, 0, 4, 4]];
+export var Certificate: StaticStructureSchema = [3, n0, _C, 0, [_th, _su, _is, _nVB, _nVA, _b], [0, 0, 0, 4, 4, 21]];
+export var CertificateSummary: StaticStructureSchema = [3, n0, _CS, 0, [_th, _su, _is, _nVB, _nVA], [0, 0, 0, 4, 4]];
 export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
 export var CookieSpecification: StaticStructureSchema = [
@@ -653,7 +737,7 @@ export var CreateBrowserSettingsRequest: StaticStructureSchema = [
   n0,
   _CBSR,
   0,
-  [_ta, _cMK, _aEC, _bP, _cT, _wCFP],
+  [_ta, _cMK, _aEC, _bP, _cTl, _wCFP],
   [[() => TagList, 0], 0, 128 | 0, [() => BrowserPolicy, 0], [0, 4], [() => WebContentFilteringPolicy, 0]],
 ];
 export var CreateBrowserSettingsResponse: StaticStructureSchema = [3, n0, _CBSRr, 0, [_bSA], [0]];
@@ -662,7 +746,7 @@ export var CreateDataProtectionSettingsRequest: StaticStructureSchema = [
   n0,
   _CDPSR,
   0,
-  [_dN, _de, _ta, _cMK, _aEC, _iRC, _cT],
+  [_dN, _de, _ta, _cMK, _aEC, _iRC, _cTl],
   [
     [() => DisplayNameSafe, 0],
     [() => DescriptionSafe, 0],
@@ -679,7 +763,7 @@ export var CreateIdentityProviderRequest: StaticStructureSchema = [
   n0,
   _CIPR,
   0,
-  [_pA, _iPN, _iPT, _iPD, _cT, _ta],
+  [_pA, _iPN, _iPT, _iPD, _cTl, _ta],
   [0, [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0], [0, 4], [() => TagList, 0]],
 ];
 export var CreateIdentityProviderResponse: StaticStructureSchema = [3, n0, _CIPRr, 0, [_iPA], [0]];
@@ -688,7 +772,7 @@ export var CreateIpAccessSettingsRequest: StaticStructureSchema = [
   n0,
   _CIASR,
   0,
-  [_dN, _de, _ta, _cMK, _aEC, _iR, _cT],
+  [_dN, _de, _ta, _cMK, _aEC, _iR, _cTl],
   [[() => DisplayName, 0], [() => Description, 0], [() => TagList, 0], 0, 128 | 0, [() => IpRuleList, 0], [0, 4]],
 ];
 export var CreateIpAccessSettingsResponse: StaticStructureSchema = [3, n0, _CIASRr, 0, [_iASA], [0]];
@@ -697,7 +781,7 @@ export var CreateNetworkSettingsRequest: StaticStructureSchema = [
   n0,
   _CNSR,
   0,
-  [_vI, _sI, _sGI, _ta, _cT],
+  [_vI, _sI, _sGI, _ta, _cTl],
   [0, 64 | 0, 64 | 0, [() => TagList, 0], [0, 4]],
 ];
 export var CreateNetworkSettingsResponse: StaticStructureSchema = [3, n0, _CNSRr, 0, [_nSA], [0]];
@@ -706,7 +790,7 @@ export var CreatePortalRequest: StaticStructureSchema = [
   n0,
   _CPR,
   0,
-  [_dN, _ta, _cMK, _aEC, _cT, _aT, _iT, _mCS],
+  [_dN, _ta, _cMK, _aEC, _cTl, _aT, _iT, _mCS],
   [[() => DisplayName, 0], [() => TagList, 0], 0, 128 | 0, [0, 4], 0, 0, 1],
 ];
 export var CreatePortalResponse: StaticStructureSchema = [3, n0, _CPRr, 0, [_pA, _pE], [0, 0]];
@@ -715,7 +799,7 @@ export var CreateSessionLoggerRequest: StaticStructureSchema = [
   n0,
   _CSLR,
   0,
-  [_eF, _lC, _dN, _cMK, _aEC, _ta, _cT],
+  [_eF, _lC, _dN, _cMK, _aEC, _ta, _cTl],
   [() => EventFilter, [() => LogConfiguration, 0], [() => DisplayNameSafe, 0], 0, 128 | 0, [() => TagList, 0], [0, 4]],
 ];
 export var CreateSessionLoggerResponse: StaticStructureSchema = [3, n0, _CSLRr, 0, [_sLA], [0]];
@@ -724,7 +808,7 @@ export var CreateTrustStoreRequest: StaticStructureSchema = [
   n0,
   _CTSR,
   0,
-  [_cL, _ta, _cT],
+  [_cL, _ta, _cTl],
   [64 | 21, [() => TagList, 0], [0, 4]],
 ];
 export var CreateTrustStoreResponse: StaticStructureSchema = [3, n0, _CTSRr, 0, [_tSA], [0]];
@@ -733,7 +817,7 @@ export var CreateUserAccessLoggingSettingsRequest: StaticStructureSchema = [
   n0,
   _CUALSR,
   0,
-  [_kSA, _ta, _cT],
+  [_kSA, _ta, _cTl],
   [0, [() => TagList, 0], [0, 4]],
 ];
 export var CreateUserAccessLoggingSettingsResponse: StaticStructureSchema = [3, n0, _CUALSRr, 0, [_uALSA], [0]];
@@ -742,7 +826,7 @@ export var CreateUserSettingsRequest: StaticStructureSchema = [
   n0,
   _CUSR,
   0,
-  [_cA, _pAa, _dA, _uA, _pAr, _ta, _dTIM, _iDTIM, _cT, _cSC, _cMK, _aEC, _dLA, _tC],
+  [_cA, _pAa, _dA, _uA, _pAr, _ta, _dTIM, _iDTIM, _cTl, _cSC, _cMK, _aEC, _dLA, _tC, _bCI],
   [
     0,
     0,
@@ -758,6 +842,7 @@ export var CreateUserSettingsRequest: StaticStructureSchema = [
     128 | 0,
     0,
     () => ToolbarConfiguration,
+    [() => BrandingConfigurationCreateInput, 0],
   ],
 ];
 export var CreateUserSettingsResponse: StaticStructureSchema = [3, n0, _CUSRr, 0, [_uSA], [0]];
@@ -901,10 +986,10 @@ export var GetTrustStoreCertificateRequest: StaticStructureSchema = [
   n0,
   _GTSCR,
   0,
-  [_tSA, _t],
+  [_tSA, _th],
   [
     [0, 1],
-    [0, { [_hQ]: _t }],
+    [0, { [_hQ]: _th }],
   ],
 ];
 export var GetTrustStoreCertificateResponse: StaticStructureSchema = [
@@ -944,6 +1029,7 @@ export var IdentityProviderSummary: StaticStructureSchema = [
   [_iPA, _iPN, _iPT],
   [0, [() => IdentityProviderName, 0], 0],
 ];
+export var ImageMetadata: StaticStructureSchema = [3, n0, _IM, 0, [_mTi, _fE, _lUT], [0, 0, 4]];
 export var InlineRedactionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1233,6 +1319,14 @@ export var ListUserSettingsResponse: StaticStructureSchema = [
   [_uS, _nT],
   [[() => UserSettingsList, 0], 0],
 ];
+export var LocalizedBrandingStrings: StaticStructureSchema = [
+  3,
+  n0,
+  _LBS,
+  0,
+  [_bTT, _wT, _lT, _lD, _lBT, _cLon, _cBT, _lTo],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+];
 export var LogConfiguration: StaticStructureSchema = [3, n0, _LC, 0, [_s_], [[() => S3LogConfiguration, 0]]];
 export var NetworkSettings: StaticStructureSchema = [
   3,
@@ -1363,7 +1457,7 @@ export var TagResourceRequest: StaticStructureSchema = [
   n0,
   _TRR,
   0,
-  [_rA, _ta, _cT],
+  [_rA, _ta, _cTl],
   [
     [0, 1],
     [() => TagList, 0],
@@ -1402,7 +1496,7 @@ export var UpdateBrowserSettingsRequest: StaticStructureSchema = [
   n0,
   _UBSR,
   0,
-  [_bSA, _bP, _cT, _wCFP],
+  [_bSA, _bP, _cTl, _wCFP],
   [
     [0, 1],
     [() => BrowserPolicy, 0],
@@ -1423,7 +1517,7 @@ export var UpdateDataProtectionSettingsRequest: StaticStructureSchema = [
   n0,
   _UDPSR,
   0,
-  [_dPSA, _iRC, _dN, _de, _cT],
+  [_dPSA, _iRC, _dN, _de, _cTl],
   [
     [0, 1],
     [() => InlineRedactionConfiguration, 0],
@@ -1445,7 +1539,7 @@ export var UpdateIdentityProviderRequest: StaticStructureSchema = [
   n0,
   _UIPR,
   0,
-  [_iPA, _iPN, _iPT, _iPD, _cT],
+  [_iPA, _iPN, _iPT, _iPD, _cTl],
   [[0, 1], [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0], [0, 4]],
 ];
 export var UpdateIdentityProviderResponse: StaticStructureSchema = [
@@ -1461,7 +1555,7 @@ export var UpdateIpAccessSettingsRequest: StaticStructureSchema = [
   n0,
   _UIASR,
   0,
-  [_iASA, _dN, _de, _iR, _cT],
+  [_iASA, _dN, _de, _iR, _cTl],
   [
     [0, 1],
     [() => DisplayName, 0],
@@ -1483,7 +1577,7 @@ export var UpdateNetworkSettingsRequest: StaticStructureSchema = [
   n0,
   _UNSR,
   0,
-  [_nSA, _vI, _sI, _sGI, _cT],
+  [_nSA, _vI, _sI, _sGI, _cTl],
   [[0, 1], 0, 64 | 0, 64 | 0, [0, 4]],
 ];
 export var UpdateNetworkSettingsResponse: StaticStructureSchema = [3, n0, _UNSRp, 0, [_nS], [() => NetworkSettings]];
@@ -1510,7 +1604,7 @@ export var UpdateTrustStoreRequest: StaticStructureSchema = [
   n0,
   _UTSR,
   0,
-  [_tSA, _cTA, _cTD, _cT],
+  [_tSA, _cTA, _cTD, _cTl],
   [[0, 1], 64 | 21, 64 | 0, [0, 4]],
 ];
 export var UpdateTrustStoreResponse: StaticStructureSchema = [3, n0, _UTSRp, 0, [_tSA], [0]];
@@ -1519,7 +1613,7 @@ export var UpdateUserAccessLoggingSettingsRequest: StaticStructureSchema = [
   n0,
   _UUALSR,
   0,
-  [_uALSA, _kSA, _cT],
+  [_uALSA, _kSA, _cTl],
   [[0, 1], 0, [0, 4]],
 ];
 export var UpdateUserAccessLoggingSettingsResponse: StaticStructureSchema = [
@@ -1535,8 +1629,22 @@ export var UpdateUserSettingsRequest: StaticStructureSchema = [
   n0,
   _UUSR,
   0,
-  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cT, _cSC, _dLA, _tC],
-  [[0, 1], 0, 0, 0, 0, 0, 1, 1, [0, 4], [() => CookieSynchronizationConfiguration, 0], 0, () => ToolbarConfiguration],
+  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cTl, _cSC, _dLA, _tC, _bCI],
+  [
+    [0, 1],
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    [0, 4],
+    [() => CookieSynchronizationConfiguration, 0],
+    0,
+    () => ToolbarConfiguration,
+    [() => BrandingConfigurationUpdateInput, 0],
+  ],
 ];
 export var UpdateUserSettingsResponse: StaticStructureSchema = [3, n0, _UUSRp, 0, [_uS], [[() => UserSettings, 0]]];
 export var UserAccessLoggingSettings: StaticStructureSchema = [3, n0, _UALS, 0, [_uALSA, _aPA, _kSA], [0, 64 | 0, 0]];
@@ -1546,7 +1654,7 @@ export var UserSettings: StaticStructureSchema = [
   n0,
   _US,
   0,
-  [_uSA, _aPA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _cMK, _aEC, _dLA, _tC],
+  [_uSA, _aPA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _cMK, _aEC, _dLA, _tC, _bC],
   [
     0,
     64 | 0,
@@ -1562,6 +1670,7 @@ export var UserSettings: StaticStructureSchema = [
     128 | 0,
     0,
     () => ToolbarConfiguration,
+    [() => BrandingConfiguration, 0],
   ],
 ];
 export var UserSettingsSummary: StaticStructureSchema = [
@@ -1569,8 +1678,21 @@ export var UserSettingsSummary: StaticStructureSchema = [
   n0,
   _USS,
   0,
-  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _dLA, _tC],
-  [0, 0, 0, 0, 0, 0, 1, 1, [() => CookieSynchronizationConfiguration, 0], 0, () => ToolbarConfiguration],
+  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _dLA, _tC, _bC],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    [() => CookieSynchronizationConfiguration, 0],
+    0,
+    () => ToolbarConfiguration,
+    [() => BrandingConfiguration, 0],
+  ],
 ];
 export var ValidationException: StaticErrorSchema = [
   -3,
@@ -1587,7 +1709,7 @@ export var WebContentFilteringPolicy: StaticStructureSchema = [
   n0,
   _WCFP,
   0,
-  [_bC, _aU, _bU],
+  [_bCl, _aU, _bU],
   [64 | 0, [() => UrlPatternList, 0], [() => UrlPatternList, 0]],
 ];
 export var __Unit = "unit" as const;
@@ -1625,7 +1747,10 @@ export var UserSettingsList: StaticListSchema = [1, n0, _USL, 0, [() => UserSett
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var EncryptionContextMap = 128 | 0;
 export var IdentityProviderDetails: StaticMapSchema = [2, n0, _IPD, 8, 0, 0];
+export var LocalizedBrandingStringMap: StaticMapSchema = [2, n0, _LBSM, 0, 0, () => LocalizedBrandingStrings];
 export var EventFilter: StaticStructureSchema = [3, n0, _EF, 0, [_al, _in], [() => __Unit, 64 | 0]];
+export var IconImageInput: StaticStructureSchema = [3, n0, _III, 0, [_blo, _sU], [[() => IconImage, 0], 0]];
+export var WallpaperImageInput: StaticStructureSchema = [3, n0, _WII, 0, [_blo, _sU], [[() => WallpaperImage, 0], 0]];
 export var AssociateBrowserSettings: StaticOperationSchema = [
   9,
   n0,
@@ -2029,7 +2154,7 @@ export var GetUserSettings: StaticOperationSchema = [
 export var ListBrowserSettings: StaticOperationSchema = [
   9,
   n0,
-  _LBS,
+  _LBSi,
   { [_h]: ["GET", "/browserSettings", 200] },
   () => ListBrowserSettingsRequest,
   () => ListBrowserSettingsResponse,

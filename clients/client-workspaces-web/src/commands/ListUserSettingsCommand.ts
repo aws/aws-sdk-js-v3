@@ -78,6 +78,37 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * //         ],
  * //         maxDisplayResolution: "STRING_VALUE",
  * //       },
+ * //       brandingConfiguration: { // BrandingConfiguration
+ * //         logo: { // ImageMetadata
+ * //           mimeType: "image/png" || "image/jpeg" || "image/x-icon", // required
+ * //           fileExtension: "STRING_VALUE", // required
+ * //           lastUploadTimestamp: new Date("TIMESTAMP"), // required
+ * //         },
+ * //         wallpaper: {
+ * //           mimeType: "image/png" || "image/jpeg" || "image/x-icon", // required
+ * //           fileExtension: "STRING_VALUE", // required
+ * //           lastUploadTimestamp: new Date("TIMESTAMP"), // required
+ * //         },
+ * //         favicon: {
+ * //           mimeType: "image/png" || "image/jpeg" || "image/x-icon", // required
+ * //           fileExtension: "STRING_VALUE", // required
+ * //           lastUploadTimestamp: new Date("TIMESTAMP"), // required
+ * //         },
+ * //         localizedStrings: { // LocalizedBrandingStringMap // required
+ * //           "<keys>": { // LocalizedBrandingStrings
+ * //             browserTabTitle: "STRING_VALUE", // required
+ * //             welcomeText: "STRING_VALUE", // required
+ * //             loginTitle: "STRING_VALUE",
+ * //             loginDescription: "STRING_VALUE",
+ * //             loginButtonText: "STRING_VALUE",
+ * //             contactLink: "STRING_VALUE",
+ * //             contactButtonText: "STRING_VALUE",
+ * //             loadingText: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         colorTheme: "Light" || "Dark", // required
+ * //         termsOfService: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

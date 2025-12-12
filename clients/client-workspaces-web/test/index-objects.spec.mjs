@@ -11,6 +11,7 @@ import {
   AuthenticationType,
   BrowserType,
   Category,
+  ColorTheme,
   ConflictException,
   CreateBrowserSettingsCommand,
   CreateDataProtectionSettingsCommand,
@@ -72,8 +73,10 @@ import {
   ListTrustStoresCommand,
   ListUserAccessLoggingSettingsCommand,
   ListUserSettingsCommand,
+  Locale,
   LogFileFormat,
   MaxDisplayResolution,
+  MimeType,
   PortalStatus,
   RedactionPlaceHolderType,
   RendererType,
@@ -201,13 +204,16 @@ assert(typeof UpdateUserSettingsCommand === "function");
 assert(typeof AuthenticationType === "object");
 assert(typeof BrowserType === "object");
 assert(typeof Category === "object");
+assert(typeof ColorTheme === "object");
 assert(typeof EnabledType === "object");
 assert(typeof Event === "object");
 assert(typeof FolderStructure === "object");
 assert(typeof IdentityProviderType === "object");
 assert(typeof _InstanceType === "object");
+assert(typeof Locale === "object");
 assert(typeof LogFileFormat === "object");
 assert(typeof MaxDisplayResolution === "object");
+assert(typeof MimeType === "object");
 assert(typeof PortalStatus === "object");
 assert(typeof RedactionPlaceHolderType === "object");
 assert(typeof RendererType === "object");

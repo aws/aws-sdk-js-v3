@@ -27,9 +27,7 @@ export interface CreateNetworkSettingsCommandInput extends CreateNetworkSettings
 export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a network settings resource that can be associated with a web portal. Once
- *          associated with a web portal, network settings define how streaming instances will connect
- *          with your specified VPC. </p>
+ * <p>Creates a network settings resource that can be associated with a web portal. Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
