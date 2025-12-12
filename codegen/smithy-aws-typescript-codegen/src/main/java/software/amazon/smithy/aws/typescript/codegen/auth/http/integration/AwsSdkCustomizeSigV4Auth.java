@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
@@ -68,9 +67,9 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
             writer
                 .addImport("AwsCredentialIdentityProvider", null, TypeScriptDependency.SMITHY_TYPES)
                 .writeDocs("""
-                        Default credentials provider; Not available in browser runtime.
-                        @deprecated
-                        @internal""")
+                           Default credentials provider; Not available in browser runtime.
+                           @deprecated
+                           @internal""")
                 .write("credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;\n");
         }
     }
@@ -92,40 +91,48 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     return Collections.emptyMap();
                 }
                 return MapUtils.of(
-                    "signingName", w ->
-                        w.write("$S", service.expectTrait(SigV4Trait.class).getName())
+                    "signingName",
+                    w -> w.write("$S", service.expectTrait(SigV4Trait.class).getName())
                 );
             case BROWSER:
                 if (isAwsService(service)) {
                     return MapUtils.of(
-                        "credentialDefaultProvider", w ->
-                            w.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))")
+                        "credentialDefaultProvider",
+                        w -> w.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))")
                     );
                 } else {
                     return MapUtils.of(
-                        "credentials", w ->
-                            w.write("(() => () => Promise.reject(new Error(\"Credentials are missing\")))")
+                        "credentials",
+                        w -> w.write("(() => () => Promise.reject(new Error(\"Credentials are missing\")))")
                     );
                 }
             case NODE:
                 if (isAwsService(service)) {
                     Map<String, Consumer<TypeScriptWriter>> map = new TreeMap<String, Consumer<TypeScriptWriter>>();
                     map.put(
-                        "credentialDefaultProvider", writer -> {
+                        "credentialDefaultProvider",
+                        writer -> {
                             writer
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addImport(
+                                    "defaultProvider",
+                                    "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE
+                                )
                                 .write("credentialDefaultProvider");
                         }
                     );
                     if (isSigV4AsymmetricService(model, settings)) {
                         map.put(
-                            "sigv4aSigningRegionSet", writer -> {
+                            "sigv4aSigningRegionSet",
+                            writer -> {
                                 writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                                 writer.addDependency(AwsDependency.AWS_SDK_CORE);
-                                writer.addImport("loadConfig", "loadNodeConfig",
-                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                                writer.addImport(
+                                    "loadConfig",
+                                    "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                );
                                 writer.addImport(
                                     "NODE_SIGV4A_CONFIG_OPTIONS",
                                     null,
@@ -139,11 +146,15 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                 } else {
                     // isSigV4Service and !isAwsService are implied here.
                     return MapUtils.of(
-                        "credentials", writer -> {
+                        "credentials",
+                        writer -> {
                             writer
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addImport(
+                                    "defaultProvider",
+                                    "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE
+                                )
                                 .write("credentialDefaultProvider()");
                         }
                     );
@@ -161,50 +172,68 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         if (isAwsService(service)) {
-            HttpAuthScheme authScheme = supportedHttpAuthSchemesIndex.getHttpAuthScheme(SigV4Trait.ID).toBuilder()
+            HttpAuthScheme authScheme = supportedHttpAuthSchemesIndex.getHttpAuthScheme(SigV4Trait.ID)
+                .toBuilder()
                 .removeConfigField("region")
                 .removeConfigField("signingName")
                 .removeConfigField("credentials")
-                .addConfigField(SupportSigV4Auth.CREDENTIALS_CONFIG_FIELD.toBuilder()
-                    .configFieldWriter(null)
-                    .build())
-                .propertiesExtractor(s -> w -> w
-                    .write("""
-                      (config: Partial<$T>, context) => ({
-                        /**
-                         * @internal
-                         */
-                        signingProperties: {
-                          config,
-                          context,
-                        },
-                      }),""", s))
-                .addResolveConfigFunction(ResolveConfigFunction.builder()
-                    .resolveConfigFunction(Symbol.builder()
-                        .name("resolveAwsSdkSigV4Config")
-                        .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                .addConfigField(
+                    SupportSigV4Auth.CREDENTIALS_CONFIG_FIELD.toBuilder()
+                        .configFieldWriter(null)
+                        .build()
+                )
+                .propertiesExtractor(
+                    s -> w -> w
+                        .write("""
+                               (config: Partial<$T>, context) => ({
+                                 /**
+                                  * @internal
+                                  */
+                                 signingProperties: {
+                                   config,
+                                   context,
+                                 },
+                               }),""", s)
+                )
+                .addResolveConfigFunction(
+                    ResolveConfigFunction.builder()
+                        .resolveConfigFunction(
+                            Symbol.builder()
+                                .name("resolveAwsSdkSigV4Config")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .addDependency(AwsDependency.AWS_SDK_CORE)
+                                .build()
+                        )
+                        .inputConfig(
+                            Symbol.builder()
+                                .name("AwsSdkSigV4AuthInputConfig")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .addDependency(AwsDependency.AWS_SDK_CORE)
+                                .build()
+                        )
+                        .previouslyResolved(
+                            Symbol.builder()
+                                .name("AwsSdkSigV4PreviouslyResolved")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .addDependency(AwsDependency.AWS_SDK_CORE)
+                                .build()
+                        )
+                        .resolvedConfig(
+                            Symbol.builder()
+                                .name("AwsSdkSigV4AuthResolvedConfig")
+                                .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                .addDependency(AwsDependency.AWS_SDK_CORE)
+                                .build()
+                        )
+                        .build()
+                )
+                .putDefaultSigner(
+                    LanguageTarget.SHARED,
+                    w -> w
                         .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .build())
-                    .inputConfig(Symbol.builder()
-                        .name("AwsSdkSigV4AuthInputConfig")
-                        .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
-                        .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .build())
-                    .previouslyResolved(Symbol.builder()
-                        .name("AwsSdkSigV4PreviouslyResolved")
-                        .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
-                        .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .build())
-                    .resolvedConfig(Symbol.builder()
-                        .name("AwsSdkSigV4AuthResolvedConfig")
-                        .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
-                        .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .build())
-                    .build())
-                .putDefaultSigner(LanguageTarget.SHARED, w -> w
-                    .addDependency(AwsDependency.AWS_SDK_CORE)
-                    .addImport("AwsSdkSigV4Signer", null, AwsDependency.AWS_SDK_CORE)
-                    .write("new AwsSdkSigV4Signer()"))
+                        .addImport("AwsSdkSigV4Signer", null, AwsDependency.AWS_SDK_CORE)
+                        .write("new AwsSdkSigV4Signer()")
+                )
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
 
@@ -213,32 +242,45 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .getHttpAuthScheme(SigV4Trait.ID)
                     .toBuilder()
                     .schemeId(SigV4ATrait.ID)
-                    .addResolveConfigFunction(ResolveConfigFunction.builder()
-                        .resolveConfigFunction(Symbol.builder()
-                            .name("resolveAwsSdkSigV4AConfig")
-                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                    .addResolveConfigFunction(
+                        ResolveConfigFunction.builder()
+                            .resolveConfigFunction(
+                                Symbol.builder()
+                                    .name("resolveAwsSdkSigV4AConfig")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .addDependency(AwsDependency.AWS_SDK_CORE)
+                                    .build()
+                            )
+                            .inputConfig(
+                                Symbol.builder()
+                                    .name("AwsSdkSigV4AAuthInputConfig")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .addDependency(AwsDependency.AWS_SDK_CORE)
+                                    .build()
+                            )
+                            .previouslyResolved(
+                                Symbol.builder()
+                                    .name("AwsSdkSigV4APreviouslyResolved")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .addDependency(AwsDependency.AWS_SDK_CORE)
+                                    .build()
+                            )
+                            .resolvedConfig(
+                                Symbol.builder()
+                                    .name("AwsSdkSigV4AAuthResolvedConfig")
+                                    .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                                    .addDependency(AwsDependency.AWS_SDK_CORE)
+                                    .build()
+                            )
+                            .build()
+                    )
+                    .putDefaultSigner(
+                        LanguageTarget.SHARED,
+                        w -> w
                             .addDependency(AwsDependency.AWS_SDK_CORE)
-                            .build())
-                        .inputConfig(Symbol.builder()
-                            .name("AwsSdkSigV4AAuthInputConfig")
-                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
-                            .addDependency(AwsDependency.AWS_SDK_CORE)
-                            .build())
-                        .previouslyResolved(Symbol.builder()
-                            .name("AwsSdkSigV4APreviouslyResolved")
-                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
-                            .addDependency(AwsDependency.AWS_SDK_CORE)
-                            .build())
-                        .resolvedConfig(Symbol.builder()
-                            .name("AwsSdkSigV4AAuthResolvedConfig")
-                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
-                            .addDependency(AwsDependency.AWS_SDK_CORE)
-                            .build())
-                        .build())
-                    .putDefaultSigner(LanguageTarget.SHARED, w -> w
-                        .addDependency(AwsDependency.AWS_SDK_CORE)
-                        .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
-                        .write("new AwsSdkSigV4ASigner()"))
+                            .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
+                            .write("new AwsSdkSigV4ASigner()")
+                    )
                     .build();
                 supportedHttpAuthSchemesIndex.putHttpAuthScheme(authSchemeSigV4a.getSchemeId(), authSchemeSigV4a);
             }

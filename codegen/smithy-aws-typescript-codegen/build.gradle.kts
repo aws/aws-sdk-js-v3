@@ -1,25 +1,13 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
-import software.amazon.smithy.model.node.Node
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.file.RegularFileProperty
-import org.gradle.api.tasks.*
-import org.gradle.language.jvm.tasks.ProcessResources
 import org.gradle.api.file.DuplicatesStrategy
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.language.jvm.tasks.ProcessResources
+import software.amazon.smithy.model.node.Node
 import java.io.File
 
 
@@ -61,20 +49,30 @@ dependencies {
 abstract class SetAwsSdkVersionsTask : DefaultTask() {
     @get:InputDirectory
     abstract val packagesDir: DirectoryProperty
-    
+
     @get:InputDirectory
     abstract val clientsDir: DirectoryProperty
-    
+
     @get:OutputFile
     abstract val versionsFile: RegularFileProperty
-    
+
     @TaskAction
     fun setVersions() {
         val outputFile = versionsFile.asFile.get()
         outputFile.parentFile.mkdirs()
         outputFile.printWriter().close()
 
-        val roots = packagesDir.asFile.get().listFiles().orEmpty().toMutableList() + clientsDir.asFile.get().listFiles().orEmpty().toList()
+        val roots =
+            packagesDir.asFile
+                .get()
+                .listFiles()
+                .orEmpty()
+                .toMutableList() +
+                clientsDir.asFile
+                    .get()
+                    .listFiles()
+                    .orEmpty()
+                    .toList()
         roots.forEach { packageDir ->
             val packageJsonFile = File(packageDir, "package.json")
             if (packageJsonFile.isFile()) {

@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isEndpointsV2Service;
@@ -99,12 +88,13 @@ public final class AddS3Config implements TypeScriptIntegration {
                 Trait trait = builder.getAllTraits().get(EndpointTrait.ID);
                 if (trait instanceof EndpointTrait endpointTrait) {
                     if (
-                        endpointTrait.getHostPrefix().equals(
-                            SmithyPattern.builder()
-                                .segments(List.of())
-                                .pattern("{AccountId}.")
-                                .build()
-                        )
+                        endpointTrait.getHostPrefix()
+                            .equals(
+                                SmithyPattern.builder()
+                                    .segments(List.of())
+                                    .pattern("{AccountId}.")
+                                    .build()
+                            )
                     ) {
                         builder.removeTrait(EndpointTrait.ID);
                     }
@@ -133,9 +123,11 @@ public final class AddS3Config implements TypeScriptIntegration {
 
                     StructureShape input = model.expectShape(
                         shape.asOperationShape().get().getInputShape()
-                    ).asStructureShape().orElseThrow(
-                        () -> new RuntimeException("operation must have input structure")
-                    );
+                    )
+                        .asStructureShape()
+                        .orElseThrow(
+                            () -> new RuntimeException("operation must have input structure")
+                        );
 
                     boolean hasBucketPrefix = uri.startsWith("/{Bucket}");
                     Optional<MemberShape> bucket = input.getMember("Bucket");
@@ -229,7 +221,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                     continue;
                 }
                 StructureShape structureShape = model.expectShape(
-                    operationShape.getOutputShape(), StructureShape.class
+                    operationShape.getOutputShape(),
+                    StructureShape.class
                 );
 
                 Set<Map.Entry<String, MemberShape>> memberEntries = structureShape
@@ -251,8 +244,10 @@ public final class AddS3Config implements TypeScriptIntegration {
                         Optional<HttpHeaderTrait> httpHeader = memberShape.getTrait(HttpHeaderTrait.class);
                         Optional<DocumentationTrait> doc = memberShape.getTrait(DocumentationTrait.class);
 
-                        if (memberShape.getTarget().equals(expiresShape.getId())
-                            && httpHeader.isPresent()) {
+                        if (
+                            memberShape.getTarget().equals(expiresShape.getId())
+                                && httpHeader.isPresent()
+                        ) {
                             structureShapeBuilder
                                 .removeMember(memberName)
                                 .addMember(
@@ -291,9 +286,11 @@ public final class AddS3Config implements TypeScriptIntegration {
 
         Model builtModel = modelBuilder.addShapes(inputShapes).build();
         if (hasRuleset) {
-            return ModelTransformer.create().mapShapes(
-                builtModel, (shape) -> removeUriBucketPrefix(shape, model)
-            );
+            return ModelTransformer.create()
+                .mapShapes(
+                    builtModel,
+                    (shape) -> removeUriBucketPrefix(shape, model)
+                );
         }
         return builtModel;
     }
@@ -312,16 +309,19 @@ public final class AddS3Config implements TypeScriptIntegration {
         writer.writeDocs("Whether to escape request path when signing the request.")
             .write("signingEscapePath?: boolean;\n");
         writer.writeDocs(
-                "Whether to override the request region with the region inferred from requested resource's ARN."
-                    + " Defaults to undefined.")
+            "Whether to override the request region with the region inferred from requested resource's ARN."
+                + " Defaults to undefined."
+        )
             .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
             .write("useArnRegion?: boolean | undefined | Provider<boolean | undefined>;");
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-        TypeScriptSettings settings, Model model,
-        SymbolProvider symbolProvider, LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         if (!isS3(settings.getService(model))) {
             return Collections.emptyMap();
@@ -329,35 +329,48 @@ public final class AddS3Config implements TypeScriptIntegration {
         switch (target) {
             case SHARED:
                 return MapUtils.of(
-                    "signingEscapePath", writer -> {
+                    "signingEscapePath",
+                    writer -> {
                         writer.write("false");
                     },
-                    "useArnRegion", writer -> {
+                    "useArnRegion",
+                    writer -> {
                         writer.write("undefined");
                     }
                 );
             case NODE:
                 return MapUtils.of(
-                    "useArnRegion", writer -> {
+                    "useArnRegion",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                        .addImport("loadConfig", "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                        .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                        .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
+                            .addImport(
+                                "loadConfig",
+                                "loadNodeConfig",
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            )
+                            .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
+                            .addImport(
+                                "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
+                                "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
+                                AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE
+                            )
+                            .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
                     },
-                    "disableS3ExpressSessionAuth", writer -> {
+                    "disableS3ExpressSessionAuth",
+                    writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                        .addImport("loadConfig", "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                        .addDependency(AwsDependency.S3_MIDDLEWARE)
-                        .addImport(
-                            "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
-                            "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
-                            AwsDependency.S3_MIDDLEWARE
-                        )
-                        .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, loaderConfig)");
+                            .addImport(
+                                "loadConfig",
+                                "loadNodeConfig",
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            )
+                            .addDependency(AwsDependency.S3_MIDDLEWARE)
+                            .addImport(
+                                "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
+                                "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
+                                AwsDependency.S3_MIDDLEWARE
+                            )
+                            .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, loaderConfig)");
                     }
                 );
             default:
@@ -369,18 +382,27 @@ public final class AddS3Config implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "ValidateBucketName",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> isS3(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "CheckContentLengthHeader",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "CheckContentLengthHeader",
+                    HAS_MIDDLEWARE
+                )
                 .operationPredicate((m, s, o) -> isS3(s) && o.getId().getName(s).equals("PutObject"))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "throw200Exceptions",
+                    HAS_MIDDLEWARE
+                )
                 .operationPredicate((m, s, o) -> {
                     if (!isS3(s)) {
                         return false;
@@ -388,20 +410,23 @@ public final class AddS3Config implements TypeScriptIntegration {
                     Optional<ShapeId> output = o.getOutput();
                     if (output.isPresent()) {
                         Shape outputShape = m.expectShape(output.get());
-                        boolean hasStreamingBlobOutputPayload = outputShape.getAllMembers().values().stream().anyMatch(
-                            memberShape -> {
-                                boolean isPayload = memberShape.hasTrait(HttpPayloadTrait.class);
-                                if (!isPayload) {
-                                    return false;
+                        boolean hasStreamingBlobOutputPayload = outputShape.getAllMembers()
+                            .values()
+                            .stream()
+                            .anyMatch(
+                                memberShape -> {
+                                    boolean isPayload = memberShape.hasTrait(HttpPayloadTrait.class);
+                                    if (!isPayload) {
+                                        return false;
+                                    }
+                                    Shape shape = m.expectShape(memberShape.getTarget());
+                                    boolean isBlob = shape.isBlobShape();
+                                    if (!isBlob) {
+                                        return false;
+                                    }
+                                    return shape.hasTrait(StreamingTrait.class);
                                 }
-                                Shape shape = m.expectShape(memberShape.getTarget());
-                                boolean isBlob = shape.isBlobShape();
-                                if (!isBlob) {
-                                    return false;
-                                }
-                                return shape.hasTrait(StreamingTrait.class);
-                            }
-                        );
+                            );
                         if (hasStreamingBlobOutputPayload) {
                             return false;
                         }
@@ -410,20 +435,30 @@ public final class AddS3Config implements TypeScriptIntegration {
                 })
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.ADD_EXPECT_CONTINUE.dependency,
+                    "AddExpectContinue",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> isS3(s))
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> containsInputMembers(m, o, SSEC_INPUT_KEYS)
-                    && isS3(s))
+                .operationPredicate(
+                    (m, s, o) -> containsInputMembers(m, o, SSEC_INPUT_KEYS)
+                        && isS3(s)
+                )
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
-                    HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket")
-                    && isS3(s))
+                .withConventions(
+                    AwsDependency.LOCATION_CONSTRAINT.dependency,
+                    "LocationConstraint",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> o.getId().getName(s).equals("CreateBucket")
+                        && isS3(s)
+                )
                 .build(),
             RuntimeClientPlugin.builder()
                 .inputConfig(
@@ -447,12 +482,15 @@ public final class AddS3Config implements TypeScriptIntegration {
                         )
                         .build(),
                     (m, s, o) -> MapUtils.of(
-                        "session", Symbol.builder()
+                        "session",
+                        Symbol.builder()
                             .name("[() => this, CreateSessionCommand]")
-                            .addReference(Symbol.builder()
-                                .name("CreateSessionCommand")
-                                .namespace("./src/commands/CreateSessionCommand", "/")
-                                .build())
+                            .addReference(
+                                Symbol.builder()
+                                    .name("CreateSessionCommand")
+                                    .namespace("./src/commands/CreateSessionCommand", "/")
+                                    .build()
+                            )
                             .build()
                     )
                 )
@@ -463,36 +501,56 @@ public final class AddS3Config implements TypeScriptIntegration {
              * The second applies the middleware to bucket endpoint operations.
              */
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                    HAS_CONFIG)
+                .withConventions(
+                    AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency,
+                    "BucketEndpoint",
+                    HAS_CONFIG
+                )
                 .servicePredicate((m, s) -> isS3(s) && !isEndpointsV2Service(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                    HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
-                    && isS3(s)
-                    && !isEndpointsV2Service(s)
-                    && containsInputMembers(m, o, BUCKET_ENDPOINT_INPUT_KEYS))
+                .withConventions(
+                    AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency,
+                    "BucketEndpoint",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate(
+                    (m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
+                        && isS3(s)
+                        && !isEndpointsV2Service(s)
+                        && containsInputMembers(m, o, BUCKET_ENDPOINT_INPUT_KEYS)
+                )
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "RegionRedirectMiddleware",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "RegionRedirectMiddleware",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> isS3(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpiresMiddleware",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "S3ExpiresMiddleware",
+                    HAS_MIDDLEWARE
+                )
                 .operationPredicate((m, s, o) -> isS3(s) && containsExpiresOutput(m, o))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3Express",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "S3Express",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpressHttpSigning",
-                    HAS_MIDDLEWARE)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency,
+                    "S3ExpressHttpSigning",
+                    HAS_MIDDLEWARE
+                )
                 .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
                 .build()
         );

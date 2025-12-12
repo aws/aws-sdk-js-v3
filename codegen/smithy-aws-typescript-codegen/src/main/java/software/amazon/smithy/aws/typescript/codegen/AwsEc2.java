@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Set;
@@ -56,8 +45,8 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
             (Trait trait) -> {
                 if (trait instanceof Ec2QueryNameTrait ec2QueryName) {
                     return """
-                        `%s`
-                        """.formatted(ec2QueryName.getValue());
+                           `%s`
+                           """.formatted(ec2QueryName.getValue());
                 }
                 return "";
             }
@@ -110,20 +99,25 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
         // Generate a function that handles the complex rules around deserializing
         // an error code from an xml error body.
         SymbolReference responseType = getApplicationProtocol().getResponseType();
-        writer.openBlock("const loadEc2ErrorCode = (\n"
-                       + "  output: $T,\n"
-                       + "  data: any\n"
-                       + "): string | undefined => {", "};", responseType, () -> {
-            // Attempt to fetch the error code from the specific location.
-            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
-            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
-                writer.write("return $L;", errorCodeAccessLocation);
-            });
+        writer.openBlock(
+            "const loadEc2ErrorCode = (\n"
+                + "  output: $T,\n"
+                + "  data: any\n"
+                + "): string | undefined => {",
+            "};",
+            responseType,
+            () -> {
+                // Attempt to fetch the error code from the specific location.
+                String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
+                String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
+                writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
+                    writer.write("return $L;", errorCodeAccessLocation);
+                });
 
-            // Default a 404 status code to the NotFound code.
-            writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-        });
+                // Default a 404 status code to the NotFound code.
+                writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
+            }
+        );
         writer.write("");
         writer.write(
             context.getStringStore().flushVariableDeclarationCode()
@@ -150,17 +144,19 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
 
     @Override
     protected void serializeInputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            StructureShape inputStructure
+        GenerationContext context,
+        OperationShape operation,
+        StructureShape inputStructure
     ) {
         TypeScriptWriter writer = context.getWriter();
 
         // Set the form encoded string.
         writer.openBlock("body = buildFormUrlencodedString({", "});", () -> {
             // Gather all the explicit input entries.
-            writer.write("...$L,",
-                    inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME)));
+            writer.write(
+                "...$L,",
+                inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME))
+            );
             // Set the protocol required values.
             ServiceShape serviceShape = context.getService();
             StringStore stringStore = context.getStringStore();
@@ -190,14 +186,16 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
 
     @Override
     protected void deserializeOutputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            StructureShape outputStructure
+        GenerationContext context,
+        OperationShape operation,
+        StructureShape outputStructure
     ) {
         TypeScriptWriter writer = context.getWriter();
 
-        writer.write("contents = $L;",
-                outputStructure.accept(new XmlMemberDeserVisitor(context, "data", Format.DATE_TIME)));
+        writer.write(
+            "contents = $L;",
+            outputStructure.accept(new XmlMemberDeserVisitor(context, "data", Format.DATE_TIME))
+        );
     }
 
     @Override

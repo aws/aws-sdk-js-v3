@@ -2,7 +2,6 @@
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 
 import java.nio.file.Paths;
@@ -56,8 +55,8 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
     );
     private static final String NO_TOUCH_NOTICE_PREFIX =
         "// Please do not touch this file. It's generated from template in:\n"
-        + "// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/"
-        + "src/main/resources/software/amazon/smithy/aws/typescript/codegen/";
+            + "// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/"
+            + "src/main/resources/software/amazon/smithy/aws/typescript/codegen/";
     private static final String STS_CLIENT_PREFIX = "sts-client-";
     private static final String ROLE_ASSUMERS_FILE = "defaultRoleAssumers";
     private static final String ROLE_ASSUMERS_TEST_FILE = "defaultRoleAssumers.spec";
@@ -74,7 +73,8 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
     public List<String> runAfter() {
         return List.of(
             SupportSigV4Auth.class.getCanonicalName(),
-            AwsSdkCustomizeSigV4Auth.class.getCanonicalName());
+            AwsSdkCustomizeSigV4Auth.class.getCanonicalName()
+        );
     }
 
     @Override
@@ -87,10 +87,13 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
         for (ShapeId shapeId : OPTIONAL_AUTH_OPERATIONS) {
             LOGGER.info("Backfilling STS auth operation with empty auth trait: " + shapeId.toString());
             model = model.toBuilder()
-                .addShape(model.expectShape(shapeId, OperationShape.class).toBuilder()
-                    .addTrait(new OptionalAuthTrait())
-                    .addTrait(new AuthTrait(Collections.emptySet()))
-                    .build())
+                .addShape(
+                    model.expectShape(shapeId, OperationShape.class)
+                        .toBuilder()
+                        .addTrait(new OptionalAuthTrait())
+                        .addTrait(new AuthTrait(Collections.emptySet()))
+                        .build()
+                )
                 .build();
         }
         return model;
@@ -106,11 +109,15 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
         switch (target) {
             case NODE:
                 return MapUtils.of(
-                    "credentialDefaultProvider", writer -> {
+                    "credentialDefaultProvider",
+                    writer -> {
                         writer
                             .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                            .addImport("defaultProvider", "credentialDefaultProvider",
-                                AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                            .addImport(
+                                "defaultProvider",
+                                "credentialDefaultProvider",
+                                AwsDependency.CREDENTIAL_PROVIDER_NODE
+                            )
                             .write("credentialDefaultProvider");
                     }
                 );
@@ -128,15 +135,20 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             String resourceName = STS_CLIENT_PREFIX + ROLE_ASSUMERS_FILE + ".ts";
             writer
                 .pushState()
-                .putContext(Map.of(
-                    "noTouchNoticePrefix", NO_TOUCH_NOTICE_PREFIX,
-                    "resourceName", resourceName,
-                    "body", IoUtils.readUtf8Resource(AwsTraitsUtils.class, resourceName)
-                ))
+                .putContext(
+                    Map.of(
+                        "noTouchNoticePrefix",
+                        NO_TOUCH_NOTICE_PREFIX,
+                        "resourceName",
+                        resourceName,
+                        "body",
+                        IoUtils.readUtf8Resource(AwsTraitsUtils.class, resourceName)
+                    )
+                )
                 .write("""
-                    ${noTouchNoticePrefix:L}${resourceName:L}
-                    ${body:L}
-                    """)
+                       ${noTouchNoticePrefix:L}${resourceName:L}
+                       ${body:L}
+                       """)
                 .popState();
         });
         // src/defaultStsRoleAssumers.ts
@@ -144,15 +156,20 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             String resourceName = STS_CLIENT_PREFIX + STS_ROLE_ASSUMERS_FILE + ".ts";
             writer
                 .pushState()
-                .putContext(Map.of(
-                    "noTouchNoticePrefix", NO_TOUCH_NOTICE_PREFIX,
-                    "resourceName", resourceName,
-                    "body", IoUtils.readUtf8Resource(AwsTraitsUtils.class, resourceName)
-                ))
+                .putContext(
+                    Map.of(
+                        "noTouchNoticePrefix",
+                        NO_TOUCH_NOTICE_PREFIX,
+                        "resourceName",
+                        resourceName,
+                        "body",
+                        IoUtils.readUtf8Resource(AwsTraitsUtils.class, resourceName)
+                    )
+                )
                 .write("""
-                    ${noTouchNoticePrefix:L}${resourceName:L}
-                    ${body:L}
-                    """)
+                       ${noTouchNoticePrefix:L}${resourceName:L}
+                       ${body:L}
+                       """)
                 .popState();
         });
         // src/index.ts
@@ -164,42 +181,57 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             String resourceName = STS_CLIENT_PREFIX + ROLE_ASSUMERS_TEST_FILE + ".ts";
             writer
                 .pushState()
-                .putContext(Map.of(
-                    "noTouchNoticePrefix", NO_TOUCH_NOTICE_PREFIX,
-                    "resourceName", resourceName,
-                    "body", IoUtils.readUtf8Resource(AwsTraitsUtils.class, resourceName)
-                ))
+                .putContext(
+                    Map.of(
+                        "noTouchNoticePrefix",
+                        NO_TOUCH_NOTICE_PREFIX,
+                        "resourceName",
+                        resourceName,
+                        "body",
+                        IoUtils.readUtf8Resource(AwsTraitsUtils.class, resourceName)
+                    )
+                )
                 .write("""
-                    ${noTouchNoticePrefix:L}${resourceName:L}
-                    ${body:L}
-                    """)
+                       ${noTouchNoticePrefix:L}${resourceName:L}
+                       ${body:L}
+                       """)
                 .popState();
         });
 
         codegenContext.writerDelegator().useFileWriter(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_PATH, w -> {
             ServiceShape service = codegenContext.settings().getService(codegenContext.model());
             Symbol serviceSymbol = codegenContext.symbolProvider().toSymbol(service);
-            w.addRelativeImport(serviceSymbol.getName(), null,
-                Paths.get(".", serviceSymbol.getNamespace()));
-            w.addRelativeImport(serviceSymbol.getName() + "Config", null,
-                Paths.get(".", serviceSymbol.getNamespace()));
+            w.addRelativeImport(
+                serviceSymbol.getName(),
+                null,
+                Paths.get(".", serviceSymbol.getNamespace())
+            );
+            w.addRelativeImport(
+                serviceSymbol.getName() + "Config",
+                null,
+                Paths.get(".", serviceSymbol.getNamespace())
+            );
             w.write("export interface StsAuthInputConfig {}\n");
-            w.openBlock("export interface StsAuthResolvedConfig {", "}\n", () -> w
-                .writeDocs("""
-                    Reference to STSClient class constructor.
-                    @internal""")
-                .addDependency(TypeScriptDependency.SMITHY_TYPES)
-                .addImport("Client", null, TypeScriptDependency.SMITHY_TYPES)
-                .write("stsClientCtor: new (clientConfig: any) => Client<any, any, any>;"));
+            w.openBlock(
+                "export interface StsAuthResolvedConfig {",
+                "}\n",
+                () -> w
+                    .writeDocs("""
+                               Reference to STSClient class constructor.
+                               @internal""")
+                    .addDependency(TypeScriptDependency.SMITHY_TYPES)
+                    .addImport("Client", null, TypeScriptDependency.SMITHY_TYPES)
+                    .write("stsClientCtor: new (clientConfig: any) => Client<any, any, any>;")
+            );
             w.openBlock("""
-                export const resolveStsAuthConfig = <T>(
-                  input: T & StsAuthInputConfig
-                ): T & StsAuthResolvedConfig => Object.assign(input, {
-                """, "});", () -> {
-                    w.write("""
+                        export const resolveStsAuthConfig = <T>(
+                          input: T & StsAuthInputConfig
+                        ): T & StsAuthResolvedConfig => Object.assign(input, {
+                        """, "});", () -> {
+                w.write("""
                         stsClientCtor: STSClient,
                         """);
-                });
+            });
         });
     }
 
@@ -211,27 +243,39 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
     ) {
         ShapeId service = settings.getService();
         if (isSTSService(service)) {
-            HttpAuthScheme authScheme = supportedHttpAuthSchemesIndex.getHttpAuthScheme(SigV4Trait.ID).toBuilder()
+            HttpAuthScheme authScheme = supportedHttpAuthSchemesIndex.getHttpAuthScheme(SigV4Trait.ID)
+                .toBuilder()
                 // Use `@aws-sdk/credential-provider-node` with `@aws-sdk/client-sts` as the
                 // default identity provider chain for Node.js
-                .putDefaultIdentityProvider(LanguageTarget.NODE, w -> w
-                    .write("""
-                        async (idProps) => await \
-                        credentialDefaultProvider(idProps?.__config || {})()"""))
-                .addResolveConfigFunction(ResolveConfigFunction.builder()
-                    .resolveConfigFunction(Symbol.builder()
-                        .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-                        .name("resolveStsAuthConfig")
-                        .build())
-                    .inputConfig(Symbol.builder()
-                        .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-                        .name("StsAuthInputConfig")
-                        .build())
-                    .resolvedConfig(Symbol.builder()
-                        .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-                        .name("StsAuthResolvedConfig")
-                        .build())
-                    .build())
+                .putDefaultIdentityProvider(
+                    LanguageTarget.NODE,
+                    w -> w
+                        .write("""
+                               async (idProps) => await \
+                               credentialDefaultProvider(idProps?.__config || {})()""")
+                )
+                .addResolveConfigFunction(
+                    ResolveConfigFunction.builder()
+                        .resolveConfigFunction(
+                            Symbol.builder()
+                                .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
+                                .name("resolveStsAuthConfig")
+                                .build()
+                        )
+                        .inputConfig(
+                            Symbol.builder()
+                                .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
+                                .name("StsAuthInputConfig")
+                                .build()
+                        )
+                        .resolvedConfig(
+                            Symbol.builder()
+                                .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
+                                .name("StsAuthResolvedConfig")
+                                .build()
+                        )
+                        .build()
+                )
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
         }

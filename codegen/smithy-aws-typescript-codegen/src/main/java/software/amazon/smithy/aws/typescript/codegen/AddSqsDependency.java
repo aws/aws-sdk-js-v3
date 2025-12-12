@@ -1,18 +1,7 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://aws.amazon.com/apache2.0
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
  */
-
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
@@ -54,38 +43,48 @@ public class AddSqsDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")  && isSqs(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSqs(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(
-                            AwsDependency.SQS_MIDDLEWARE.dependency,
-                            "QueueUrl",
-                            HAS_MIDDLEWARE, HAS_CONFIG
-                        )
-                        .servicePredicate((m, s) -> isSqs(s))
-                        .build()
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.SQS_MIDDLEWARE.dependency,
+                    "SendMessage",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage") && isSqs(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.SQS_MIDDLEWARE.dependency,
+                    "SendMessageBatch",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSqs(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.SQS_MIDDLEWARE.dependency,
+                    "ReceiveMessage",
+                    HAS_MIDDLEWARE
+                )
+                .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(
+                    AwsDependency.SQS_MIDDLEWARE.dependency,
+                    "QueueUrl",
+                    HAS_MIDDLEWARE,
+                    HAS_CONFIG
+                )
+                .servicePredicate((m, s) -> isSqs(s))
+                .build()
         );
     }
 
     @Override
     public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
     ) {
         if (!isSqs(settings.getService(model))) {
             return;
@@ -95,17 +94,19 @@ public class AddSqsDependency implements TypeScriptIntegration {
         writer.addImport("HashConstructor", "__HashConstructor", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("Checksum", "__Checksum", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
-        writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
-                + "that computes MD5 hashes, or false to prevent MD5 computation.");
+        writer.writeDocs(
+            "A constructor for a class implementing the {@link __Checksum} interface \n"
+                + "that computes MD5 hashes, or false to prevent MD5 computation."
+        );
         writer.write("md5?: __ChecksumConstructor | __HashConstructor | false;\n");
     }
 
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
     ) {
         if (!isSqs(settings.getService(model))) {
             return Collections.emptyMap();
@@ -115,10 +116,16 @@ public class AddSqsDependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
-                    writer.addImport("HashConstructor", "__HashConstructor",
-                            TypeScriptDependency.SMITHY_TYPES);
-                    writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
-                            TypeScriptDependency.SMITHY_TYPES);
+                    writer.addImport(
+                        "HashConstructor",
+                        "__HashConstructor",
+                        TypeScriptDependency.SMITHY_TYPES
+                    );
+                    writer.addImport(
+                        "ChecksumConstructor",
+                        "__ChecksumConstructor",
+                        TypeScriptDependency.SMITHY_TYPES
+                    );
                     writer.write("Hash.bind(null, \"md5\")");
                 });
             case BROWSER:
