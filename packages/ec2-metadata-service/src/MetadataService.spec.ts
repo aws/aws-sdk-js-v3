@@ -1,6 +1,6 @@
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { Readable } from "stream";
-import { beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { MetadataService } from "./MetadataService";
 
@@ -24,6 +24,7 @@ describe("MetadataService Socket Leak Checks", () => {
     metadataService = new MetadataService({
       endpoint: "http://169.254.169.254",
       httpOptions: { timeout: 1000 },
+      retries: 0, // Disable retries for faster tests
     });
   });
 
@@ -276,6 +277,7 @@ describe("MetadataService Custom Ports", () => {
     metadataService = new MetadataService({
       endpoint: "http://localhost:1338",
       httpOptions: { timeout: 1000 },
+      retries: 0, // Disable retries for faster tests
     });
 
     const mockResponse = createMockResponse(200, "i-1234567890abcdef0");
@@ -294,6 +296,7 @@ describe("MetadataService Custom Ports", () => {
     metadataService = new MetadataService({
       endpoint: "http://localhost:1338",
       httpOptions: { timeout: 1000 },
+      retries: 0, // Disable retries for faster tests
     });
 
     const mockResponse = createMockResponse(200, "test-token-123");
@@ -312,6 +315,7 @@ describe("MetadataService Custom Ports", () => {
     metadataService = new MetadataService({
       endpoint: "http://169.254.169.254",
       httpOptions: { timeout: 1000 },
+      retries: 0, // Disable retries for faster tests
     });
 
     const mockResponse = createMockResponse(200, "test-token-123");
@@ -324,5 +328,70 @@ describe("MetadataService Custom Ports", () => {
     const requestArg = mockHandle.mock.calls[0][0];
     expect(requestArg.port).toBeUndefined();
     expect(requestArg.hostname).toBe("169.254.169.254");
+  });
+});
+
+describe("MetadataService Retry Configuration", () => {
+  it("should use default 3 retries", () => {
+    const metadataService = new MetadataService();
+    expect((metadataService as any).retries).toBe(3);
+  });
+
+  it("should use custom retry count", () => {
+    const metadataService = new MetadataService({ retries: 5 });
+    expect((metadataService as any).retries).toBe(5);
+  });
+
+  it("should disable retries when set to 0", () => {
+    const metadataService = new MetadataService({ retries: 0 });
+    expect((metadataService as any).retries).toBe(0);
+  });
+
+  it("should create backoff function", () => {
+    const metadataService = new MetadataService();
+    const backoffFn = (metadataService as any).backoffFn;
+    expect(typeof backoffFn).toBe("function");
+  });
+
+  describe("status code handling for retries", () => {
+    it("should not retry 400 errors", async () => {
+      const metadataService = new MetadataService({ retries: 0 });
+      const shouldNotRetry = (metadataService as any).shouldNotRetry;
+
+      const error = { statusCode: 400 };
+      expect(shouldNotRetry(error)).toBe(true);
+    });
+
+    it("should not retry 403 errors", async () => {
+      const metadataService = new MetadataService({ retries: 0 });
+      const shouldNotRetry = (metadataService as any).shouldNotRetry;
+
+      const error = { statusCode: 403 };
+      expect(shouldNotRetry(error)).toBe(true);
+    });
+
+    it("should not retry 404 errors", async () => {
+      const metadataService = new MetadataService({ retries: 0 });
+      const shouldNotRetry = (metadataService as any).shouldNotRetry;
+
+      const error = { statusCode: 404 };
+      expect(shouldNotRetry(error)).toBe(true);
+    });
+
+    it("should retry 401 errors", async () => {
+      const metadataService = new MetadataService({ retries: 0 });
+      const shouldNotRetry = (metadataService as any).shouldNotRetry;
+
+      const error = { statusCode: 401 };
+      expect(shouldNotRetry(error)).toBe(false);
+    });
+
+    it("should retry 500 errors", async () => {
+      const metadataService = new MetadataService({ retries: 0 });
+      const shouldNotRetry = (metadataService as any).shouldNotRetry;
+
+      const error = { statusCode: 500 };
+      expect(shouldNotRetry(error)).toBe(false);
+    });
   });
 });
