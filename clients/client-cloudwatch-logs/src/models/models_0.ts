@@ -11,6 +11,7 @@ import {
   ExecutionStatus,
   ExportTaskStatusCode,
   FlattenedElement,
+  ImportStatus,
   IndexSource,
   IndexType,
   InheritedProperty,
@@ -584,6 +585,64 @@ export interface CancelExportTaskRequest {
 }
 
 /**
+ * @public
+ */
+export interface CancelImportTaskRequest {
+  /**
+   * <p>The ID of the import task to cancel.</p>
+   * @public
+   */
+  importId: string | undefined;
+}
+
+/**
+ * <p>Statistics about the import progress</p>
+ * @public
+ */
+export interface ImportStatistics {
+  /**
+   * <p>The total number of bytes that have been imported to the managed log group.</p>
+   * @public
+   */
+  bytesImported?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelImportTaskResponse {
+  /**
+   * <p>The ID of the cancelled import task.</p>
+   * @public
+   */
+  importId?: string | undefined;
+
+  /**
+   * <p>Statistics about the import progress at the time of cancellation.</p>
+   * @public
+   */
+  importStatistics?: ImportStatistics | undefined;
+
+  /**
+   * <p>The final status of the import task. This will be set to CANCELLED.</p>
+   * @public
+   */
+  importStatus?: ImportStatus | undefined;
+
+  /**
+   * <p>The timestamp when the import task was created, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  creationTime?: number | undefined;
+
+  /**
+   * <p>The timestamp when the import task was cancelled, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+}
+
+/**
  * <p>This structure contains delivery configurations that apply only when the delivery
  *       destination resource is an S3 bucket.</p>
  * @public
@@ -948,6 +1007,71 @@ export interface CreateExportTaskResponse {
 }
 
 /**
+ * <p>The filter criteria used for import tasks</p>
+ * @public
+ */
+export interface ImportFilter {
+  /**
+   * <p>The start of the time range for events to import, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  startEventTime?: number | undefined;
+
+  /**
+   * <p>The end of the time range for events to import, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  endEventTime?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateImportTaskRequest {
+  /**
+   * <p>The ARN of the source to import from.</p>
+   * @public
+   */
+  importSourceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
+   * @public
+   */
+  importRoleArn: string | undefined;
+
+  /**
+   * <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds.
+   *       The range of data being imported must be within the specified source's retention period.</p>
+   * @public
+   */
+  importFilter?: ImportFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateImportTaskResponse {
+  /**
+   * <p>A unique identifier for the import task.</p>
+   * @public
+   */
+  importId?: string | undefined;
+
+  /**
+   * <p>The ARN of the CloudWatch Logs log group created as the destination for the imported events.</p>
+   * @public
+   */
+  importDestinationArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the import task was created, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  creationTime?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateLogAnomalyDetectorRequest {
@@ -1086,8 +1210,9 @@ export interface CreateLogGroupRequest {
   logGroupClass?: LogGroupClass | undefined;
 
   /**
-   * <p>Use this parameter to enable deletion protection for the new log group. When enabled on a log group, deletion protection blocks all
-   *       deletion operations until it is explicitly disabled. By default log groups are created without deletion protection enabled.</p>
+   * <p>Use this parameter to enable deletion protection for the new log group. When enabled on
+   *       a log group, deletion protection blocks all deletion operations until it is explicitly
+   *       disabled. By default log groups are created without deletion protection enabled.</p>
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
@@ -1122,14 +1247,16 @@ export interface S3Configuration {
   destinationIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that grants permissions to write query results to the specified Amazon S3 destination.</p>
+   * <p>The ARN of the IAM role that grants permissions to write query results to the specified
+   *       Amazon S3 destination.</p>
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>Configuration for where to deliver scheduled query results. Specifies the destination type and associated settings for result delivery.</p>
+ * <p>Configuration for where to deliver scheduled query results. Specifies the destination type
+ *       and associated settings for result delivery.</p>
  * @public
  */
 export interface DestinationConfiguration {
@@ -1145,85 +1272,101 @@ export interface DestinationConfiguration {
  */
 export interface CreateScheduledQueryRequest {
   /**
-   * <p>The name of the scheduled query. The name must be unique within your account and region. Valid characters are alphanumeric characters, hyphens, underscores, and periods. Length must be between 1 and 255 characters.</p>
+   * <p>The name of the scheduled query. The name must be unique within your account and region.
+   *       Valid characters are alphanumeric characters, hyphens, underscores, and periods. Length must
+   *       be between 1 and 255 characters.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An optional description for the scheduled query to help identify its purpose and functionality.</p>
+   * <p>An optional description for the scheduled query to help identify its purpose and
+   *       functionality.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The query language to use for the scheduled query. Valid values are <code>LogsQL</code>, <code>PPL</code>, and <code>SQL</code>.</p>
+   * <p>The query language to use for the scheduled query. Valid values are <code>LogsQL</code>,
+   *         <code>PPL</code>, and <code>SQL</code>.</p>
    * @public
    */
   queryLanguage: QueryLanguage | undefined;
 
   /**
-   * <p>The query string to execute. This is the same query syntax used in CloudWatch Logs Insights. Maximum length is 10,000 characters.</p>
+   * <p>The query string to execute. This is the same query syntax used in CloudWatch Logs
+   *       Insights. Maximum length is 10,000 characters.</p>
    * @public
    */
   queryString: string | undefined;
 
   /**
-   * <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
+   * <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups.
+   *       Log groups can be identified by name or full ARN.</p>
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
 
   /**
-   * <p>A cron expression that defines when the scheduled query runs. The expression uses standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
+   * <p>A cron expression that defines when the scheduled query runs. The expression uses standard
+   *       cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
    * @public
    */
   scheduleExpression: string | undefined;
 
   /**
-   * <p>The timezone for evaluating the schedule expression. This determines when the scheduled query executes relative to the specified timezone.</p>
+   * <p>The timezone for evaluating the schedule expression. This determines when the scheduled
+   *       query executes relative to the specified timezone.</p>
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>The time offset in seconds that defines the lookback period for the query. This determines how far back in time the query searches from the execution time.</p>
+   * <p>The time offset in seconds that defines the lookback period for the query. This determines
+   *       how far back in time the query searches from the execution time.</p>
    * @public
    */
   startTimeOffset?: number | undefined;
 
   /**
-   * <p>Configuration for where to deliver query results. Currently supports Amazon S3 destinations for storing query output.</p>
+   * <p>Configuration for where to deliver query results. Currently supports Amazon S3 destinations for
+   *       storing query output.</p>
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
+   * <p>The start time for the scheduled query in Unix epoch format. The query will not execute
+   *       before this time.</p>
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>The end time for the scheduled query in Unix epoch format. The query will stop executing after this time.</p>
+   * <p>The end time for the scheduled query in Unix epoch format. The query will stop executing
+   *       after this time.</p>
    * @public
    */
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
+   * <p>The ARN of the IAM role that grants permissions to execute the query and deliver results
+   *       to the specified destination. The role must have permissions to read from the specified log
+   *       groups and write to the destination.</p>
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
+   * <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and
+   *         <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
 
   /**
-   * <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
+   * <p>Key-value pairs to associate with the scheduled query for resource management and cost
+   *       allocation.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2380,6 +2523,200 @@ export interface DescribeFieldIndexesResponse {
 /**
  * @public
  */
+export interface DescribeImportTaskBatchesRequest {
+  /**
+   * <p>The ID of the import task to get batch information for.</p>
+   * @public
+   */
+  importId: string | undefined;
+
+  /**
+   * <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+   * @public
+   */
+  batchImportStatus?: ImportStatus[] | undefined;
+
+  /**
+   * <p>The maximum number of import batches to return in the response. Default: 10</p>
+   * @public
+   */
+  limit?: number | undefined;
+
+  /**
+   * <p>The pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A collection of events being imported to CloudWatch</p>
+ * @public
+ */
+export interface ImportBatch {
+  /**
+   * <p>The unique identifier of the import batch.</p>
+   * @public
+   */
+  batchId: string | undefined;
+
+  /**
+   * <p>The current status of the import batch. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+   * @public
+   */
+  status: ImportStatus | undefined;
+
+  /**
+   * <p>The error message if the batch failed to import. Only present when status is FAILED.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImportTaskBatchesResponse {
+  /**
+   * <p>The ARN of the source being imported from.</p>
+   * @public
+   */
+  importSourceArn?: string | undefined;
+
+  /**
+   * <p>The ID of the import task.</p>
+   * @public
+   */
+  importId?: string | undefined;
+
+  /**
+   * <p>The list of import batches that match the request filters.</p>
+   * @public
+   */
+  importBatches?: ImportBatch[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImportTasksRequest {
+  /**
+   * <p>Optional filter to describe a specific import task by its ID.</p>
+   * @public
+   */
+  importId?: string | undefined;
+
+  /**
+   * <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+   * @public
+   */
+  importStatus?: ImportStatus | undefined;
+
+  /**
+   * <p>Optional filter to list imports from a specific source</p>
+   * @public
+   */
+  importSourceArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of import tasks to return in the response. Default: 50</p>
+   * @public
+   */
+  limit?: number | undefined;
+
+  /**
+   * <p>The pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An import job to move data from CloudTrail Event Data Store to CloudWatch.</p>
+ * @public
+ */
+export interface Import {
+  /**
+   * <p>The unique identifier of the import task.</p>
+   * @public
+   */
+  importId?: string | undefined;
+
+  /**
+   * <p>The ARN of the CloudTrail Lake Event Data Store being imported from.</p>
+   * @public
+   */
+  importSourceArn?: string | undefined;
+
+  /**
+   * <p>The current status of the import task. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
+   * @public
+   */
+  importStatus?: ImportStatus | undefined;
+
+  /**
+   * <p>The ARN of the managed CloudWatch Logs log group where the events are being imported to.</p>
+   * @public
+   */
+  importDestinationArn?: string | undefined;
+
+  /**
+   * <p>Statistics about the import progress</p>
+   * @public
+   */
+  importStatistics?: ImportStatistics | undefined;
+
+  /**
+   * <p>The filter criteria used for this import task.</p>
+   * @public
+   */
+  importFilter?: ImportFilter | undefined;
+
+  /**
+   * <p>The timestamp when the import task was created, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  creationTime?: number | undefined;
+
+  /**
+   * <p>The timestamp when the import task was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+
+  /**
+   * <p>Error message related to any failed imports</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImportTasksResponse {
+  /**
+   * <p>The list of import tasks that match the request filters.</p>
+   * @public
+   */
+  imports?: Import[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeIndexPoliciesRequest {
   /**
    * <p>An array containing the name or ARN of the log group that you want to retrieve field index
@@ -2675,8 +3012,8 @@ export interface LogGroup {
   logGroupArn?: string | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all
-   *       deletion operations until it is explicitly disabled.</p>
+   * <p>Indicates whether deletion protection is enabled for this log group. When enabled,
+   *       deletion protection blocks all deletion operations until it is explicitly disabled.</p>
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
@@ -5019,7 +5356,8 @@ export interface GetScheduledQueryHistoryRequest {
   endTime: number | undefined;
 
   /**
-   * <p>An array of execution statuses to filter the history results. Only executions with the specified statuses are returned.</p>
+   * <p>An array of execution statuses to filter the history results. Only executions with the
+   *       specified statuses are returned.</p>
    * @public
    */
   executionStatuses?: ExecutionStatus[] | undefined;
@@ -5039,7 +5377,8 @@ export interface GetScheduledQueryHistoryRequest {
 }
 
 /**
- * <p>Information about a destination where scheduled query results are processed, including processing status and any error messages.</p>
+ * <p>Information about a destination where scheduled query results are processed, including
+ *       processing status and any error messages.</p>
  * @public
  */
 export interface ScheduledQueryDestination {
@@ -5075,7 +5414,8 @@ export interface ScheduledQueryDestination {
 }
 
 /**
- * <p>A record of a scheduled query execution, including execution status, timestamp, and destination processing results.</p>
+ * <p>A record of a scheduled query execution, including execution status, timestamp, and
+ *       destination processing results.</p>
  * @public
  */
 export interface TriggerHistoryRecord {
@@ -6326,14 +6666,16 @@ export interface ListScheduledQueriesRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter scheduled queries by state. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. If not specified, all scheduled queries are returned.</p>
+   * <p>Filter scheduled queries by state. Valid values are <code>ENABLED</code> and
+   *         <code>DISABLED</code>. If not specified, all scheduled queries are returned.</p>
    * @public
    */
   state?: ScheduledQueryState | undefined;
 }
 
 /**
- * <p>Summary information about a scheduled query, including basic configuration and execution status.</p>
+ * <p>Summary information about a scheduled query, including basic configuration and execution
+ *       status.</p>
  * @public
  */
 export interface ScheduledQuerySummary {
@@ -6687,7 +7029,8 @@ export interface LiveTailSessionUpdate {
  */
 export interface PutAccountPolicyRequest {
   /**
-   * <p>A name for the policy. This must be unique within the account.</p>
+   * <p>A name for the policy. This must be unique within the account and cannot start with
+   *         <code>aws/</code>.</p>
    * @public
    */
   policyName: string | undefined;
@@ -6794,14 +7137,23 @@ export interface PutAccountPolicyRequest {
    *                <p>
    *                   <b>Fields</b> The array of field indexes to create.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FieldsV2</b> The object of field indexes to create along
+   *           with it's type.</p>
+   *             </li>
    *          </ul>
    *          <p>It must contain at least one field index.</p>
-   *          <p>The following is an example of an index policy document that creates two indexes,
-   *         <code>RequestId</code> and <code>TransactionId</code>.</p>
+   *          <p>The following is an example of an index policy document that creates indexes with
+   *       different types.</p>
    *          <p>
-   *             <code>"policyDocument": "\{ \"Fields\": [ \"RequestId\", \"TransactionId\" ]
-   *       \}"</code>
+   *             <code>"policyDocument": "\{ \"Fields\": [ \"TransactionId\" ], \"FieldsV2\":
+   *         \{\"RequestId\": \{\"type\": \"FIELD_INDEX\"\}, \"APIName\": \{\"type\": \"FACET\"\},
+   *         \"StatusCode\": \{\"type\": \"FACET\"\}\}\}"</code>
    *          </p>
+   *          <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are
+   *         <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and
+   *         <code>FieldsV2</code> must be mutually exclusive.</p>
    * @public
    */
   policyDocument: string | undefined;
@@ -6821,18 +7173,43 @@ export interface PutAccountPolicyRequest {
   scope?: Scope | undefined;
 
   /**
-   * <p>Use this parameter to apply the new policy to a subset of log groups in the
-   *       account.</p>
+   * <p>Use this parameter to apply the new policy to a subset of log groups in the account or a
+   *       data source name and type combination.  </p>
    *          <p>Specifying <code>selectionCriteria</code> is valid only when you specify
    *         <code>SUBSCRIPTION_FILTER_POLICY</code>, <code>FIELD_INDEX_POLICY</code> or
    *         <code>TRANSFORMER_POLICY</code>for <code>policyType</code>.</p>
-   *          <p>If <code>policyType</code> is <code>SUBSCRIPTION_FILTER_POLICY</code>, the only supported
-   *         <code>selectionCriteria</code> filter is <code>LogGroupName NOT IN []</code>
-   *          </p>
-   *          <p>If <code>policyType</code> is <code>FIELD_INDEX_POLICY</code> or
-   *         <code>TRANSFORMER_POLICY</code>, the only supported <code>selectionCriteria</code> filter is
-   *         <code>LogGroupNamePrefix</code>
-   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>policyType</code> is <code>SUBSCRIPTION_FILTER_POLICY</code>, the only
+   *           supported <code>selectionCriteria</code> filter is <code>LogGroupName NOT IN
+   *           []</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>policyType</code> is <code>TRANSFORMER_POLICY</code>, the only supported
+   *             <code>selectionCriteria</code> filter is <code>LogGroupNamePrefix</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>policyType</code> is <code>FIELD_INDEX_POLICY</code>, the supported
+   *             <code>selectionCriteria</code> filters are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>LogGroupNamePrefix</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>DataSourceName</code> AND <code>DataSourceType</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When you specify <code>selectionCriteria</code> for a field index policy you can
+   *         use either <code>LogGroupNamePrefix</code> by itself or <code>DataSourceName</code> and
+   *           <code>DataSourceType</code> together.</p>
+   *             </li>
+   *          </ul>
    *          <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is
    *       determined by using its UTF-8 bytes.</p>
    *          <p>Using the <code>selectionCriteria</code> parameter with
@@ -7108,11 +7485,19 @@ export interface PutDeliverySourceRequest {
    *           <code>ERROR_LOGS</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For Network Firewall Proxy, the valid values are <code>ALERT_LOGS</code>,
+   *             <code>ALLOW_LOGS</code>, and <code>DENY_LOGS</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For Network Load Balancer, the valid value is <code>NLB_ACCESS_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code> and
    *             <code>PCS_JOBCOMP_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Quick Suite, the valid values are <code>CHAT_LOGS</code> and
+   *             <code>FEEDBACK_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon Web Services RTB Fabric, the valid values is
@@ -7253,11 +7638,15 @@ export interface PutIndexPolicyRequest {
 
   /**
    * <p>The index policy document, in JSON format. The following is an example of an index policy
-   *       document that creates two indexes, <code>RequestId</code> and
-   *       <code>TransactionId</code>.</p>
+   *       document that creates indexes with different types.</p>
    *          <p>
-   *             <code>"policyDocument": "\{ "Fields": [ "RequestId", "TransactionId" ] \}"</code>
+   *             <code>"policyDocument": "\{"Fields": [ "TransactionId" ], "FieldsV2": \{"RequestId":
+   *         \{"type": "FIELD_INDEX"\}, "APIName": \{"type": "FACET"\}, "StatusCode": \{"type":
+   *         "FACET"\}\}\}"</code>
    *          </p>
+   *          <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are
+   *         <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and
+   *         <code>FieldsV2</code> must be mutually exclusive.</p>
    *          <p>The policy document must include at least one field index. For more information about the
    *       fields that can be included and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html">Field index
    *         syntax and quotas</a>.</p>
@@ -8618,7 +9007,8 @@ export interface UpdateScheduledQueryRequest {
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver results.</p>
+   * <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver
+   *       results.</p>
    * @public
    */
   executionRoleArn: string | undefined;

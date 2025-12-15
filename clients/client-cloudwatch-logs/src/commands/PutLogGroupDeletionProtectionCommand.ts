@@ -31,8 +31,9 @@ export interface PutLogGroupDeletionProtectionCommandInput extends PutLogGroupDe
 export interface PutLogGroupDeletionProtectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables or disables deletion protection for the specified log group. When enabled on a log group, deletion protection blocks all
- *       deletion operations until it is explicitly disabled.</p>
+ * <p>Enables or disables deletion protection for the specified log group. When enabled on a
+ *       log group, deletion protection blocks all deletion operations until it is explicitly
+ *       disabled.</p>
  *          <p>For information about the parameters that are common to all actions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html">Common Parameters</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -5,12 +5,14 @@ import {
   AssociateKmsKeyCommand,
   AssociateSourceToS3TableIntegrationCommand,
   CancelExportTaskCommand,
+  CancelImportTaskCommand,
   CloudWatchLogs,
   CloudWatchLogsClient,
   CloudWatchLogsServiceException,
   ConflictException,
   CreateDeliveryCommand,
   CreateExportTaskCommand,
+  CreateImportTaskCommand,
   CreateLogAnomalyDetectorCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
@@ -45,6 +47,8 @@ import {
   DescribeDestinationsCommand,
   DescribeExportTasksCommand,
   DescribeFieldIndexesCommand,
+  DescribeImportTaskBatchesCommand,
+  DescribeImportTasksCommand,
   DescribeIndexPoliciesCommand,
   DescribeLogGroupsCommand,
   DescribeLogStreamsCommand,
@@ -79,6 +83,7 @@ import {
   GetScheduledQueryCommand,
   GetScheduledQueryHistoryCommand,
   GetTransformerCommand,
+  ImportStatus,
   IndexSource,
   IndexType,
   InheritedProperty,
@@ -174,6 +179,7 @@ import {
   paginateFilterLogEvents,
   paginateGetLogEvents,
   paginateGetScheduledQueryHistory,
+  paginateListAggregateLogGroupSummaries,
   paginateListAnomalies,
   paginateListLogAnomalyDetectors,
   paginateListLogGroupsForQuery,
@@ -188,8 +194,10 @@ assert(typeof CloudWatchLogs === "function");
 assert(typeof AssociateKmsKeyCommand === "function");
 assert(typeof AssociateSourceToS3TableIntegrationCommand === "function");
 assert(typeof CancelExportTaskCommand === "function");
+assert(typeof CancelImportTaskCommand === "function");
 assert(typeof CreateDeliveryCommand === "function");
 assert(typeof CreateExportTaskCommand === "function");
+assert(typeof CreateImportTaskCommand === "function");
 assert(typeof CreateLogAnomalyDetectorCommand === "function");
 assert(typeof CreateLogGroupCommand === "function");
 assert(typeof CreateLogStreamCommand === "function");
@@ -221,6 +229,8 @@ assert(typeof DescribeDeliverySourcesCommand === "function");
 assert(typeof DescribeDestinationsCommand === "function");
 assert(typeof DescribeExportTasksCommand === "function");
 assert(typeof DescribeFieldIndexesCommand === "function");
+assert(typeof DescribeImportTaskBatchesCommand === "function");
+assert(typeof DescribeImportTasksCommand === "function");
 assert(typeof DescribeIndexPoliciesCommand === "function");
 assert(typeof DescribeLogGroupsCommand === "function");
 assert(typeof DescribeLogStreamsCommand === "function");
@@ -300,6 +310,7 @@ assert(typeof EventSource === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof ExportTaskStatusCode === "object");
 assert(typeof FlattenedElement === "object");
+assert(typeof ImportStatus === "object");
 assert(typeof IndexSource === "object");
 assert(typeof IndexType === "object");
 assert(typeof InheritedProperty === "object");
@@ -361,6 +372,7 @@ assert(typeof paginateDescribeSubscriptionFilters === "function");
 assert(typeof paginateFilterLogEvents === "function");
 assert(typeof paginateGetLogEvents === "function");
 assert(typeof paginateGetScheduledQueryHistory === "function");
+assert(typeof paginateListAggregateLogGroupSummaries === "function");
 assert(typeof paginateListAnomalies === "function");
 assert(typeof paginateListLogAnomalyDetectors === "function");
 assert(typeof paginateListLogGroupsForQuery === "function");

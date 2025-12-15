@@ -31,7 +31,8 @@ export interface UpdateScheduledQueryCommandInput extends UpdateScheduledQueryRe
 export interface UpdateScheduledQueryCommandOutput extends UpdateScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing scheduled query with new configuration. This operation uses PUT semantics, allowing modification of query parameters, schedule, and destinations.</p>
+ * <p>Updates an existing scheduled query with new configuration. This operation uses PUT
+ *       semantics, allowing modification of query parameters, schedule, and destinations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

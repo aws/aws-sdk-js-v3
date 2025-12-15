@@ -31,7 +31,8 @@ export interface GetScheduledQueryCommandInput extends GetScheduledQueryRequest 
 export interface GetScheduledQueryCommandOutput extends GetScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about a specific scheduled query, including its configuration, execution status, and metadata.</p>
+ * <p>Retrieves details about a specific scheduled query, including its configuration, execution
+ *       status, and metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

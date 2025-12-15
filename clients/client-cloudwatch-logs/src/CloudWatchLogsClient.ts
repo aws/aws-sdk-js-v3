@@ -78,8 +78,10 @@ import {
   AssociateSourceToS3TableIntegrationCommandOutput,
 } from "./commands/AssociateSourceToS3TableIntegrationCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
 import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "./commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand";
+import { CreateImportTaskCommandInput, CreateImportTaskCommandOutput } from "./commands/CreateImportTaskCommand";
 import {
   CreateLogAnomalyDetectorCommandInput,
   CreateLogAnomalyDetectorCommandOutput,
@@ -171,6 +173,14 @@ import {
   DescribeFieldIndexesCommandInput,
   DescribeFieldIndexesCommandOutput,
 } from "./commands/DescribeFieldIndexesCommand";
+import {
+  DescribeImportTaskBatchesCommandInput,
+  DescribeImportTaskBatchesCommandOutput,
+} from "./commands/DescribeImportTaskBatchesCommand";
+import {
+  DescribeImportTasksCommandInput,
+  DescribeImportTasksCommandOutput,
+} from "./commands/DescribeImportTasksCommand";
 import {
   DescribeIndexPoliciesCommandInput,
   DescribeIndexPoliciesCommandOutput,
@@ -334,8 +344,10 @@ export type ServiceInputTypes =
   | AssociateKmsKeyCommandInput
   | AssociateSourceToS3TableIntegrationCommandInput
   | CancelExportTaskCommandInput
+  | CancelImportTaskCommandInput
   | CreateDeliveryCommandInput
   | CreateExportTaskCommandInput
+  | CreateImportTaskCommandInput
   | CreateLogAnomalyDetectorCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
@@ -367,6 +379,8 @@ export type ServiceInputTypes =
   | DescribeDestinationsCommandInput
   | DescribeExportTasksCommandInput
   | DescribeFieldIndexesCommandInput
+  | DescribeImportTaskBatchesCommandInput
+  | DescribeImportTasksCommandInput
   | DescribeIndexPoliciesCommandInput
   | DescribeLogGroupsCommandInput
   | DescribeLogStreamsCommandInput
@@ -442,8 +456,10 @@ export type ServiceOutputTypes =
   | AssociateKmsKeyCommandOutput
   | AssociateSourceToS3TableIntegrationCommandOutput
   | CancelExportTaskCommandOutput
+  | CancelImportTaskCommandOutput
   | CreateDeliveryCommandOutput
   | CreateExportTaskCommandOutput
+  | CreateImportTaskCommandOutput
   | CreateLogAnomalyDetectorCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
@@ -475,6 +491,8 @@ export type ServiceOutputTypes =
   | DescribeDestinationsCommandOutput
   | DescribeExportTasksCommandOutput
   | DescribeFieldIndexesCommandOutput
+  | DescribeImportTaskBatchesCommandOutput
+  | DescribeImportTasksCommandOutput
   | DescribeIndexPoliciesCommandOutput
   | DescribeLogGroupsCommandOutput
   | DescribeLogStreamsCommandOutput

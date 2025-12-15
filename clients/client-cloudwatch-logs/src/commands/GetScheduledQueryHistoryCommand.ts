@@ -31,7 +31,8 @@ export interface GetScheduledQueryHistoryCommandInput extends GetScheduledQueryH
 export interface GetScheduledQueryHistoryCommandOutput extends GetScheduledQueryHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the execution history of a scheduled query within a specified time range, including query results and destination processing status.</p>
+ * <p>Retrieves the execution history of a scheduled query within a specified time range,
+ *       including query results and destination processing status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

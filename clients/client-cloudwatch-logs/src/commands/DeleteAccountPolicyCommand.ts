@@ -31,11 +31,11 @@ export interface DeleteAccountPolicyCommandInput extends DeleteAccountPolicyRequ
 export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a CloudWatch Logs account policy. This stops the
- *       account-wide policy from applying to log groups or data sources in the account. If you delete
- *       a data protection policy or subscription filter policy, any log-group level policies of those
- *       types remain in effect. This operation supports deletion of data source-based field index
- *       policies, including facet configurations, in addition to log group-based policies.</p>
+ * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
+ *       applying to log groups or data sources in the account. If you delete a data protection policy
+ *       or subscription filter policy, any log-group level policies of those types remain in effect.
+ *       This operation supports deletion of data source-based field index policies, including facet
+ *       configurations, in addition to log group-based policies.</p>
  *          <p>To use this operation, you must be signed on with the correct permissions depending on the
  *       type of policy that you are deleting.</p>
  *          <ul>
@@ -56,9 +56,9 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  *             <li>
  *                <p>To delete a field index policy, you must have the <code>logs:DeleteIndexPolicy</code>
  *           and <code>logs:DeleteAccountPolicy</code> permissions.</p>
- *                <p>If you delete a field index policy that included facet configurations, those
- *           facets will no longer be available for interactive exploration in the CloudWatch Logs
- *           Insights console. However, facet data is retained for up to 30 days.</p>
+ *                <p>If you delete a field index policy that included facet configurations, those facets
+ *           will no longer be available for interactive exploration in the CloudWatch Logs Insights
+ *           console. However, facet data is retained for up to 30 days.</p>
  *             </li>
  *          </ul>
  *          <p>If you delete a field index policy, the indexing of the log events that happened before
