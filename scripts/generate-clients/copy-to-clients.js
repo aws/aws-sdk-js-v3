@@ -59,6 +59,12 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
         // ToDo: Remove if typedoc is config driven or removed in smithy-typescript.
         delete fromContent[name]["typedoc"];
       }
+
+      if (name === "build" && parentKey === "scripts") {
+        // build CJS after ES because of rollup inliner.
+        fromContent[name] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
+      }
+
       if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
         fromContent[name]["build:include:deps"] = "lerna run --scope $npm_package_name --include-dependencies build";
       }

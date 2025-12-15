@@ -2,7 +2,7 @@
   "name": "@aws-sdk/middleware-sdk-rds",
   "version": "3.946.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-rds",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",

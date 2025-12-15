@@ -402,77 +402,7 @@ module.exports = class Inliner {
   }
 
   /**
-   * Step 5.5, dedupe imported externals.
-   */
-  async dedupeExternals() {
-    if (this.bailout) {
-      return this;
-    }
-    const redundantRequireStatements = this.indexContents.matchAll(
-      /var import_([a-z_]+)(\d+) = require\("([@a-z\/-0-9]+)"\);/g
-    );
-    for (const requireStatement of redundantRequireStatements) {
-      const variableSuffix = requireStatement[1];
-      const packageName = requireStatement[3].replace("/", "\\/");
-
-      const original = this.indexContents.match(
-        new RegExp(`var (import_${variableSuffix}(\d+)?) = require\\(\"${packageName}\"\\);`)
-      );
-
-      if (original) {
-        let redundancyIndex = 0;
-        let misses = 0;
-        const originalVariable = original[1];
-
-        // perform an incremental replacement instead of a global (\d+) replacement
-        // to be safe.
-        while (true) {
-          const redundantRequire = `var import_${variableSuffix}${redundancyIndex} = require\\("${packageName}"\\);`;
-          const redundantVariable = `import_${variableSuffix}${redundancyIndex}(\\.)`;
-
-          if (this.indexContents.match(new RegExp(redundantRequire))) {
-            this.indexContents = this.indexContents
-              .replace(new RegExp(redundantRequire, "g"), "")
-              .replace(new RegExp(redundantVariable, "g"), `${originalVariable}$1`);
-          } else if (misses++ > 10) {
-            break;
-          }
-          redundancyIndex++;
-        }
-      }
-    }
-    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
-    return this;
-  }
-
-  /**
-   * Step 6: "Annotate the CommonJS export names for ESM import in node",
-   * except, correctly.
-   */
-  async annotateCjsExportNames() {
-    if (this.bailout) {
-      return this;
-    }
-    const exportNames = Object.keys(require(this.outfile));
-    /* (find and replace the following)
-    0 && (module.exports = {
-      ...
-    });
-    */
-    this.indexContents = this.indexContents.replace(
-      /0 && \(module\.exports = \{((.|\n)*?)\}\);/,
-      `
-0 && (module.exports = {
-  ${exportNames.join(",\n  ")}
-});
-`
-    );
-    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
-    return this;
-  }
-
-  /**
-   * step 7: we validate that the index.js file has a require statement
+   * step 6: we validate that the index.js file has a require statement
    * for any variant files, to ensure they are not in the inlined (bundled) index.
    */
   async validate() {

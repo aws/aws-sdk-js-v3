@@ -3,7 +3,7 @@
   "description": "@aws-sdk/aws-restjson-server server",
   "version": "3.947.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",

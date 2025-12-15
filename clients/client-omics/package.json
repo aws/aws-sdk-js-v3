@@ -3,7 +3,7 @@
   "description": "AWS SDK for JavaScript Omics Client for Node.js, Browser and React Native",
   "version": "3.952.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-omics",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",

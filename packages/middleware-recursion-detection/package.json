@@ -2,7 +2,7 @@
   "name": "@aws-sdk/middleware-recursion-detection",
   "version": "3.948.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-recursion-detection",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
