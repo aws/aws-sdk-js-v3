@@ -499,6 +499,7 @@ export const InventoryOptionalField = {
   IntelligentTieringAccessTier: "IntelligentTieringAccessTier",
   IsMultipartUploaded: "IsMultipartUploaded",
   LastModifiedDate: "LastModifiedDate",
+  LifecycleExpirationDate: "LifecycleExpirationDate",
   ObjectAccessControlList: "ObjectAccessControlList",
   ObjectLockLegalHoldStatus: "ObjectLockLegalHoldStatus",
   ObjectLockMode: "ObjectLockMode",
