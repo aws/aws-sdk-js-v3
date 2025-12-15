@@ -1,4 +1,8 @@
-import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type {
+  AwsIdentityProperties,
+  CredentialProviderOptions,
+  RuntimeConfigAwsCredentialIdentityProvider,
+} from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 
@@ -44,6 +48,7 @@ export interface SsoCredentialsParameters {
 export interface FromSSOInit extends SourceProfileInit, CredentialProviderOptions {
   ssoClient?: SSOClient;
   clientConfig?: SSOClientConfig;
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"];
 }
 
 /**
@@ -135,8 +140,8 @@ export const fromSSO =
         ssoClient: ssoClient,
         clientConfig: init.clientConfig,
         parentClientConfig: init.parentClientConfig,
+        callerClientConfig: init.callerClientConfig,
         profile: profileName,
-
         filepath: init.filepath,
         configFilepath: init.configFilepath,
         ignoreCache: init.ignoreCache,
@@ -158,8 +163,8 @@ export const fromSSO =
         ssoClient,
         clientConfig: init.clientConfig,
         parentClientConfig: init.parentClientConfig,
+        callerClientConfig: init.callerClientConfig,
         profile: profileName,
-
         filepath: init.filepath,
         configFilepath: init.configFilepath,
         ignoreCache: init.ignoreCache,

@@ -108,24 +108,22 @@ describe(resolveLoginCredentials.name, () => {
     });
   });
 
-  it("should pass parentClientConfig as callerClientConfig", async () => {
+  it("should pass callerClientConfig through", async () => {
     const mockCredentialProvider = vi.fn().mockResolvedValue(mockCreds);
     vi.mocked(fromLoginCredentials).mockReturnValue(mockCredentialProvider);
     vi.mocked(setCredentialFeature).mockReturnValue(mockCredsWithFeature);
 
     const mockRequestHandler = { handle: vi.fn() };
     const options = {
-      parentClientConfig: {
-        requestHandler: mockRequestHandler,
-        logger: console,
-        region: "us-west-2",
-      },
+      requestHandler: mockRequestHandler,
+      logger: console,
+      region: async () => "us-west-2",
     };
 
-    await resolveLoginCredentials("test-profile", options);
+    await resolveLoginCredentials("test-profile", {}, options);
 
     expect(mockCredentialProvider).toHaveBeenCalledWith({
-      callerClientConfig: options.parentClientConfig,
+      callerClientConfig: options,
     });
   });
 });

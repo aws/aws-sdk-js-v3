@@ -1,5 +1,6 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import { fromLoginCredentials } from "@aws-sdk/credential-provider-login";
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import type { FromIniInit } from "./fromIni";
@@ -16,12 +17,13 @@ export const isLoginProfile = (data: ParsedIniData[string]): boolean => {
  */
 export const resolveLoginCredentials = async (
   profileName: string,
-  options: FromIniInit
+  options: FromIniInit,
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"]
 ): Promise<AwsCredentialIdentity> => {
   const credentials = await fromLoginCredentials({
     ...options,
     profile: profileName,
-  })({ callerClientConfig: options.parentClientConfig as any });
+  })({ callerClientConfig });
 
   return setCredentialFeature(credentials, "CREDENTIALS_PROFILE_LOGIN", "AC");
 };

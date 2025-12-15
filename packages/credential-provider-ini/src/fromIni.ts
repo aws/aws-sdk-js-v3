@@ -1,7 +1,6 @@
 import type { FromLoginCredentialsInit } from "@aws-sdk/credential-provider-login";
 import type { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
-import type { CredentialProviderOptions } from "@aws-sdk/types";
-import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
@@ -63,22 +62,16 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
  * role assumption and multi-factor authentication.
  */
 export const fromIni =
-  (_init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
   async ({ callerClientConfig } = {}) => {
-    const init: FromIniInit = {
-      ..._init,
-      parentClientConfig: {
-        ...callerClientConfig,
-        ..._init.parentClientConfig,
-      },
-    };
     init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
     const profiles = await parseKnownFiles(init);
     return resolveProfileData(
       getProfileName({
-        profile: _init.profile ?? callerClientConfig?.profile,
+        profile: init.profile ?? callerClientConfig?.profile,
       }),
       profiles,
-      init
+      init,
+      callerClientConfig
     );
   };
