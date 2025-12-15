@@ -7,7 +7,7 @@
   "browser": "./dist-es/index.browser.js",
   "react-native": "./dist-es/index.browser.js",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline credential-provider-http",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",

@@ -2,7 +2,7 @@
   "name": "@aws-sdk/middleware-flexible-checksums",
   "version": "3.947.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-flexible-checksums",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",

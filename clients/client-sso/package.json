@@ -3,7 +3,7 @@
   "description": "AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native",
   "version": "3.948.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-sso",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
