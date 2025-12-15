@@ -81,6 +81,16 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *   AdConditioningConfiguration: { // AdConditioningConfiguration
  *     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
  *   },
+ *   AdDecisionServerConfiguration: { // AdDecisionServerConfiguration
+ *     HttpRequest: { // HttpRequest
+ *       Method: "GET" || "POST",
+ *       Body: "STRING_VALUE",
+ *       Headers: { // StringMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       CompressRequest: "NONE" || "GZIP",
+ *     },
+ *   },
  * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
@@ -154,6 +164,16 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   VideoContentSourceUrl: "STRING_VALUE",
  * //   AdConditioningConfiguration: { // AdConditioningConfiguration
  * //     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ * //   },
+ * //   AdDecisionServerConfiguration: { // AdDecisionServerConfiguration
+ * //     HttpRequest: { // HttpRequest
+ * //       Method: "GET" || "POST",
+ * //       Body: "STRING_VALUE",
+ * //       Headers: { // StringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       CompressRequest: "NONE" || "GZIP",
+ * //     },
  * //   },
  * // };
  *

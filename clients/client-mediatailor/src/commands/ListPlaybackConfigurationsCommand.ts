@@ -115,6 +115,16 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       AdConditioningConfiguration: { // AdConditioningConfiguration
  * //         StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
  * //       },
+ * //       AdDecisionServerConfiguration: { // AdDecisionServerConfiguration
+ * //         HttpRequest: { // HttpRequest
+ * //           Method: "GET" || "POST",
+ * //           Body: "STRING_VALUE",
+ * //           Headers: { // StringMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           CompressRequest: "NONE" || "GZIP",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

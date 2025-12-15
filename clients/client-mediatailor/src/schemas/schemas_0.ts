@@ -9,6 +9,7 @@ const _AC = "AccessConfiguration";
 const _ACC = "AdConditioningConfiguration";
 const _ACl = "AlertCode";
 const _ADS = "ApproximateDurationSeconds";
+const _ADSC = "AdDecisionServerConfiguration";
 const _ADSU = "AdDecisionServerUrl";
 const _AE = "AvailsExpected";
 const _AIL = "AdsInteractionLog";
@@ -29,6 +30,7 @@ const _Aud = "Audiences";
 const _B = "Bumper";
 const _BRE = "BadRequestException";
 const _BU = "BaseUrl";
+const _Bo = "Body";
 const _C = "Category";
 const _CA = "ConfigurationAliases";
 const _CAR = "ConfigurationAliasesResponse";
@@ -54,6 +56,7 @@ const _CPS = "CreatePrefetchSchedule";
 const _CPSR = "CreatePrefetchScheduleRequest";
 const _CPSRr = "CreatePrefetchScheduleResponse";
 const _CR = "ClipRange";
+const _CRo = "CompressRequest";
 const _CS = "ChannelState";
 const _CSL = "CreateSourceLocation";
 const _CSLR = "CreateSourceLocationRequest";
@@ -133,12 +136,14 @@ const _GPCRe = "GetPlaybackConfigurationResponse";
 const _GPS = "GetPrefetchSchedule";
 const _GPSR = "GetPrefetchScheduleRequest";
 const _GPSRe = "GetPrefetchScheduleResponse";
+const _H = "Headers";
 const _HC = "HttpConfiguration";
 const _HCl = "HlsConfiguration";
 const _HN = "HeaderName";
 const _HPC = "HttpPackageConfigurations";
 const _HPCt = "HttpPackageConfiguration";
 const _HPS = "HlsPlaylistSettings";
+const _HR = "HttpRequest";
 const _I = "Items";
 const _IM = "InsertionMode";
 const _K = "Key";
@@ -188,6 +193,7 @@ const _MTDS = "MaxTimeDelaySeconds";
 const _MUPS = "MinUpdatePeriodSeconds";
 const _MWS = "ManifestWindowSeconds";
 const _Me = "Message";
+const _Met = "Method";
 const _N = "Name";
 const _NT = "NextToken";
 const _O = "Operator";
@@ -375,6 +381,7 @@ export var AdBreak: StaticStructureSchema = [
 ];
 export var AdBreakOpportunity: StaticStructureSchema = [3, n0, _ABO, 0, [_OM], [1]];
 export var AdConditioningConfiguration: StaticStructureSchema = [3, n0, _ACC, 0, [_SMFC], [0]];
+export var AdDecisionServerConfiguration: StaticStructureSchema = [3, n0, _ADSC, 0, [_HR], [() => HttpRequest]];
 export var AdMarkerPassthrough: StaticStructureSchema = [3, n0, _AMP, 0, [_E], [2]];
 export var AdsInteractionLog: StaticStructureSchema = [3, n0, _AIL, 0, [_POIET, _EET], [64 | 0, 64 | 0]];
 export var Alert: StaticStructureSchema = [3, n0, _A, 0, [_ACl, _AM, _LMT, _RRA, _RA, _C], [0, 0, 7, 64 | 0, 0, 0]];
@@ -779,6 +786,7 @@ export var GetPlaybackConfigurationResponse: StaticStructureSchema = [
     _TPN,
     _VCSU,
     _ACC,
+    _ADSC,
   ],
   [
     0,
@@ -802,6 +810,7 @@ export var GetPlaybackConfigurationResponse: StaticStructureSchema = [
     0,
     0,
     () => AdConditioningConfiguration,
+    () => AdDecisionServerConfiguration,
   ],
 ];
 export var GetPrefetchScheduleRequest: StaticStructureSchema = [
@@ -827,6 +836,7 @@ export var HlsConfiguration: StaticStructureSchema = [3, n0, _HCl, 0, [_MEP], [0
 export var HlsPlaylistSettings: StaticStructureSchema = [3, n0, _HPS, 0, [_MWS, _AMT], [1, 64 | 0]];
 export var HttpConfiguration: StaticStructureSchema = [3, n0, _HC, 0, [_BU], [0]];
 export var HttpPackageConfiguration: StaticStructureSchema = [3, n0, _HPCt, 0, [_Pa, _SG, _Ty], [0, 0, 0]];
+export var HttpRequest: StaticStructureSchema = [3, n0, _HR, 0, [_Met, _Bo, _H, _CRo], [0, 0, 128 | 0, 0]];
 export var KeyValuePair: StaticStructureSchema = [3, n0, _KVP, 0, [_K, _V], [0, 0]];
 export var ListAlertsRequest: StaticStructureSchema = [
   3,
@@ -996,6 +1006,7 @@ export var PlaybackConfiguration: StaticStructureSchema = [
     _TPN,
     _VCSU,
     _ACC,
+    _ADSC,
   ],
   [
     0,
@@ -1019,6 +1030,7 @@ export var PlaybackConfiguration: StaticStructureSchema = [
     0,
     0,
     () => AdConditioningConfiguration,
+    () => AdDecisionServerConfiguration,
   ],
 ];
 export var PrefetchConsumption: StaticStructureSchema = [
@@ -1052,7 +1064,7 @@ export var PutPlaybackConfigurationRequest: StaticStructureSchema = [
   n0,
   _PPCR,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _N, _PTS, _SAU, _T, _TPN, _VCSU, _ACC],
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _N, _PTS, _SAU, _T, _TPN, _VCSU, _ACC, _ADSC],
   [
     0,
     () => AvailSuppression,
@@ -1070,6 +1082,7 @@ export var PutPlaybackConfigurationRequest: StaticStructureSchema = [
     0,
     0,
     () => AdConditioningConfiguration,
+    () => AdDecisionServerConfiguration,
   ],
 ];
 export var PutPlaybackConfigurationResponse: StaticStructureSchema = [
@@ -1099,6 +1112,7 @@ export var PutPlaybackConfigurationResponse: StaticStructureSchema = [
     _TPN,
     _VCSU,
     _ACC,
+    _ADSC,
   ],
   [
     0,
@@ -1122,6 +1136,7 @@ export var PutPlaybackConfigurationResponse: StaticStructureSchema = [
     0,
     0,
     () => AdConditioningConfiguration,
+    () => AdDecisionServerConfiguration,
   ],
 ];
 export var RecurringConsumption: StaticStructureSchema = [
@@ -1415,6 +1430,7 @@ export var SegmentationDescriptorList: StaticListSchema = [1, n0, _SDL, 0, () =>
 export var __mapOf__string = 128 | 0;
 export var ConfigurationAliasesRequest: StaticMapSchema = [2, n0, _CARo, 0, 0, 128 | 0];
 export var ConfigurationAliasesResponse: StaticMapSchema = [2, n0, _CAR, 0, 0, 128 | 0];
+export var StringMap = 128 | 0;
 export var ConfigureLogsForChannel: StaticOperationSchema = [
   9,
   n0,

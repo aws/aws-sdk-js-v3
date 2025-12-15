@@ -173,6 +173,32 @@ export type StreamingMediaFileConditioning =
  * @public
  * @enum
  */
+export const CompressionMethod = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type CompressionMethod = (typeof CompressionMethod)[keyof typeof CompressionMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const Method = {
+  GET: "GET",
+  POST: "POST",
+} as const;
+/**
+ * @public
+ */
+export type Method = (typeof Method)[keyof typeof Method];
+
+/**
+ * @public
+ * @enum
+ */
 export const FillPolicy = {
   FULL_AVAIL_ONLY: "FULL_AVAIL_ONLY",
   PARTIAL_AVAIL: "PARTIAL_AVAIL",
