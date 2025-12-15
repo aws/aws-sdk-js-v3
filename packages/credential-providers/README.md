@@ -940,7 +940,7 @@ const client = new FooClient({
   profile: "my-profile",
   credentials: fromLoginCredentials({
     // Optional. Defaults to the client's profile if that is set.
-    // Optional. Should match the profile name used with 'aws login --profile <name>'
+    // Should match the profile name used with 'aws login --profile <name>'
     // to ensure credentials are found in the cache. Uses 'default' if no
     // --profile was specified during aws login or if this option is omitted.
     profile: "my-profile",

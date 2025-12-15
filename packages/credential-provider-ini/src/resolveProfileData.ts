@@ -1,3 +1,4 @@
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
@@ -21,6 +22,7 @@ export const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"],
   visitedProfiles: Record<string, true> = {},
   /**
    * This override comes from recursive calls only.
@@ -43,7 +45,14 @@ export const resolveProfileData = async (
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
   if (isAssumeRoleRecursiveCall || isAssumeRoleProfile(data, { profile: profileName, logger: options.logger })) {
-    return resolveAssumeRoleCredentials(profileName, profiles, options, visitedProfiles, resolveProfileData);
+    return resolveAssumeRoleCredentials(
+      profileName,
+      profiles,
+      options,
+      callerClientConfig,
+      visitedProfiles,
+      resolveProfileData
+    );
   }
 
   // If no role assumption metadata is present, attempt to load static
@@ -55,7 +64,7 @@ export const resolveProfileData = async (
   // If no static credentials are present, attempt to assume role with
   // web identity if web_identity_token_file and role_arn is available
   if (isWebIdentityProfile(data)) {
-    return resolveWebIdentityCredentials(data, options);
+    return resolveWebIdentityCredentials(data, options, callerClientConfig);
   }
 
   // If no web identity is present, attempt to assume role with
@@ -65,11 +74,11 @@ export const resolveProfileData = async (
   }
 
   if (isSsoProfile(data)) {
-    return await resolveSsoCredentials(profileName, data, options);
+    return await resolveSsoCredentials(profileName, data, options, callerClientConfig);
   }
 
   if (isLoginProfile(data)) {
-    return resolveLoginCredentials(profileName, options);
+    return resolveLoginCredentials(profileName, options, callerClientConfig);
   }
 
   // If the profile cannot be parsed or contains neither static credentials

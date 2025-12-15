@@ -169,6 +169,8 @@ export const fromWebToken =
           ...init.clientConfig,
           credentialProviderLogger: init.logger,
           parentClientConfig: {
+            // callerClientConfig is merged into parentClientConfig
+            // here because sts role assumer does not accept callerClientConfig.
             ...awsIdentityProperties?.callerClientConfig,
             ...init.parentClientConfig,
           },

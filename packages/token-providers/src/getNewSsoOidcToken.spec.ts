@@ -49,7 +49,7 @@ describe(getNewSsoOidcToken.name, () => {
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
-      expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {});
+      expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {}, undefined);
       expect(mockSend).not.toHaveBeenCalled();
       expect(CreateTokenCommand).not.toHaveBeenCalled();
     });
@@ -63,7 +63,7 @@ describe(getNewSsoOidcToken.name, () => {
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
-      expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {});
+      expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {}, undefined);
       expect(mockSendWithError).toHaveBeenCalledWith(mockCreateTokenArgs);
       expect(CreateTokenCommand).toHaveBeenCalledWith(mockCreateTokenArgs);
     });
@@ -78,7 +78,7 @@ describe(getNewSsoOidcToken.name, () => {
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
-      expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {});
+      expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {}, undefined);
       expect(mockSend).not.toHaveBeenCalled();
       expect(CreateTokenCommand).toHaveBeenCalledWith(mockCreateTokenArgs);
     });
@@ -90,6 +90,6 @@ describe(getNewSsoOidcToken.name, () => {
     expect(newSsoOidcToken).toEqual(mockNewToken as any);
     expect(CreateTokenCommand).toHaveBeenCalledWith(mockCreateTokenArgs);
     expect(mockSend).toHaveBeenCalledWith(mockCreateTokenArgs);
-    expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {});
+    expect(getSsoOidcClient).toHaveBeenCalledWith(mockSsoRegion, {}, undefined);
   });
 });

@@ -12,7 +12,7 @@ describe(fromIni.name, () => {
   const mockMasterProfileName = "mockMasterProfileName";
   const mockProfileName = "mockProfileName";
   const mockInit = { profile: mockProfileName };
-  const mockInitWithParentClientConfig = { profile: mockProfileName, parentClientConfig: {} };
+  const mockInitWithParentClientConfig = { profile: mockProfileName };
   const mockProfiles = { [mockProfileName]: { key: "value" } };
 
   beforeEach(() => {
@@ -52,7 +52,8 @@ describe(fromIni.name, () => {
     expect(resolveProfileData).toHaveBeenCalledWith(
       mockMasterProfileName,
       mockProfiles,
-      mockInitWithParentClientConfig
+      mockInitWithParentClientConfig,
+      undefined
     );
   });
 
@@ -69,7 +70,8 @@ describe(fromIni.name, () => {
     expect(resolveProfileData).toHaveBeenCalledWith(
       mockMasterProfileName,
       mockProfiles,
-      mockInitWithParentClientConfig
+      mockInitWithParentClientConfig,
+      undefined
     );
   });
 
@@ -118,7 +120,6 @@ describe(fromIni.name, () => {
         expect.objectContaining({
           ignoreCache: true,
           profile: mockProfileName,
-          parentClientConfig: expect.objectContaining(callerConfig),
         })
       );
     });
