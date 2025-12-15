@@ -54,6 +54,8 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  *   Protocols: [ // ProtocolList
  *     "DoH" || "Do53" || "DoH-FIPS",
  *   ],
+ *   RniEnhancedMetricsEnabled: true || false,
+ *   TargetNameServerMetricsEnabled: true || false,
  * };
  * const command = new UpdateResolverEndpointCommand(input);
  * const response = await client.send(command);
@@ -79,6 +81,8 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * //     Protocols: [ // ProtocolList
  * //       "DoH" || "Do53" || "DoH-FIPS",
  * //     ],
+ * //     RniEnhancedMetricsEnabled: true || false,
+ * //     TargetNameServerMetricsEnabled: true || false,
  * //   },
  * // };
  *

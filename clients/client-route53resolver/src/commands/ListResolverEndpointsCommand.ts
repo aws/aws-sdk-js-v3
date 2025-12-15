@@ -79,6 +79,8 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  * //       Protocols: [ // ProtocolList
  * //         "DoH" || "Do53" || "DoH-FIPS",
  * //       ],
+ * //       RniEnhancedMetricsEnabled: true || false,
+ * //       TargetNameServerMetricsEnabled: true || false,
  * //     },
  * //   ],
  * // };

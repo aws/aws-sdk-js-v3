@@ -82,6 +82,8 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
  * //     Protocols: [ // ProtocolList
  * //       "DoH" || "Do53" || "DoH-FIPS",
  * //     ],
+ * //     RniEnhancedMetricsEnabled: true || false,
+ * //     TargetNameServerMetricsEnabled: true || false,
  * //   },
  * // };
  *
