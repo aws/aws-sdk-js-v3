@@ -52,8 +52,8 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  *   ],
  *   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig
  *     { // IdMappingWorkflowOutputSource
- *       outputS3Path: "STRING_VALUE", // required
  *       KMSArn: "STRING_VALUE",
+ *       outputS3Path: "STRING_VALUE", // required
  *     },
  *   ],
  *   idMappingTechniques: { // IdMappingTechniques
@@ -102,8 +102,8 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * //   ],
  * //   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig
  * //     { // IdMappingWorkflowOutputSource
- * //       outputS3Path: "STRING_VALUE", // required
  * //       KMSArn: "STRING_VALUE",
+ * //       outputS3Path: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   idMappingTechniques: { // IdMappingTechniques

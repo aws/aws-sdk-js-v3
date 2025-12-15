@@ -15,6 +15,7 @@ const _CINO = "CreateIdNamespaceOutput";
 const _CMW = "CreateMatchingWorkflow";
 const _CMWI = "CreateMatchingWorkflowInput";
 const _CMWO = "CreateMatchingWorkflowOutput";
+const _CPIC = "CustomerProfilesIntegrationConfig";
 const _CSM = "CreateSchemaMapping";
 const _CSMI = "CreateSchemaMappingInput";
 const _CSMO = "CreateSchemaMappingOutput";
@@ -203,8 +204,10 @@ const _aO = "anonymizedOutput";
 const _ac = "action";
 const _c = "client";
 const _cA = "createdAt";
+const _cPIC = "customerProfilesIntegrationConfig";
 const _co = "condition";
 const _d = "deleted";
+const _dA = "domainArn";
 const _dRP = "deleteRecordsProcessed";
 const _dSI = "dataSetId";
 const _dUI = "disconnectedUniqueIds";
@@ -268,6 +271,7 @@ const _nURL = "newUniqueRecordsLoaded";
 const _o = "output";
 const _oSC = "outputSourceConfig";
 const _oSP = "outputS3Path";
+const _oTA = "objectTypeArn";
 const _p = "principal";
 const _pC = "providerConfiguration";
 const _pCD = "providerConfigurationDefinition";
@@ -492,6 +496,7 @@ export var CreateSchemaMappingOutput: StaticStructureSchema = [
   [_sN, _sA, _de, _mIF],
   [0, 0, 0, () => SchemaInputAttributes],
 ];
+export var CustomerProfilesIntegrationConfig: StaticStructureSchema = [3, n0, _CPIC, 0, [_dA, _oTA], [0, 0]];
 export var DeletedUniqueId: StaticStructureSchema = [3, n0, _DUI, 0, [_uIn], [0]];
 export var DeleteIdMappingWorkflowInput: StaticStructureSchema = [3, n0, _DIMWI, 0, [_wN], [[0, 1]]];
 export var DeleteIdMappingWorkflowOutput: StaticStructureSchema = [3, n0, _DIMWO, 0, [_m], [0]];
@@ -710,7 +715,7 @@ export var IdMappingTechniques: StaticStructureSchema = [
   [0, () => IdMappingRuleBasedProperties, () => ProviderProperties],
 ];
 export var IdMappingWorkflowInputSource: StaticStructureSchema = [3, n0, _IMWIS, 0, [_iSARN, _sN, _ty], [0, 0, 0]];
-export var IdMappingWorkflowOutputSource: StaticStructureSchema = [3, n0, _IMWOS, 0, [_oSP, _KMSA], [0, 0]];
+export var IdMappingWorkflowOutputSource: StaticStructureSchema = [3, n0, _IMWOS, 0, [_KMSA, _oSP], [0, 0]];
 export var IdMappingWorkflowSummary: StaticStructureSchema = [3, n0, _IMWS, 0, [_wN, _wA, _cA, _uA], [0, 0, 4, 4]];
 export var IdNamespaceIdMappingWorkflowMetadata: StaticStructureSchema = [3, n0, _INIMWM, 0, [_iMTd], [0]];
 export var IdNamespaceIdMappingWorkflowProperties: StaticStructureSchema = [
@@ -880,8 +885,8 @@ export var OutputSource: StaticStructureSchema = [
   n0,
   _OS,
   0,
-  [_oSP, _KMSA, _o, _aN],
-  [0, 0, () => OutputAttributes, 2],
+  [_KMSA, _oSP, _o, _aN, _cPIC],
+  [0, 0, () => OutputAttributes, 2, () => CustomerProfilesIntegrationConfig],
 ];
 export var ProviderComponentSchema: StaticStructureSchema = [
   3,

@@ -317,16 +317,16 @@ export interface IdMappingWorkflowInputSource {
  */
 export interface IdMappingWorkflowOutputSource {
   /**
-   * <p>The S3 path to which Entity Resolution will write the output table.</p>
-   * @public
-   */
-  outputS3Path: string | undefined;
-
-  /**
    * <p>Customer KMS ARN for encryption at rest. If not provided, system will use an Entity Resolution managed KMS key.</p>
    * @public
    */
   KMSArn?: string | undefined;
+
+  /**
+   * <p>The S3 path to which Entity Resolution will write the output table.</p>
+   * @public
+   */
+  outputS3Path: string | undefined;
 }
 
 /**
@@ -674,6 +674,24 @@ export interface InputSource {
 }
 
 /**
+ * <p>Specifies the configuration for integrating with Customer Profiles. This configuration enables Entity Resolution to send matched output directly to Customer Profiles instead of Amazon S3, creating a unified customer view by automatically updating customer profiles based on match clusters.</p>
+ * @public
+ */
+export interface CustomerProfilesIntegrationConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Customer Profiles domain where the matched output will be sent.</p>
+   * @public
+   */
+  domainArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Customer Profiles object type that defines the structure for the matched customer data.</p>
+   * @public
+   */
+  objectTypeArn: string | undefined;
+}
+
+/**
  * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields <code>Name</code> and <code>Hashed</code>. Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.</p>
  * @public
  */
@@ -697,16 +715,16 @@ export interface OutputAttribute {
  */
 export interface OutputSource {
   /**
-   * <p>The S3 path to which Entity Resolution will write the output table.</p>
-   * @public
-   */
-  outputS3Path: string | undefined;
-
-  /**
    * <p>Customer KMS ARN for encryption at rest. If not provided, system will use an Entity Resolution managed KMS key.</p>
    * @public
    */
   KMSArn?: string | undefined;
+
+  /**
+   * <p>The S3 path to which Entity Resolution will write the output table.</p>
+   * @public
+   */
+  outputS3Path?: string | undefined;
 
   /**
    * <p>A list of <code>OutputAttribute</code> objects, each of which have the fields <code>Name</code> and <code>Hashed</code>. Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.</p>
@@ -719,6 +737,12 @@ export interface OutputSource {
    * @public
    */
   applyNormalization?: boolean | undefined;
+
+  /**
+   * <p>Specifies the Customer Profiles integration configuration for sending matched output directly to Customer Profiles. When configured, Entity Resolution automatically creates and updates customer profiles based on match clusters, eliminating the need for manual Amazon S3 integration setup.</p>
+   * @public
+   */
+  customerProfilesIntegrationConfig?: CustomerProfilesIntegrationConfig | undefined;
 }
 
 /**

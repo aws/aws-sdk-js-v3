@@ -58,8 +58,8 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  * //   ],
  * //   outputSourceConfig: [ // OutputSourceConfig // required
  * //     { // OutputSource
- * //       outputS3Path: "STRING_VALUE", // required
  * //       KMSArn: "STRING_VALUE",
+ * //       outputS3Path: "STRING_VALUE",
  * //       output: [ // OutputAttributes // required
  * //         { // OutputAttribute
  * //           name: "STRING_VALUE", // required
@@ -67,6 +67,10 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  * //         },
  * //       ],
  * //       applyNormalization: true || false,
+ * //       customerProfilesIntegrationConfig: { // CustomerProfilesIntegrationConfig
+ * //         domainArn: "STRING_VALUE", // required
+ * //         objectTypeArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   resolutionTechniques: { // ResolutionTechniques
